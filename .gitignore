@@ -1,0 +1,5 @@
+# 설치 산출물 — package-lock.json 이 정체성을 갖는다
+node_modules/
+
+# 빌드 산출물 (npm run build → tsc -p tsconfig.build.json)
+dist/

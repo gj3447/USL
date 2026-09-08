@@ -1,0 +1,128 @@
+{
+  "schema": "usl-semantic-plan/v1",
+  "languageVersion": "0.1",
+  "namespace": "example.game.dash",
+  "resources": [
+    {
+      "name": "dash_spec",
+      "locator": {
+        "kind": "filesystem",
+        "host": "dev-01",
+        "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md"
+      }
+    },
+    {
+      "name": "dash_code",
+      "locator": {
+        "kind": "filesystem",
+        "host": "dev-01",
+        "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts"
+      }
+    },
+    {
+      "name": "dash_test",
+      "locator": {
+        "kind": "filesystem",
+        "host": "dev-01",
+        "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts"
+      }
+    },
+    {
+      "name": "audio_mix",
+      "locator": {
+        "kind": "filesystem",
+        "host": "dev-01",
+        "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/audio-mix.md"
+      }
+    },
+    {
+      "name": "music_license",
+      "locator": {
+        "kind": "filesystem",
+        "host": "dev-01",
+        "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/music-license.txt"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "name": "implements_dash_rule",
+      "roles": [
+        {
+          "name": "specification",
+          "kind": "filesystem"
+        },
+        {
+          "name": "implementation",
+          "kind": "filesystem"
+        },
+        {
+          "name": "evidence",
+          "kind": "filesystem"
+        }
+      ],
+      "description": "구현은 명세의 지상 상태 전용 대시와 0.35초 쿨다운 규칙을 구현한다",
+      "contract": {
+        "scope": "플레이어 대시 능력의 지상 상태 판정과 쿨다운 동작",
+        "checks": [
+          {
+            "name": "dash_rule_test",
+            "evidenceRoles": [
+              "evidence"
+            ],
+            "description": "dash-controller.test.ts가 공중 대시 거부, 지상 대시 허용, 0.35초 쿨다운을 확인한다"
+          }
+        ]
+      }
+    },
+    {
+      "name": "documents_audio",
+      "roles": [
+        {
+          "name": "mix",
+          "kind": "filesystem"
+        },
+        {
+          "name": "license",
+          "kind": "filesystem"
+        }
+      ],
+      "description": "오디오 믹스 문서와 라이선스 근거가 함께 관리된다"
+    }
+  ],
+  "links": [
+    {
+      "name": "dash_behavior",
+      "meaning": "implements_dash_rule",
+      "participants": [
+        {
+          "role": "specification",
+          "resource": "dash_spec"
+        },
+        {
+          "role": "implementation",
+          "resource": "dash_code"
+        },
+        {
+          "role": "evidence",
+          "resource": "dash_test"
+        }
+      ]
+    },
+    {
+      "name": "audio_evidence",
+      "meaning": "documents_audio",
+      "participants": [
+        {
+          "role": "mix",
+          "resource": "audio_mix"
+        },
+        {
+          "role": "license",
+          "resource": "music_license"
+        }
+      ]
+    }
+  ],
+  "declarationStatus": "DECLARED"
+}

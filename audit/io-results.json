@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-09-08T03:38:39.581Z",
+  "isolation": "loopback HTTP, fake fetch, and temporary local files only",
+  "probes": [
+    {
+      "id": "IO-01-mcp-redirect-forwards-request-to-unregistered-transport",
+      "severity": "medium",
+      "outcome": "finding",
+      "actual": "A permitted kg:// locator caused native fetch to follow a 307 to http://127.0.0.1:43869/unlisted; target hits=1; forwarded=POST ontology_get uid=sym:Concept:audit; result=success.",
+      "expected": "If the deployment treats MCP endpoint selection as a network permission boundary, a selected logical KG locator must not forward its ontology_get request to a redirect target unless that transport endpoint is explicitly authorized. Current allowedLocators only expresses logical KG source/UID policy.",
+      "source": "src/resolve.ts:194-199"
+    },
+    {
+      "id": "IO-02-malformed-runtime-locator-throws",
+      "severity": "low",
+      "outcome": "finding",
+      "actual": "resolveWith(cfg)(null) throws synchronously: \"Cannot read properties of null (reading 'kind')\".",
+      "expected": "Malformed public runtime input should fail as a typed ResolveError/Effect without crashing the caller.",
+      "source": "src/resolve.ts:19,221-222; src/locator.ts:52-58"
+    },
+    {
+      "id": "IO-L01-mutable-config-is-not-runtime-snapshot",
+      "outcome": "documented_limit",
+      "actual": "maxResponseBytes changed from 100 to 4 after fetch began; result=IO.",
+      "expected": "A caller that needs a fixed observation contract must freeze/copy ResolverConfig before execution; this resolver does not promise that runtime immutability.",
+      "source": "src/resolve.ts:93-96,221-238"
+    },
+    {
+      "id": "IO-R01-http-redirect-is-checked-before-second-request",
+      "outcome": "resisted",
+      "actual": "redirect result=DENIED; requests=1.",
+      "expected": "An unlisted HTTP redirect must stop before a second request.",
+      "source": "src/resolve.ts:126-138"
+    },
+    {
+      "id": "IO-R02-filesystem-realpath-needs-canonical-authorization",
+      "outcome": "resisted",
+      "actual": "symlink result=DENIED.",
+      "expected": "Authorizing only the symlink locator must not authorize its realpath target.",
+      "source": "src/resolve.ts:75-79"
+    }
+  ]
+}

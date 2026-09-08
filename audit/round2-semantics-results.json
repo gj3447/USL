@@ -1,0 +1,68 @@
+{
+  "noLiveExternalIO": true,
+  "rows": [
+    {
+      "id": "f02_resolver_alias",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "expected": "Resolver-owned mutable values cannot alter the completed observation.",
+      "actual": "hash",
+      "precondition": "resolver retains and mutates its successful result",
+      "source": "runtime.ts:67-95"
+    },
+    {
+      "id": "prototype_option_loss",
+      "verdict": "FINDING",
+      "severity": "medium",
+      "expected": "A structurally valid options object's link/policy values are preserved or rejected.",
+      "actual": "links=chosen,ignored; calls=4",
+      "precondition": "caller supplies a class instance with prototype getter links/allowedLocators",
+      "source": "runtime.ts:42-47 (structuredClone options)"
+    },
+    {
+      "id": "nonenumerable_option_loss",
+      "verdict": "FINDING",
+      "severity": "low",
+      "expected": "A supplied options field is not silently dropped into all-links default.",
+      "actual": "links=chosen,ignored; calls=4",
+      "precondition": "caller uses an own non-enumerable links property",
+      "source": "runtime.ts:42-47 (structuredClone options)"
+    },
+    {
+      "id": "accessor_option_snapshot",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "expected": "An enumerable getter is read once during the snapshot.",
+      "actual": "reads=1; links=chosen",
+      "precondition": "own enumerable links getter",
+      "source": "runtime.ts:42-47"
+    },
+    {
+      "id": "url_canonical_alias_double_read",
+      "verdict": "FINDING",
+      "severity": "medium",
+      "expected": "URL identity should be canonicalized consistently for target deduplication, budget, and resolver calls.",
+      "actual": "maxResources=2 => (FiberFailure) ObservationError: calls=0; uniqueLocators=3; calls=[\"https://example.test\",\"https://example.test/\",\"kg://canonical-neo4j/sym:Concept:relation\"]",
+      "precondition": "two selected resources spell the same URL as https://host and https://host/ (two policy identities: URL + KG)",
+      "source": "runtime.ts:61-72 vs locatorKey policy normalization"
+    },
+    {
+      "id": "malformed_resolver_failure_emits_invalid_report",
+      "verdict": "FINDING",
+      "severity": "low",
+      "expected": "observeProgram either rejects malformed resolver failures or emits a schema-valid report.",
+      "actual": "validator=rejects output",
+      "precondition": "custom adapter violates the declared ResolveError failure contract",
+      "source": "runtime.ts:73-76, 101-104"
+    },
+    {
+      "id": "malformed_plan_participants",
+      "verdict": "LIMITATION",
+      "severity": "low",
+      "expected": "Known F10 boundary limitation: malformed plan fails with ObservationError.",
+      "actual": "(FiberFailure) TypeError: Cannot read properties of null (reading 'map')",
+      "precondition": "JS caller bypasses TypeScript and passes link.participants=null",
+      "source": "runtime.ts:55-59"
+    }
+  ]
+}

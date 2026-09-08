@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-09-08T03:40:36.485Z",
+  "noLiveExternalIO": true,
+  "results": [
+    {
+      "id": "baseline_validates",
+      "expected": "A generated v2 report validates.",
+      "actual": "true",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "reproduction": "observe injected stable resolver"
+    },
+    {
+      "id": "selected_reads_only",
+      "expected": "Only selected participants and grounding are resolved.",
+      "actual": "[\"https://example.test/a\",\"https://example.test/b\",\"kg://canonical-neo4j/sym:Concept:implements\"]",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "reproduction": "observe({links:['selected']}); inspect fake-resolver calls"
+    },
+    {
+      "id": "allowlist_denies_before_io",
+      "expected": "An empty allowlist makes zero resolver calls.",
+      "actual": "calls=0; statuses=DENIED,DENIED",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "reproduction": "observe({allowedLocators:[]})"
+    },
+    {
+      "id": "null_allowed_locators_defaults",
+      "expected": "An explicitly supplied non-array allowlist is rejected before IO.",
+      "actual": "completed=RESOLVES; calls=3",
+      "verdict": "FINDING",
+      "severity": "medium",
+      "reproduction": "observeProgram(plan,{allowedLocators:null} as any)"
+    },
+    {
+      "id": "null_links_defaults_to_all",
+      "expected": "An explicitly supplied non-array link selection is rejected before IO.",
+      "actual": "links=selected,extra; calls=4",
+      "verdict": "FINDING",
+      "severity": "high",
+      "reproduction": "observeProgram(twoLinkPlan,{links:null} as any): reads extra link/resource"
+    },
+    {
+      "id": "null_resource_budget_defaults",
+      "expected": "An explicitly supplied non-number budget is rejected before IO.",
+      "actual": "completed=RESOLVES; calls=3; budget=256",
+      "verdict": "FINDING",
+      "severity": "medium",
+      "reproduction": "observeProgram(plan,{maxResources:null} as any)"
+    },
+    {
+      "id": "source_text_frozen",
+      "expected": "sourceText digest stays bound to its start value.",
+      "actual": "true",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "reproduction": "mutate options.sourceText while resolver is gated"
+    },
+    {
+      "id": "parser_keyword_and_clause_boundary",
+      "expected": "Keywords can be identifiers in their unambiguous position and duplicate clauses are rejected.",
+      "actual": "keywordProgram=true; duplicateAppliesRejected=true",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "reproduction": "compile keyword-named declarations/check; parse duplicate applies clause"
+    },
+    {
+      "id": "comparison_change_channels",
+      "expected": "Address-only and contract-only edits are classified into separate channels.",
+      "actual": "address=[\"REVIEW_ADDRESS_BINDING\"]; semantic=[\"REVIEW_SEMANTIC_CONTRACT\"]",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "reproduction": "compare URL rebinding and reversed meaning description against stable baseline"
+    },
+    {
+      "id": "mutable_resolver_result_before_assembly",
+      "expected": "Resolution fields are snapshotted when each resolver result succeeds.",
+      "actual": "resource a contentHash=sha256:after00000000000000000000000000000000000000000000000000000000000",
+      "verdict": "FINDING",
+      "severity": "high",
+      "reproduction": "resolver returns a result for a; later grounding resolver mutates that same result object"
+    },
+    {
+      "id": "mutable_resolver_result_after_return",
+      "expected": "Returned observation is detached from resolver-owned result objects.",
+      "actual": "resource a contentHash=sha256:post_return00000000000000000000000000000000000000000000000000000; validates=false",
+      "verdict": "FINDING",
+      "severity": "high",
+      "reproduction": "mutate resolver-retained result after observeProgram resolves"
+    },
+    {
+      "id": "forged_kg_redirect",
+      "expected": "A KG resolution may only resolve to the requested KG identity (as resolveKg enforces).",
+      "actual": "validates=true",
+      "verdict": "FINDING",
+      "severity": "medium",
+      "reproduction": "change groundings[0].resolution.resolvedLocator; recompute observationDigest"
+    },
+    {
+      "id": "zero_match_resolution",
+      "expected": "Current runtime deliberately treats every non-1 match count, including zero, as AMBIGUOUS.",
+      "actual": "validates=true",
+      "verdict": "LIMITATION",
+      "severity": "low",
+      "reproduction": "set resolution.matchCount=0 with internally consistent AMBIGUOUS fields; recompute digest"
+    },
+    {
+      "id": "opaque_origin_digests",
+      "expected": "Origin digests would need source/complete-plan material or a signature to be independently checked.",
+      "actual": "validates=true",
+      "verdict": "LIMITATION",
+      "severity": "low",
+      "reproduction": "replace planDigest, meaningsDigest, sourceDigest; recompute outer digest"
+    },
+    {
+      "id": "malformed_compile_program",
+      "expected": "Malformed public input fails as LanguageError instead of throwing.",
+      "actual": "Either.isLeft=true",
+      "verdict": "RESISTED",
+      "severity": "none",
+      "reproduction": "compileProgram({declarations:null} as any)"
+    },
+    {
+      "id": "null_observe_plan",
+      "expected": "Malformed public input yields ObservationError.",
+      "actual": "(FiberFailure) TypeError: Cannot read properties of null (reading 'links')",
+      "verdict": "FINDING",
+      "severity": "low",
+      "reproduction": "observeProgram(null as any)"
+    },
+    {
+      "id": "null_observe_options",
+      "expected": "Malformed options yield ObservationError.",
+      "actual": "(FiberFailure) TypeError: Cannot read properties of null (reading 'sourceText')",
+      "verdict": "FINDING",
+      "severity": "low",
+      "reproduction": "observeProgram(plan, null as any)"
+    }
+  ]
+}

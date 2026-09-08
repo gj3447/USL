@@ -1,0 +1,163 @@
+{
+  "schema": "usl-reobservation-receipt/v1",
+  "startedAt": "2026-09-08T05:05:11.342Z",
+  "finishedAt": "2026-09-08T05:05:11.412Z",
+  "scope": "LOCAL_GAME_FIXTURE",
+  "priorFullObservationFound": false,
+  "originalTemplate": "examples/fixtures/game-workflow/game-workflow.usl",
+  "sourceInstantiation": "bound fixture root to the existing local fixture directory and fixture host to os.hostname()",
+  "implementationDigest": "sha256:1fa7fca8924a8caba6658cfd83d095d7d95094fdd61b48e72bf53135cbc2f659",
+  "implementationFiles": [
+    {
+      "file": "package-lock.json",
+      "digest": "sha256:f6c808b1c5cc6edda2af8af0a30f80a0d9d6ee6f1c24365ee934ddf46423cc51"
+    },
+    {
+      "file": "package.json",
+      "digest": "sha256:d6cb15235dd327354857c5f7a88c1e5aae5430162c646c75955c48e3028eda3f"
+    },
+    {
+      "file": "src/cli.ts",
+      "digest": "sha256:97de2439345b3073beac060ddeb65810f3a2ba80fddcf8f161fd01afbd0d6b3d"
+    },
+    {
+      "file": "src/domain.ts",
+      "digest": "sha256:ad11f31c423d614a7ebf7d7cc5cbe5b0d8badb25ba407e32dd5c506aed07ed42"
+    },
+    {
+      "file": "src/index.ts",
+      "digest": "sha256:d8dc5cebfa423564adaa3706ea4ce13e1761e726b9df8e04c60143864873d673"
+    },
+    {
+      "file": "src/language/compact.ts",
+      "digest": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416"
+    },
+    {
+      "file": "src/language/comparison.ts",
+      "digest": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862"
+    },
+    {
+      "file": "src/language/compiler.ts",
+      "digest": "sha256:96f064997157f28ed2f230a0222e51095d1aaf6e1adf98317c8952fdfdfefec4"
+    },
+    {
+      "file": "src/language/digest.ts",
+      "digest": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1"
+    },
+    {
+      "file": "src/language/index.ts",
+      "digest": "sha256:29e66275d7ed8c8be83d56a71c539e17bddc4257d2540435dc4c4d45d905fa9f"
+    },
+    {
+      "file": "src/language/model.ts",
+      "digest": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493"
+    },
+    {
+      "file": "src/language/navigation.ts",
+      "digest": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e"
+    },
+    {
+      "file": "src/language/observation-schema.ts",
+      "digest": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5"
+    },
+    {
+      "file": "src/language/parser.ts",
+      "digest": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed"
+    },
+    {
+      "file": "src/language/project.ts",
+      "digest": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c"
+    },
+    {
+      "file": "src/language/runtime.ts",
+      "digest": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8"
+    },
+    {
+      "file": "src/locator.ts",
+      "digest": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3"
+    },
+    {
+      "file": "src/pierce.ts",
+      "digest": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e"
+    },
+    {
+      "file": "src/project.ts",
+      "digest": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de"
+    },
+    {
+      "file": "src/resolve.ts",
+      "digest": "sha256:87174ba05285f4d30ac9463f3e14988b2c8d5a4b3279866bb85939dcff2cd109"
+    },
+    {
+      "file": "src/storage.ts",
+      "digest": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1"
+    },
+    {
+      "file": "src/validation.ts",
+      "digest": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30"
+    },
+    {
+      "file": "tsconfig.json",
+      "digest": "sha256:cc708380bcb30b75d37b4980fb91722c0fd7534dad5b41fc0c4519ced7e525c2"
+    }
+  ],
+  "selected": {
+    "report": "dash-observation.json",
+    "source": "game-workflow.usl",
+    "plan": "plan.json",
+    "status": "RESOLVES",
+    "links": [
+      "dash_behavior"
+    ],
+    "allowedLocators": [
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts"
+    ],
+    "resourceBudget": 16,
+    "calls": [
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts"
+    ],
+    "planDigest": "sha256:b38b15f087cea38d9c305a52d14b50b9ac08fb760a1c8835b72ef72d6c2a165b",
+    "meaningsDigest": "sha256:a29fa5bf5ce5421af5e63e531988fb8a46f822cd665aa51118936c7ae90e43a9",
+    "sourceDigest": "sha256:e46533c70fa6e467ccca8271aba0aae2f0d7b41a129de97a2b81dcb3624ad9b4",
+    "observationDigest": "sha256:bdfa93ce182f1822856ac0d3d8a2e77dd046c19642a3736a35c80ff0a2dbb952",
+    "validated": true
+  },
+  "benchmark": {
+    "report": "game-workflow-result.json",
+    "previous": "previous-game-workflow-result.json",
+    "updated": "examples/game-workflow-result.json",
+    "counters": {
+      "referenceLookupReads": 5,
+      "targetedLookupReads": 3,
+      "staleEvidenceCaught": 1,
+      "unnecessaryRechecksAvoided": 2
+    },
+    "note": "Separate synthetic scenario run in a temporary directory; its plan/source digests differ from the persisted local baseline because resource addresses differ."
+  },
+  "artifacts": [
+    {
+      "file": "previous-game-workflow-result.json",
+      "digest": "sha256:8fb92ee16304db1bec2a90503ac88cf4c411193a80b4abe8f71929c0f5c023a4"
+    },
+    {
+      "file": "game-workflow.usl",
+      "digest": "sha256:e46533c70fa6e467ccca8271aba0aae2f0d7b41a129de97a2b81dcb3624ad9b4"
+    },
+    {
+      "file": "plan.json",
+      "digest": "sha256:c271b7161e36bb82ba3b91c5176f76fece4d605f762f360ee468096c585b4254"
+    },
+    {
+      "file": "dash-observation.json",
+      "digest": "sha256:b482e450acb2cc5266129a5aa2e8bdea560d7942c7c1555b6e649981c6b0d067"
+    },
+    {
+      "file": "game-workflow-result.json",
+      "digest": "sha256:025363aca99a3a19e4542e4f0c099cc86da034a4de1e51f7229b03dcc8232146"
+    }
+  ]
+}

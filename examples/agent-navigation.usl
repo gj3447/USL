@@ -1,0 +1,16 @@
+// AI-authored demonstration. All endpoints are illustrative; context performs no resolution.
+usl "0.1";
+namespace "usl.agent.example";
+
+resource concept = "kg://example/engine";
+resource repository = "git://example.test/team/engine";
+resource checkout = "file://example-host/work/engine";
+resource specification = "https://example.test/engine/spec";
+
+meaning implements(repository: git_repo, concept: kg, specification: url)
+  = "저장소가 명시한 사양에 따라 개념을 구현한다는 선언";
+meaning checkout_of(local: filesystem, repository: git_repo)
+  = "경로가 지정 저장소의 checkout이라는 선언";
+
+link implementation = implements(repository: repository, concept: concept, specification: specification);
+link working_copy = checkout_of(local: checkout, repository: repository);

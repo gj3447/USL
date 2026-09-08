@@ -1,0 +1,103 @@
+{
+  "schema": "usl-adversarial-round2-legacy/v1",
+  "generatedAt": "2026-09-08T04:12:27.532Z",
+  "isolation": "in-process deterministic fake resolver only; no network, filesystem target, or KG writes",
+  "results": [
+    {
+      "id": "L2-01-same-kind-kg-identity-substitution",
+      "severity": "MEDIUM",
+      "precondition": "An untrusted legacy JSON record reaches validateRecords()/toBundle() without a fresh resolver observation.",
+      "source": [
+        "src/validation.ts:35-47",
+        "src/project.ts:28-61"
+      ],
+      "actual": {
+        "validated": true,
+        "original": "kg://canonical-neo4j/sym:Concept:original",
+        "claimedResolved": "kg://canonical-neo4j/sym:Concept:substituted",
+        "canonicalScope": "CANONICAL",
+        "reviewRequired": false
+      },
+      "verdict": "REPRODUCED"
+    },
+    {
+      "id": "L2-02-unconstrained-content-hash-claim",
+      "severity": "INFO",
+      "precondition": "The legacy UslRecord schema deliberately encodes content_hash as an opaque string; neither a SHA-shaped string nor its syntax authenticates evidence.",
+      "source": [
+        "src/domain.ts:75-76",
+        "src/validation.ts:33-47",
+        "src/project.ts:49-61"
+      ],
+      "actual": {
+        "acceptedHash": "operator-asserted-not-a-sha256",
+        "canonicalScope": "CANONICAL",
+        "reviewRequired": false
+      },
+      "verdict": "LIMITATION"
+    },
+    {
+      "id": "L2-03-in-memory-status-getter-time-of-check-time-of-use",
+      "severity": "LOW",
+      "precondition": "A same-process JavaScript caller passes an accessor-bearing object directly to toBundle(); JSON.parse input cannot contain accessors.",
+      "source": [
+        "src/project.ts:28-31",
+        "src/project.ts:43-61"
+      ],
+      "actual": {
+        "id": "getter",
+        "passed": true,
+        "actual": {
+          "statusReads": 5,
+          "projectedStatus": "RESOLVES",
+          "canonicalScope": "CANONICAL",
+          "reviewRequired": false,
+          "baselineWasIncomplete": true
+        }
+      },
+      "verdict": "REPRODUCED"
+    },
+    {
+      "id": "L2-D01-audit-detects-forged-resolved-identity",
+      "severity": "DEFENSE",
+      "source": [
+        "src/pierce.ts:95-109"
+      ],
+      "actual": {
+        "after": "DRIFT",
+        "driftType": "LabelRot",
+        "relocatedEnds": [
+          "from"
+        ],
+        "updatedStatus": "DRIFT"
+      },
+      "verdict": "RESISTED"
+    },
+    {
+      "id": "L2-D02-rebind-replaces-forged-baseline",
+      "severity": "DEFENSE",
+      "source": [
+        "src/pierce.ts:126-130"
+      ],
+      "actual": {
+        "status": "RESOLVES",
+        "fromResolved": "kg://canonical-neo4j/sym:Concept:original",
+        "inheritedForgedValue": false
+      },
+      "verdict": "RESISTED"
+    },
+    {
+      "id": "L2-KNOWN-F05-match-count-not-enforced-in-legacy-pierce",
+      "severity": "KNOWN",
+      "source": [
+        "src/pierce.ts:27-40"
+      ],
+      "actual": {
+        "resolverMatchCount": 2,
+        "recordStatus": "RESOLVES",
+        "confidence": "EXTRACTED"
+      },
+      "verdict": "RECONFIRMED"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "USL Semantic Links"
+  short_description: "Declare, observe, compare, and integrate semantic links"
+  default_prompt: "Use $usl to map these resources into a scoped semantic link and context."
+policy:
+  allow_implicit_invocation: true

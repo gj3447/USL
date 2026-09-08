@@ -1,0 +1,192 @@
+{
+  "apiVersion": "symposium.graphspec/v0alpha1",
+  "kind": "GraphSpec",
+  "metadata": {
+    "graph_id": "symposium.graph-engineering.smoke",
+    "graph_version": "0.1.0-draft",
+    "title": "Bounded fan-out, approval, and reconciled effect",
+    "created_at": "2026-08-08T16:30:00+09:00",
+    "supersedes": [],
+    "extensions": {}
+  },
+  "authority": {
+    "source_class": "SECONDARY_AI",
+    "status": "DESIGN_PROPOSAL",
+    "canon_refs": [],
+    "evidence_refs": [
+      "THEORY/GRAPH_ENGINEERING/GRAPH_ENGINEERING_INTEROPERABILITY_PROFILE_v0alpha1.md"
+    ],
+    "ratified_by": null,
+    "limitations": [
+      "DRAFT",
+      "NOT_CANONICAL",
+      "DOCUMENT_VALIDATION_ONLY"
+    ]
+  },
+  "identity": {
+    "graphspec_sha256": "69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+    "topology_sha256": "94840282dbe305793684bb8f1a06c19049bf63ce705d12081aeb06d42be8be5e",
+    "lifecycle_sha256": "47e8636ead6ff9e93a4ab5372ec72839438072b3eca12b66ceec66de8b20ddc8",
+    "loop_policy_sha256": "6bb413763caa6a4c25476d5f0524558efa1ae17cddf2ecaa51eb76c2b1f1fa9a",
+    "effect_policy_sha256": "fe3e93bc0dbd33a2c38ba3226c75602ccc211b930464034f0d72b2312e9ffea6",
+    "canonicalizer": "jcs-like-json-v1;graphspec_sha256-omitted",
+    "entailment_regime": null
+  },
+  "topology": {
+    "formalism": "dag",
+    "nodes": [
+      { "id": "Seed", "type": "code", "input_schema_ref": "schema://request/v1", "output_schema_ref": "schema://seed/v1" },
+      { "id": "Router", "type": "router", "input_schema_ref": "schema://seed/v1", "output_schema_ref": "schema://dispatch/v1" },
+      { "id": "Research", "type": "model", "input_schema_ref": "schema://dispatch/v1", "output_schema_ref": "schema://finding/v1" },
+      { "id": "Check", "type": "tool", "input_schema_ref": "schema://dispatch/v1", "output_schema_ref": "schema://check/v1" },
+      { "id": "Join", "type": "join", "input_schema_ref": "schema://fan-in/v1", "output_schema_ref": "schema://candidate/v1" },
+      { "id": "Approval", "type": "human", "input_schema_ref": "schema://candidate/v1", "output_schema_ref": "schema://approval/v1" },
+      { "id": "Persist", "type": "code", "input_schema_ref": "schema://approved-intent/v1", "output_schema_ref": "schema://effect-receipt/v1" },
+      { "id": "Receipt", "type": "checkpoint", "input_schema_ref": "schema://effect-receipt/v1", "output_schema_ref": "schema://terminal-receipt/v1" }
+    ],
+    "edges": [
+      { "id": "e1", "source": "Seed", "target": "Router", "kind": "data", "data_contract_ref": "schema://seed/v1", "semantic_relation": "need-measurement" },
+      { "id": "e2", "source": "Router", "target": "Research", "kind": "control", "data_contract_ref": null, "semantic_relation": "dispatch-event" },
+      { "id": "e3", "source": "Router", "target": "Check", "kind": "control", "data_contract_ref": null, "semantic_relation": "dispatch-event" },
+      { "id": "e4", "source": "Research", "target": "Join", "kind": "data", "data_contract_ref": "schema://finding/v1", "semantic_relation": null },
+      { "id": "e5", "source": "Check", "target": "Join", "kind": "data", "data_contract_ref": "schema://check/v1", "semantic_relation": null },
+      { "id": "e6", "source": "Join", "target": "Approval", "kind": "gate", "data_contract_ref": null, "semantic_relation": null },
+      { "id": "e7", "source": "Approval", "target": "Persist", "kind": "gate", "data_contract_ref": null, "semantic_relation": null },
+      { "id": "e8", "source": "Persist", "target": "Receipt", "kind": "data", "data_contract_ref": "schema://effect-receipt/v1", "semantic_relation": null }
+    ],
+    "entry_nodes": ["Seed"],
+    "exit_nodes": ["Receipt"],
+    "edge_kinds": ["data", "control", "gate", "resource"],
+    "closure_policy": "all-nodes-on-entry-exit-path",
+    "dynamic_expansion": {
+      "mode": "forbidden",
+      "max_nodes": null,
+      "max_depth": null,
+      "expansion_event_schema_ref": null
+    }
+  },
+  "lifecycle": {
+    "profile": "fsm-spec/v1",
+    "machine_ref": "embedded:lifecycle",
+    "machine_sha256": "4dd6ff5ee0b0e0600dfc1e0a051d2ab045fea0cd303a050f6ee200147af215b4",
+    "state_authority": "event-store-compare-and-append",
+    "initial_state": "READY",
+    "states": ["READY", "RUNNING", "WAIT_HUMAN", "EFFECT_PENDING", "RECONCILING", "SUCCEEDED", "FAILED", "CANCELLED"],
+    "transitions": [
+      { "source": "READY", "event": "START", "target": "RUNNING", "guard": null },
+      { "source": "RUNNING", "event": "NEED_APPROVAL", "target": "WAIT_HUMAN", "guard": "high_risk_effect" },
+      { "source": "RUNNING", "event": "FAIL", "target": "FAILED", "guard": null },
+      { "source": "RUNNING", "event": "CANCEL", "target": "CANCELLED", "guard": null },
+      { "source": "WAIT_HUMAN", "event": "APPROVE", "target": "EFFECT_PENDING", "guard": "approval_binding_valid" },
+      { "source": "WAIT_HUMAN", "event": "REJECT", "target": "CANCELLED", "guard": null },
+      { "source": "EFFECT_PENDING", "event": "EFFECT_OK", "target": "SUCCEEDED", "guard": null },
+      { "source": "EFFECT_PENDING", "event": "EFFECT_FAILED", "target": "FAILED", "guard": null },
+      { "source": "EFFECT_PENDING", "event": "RESULT_UNKNOWN", "target": "RECONCILING", "guard": null },
+      { "source": "RECONCILING", "event": "CONFIRMED", "target": "SUCCEEDED", "guard": null },
+      { "source": "RECONCILING", "event": "NOT_APPLIED", "target": "FAILED", "guard": null }
+    ],
+    "terminal_states": {
+      "succeeded": ["SUCCEEDED"],
+      "failed": ["FAILED"],
+      "cancelled": ["CANCELLED"]
+    },
+    "suspended_states": ["WAIT_HUMAN"],
+    "invalid_event_policy": "reject-and-record",
+    "guard_policy": "pure"
+  },
+  "loop": {
+    "control_owner": "L_RT/harness",
+    "budgets": {
+      "max_steps": 32,
+      "max_effect_attempts": 4,
+      "max_wall_time_ms": 300000,
+      "max_tokens": 100000,
+      "max_cost": 20.0,
+      "max_causal_depth": 8
+    },
+    "retry_policy": {
+      "max_attempts": 3,
+      "transient_classes": ["timeout", "rate_limit", "transport_unavailable"],
+      "backoff": "exponential-jitter"
+    },
+    "no_progress_policy": {
+      "window": 3,
+      "fingerprint": "state-output-effect-intent-sha256",
+      "action": "wait-human"
+    },
+    "checkpoint_policy": {
+      "required_fields": ["state", "pending_effects", "pending_interrupts", "budget", "retries", "approval", "graph_version", "schema_version", "sequence", "fence_token"],
+      "monotonic_sequence": true,
+      "fence_token": true
+    },
+    "resume_policy": {
+      "compatibility_check": true,
+      "migration_required_on_mismatch": true,
+      "corrupt_checkpoint_action": "quarantine"
+    },
+    "hitl_policy": {
+      "persisted": true,
+      "required_binding_fields": ["approval_nonce", "action_hash", "expires_at", "revoked_at"]
+    }
+  },
+  "effects": {
+    "delivery": "at-least-once",
+    "intent_store": "persist-before-attempt",
+    "outbox": "durable",
+    "idempotency": "stable-key-plus-intent-hash",
+    "reconciliation": "required-for-unknown-outcome",
+    "compensation": "required-when-available",
+    "approval_binding": "nonce-action-hash-expiry-revocation",
+    "interrupt_policy": "record-then-reconcile-before-honor",
+    "high_risk_sequence": ["approval", "persist-intent", "attempt", "receipt-or-reconcile", "honor-pending-interrupt"]
+  },
+  "evidence": {
+    "cloudevents": {
+      "version": "1.0.2",
+      "mapping_ref": "schema://graphspec-cloudevents/v0alpha1",
+      "required_extensions": ["workflow_id", "causation_id", "correlation_id", "idempotency_key"]
+    },
+    "prov_o": {
+      "version": "W3C-REC-20130430",
+      "bundle_ref": "prov://graphspec-smoke/run-placeholder"
+    },
+    "otel": {
+      "semantic_conventions": "1.44.0",
+      "trace_ref": "otel://graphspec-smoke/trace-placeholder",
+      "sampled": true
+    },
+    "durable_receipts": {
+      "required": true,
+      "append_only": true,
+      "supersession_field": "supersedes_receipt"
+    },
+    "source_snapshots": [
+      {
+        "role": "research_base",
+        "repository": "SYMPOSIUM",
+        "commit": "6254422533c483c7e40dd95940e57fe053cc1735"
+      }
+    ]
+  },
+  "harness": {
+    "primary_tier": "L_RT",
+    "adapters": {
+      "L_IDE": ["codex-authoring"],
+      "L_MC": []
+    },
+    "icvc_ownership": "instance-receipt"
+  },
+  "dispatch": {
+    "mode": "measurement-driven-conditional",
+    "need_vector_schema_ref": "schema://7cmd/need-vector/v1",
+    "threshold_policy_ref": "policy://7cmd/threshold/v1",
+    "resolution_event_schema_ref": "schema://7cmd/dispatch-event/v1",
+    "resolution_sequence": ["measurement", "need-vector", "threshold-evaluation", "runtime-resolution", "dispatch-event"],
+    "static_commander_edges": "forbidden"
+  },
+  "conformance": {
+    "profile_version": "v0alpha1",
+    "required_invariants": ["GEIP-001", "GEIP-002", "GEIP-003", "GEIP-004", "GEIP-005", "GEIP-006", "GEIP-007", "GEIP-008", "GEIP-009", "GEIP-010", "GEIP-011", "GEIP-012", "GEIP-013", "GEIP-014", "GEIP-015"],
+    "required_scenarios": ["positive-bounded-fanout", "negative-fixed-commander-edge", "resume-unknown-effect-outcome"]
+  }
+}

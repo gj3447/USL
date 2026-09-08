@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-09-08T06:48:34.928Z",
+  "cli": "built entrypoint",
+  "checks": [
+    "all help commands",
+    "usage exit 64",
+    "init no overwrite",
+    "check",
+    "compact context",
+    "deny-all observation",
+    "observation validation",
+    "offline comparison",
+    "watch once",
+    "registered cache 20 requests / 1 compilation",
+    "ESM exports",
+    "actual MCP client config from external cwd",
+    "built MCP package-bin symlink handshake"
+  ],
+  "observation": {
+    "sourceDigest": "sha256:fb9db2795dc19c740a0568be4db7ae4ef84ac3bdd6c5496c1a4977179471fd95",
+    "planDigest": "sha256:82fc90abdfe6486cff447cd14054973467e441b367f69a057851790459dc8f78",
+    "observationDigest": "sha256:d7c7c9a7132bfb879eb06f400bf44f0762665fe4d47da44838691eb95eaf9eb3",
+    "resolverCalls": 0
+  },
+  "mcp": {
+    "toolCount": 9,
+    "registeredContext": "FULL",
+    "cachedContext": "UNCHANGED",
+    "bytes": {
+      "baselineBytes": 2831,
+      "deliveredBytes": 2316,
+      "bytesSaved": 515,
+      "tokens": null
+    },
+    "cachedBytes": {
+      "baselineBytes": 2831,
+      "deliveredBytes": 238,
+      "bytesSaved": 2593,
+      "tokens": null
+    }
+  },
+  "limitations": [
+    "No live KG write or HSWM admission",
+    "No Cypher performance or actual model token comparison",
+    "MCP example config created, client global configuration not modified"
+  ]
+}

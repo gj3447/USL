@@ -1,0 +1,15 @@
+{
+ "usl-doc-fs": {"to": "sym:SourceDocument:usl-universal-semantic-link-2026-09-07"},
+ "hub-sources-git": {"to": "sym:Repository:symposium"},
+ "hub-axis-grounding-fs": {"to": "sym:SourceDocument:longinus-axis-deep-grounding-2026-05-12"},
+ "hub-comparison-fs": {"to": "sym:SourceDocument:longinus-comparison-methodologies-2026-05-12"},
+ "bhgman-longinus-phase-fs": {"to": "sym:SourceDocument:bhgman-longinus-phase-sources-2026-04-29"},
+ "usl-confidence-axis-fs": {"to": "sym:AbstractNode:longinus-drift-audit-prototype-2026-05-12"},
+ "endpoint-kind-url-standard": {"to": "sym:Concept:url"},
+ "rdf11-standard-for-kg": {"from": "sym:AbstractNode:hswm-graph-loop-source-rdf-11-concepts-2026-09-02-v6"},
+ "hswm-constitution-fs": {"to": "sym:AbstractNode:hswm-constitution-2026-08-20"},
+ "hswm-constitution-git": {"to": "sym:Repository:hswm"},
+ "symposium-sources-checkout": {"from": "sym:Repository:symposium"},
+ "comparison-cites-linked-data": {"from": "sym:SourceDocument:longinus-comparison-methodologies-2026-05-12"},
+ "usl-code-fs": {"to": "sym:SourceDocument:usl-v0.1-code-2026-09-07"}
+}

@@ -1,0 +1,212 @@
+{
+  "schema": "usl-adversarial-remediation/v1",
+  "verifiedAt": "2026-09-08T04:59:07.728Z",
+  "resolvedFindings": [
+    "R2-01",
+    "R2-02",
+    "R2-03",
+    "R2-04",
+    "R2-05"
+  ],
+  "previousSourceDigest": "sha256:7bb9013df88514c18207f7d82fb70737bc767e3c2b0602d4be43a9ccfcea830a",
+  "sourceDigest": "sha256:1fa7fca8924a8caba6658cfd83d095d7d95094fdd61b48e72bf53135cbc2f659",
+  "files": [
+    {
+      "file": "package-lock.json",
+      "digest": "sha256:f6c808b1c5cc6edda2af8af0a30f80a0d9d6ee6f1c24365ee934ddf46423cc51"
+    },
+    {
+      "file": "package.json",
+      "digest": "sha256:d6cb15235dd327354857c5f7a88c1e5aae5430162c646c75955c48e3028eda3f"
+    },
+    {
+      "file": "src/cli.ts",
+      "digest": "sha256:97de2439345b3073beac060ddeb65810f3a2ba80fddcf8f161fd01afbd0d6b3d"
+    },
+    {
+      "file": "src/domain.ts",
+      "digest": "sha256:ad11f31c423d614a7ebf7d7cc5cbe5b0d8badb25ba407e32dd5c506aed07ed42"
+    },
+    {
+      "file": "src/index.ts",
+      "digest": "sha256:d8dc5cebfa423564adaa3706ea4ce13e1761e726b9df8e04c60143864873d673"
+    },
+    {
+      "file": "src/language/compact.ts",
+      "digest": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416"
+    },
+    {
+      "file": "src/language/comparison.ts",
+      "digest": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862"
+    },
+    {
+      "file": "src/language/compiler.ts",
+      "digest": "sha256:96f064997157f28ed2f230a0222e51095d1aaf6e1adf98317c8952fdfdfefec4"
+    },
+    {
+      "file": "src/language/digest.ts",
+      "digest": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1"
+    },
+    {
+      "file": "src/language/index.ts",
+      "digest": "sha256:29e66275d7ed8c8be83d56a71c539e17bddc4257d2540435dc4c4d45d905fa9f"
+    },
+    {
+      "file": "src/language/model.ts",
+      "digest": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493"
+    },
+    {
+      "file": "src/language/navigation.ts",
+      "digest": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e"
+    },
+    {
+      "file": "src/language/observation-schema.ts",
+      "digest": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5"
+    },
+    {
+      "file": "src/language/parser.ts",
+      "digest": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed"
+    },
+    {
+      "file": "src/language/project.ts",
+      "digest": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c"
+    },
+    {
+      "file": "src/language/runtime.ts",
+      "digest": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8"
+    },
+    {
+      "file": "src/locator.ts",
+      "digest": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3"
+    },
+    {
+      "file": "src/pierce.ts",
+      "digest": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e"
+    },
+    {
+      "file": "src/project.ts",
+      "digest": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de"
+    },
+    {
+      "file": "src/resolve.ts",
+      "digest": "sha256:87174ba05285f4d30ac9463f3e14988b2c8d5a4b3279866bb85939dcff2cd109"
+    },
+    {
+      "file": "src/storage.ts",
+      "digest": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1"
+    },
+    {
+      "file": "src/validation.ts",
+      "digest": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30"
+    },
+    {
+      "file": "tsconfig.json",
+      "digest": "sha256:cc708380bcb30b75d37b4980fb91722c0fd7534dad5b41fc0c4519ced7e525c2"
+    }
+  ],
+  "testFiles": [
+    {
+      "file": "test/cli-project-inputs.test.ts",
+      "digest": "sha256:e2a1163cb037da5e65599d86e4b0ce0d96d00d68fbddd8f842d9bebd016ef6fc"
+    },
+    {
+      "file": "test/cli.test.ts",
+      "digest": "sha256:0fa8d1841a065051f755070164bd2c8b6dee35140e4abec377ac5250e432ad6c"
+    },
+    {
+      "file": "test/compact-counter.test.ts",
+      "digest": "sha256:c94b3639cd0924f4c5b7c4106021d31e86389b842a07d63d7f739e74986bf252"
+    },
+    {
+      "file": "test/compact.test.ts",
+      "digest": "sha256:e66330a98884a2db2f4fa4cf67a67332c46f1572c8c10e11d1c6818a65e9f1ae"
+    },
+    {
+      "file": "test/contracts.test.ts",
+      "digest": "sha256:d0442a3b4e9c04fe0dfa462152df5ab51c021f94d66774bb96a096a6da576b7d"
+    },
+    {
+      "file": "test/fixtures.ts",
+      "digest": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7"
+    },
+    {
+      "file": "test/game-workflow.test.ts",
+      "digest": "sha256:b1502b1b4086467df95b6d05731a05c8266d8aa3e7fa35cfffa17604f4e83ede"
+    },
+    {
+      "file": "test/language.test.ts",
+      "digest": "sha256:beab4a369b8da4936ff6fecb8f33150bc9a74b0921c4d50bf4abe4a0b8a6b450"
+    },
+    {
+      "file": "test/locator.test.ts",
+      "digest": "sha256:19374e0ded39c15e91f710a76a2ecebf4c57bb67326a719f46ba5854bc3741d5"
+    },
+    {
+      "file": "test/navigation.test.ts",
+      "digest": "sha256:a7a9a2a5125151e20516a9e964c667176f1cedf76d068d0f794f05709d2d2118"
+    },
+    {
+      "file": "test/observation-boundaries.test.ts",
+      "digest": "sha256:690aabbc715b96d1bbdc4b9d7ff27329b8982ce3c85318285cd88f2a86897225"
+    },
+    {
+      "file": "test/observation-options-errors.test.ts",
+      "digest": "sha256:73eb201daae761d7da34def8e42fd3cf491494c119f2bf4291d9186604f37b0b"
+    },
+    {
+      "file": "test/observation-url-aliases.test.ts",
+      "digest": "sha256:3e911a9f846a34b549697f7456051fde0f398d6a088d6f95693841370e9b0b56"
+    },
+    {
+      "file": "test/observation-validation.test.ts",
+      "digest": "sha256:7270c941eae55c9985771a7fcc0e9ab990238adcf17358fecfa9342d7333330e"
+    },
+    {
+      "file": "test/observation.test.ts",
+      "digest": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73"
+    },
+    {
+      "file": "test/permissions.test.ts",
+      "digest": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db"
+    },
+    {
+      "file": "test/pierce.test.ts",
+      "digest": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40"
+    },
+    {
+      "file": "test/project.test.ts",
+      "digest": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e"
+    },
+    {
+      "file": "test/record-validation.test.ts",
+      "digest": "sha256:57663b7b3017da196a3dd9e1c1b21b5745f0c0d95520b08775e68c33c1618dea"
+    },
+    {
+      "file": "test/resolve.test.ts",
+      "digest": "sha256:a77305f3d758bd9026778ac93fb38daab3178112dd835c2a8099bdfc420510b2"
+    },
+    {
+      "file": "test/semantic-projection-validation.test.ts",
+      "digest": "sha256:e9ec995d425513b9844699a5410ac5dd1186f86373ef80b47363fa492476e2c8"
+    },
+    {
+      "file": "test/storage.test.ts",
+      "digest": "sha256:22df92e8a30ec11d3afd41cbcff312ffe9afe8e92f1775d761caa7f0e0c6cc53"
+    }
+  ],
+  "validation": {
+    "typecheck": {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    "tests": {
+      "command": "npm test",
+      "exitCode": 0,
+      "total": 129,
+      "passed": 129,
+      "failed": 0,
+      "log": "audit/round2-fixes-tests.txt",
+      "logDigest": "sha256:efa650e2401ba09db87af3dea69fb1bca89e277bfa646a6a7a2b599677bfc630"
+    }
+  }
+}

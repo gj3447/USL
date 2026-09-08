@@ -1,0 +1,10 @@
+{
+  "source": { "resource": "graphspec", "locator": "file://graph-engineering-fixture__FIXTURE_ROOT__/graphspec.json" },
+  "nodes": [
+    { "nodeId": "Seed", "resource": "seed_code", "locator": "file://graph-engineering-fixture__FIXTURE_ROOT__/seed.ts" },
+    { "nodeId": "Router", "resource": "router_code", "locator": "file://graph-engineering-fixture__FIXTURE_ROOT__/router.ts" }
+  ],
+  "evidence": [
+    { "reference": "prov://graphspec-smoke/run-placeholder", "resource": "validator_receipt", "locator": "file://graph-engineering-fixture__FIXTURE_ROOT__/validator-receipt.json" }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-09-08T04:14:31.351Z",
+  "sourceDigest": "sha256:7bb9013df88514c18207f7d82fb70737bc767e3c2b0602d4be43a9ccfcea830a",
+  "sourceUnchangedDuringReview": true,
+  "files": 23,
+  "tests": {
+    "total": 120,
+    "passed": 120,
+    "failed": 0,
+    "log": "audit/round2-tests.txt",
+    "digest": "sha256:e3a02f5ade05787f049747d5a5fedca74e8d15b60c169743509eccdd52df7126"
+  },
+  "typecheck": {
+    "command": "npm run typecheck",
+    "diagnostics": 0,
+    "log": "audit/round2-typecheck.txt",
+    "digest": "sha256:6201a844b2c39127b1d84c6e3d93c5030edeeb8569a7633e38c3369cab5ad0d4"
+  }
+}

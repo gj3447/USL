@@ -1,0 +1,32 @@
+{
+  "routeSwitch": {
+    "routeReads": 8,
+    "emittedRoutes": [{ "meaning": "related", "enter": "right", "exit": "left" }],
+    "path": {
+      "resource": "b",
+      "steps": [{ "link": "ab", "meaning": "related", "from": "a", "enteredRole": "left", "to": "b", "exitedRole": "right" }]
+    },
+    "disallowedByEmittedRoute": true
+  },
+  "focusSwitch": {
+    "focusReads": 7,
+    "emittedFocus": "b",
+    "zeroStepPathResource": "a",
+    "targetPath": {
+      "resource": "b",
+      "steps": [{ "link": "ab", "meaning": "related", "from": "a", "enteredRole": "left", "to": "b", "exitedRole": "right" }]
+    },
+    "inconsistent": true
+  },
+  "compact": {
+    "cacheMode": "UNCHANGED",
+    "unchangedBytes": 238,
+    "tokenBudgetRejected": true
+  },
+  "traversalLimit": {
+    "linksInPlan": 5000,
+    "reportedVisits": 1,
+    "limitsReached": ["maxVisits"],
+    "elapsedMs": 11.92
+  }
+}

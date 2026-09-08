@@ -1,0 +1,570 @@
+{
+  "schema": "usl-graph-engineering-plan/v1",
+  "usl": {
+    "schema": "usl-semantic-plan/v1",
+    "languageVersion": "0.1",
+    "namespace": "geip:symposium.graph-engineering.smoke",
+    "resources": [
+      {
+        "name": "graphspec",
+        "locator": {
+          "kind": "filesystem",
+          "host": "dev-01",
+          "path": "/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/graphspec.json"
+        }
+      },
+      {
+        "name": "compiler_code",
+        "locator": {
+          "kind": "filesystem",
+          "host": "dev-01",
+          "path": "/home/lagyeongjun/CD/USL/src/language/compiler.ts"
+        }
+      },
+      {
+        "name": "navigation_code",
+        "locator": {
+          "kind": "filesystem",
+          "host": "dev-01",
+          "path": "/home/lagyeongjun/CD/USL/src/language/navigation.ts"
+        }
+      },
+      {
+        "name": "example_receipt",
+        "locator": {
+          "kind": "filesystem",
+          "host": "dev-01",
+          "path": "/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/validator-receipt.json"
+        }
+      }
+    ],
+    "meanings": [
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":\"schema://seed/v1\",\"id\":\"e1\",\"kind\":\"data\",\"semantic_relation\":\"need-measurement\",\"source\":\"Seed\",\"target\":\"Router\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":\"schema://seed/v1\",\"id\":\"e1\",\"kind\":\"data\",\"semantic_relation\":\"need-measurement\",\"source\":\"Seed\",\"target\":\"Router\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_ac0f09c0f8bf5e7a",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":null,\"id\":\"e2\",\"kind\":\"control\",\"semantic_relation\":\"dispatch-event\",\"source\":\"Router\",\"target\":\"Research\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":null,\"id\":\"e2\",\"kind\":\"control\",\"semantic_relation\":\"dispatch-event\",\"source\":\"Router\",\"target\":\"Research\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_cef7fc13a3818093",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":null,\"id\":\"e3\",\"kind\":\"control\",\"semantic_relation\":\"dispatch-event\",\"source\":\"Router\",\"target\":\"Check\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":null,\"id\":\"e3\",\"kind\":\"control\",\"semantic_relation\":\"dispatch-event\",\"source\":\"Router\",\"target\":\"Check\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_449777124b1466a8",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":\"schema://finding/v1\",\"id\":\"e4\",\"kind\":\"data\",\"semantic_relation\":null,\"source\":\"Research\",\"target\":\"Join\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":\"schema://finding/v1\",\"id\":\"e4\",\"kind\":\"data\",\"semantic_relation\":null,\"source\":\"Research\",\"target\":\"Join\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_43700797e2f9d4ad",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":\"schema://check/v1\",\"id\":\"e5\",\"kind\":\"data\",\"semantic_relation\":null,\"source\":\"Check\",\"target\":\"Join\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":\"schema://check/v1\",\"id\":\"e5\",\"kind\":\"data\",\"semantic_relation\":null,\"source\":\"Check\",\"target\":\"Join\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_f33422b95e3b9831",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":null,\"id\":\"e6\",\"kind\":\"gate\",\"semantic_relation\":null,\"source\":\"Join\",\"target\":\"Approval\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":null,\"id\":\"e6\",\"kind\":\"gate\",\"semantic_relation\":null,\"source\":\"Join\",\"target\":\"Approval\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_f3e2e400523c5068",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":null,\"id\":\"e7\",\"kind\":\"gate\",\"semantic_relation\":null,\"source\":\"Approval\",\"target\":\"Persist\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":null,\"id\":\"e7\",\"kind\":\"gate\",\"semantic_relation\":null,\"source\":\"Approval\",\"target\":\"Persist\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_edge_meaning_5f1a0392bab2bcb9_c33352e36a529830",
+        "roles": [
+          {
+            "name": "source",
+            "kind": "any"
+          },
+          {
+            "name": "target",
+            "kind": "any"
+          },
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":\"schema://effect-receipt/v1\",\"id\":\"e8\",\"kind\":\"data\",\"semantic_relation\":null,\"source\":\"Persist\",\"target\":\"Receipt\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+        "contract": {
+          "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; {\"edge\":{\"data_contract_ref\":\"schema://effect-receipt/v1\",\"id\":\"e8\",\"kind\":\"data\",\"semantic_relation\":null,\"source\":\"Persist\",\"target\":\"Receipt\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}",
+          "checks": [
+            {
+              "name": "graphspec_declaration",
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+        "roles": [
+          {
+            "name": "graphspec",
+            "kind": "filesystem"
+          },
+          {
+            "name": "evidence",
+            "kind": "any"
+          }
+        ],
+        "description": "GraphSpec symposium.graph-engineering.smoke@0.1.0-draft가 선언한 근거 참조 prov://graphspec-smoke/run-placeholder의 명시적 USL 바인딩이다.",
+        "contract": {
+          "scope": "GEIP GraphSpec 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; evidence_ref=prov://graphspec-smoke/run-placeholder",
+          "checks": [
+            {
+              "name": "graphspec_evidence_reference",
+              "description": "GraphSpec 원문의 근거 참조를 확인한다.",
+              "evidenceRoles": [
+                "graphspec"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "name": "geip_edge_link_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+        "meaning": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+        "participants": [
+          {
+            "role": "source",
+            "resource": "compiler_code"
+          },
+          {
+            "role": "target",
+            "resource": "navigation_code"
+          },
+          {
+            "role": "graphspec",
+            "resource": "graphspec"
+          }
+        ]
+      },
+      {
+        "name": "geip_evidence_link_5f1a0392bab2bcb9_e2af4bbad157b952",
+        "meaning": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+        "participants": [
+          {
+            "role": "graphspec",
+            "resource": "graphspec"
+          },
+          {
+            "role": "evidence",
+            "resource": "example_receipt"
+          }
+        ]
+      }
+    ],
+    "declarationStatus": "DECLARED"
+  },
+  "graph": {
+    "graphId": "symposium.graph-engineering.smoke",
+    "graphVersion": "0.1.0-draft",
+    "apiVersion": "symposium.graphspec/v0alpha1",
+    "authority": {
+      "source_class": "SECONDARY_AI",
+      "status": "DESIGN_PROPOSAL",
+      "canon_refs": [],
+      "evidence_refs": [
+        "THEORY/GRAPH_ENGINEERING/GRAPH_ENGINEERING_INTEROPERABILITY_PROFILE_v0alpha1.md"
+      ],
+      "ratified_by": null,
+      "limitations": [
+        "DRAFT",
+        "NOT_CANONICAL",
+        "DOCUMENT_VALIDATION_ONLY"
+      ]
+    },
+    "identity": {
+      "graphspec_sha256": "69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+      "topology_sha256": "94840282dbe305793684bb8f1a06c19049bf63ce705d12081aeb06d42be8be5e",
+      "lifecycle_sha256": "47e8636ead6ff9e93a4ab5372ec72839438072b3eca12b66ceec66de8b20ddc8",
+      "loop_policy_sha256": "6bb413763caa6a4c25476d5f0524558efa1ae17cddf2ecaa51eb76c2b1f1fa9a",
+      "effect_policy_sha256": "fe3e93bc0dbd33a2c38ba3226c75602ccc211b930464034f0d72b2312e9ffea6",
+      "canonicalizer": "jcs-like-json-v1;graphspec_sha256-omitted",
+      "entailment_regime": null
+    },
+    "graphspecDigest": "69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+    "sourceLocator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/graphspec.json",
+    "sourceDigest": "sha256:4a98d88495e18d17845afd33819dddab390d326fbc99a090645f936d87d2c510"
+  },
+  "topology": {
+    "nodes": [
+      {
+        "id": "Seed",
+        "type": "code",
+        "input_schema_ref": "schema://request/v1",
+        "output_schema_ref": "schema://seed/v1"
+      },
+      {
+        "id": "Router",
+        "type": "router",
+        "input_schema_ref": "schema://seed/v1",
+        "output_schema_ref": "schema://dispatch/v1"
+      },
+      {
+        "id": "Research",
+        "type": "model",
+        "input_schema_ref": "schema://dispatch/v1",
+        "output_schema_ref": "schema://finding/v1"
+      },
+      {
+        "id": "Check",
+        "type": "tool",
+        "input_schema_ref": "schema://dispatch/v1",
+        "output_schema_ref": "schema://check/v1"
+      },
+      {
+        "id": "Join",
+        "type": "join",
+        "input_schema_ref": "schema://fan-in/v1",
+        "output_schema_ref": "schema://candidate/v1"
+      },
+      {
+        "id": "Approval",
+        "type": "human",
+        "input_schema_ref": "schema://candidate/v1",
+        "output_schema_ref": "schema://approval/v1"
+      },
+      {
+        "id": "Persist",
+        "type": "code",
+        "input_schema_ref": "schema://approved-intent/v1",
+        "output_schema_ref": "schema://effect-receipt/v1"
+      },
+      {
+        "id": "Receipt",
+        "type": "checkpoint",
+        "input_schema_ref": "schema://effect-receipt/v1",
+        "output_schema_ref": "schema://terminal-receipt/v1"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "Seed",
+        "target": "Router",
+        "kind": "data",
+        "data_contract_ref": "schema://seed/v1",
+        "semantic_relation": "need-measurement"
+      },
+      {
+        "id": "e2",
+        "source": "Router",
+        "target": "Research",
+        "kind": "control",
+        "data_contract_ref": null,
+        "semantic_relation": "dispatch-event"
+      },
+      {
+        "id": "e3",
+        "source": "Router",
+        "target": "Check",
+        "kind": "control",
+        "data_contract_ref": null,
+        "semantic_relation": "dispatch-event"
+      },
+      {
+        "id": "e4",
+        "source": "Research",
+        "target": "Join",
+        "kind": "data",
+        "data_contract_ref": "schema://finding/v1",
+        "semantic_relation": null
+      },
+      {
+        "id": "e5",
+        "source": "Check",
+        "target": "Join",
+        "kind": "data",
+        "data_contract_ref": "schema://check/v1",
+        "semantic_relation": null
+      },
+      {
+        "id": "e6",
+        "source": "Join",
+        "target": "Approval",
+        "kind": "gate",
+        "data_contract_ref": null,
+        "semantic_relation": null
+      },
+      {
+        "id": "e7",
+        "source": "Approval",
+        "target": "Persist",
+        "kind": "gate",
+        "data_contract_ref": null,
+        "semantic_relation": null
+      },
+      {
+        "id": "e8",
+        "source": "Persist",
+        "target": "Receipt",
+        "kind": "data",
+        "data_contract_ref": "schema://effect-receipt/v1",
+        "semantic_relation": null
+      }
+    ]
+  },
+  "evidence": {
+    "cloudevents": {
+      "version": "1.0.2",
+      "mapping_ref": "schema://graphspec-cloudevents/v0alpha1",
+      "required_extensions": [
+        "workflow_id",
+        "causation_id",
+        "correlation_id",
+        "idempotency_key"
+      ]
+    },
+    "prov_o": {
+      "version": "W3C-REC-20130430",
+      "bundle_ref": "prov://graphspec-smoke/run-placeholder"
+    },
+    "otel": {
+      "semantic_conventions": "1.44.0",
+      "trace_ref": "otel://graphspec-smoke/trace-placeholder",
+      "sampled": true
+    },
+    "durable_receipts": {
+      "required": true,
+      "append_only": true,
+      "supersession_field": "supersedes_receipt"
+    },
+    "source_snapshots": [
+      {
+        "role": "research_base",
+        "repository": "SYMPOSIUM",
+        "commit": "6254422533c483c7e40dd95940e57fe053cc1735"
+      }
+    ]
+  },
+  "bindings": {
+    "nodes": [
+      {
+        "nodeId": "Seed",
+        "resource": "compiler_code",
+        "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/language/compiler.ts"
+      },
+      {
+        "nodeId": "Router",
+        "resource": "navigation_code",
+        "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/language/navigation.ts"
+      }
+    ],
+    "evidence": [
+      {
+        "reference": "prov://graphspec-smoke/run-placeholder",
+        "resource": "example_receipt",
+        "locator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/validator-receipt.json"
+      }
+    ],
+    "unboundNodeIds": [
+      "Research",
+      "Check",
+      "Join",
+      "Approval",
+      "Persist",
+      "Receipt"
+    ],
+    "unboundEdgeIds": [
+      "e2",
+      "e3",
+      "e4",
+      "e5",
+      "e6",
+      "e7",
+      "e8"
+    ]
+  },
+  "guarantees": {
+    "structure": "DECLARED_FROM_GRAPHSPEC",
+    "geipValidation": "NOT_RUN",
+    "execution": "NOT_EXECUTED"
+  }
+}

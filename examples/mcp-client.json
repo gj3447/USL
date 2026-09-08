@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "usl": {
+      "command": "node",
+      "args": [
+        "/home/lagyeongjun/CD/USL/node_modules/tsx/dist/cli.mjs",
+        "/home/lagyeongjun/CD/USL/src/mcp.ts"
+      ],
+      "env": {
+        "USL_MCP_POLICY": "{\"allowedLocators\":[],\"maxResources\":64,\"maxInputBytes\":1048576,\"maxOutputBytes\":1048576,\"programs\":{\"navigation\":\"/home/lagyeongjun/CD/USL/examples/agent-navigation.usl\"}}"
+      }
+    }
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "valid": {
+    "ok": true,
+    "result": {
+      "schema_version": "hswm-usl-observation-projection/v2",
+      "status": "READY",
+      "plan_digest": "636eaad978287bfafdfa6fa7b62662dc40f5f101ccd6df38bbadb95951d9e0bc",
+      "report_digest": "a80c32357aa835eaae85a893b16d0493b1a817688ad57b844fdaa1e2ad216fab",
+      "policy_digest": "7264d9e0d014a676faa3f534d3845bffe08429b14549e81d229fb5553309e583",
+      "namespace": "example.engineering.integration",
+      "observations": [
+        {
+          "role": "graph_reference",
+          "field": "edge",
+          "value": true,
+          "revision": "local-geip-example",
+          "expires_at": 1788846208.901,
+          "source": "7107cbd9831984c2849dbc995c74983f45f7c4535e93f6963d80d4cfa50fee25"
+        },
+        {
+          "role": "graph_reference",
+          "field": "evidence",
+          "value": true,
+          "revision": "local-geip-example",
+          "expires_at": 1788846208.905,
+          "source": "7107cbd9831984c2849dbc995c74983f45f7c4535e93f6963d80d4cfa50fee25"
+        }
+      ],
+      "links": [
+        {
+          "name": "geip_edge_link_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "meaning": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "participants": [
+            {
+              "role": "source",
+              "resource": "compiler_code"
+            },
+            {
+              "role": "target",
+              "resource": "navigation_code"
+            },
+            {
+              "role": "graphspec",
+              "resource": "graphspec"
+            }
+          ],
+          "status": "READY",
+          "reasons": [],
+          "meaningDigest": "sha256:84e36b345a90076feb249786d7618a547a5c86879396477f5b2b4df05a7bb6b9",
+          "contractDigest": "sha256:0760493dec7a5383bfc6d32c359eecee2c993849e538dc146f8312328a182481",
+          "verification": [
+            {
+              "name": "graphspec_declaration",
+              "evidenceRoles": [
+                "graphspec"
+              ],
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+              "evidence": [
+                {
+                  "role": "graphspec",
+                  "resource": "graphspec"
+                }
+              ],
+              "evidenceAvailable": true,
+              "status": "NOT_EXECUTED"
+            }
+          ]
+        },
+        {
+          "name": "geip_evidence_link_5f1a0392bab2bcb9_e2af4bbad157b952",
+          "meaning": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+          "participants": [
+            {
+              "role": "graphspec",
+              "resource": "graphspec"
+            },
+            {
+              "role": "evidence",
+              "resource": "example_receipt"
+            }
+          ],
+          "status": "READY",
+          "reasons": [],
+          "meaningDigest": "sha256:df01e1f708e9ce3d3d7b1cb24162b17e98ab605cc09043073311489cc1250dba",
+          "contractDigest": "sha256:127d321708c1b6dfee142376fb972e17c3d0043f80414752661c7983232571c1",
+          "verification": [
+            {
+              "name": "graphspec_evidence_reference",
+              "evidenceRoles": [
+                "graphspec"
+              ],
+              "description": "GraphSpec 원문의 근거 참조를 확인한다.",
+              "scope": "GEIP GraphSpec 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; evidence_ref=prov://graphspec-smoke/run-placeholder",
+              "evidence": [
+                {
+                  "role": "graphspec",
+                  "resource": "graphspec"
+                }
+              ],
+              "evidenceAvailable": true,
+              "status": "NOT_EXECUTED"
+            }
+          ]
+        }
+      ],
+      "mapping_loss": [
+        "reference resolution only",
+        "no semantic truth",
+        "caller-bound report not attestation",
+        "no content extraction/credit/admission",
+        "declared checks preserved but not executed",
+        "source digest caller-pinned, source not recompiled",
+        "KG_METADATA is not full graph semantics",
+        "noncanonical HTTP URL forms outside the supported subset reject"
+      ],
+      "meanings": [
+        {
+          "name": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "digest": "sha256:84e36b345a90076feb249786d7618a547a5c86879396477f5b2b4df05a7bb6b9",
+          "definition": {
+            "name": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+            "roles": [
+              {
+                "name": "source",
+                "kind": "any"
+              },
+              {
+                "name": "target",
+                "kind": "any"
+              },
+              {
+                "name": "graphspec",
+                "kind": "filesystem"
+              }
+            ],
+            "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":\"schema://seed/v1\",\"id\":\"e1\",\"kind\":\"data\",\"semantic_relation\":\"need-measurement\",\"source\":\"Seed\",\"target\":\"Router\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+            "contract": {
+              "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+              "checks": [
+                {
+                  "name": "graphspec_declaration",
+                  "evidenceRoles": [
+                    "graphspec"
+                  ],
+                  "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+          "digest": "sha256:df01e1f708e9ce3d3d7b1cb24162b17e98ab605cc09043073311489cc1250dba",
+          "definition": {
+            "name": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+            "roles": [
+              {
+                "name": "graphspec",
+                "kind": "filesystem"
+              },
+              {
+                "name": "evidence",
+                "kind": "any"
+              }
+            ],
+            "description": "GraphSpec symposium.graph-engineering.smoke@0.1.0-draft가 선언한 근거 참조 prov://graphspec-smoke/run-placeholder의 명시적 USL 바인딩이다.",
+            "contract": {
+              "scope": "GEIP GraphSpec 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; evidence_ref=prov://graphspec-smoke/run-placeholder",
+              "checks": [
+                {
+                  "name": "graphspec_evidence_reference",
+                  "evidenceRoles": [
+                    "graphspec"
+                  ],
+                  "description": "GraphSpec 원문의 근거 참조를 확인한다."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "usl": {
+        "report_schema": "usl-program-observation/v2",
+        "plan_digest": "sha256:095f23e7063e20720917002e5454b32cc285a4d78880e8ffbc508a054f5ad307",
+        "meanings_digest": "sha256:7dafea2cbab960e1cea01d74f3fdf915935091714e3ef236b4643e05c78585f3",
+        "source_digest": "sha256:ccf9c36132a9e9639844086246f3ff533b831b5d82642f34bdbb40b701d414c0",
+        "observation_digest": "sha256:64781352bb1ad2441e27b746e0e520c75dcb76f23cae9f2ef12f6955eca981fc",
+        "digest_format": "sha256:utf8:JSON.stringify/v1",
+        "source_binding": "CALLER_PINNED_NOT_RECOMPILED"
+      },
+      "read_scope": {
+        "links": [
+          "geip_edge_link_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "geip_evidence_link_5f1a0392bab2bcb9_e2af4bbad157b952"
+        ],
+        "allowedLocators": [
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/graphspec.json",
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/validator-receipt.json",
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/compiler.ts",
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/navigation.ts"
+        ],
+        "requestedLocators": [
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/compiler.ts",
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/graphspec.json",
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/navigation.ts",
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/validator-receipt.json"
+        ],
+        "resourceBudget": 4
+      },
+      "metrics": {
+        "declaredResources": 5,
+        "selectedResources": 4,
+        "uniqueLocators": 4,
+        "resolverCalls": 4,
+        "deniedLocators": 0
+      }
+    }
+  },
+  "stale": {
+    "ok": true,
+    "result": {
+      "schema_version": "hswm-usl-observation-projection/v2",
+      "status": "UNRESOLVED",
+      "plan_digest": "636eaad978287bfafdfa6fa7b62662dc40f5f101ccd6df38bbadb95951d9e0bc",
+      "report_digest": "a80c32357aa835eaae85a893b16d0493b1a817688ad57b844fdaa1e2ad216fab",
+      "policy_digest": "7264d9e0d014a676faa3f534d3845bffe08429b14549e81d229fb5553309e583",
+      "namespace": "example.engineering.integration",
+      "observations": [],
+      "links": [
+        {
+          "name": "geip_edge_link_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "meaning": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "participants": [
+            {
+              "role": "source",
+              "resource": "compiler_code"
+            },
+            {
+              "role": "target",
+              "resource": "navigation_code"
+            },
+            {
+              "role": "graphspec",
+              "resource": "graphspec"
+            }
+          ],
+          "status": "UNKNOWN",
+          "reasons": [
+            "RESOURCE:compiler_code_STALE",
+            "RESOURCE:navigation_code_STALE",
+            "RESOURCE:graphspec_STALE"
+          ],
+          "meaningDigest": "sha256:84e36b345a90076feb249786d7618a547a5c86879396477f5b2b4df05a7bb6b9",
+          "contractDigest": "sha256:0760493dec7a5383bfc6d32c359eecee2c993849e538dc146f8312328a182481",
+          "verification": [
+            {
+              "name": "graphspec_declaration",
+              "evidenceRoles": [
+                "graphspec"
+              ],
+              "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다.",
+              "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+              "evidence": [
+                {
+                  "role": "graphspec",
+                  "resource": "graphspec"
+                }
+              ],
+              "evidenceAvailable": true,
+              "status": "NOT_EXECUTED"
+            }
+          ]
+        },
+        {
+          "name": "geip_evidence_link_5f1a0392bab2bcb9_e2af4bbad157b952",
+          "meaning": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+          "participants": [
+            {
+              "role": "graphspec",
+              "resource": "graphspec"
+            },
+            {
+              "role": "evidence",
+              "resource": "example_receipt"
+            }
+          ],
+          "status": "UNKNOWN",
+          "reasons": [
+            "RESOURCE:graphspec_STALE",
+            "RESOURCE:example_receipt_STALE"
+          ],
+          "meaningDigest": "sha256:df01e1f708e9ce3d3d7b1cb24162b17e98ab605cc09043073311489cc1250dba",
+          "contractDigest": "sha256:127d321708c1b6dfee142376fb972e17c3d0043f80414752661c7983232571c1",
+          "verification": [
+            {
+              "name": "graphspec_evidence_reference",
+              "evidenceRoles": [
+                "graphspec"
+              ],
+              "description": "GraphSpec 원문의 근거 참조를 확인한다.",
+              "scope": "GEIP GraphSpec 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; evidence_ref=prov://graphspec-smoke/run-placeholder",
+              "evidence": [
+                {
+                  "role": "graphspec",
+                  "resource": "graphspec"
+                }
+              ],
+              "evidenceAvailable": true,
+              "status": "NOT_EXECUTED"
+            }
+          ]
+        }
+      ],
+      "mapping_loss": [
+        "reference resolution only",
+        "no semantic truth",
+        "caller-bound report not attestation",
+        "no content extraction/credit/admission",
+        "declared checks preserved but not executed",
+        "source digest caller-pinned, source not recompiled",
+        "KG_METADATA is not full graph semantics",
+        "noncanonical HTTP URL forms outside the supported subset reject"
+      ],
+      "meanings": [
+        {
+          "name": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "digest": "sha256:84e36b345a90076feb249786d7618a547a5c86879396477f5b2b4df05a7bb6b9",
+          "definition": {
+            "name": "geip_edge_meaning_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+            "roles": [
+              {
+                "name": "source",
+                "kind": "any"
+              },
+              {
+                "name": "target",
+                "kind": "any"
+              },
+              {
+                "name": "graphspec",
+                "kind": "filesystem"
+              }
+            ],
+            "description": "GraphSpec 구조 간선 선언: {\"edge\":{\"data_contract_ref\":\"schema://seed/v1\",\"id\":\"e1\",\"kind\":\"data\",\"semantic_relation\":\"need-measurement\",\"source\":\"Seed\",\"target\":\"Router\"},\"graph_id\":\"symposium.graph-engineering.smoke\",\"graph_version\":\"0.1.0-draft\",\"graphspec_sha256\":\"69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6\"}. 실행, 인과성, 효과 성공을 증명하지 않는다.",
+            "contract": {
+              "scope": "GEIP GraphSpec symposium.graph-engineering.smoke@0.1.0-draft 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+              "checks": [
+                {
+                  "name": "graphspec_declaration",
+                  "evidenceRoles": [
+                    "graphspec"
+                  ],
+                  "description": "명시적으로 바인딩된 GraphSpec 원문이 이 간선 선언의 근거다."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+          "digest": "sha256:df01e1f708e9ce3d3d7b1cb24162b17e98ab605cc09043073311489cc1250dba",
+          "definition": {
+            "name": "geip_evidence_meaning_5f1a0392bab2bcb9_e2af4bbad157b952",
+            "roles": [
+              {
+                "name": "graphspec",
+                "kind": "filesystem"
+              },
+              {
+                "name": "evidence",
+                "kind": "any"
+              }
+            ],
+            "description": "GraphSpec symposium.graph-engineering.smoke@0.1.0-draft가 선언한 근거 참조 prov://graphspec-smoke/run-placeholder의 명시적 USL 바인딩이다.",
+            "contract": {
+              "scope": "GEIP GraphSpec 69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6; evidence_ref=prov://graphspec-smoke/run-placeholder",
+              "checks": [
+                {
+                  "name": "graphspec_evidence_reference",
+                  "evidenceRoles": [
+                    "graphspec"
+                  ],
+                  "description": "GraphSpec 원문의 근거 참조를 확인한다."
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "usl": {
+        "report_schema": "usl-program-observation/v2",
+        "plan_digest": "sha256:095f23e7063e20720917002e5454b32cc285a4d78880e8ffbc508a054f5ad307",
+        "meanings_digest": "sha256:7dafea2cbab960e1cea01d74f3fdf915935091714e3ef236b4643e05c78585f3",
+        "source_digest": "sha256:ccf9c36132a9e9639844086246f3ff533b831b5d82642f34bdbb40b701d414c0",
+        "observation_digest": "sha256:64781352bb1ad2441e27b746e0e520c75dcb76f23cae9f2ef12f6955eca981fc",
+        "digest_format": "sha256:utf8:JSON.stringify/v1",
+        "source_binding": "CALLER_PINNED_NOT_RECOMPILED"
+      },
+      "read_scope": {
+        "links": [
+          "geip_edge_link_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+          "geip_evidence_link_5f1a0392bab2bcb9_e2af4bbad157b952"
+        ],
+        "allowedLocators": [
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/graphspec.json",
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/validator-receipt.json",
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/compiler.ts",
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/navigation.ts"
+        ],
+        "requestedLocators": [
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/compiler.ts",
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/graphspec.json",
+          "file://dev-01/home/lagyeongjun/CD/USL/src/language/navigation.ts",
+          "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/graph-engineering/validator-receipt.json"
+        ],
+        "resourceBudget": 4
+      },
+      "metrics": {
+        "declaredResources": 5,
+        "selectedResources": 4,
+        "uniqueLocators": 4,
+        "resolverCalls": 4,
+        "deniedLocators": 0
+      }
+    }
+  },
+  "badPin": {
+    "ok": false,
+    "error": "resource pin mismatch: graphspec"
+  },
+  "unauthorized": {
+    "ok": false,
+    "error": "unauthorized mapped read"
+  }
+}

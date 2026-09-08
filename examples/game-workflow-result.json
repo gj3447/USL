@@ -1,0 +1,158 @@
+{
+  "schema": "usl-game-workflow-benchmark/v1",
+  "label": "synthetic_fixture_local_reads",
+  "methods": {
+    "repository_scan": {
+      "observationElapsedMs": 5.711513999999966,
+      "resolverCalls": 5,
+      "locators": [
+        "dash-spec.md",
+        "dash-controller.ts",
+        "dash-controller.test.ts",
+        "audio-mix.md",
+        "music-license.txt"
+      ]
+    },
+    "targeted_link_lookup": {
+      "navigationElapsedMs": 1.0576280000000224,
+      "observationElapsedMs": 3.277841999999964,
+      "resolverCalls": 3,
+      "locators": [
+        "dash-spec.md",
+        "dash-controller.ts",
+        "dash-controller.test.ts"
+      ]
+    }
+  },
+  "observedMeaningVersions": {
+    "baseline": {
+      "planDigest": "sha256:3a37d7bc5f879b7aa3f1a311922ae179bfc9068f99c8d78af551a96b9731f1e5",
+      "meaningsDigest": "sha256:a29fa5bf5ce5421af5e63e531988fb8a46f822cd665aa51118936c7ae90e43a9",
+      "sourceDigest": "sha256:192052b18d78892f02135a9c3976e6d9f354b180fbecbd1ea45d5c9dfb35e2cf",
+      "links": [
+        {
+          "name": "dash_behavior",
+          "meaningDigest": "sha256:39cd057b498eae0c289f625ac22023ac419a871e140cba4e9c652fc94f3770b3",
+          "contractDigest": "sha256:e29c7998bbebae3298ac15661e343de7833799e1a2f8ccd10f384cfd2945d0d0"
+        }
+      ]
+    },
+    "contentEdit": {
+      "planDigest": "sha256:3a37d7bc5f879b7aa3f1a311922ae179bfc9068f99c8d78af551a96b9731f1e5",
+      "meaningsDigest": "sha256:a29fa5bf5ce5421af5e63e531988fb8a46f822cd665aa51118936c7ae90e43a9",
+      "sourceDigest": "sha256:192052b18d78892f02135a9c3976e6d9f354b180fbecbd1ea45d5c9dfb35e2cf",
+      "links": [
+        {
+          "name": "dash_behavior",
+          "meaningDigest": "sha256:39cd057b498eae0c289f625ac22023ac419a871e140cba4e9c652fc94f3770b3",
+          "contractDigest": "sha256:e29c7998bbebae3298ac15661e343de7833799e1a2f8ccd10f384cfd2945d0d0"
+        }
+      ]
+    },
+    "semanticReversal": {
+      "planDigest": "sha256:29f9c2ec115c804fc9bcca29abd9669542a0da1e83adde2d30830ad0810a0070",
+      "meaningsDigest": "sha256:eb9296b0f186abb4b3517847006fa3034332cb947f13c1742a8dfafa8cc9d7d2",
+      "sourceDigest": "sha256:802ce586d8164c8be1df400eef03c8669b9028605f9fba08363869fd836c856f",
+      "links": [
+        {
+          "name": "dash_behavior",
+          "meaningDigest": "sha256:1f707af6a2aeadeff6342a2037e393f1759367dee6e8190a4c5632fcea705eff",
+          "contractDigest": "sha256:da4a8e81f0982ed6304d37f1790a34fa08b2d03bde0989efd75db727779cc6b9"
+        }
+      ]
+    },
+    "addressMove": {
+      "planDigest": "sha256:f812f654407d32b57d7e8c8aa6bb2e4d7685c96b70b3f0d77e56a8a9801226c4",
+      "meaningsDigest": "sha256:a29fa5bf5ce5421af5e63e531988fb8a46f822cd665aa51118936c7ae90e43a9",
+      "sourceDigest": "sha256:1d737203942a83436059be8b577e457a090cf709dd5f3d1c40ed4af5ec921a1a",
+      "links": [
+        {
+          "name": "dash_behavior",
+          "meaningDigest": "sha256:39cd057b498eae0c289f625ac22023ac419a871e140cba4e9c652fc94f3770b3",
+          "contractDigest": "sha256:e29c7998bbebae3298ac15661e343de7833799e1a2f8ccd10f384cfd2945d0d0"
+        }
+      ]
+    }
+  },
+  "changes": {
+    "evidenceContentEdit": {
+      "schema": "usl-program-observation-comparison/v1",
+      "namespace": "example.game.dash",
+      "previousPlanDigest": "sha256:3a37d7bc5f879b7aa3f1a311922ae179bfc9068f99c8d78af551a96b9731f1e5",
+      "currentPlanDigest": "sha256:3a37d7bc5f879b7aa3f1a311922ae179bfc9068f99c8d78af551a96b9731f1e5",
+      "previousObservationDigest": "sha256:f2337bb63107637acad46e7ec748c92ca9925eef391c6853d8fe68cf4a1d31c5",
+      "currentObservationDigest": "sha256:725d3162247bf6cfe30376345eb66feea4c837127033cf34b05ba118b789a7bc",
+      "linksOutsideCurrentScope": [],
+      "links": [
+        {
+          "name": "dash_behavior",
+          "addressChanged": [],
+          "contentChanged": [
+            "implementation"
+          ],
+          "semanticContractChanged": false,
+          "unavailable": [],
+          "baselineMissing": [],
+          "actions": [
+            "RECHECK_EVIDENCE"
+          ]
+        }
+      ],
+      "semanticTruth": "NOT_EVALUATED"
+    },
+    "semanticReversal": {
+      "schema": "usl-program-observation-comparison/v1",
+      "namespace": "example.game.dash",
+      "previousPlanDigest": "sha256:3a37d7bc5f879b7aa3f1a311922ae179bfc9068f99c8d78af551a96b9731f1e5",
+      "currentPlanDigest": "sha256:29f9c2ec115c804fc9bcca29abd9669542a0da1e83adde2d30830ad0810a0070",
+      "previousObservationDigest": "sha256:f2337bb63107637acad46e7ec748c92ca9925eef391c6853d8fe68cf4a1d31c5",
+      "currentObservationDigest": "sha256:59508fa318dad6d497b1c07e9fd51cb50cc12e34ababb088413a80f0c283729e",
+      "linksOutsideCurrentScope": [],
+      "links": [
+        {
+          "name": "dash_behavior",
+          "addressChanged": [],
+          "contentChanged": [],
+          "semanticContractChanged": true,
+          "unavailable": [],
+          "baselineMissing": [],
+          "actions": [
+            "REVIEW_SEMANTIC_CONTRACT"
+          ]
+        }
+      ],
+      "semanticTruth": "NOT_EVALUATED"
+    },
+    "addressMove": {
+      "schema": "usl-program-observation-comparison/v1",
+      "namespace": "example.game.dash",
+      "previousPlanDigest": "sha256:3a37d7bc5f879b7aa3f1a311922ae179bfc9068f99c8d78af551a96b9731f1e5",
+      "currentPlanDigest": "sha256:f812f654407d32b57d7e8c8aa6bb2e4d7685c96b70b3f0d77e56a8a9801226c4",
+      "previousObservationDigest": "sha256:f2337bb63107637acad46e7ec748c92ca9925eef391c6853d8fe68cf4a1d31c5",
+      "currentObservationDigest": "sha256:267f37e4071651a041f49ad71c22e42a824077b6e75704679a805daea43f2e29",
+      "linksOutsideCurrentScope": [],
+      "links": [
+        {
+          "name": "dash_behavior",
+          "addressChanged": [
+            "implementation"
+          ],
+          "contentChanged": [],
+          "semanticContractChanged": false,
+          "unavailable": [],
+          "baselineMissing": [],
+          "actions": [
+            "REVIEW_ADDRESS_BINDING"
+          ]
+        }
+      ],
+      "semanticTruth": "NOT_EVALUATED"
+    }
+  },
+  "counters": {
+    "referenceLookupReads": 5,
+    "targetedLookupReads": 3,
+    "staleEvidenceCaught": 1,
+    "unnecessaryRechecksAvoided": 2
+  }
+}

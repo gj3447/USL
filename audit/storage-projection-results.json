@@ -1,0 +1,73 @@
+{
+  "schema": "usl-adversarial-probes/v1",
+  "results": [
+    {
+      "id": "projection-source-mismatch",
+      "outcome": "CONFIRMED",
+      "expected": "reject source text that compiles to another plan",
+      "actual": {
+        "accepted": true,
+        "description": "A implements B",
+        "attributedSourceDigest": "55f210190a1cd9a56f231b1f8f36f8e40e902d5b13f685632b7316d7ecec4fc3",
+        "suppliedOppositeSourceDigest": "55f210190a1cd9a56f231b1f8f36f8e40e902d5b13f685632b7316d7ecec4fc3"
+      }
+    },
+    {
+      "id": "legacy-unresolved-record-canonical",
+      "outcome": "CONFIRMED",
+      "expected": "RESOLVES requires complete successful baseline data before canonical projection",
+      "actual": {
+        "validationAccepted": true,
+        "status": "RESOLVES",
+        "contentHashFrom": null,
+        "resolvedAtFrom": null,
+        "canonicalScope": "CANONICAL",
+        "reviewRequired": false
+      }
+    },
+    {
+      "id": "legacy-multiple-matches-resolve",
+      "outcome": "CONFIRMED",
+      "expected": "matchCount != 1 is AMBIGUOUS and cannot become a rebind baseline",
+      "actual": {
+        "matchCount": 2,
+        "pierceStatus": "RESOLVES",
+        "auditStatus": "RESOLVES",
+        "rebindAccepted": true
+      },
+      "scope": "injected conforming Resolution service; live KG resolver rejects multiple matches itself"
+    },
+    {
+      "id": "legacy-project-overwrites-utterance",
+      "outcome": "CONFIRMED",
+      "expected": "reject --out equal to any input path",
+      "actual": {
+        "exitCode": 0,
+        "inputReplaced": true,
+        "replacementSchema": "symposium-kg-bundle/v1",
+        "stdout": "{\"nodes\":0,\"relations\":0,\"anchors\":1,\"out\":\"/var/tmp/orca/usl-audit-storage-NoEFQX/request-utterance.txt\"}"
+      }
+    },
+    {
+      "id": "legacy-project-overwrites-anchors",
+      "outcome": "CONFIRMED",
+      "expected": "reject --out equal to any input path",
+      "actual": {
+        "exitCode": 0,
+        "inputReplaced": true,
+        "replacementSchema": "symposium-kg-bundle/v1",
+        "stdout": "{\"nodes\":0,\"relations\":0,\"anchors\":1,\"out\":\"/var/tmp/orca/usl-audit-storage-NoEFQX/anchors-anchors.json\"}"
+      }
+    },
+    {
+      "id": "storage-stale-and-symlink-output",
+      "outcome": "RESISTED",
+      "expected": "reject stale cooperative snapshot and direct symlink output",
+      "actual": {
+        "staleBlocked": true,
+        "symlinkBlocked": true,
+        "targetPreserved": true
+      }
+    }
+  ]
+}

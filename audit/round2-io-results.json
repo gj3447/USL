@@ -1,0 +1,45 @@
+{
+  "isolation": "temporary local files, hardlinks/symlinks, and loopback HTTP only",
+  "results": [
+    {
+      "id": "R2-01-f06-direct-and-symlink-inputs",
+      "severity": "info",
+      "outcome": "fixed",
+      "actual": "direct=64,64,64 symlink=64,64,64 parentAlias=64 inputAlias=64 distinct=0 originalsUnchanged=true.",
+      "prerequisite": "None beyond invoking the legacy project CLI with existing local inputs.",
+      "source": "src/cli.ts:14-18,164-173"
+    },
+    {
+      "id": "R2-02-f06-hardlink-is-not-rejected-but-does-not-overwrite-input",
+      "severity": "low",
+      "outcome": "safe_limit",
+      "actual": "hardlink output exits=0; original utterance preserved=true. Atomic rename replaces only the output directory entry.",
+      "prerequisite": "An actor able to create a same-filesystem hardlink to an input and choose --out; this is a local filesystem capability.",
+      "source": "src/cli.ts:14-18,167; src/storage.ts:30-35"
+    },
+    {
+      "id": "R2-03-storage-refuses-output-symlink",
+      "severity": "info",
+      "outcome": "fixed",
+      "actual": "rejected=true; targetPreserved=true.",
+      "prerequisite": "A local caller passes a symlink as the output path.",
+      "source": "src/storage.ts:30-35"
+    },
+    {
+      "id": "R2-04-f08-mcp-307-remains-transport-redirect",
+      "severity": "medium",
+      "outcome": "known",
+      "actual": "unregistered loopback target hits=1; resolution=success.",
+      "prerequisite": "The configured MCP endpoint must issue a redirect. Impact is conditional on treating configured endpoint identity as a network permission boundary; logical allowedLocators does not express endpoint URLs.",
+      "source": "src/resolve.ts:194-199"
+    },
+    {
+      "id": "R2-05-f10-null-resolver-input-remains-sync-throw",
+      "severity": "low",
+      "outcome": "known",
+      "actual": "resolveWith(config)(null) throws \"Cannot read properties of null (reading 'kind')\".",
+      "prerequisite": "A JavaScript or unsafe TypeScript caller invokes the exported resolver directly with malformed data; CLI/parser paths reject ordinary malformed locator text.",
+      "source": "src/resolve.ts:221-222; src/locator.ts:52-58"
+    }
+  ]
+}

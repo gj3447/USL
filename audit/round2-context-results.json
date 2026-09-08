@@ -1,0 +1,15 @@
+{
+  "seed": 20260908,
+  "trials": 80,
+  "checkedPaths": 413,
+  "outcome": "RESISTED",
+  "checks": [
+    "reference directed BFS distances",
+    "target existence",
+    "lossless compact role/path reconstruction",
+    "declaration preservation",
+    "byte budget",
+    "exact cache reuse"
+  ],
+  "isolation": "pure compiler/navigation/serialization, no resolver IO"
+}

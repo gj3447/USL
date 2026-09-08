@@ -1,0 +1,17 @@
+// AI-authored example: semantic declarations, not ratified KG facts.
+usl "0.1";
+namespace "usl.example";
+
+resource concept = "kg://canonical-neo4j/sym:Concept:usl";
+resource repo = "git://github.com/gj3447/symposium";
+resource source = "file://dev-01/home/lagyeongjun/CD/USL/src/index.ts";
+resource checkout = "file://dev-01/home/lagyeongjun/CD/SYMPOSIUM";
+resource reference = "https://www.w3.org/TR/rdf11-concepts/";
+
+meaning implements(from: filesystem, to: kg) = "소스가 대상 개념을 구현한다";
+meaning checkout_of(local: filesystem, repository: git_repo) = "경로가 저장소의 로컬 checkout이다";
+meaning informs(from: url, to: kg) = "외부 자료가 대상 개념의 설계에 참고된다";
+
+link implementation = implements(from: source, to: concept);
+link local_repository = checkout_of(local: checkout, repository: repo);
+link reference_material = informs(from: reference, to: concept);

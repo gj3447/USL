@@ -1,0 +1,20 @@
+// Template used by examples/game-workflow.ts. The runner replaces __FIXTURE_ROOT__
+// with a private temporary copy, so this never reads a game checkout outside it.
+usl "0.1";
+namespace "example.game.dash";
+
+resource dash_spec = "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md";
+resource dash_code = "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts";
+resource dash_test = "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts";
+resource audio_mix = "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/audio-mix.md";
+resource music_license = "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/music-license.txt";
+
+meaning implements_dash_rule(specification: filesystem, implementation: filesystem, evidence: filesystem)
+  = "구현은 명세의 지상 상태 전용 대시와 0.35초 쿨다운 규칙을 구현한다"
+  applies "플레이어 대시 능력의 지상 상태 판정과 쿨다운 동작"
+  check dash_rule_test(evidence) = "dash-controller.test.ts가 공중 대시 거부, 지상 대시 허용, 0.35초 쿨다운을 확인한다";
+meaning documents_audio(mix: filesystem, license: filesystem)
+  = "오디오 믹스 문서와 라이선스 근거가 함께 관리된다";
+
+link dash_behavior = implements_dash_rule(specification: dash_spec, implementation: dash_code, evidence: dash_test);
+link audio_evidence = documents_audio(mix: audio_mix, license: music_license);

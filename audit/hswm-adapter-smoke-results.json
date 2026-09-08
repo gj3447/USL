@@ -1,0 +1,229 @@
+{
+  "noLiveExternalIO": true,
+  "hswmRoot": "/home/lagyeongjun/CD/HSWM",
+  "consumerSha256": {
+    "usl_adapter_py": "8bf642de500545ff8a3fc80102789f6efbf7fef40f0ffaa475333f9998d1f809",
+    "usl_observation_v2_py": "55b2af74d37cb7160d293f324d64b7f9893cd27b9ceb1890a8c17d3d00aa2534"
+  },
+  "valid": {
+    "ok": true,
+    "result": {
+      "links": [
+        {
+          "contractDigest": "sha256:3e90fd0f1dfd8492d84b96132a632b2503c140a2b8c9fe4c42699eeb5d711cf6",
+          "meaning": "implements",
+          "meaningDigest": "sha256:4ad4d9cb9476c59ff63417891308a12cd0b914489e844c9af4a1719706d42116",
+          "name": "edge",
+          "participants": [
+            {
+              "resource": "code",
+              "role": "implementation"
+            },
+            {
+              "resource": "spec",
+              "role": "requirement"
+            }
+          ],
+          "reasons": [],
+          "status": "READY",
+          "verification": []
+        }
+      ],
+      "mapping_loss": [
+        "reference resolution only",
+        "no semantic truth",
+        "caller-bound report not attestation",
+        "no content extraction/credit/admission",
+        "declared checks preserved but not executed",
+        "source digest caller-pinned, source not recompiled",
+        "KG_METADATA is not full graph semantics",
+        "noncanonical HTTP URL forms outside the supported subset reject"
+      ],
+      "meanings": [
+        {
+          "definition": {
+            "description": "code implements spec",
+            "grounded": {
+              "kind": "kg",
+              "source": "canonical-neo4j",
+              "uid": "sym:Concept:implements"
+            },
+            "name": "implements",
+            "roles": [
+              {
+                "kind": "url",
+                "name": "implementation"
+              },
+              {
+                "kind": "url",
+                "name": "requirement"
+              }
+            ]
+          },
+          "digest": "sha256:4ad4d9cb9476c59ff63417891308a12cd0b914489e844c9af4a1719706d42116",
+          "name": "implements"
+        }
+      ],
+      "metrics": {
+        "declaredResources": 2,
+        "deniedLocators": 0,
+        "resolverCalls": 3,
+        "selectedResources": 2,
+        "uniqueLocators": 3
+      },
+      "namespace": "hswm.smoke",
+      "observations": [
+        {
+          "expires_at": 1788825660,
+          "field": "resolves",
+          "revision": "smoke",
+          "role": "reference",
+          "source": "3ad48fc8e0c8938990a341a160075c2317a36160e73edeed24b9751577d124b5",
+          "value": true
+        }
+      ],
+      "plan_digest": "d6cfc796e2adfd2bd319ad1d7ad5a4d0b7613cbab15476e8b42a4f114b359eb4",
+      "policy_digest": "0ab1aa1865b20ca3f6387c8d7a66ffe59fe0e4e00e07b7172e4bae53aeba794a",
+      "read_scope": {
+        "allowedLocators": [
+          "https://example.test/code",
+          "https://example.test/spec",
+          "kg://canonical-neo4j/sym:Concept:implements"
+        ],
+        "links": [
+          "edge"
+        ],
+        "requestedLocators": [
+          "https://example.test/code",
+          "https://example.test/spec",
+          "kg://canonical-neo4j/sym:Concept:implements"
+        ],
+        "resourceBudget": 256
+      },
+      "report_digest": "51f4c7c149d224d28a09af36690f6eed1d97a036a6fcb64ea36b5142fc0fbcfb",
+      "schema_version": "hswm-usl-observation-projection/v2",
+      "status": "READY",
+      "usl": {
+        "digest_format": "sha256:utf8:JSON.stringify/v1",
+        "meanings_digest": "sha256:5fd2110b0d3e9fd3c12224f1758cc07b545c2d8f60e552f4e2152a1024d5b2bb",
+        "observation_digest": "sha256:47ed5dd9d277619527ab4d74a98c8919cbad6325df2b3813747e0560de255985",
+        "plan_digest": "sha256:c7bbea48dc800e68923a57d9883b0e13334578e46c9f6fe8eb7e200b732623aa",
+        "report_schema": "usl-program-observation/v2",
+        "source_binding": "CALLER_PINNED_NOT_RECOMPILED",
+        "source_digest": "sha256:9b807e3d96d1b9633a6278c28ed82fb4807b9e3ed9348aee463e130392dc78ab"
+      }
+    }
+  },
+  "badPin": {
+    "error": "resource pin mismatch: code",
+    "ok": false
+  },
+  "stale": {
+    "ok": true,
+    "result": {
+      "links": [
+        {
+          "contractDigest": "sha256:3e90fd0f1dfd8492d84b96132a632b2503c140a2b8c9fe4c42699eeb5d711cf6",
+          "meaning": "implements",
+          "meaningDigest": "sha256:4ad4d9cb9476c59ff63417891308a12cd0b914489e844c9af4a1719706d42116",
+          "name": "edge",
+          "participants": [
+            {
+              "resource": "code",
+              "role": "implementation"
+            },
+            {
+              "resource": "spec",
+              "role": "requirement"
+            }
+          ],
+          "reasons": [
+            "RESOURCE:code_STALE",
+            "RESOURCE:spec_STALE",
+            "GROUNDING:implements_STALE"
+          ],
+          "status": "UNKNOWN",
+          "verification": []
+        }
+      ],
+      "mapping_loss": [
+        "reference resolution only",
+        "no semantic truth",
+        "caller-bound report not attestation",
+        "no content extraction/credit/admission",
+        "declared checks preserved but not executed",
+        "source digest caller-pinned, source not recompiled",
+        "KG_METADATA is not full graph semantics",
+        "noncanonical HTTP URL forms outside the supported subset reject"
+      ],
+      "meanings": [
+        {
+          "definition": {
+            "description": "code implements spec",
+            "grounded": {
+              "kind": "kg",
+              "source": "canonical-neo4j",
+              "uid": "sym:Concept:implements"
+            },
+            "name": "implements",
+            "roles": [
+              {
+                "kind": "url",
+                "name": "implementation"
+              },
+              {
+                "kind": "url",
+                "name": "requirement"
+              }
+            ]
+          },
+          "digest": "sha256:4ad4d9cb9476c59ff63417891308a12cd0b914489e844c9af4a1719706d42116",
+          "name": "implements"
+        }
+      ],
+      "metrics": {
+        "declaredResources": 2,
+        "deniedLocators": 0,
+        "resolverCalls": 3,
+        "selectedResources": 2,
+        "uniqueLocators": 3
+      },
+      "namespace": "hswm.smoke",
+      "observations": [],
+      "plan_digest": "d6cfc796e2adfd2bd319ad1d7ad5a4d0b7613cbab15476e8b42a4f114b359eb4",
+      "policy_digest": "0ab1aa1865b20ca3f6387c8d7a66ffe59fe0e4e00e07b7172e4bae53aeba794a",
+      "read_scope": {
+        "allowedLocators": [
+          "https://example.test/code",
+          "https://example.test/spec",
+          "kg://canonical-neo4j/sym:Concept:implements"
+        ],
+        "links": [
+          "edge"
+        ],
+        "requestedLocators": [
+          "https://example.test/code",
+          "https://example.test/spec",
+          "kg://canonical-neo4j/sym:Concept:implements"
+        ],
+        "resourceBudget": 256
+      },
+      "report_digest": "51f4c7c149d224d28a09af36690f6eed1d97a036a6fcb64ea36b5142fc0fbcfb",
+      "schema_version": "hswm-usl-observation-projection/v2",
+      "status": "UNRESOLVED",
+      "usl": {
+        "digest_format": "sha256:utf8:JSON.stringify/v1",
+        "meanings_digest": "sha256:5fd2110b0d3e9fd3c12224f1758cc07b545c2d8f60e552f4e2152a1024d5b2bb",
+        "observation_digest": "sha256:47ed5dd9d277619527ab4d74a98c8919cbad6325df2b3813747e0560de255985",
+        "plan_digest": "sha256:c7bbea48dc800e68923a57d9883b0e13334578e46c9f6fe8eb7e200b732623aa",
+        "report_schema": "usl-program-observation/v2",
+        "source_binding": "CALLER_PINNED_NOT_RECOMPILED",
+        "source_digest": "sha256:9b807e3d96d1b9633a6278c28ed82fb4807b9e3ed9348aee463e130392dc78ab"
+      }
+    }
+  },
+  "unauthorized": {
+    "error": "unauthorized mapped read",
+    "ok": false
+  }
+}

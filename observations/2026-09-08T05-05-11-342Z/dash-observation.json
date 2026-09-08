@@ -1,0 +1,172 @@
+{
+  "schema": "usl-program-observation/v2",
+  "namespace": "example.game.dash",
+  "planDigest": "sha256:b38b15f087cea38d9c305a52d14b50b9ac08fb760a1c8835b72ef72d6c2a165b",
+  "meaningsDigest": "sha256:a29fa5bf5ce5421af5e63e531988fb8a46f822cd665aa51118936c7ae90e43a9",
+  "sourceDigest": "sha256:e46533c70fa6e467ccca8271aba0aae2f0d7b41a129de97a2b81dcb3624ad9b4",
+  "digestFormat": "sha256:utf8:JSON.stringify/v1",
+  "status": "RESOLVES",
+  "readScope": {
+    "links": [
+      "dash_behavior"
+    ],
+    "allowedLocators": [
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md"
+    ],
+    "requestedLocators": [
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts",
+      "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts"
+    ],
+    "resourceBudget": 16
+  },
+  "metrics": {
+    "declaredResources": 5,
+    "selectedResources": 3,
+    "uniqueLocators": 3,
+    "resolverCalls": 3,
+    "deniedLocators": 0
+  },
+  "resources": [
+    {
+      "name": "dash_spec",
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md",
+      "fingerprintScope": "RESOLVER_REPRESENTATION",
+      "status": "RESOLVES",
+      "resolution": {
+        "locator": {
+          "kind": "filesystem",
+          "host": "dev-01",
+          "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md"
+        },
+        "resolvedLocator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-spec.md",
+        "contentHash": "8e336472bfad920dcf38d2995d62965f18237ac7516fda362cf0baed39394fad",
+        "resolvedAt": "2026-09-08T05:05:11.365Z",
+        "guaranteeLevel": "trust_host",
+        "matchCount": 1
+      },
+      "issue": null
+    },
+    {
+      "name": "dash_code",
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts",
+      "fingerprintScope": "RESOLVER_REPRESENTATION",
+      "status": "RESOLVES",
+      "resolution": {
+        "locator": {
+          "kind": "filesystem",
+          "host": "dev-01",
+          "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts"
+        },
+        "resolvedLocator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.ts",
+        "contentHash": "00ac0c129e9d3093997023d558b4d0fa8492e2e996d8cda95b9281c88446021a",
+        "resolvedAt": "2026-09-08T05:05:11.369Z",
+        "guaranteeLevel": "trust_host",
+        "matchCount": 1
+      },
+      "issue": null
+    },
+    {
+      "name": "dash_test",
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts",
+      "fingerprintScope": "RESOLVER_REPRESENTATION",
+      "status": "RESOLVES",
+      "resolution": {
+        "locator": {
+          "kind": "filesystem",
+          "host": "dev-01",
+          "path": "/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts"
+        },
+        "resolvedLocator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/game-workflow/dash-controller.test.ts",
+        "contentHash": "0f181ece398ba4b3989ad00358d3e927c09f4365bd7d011003a431bd252c509b",
+        "resolvedAt": "2026-09-08T05:05:11.370Z",
+        "guaranteeLevel": "trust_host",
+        "matchCount": 1
+      },
+      "issue": null
+    }
+  ],
+  "groundings": [],
+  "meanings": [
+    {
+      "name": "implements_dash_rule",
+      "digest": "sha256:39cd057b498eae0c289f625ac22023ac419a871e140cba4e9c652fc94f3770b3",
+      "definition": {
+        "name": "implements_dash_rule",
+        "roles": [
+          {
+            "name": "specification",
+            "kind": "filesystem"
+          },
+          {
+            "name": "implementation",
+            "kind": "filesystem"
+          },
+          {
+            "name": "evidence",
+            "kind": "filesystem"
+          }
+        ],
+        "description": "구현은 명세의 지상 상태 전용 대시와 0.35초 쿨다운 규칙을 구현한다",
+        "contract": {
+          "scope": "플레이어 대시 능력의 지상 상태 판정과 쿨다운 동작",
+          "checks": [
+            {
+              "name": "dash_rule_test",
+              "evidenceRoles": [
+                "evidence"
+              ],
+              "description": "dash-controller.test.ts가 공중 대시 거부, 지상 대시 허용, 0.35초 쿨다운을 확인한다"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "name": "dash_behavior",
+      "meaning": "implements_dash_rule",
+      "participants": [
+        {
+          "role": "specification",
+          "resource": "dash_spec"
+        },
+        {
+          "role": "implementation",
+          "resource": "dash_code"
+        },
+        {
+          "role": "evidence",
+          "resource": "dash_test"
+        }
+      ],
+      "meaningDigest": "sha256:39cd057b498eae0c289f625ac22023ac419a871e140cba4e9c652fc94f3770b3",
+      "contractDigest": "sha256:e29c7998bbebae3298ac15661e343de7833799e1a2f8ccd10f384cfd2945d0d0",
+      "resourcesResolve": true,
+      "semanticTruth": "NOT_EVALUATED",
+      "verification": [
+        {
+          "name": "dash_rule_test",
+          "evidenceRoles": [
+            "evidence"
+          ],
+          "description": "dash-controller.test.ts가 공중 대시 거부, 지상 대시 허용, 0.35초 쿨다운을 확인한다",
+          "scope": "플레이어 대시 능력의 지상 상태 판정과 쿨다운 동작",
+          "evidence": [
+            {
+              "role": "evidence",
+              "resource": "dash_test"
+            }
+          ],
+          "evidenceAvailable": true,
+          "status": "NOT_EXECUTED"
+        }
+      ]
+    }
+  ],
+  "semanticTruth": "NOT_EVALUATED",
+  "observationDigest": "sha256:bdfa93ce182f1822856ac0d3d8a2e77dd046c19642a3736a35c80ff0a2dbb952"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "usl-geip-python-number-vectors/v1",
+  "generator": "Python json.dumps ensure_ascii=False, sort_keys=True, separators=(comma, colon), allow_nan=False",
+  "fixture_sha256": "4a98d88495e18d17845afd33819dddab390d326fbc99a090645f936d87d2c510",
+  "cases": [
+    {
+      "raw": "20",
+      "loop_digest": "4c879393eb88e8fb84fe1e545735fbd14f04e6ca1d4241af859049bb921e360d",
+      "graph_digest": "15957965093d8370347f72ffbe46d70b95bd8c5b7e0696a67c9da4a68d67b68d"
+    },
+    {
+      "raw": "20.0",
+      "loop_digest": "6bb413763caa6a4c25476d5f0524558efa1ae17cddf2ecaa51eb76c2b1f1fa9a",
+      "graph_digest": "69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6"
+    },
+    {
+      "raw": "0.25",
+      "loop_digest": "d59e9b507ab358b2d9b1d37017a67084396c0eccfda2fef4bd49dfe48ee6f373",
+      "graph_digest": "34f0996a78afa897d50f18db38f1c800ba4f67dbbd75557309a3b95df0757fef"
+    },
+    {
+      "raw": "1e-7",
+      "loop_digest": "15f00331b8bbffe1989dade6fdf743d7faef5b7d93e52fb26c8d815749e1478e",
+      "graph_digest": "ead0b04add90d52da17485a2c2e51e8fa9a6a9fe2af34502fee18fc97f9a0859"
+    }
+  ]
+}

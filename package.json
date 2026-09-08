@@ -1,0 +1,67 @@
+{
+  "name": "usl",
+  "version": "0.3.0",
+  "description": "USL: a semantic linking language for KG, Git repositories, URLs and filesystem paths. Functional TypeScript + Effect parser, compiler, typed meanings, observations and KG projection.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "bin": {
+    "usl": "./dist/src/cli.js",
+    "usl-mcp": "./dist/src/mcp.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./code": {
+      "types": "./dist/src/language/code.d.ts",
+      "import": "./dist/src/language/code.js"
+    },
+    "./graph-engineering": {
+      "types": "./dist/src/integrations/graph-engineering.d.ts",
+      "import": "./dist/src/integrations/graph-engineering.js"
+    },
+    "./application": {
+      "types": "./dist/src/application.d.ts",
+      "import": "./dist/src/application.js"
+    },
+    "./program-store": {
+      "types": "./dist/src/program-store.d.ts",
+      "import": "./dist/src/program-store.js"
+    },
+    "./mcp": {
+      "types": "./dist/src/mcp.d.ts",
+      "import": "./dist/src/mcp.js"
+    },
+    "./hswm": {
+      "types": "./dist/src/integrations/hswm.d.ts",
+      "import": "./dist/src/integrations/hswm.js"
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "example:code": "tsx examples/code-embedded.ts",
+    "example:engineering": "tsx examples/engineering-workflow.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "usl": "tsx src/cli.ts",
+    "mcp": "tsx src/mcp.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0",
+    "effect": "^3.22.1",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

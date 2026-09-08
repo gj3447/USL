@@ -1,0 +1,25 @@
+{
+  "schema": "usl-geip-validator-receipt/v1",
+  "observed_at": "2026-09-08",
+  "subject": {
+    "upstream_graphspec_path": "/home/lagyeongjun/CD/SYMPOSIUM/THEORY/GRAPH_ENGINEERING/examples/graphspec-valid.json",
+    "graphspec_sha256": "4a98d88495e18d17845afd33819dddab390d326fbc99a090645f936d87d2c510",
+    "graphspec_schema_sha256": "0d49310c6580867c47281f4225d5ff1f385dad17e37e3f9c217078fdf0fed37c",
+    "validator_sha256": "e065e4c15f12d7789ca84079aff2c1c5821db04bc3d0f5c3c96a38a6dceb0650"
+  },
+  "validator": {
+    "name": "symposium-graphspec-validator",
+    "version": "0.2.0",
+    "requirements": "jsonschema[format-nongpl]==4.25.1; PyYAML==6.0.2",
+    "verdict": "STRUCTURALLY_CONFORMANT",
+    "invariants": "GEIP-001..GEIP-015 PASS",
+    "integrity_errors": [],
+    "schema_errors": []
+  },
+  "scope": "document-structural",
+  "limitations": [
+    "GEIP v0alpha1 is a SECONDARY_AI design draft, not an international-standard certification.",
+    "No workflow, runtime conformance, liveness, effect reconciliation, or production readiness was established.",
+    "CloudEvents, PROV-O, and OpenTelemetry references were checked only for declaration presence."
+  ]
+}

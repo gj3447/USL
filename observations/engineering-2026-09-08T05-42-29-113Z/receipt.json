@@ -1,0 +1,85 @@
+{
+  "schema": "usl-code-geip-hswm-verification/v1",
+  "at": "2026-09-08T05:42:29.113Z",
+  "scope": "LOCAL_FIXTURES_AND_PURE_HSWM_CONSUMER",
+  "graphId": "symposium.graph-engineering.smoke",
+  "graphVersion": "0.1.0-draft",
+  "graphspecDigest": "69e9c0ed665fa00754a5e02a55e44d3f4165dbb625ccdce5ae7bbe60049d0af6",
+  "planDigest": "sha256:095f23e7063e20720917002e5454b32cc285a4d78880e8ffbc508a054f5ad307",
+  "observationDigest": "sha256:64781352bb1ad2441e27b746e0e520c75dcb76f23cae9f2ef12f6955eca981fc",
+  "boundFunctionPreserved": true,
+  "selectedLinks": [
+    "geip_edge_link_5f1a0392bab2bcb9_8b5cc4df7eec7d32",
+    "geip_evidence_link_5f1a0392bab2bcb9_e2af4bbad157b952"
+  ],
+  "resolverCalls": 4,
+  "status": "RESOLVES",
+  "semanticTruth": "NOT_EVALUATED",
+  "unboundNodes": [
+    "Research",
+    "Check",
+    "Join",
+    "Approval",
+    "Persist",
+    "Receipt"
+  ],
+  "geipExecution": "NOT_EXECUTED",
+  "hswm": "READY",
+  "context": {
+    "baselineBytes": 6326,
+    "deliveredBytes": 4803,
+    "bytesSaved": 1523,
+    "tokens": null
+  },
+  "unchanged": {
+    "baselineBytes": 6326,
+    "deliveredBytes": 238,
+    "bytesSaved": 6088,
+    "tokens": null
+  },
+  "stale": "UNRESOLVED",
+  "badPin": "resource pin mismatch: graphspec",
+  "unauthorized": "unauthorized mapped read",
+  "consumers": [
+    {
+      "file": "/home/lagyeongjun/CD/HSWM/src/hswm/infrastructure/usl_adapter.py",
+      "digest": "sha256:8bf642de500545ff8a3fc80102789f6efbf7fef40f0ffaa475333f9998d1f809"
+    },
+    {
+      "file": "/home/lagyeongjun/CD/HSWM/src/hswm/infrastructure/usl_observation_v2.py",
+      "digest": "sha256:55b2af74d37cb7160d293f324d64b7f9893cd27b9ceb1890a8c17d3d00aa2534"
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "source.usl",
+      "digest": "sha256:ccf9c36132a9e9639844086246f3ff533b831b5d82642f34bdbb40b701d414c0"
+    },
+    {
+      "file": "plan.json",
+      "digest": "sha256:60a53ec12a060fcdede38e33b183455157142db9aba68d4e32892c8bb530e49e"
+    },
+    {
+      "file": "graph-binding.json",
+      "digest": "sha256:c7523895a048e016269645098dca6c408082778265a59a02aa92826643d344ac"
+    },
+    {
+      "file": "observation.json",
+      "digest": "sha256:740a3d73e45be68fa25e9c2c74b450982dfb8597166930fba59cc7f711689502"
+    },
+    {
+      "file": "hswm-input.json",
+      "digest": "sha256:946aac0a7b635597a66a238e630c768030a1be8796030d6aa3007f495dd706ff"
+    },
+    {
+      "file": "hswm-result.json",
+      "digest": "sha256:790fa5784548d418bfa54af642907a155b91f2d46b4079fd0c0c494887df587d"
+    }
+  ],
+  "limits": [
+    "GraphSpec mapping demonstration, not execution of its workflow",
+    "KG concept is declared but not resolved in this run",
+    "READY indicates pinned reference availability only; no semantic truth or admission",
+    "policy is local fixture policy, not production authorization"
+  ]
+}

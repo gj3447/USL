@@ -1,0 +1,30 @@
+{
+  "schema": "usl-context-budget-example/v1",
+  "fixture": "examples/agent-navigation.usl",
+  "measurement": "UTF8_JSON_BYTES_NOT_MODEL_TOKENS",
+  "baseline": "MINIFIED_AGENT_CONTEXT_V1_WITH_NEWLINE",
+  "first": {
+    "mode": "FULL",
+    "contextDigest": "sha256:9591b480b7216131afbd19aa558598034e6c0e43c295ea2c66ff32dc83ac1d9b",
+    "baselineBytes": 2831,
+    "deliveredBytes": 2316,
+    "bytesSaved": 515,
+    "tokens": null
+  },
+  "repeat": {
+    "mode": "UNCHANGED",
+    "contextDigest": "sha256:9591b480b7216131afbd19aa558598034e6c0e43c295ea2c66ff32dc83ac1d9b",
+    "baselineBytes": 2831,
+    "deliveredBytes": 238,
+    "bytesSaved": 2593,
+    "tokens": null
+  },
+  "meaningChanged": {
+    "mode": "FULL",
+    "contextDigest": "sha256:e22e26bd28522e8eed8b23435828bf02ceda46a26c0c3fcc3ed439b9adf5cf4e",
+    "baselineBytes": 2841,
+    "deliveredBytes": 2326,
+    "bytesSaved": 515,
+    "tokens": null
+  }
+}
