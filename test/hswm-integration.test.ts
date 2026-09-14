@@ -5,7 +5,7 @@ import { compileSource, observeProgram } from "../src/language/index.js"
 import { formatLocator } from "../src/locator.js"
 import { Resolvers } from "../src/resolve.js"
 import type { Locator, Resolution } from "../src/domain.js"
-import { HswmIntegrationError, hswmDigest, prepareHswmAdapterArguments, type HswmObservationPolicyV2 } from "../src/integrations/hswm.js"
+import { HswmIntegrationError, hswmDigest, prepareHswmAdapterArguments, validateHswmAuthority, validateHswmAuthorityForPlan, type HswmObservationPolicyV2 } from "../src/integrations/hswm.js"
 
 const source = `usl "0.1"; namespace "hswm.integration";
 resource code = "https://example.test/code"; resource spec = "https://example.test/spec";
@@ -59,4 +59,15 @@ test("rejects canonical URL aliases that the current HSWM v2 validator cannot co
   const aliases = source.replace('resource code = "https://example.test/code"; resource spec = "https://example.test/spec";', 'resource code = "https://example.test"; resource spec = "https://example.test/";')
   const compiled = Either.getOrThrow(compileSource(aliases)), report = await observe(aliases), policy = policyFor(compiled, report)
   assert.throws(() => prepareHswmAdapterArguments({ plan: compiled, report, policy, allowed_reads: [["hswm_reference", "resolves"]], now: 1_789_000_000, revision: "r" }), /canonical locator aliases/)
+})
+
+test("HSWM authority preflight rejects malformed data and plan mismatch before an observation", async () => {
+  const compiled = plan(), report = await observe(), authority = { policy: policyFor(compiled, report), allowed_reads: [["hswm_reference", "resolves"]] as const, now: 1, revision: "r" }
+  assert.throws(() => validateHswmAuthority({ ...authority, policy: null as never }), HswmIntegrationError)
+  assert.throws(() => validateHswmAuthority({ ...authority, extra: true } as never), /unknown HSWM authority field/)
+  assert.throws(() => validateHswmAuthorityForPlan(compiled, { ...authority, policy: { ...authority.policy, namespace: "other" } }), /plan identity mismatch/)
+  const mutable = { ...authority, policy: structuredClone(authority.policy) }
+  const prepared = prepareHswmAdapterArguments({ plan: compiled, report, ...mutable })
+  ;(mutable.policy.resources[0] as { content_hash: string }).content_hash = hash("f")
+  assert.equal(prepared.policy.resources[0]!.content_hash, hash("a"))
 })

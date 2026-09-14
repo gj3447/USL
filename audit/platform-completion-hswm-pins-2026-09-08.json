@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-09-08T09:23:43.582Z",
+  "predecessor": "/home/lagyeongjun/CD/HSWM/_research/causal_composition/relation_synthesis_usl_v1/source-pins.v4.json",
+  "predecessorDigest": "8f0f7871887d4863e9bb26a5a7a90e4fcda8bf3c6463b10e2586129275f49f19",
+  "manifest": "/home/lagyeongjun/CD/HSWM/_research/causal_composition/relation_synthesis_usl_v1/source-pins.v5.json",
+  "manifestDigest": "8a7bff9915730a89b31869171452f68c692c540c0e2e9d62df8a3f36a5ebfbf0",
+  "bindings": 48,
+  "changes": [
+    {
+      "repository": "HSWM",
+      "path": "_research/causal_composition/relation_synthesis_usl_v1/run.mts",
+      "before": "c0f19d2d5b166b4534beed8b2c76d1055dfeb2e222a2f4924e5d9ba0466a11fc",
+      "after": "f3dbbb70fad869b371dfc0f5b41b641ba78cce82bd2bac9433a88b635886812b"
+    },
+    {
+      "repository": "USL",
+      "path": "src/application.ts",
+      "before": "4bf44d0696c0f8d8acf0ef85c584169b37aece10e16b225bddbe2b6a94718de5",
+      "after": "3510e6ad1cc5bb7e10093b3c7106d319386b12608ab5a14eec79bc6e36ade9a6"
+    },
+    {
+      "repository": "USL",
+      "path": "src/cli-platform.ts",
+      "before": "68c4f7004222ca1cf66cfeb9db50cdfda91c63c5673d9631b8eef83670e32fd4",
+      "after": "0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9"
+    },
+    {
+      "repository": "USL",
+      "path": "src/mcp.ts",
+      "before": "b21e0c2a8f5f3c976be5bc3e2617e7d1d5be69fc14e4917d9038593ec7a58a47",
+      "after": "69dfbd17b7c978e1472d927dcf89b3c8c473fef86016583e6a904efe59b1f1a2"
+    },
+    {
+      "repository": "USL",
+      "path": "src/mcp-config.ts",
+      "before": null,
+      "after": "c1e0a61244642f0c762121fcb2f747a6eadac9ff789ae8cb1c7a42653bbdb12e"
+    },
+    {
+      "repository": "HSWM",
+      "path": "tests/test_hswm_relation_synthesis_runner_cli.py",
+      "before": null,
+      "after": "def7422177eb6c03bbc239d2cf2ca579500bf50a56d36852db07435c87360481"
+    }
+  ],
+  "reason": "property-graph/v2 retained; runner defaults, config-based MCP and complete native observation envelope handling reviewed. Historical reports and v1-v4 manifests preserved."
+}

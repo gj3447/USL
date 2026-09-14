@@ -1,5 +1,14 @@
 # HSWM integration
 
+2026-09-14: source pins in dated 2026-09-08 receipts describe historical builds. New USL adapters and compiler changes require independently reviewed current source pins before a new pinned HSWM run. This repository preserves prior evidence rather than rewriting it. See [current architecture](ARCHITECTURE.md).
+
+For existing-system inputs, `connectUsl(...).hswm(request, observeOptions,
+authority)` now obtains one native response, observes its selected participants,
+and prepares these arguments from the same snapshot. No `.usl` file is needed.
+See [ADAPTER_INTEGRATION.md](ADAPTER_INTEGRATION.md). Run
+`npm run build` then `node audit/native-adapter-smoke.mjs` for the local native
+graph → file observations → existing Python HSWM consumer verification.
+
 `prepareHswmAdapterArguments` prepares the exact values consumed by HSWM's
 existing Python `adapt_usl` v2 adapter: `plan`, `report`, `policy`,
 `allowed_reads`, `now`, and `revision`. It is pure and deep-copies its input.

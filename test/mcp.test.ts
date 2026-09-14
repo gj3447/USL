@@ -47,6 +47,20 @@ test("MCP default observe policy cannot be expanded by a client", async () => {
   } finally { await client.close() }
 })
 
+test("MCP connection maps native IDs and refreshes a host-owned graph snapshot", async (t) => {
+  const dir = await mkdtemp(join(tmpdir(), "usl-mcp-connection-")), graph = join(dir, "graph.json")
+  const raw = (description: string) => JSON.stringify({ nodes: [{ uid: "uid-a", properties: { locator: "file://fixture/a" } }, { uid: "uid-b", properties: { locator: "file://fixture/b" } }], relations: [{ uid: "rel-1", from_uid: "uid-a", to_uid: "uid-b", type: "IMPLEMENTS", properties: { description } }] })
+  await writeFile(graph, raw("first"))
+  const server = fileURLToPath(new URL("./mcp-connection-server.ts", import.meta.url)), tsx = fileURLToPath(new URL("../node_modules/tsx/dist/cli.mjs", import.meta.url))
+  const client = new Client({ name: "usl-connection-test", version: "1" })
+  await client.connect(new StdioClientTransport({ command: process.execPath, args: [tsx, server, graph], cwd: process.cwd(), stderr: "pipe" }))
+  t.after(async () => { await client.close(); await rm(dir, { recursive: true, force: true }) })
+  const call = () => client.callTool({ name: "context", arguments: { connection: "game", query: { focus: "uid-a", target: "uid-b" }, compact: true } })
+  const first = await call(); assert.equal(first.isError, undefined); assert.match(JSON.stringify(first), /first/)
+  await writeFile(graph, raw("second")); const second = await call(); assert.match(JSON.stringify(second), /second/); assert.notEqual(JSON.stringify(first), JSON.stringify(second))
+  const unknown = await client.callTool({ name: "context", arguments: { connection: "missing", query: { focus: "uid-a" } } }); assert.equal(unknown.isError, true); assert.match(JSON.stringify(unknown), /unknown connection/)
+})
+
 const registeredSource = (description: string) => `usl "0.1";
 namespace "registered_program";
 resource source = "file://fixture/source.ts";

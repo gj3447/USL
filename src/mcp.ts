@@ -5,8 +5,13 @@ import { serveStdio, StdioServerTransport } from "@modelcontextprotocol/server/s
 import * as z from "zod/v4"
 import { pathToFileURL } from "node:url"
 import { realpathSync } from "node:fs"
+import { parseArgs } from "node:util"
+import { Either } from "effect"
+import { parseLocator } from "./locator.js"
 import { DEFAULT_USL_POLICY, executeUslOperation, type UslOperation, type UslOperationPolicy } from "./application.js"
 import { openProgramRegistry } from "./program-store.js"
+import { fileConnectionResolver, readMcpConfig, type FileGraphConnection } from "./mcp-config.js"
+export { readMcpConfigFromEnv, readMcpConfig } from "./mcp-config.js"
 
 export interface UslMcpServerConfig {
   readonly name?: string
@@ -15,27 +20,8 @@ export interface UslMcpServerConfig {
   readonly policy?: UslOperationPolicy
   /** Administrator-owned ID → source-file map, opened once at server startup. */
   readonly programs?: Readonly<Record<string, string>>
-}
-
-/** Read only startup-controlled settings; client requests never reach this path. */
-export const readMcpConfigFromEnv = (env: NodeJS.ProcessEnv = process.env): UslMcpServerConfig => {
-  const encoded = env.USL_MCP_POLICY
-  if (encoded === undefined || encoded === "") return { policy: DEFAULT_USL_POLICY, programs: {} }
-  let value: unknown
-  try { value = JSON.parse(encoded) } catch { throw new Error("USL_MCP_POLICY must be JSON") }
-  if (value === null || typeof value !== "object" || Array.isArray(value)) throw new Error("USL_MCP_POLICY must be an object")
-  const data = value as Record<string, unknown>
-  const expected = ["allowedLocators", "maxResources", "maxInputBytes", "maxOutputBytes", "programs"]
-  for (const key of Object.keys(data)) if (!expected.includes(key)) throw new Error(`unknown USL_MCP_POLICY field: ${key}`)
-  for (const key of expected) if (!(key in data)) throw new Error(`USL_MCP_POLICY.${key} is required`)
-  if (!Array.isArray(data.allowedLocators) || !data.allowedLocators.every((entry) => typeof entry === "string")) throw new Error("USL_MCP_POLICY.allowedLocators must be a string array")
-  const limit = (key: "maxResources" | "maxInputBytes" | "maxOutputBytes") => {
-    const candidate = data[key]
-    if (typeof candidate !== "number" || !Number.isSafeInteger(candidate) || candidate < 0) throw new Error(`USL_MCP_POLICY.${key} must be a nonnegative safe integer`)
-    return candidate
-  }
-  if (data.programs === null || typeof data.programs !== "object" || Array.isArray(data.programs) || !Object.values(data.programs).every((entry) => typeof entry === "string")) throw new Error("USL_MCP_POLICY.programs must be an ID-to-path object")
-  return { policy: { allowedLocators: [...data.allowedLocators], maxResources: limit("maxResources"), maxInputBytes: limit("maxInputBytes"), maxOutputBytes: limit("maxOutputBytes") }, programs: { ...(data.programs as Record<string, string>) } }
+  /** Administrator-owned native graph files, read afresh for each selected call. */
+  readonly connections?: Readonly<Record<string, FileGraphConnection>>
 }
 
 const json = z.unknown()
@@ -54,12 +40,12 @@ const schemas: Record<UslOperation, z.ZodType> = {
 }
 
 const descriptions: Record<UslOperation, string> = {
-  check: "Compile USL source or an administrator-registered program and return its identity.",
-  compile: "Compile USL source or a registered program without reading resources.",
-  context: "Return bounded graph context from USL source or a registered program.",
+  check: "Check source, a registered program, or a named native connection and return its identity.",
+  compile: "Return a plan from source, a program, or a named native connection without resolving endpoints.",
+  context: "Return bounded graph context from source, a program, or a native connection. For connections use native resource/link UIDs.",
   observe: "Observe only policy-allowed selected resources; the server starts deny-all by default.",
-  compare: "Compare two observation reports without reading a resource.",
-  validate_observation: "Validate an observation report's schema, digests and internal consistency.",
+  compare: "Compare two observation reports or complete native observation envelopes without reading a resource.",
+  validate_observation: "Validate observation fields, internal consistency and native envelope receipts. This is not semantic verification.",
   graph_import: "Import a raw GEIP GraphSpec plus explicit USL bindings; this does not execute the graph.",
   hswm_prepare: "Prepare a pure HSWM handoff argument bundle; this does not contact HSWM.",
   project: "Produce a semantic projection from USL source or a registered program; this server performs no KG write.",
@@ -68,18 +54,26 @@ const annotations = (operation: UslOperation) => ({ readOnlyHint: true, destruct
 
 const frozenPolicy = (supplied: UslOperationPolicy | undefined): UslOperationPolicy => {
   const policy = supplied ?? DEFAULT_USL_POLICY
-  return Object.freeze({ allowedLocators: Object.freeze([...policy.allowedLocators]), maxResources: policy.maxResources,
+  const captured = { allowedLocators: structuredClone(policy.allowedLocators), maxResources: policy.maxResources,
     maxInputBytes: policy.maxInputBytes, maxOutputBytes: policy.maxOutputBytes,
     ...(policy.resolvers === undefined ? {} : { resolvers: policy.resolvers }),
     ...(policy.getProgram === undefined ? {} : { getProgram: policy.getProgram }),
-    ...(policy.getConnection === undefined ? {} : { getConnection: policy.getConnection }) })
+    ...(policy.getConnection === undefined ? {} : { getConnection: policy.getConnection }) }
+  if (!Array.isArray(captured.allowedLocators) || captured.allowedLocators.some(value => typeof value !== "string" || Either.isLeft(parseLocator(value))) ||
+    [captured.maxResources, captured.maxInputBytes, captured.maxOutputBytes].some(value => !Number.isSafeInteger(value) || value < 0)) throw new Error("invalid MCP policy")
+  return Object.freeze({ ...captured, allowedLocators: Object.freeze(captured.allowedLocators) })
+}
+const connectionPolicy = (config: UslMcpServerConfig): UslOperationPolicy => {
+  const base = frozenPolicy(config.policy)
+  if (config.connections !== undefined && base.getConnection !== undefined) throw new Error("configure either policy.getConnection or connections, not both")
+  return frozenPolicy({ ...base, ...(config.connections === undefined ? {} : { getConnection: fileConnectionResolver(config.connections, base.maxInputBytes) }) })
 }
 const response = (value: unknown) => ({ content: [{ type: "text" as const, text: JSON.stringify(value) }], structuredContent: value as Record<string, unknown> })
 const failure = (error: unknown) => ({ content: [{ type: "text" as const, text: error instanceof Error ? error.message : String(error) }], isError: true })
 
 /** Build an in-process server for tests or a caller-owned stdio transport. */
 export const createUslMcpServer = (config: UslMcpServerConfig = {}): McpServer => {
-  const policy = frozenPolicy(config.policy)
+  const policy = connectionPolicy(config)
   const server = new McpServer({ name: config.name ?? "usl", version: config.version ?? "0.3.0" })
   for (const operation of Object.keys(schemas) as UslOperation[]) {
     const schema = schemas[operation]
@@ -93,7 +87,7 @@ export const createUslMcpServer = (config: UslMcpServerConfig = {}): McpServer =
 
 /** Start a stdio server. stdout is reserved for MCP JSON-RPC; diagnostics use stderr. */
 export const startUslMcpServer = async (config: UslMcpServerConfig = {}) => {
-  const basePolicy = frozenPolicy(config.policy)
+  const basePolicy = connectionPolicy(config)
   if (config.programs !== undefined && basePolicy.getProgram !== undefined) throw new Error("configure either policy.getProgram or programs, not both")
   const registry = config.programs === undefined ? undefined : await openProgramRegistry(config.programs, { maxSourceBytes: basePolicy.maxInputBytes })
   const policy = frozenPolicy({ ...basePolicy, ...(registry === undefined ? {} : { getProgram: registry.getProgram }) })
@@ -110,10 +104,16 @@ export const startUslMcpServer = async (config: UslMcpServerConfig = {}) => {
   return { close: async () => { closeRegistry(); await handle.close() } }
 }
 
+export const runUslMcpCommand = async (args: readonly string[]) => {
+  const { values } = parseArgs({ args, allowPositionals: false, options: { config: { type: "string" }, help: { type: "boolean" } } })
+  if (values.help) { console.log("usl-mcp [--config FILE.json]"); return }
+  await startUslMcpServer(await readMcpConfig(values.config))
+}
+
 const isEntrypoint = (): boolean => {
   try { return !!process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href }
   catch { return false }
 }
 if (isEntrypoint()) {
-  void startUslMcpServer(readMcpConfigFromEnv())
+  void runUslMcpCommand(process.argv.slice(2)).catch(error => { console.error(error instanceof Error ? error.message : String(error)); process.exitCode = 1 })
 }

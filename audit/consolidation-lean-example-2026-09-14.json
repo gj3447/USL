@@ -1,0 +1,178 @@
+{
+  "adapter": "lean4/v1",
+  "sourceDigest": "sha256:93fa3c3ddab144f8d3112ed34a04bd1e57844b85fb6a38fa2deda151c94ca406",
+  "receipt": {
+    "sourceDigest": "sha256:93fa3c3ddab144f8d3112ed34a04bd1e57844b85fb6a38fa2deda151c94ca406",
+    "planDigest": "sha256:35061c0147d1e7af4343419f16448f8fe9bb0635756917b005c6ba3a2b77edc1",
+    "resultDigest": "sha256:c0a4f77bf56cd271caa5634a59240cf1aca5449b7b38c6e0ac3cdc7285ee953d",
+    "digest": "sha256:52de24712236327046b84fe7c7c5fdbac16e9ea0bff57bd204abf8d69698b1d0"
+  },
+  "context": {
+    "context": {
+      "schema": "usl-agent-context-compact/v1",
+      "mode": "FULL",
+      "namespace": "example.lean4",
+      "planDigest": "sha256:35061c0147d1e7af4343419f16448f8fe9bb0635756917b005c6ba3a2b77edc1",
+      "focus": "r_c557e2657d36401edf8c4f81bbfabcc218c8dfa467b6e2ca63b8f51befebf3ce",
+      "routes": null,
+      "resources": [
+        {
+          "name": "r_c557e2657d36401edf8c4f81bbfabcc218c8dfa467b6e2ca63b8f51befebf3ce",
+          "locator": {
+            "kind": "kg",
+            "source": "canonical-neo4j",
+            "uid": "game:dash"
+          },
+          "distance": 0
+        },
+        {
+          "name": "r_1aea4bba6e0b39d82c1646feb3e4fe69a91734fdcc31c81589485d5ee767b139",
+          "locator": {
+            "kind": "filesystem",
+            "host": "dev-01",
+            "path": "/home/lagyeongjun/CD/USL/lean/Examples/Connections.lean"
+          },
+          "distance": 1
+        },
+        {
+          "name": "r_61627f5ceb47bf8794ebf2b82a2e86b0e8674699174787b8bfa6c2d7aa123d38",
+          "locator": {
+            "kind": "filesystem",
+            "host": "dev-01",
+            "path": "/home/lagyeongjun/CD/USL/lean/Examples/Connections.lean"
+          },
+          "distance": 2
+        }
+      ],
+      "meanings": [
+        {
+          "name": "m_9a3513a495e836161ec8b1902bcf1b2d02fc27d9bc512b4bc42c5cc883113024",
+          "roles": [
+            {
+              "name": "declaration",
+              "kind": "any"
+            },
+            {
+              "name": "source",
+              "kind": "any"
+            }
+          ],
+          "description": "{\"meaning\":{\"description\":\"The selected Lean declaration is reported by this export source.\",\"id\":\"lean:declared_in\"},\"metadata\":{},\"provenance\":null,\"resources\":[{\"id\":\"lean:usl-example\",\"metadata\":{\"check\":{\"file\":\"/home/lagyeongjun/CD/USL/lean/Examples/Connections.lean\",\"sourceDigest\":\"sha256:674cdf0df653d069fb55cdfcc44627586b1642a6a6b375c3d1fd6ecb8478081e\",\"status\":\"PROCESS_EXIT_ZERO\",\"warnings\":[]},\"evidence\":\"OWNER_REPORTED_LEAN_ENVIRONMENT\",\"leanVersion\":\"4.33.1\"},\"types\":[\"urn:usl:lean4:Source\"]},{\"id\":\"urn:usl:lean4:lean%3Ausl-example:Demo.dash_requires_ground\",\"metadata\":{\"axioms\":[],\"kind\":\"theorem\",\"name\":\"Demo.dash_requires_ground\",\"partial\":false,\"proofStatus\":\"DECLARATION_REPORTED\",\"type\":\"∀ (grounded : Bool), Demo.canDash grounded = true → grounded = true\",\"unsafe\":false},\"types\":[\"urn:usl:lean4:theorem\"]}],\"schema\":\"usl-role-link/v1\"}"
+        },
+        {
+          "name": "m_d2fbf695c4bb2e124a3ba140370e02a9be6d6f2b521dc24ee9bab4c6a5ebf72b",
+          "roles": [
+            {
+              "name": "formalization",
+              "kind": "any"
+            },
+            {
+              "name": "subject",
+              "kind": "any"
+            }
+          ],
+          "description": "{\"meaning\":{\"description\":\"The author connects a Lean declaration to an external specification or resource; correspondence is not automatically proved.\",\"id\":\"lean:formalizes\"},\"metadata\":{\"description\":\"The Lean theorem formalizes the grounded dash precondition.\",\"semanticTruth\":\"NOT_EVALUATED\"},\"provenance\":null,\"resources\":[{\"id\":\"game:dash\",\"metadata\":{},\"types\":[\"urn:game:Requirement\"]},{\"id\":\"urn:usl:lean4:lean%3Ausl-example:Demo.dash_requires_ground\",\"metadata\":{\"axioms\":[],\"kind\":\"theorem\",\"name\":\"Demo.dash_requires_ground\",\"partial\":false,\"proofStatus\":\"DECLARATION_REPORTED\",\"type\":\"∀ (grounded : Bool), Demo.canDash grounded = true → grounded = true\",\"unsafe\":false},\"types\":[\"urn:usl:lean4:theorem\"]}],\"schema\":\"usl-role-link/v1\"}"
+        }
+      ],
+      "links": [
+        {
+          "name": "l_d2fbf695c4bb2e124a3ba140370e02a9be6d6f2b521dc24ee9bab4c6a5ebf72b",
+          "meaning": "m_d2fbf695c4bb2e124a3ba140370e02a9be6d6f2b521dc24ee9bab4c6a5ebf72b",
+          "participants": [
+            {
+              "role": "formalization",
+              "resource": "r_1aea4bba6e0b39d82c1646feb3e4fe69a91734fdcc31c81589485d5ee767b139"
+            },
+            {
+              "role": "subject",
+              "resource": "r_c557e2657d36401edf8c4f81bbfabcc218c8dfa467b6e2ca63b8f51befebf3ce"
+            }
+          ]
+        },
+        {
+          "name": "l_9a3513a495e836161ec8b1902bcf1b2d02fc27d9bc512b4bc42c5cc883113024",
+          "meaning": "m_9a3513a495e836161ec8b1902bcf1b2d02fc27d9bc512b4bc42c5cc883113024",
+          "participants": [
+            {
+              "role": "declaration",
+              "resource": "r_1aea4bba6e0b39d82c1646feb3e4fe69a91734fdcc31c81589485d5ee767b139"
+            },
+            {
+              "role": "source",
+              "resource": "r_61627f5ceb47bf8794ebf2b82a2e86b0e8674699174787b8bfa6c2d7aa123d38"
+            }
+          ]
+        }
+      ],
+      "pathStepFields": [
+        "link",
+        "enteredRole",
+        "exitedRole"
+      ],
+      "paths": [
+        {
+          "resource": "r_c557e2657d36401edf8c4f81bbfabcc218c8dfa467b6e2ca63b8f51befebf3ce",
+          "steps": []
+        },
+        {
+          "resource": "r_1aea4bba6e0b39d82c1646feb3e4fe69a91734fdcc31c81589485d5ee767b139",
+          "steps": [
+            [
+              "l_d2fbf695c4bb2e124a3ba140370e02a9be6d6f2b521dc24ee9bab4c6a5ebf72b",
+              "subject",
+              "formalization"
+            ]
+          ]
+        },
+        {
+          "resource": "r_61627f5ceb47bf8794ebf2b82a2e86b0e8674699174787b8bfa6c2d7aa123d38",
+          "steps": [
+            [
+              "l_d2fbf695c4bb2e124a3ba140370e02a9be6d6f2b521dc24ee9bab4c6a5ebf72b",
+              "subject",
+              "formalization"
+            ],
+            [
+              "l_9a3513a495e836161ec8b1902bcf1b2d02fc27d9bc512b4bc42c5cc883113024",
+              "declaration",
+              "source"
+            ]
+          ]
+        }
+      ],
+      "target": {
+        "resource": "r_1aea4bba6e0b39d82c1646feb3e4fe69a91734fdcc31c81589485d5ee767b139",
+        "status": "FOUND"
+      },
+      "coverage": {
+        "scope": "SUPPLIED_PLAN_AND_ROUTES",
+        "complete": false,
+        "limits": {
+          "maxHops": 2,
+          "maxResources": 64,
+          "maxLinks": 128,
+          "maxVisits": 1024
+        },
+        "limitsReached": [
+          "maxHops"
+        ],
+        "visits": 18,
+        "pathPolicy": "ONE_SHORTEST_WITNESS_PER_REACHED_RESOURCE"
+      },
+      "interpretation": {
+        "traversal": "ROLE_INCIDENCE",
+        "declarationStatus": "DECLARED",
+        "semanticTruth": "NOT_EVALUATED",
+        "reachability": "NOT_OBSERVED",
+        "execution": "NOT_PLANNED"
+      },
+      "contextDigest": "sha256:6fe7f160b2161a230c34c339baf20945a33b23fc1c54e06e7956ebec288abcb7"
+    },
+    "stats": {
+      "baselineBytes": 6053,
+      "deliveredBytes": 4970,
+      "bytesSaved": 1083,
+      "tokens": null
+    }
+  }
+}

@@ -7,11 +7,12 @@ import { parseLocator } from "./locator.js"
 import { compileSource, agentContext, compactAgentContext, observeProgram, compareObservations,
   validateObservation, planDigest, digestSource, digestJson, toSemanticBundle, composePlans } from "./language/index.js"
 import type { AdaptedGraph, AdapterResult } from "./adapters.js"
-import type { SemanticPlan, NavigationQuery, ObserveOptions, SemanticProjectionOptions } from "./language/index.js"
+import type { SemanticPlan, NavigationQuery, ObserveOptions, SemanticProjectionOptions, ProgramObservation } from "./language/index.js"
 import { parseGraphEngineeringSource, toGraphEngineeringPlan } from "./integrations/graph-engineering.js"
 import type { GraphEngineeringBindings } from "./integrations/graph-engineering.js"
 import { prepareHswmAdapterArguments } from "./integrations/hswm.js"
 import type { HswmAdapterArguments } from "./integrations/hswm.js"
+import { DEFAULT_NAVIGATION_LIMITS, MAX_NAVIGATION_LIMITS } from "./language/navigation.js"
 
 export const USL_OPERATIONS = ["check", "compile", "context", "observe", "compare", "validate_observation", "graph_import", "hswm_prepare", "project"] as const
 export type UslOperation = typeof USL_OPERATIONS[number]
@@ -42,7 +43,7 @@ const normalizeLocator = (value: unknown) => locatorKey(unwrap(parseLocator(stri
 
 // This boundary accepts JSON data. Reject options that JSON/structuredClone
 // would silently erase (inherited limits, accessors, sparse arrays, undefined).
-const assertJsonData = (value: unknown, ancestors = new Set<object>()): void => {
+export const assertJsonData = (value: unknown, ancestors = new Set<object>()): void => {
   if (value === null || typeof value === "string" || typeof value === "boolean") return
   if (typeof value === "number" && Number.isFinite(value)) return
   if (typeof value !== "object" || value === null) fail("input must contain JSON data only")
@@ -64,6 +65,111 @@ const assertJsonData = (value: unknown, ancestors = new Set<object>()): void => 
   ancestors.delete(item)
 }
 
+/** One validation boundary for direct SDK snapshots and host-provided connections.
+ * Preserve the original field order: validation must not rewrite hashed plans. */
+export const captureAdaptedGraph = (value: unknown, maxInputBytes: number): AdaptedGraph => {
+  assertJsonData(value)
+  const copy = record(structuredClone(value), "connection snapshot")
+  fields(copy, ["source", "identities", "plan"])
+  const source = record(copy.source, "connection.source"), identities = record(copy.identities, "connection.identities")
+  fields(source, ["adapter", "digest"]); fields(identities, ["resources", "links"])
+  if (typeof source.adapter !== "string" || !source.adapter.trim() || typeof source.digest !== "string" || !/^sha256:[a-f0-9]{64}$/.test(source.digest)) return fail("invalid connection source identity")
+  if (size(copy) > integer(maxInputBytes, "maxInputBytes")) return fail("connection snapshot exceeds maxInputBytes")
+  const plan = record(copy.plan, "connection.plan") as unknown as SemanticPlan
+  unwrap(composePlans(plan.namespace, [plan]))
+  for (const [kind, names] of [["resources", plan.resources], ["links", plan.links]] as const) {
+    const mapping = record(identities[kind], `connection.identities.${kind}`)
+    const expected = new Set(names.map((entry) => entry.name))
+    for (const [identity, name] of Object.entries(mapping)) if (!identity.trim() || typeof name !== "string" || !expected.has(name)) return fail(`invalid connection ${kind} identity`)
+    const mapped = new Set(Object.values(mapping))
+    if ([...expected].some((name) => !mapped.has(name))) return fail(`connection ${kind} identities must cover the view`)
+  }
+  return copy as unknown as AdaptedGraph
+}
+
+/** Accept the CLI/MCP's complete native observation output without dropping its
+ * provenance. This verifies consistency, not source authenticity or authority. */
+const observationInput = (value: unknown): { report: ProgramObservation; source: AdaptedGraph["source"] | null } => {
+  const input = record(value, "observation")
+  if (input.schema !== undefined) return { report: unwrap(validateObservation(input)), source: null }
+  fields(input, ["source", "identities", "result", "receipt"])
+  const source = record(input.source, "observation source"), identities = record(input.identities, "observation identities")
+  const receipt = record(input.receipt, "observation receipt")
+  fields(source, ["adapter", "digest"]); fields(identities, ["resources", "links"])
+  fields(receipt, ["sourceDigest", "planDigest", "resultDigest", "digest"])
+  if (typeof source.adapter !== "string" || !source.adapter.trim() || typeof source.digest !== "string" || !/^sha256:[a-f0-9]{64}$/.test(source.digest)) return fail("invalid observation source identity")
+  const report = unwrap(validateObservation(input.result))
+  for (const kind of ["resources", "links"] as const) {
+    const mapping = record(identities[kind], `observation identities.${kind}`)
+    for (const [uid, name] of Object.entries(mapping)) if (!uid.trim() || typeof name !== "string" || !/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)) return fail("invalid observation identity mapping")
+    const mapped = new Set(Object.values(mapping))
+    if (report[kind].some(entry => !mapped.has(entry.name))) return fail(`observation identities must cover selected ${kind}`)
+  }
+  const expected = { sourceDigest: source.digest, planDigest: report.planDigest, resultDigest: digestJson(input.result) }
+  if (receipt.sourceDigest !== expected.sourceDigest || receipt.planDigest !== expected.planDigest || receipt.resultDigest !== expected.resultDigest ||
+    receipt.digest !== digestJson({ source, identities, ...expected })) return fail("observation receipt mismatch")
+  return { report, source: source as unknown as AdaptedGraph["source"] }
+}
+
+type InputPolicy = Pick<UslOperationPolicy, "allowedLocators" | "maxResources" | "maxInputBytes" | "maxOutputBytes">
+const validateUslOperationData = (operation: UslOperation, data: Record<string, unknown>, policy: InputPolicy): void => {
+  if (size(data) > policy.maxInputBytes) return fail("input exceeds maxInputBytes")
+  const permitted = ["source", "program", "connection", ...(operation === "context" ? ["query", "compact", "maxBytes", "knownContextDigest"] : operation === "observe" ? ["options", "baseline"] : operation === "project" ? ["options"] : [])]
+  fields(data, permitted)
+  const sources = ["source", "program", "connection"].filter((key) => data[key] !== undefined)
+  if (sources.length !== 1) return fail("provide exactly one of source, program or connection")
+  string(data[sources[0]!], sources[0]!)
+  if (operation === "context") {
+    const query = record(data.query, "query")
+    fields(query, ["focus", "target", "routes", "maxHops", "maxResources", "maxLinks", "maxVisits"])
+    string(query.focus, "query.focus")
+    if (query.target !== undefined) string(query.target, "query.target")
+    if (query.maxResources !== undefined && integer(query.maxResources, "query.maxResources") > policy.maxResources) return fail("query.maxResources exceeds server policy")
+    for (const key of ["maxHops", "maxResources", "maxLinks", "maxVisits"] as const) {
+      const value = query[key] ?? (key === "maxResources" ? policy.maxResources : DEFAULT_NAVIGATION_LIMITS[key])
+      // Null is malformed, never an omitted limit.
+      const checked = integer(query[key] === undefined ? value : query[key], `query.${key}`)
+      if (checked < (key === "maxHops" ? 0 : 1) || checked > MAX_NAVIGATION_LIMITS[key]) return fail(`query.${key} is outside navigation limits`)
+    }
+    if (query.routes !== undefined) {
+      if (!Array.isArray(query.routes)) return fail("query.routes must be an array")
+      for (const value of query.routes) {
+        const route = record(value, "query route")
+        fields(route, ["meaning", "enter", "exit"])
+        for (const key of ["meaning", "enter", "exit"]) string(route[key], `query.routes.${key}`)
+        if (route.enter === route.exit) return fail("query route must use two distinct roles")
+      }
+    }
+    if (data.compact !== undefined && typeof data.compact !== "boolean") return fail("compact must be a boolean")
+    if (!data.compact && (data.maxBytes !== undefined || data.knownContextDigest !== undefined)) return fail("maxBytes and knownContextDigest require compact")
+    if (data.maxBytes !== undefined && integer(data.maxBytes, "maxBytes") > policy.maxOutputBytes) return fail("maxBytes exceeds server policy")
+    if (data.knownContextDigest !== undefined && (typeof data.knownContextDigest !== "string" || !/^sha256:[a-f0-9]{64}$/.test(data.knownContextDigest))) return fail("knownContextDigest must be a SHA-256 digest")
+  }
+  if (operation === "observe") {
+    const options = data.options === undefined ? {} : record(data.options, "options")
+    fields(options, ["links", "allowedLocators", "maxResources"])
+    if (options.maxResources !== undefined && integer(options.maxResources, "options.maxResources") > policy.maxResources) return fail("options.maxResources exceeds server policy")
+    if (options.links !== undefined) {
+      if (!Array.isArray(options.links)) return fail("options.links must be an array")
+      for (const link of options.links) string(link, "options.links")
+    }
+    const allowed = policy.allowedLocators.map(normalizeLocator)
+    if (options.allowedLocators !== undefined) {
+      if (!Array.isArray(options.allowedLocators)) return fail("options.allowedLocators must be an array")
+      if (options.allowedLocators.map(normalizeLocator).some((locator) => !allowed.includes(locator))) return fail("request attempts to expand the server read allowlist")
+    }
+    if (data.baseline !== undefined) observationInput(data.baseline)
+  }
+}
+
+/** Snapshot and validate everything independent of the source before invoking its owner. */
+export const preflightUslOperationInput = (operation: UslOperation, input: unknown, policy: InputPolicy): Record<string, unknown> => {
+  assertJsonData(input)
+  const data = record(structuredClone(input), "input")
+  validateUslOperationData(operation, data, policy)
+  return data
+}
+
 /** Input is source text or an administrator-registered program name, never a file path. */
 export const executeUslOperation = async (operation: UslOperation, input: unknown, policy: UslOperationPolicy = DEFAULT_USL_POLICY): Promise<unknown> => {
   if (!USL_OPERATIONS.includes(operation)) return fail(`unknown USL operation: ${operation}`)
@@ -80,11 +186,17 @@ export const executeUslOperation = async (operation: UslOperation, input: unknow
     if (size(value) > settings.maxOutputBytes) return fail("output exceeds maxOutputBytes; narrow the request or use compact context")
     return value
   }
-  if (operation === "compare") { fields(data, ["before", "after"]); return output(unwrap(compareObservations(data.before, data.after))) }
+  if (operation === "compare") {
+    fields(data, ["before", "after"])
+    const before = observationInput(data.before), after = observationInput(data.after)
+    return output({ ...unwrap(compareObservations(before.report, after.report)),
+      ...(before.source || after.source ? { nativeSources: { before: before.source, after: after.source } } : {}) })
+  }
   if (operation === "validate_observation") {
     fields(data, ["report"])
-    const report = unwrap(validateObservation(data.report))
-    return output({ valid: true, namespace: report.namespace, observationDigest: report.observationDigest, planDigest: report.planDigest })
+    const { report, source } = observationInput(data.report)
+    return output({ valid: true, namespace: report.namespace, observationDigest: report.observationDigest, planDigest: report.planDigest,
+      ...(source ? { nativeSource: source } : {}) })
   }
   if (operation === "graph_import") {
     fields(data, ["graph", "bindings"])
@@ -94,9 +206,7 @@ export const executeUslOperation = async (operation: UslOperation, input: unknow
   }
   if (operation === "hswm_prepare") { fields(data, ["arguments"]); return output(prepareHswmAdapterArguments(data.arguments as HswmAdapterArguments)) }
 
-  const permitted = ["source", "program", "connection", ...(operation === "context" ? ["query", "compact", "maxBytes", "knownContextDigest"] : operation === "observe" ? ["options", "baseline"] : operation === "project" ? ["options"] : [])]
-  fields(data, permitted)
-  if ([data.source, data.program, data.connection].filter((v) => v !== undefined).length !== 1) return fail("provide exactly one of source, program or connection")
+  validateUslOperationData(operation, data, settings)
   let snapshot: UslProgramSnapshot
   let connection: AdaptedGraph | undefined
   if (data.source !== undefined) {
@@ -108,12 +218,19 @@ export const executeUslOperation = async (operation: UslOperation, input: unknow
     snapshot = structuredClone(await settings.getProgram(string(data.program, "program")))
   } else {
     if (!settings.getConnection) return fail("connections are not configured")
-    connection = structuredClone(await settings.getConnection(string(data.connection, "connection")))
-    if (!connection || typeof connection !== "object" || !connection.source?.adapter || !connection.source.digest || !connection.identities || !connection.plan) return fail("invalid connection snapshot")
-    const checked = unwrap(composePlans(connection.plan.namespace, [connection.plan]))
-    snapshot = { source: "", plan: checked }
+    const received = await settings.getConnection(string(data.connection, "connection"))
+    connection = captureAdaptedGraph(received, settings.maxInputBytes)
+    // Validate without rewriting the adapter's hashed field order.
+    snapshot = { source: "", plan: connection.plan }
   }
   const { source, plan } = snapshot
+  const mapIdentity = (value: unknown, label: string, kind: "resources" | "links") => {
+    const identity = string(value, label)
+    if (!connection) return identity
+    return Object.hasOwn(connection.identities[kind], identity) ? connection.identities[kind][identity]! : fail(`${label} is not a connection ${kind === "resources" ? "resource" : "link"} identity`)
+  }
+  const mapResource = (value: unknown, label: string) => mapIdentity(value, label, "resources")
+  const mapLink = (value: unknown, label: string) => mapIdentity(value, label, "links")
   if (Buffer.byteLength(source, "utf8") > settings.maxInputBytes) return fail("program exceeds maxInputBytes")
   const external = (value: unknown) => {
     if (!connection) return output(value)
@@ -129,17 +246,29 @@ export const executeUslOperation = async (operation: UslOperation, input: unknow
     fields(query, ["focus", "target", "routes", "maxHops", "maxResources", "maxLinks", "maxVisits"])
     const resourceLimit = query.maxResources === undefined ? settings.maxResources : integer(query.maxResources, "query.maxResources")
     if (resourceLimit > settings.maxResources) return fail("query.maxResources exceeds server policy")
-    const boundedQuery = { ...query, maxResources: resourceLimit } as unknown as NavigationQuery
+    let routes = query.routes
+    if (connection && routes !== undefined) {
+      if (!Array.isArray(routes)) return fail("query.routes must be an array")
+      routes = routes.map((value) => {
+        const route = record(value, "query route")
+        fields(route, ["meaning", "enter", "exit"])
+        // For a native connection the relationship UID identifies its meaning;
+        // callers never need the adapter's generated internal meaning name.
+        const linkName = mapLink(route.meaning, "query.routes.meaning")
+        return { ...route, meaning: plan.links.find((link) => link.name === linkName)!.meaning }
+      })
+    }
+    const boundedQuery = { ...query, ...(routes === undefined ? {} : { routes }), focus: mapResource(query.focus, "query.focus"), ...(query.target === undefined ? {} : { target: mapResource(query.target, "query.target") }), maxResources: resourceLimit } as unknown as NavigationQuery
     if (data.compact !== undefined && typeof data.compact !== "boolean") return fail("compact must be a boolean")
     if (data.compact) {
       const maxBytes = data.maxBytes === undefined ? settings.maxOutputBytes : integer(data.maxBytes, "maxBytes")
       if (maxBytes > settings.maxOutputBytes) return fail("maxBytes exceeds server policy")
       const result = unwrap(compactAgentContext(plan, boundedQuery, { maxBytes,
         ...(data.knownContextDigest === undefined ? {} : { knownContextDigest: string(data.knownContextDigest, "knownContextDigest") }) }))
-      return output({ context: JSON.parse(result.text), stats: result.stats })
+      return external({ context: JSON.parse(result.text), stats: result.stats })
     }
     if (data.maxBytes !== undefined || data.knownContextDigest !== undefined) return fail("maxBytes and knownContextDigest require compact")
-    return output(unwrap(agentContext(plan, boundedQuery)))
+    return external(unwrap(agentContext(plan, boundedQuery)))
   }
   if (operation === "observe") {
     const options = data.options === undefined ? {} : record(data.options, "options")
@@ -150,15 +279,17 @@ export const executeUslOperation = async (operation: UslOperation, input: unknow
     if (!Array.isArray(requested)) return fail("options.allowedLocators must be an array")
     const narrowed = [...new Set(requested.map(normalizeLocator))]
     if (narrowed.some((locator) => !allowed.includes(locator))) return fail("request attempts to expand the server read allowlist")
-    const baseline = data.baseline === undefined ? undefined : unwrap(validateObservation(data.baseline))
+    const baseline = data.baseline === undefined ? undefined : observationInput(data.baseline).report
     if (baseline && baseline.namespace !== plan.namespace) return fail("baseline namespace differs from program")
-    const observed = observeProgram(plan, { sourceText: source, maxResources, allowedLocators: narrowed,
-      ...(options.links === undefined ? {} : { links: options.links as ReadonlyArray<string> }) })
+    if (options.links !== undefined && !Array.isArray(options.links)) return fail("options.links must be an array")
+    const links = options.links === undefined ? undefined : options.links.map((value) => mapLink(value, "options.links"))
+    const observed = observeProgram(plan, { ...(connection ? {} : { sourceText: source }), maxResources, allowedLocators: narrowed,
+      ...(links === undefined ? {} : { links }) })
     const report = await Effect.runPromise(settings.resolvers ? observed.pipe(Effect.provideService(Resolvers, settings.resolvers))
       : observed.pipe(Effect.provide(ResolversLive.pipe(Layer.provide(ConfigLive())))))
-    return output(baseline ? { observation: report, comparison: unwrap(compareObservations(baseline, report)) } : report)
+    return external(baseline ? { observation: report, comparison: unwrap(compareObservations(baseline, report)) } : report)
   }
   const options = record(data.options, "options")
   fields(options, ["bundle_uid", "title", "trigger", "evidence", "kgAnchors", "targetKgSource"])
-  return output(unwrap(toSemanticBundle(plan, { ...options, source: { name: typeof data.program === "string" ? data.program : "inline.usl", text: source } } as unknown as SemanticProjectionOptions)))
+  return external(unwrap(toSemanticBundle(plan, { ...options, ...(connection ? {} : { source: { name: typeof data.program === "string" ? data.program : "inline.usl", text: source } }) } as unknown as SemanticProjectionOptions)))
 }

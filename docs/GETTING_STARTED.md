@@ -1,10 +1,30 @@
 # Getting started with USL
 
-USL gives a stable name to a resource, declares a relationship with typed
-roles, and records a meaning contract including its scope and declared checks.
-The source file is optional: an application may keep a validated
-`SemanticPlan` built through the TypeScript API. Use `.usl` when people need to
-author or review declarations.
+현재 전체 모델은 [ARCHITECTURE.md](ARCHITECTURE.md)다. 다양한 자원을 연결하려면 [범용 자원 문법](RESOURCE_GRAPH.md), Lean 정의·정리·증명 연결과 형식 검증은 [Lean 4 안내](LEAN4_INTEGRATION.md)에서 시작한다.
+
+USL adapts existing systems so their resources can be connected, observed and
+passed into agent or HSWM context. Data remains with its owner. Start with the
+owner's existing read API or bounded KG query projection; no USL database,
+registration file or `.usl` source is required.
+
+```bash
+npm run example:adapter
+npm run usl -- adapt --graph examples/fixtures/native-graph.json --namespace game.adapter \
+  --operation context --focus game:dash --target checkout:game --compact
+```
+
+The example uses native graph UIDs and preserves every role of its three-party
+relation. It reads an illustrative graph response and does not fetch the
+example endpoints. In an application, `connectUsl({ read, adapt, policy })`
+binds the owner's read operation directly: each request adapts one fresh response
+and uses a transient plan for validation and navigation. See
+[ADAPTER_INTEGRATION.md](ADAPTER_INTEGRATION.md) for SDK, MCP and HSWM usage.
+
+## Optional authored declarations
+
+Use `.usl` when people want to author a standalone declaration document, or the
+code SDK to attach declarations to functions. These are additional inputs to
+the same observation and navigation functions.
 
 ```usl
 usl "0.1";
@@ -99,26 +119,36 @@ admission, a Permit, ownership, credit, or learning.
 
 ## MCP
 
-Start the local read-only stdio server with:
+Start the local read-only stdio server with an administrator-owned startup
+configuration:
 
 ```bash
-npm run usl -- mcp
+npm run usl -- mcp --config examples/usl.config.json
 ```
 
-It starts deny-all unless the host sets `USL_MCP_POLICY`. That JSON must contain
-exactly the startup-owned fields below. `programs` maps fixed IDs to `.usl`
-files; MCP callers select an ID and cannot submit a filesystem path through
-that registration mechanism.
+The included config registers both a fixed `.usl` program ID and a fixed native
+graph connection ID. MCP callers select those IDs; they cannot submit a
+filesystem path through either registration mechanism. It starts deny-all for
+endpoint reads because its `allowedLocators` list is empty.
 
 ```json
 {
-  "allowedLocators": ["https://docs.example/game/dashboard"],
-  "maxResources": 4,
+  "allowedLocators": [],
+  "maxResources": 64,
   "maxInputBytes": 1048576,
   "maxOutputBytes": 1048576,
-  "programs": { "game-dashboard": "/srv/usl/game-dashboard.usl" }
+  "programs": { "game-dashboard": "game-dashboard.usl" },
+  "connections": {
+    "game": { "graph": "native-graph.json", "namespace": "game.adapter" }
+  }
 }
 ```
+
+Config paths are relative to the config file. `USL_MCP_POLICY` supports the
+same object when a file is unavailable, with paths relative to startup cwd;
+do not combine it with `--config`. The config is fixed until the server is
+restarted. A registered `.usl` program refreshes valid edits automatically;
+a configured graph is bounded-read and adapted on each selected request.
 
 The server provides `check`, `compile`, `context`, `observe`, `compare`,
 `validate_observation`, `graph_import`, `hswm_prepare`, and `project`.

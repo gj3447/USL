@@ -1,5 +1,7 @@
 # USL 시멘틱 어댑터: 선행 기술 조사와 설계 적용안
 
+이 문서는 제목의 날짜에 수행한 조사 기록이다. 최신 구현은 [현재 구조](ARCHITECTURE.md)를 따른다. 조사 제안 전체가 구현된 것으로 읽지 않는다.
+
 2026-09-07 · Codex 및 독립 조사 에이전트 3개 · T0 일반 공학 · SECONDARY_AI
 
 사용자 조사 요청: “검색좀 해줘봐 전체적으로 ㅇㅇ”. 대상은 KG·Git 저장소·URL·파일시스템을 의미로 연결하는 언어이며, 구현 방향은 TypeScript + Effect다. 사용자 원문과 앞선 제안은 [설계 문서](SEMANTIC_ADAPTER_DESIGN.md), 현재 지원 문법은 [LANGUAGE.md](LANGUAGE.md)에 있다.

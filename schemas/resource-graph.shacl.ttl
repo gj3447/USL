@@ -1,0 +1,34 @@
+@prefix usl: <urn:usl:vocab:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+usl:ResourceShape a sh:NodeShape ;
+  sh:targetClass usl:Resource ;
+  sh:nodeKind sh:IRI ;
+  sh:property [ sh:path usl:nativeId ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path usl:locator ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+
+usl:MeaningShape a sh:NodeShape ;
+  sh:targetClass usl:Meaning ;
+  sh:property [ sh:path usl:description ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+
+usl:LinkShape a sh:NodeShape ;
+  sh:targetClass usl:Link ;
+  sh:property [ sh:path usl:meaning ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usl:Meaning ] ;
+  sh:property [ sh:path usl:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "DECLARED" ] ;
+  sh:property [ sh:path usl:participant ; sh:minCount 1 ; sh:node usl:ParticipantShape ] ;
+  sh:sparql [
+    sh:message "A link must have distinct participant role names." ;
+    sh:select """
+      PREFIX usl: <urn:usl:vocab:>
+      SELECT $this WHERE {
+        $this usl:participant ?a, ?b .
+        ?a usl:role ?role . ?b usl:role ?role .
+        FILTER (?a != ?b)
+      }
+    """
+  ] .
+
+usl:ParticipantShape a sh:NodeShape ;
+  sh:property [ sh:path usl:role ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[A-Za-z_][A-Za-z0-9_]*$" ] ;
+  sh:property [ sh:path usl:resource ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usl:Resource ; sh:nodeKind sh:IRI ] .

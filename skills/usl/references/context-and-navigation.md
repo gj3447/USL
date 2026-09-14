@@ -12,4 +12,5 @@ that a different semantic plan is equivalent.
 
 For command-line source workflows, `usl context --source FILE --focus NAME`
 creates context, and `--compact` enables the compact transfer form. See
-`docs/COMPACT_CONTEXT.md` for byte/token budget and cache behavior.
+the repository's `docs/COMPACT_CONTEXT.md` for byte/token budget and cache
+behavior only after locating that repository from the skill entrypoint.

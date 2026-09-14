@@ -1,5 +1,23 @@
 # USL application interfaces and automatic refresh
 
+2026-09-14: the same connection boundary also accepts `resource-graph/v1` via an explicit config `format`. Lean can supply an owner-run export through the SDK. See [current architecture](ARCHITECTURE.md), [resource graph](RESOURCE_GRAPH.md), and [Lean 4](LEAN4_INTEGRATION.md).
+
+The primary integration path is now `connectUsl({ read, adapt, policy })`:
+existing system → transient interpretation → context/observation/HSWM handoff.
+It has no USL storage or file-registration step. Hosts expose these sources to
+MCP via `policy.getConnection`; clients use `connection` and native UIDs.
+See [ADAPTER_INTEGRATION.md](ADAPTER_INTEGRATION.md). The registered `.usl` file
+workflow below remains an optional frontend.
+
+For a local stdio deployment, `usl mcp --config usl.config.json` supplies the
+same host-owned boundary without writing a custom server. Its startup config
+maps fixed program IDs to `.usl` files and fixed connection IDs to existing
+property-graph JSON files; all paths are relative to that config. A request can
+select an ID and native UIDs, but cannot select a path or expand the global
+read policy. Program files refresh valid edits through their registry; a graph
+file is bounded-read and adapted for each selected request. Changing the
+startup config itself requires a server restart. See [MCP.md](MCP.md).
+
 The TypeScript API, CLI and MCP expose the same semantic plan, observation,
 comparison and integration functions. `executeUslOperation` supplies the JSON
 boundary for MCP and the new offline CLI operations; the existing CLI source

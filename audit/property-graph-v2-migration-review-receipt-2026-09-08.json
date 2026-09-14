@@ -1,0 +1,14 @@
+{
+  "schema": "usl-property-graph-migration-review-receipt/v1",
+  "reviewedAt": "2026-09-08T08:59:38.381201+00:00",
+  "implementationModified": false,
+  "existingPoliciesModified": false,
+  "endpointReads": 0,
+  "unchangedSourceAndTestFiles": 68,
+  "artifacts": {
+    "audit/PROPERTY_GRAPH_V2_MIGRATION_REVIEW_2026-09-08.md": "sha256:1771e03ebbba739ff05b20a5d1814a24ce6f1b7a5a8428b67e62b2f779506ff4",
+    "audit/property-graph-v2-migration-review-2026-09-08.json": "sha256:97993dff1ff69a541cbc29d5ce16de4dd123e96a4186d2dab98fcfef677c0b4a",
+    "audit/hswm-property-graph-v2-pin-review-2026-09-08.json": "sha256:2b18fa97cb57c2688cdfd75ea928352f0e398b08de52ef33544c5b98c52a592f",
+    "audit/review-property-graph-v2-migration-2026-09-08.ts": "sha256:ef2eb55c958f77bdc9b584b48dc43e4d4f4b9ea2c44df292ec947a7ad0a637dd"
+  }
+}

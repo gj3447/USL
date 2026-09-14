@@ -40,6 +40,7 @@ export interface HswmAdapterArguments {
   readonly now: number
   readonly revision: string
 }
+export type HswmAuthorityInput = Pick<HswmAdapterArguments, "policy" | "allowed_reads" | "now" | "revision">
 
 const fail = (detail: string): never => { throw new HswmIntegrationError(detail) }
 const name = (value: unknown, label: string): string => {
@@ -64,6 +65,54 @@ const canonicalJson = (value: unknown): string => {
 export const hswmDigest = (value: unknown): string => createHash("sha256").update(canonicalJson(value)).digest("hex")
 
 const clone = <T>(value: T): T => structuredClone(value)
+const plain = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === "object" && !Array.isArray(value)
+/** Pure preflight: safe before any source or endpoint read. It validates only
+ * caller-owned handoff shape, never grants authority or evaluates meaning. */
+export const validateHswmAuthority = (input: HswmAuthorityInput): HswmAuthorityInput => {
+  if (!plain(input)) fail("HSWM authority is required")
+  if (Object.keys(input).some((key) => !["policy", "allowed_reads", "now", "revision"].includes(key))) fail("unknown HSWM authority field")
+  const captured = { policy: clone(input.policy), allowed_reads: clone(input.allowed_reads), now: input.now, revision: input.revision }
+  const policy = captured.policy
+  if (!plain(policy) || Object.keys(policy).some((key) => !["schema_version", "namespace", "plan_digest", "usl_plan_digest", "source_digest", "max_age_seconds", "bindings", "resources"].includes(key)) || policy.schema_version !== "hswm-usl-observation-policy/v2") fail("HSWM v2 policy is required")
+  if (typeof policy.namespace !== "string" || !policy.namespace.trim() || !hash(policy.plan_digest, "invalid HSWM policy plan_digest") || !hash(policy.usl_plan_digest, "invalid HSWM policy usl_plan_digest", true) || policy.source_digest !== null && !hash(policy.source_digest, "invalid HSWM policy source_digest", true)) fail("invalid HSWM policy identity")
+  if (!Number.isFinite(policy.max_age_seconds) || policy.max_age_seconds <= 0 || policy.max_age_seconds > 86_400) fail("invalid HSWM policy max_age_seconds")
+  if (!Array.isArray(policy.bindings) || policy.bindings.length === 0) fail("HSWM policy bindings are required")
+  const selected = new Set<string>(), mapped = new Set<string>()
+  for (const binding of policy.bindings) {
+    if (!plain(binding) || Object.keys(binding).some((key) => !["link", "role", "field"].includes(key))) fail("invalid HSWM policy binding")
+    const link = name(binding.link, "invalid HSWM binding link"), role = name(binding.role, "invalid HSWM binding role"), field = name(binding.field, "invalid HSWM binding field")
+    if (selected.has(link) || mapped.has(`${role}\u0000${field}`)) fail("duplicate HSWM policy binding")
+    selected.add(link); mapped.add(`${role}\u0000${field}`)
+  }
+  if (!Array.isArray(policy.resources)) fail("HSWM policy resources are required")
+  const pins = new Set<string>()
+  for (const pin of policy.resources) { if (!plain(pin) || Object.keys(pin).some((key) => !["name", "content_hash", "resolved_locator"].includes(key))) fail("invalid HSWM resource pin"); const id = typeof pin.name === "string" && pin.name.length > 0 ? pin.name : fail("invalid HSWM resource pin"); if (pins.has(id)) fail("duplicate HSWM resource pin"); pins.add(id); hash(pin.content_hash, "invalid HSWM content pin"); if (typeof pin.resolved_locator !== "string" || !pin.resolved_locator.length) fail("invalid HSWM locator pin") }
+  if (!Array.isArray(captured.allowed_reads)) fail("HSWM allowed_reads are required")
+  const permitted = new Set<string>()
+  for (const entry of captured.allowed_reads) { if (!Array.isArray(entry) || entry.length !== 2) fail("invalid HSWM allowed_read"); permitted.add(`${name(entry[0], "invalid HSWM allowed_read role")}\u0000${name(entry[1], "invalid HSWM allowed_read field")}`) }
+  for (const target of mapped) if (!permitted.has(target)) fail("HSWM policy binding is not caller-authorized")
+  if (!Number.isFinite(captured.now) || typeof captured.revision !== "string" || !captured.revision.length) fail("invalid HSWM observation context")
+  return { policy, allowed_reads: captured.allowed_reads.map((entry) => [entry[0]!, entry[1]!] as const), now: captured.now, revision: captured.revision }
+}
+/** Pure plan-bound preflight. Call after an adapter has produced its immutable
+ * plan, but before observeProgram performs endpoint IO. */
+export const validateHswmAuthorityForPlan = (plan: SemanticPlan, input: HswmAuthorityInput, expectedSourceDigest?: string | null): HswmAuthorityInput => {
+  const authority = validateHswmAuthority(input), policy = authority.policy
+  if (Either.isLeft(composePlans(plan.namespace, [plan]))) fail("invalid full USL semantic plan")
+  if (policy.namespace !== plan.namespace || policy.plan_digest !== hswmDigest(plan) || policy.usl_plan_digest !== planDigest(plan)) fail("HSWM policy plan identity mismatch")
+  if (expectedSourceDigest !== undefined && policy.source_digest !== expectedSourceDigest) fail("HSWM policy source_digest does not bind expected source")
+  const links = new Map(plan.links.map((link) => [link.name, link])), meanings = new Map(plan.meanings.map((meaning) => [meaning.name, meaning]))
+  const required = new Set<string>()
+  for (const binding of policy.bindings) {
+    const link = links.get(binding.link)
+    if (!link) return fail("duplicate or unknown HSWM policy binding")
+    for (const participant of link.participants) required.add(participant.resource)
+    const meaning = meanings.get(link.meaning)!; if (meaning.grounded) required.add(`meaning:${meaning.name}`)
+  }
+  const pins = new Set(policy.resources.map((pin) => pin.name))
+  if (pins.size !== required.size || [...required].some((id) => !pins.has(id))) fail("HSWM pins must exactly cover selected links")
+  return authority
+}
 const validateAliases = (report: ProgramObservation) => {
   const representatives = new Map<string, string>()
   for (const row of [...report.resources, ...report.groundings]) {
@@ -83,49 +132,14 @@ const validateAliases = (report: ProgramObservation) => {
 export const prepareHswmAdapterArguments = (input: HswmAdapterArguments): HswmAdapterArguments => {
   if (!input || typeof input !== "object") fail("HSWM adapter input is required")
   // Each field is copied before reading the next getter-owned field.
-  const captured = { plan: clone(input.plan), report: clone(input.report), policy: clone(input.policy), allowed: clone(input.allowed_reads), now: input.now, revision: input.revision }
-  const plan = captured.plan
-  // Validate structure without rewriting the caller's hashed JSON property order.
-  if (Either.isLeft(composePlans(plan.namespace, [plan]))) fail("invalid full USL semantic plan")
-  const policy = captured.policy
-  if (!policy || policy.schema_version !== "hswm-usl-observation-policy/v2") fail("HSWM v2 policy is required")
+  const captured = { plan: clone(input.plan), report: clone(input.report), authority: { policy: clone(input.policy), allowed_reads: clone(input.allowed_reads), now: input.now, revision: input.revision } }
+  const authority = validateHswmAuthorityForPlan(captured.plan, captured.authority)
+  const { plan } = captured
   const checked = validateObservation(captured.report)
   if (Either.isLeft(checked)) fail(`invalid USL observation: ${checked.left.detail}`)
   const report = clone(Either.getOrThrow(checked))
   if (report.planDigest !== planDigest(plan)) fail("report planDigest does not bind supplied plan")
-  if (report.sourceDigest !== policy.source_digest) fail("policy source_digest does not bind report")
+  if (report.sourceDigest !== authority.policy.source_digest) fail("policy source_digest does not bind report")
   validateAliases(report)
-  if (policy.namespace !== plan.namespace || policy.usl_plan_digest !== report.planDigest || policy.plan_digest !== hswmDigest(plan)) fail("HSWM policy plan identity mismatch")
-  if (!Number.isFinite(policy.max_age_seconds) || policy.max_age_seconds <= 0 || policy.max_age_seconds > 86_400) fail("invalid HSWM policy max_age_seconds")
-  const links = new Map(plan.links.map((link) => [link.name, link]))
-  const meanings = new Map(plan.meanings.map((meaning) => [meaning.name, meaning]))
-  const selected = new Set<string>(), required = new Set<string>(), mapped = new Set<string>()
-  if (!Array.isArray(policy.bindings) || policy.bindings.length === 0) fail("HSWM policy bindings are required")
-  for (const binding of policy.bindings) {
-    const link = links.get(name(binding.link, "invalid HSWM binding link"))
-    const role = name(binding.role, "invalid HSWM binding role"), field = name(binding.field, "invalid HSWM binding field")
-    if (!link) return fail("duplicate or unknown HSWM policy binding")
-    if (selected.has(link.name) || mapped.has(`${role}\u0000${field}`)) fail("duplicate or unknown HSWM policy binding")
-    selected.add(link.name); mapped.add(`${role}\u0000${field}`)
-    for (const participant of link.participants) required.add(participant.resource)
-    const meaning = meanings.get(link.meaning)!; if (meaning.grounded) required.add(`meaning:${meaning.name}`)
-  }
-  const pins = new Map<string, HswmResourcePin>()
-  if (!Array.isArray(policy.resources)) fail("HSWM policy resources are required")
-  for (const pin of policy.resources) {
-    const id = typeof pin.name === "string" && pin.name.length > 0 ? pin.name : fail("invalid HSWM resource pin")
-    if (pins.has(id)) fail("duplicate HSWM resource pin")
-    pins.set(id, { name: id, content_hash: hash(pin.content_hash, "invalid HSWM content pin"), resolved_locator: typeof pin.resolved_locator === "string" && pin.resolved_locator.length > 0 ? pin.resolved_locator : fail("invalid HSWM locator pin") })
-  }
-  if (pins.size !== required.size || [...required].some((id) => !pins.has(id))) fail("HSWM pins must exactly cover selected links")
-  const allowed = captured.allowed
-  if (!Array.isArray(allowed)) fail("HSWM allowed_reads are required")
-  const permitted = new Set<string>()
-  for (const entry of allowed) {
-    if (!Array.isArray(entry) || entry.length !== 2) fail("invalid HSWM allowed_read")
-    permitted.add(`${name(entry[0], "invalid HSWM allowed_read role")}\u0000${name(entry[1], "invalid HSWM allowed_read field")}`)
-  }
-  for (const target of mapped) if (!permitted.has(target)) fail("HSWM policy binding is not caller-authorized")
-  if (!Number.isFinite(captured.now) || typeof captured.revision !== "string" || captured.revision.length === 0) fail("invalid HSWM observation context")
-  return { plan, report, policy: { ...policy, bindings: clone(policy.bindings), resources: [...pins.values()] }, allowed_reads: allowed.map((entry) => [entry[0]!, entry[1]!] as const), now: captured.now, revision: captured.revision }
+  return { plan, report, ...authority }
 }

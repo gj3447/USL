@@ -1,0 +1,174 @@
+{
+  "schema": "usl-property-graph-v2-migration-review/v1",
+  "reviewedAt": "2026-09-08T08:57:52.329Z",
+  "source": {
+    "path": "examples/fixtures/native-graph.json",
+    "digest": "sha256:de846e23aae9ca77849d3ad662df931bf5633fc4ba06e6da93472d2cfb5282cb",
+    "sameNativeBytesAcrossVersions": true
+  },
+  "historical": {
+    "artifact": "audit/native-adapter-smoke-2026-09-08.json",
+    "artifactDigest": "sha256:2466a691cb6097e43b4b122c3f4586077bd0fe655c4a98ab34f61b61cdbad034",
+    "adapter": "property-graph/v1",
+    "planReconstruction": "MATCHED_RECORDED_PLAN_DIGEST",
+    "planDigest": "sha256:0870bf78a017c05b050652fbef27e3975be2d1d946716cd6fd66eb601fce5c7d",
+    "meaningsDigest": "sha256:df3ee563e30c5efaa4be45a073324817439181ddcb6ab3b03ddc3793a63a14bf",
+    "hswmPlanDigest": "7d6d78680f4999a736f96882869a44e2e89bdf11487cec43f93c1e66ef9bb274"
+  },
+  "current": {
+    "artifact": "audit/native-adapter-fixes-smoke-2026-09-08.json",
+    "artifactDigest": "sha256:7c21f1e59a15c394db887e495fa2f51ea20fb7c12b6d7016d7c045f343aa912c",
+    "adapter": "property-graph/v2",
+    "planDigest": "sha256:c2c5c433953d13ad6be90d37fe2be3d144505f7c63bd5ab34c0a52da36ade13a",
+    "meaningsDigest": "sha256:e0ea7f01bb9b6f98ad14562c5de003667c38876bb7472c6f24e3e0cfd56f9f57",
+    "hswmPlanDigest": "174ed15523d2eddf24abd5283c871eab92bac94e6c51123b71863212aac65ba3"
+  },
+  "resourcesUnchanged": true,
+  "relations": [
+    {
+      "nativeRelationshipUid": "game:dash-implementation",
+      "direction": {
+        "from_uid": "repo:game",
+        "to_uid": "game:dash"
+      },
+      "type": "IMPLEMENTS",
+      "descriptionBefore": "Declared KG relation: {\"type\":\"IMPLEMENTS\",\"description\":\"Repository implements the dash concept according to the referenced specification.\"}",
+      "definitionAfter": {
+        "schema": "property-graph-meaning/v2",
+        "type": "IMPLEMENTS",
+        "direction": {
+          "from_uid": "repo:game",
+          "to_uid": "game:dash"
+        },
+        "description": "Repository implements the dash concept according to the referenced specification."
+      },
+      "roleBindingsUnchanged": true,
+      "contractUnchanged": true,
+      "rolesBefore": [
+        "repository",
+        "concept",
+        "specification"
+      ],
+      "rolesAfter": [
+        "concept",
+        "repository",
+        "specification"
+      ],
+      "meaningDigestBefore": "sha256:aedc1f1afb8d95d91c2cef78ed4517de979989b1a0fb7e94847d2dec8ef4c4e1",
+      "meaningDigestAfter": "sha256:eae330388a6b42a8393a0646768a78a5e3e20d10609450560b9d3a7fc2f43eb3"
+    },
+    {
+      "nativeRelationshipUid": "game:checkout",
+      "direction": {
+        "from_uid": "checkout:game",
+        "to_uid": "repo:game"
+      },
+      "type": "CHECKOUT_OF",
+      "descriptionBefore": "Declared KG relation: CHECKOUT_OF",
+      "definitionAfter": {
+        "schema": "property-graph-meaning/v2",
+        "type": "CHECKOUT_OF",
+        "direction": {
+          "from_uid": "checkout:game",
+          "to_uid": "repo:game"
+        },
+        "description": null
+      },
+      "roleBindingsUnchanged": true,
+      "contractUnchanged": true,
+      "rolesBefore": [
+        "source",
+        "target"
+      ],
+      "rolesAfter": [
+        "source",
+        "target"
+      ],
+      "meaningDigestBefore": "sha256:a6c8078b3017cfc4dea63753321a874fd9b866f238630144ca0bf35be23dda15",
+      "meaningDigestAfter": "sha256:87ebf65f3937ee549cadaf1dc9d97d8bceb2a97668f6ab99cf50f8b8daf208f3"
+    }
+  ],
+  "unaffectedSnapshots": [
+    {
+      "directory": "observations/2026-09-08T05-05-11-342Z",
+      "frontend": "USL_SOURCE",
+      "sourceDigest": "sha256:e46533c70fa6e467ccca8271aba0aae2f0d7b41a129de97a2b81dcb3624ad9b4",
+      "planDigest": "sha256:b38b15f087cea38d9c305a52d14b50b9ac08fb760a1c8835b72ef72d6c2a165b",
+      "observationDigest": "sha256:bdfa93ce182f1822856ac0d3d8a2e77dd046c19642a3736a35c80ff0a2dbb952",
+      "receiptArtifactsVerified": 5,
+      "hswmPolicy": null,
+      "verdict": "NO_PROPERTY_GRAPH_MIGRATION_REQUIRED",
+      "liveFreshness": "NOT_REOBSERVED"
+    },
+    {
+      "directory": "observations/engineering-2026-09-08T05-35-28-534Z",
+      "frontend": "USL_SOURCE_AND_GEIP",
+      "sourceDigest": "sha256:7d1e81fb834ada02bcfd6509d70ab85ec7342fee1456da7e23714913f6adef90",
+      "planDigest": "sha256:f1881903867280160e105777ecc781a61455ad9506ff7ad170db9f7ba469335e",
+      "observationDigest": "sha256:39349a0be16949db7a9e0bfaa540b8a8e7ea9969e13561a4baa67ee55f233434",
+      "receiptArtifactsVerified": 6,
+      "hswmPolicy": {
+        "plan_digest": "e05a49f8b0114a71fd46f694a470c210a49cb9aa54d8228b3202620da72cdfe5",
+        "usl_plan_digest": "sha256:f1881903867280160e105777ecc781a61455ad9506ff7ad170db9f7ba469335e",
+        "source_digest": "sha256:7d1e81fb834ada02bcfd6509d70ab85ec7342fee1456da7e23714913f6adef90"
+      },
+      "verdict": "NO_PROPERTY_GRAPH_MIGRATION_REQUIRED",
+      "liveFreshness": "NOT_REOBSERVED"
+    },
+    {
+      "directory": "observations/engineering-2026-09-08T05-42-29-113Z",
+      "frontend": "USL_SOURCE_AND_GEIP",
+      "sourceDigest": "sha256:ccf9c36132a9e9639844086246f3ff533b831b5d82642f34bdbb40b701d414c0",
+      "planDigest": "sha256:095f23e7063e20720917002e5454b32cc285a4d78880e8ffbc508a054f5ad307",
+      "observationDigest": "sha256:64781352bb1ad2441e27b746e0e520c75dcb76f23cae9f2ef12f6955eca981fc",
+      "receiptArtifactsVerified": 6,
+      "hswmPolicy": {
+        "plan_digest": "636eaad978287bfafdfa6fa7b62662dc40f5f101ccd6df38bbadb95951d9e0bc",
+        "usl_plan_digest": "sha256:095f23e7063e20720917002e5454b32cc285a4d78880e8ffbc508a054f5ad307",
+        "source_digest": "sha256:ccf9c36132a9e9639844086246f3ff533b831b5d82642f34bdbb40b701d414c0"
+      },
+      "verdict": "NO_PROPERTY_GRAPH_MIGRATION_REQUIRED",
+      "liveFreshness": "NOT_REOBSERVED"
+    }
+  ],
+  "hswmNativeSnapshots": [
+    {
+      "path": "/home/lagyeongjun/CD/HSWM/results/raw/hswm_usl_relation_synthesis_2026-09-08/attempt-01.json",
+      "artifactDigest": "sha256:d1bfdd5846012c2f9b4649b2fd2b485e4f34f74f2f436e08d446679e1af7e6a0",
+      "status": "COMPLETED_INSTRUMENT_TRIAL",
+      "sourcePinsManifestHash": "0f6856288ee24228a3b6aeaf1ffb5d86382b5606e24e2e0fa502ab4f215cdaea",
+      "adapter": "property-graph/v1",
+      "nativeSourceDigest": "sha256:04ae35adcb07d7f4ed0275475211d60f4eb56c7970cce0d11c8e813e67c442ec",
+      "namespace": "hswm.relation.instrument",
+      "uslPlanDigest": "sha256:b60a27fd1b6841c00d02df9c0c6cf61f6e10976a342e6501733098bc3f411127",
+      "hswmPlanDigest": "4d39fecccc0a124aaf318530368cf88797513bb2c0cd5cc5517e8036adb70db4",
+      "contentPinsChecked": 18,
+      "internalBinding": "VALID",
+      "disposition": "PRESERVE_HISTORICAL_V1",
+      "liveFreshness": "NOT_REOBSERVED"
+    },
+    {
+      "path": "/home/lagyeongjun/CD/HSWM/results/raw/hswm_usl_relation_synthesis_2026-09-08/attempt-04.json",
+      "artifactDigest": "sha256:10e6a794699737ddc461ea0b76e9155f0f65ca9349e5d31f4cd260f0e7563411",
+      "status": "COMPLETED_INSTRUMENT_TRIAL",
+      "sourcePinsManifestHash": "8f0f7871887d4863e9bb26a5a7a90e4fcda8bf3c6463b10e2586129275f49f19",
+      "adapter": "property-graph/v2",
+      "nativeSourceDigest": "sha256:04ae35adcb07d7f4ed0275475211d60f4eb56c7970cce0d11c8e813e67c442ec",
+      "namespace": "hswm.relation.instrument",
+      "uslPlanDigest": "sha256:5b5cf876e9ce3bb749d4a6e2a6e71d48a44f67aa2e5a50eea809bc7e41ba5973",
+      "hswmPlanDigest": "5ca6869e30d10330b1dabc9badfa176328e551e375d82b12eb8dc5920096a09e",
+      "contentPinsChecked": 18,
+      "internalBinding": "VALID",
+      "disposition": "EXISTING_V2_PLAN_PINS_VALID",
+      "liveFreshness": "NOT_REOBSERVED"
+    }
+  ],
+  "disposition": "V2_TRANSFORMATION_REVIEWED_EXISTING_V2_RECEIPT_MATCHES",
+  "policyUpdate": {
+    "applied": false,
+    "storedNativeHswmPolicy": null,
+    "note": "For the game.adapter MCP fixture, these calculated identities are a review result, not a newly issued HSWM policy. Its receipt has no HSWM pins. Separately, HSWM native study snapshots and their stored policies are reviewed in hswmNativeSnapshots."
+  },
+  "endpointReads": 0,
+  "semanticTruth": "NOT_EVALUATED"
+}

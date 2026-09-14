@@ -1,7 +1,7 @@
 {
   "name": "usl",
   "version": "0.3.0",
-  "description": "USL: a semantic linking language for KG, Git repositories, URLs and filesystem paths. Functional TypeScript + Effect parser, compiler, typed meanings, observations and KG projection.",
+  "description": "USL: adapters connecting existing KG, HSWM, code, Git, URL and filesystem resources through scoped observations and agent context. TypeScript + Effect; no USL database required.",
   "type": "module",
   "license": "UNLICENSED",
   "private": true,
@@ -24,9 +24,25 @@
       "types": "./dist/src/integrations/graph-engineering.d.ts",
       "import": "./dist/src/integrations/graph-engineering.js"
     },
+    "./adapters": {
+      "types": "./dist/src/adapters.d.ts",
+      "import": "./dist/src/adapters.js"
+    },
+    "./property-graph": {
+      "types": "./dist/src/integrations/property-graph.d.ts",
+      "import": "./dist/src/integrations/property-graph.js"
+    },
     "./application": {
       "types": "./dist/src/application.d.ts",
       "import": "./dist/src/application.js"
+    },
+    "./resource-graph": {
+      "types": "./dist/src/integrations/resource-graph.d.ts",
+      "import": "./dist/src/integrations/resource-graph.js"
+    },
+    "./lean4": {
+      "types": "./dist/src/integrations/lean4.d.ts",
+      "import": "./dist/src/integrations/lean4.js"
     },
     "./program-store": {
       "types": "./dist/src/program-store.d.ts",
@@ -48,6 +64,10 @@
     "build": "tsc -p tsconfig.build.json",
     "example:code": "tsx examples/code-embedded.ts",
     "example:engineering": "tsx examples/engineering-workflow.ts",
+    "example:adapter": "tsx examples/adapter-workflow.ts",
+    "example:lean": "tsx examples/lean4-workflow.ts",
+    "test:lean": "lake --dir lean build && tsx --test test/lean4.integration.ts",
+    "test:standards": "python3 scripts/validate-rdf.py",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test test/*.test.ts",
     "usl": "tsx src/cli.ts",

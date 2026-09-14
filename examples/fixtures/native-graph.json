@@ -1,0 +1,27 @@
+{
+  "description": "Illustrative bounded KG query projection; endpoints are examples, not live evidence.",
+  "nodes": [
+    { "uid": "game:dash", "labels": ["Concept"], "properties": { "locator": "kg://example/game:dash" } },
+    { "uid": "repo:game", "properties": { "locator": "git://example.test/team/game" } },
+    { "uid": "spec:dash", "properties": { "locator": "https://example.test/game/dash" } },
+    { "uid": "checkout:game", "properties": { "locator": "file://example-host/work/game" } }
+  ],
+  "relations": [
+    {
+      "uid": "game:dash-implementation", "from_uid": "repo:game", "to_uid": "game:dash", "type": "IMPLEMENTS",
+      "properties": {
+        "description": "Repository implements the dash concept according to the referenced specification.",
+        "participants": [
+          { "role": "repository", "uid": "repo:game" },
+          { "role": "concept", "uid": "game:dash" },
+          { "role": "specification", "uid": "spec:dash" }
+        ],
+        "contract": {
+          "scope": "The referenced specification and observed repository revision.",
+          "checks": [{ "name": "review", "description": "Compare implementation against the specification.", "evidenceRoles": ["repository", "specification"] }]
+        }
+      }
+    },
+    { "uid": "game:checkout", "from_uid": "checkout:game", "to_uid": "repo:game", "type": "CHECKOUT_OF" }
+  ]
+}

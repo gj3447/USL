@@ -1,0 +1,21 @@
+{
+  "allowedLocators": [],
+  "maxResources": 64,
+  "maxInputBytes": 1048576,
+  "maxOutputBytes": 1048576,
+  "programs": {
+    "navigation": "agent-navigation.usl"
+  },
+  "connections": {
+    "game": {
+      "graph": "fixtures/native-graph.json",
+      "namespace": "game.adapter",
+      "kgSource": "game-kg"
+    },
+    "resources": {
+      "graph": "fixtures/resource-graph.json",
+      "namespace": "example.resources",
+      "format": "resource-graph"
+    }
+  }
+}

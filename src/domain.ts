@@ -1,5 +1,5 @@
-// USL v0.1 — domain types (SECONDARY_AI draft; canon = KG sym:Concept:usl).
-// Every field is a flat Neo4j-compatible property so a record projects 1:1 into the KG.
+// Shared read-transport types and legacy file-record compatibility.
+// Flat Neo4j-compatible fields apply only to the legacy UslRecord below; USL is not a DB.
 // KG: sym:Concept:usl, sym:UserVerdict:usl-develop-longinus-minimal-unit-2026-09-07
 import { Schema } from "effect"
 

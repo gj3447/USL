@@ -1,0 +1,3 @@
+# Preserve generated logs and historical snapshots byte-for-byte.
+audit/*.log -whitespace
+archive/** -whitespace

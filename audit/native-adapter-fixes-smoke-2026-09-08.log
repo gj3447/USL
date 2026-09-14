@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-09-08T08:26:47.021Z",
+  "cli": {
+    "nativeUidContext": "FOUND",
+    "denyAllResolverCalls": 0,
+    "allowedResolverCalls": 2,
+    "uslSourceDigest": null,
+    "nativeSourceDigest": "sha256:202872271d2003579235b0697349d938ab379f74d346e895c12a39cb0e5b10b9",
+    "inputPreserved": true
+  },
+  "hswm": {
+    "status": "READY",
+    "sourceBinding": "ABSENT",
+    "wrongSourcePin": {
+      "error": "USL v2 source digest pin",
+      "ok": false
+    },
+    "futureTimestampStatus": "UNRESOLVED",
+    "consumerDigests": {
+      "usl_adapter.py": "8bf642de500545ff8a3fc80102789f6efbf7fef40f0ffaa475333f9998d1f809",
+      "usl_observation_v2.py": "55b2af74d37cb7160d293f324d64b7f9893cd27b9ceb1890a8c17d3d00aa2534"
+    }
+  },
+  "mcp": {
+    "source": {
+      "adapter": "property-graph/v2",
+      "digest": "sha256:de846e23aae9ca77849d3ad662df931bf5633fc4ba06e6da93472d2cfb5282cb"
+    },
+    "planDigest": "sha256:c2c5c433953d13ad6be90d37fe2be3d144505f7c63bd5ab34c0a52da36ade13a",
+    "toolCount": 9
+  },
+  "limitations": [
+    "Local native graph fixture and files; production KG configuration unchanged",
+    "HSWM READY means reference availability, not semantic truth or admission",
+    "Native response identity is in the USL receipt; HSWM source_binding is ABSENT",
+    "No USL database or intermediate plan file created"
+  ]
+}

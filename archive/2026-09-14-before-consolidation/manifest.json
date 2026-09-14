@@ -1,0 +1,99 @@
+{
+  "status": "HISTORICAL_SNAPSHOT",
+  "captured_on": "2026-09-14",
+  "basis": "Working tree before documentation consolidation; includes previously uncommitted 2026-09-08 work.",
+  "files": [
+    {
+      "original_path": "README.md",
+      "sha256": "db6916ab76d22c8f9b0e0c14c23e39e7df563e0d3803a50efa75e676658c2979"
+    },
+    {
+      "original_path": "docs/ADAPTER_INTEGRATION.md",
+      "sha256": "ef4659729aacdd1cc25653f6e6d257d4fb4f7fd05aab91cc90198cb7b823de3c"
+    },
+    {
+      "original_path": "docs/ADVERSARIAL_FIXES_2026-09-08.md",
+      "sha256": "626aa40afdc17ea8f02e3e49ea7bb9c16e0c2798b12e64bcceca129c87d685ef"
+    },
+    {
+      "original_path": "docs/ADVERSARIAL_FIXES_ROUND2_2026-09-08.md",
+      "sha256": "0abbb39b3c503e634c84a2f13c273545319061406dca009188c4daf6fd616ede"
+    },
+    {
+      "original_path": "docs/ADVERSARIAL_REVIEW_2026-09-08.md",
+      "sha256": "e9974db3f148049cc16ab3f774ffa20ca078ef92f193df66d602454cf82fce89"
+    },
+    {
+      "original_path": "docs/ADVERSARIAL_REVIEW_ROUND2_2026-09-08.md",
+      "sha256": "1607dca17c3952caa17df199956fadd45f9a178fb723399a312c444380ed87b8"
+    },
+    {
+      "original_path": "docs/BIDIRECTIONAL_AGENT_DESIGN.md",
+      "sha256": "84a730622ecacf81b99cc64701b85c1c0da6b4b2e5c001e3b8c59f5b19fdf310"
+    },
+    {
+      "original_path": "docs/CLI.md",
+      "sha256": "a0104f0d4ec71794d0312af8e2982dbd9a56c0de9482edd934f035e5992230b2"
+    },
+    {
+      "original_path": "docs/CODE_INTEGRATION.md",
+      "sha256": "f7185a4a5c7b425e03eedc4c371e95def8e927cff9058f550be8f182ef1ef507"
+    },
+    {
+      "original_path": "docs/COMPACT_CONTEXT.md",
+      "sha256": "7189ba498f16a0b2ef802bbfcd38312bc385721e9a00b8cc3472a28977947632"
+    },
+    {
+      "original_path": "docs/GAME_WORKFLOW.md",
+      "sha256": "8cb585eb459a5ed0bef3e34c09d39b005953f872611c086a06ee6d28dbbb82c4"
+    },
+    {
+      "original_path": "docs/GETTING_STARTED.md",
+      "sha256": "932fb2df07a1844bda61af29ef5d0fd584adbab93bb1bb0fd7bc415c14c3c736"
+    },
+    {
+      "original_path": "docs/GRAPH_ENGINEERING_INTEGRATION.md",
+      "sha256": "34dbceecbf8b7347f53c1af0bbe6569dce1faffbbd455193649a3b84fc8f24ad"
+    },
+    {
+      "original_path": "docs/HSWM_INTEGRATION.md",
+      "sha256": "662fc837eb00571da009d13fc914542b4428e72054904871edd63907bbbfe4b4"
+    },
+    {
+      "original_path": "docs/LANGUAGE.md",
+      "sha256": "16e39b70b9bd9a4e117d7104d272d83cfa56bcc0c49c8b5a68394ea0d066fd7f"
+    },
+    {
+      "original_path": "docs/MCP.md",
+      "sha256": "ce4d5a411ced338996a800e9b136fb81911c3d0a854c695bcdee4fba5d8a6f80"
+    },
+    {
+      "original_path": "docs/OBSERVATION_CONTRACTS.md",
+      "sha256": "2d03fd534943a5576187660260d93215ff91dba8962e509303971caf48cbe101"
+    },
+    {
+      "original_path": "docs/PLATFORM.md",
+      "sha256": "465de80e2beeb20adfa172112ef230daf187c0e168e8750c45daddc0d93b198f"
+    },
+    {
+      "original_path": "docs/RESEARCH_CONNECTION_GAPS_2026-09-08.md",
+      "sha256": "d270d17c5ee10cd5eec52a8b4bd9a67f4b44e5a991768f1b82e51dc057149aa2"
+    },
+    {
+      "original_path": "docs/RESEARCH_SEMANTIC_ADAPTERS_2026-09-07.md",
+      "sha256": "22a1263d3c909249f4ae7277d2279b75a19b3c06facc8e8ed774d78b300cdf07"
+    },
+    {
+      "original_path": "docs/SEMANTIC_ADAPTER_DESIGN.md",
+      "sha256": "b5b6a0048713f93340ead085072634e515cbbe0558d2d47d23b2e436695a6fa9"
+    },
+    {
+      "original_path": "docs/USER_MANUAL.md",
+      "sha256": "708e3af47d3ff88774bd0bc085295d6802a59ffbb8237dd5b1e1c5e577331286"
+    },
+    {
+      "original_path": "docs/USL_AND_CYPHER.md",
+      "sha256": "785b27460cb7135f21bedba70516a0a4a424548692efd05a944b7e92756ed628"
+    }
+  ]
+}

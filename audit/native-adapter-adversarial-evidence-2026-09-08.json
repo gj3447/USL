@@ -1,0 +1,333 @@
+{
+  "schema": "usl-native-adapter-adversarial-audit/v1",
+  "recordedAt": "2026-09-08T08:12:28.872267+00:00",
+  "runtime": "v24.13.0",
+  "scope": "Read-only adversarial review focused on native property-graph adapter, SDK, CLI and HSWM handoff; existing regression suite also rerun.",
+  "implementationModified": false,
+  "previousVerification": {
+    "file": "audit/native-adapter-verification-2026-09-08.json",
+    "digest": "sha256:489a9ccfd13aec89d0dc1748144ef333d4ae5f5012a50a8c3334981e257f19f5",
+    "comparedSourceAndTestFiles": 65,
+    "mismatches": []
+  },
+  "regression": {
+    "tests": 177,
+    "passed": 177,
+    "failed": 0,
+    "exitCode": 0,
+    "typecheck": "PASS",
+    "log": "audit/native-adapter-adversarial-tests-2026-09-08.log",
+    "logDigest": "sha256:94622c42a95db1c405b5dabea33e43e68048240812adc15c26beb38620175580"
+  },
+  "findingStatus": "OPEN_NOT_FIXED",
+  "reproduced": {
+    "F1_direction_lost": true,
+    "F1_description_collision": true,
+    "F2_query_overridden": true,
+    "F3_receipt_aliasing": true,
+    "F4_validation_after_reads": true,
+    "F5_snapshot_validation": true,
+    "F6_cli_complete_oversized_read": true,
+    "F7_reordering_review": true
+  },
+  "probes": {
+    "boundaries": {
+      "script": "audit/probe-native-boundaries-2026-09-08.ts",
+      "scriptDigest": "sha256:35b9fbe8686f8428f2cfe1d0773cba12a7d21d835be0633daf6429ad3621f943",
+      "exitCode": 0,
+      "output": {
+        "contextOptionsOverride": {
+          "originalQuery": {
+            "focus": "a",
+            "target": "b",
+            "maxHops": 0
+          },
+          "limitedStatus": "NOT_FOUND_WITHIN_LIMITS",
+          "overwrittenStatus": "FOUND",
+          "effectiveLimitsBefore": {
+            "maxHops": 0,
+            "maxResources": 64,
+            "maxLinks": 128,
+            "maxVisits": 1024
+          },
+          "effectiveLimitsAfter": {
+            "maxHops": 2,
+            "maxResources": 64,
+            "maxLinks": 128,
+            "maxVisits": 1024
+          }
+        },
+        "receiptAliasing": {
+          "receiptInitiallyValid": true,
+          "callerMutationChangedReturnedResult": true,
+          "receiptValidAfterMutation": false
+        },
+        "snapshotValidation": {
+          "acceptedInvalidIdentities": {
+            "resources": {},
+            "links": {}
+          },
+          "outputBytes": 929,
+          "maxOutputBytes": 1,
+          "checkError": "(FiberFailure) Error: connection resources identities must cover the view\n    at fail (/home/lagyeongjun/CD/USL/src/application.ts:31:50)\n    at executeUslOperation (/home/lagyeongjun/CD/USL/src/application.ts:123:67)"
+        },
+        "directionReversal": {
+          "sourceDigestChanged": true,
+          "samePlanDigest": true,
+          "sameMeaningsDigest": true,
+          "versions": [
+            {
+              "sourceDigest": "sha256:c6aad6d471d08503745c2c647bb538a4f3f0c39b9cad3c0dbfbc1d718a77b88a",
+              "planDigest": "sha256:b9eac91167fc31568fd0ff7723740127b1da9b047ff95b4df88ebfc4fd70db87",
+              "meaningsDigest": "sha256:883c61f9ffdd6e26a549088e3e77bbc741a7500037c501ae16dd2d2673ec88ac",
+              "status": "RESOLVES"
+            },
+            {
+              "sourceDigest": "sha256:2d26fb1f478ef602aa5bb86a43a7912b3ff18df7fdc6774e4d480e6e35c5c588",
+              "planDigest": "sha256:b9eac91167fc31568fd0ff7723740127b1da9b047ff95b4df88ebfc4fd70db87",
+              "meaningsDigest": "sha256:883c61f9ffdd6e26a549088e3e77bbc741a7500037c501ae16dd2d2673ec88ac",
+              "status": "RESOLVES"
+            }
+          ],
+          "comparison": {
+            "schema": "usl-program-observation-comparison/v1",
+            "namespace": "adversarial.native",
+            "previousPlanDigest": "sha256:b9eac91167fc31568fd0ff7723740127b1da9b047ff95b4df88ebfc4fd70db87",
+            "currentPlanDigest": "sha256:b9eac91167fc31568fd0ff7723740127b1da9b047ff95b4df88ebfc4fd70db87",
+            "previousObservationDigest": "sha256:62a23ec8a4ec95f5b096bff3143f28fbcf36c1596b2a5fdbbb33dea337ab1f1c",
+            "currentObservationDigest": "sha256:62a23ec8a4ec95f5b096bff3143f28fbcf36c1596b2a5fdbbb33dea337ab1f1c",
+            "linksOutsideCurrentScope": [],
+            "links": [
+              {
+                "name": "pg_link_a1cb100f57e971cacf26",
+                "addressChanged": [],
+                "contentChanged": [],
+                "semanticContractChanged": false,
+                "unavailable": [],
+                "baselineMissing": [],
+                "actions": []
+              }
+            ],
+            "semanticTruth": "NOT_EVALUATED"
+          }
+        },
+        "participantReordering": {
+          "sameRoleBindings": true,
+          "comparison": {
+            "schema": "usl-program-observation-comparison/v1",
+            "namespace": "adversarial.native",
+            "previousPlanDigest": "sha256:b9eac91167fc31568fd0ff7723740127b1da9b047ff95b4df88ebfc4fd70db87",
+            "currentPlanDigest": "sha256:7a9781009dc1ea56dd97db83ea9aea34dddbf6e1f548f2ce06beb0eee956fe66",
+            "previousObservationDigest": "sha256:62a23ec8a4ec95f5b096bff3143f28fbcf36c1596b2a5fdbbb33dea337ab1f1c",
+            "currentObservationDigest": "sha256:e053dfba1f8b4794f2ecebb4f2a08789da289b6665d0d6bc62ab95dbadd84de0",
+            "linksOutsideCurrentScope": [],
+            "links": [
+              {
+                "name": "pg_link_a1cb100f57e971cacf26",
+                "addressChanged": [],
+                "contentChanged": [],
+                "semanticContractChanged": true,
+                "unavailable": [],
+                "baselineMissing": [],
+                "actions": [
+                  "REVIEW_SEMANTIC_CONTRACT"
+                ]
+              }
+            ],
+            "semanticTruth": "NOT_EVALUATED"
+          }
+        },
+        "relationDescriptionCollision": {
+          "sourceDigestChanged": true,
+          "samePlan": true,
+          "sourceDigests": [
+            "sha256:8aba1164e8c8b9a3abf90ed6f3eb8aebff0c68263755f1a980b558eb0e2a6fe0",
+            "sha256:e5c7c8a9cfe3720f60bae74647df7afd264a7e765856db5991dadf14c1f4fd55"
+          ],
+          "renderedDescriptions": [
+            "Declared KG relation: {\"type\":\"BEFORE\",\"description\":\"original description\"}",
+            "Declared KG relation: {\"type\":\"BEFORE\",\"description\":\"original description\"}"
+          ]
+        }
+      }
+    },
+    "semantics": {
+      "script": "audit/probe-native-semantics-2026-09-08.ts",
+      "scriptDigest": "sha256:e48ae3b630b992d78ee59bea4e6f6b054d95df2c5afb306a8e891d75aaea57e6",
+      "exitCode": 0,
+      "output": {
+        "endpointDirection": {
+          "name": "endpoint-direction",
+          "sourceDigest": [
+            "sha256:8896dcd3aaba479655e98bcd5b098849c2f024cc20826270db113cf721f678b3",
+            "sha256:05e4d89e5671e99bcb9dca65d3a3093b8e571a03199956df520bd219eeb2349a"
+          ],
+          "planDigest": [
+            "sha256:06c0073e23d8992d00b0c2efb6011838e4ccf832b57da98e7002e818ba5edde7",
+            "sha256:06c0073e23d8992d00b0c2efb6011838e4ccf832b57da98e7002e818ba5edde7"
+          ],
+          "planEqual": true
+        },
+        "participantOrder": {
+          "name": "participant-order",
+          "sourceDigest": [
+            "sha256:8896dcd3aaba479655e98bcd5b098849c2f024cc20826270db113cf721f678b3",
+            "sha256:4095349e4e68dc9c4cafd9ef1ac54c864f9c0fb2ea6f0ae2b6c2dd73b5b97e33"
+          ],
+          "planDigest": [
+            "sha256:06c0073e23d8992d00b0c2efb6011838e4ccf832b57da98e7002e818ba5edde7",
+            "sha256:af3e53e0b16c17ec99f21226164df66e06825a9ad6a2899aeb7266ad5e753f08"
+          ],
+          "planEqual": false
+        },
+        "duplicateJsonKey": {
+          "name": "duplicate-json-key",
+          "sourceDigest": [
+            "sha256:f29360769f69a5ab0910198440223e32d6b872ec6cb01ce8ed7c36d9243f5314",
+            "sha256:c2bdc3c0d07b4c6ed5907129f44b2b9e085d60fbeb16127ba83b886434a86e64"
+          ],
+          "planDigest": [
+            "sha256:a5ce41742cb37b6dc1d190fd1a70c6cbc63eaae34addc71483e0344bdeebb3ae",
+            "sha256:a5ce41742cb37b6dc1d190fd1a70c6cbc63eaae34addc71483e0344bdeebb3ae"
+          ],
+          "planEqual": true
+        },
+        "kgUidLocatorMismatch": {
+          "sourceDigest": "sha256:27c9540e566ada9852f6fd6e1988f9be3d6e838f63e9d1b3c3538a9c12ac224a",
+          "resource": {
+            "name": "pg_resource_ccacb801c614717090a1",
+            "locator": {
+              "kind": "kg",
+              "source": "canonical",
+              "uid": "other"
+            }
+          },
+          "accepted": true
+        },
+        "naryProvenance": [
+          {
+            "role": "member",
+            "resource": "pg_resource_ca978112ca1bbdcafac2"
+          },
+          {
+            "role": "group",
+            "resource": "pg_resource_3e23e8160039594a3389"
+          },
+          {
+            "role": "evidence",
+            "resource": "pg_resource_3f79bb7b435b05321651"
+          }
+        ]
+      }
+    },
+    "hswm": {
+      "script": "audit/probe-native-hswm-2026-09-08.ts",
+      "scriptDigest": "sha256:48bc5da12ad139652bb358cd2a847682038ff4b19a76d3187dc47ad0e6ffa448",
+      "exitCode": 0,
+      "output": {
+        "schema": "usl-native-hswm-probe/v1",
+        "invalidObserveOptions": {
+          "reads": 1,
+          "failed": true,
+          "error": "Error: options.links must be an array"
+        },
+        "malformedAuthority": {
+          "sourceReadCalls": 1,
+          "resolverCalls": 2,
+          "failed": true,
+          "error": "Error: HSWM v2 policy is required"
+        },
+        "note": "Both entries should show rejected input after the recorded IO counts."
+      }
+    },
+    "io": {
+      "script": "audit/probe-native-io-2026-09-08.ts",
+      "scriptDigest": "sha256:db9ac0f33c65df60806730d0b80806ba3bba2b7a5140630c5fae30ac9474842c",
+      "exitCode": 0,
+      "output": {
+        "probe": "adapter-input-budget-after-host-read",
+        "rawBytes": 27,
+        "hostReadCalls": 1,
+        "outcome": "Error: adapter source exceeds maxInputBytes or is not text",
+        "note": "Generic source callbacks own their IO limits; this byte limit checks a completed response. The built-in CLI also completes its full file read before checking it.",
+        "cli": {
+          "configuredLimitBytes": 1048576,
+          "inputBytes": 1048577,
+          "completedFileReadBytes": 1048577,
+          "error": "(FiberFailure) Error: adapter source exceeds maxInputBytes or is not text\n    at <anonymous> (/home/lagyeongjun/CD/USL/src/adapters.ts:86:117)"
+        }
+      }
+    }
+  },
+  "reviewedFileDigests": {
+    "package-lock.json": "sha256:d6edd6744bdc552c7f438d9310f152daa0c4d687414154a9a1fa2e37f3173d7f",
+    "package.json": "sha256:0ab0423f593af50f04935665c6a46acac256c7d97ff3e7eda8695159f12fad0b",
+    "src/adapters.ts": "sha256:e10e32dce4f11670a9051351700dcb913089e92af148d78c65ef27c7fc53f1e3",
+    "src/application.ts": "sha256:786c95033664ce72a1f91d81975c596f67ae015883c2d0eb5d5074879c7a7da2",
+    "src/cli-adapter.ts": "sha256:930470d6ecc89afbc20ad45ef5a56922cea9d49dd0b5451fd5886fe57d7387dd",
+    "src/cli-platform.ts": "sha256:68c4f7004222ca1cf66cfeb9db50cdfda91c63c5673d9631b8eef83670e32fd4",
+    "src/cli.ts": "sha256:c002eae003823f36a469cfd38166b564e243202e601626ca8b58f96ce996bd12",
+    "src/domain.ts": "sha256:ad11f31c423d614a7ebf7d7cc5cbe5b0d8badb25ba407e32dd5c506aed07ed42",
+    "src/index.ts": "sha256:47662e9cd68b409be00e4a2bbeb2dccd0e7c135e4076ec2e9dd3d8332e811ab8",
+    "src/integrations/graph-engineering.ts": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
+    "src/integrations/hswm.ts": "sha256:66706bee2429e512119f5d4d1dfb9acbacdd884761e5547988c80bab637c94d8",
+    "src/integrations/property-graph.ts": "sha256:07ba89a80b975966e2c721773586c50843db6baf214df939f0964cfa7f078920",
+    "src/language/code.ts": "sha256:76b97d1dc700cc58bc82d5b9ff66fe8809f642c191c90297acd8d4662bd99a27",
+    "src/language/compact.ts": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416",
+    "src/language/comparison.ts": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862",
+    "src/language/compiler.ts": "sha256:96f064997157f28ed2f230a0222e51095d1aaf6e1adf98317c8952fdfdfefec4",
+    "src/language/digest.ts": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1",
+    "src/language/index.ts": "sha256:d86e7908c37388c8cf7a1538d7674033ab604f238bcb3c2f4c80a1dbf4c2f369",
+    "src/language/model.ts": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+    "src/language/navigation.ts": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+    "src/language/observation-schema.ts": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5",
+    "src/language/parser.ts": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed",
+    "src/language/project.ts": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c",
+    "src/language/runtime.ts": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8",
+    "src/locator.ts": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3",
+    "src/mcp.ts": "sha256:b21e0c2a8f5f3c976be5bc3e2617e7d1d5be69fc14e4917d9038593ec7a58a47",
+    "src/pierce.ts": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e",
+    "src/program-store.ts": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca",
+    "src/project.ts": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de",
+    "src/resolve.ts": "sha256:87174ba05285f4d30ac9463f3e14988b2c8d5a4b3279866bb85939dcff2cd109",
+    "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
+    "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
+    "test/adapters.test.ts": "sha256:7b38ae2fbe0c75899dc6704e8e097a0adf667d23810ef7b1bfcb6022ee9d0f62",
+    "test/application.test.ts": "sha256:2a99b4f54cd2411b120db9f03ba1398d3f8a6e57dfab48ba41c16fd1148e9f3e",
+    "test/cli-platform.test.ts": "sha256:f022f89d08e52ae17255d3c3d2282cb2a112a56dd641acad75e3390a3d21e53b",
+    "test/cli-project-inputs.test.ts": "sha256:e2a1163cb037da5e65599d86e4b0ce0d96d00d68fbddd8f842d9bebd016ef6fc",
+    "test/cli.test.ts": "sha256:0fa8d1841a065051f755070164bd2c8b6dee35140e4abec377ac5250e432ad6c",
+    "test/code-types.ts": "sha256:b5e91274e6962d9ad29472dab10806819b6b8b9ef2170ebb54ce88e2872ad823",
+    "test/code.test.ts": "sha256:dfc5a116cbaaedf4e0f3c3aa39b04ae3c0d81ebe8db72a1211c85da84cff1dfa",
+    "test/compact-counter.test.ts": "sha256:c94b3639cd0924f4c5b7c4106021d31e86389b842a07d63d7f739e74986bf252",
+    "test/compact.test.ts": "sha256:e66330a98884a2db2f4fa4cf67a67332c46f1572c8c10e11d1c6818a65e9f1ae",
+    "test/contracts.test.ts": "sha256:d0442a3b4e9c04fe0dfa462152df5ab51c021f94d66774bb96a096a6da576b7d",
+    "test/engineering-workflow.test.ts": "sha256:1cd45c9ed50b724c015478ab55f5b3d26a69bb01cbcfb5b200f715804acd6d2d",
+    "test/fixtures.ts": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7",
+    "test/game-workflow.test.ts": "sha256:b1502b1b4086467df95b6d05731a05c8266d8aa3e7fa35cfffa17604f4e83ede",
+    "test/graph-engineering.test.ts": "sha256:919c33ad58a22f2c8a21e6eb5552f0b6318e05a1acb9b43069170eb87fb102f4",
+    "test/hswm-integration.test.ts": "sha256:598a0e5ec2007aa4c43935918b3c23cc8324859f04ef60f9f136fc0f9ec26412",
+    "test/language.test.ts": "sha256:beab4a369b8da4936ff6fecb8f33150bc9a74b0921c4d50bf4abe4a0b8a6b450",
+    "test/locator.test.ts": "sha256:19374e0ded39c15e91f710a76a2ecebf4c57bb67326a719f46ba5854bc3741d5",
+    "test/mcp-connection-server.ts": "sha256:19280fa68090f2a5faf53355702be1a6bb855d1255148c926801f2c65aa3486c",
+    "test/mcp-program-server.ts": "sha256:cd0349b70470a07f33071b46400923893a438236e36813cebbab433f8abe6355",
+    "test/mcp.test.ts": "sha256:80352d281a6cff72d44368b1d6a77183efaa8fe940788fb6ab7dbba944510d65",
+    "test/navigation.test.ts": "sha256:a7a9a2a5125151e20516a9e964c667176f1cedf76d068d0f794f05709d2d2118",
+    "test/observation-boundaries.test.ts": "sha256:690aabbc715b96d1bbdc4b9d7ff27329b8982ce3c85318285cd88f2a86897225",
+    "test/observation-options-errors.test.ts": "sha256:73eb201daae761d7da34def8e42fd3cf491494c119f2bf4291d9186604f37b0b",
+    "test/observation-url-aliases.test.ts": "sha256:3e911a9f846a34b549697f7456051fde0f398d6a088d6f95693841370e9b0b56",
+    "test/observation-validation.test.ts": "sha256:7270c941eae55c9985771a7fcc0e9ab990238adcf17358fecfa9342d7333330e",
+    "test/observation.test.ts": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73",
+    "test/permissions.test.ts": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db",
+    "test/pierce.test.ts": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40",
+    "test/program-store.test.ts": "sha256:e664fd9bd08ad302e126ea650419fca1cd33abf98cae562e24fe6820c8c14c19",
+    "test/project.test.ts": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e",
+    "test/property-graph.test.ts": "sha256:17521a43dcd4d39785f39d419edc749bad956aabdfbab8220c1e843af83b13f3",
+    "test/record-validation.test.ts": "sha256:57663b7b3017da196a3dd9e1c1b21b5745f0c0d95520b08775e68c33c1618dea",
+    "test/resolve.test.ts": "sha256:a77305f3d758bd9026778ac93fb38daab3178112dd835c2a8099bdfc420510b2",
+    "test/semantic-projection-validation.test.ts": "sha256:e9ec995d425513b9844699a5410ac5dd1186f86373ef80b47363fa492476e2c8",
+    "test/storage.test.ts": "sha256:22df92e8a30ec11d3afd41cbcff312ffe9afe8e92f1775d761caa7f0e0c6cc53",
+    "tsconfig.build.json": "sha256:b4ecd0e74f924ac3b1eb3f74d3e5f6116f2f2abaac06d43c5547c7be6edfe00f",
+    "tsconfig.json": "sha256:bbe4328ba90777e15887077d18b3874eaae379fce4776c50674ce48a859bce40"
+  }
+}

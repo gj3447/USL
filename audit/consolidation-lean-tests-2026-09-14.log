@@ -1,0 +1,16 @@
+
+> usl@0.3.0 test:lean
+> lake --dir lean build && tsx --test test/lean4.integration.ts
+
+Build completed successfully (5 jobs).
+✔ real Lean elaborates model proofs and exports full names, types and axiom dependencies (889.957875ms)
+✔ transitive sorry is retained; failed compilation and duplicate exports never yield a successful report (2653.140487ms)
+✔ 100 bounded paths and read-scope selection agree between Lean's model and the TS implementation (994.053416ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5177.916941

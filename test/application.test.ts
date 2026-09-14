@@ -4,6 +4,7 @@ import { Effect, Either } from "effect"
 import { executeUslOperation, type UslOperationPolicy } from "../src/application.js"
 import { compileSource } from "../src/language/compiler.js"
 import { formatLocator } from "../src/locator.js"
+import { digestSource } from "../src/language/digest.js"
 
 const source = (namespace = "application_test", description = "declared relation") => `usl "0.1";
 namespace "${namespace}";
@@ -78,5 +79,30 @@ link two = relates(left: c, right: d);
   const accessorOptions: Record<string, unknown> = {}
   Object.defineProperty(accessorOptions, "links", { enumerable: true, get: () => ["one"] })
   await reject(executeUslOperation("observe", { source: multiLinkSource, options: accessorOptions }, policy(calls, allowed)), /plain JSON|prototype|accessor/)
+  assert.equal(calls.value, 0)
+})
+
+test("connection identities are the only public IDs and connection receipts bind each result", async () => {
+  const calls = { value: 0 }, plan = Either.getOrThrow(compileSource(source("connection")))
+  let version = "v1"
+  const configured: UslOperationPolicy = { ...policy(calls), getConnection: async (id) => {
+    if (id !== "game") throw new Error("unknown connection")
+    return { plan, source: { adapter: "fixture", digest: digestSource(version) }, identities: { resources: { "node:a": "a", "node:b": "b" }, links: { "edge:1": "relation" } } }
+  } }
+  const context = await executeUslOperation("context", { connection: "game", query: { focus: "node:a", target: "node:b" } }, configured) as any
+  assert.equal(context.result.focus, "a"); assert.equal(context.receipt.sourceDigest, digestSource("v1")); assert.match(context.receipt.digest, /^sha256:/)
+  await reject(executeUslOperation("context", { connection: "game", query: { focus: "a" } }, configured), /connection resource identity/)
+  await reject(executeUslOperation("observe", { connection: "game", options: { links: null } }, configured), /array/)
+  const observed = await executeUslOperation("observe", { connection: "game", options: { links: ["edge:1"] } }, configured) as any
+  assert.equal(observed.result.sourceDigest, null); assert.ok(calls.value > 0)
+  version = "v2"
+  const next = await executeUslOperation("check", { connection: "game" }, configured) as any
+  assert.equal(next.receipt.sourceDigest, digestSource("v2"))
+})
+
+test("invalid connection snapshots fail before resolution", async () => {
+  const calls = { value: 0 }, plan = Either.getOrThrow(compileSource(source("bad_connection")))
+  const configured: UslOperationPolicy = { ...policy(calls), getConnection: async () => ({ plan, source: { adapter: "", digest: "x" }, identities: { resources: {}, links: {} } }) }
+  await reject(executeUslOperation("observe", { connection: "bad" }, configured), /invalid connection/)
   assert.equal(calls.value, 0)
 })

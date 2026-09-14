@@ -3,3 +3,6 @@ node_modules/
 
 # 빌드 산출물 (npm run build → tsc -p tsconfig.build.json)
 dist/
+
+# Lean build outputs; source and toolchain pins are versioned.
+lean/.lake/

@@ -1,0 +1,231 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "example:spec",
+      "types": [
+        "urn:example:Requirement"
+      ],
+      "locator": "https://example.invalid/spec"
+    },
+    {
+      "id": "example:code",
+      "types": [
+        "urn:example:CodeSymbol"
+      ],
+      "locator": "git://example.invalid/team/game@0123456789012345678901234567890123456789:src/dash.ts"
+    },
+    {
+      "id": "example:checkout",
+      "types": [
+        "urn:example:Checkout"
+      ],
+      "locator": "file://fixture/game"
+    },
+    {
+      "id": "example:proof",
+      "types": [
+        "urn:example:LeanTheorem"
+      ],
+      "locator": "file://fixture/Proof.lean",
+      "metadata": {
+        "declaration": "Demo.dash_requires_ground",
+        "kind": "theorem",
+        "proofStatus": "EXAMPLE_ONLY"
+      }
+    },
+    {
+      "id": "example:run",
+      "types": [
+        "urn:example:BuildRun"
+      ],
+      "locator": "https://example.invalid/build/42"
+    },
+    {
+      "id": "example:artifact",
+      "types": [
+        "urn:example:Artifact"
+      ],
+      "locator": "https://example.invalid/artifact/sha256-demo"
+    },
+    {
+      "id": "example:dataset",
+      "types": [
+        "urn:example:Dataset"
+      ],
+      "locator": "https://example.invalid/datasets/demo"
+    },
+    {
+      "id": "example:model",
+      "types": [
+        "urn:example:Model"
+      ],
+      "locator": "https://example.invalid/models/demo"
+    },
+    {
+      "id": "example:tool",
+      "types": [
+        "urn:example:Tool"
+      ],
+      "locator": "https://example.invalid/mcp/tool/demo"
+    },
+    {
+      "id": "example:workflow",
+      "types": [
+        "urn:example:Workflow"
+      ],
+      "locator": "https://example.invalid/workflows/demo"
+    },
+    {
+      "id": "example:document",
+      "types": [
+        "urn:example:DocumentFragment"
+      ],
+      "locator": "https://example.invalid/docs/demo#section-3",
+      "metadata": {
+        "selector": {
+          "kind": "section",
+          "value": "section-3"
+        }
+      }
+    },
+    {
+      "id": "example:agent",
+      "types": [
+        "urn:example:Agent"
+      ],
+      "locator": "https://example.invalid/agents/demo"
+    },
+    {
+      "id": "example:process",
+      "types": [
+        "urn:example:Process"
+      ],
+      "locator": "https://example.invalid/hosts/demo/processes/42",
+      "metadata": {
+        "host": "demo",
+        "pid": 42,
+        "generation": "fixture-01"
+      }
+    },
+    {
+      "id": "example:sensor",
+      "types": [
+        "urn:example:Observation"
+      ],
+      "locator": "https://example.invalid/sensors/demo/observations/42"
+    }
+  ],
+  "meanings": [
+    {
+      "id": "example:implementation",
+      "description": "Author-declared correspondence between specification, code, checkout and Lean formalization."
+    },
+    {
+      "id": "example:build",
+      "description": "Declared build provenance: an execution uses source and yields an artifact."
+    },
+    {
+      "id": "example:workflow",
+      "description": "Declared workflow dependencies and participants."
+    },
+    {
+      "id": "example:measurement",
+      "description": "A process and sensor observation provide contextual evidence for a requirement."
+    }
+  ],
+  "links": [
+    {
+      "id": "example:implementation_link",
+      "meaning": "example:implementation",
+      "participants": [
+        {
+          "role": "specification",
+          "resource": "example:spec"
+        },
+        {
+          "role": "implementation",
+          "resource": "example:code"
+        },
+        {
+          "role": "checkout",
+          "resource": "example:checkout"
+        },
+        {
+          "role": "formalization",
+          "resource": "example:proof"
+        }
+      ]
+    },
+    {
+      "id": "example:build_link",
+      "meaning": "example:build",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "example:code"
+        },
+        {
+          "role": "execution",
+          "resource": "example:run"
+        },
+        {
+          "role": "output",
+          "resource": "example:artifact"
+        }
+      ]
+    },
+    {
+      "id": "example:workflow_link",
+      "meaning": "example:workflow",
+      "participants": [
+        {
+          "role": "workflow",
+          "resource": "example:workflow"
+        },
+        {
+          "role": "dataset",
+          "resource": "example:dataset"
+        },
+        {
+          "role": "model",
+          "resource": "example:model"
+        },
+        {
+          "role": "tool",
+          "resource": "example:tool"
+        },
+        {
+          "role": "documentation",
+          "resource": "example:document"
+        },
+        {
+          "role": "agent",
+          "resource": "example:agent"
+        },
+        {
+          "role": "execution",
+          "resource": "example:run"
+        }
+      ]
+    },
+    {
+      "id": "example:measurement_link",
+      "meaning": "example:measurement",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "example:spec"
+        },
+        {
+          "role": "process",
+          "resource": "example:process"
+        },
+        {
+          "role": "observation",
+          "resource": "example:sensor"
+        }
+      ]
+    }
+  ]
+}

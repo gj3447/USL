@@ -1,0 +1,73 @@
+{
+  "schema": "usl-hswm-migration-pin-review/v1",
+  "scope": "Only files named in the two research manifests; no study execution or pin modification",
+  "manifests": [
+    {
+      "manifest": "/home/lagyeongjun/CD/HSWM/_research/causal_composition/relation_synthesis_usl_v1/source-pins.v1.json",
+      "manifestDigest": "sha256:0f6856288ee24228a3b6aeaf1ffb5d86382b5606e24e2e0fa502ab4f215cdaea",
+      "matched": 34,
+      "mismatches": [
+        {
+          "repository": "HSWM",
+          "path": "_research/causal_composition/relation_synthesis_usl_v1/run.mts",
+          "recorded": "d8de2529f520aec6884245cc0fef3a5d583e2899a2eab6fb2a912c33275fbd6f",
+          "current": "c0f19d2d5b166b4534beed8b2c76d1055dfeb2e222a2f4924e5d9ba0466a11fc"
+        },
+        {
+          "repository": "HSWM",
+          "path": "src/hswm/effect-runtime/src/usl-native-snapshot.ts",
+          "recorded": "2a2bb723b411387c6be5a80e1a334bde926d80d2b907feb04d30d11b5a14d5f7",
+          "current": "566646452e696dd17d3c3ef601b2da25d850a90e64509e9b16b70698b28f5cf0"
+        },
+        {
+          "repository": "HSWM",
+          "path": "tests/effect-runtime/usl-native-snapshot.test.ts",
+          "recorded": "dabed6fe98731beae2b59c9546210545aff3ed3fabe19c46729e0170188a8d95",
+          "current": "59c36ae46f6e4061a2285bf6852871692b4c55bcce7c303687cdcaad726bec9a"
+        },
+        {
+          "repository": "USL",
+          "path": "docs/ADAPTER_INTEGRATION.md",
+          "recorded": "6ea8ae8466f84cfc1ec36ba33d3c2b157c4d72aa10e44840d9ac940965bbf2de",
+          "current": "ef4659729aacdd1cc25653f6e6d257d4fb4f7fd05aab91cc90198cb7b823de3c"
+        },
+        {
+          "repository": "USL",
+          "path": "src/adapters.ts",
+          "recorded": "e10e32dce4f11670a9051351700dcb913089e92af148d78c65ef27c7fc53f1e3",
+          "current": "1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79"
+        },
+        {
+          "repository": "USL",
+          "path": "src/application.ts",
+          "recorded": "786c95033664ce72a1f91d81975c596f67ae015883c2d0eb5d5074879c7a7da2",
+          "current": "4bf44d0696c0f8d8acf0ef85c584169b37aece10e16b225bddbe2b6a94718de5"
+        },
+        {
+          "repository": "USL",
+          "path": "src/cli-adapter.ts",
+          "recorded": "930470d6ecc89afbc20ad45ef5a56922cea9d49dd0b5451fd5886fe57d7387dd",
+          "current": "9408da6f8515b1204f7907419ccb816715bf0305784b5f150334ad36f27d4c7f"
+        },
+        {
+          "repository": "USL",
+          "path": "src/integrations/hswm.ts",
+          "recorded": "66706bee2429e512119f5d4d1dfb9acbacdd884761e5547988c80bab637c94d8",
+          "current": "bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30"
+        },
+        {
+          "repository": "USL",
+          "path": "src/integrations/property-graph.ts",
+          "recorded": "07ba89a80b975966e2c721773586c50843db6baf214df939f0964cfa7f078920",
+          "current": "e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5"
+        }
+      ]
+    },
+    {
+      "manifest": "/home/lagyeongjun/CD/HSWM/_research/causal_composition/relation_synthesis_usl_v1/source-pins.v4.json",
+      "manifestDigest": "sha256:8f0f7871887d4863e9bb26a5a7a90e4fcda8bf3c6463b10e2586129275f49f19",
+      "matched": 46,
+      "mismatches": []
+    }
+  ]
+}

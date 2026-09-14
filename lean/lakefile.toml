@@ -1,0 +1,5 @@
+name = "usl"
+defaultTargets = ["Usl"]
+
+[[lean_lib]]
+name = "Usl"

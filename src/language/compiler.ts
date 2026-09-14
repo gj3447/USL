@@ -20,7 +20,7 @@ export const compileProgram = (program: Program): Either.Either<SemanticPlan, La
     })
     const meanings = program.declarations.filter((d) => d.tag === "meaning").map((d) => {
       if (!d.description.trim()) return fail(`${d.name}: meaning description is empty`)
-      if (d.roles.length < 2) return fail(`${d.name}: at least two roles are required`)
+      if (d.roles.length < 1) return fail(`${d.name}: at least one role is required`)
       const seen = new Set<string>()
       for (const role of d.roles) {
         if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(role.name) || seen.has(role.name)) return fail(`${d.name}: invalid or duplicate role ${role.name}`)

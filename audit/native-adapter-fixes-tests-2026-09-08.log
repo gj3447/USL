@@ -1,0 +1,261 @@
+
+> usl@0.3.0 test
+> tsx --test test/*.test.ts
+
+✔ SDK context options cannot replace the explicit query or silently erase malformed limits (38.127935ms)
+✔ adapter receipts retain a private immutable JSON result after caller mutation (2.015109ms)
+✔ SDK and application reject malformed observation options before any source IO (6.983154ms)
+✔ snapshot and operation share identity validation; snapshot enforces its own output budget (6.346965ms)
+✔ HSWM rejects malformed or unauthorized authority before reads and stale plan pins before resolution (31.929914ms)
+✔ oversized SDK operation inputs and source requests fail before calling the owner (1.147229ms)
+✔ native adapters reread the owner without DSL files, recompilation commands or a cache (63.431159ms)
+✔ default deny policy and malformed nested options cannot read endpoints or widen source requests (98.441334ms)
+✔ adapter identity must bind exact source and input budget is checked before adaptation (7.411213ms)
+✔ HSWM receives one immutable native version even if source and options change during observation (28.541615ms)
+✔ connection identity maps reject missing resources and prototype names before resolver IO (1.70794ms)
+✔ application observe defaults to no reads and never lets an input expand its allowlist (16.561372ms)
+✔ application rejects broad inputs, null options, excess resource limits and mismatched baselines (23.331358ms)
+✔ compact context stays bounded and registered programs are lookup IDs, not paths (3.987524ms)
+✔ permission-bearing getters and inherited input cannot elevate an observation (0.839498ms)
+✔ nested observe options must be plain JSON data before defaults are applied (0.684617ms)
+✔ connection identities are the only public IDs and connection receipts bind each result (11.742036ms)
+✔ invalid connection snapshots fail before resolution (1.076402ms)
+✔ bounded reader accepts empty, exact-limit and UTF-8 boundary content (15.214416ms)
+✔ bounded reader reads only a limit probe from a much larger file and closes after rejection (7.191681ms)
+✔ bounded reader rejects a file that grows after its handle stat without exceeding the probe (5.378406ms)
+✔ bounded reader rejects non-files and invalid budgets (1.862916ms)
+✔ adapt CLI rejects an oversized valid graph before creating --out (1274.306128ms)
+{"out":"/var/tmp/orca/usl-test-CRh839/game.usl"}
+{"path":"/var/tmp/orca/usl-test-CRh839/game.usl","revision":1,"sourceDigest":"sha256:fb9db2795dc19c740a0568be4db7ae4ef84ac3bdd6c5496c1a4977179471fd95","planDigest":"sha256:82fc90abdfe6486cff447cd14054973467e441b367f69a057851790459dc8f78","state":"CURRENT","error":null,"compilations":1,"bytesRead":408}
+usl init --out FILE.usl
+✔ platform init refuses overwrite and watch once opens its generated USL (44.239757ms)
+✔ platform output never aliases report inputs (65.866041ms)
+{
+  "schema": "usl-graph-engineering-plan/v1",
+  "usl": {
+    "schema": "usl-semantic-plan/v1",
+    "languageVersion": "0.1",
+    "namespace": "geip:p",
+    "resources": [
+      {
+        "name": "graphspec",
+        "locator": {
+          "kind": "filesystem",
+          "host": "fixture",
+          "path": "/g.json"
+        }
+      }
+    ],
+    "meanings": [],
+    "links": [],
+    "declarationStatus": "DECLARED"
+  },
+  "graph": {
+    "graphId": "p",
+    "graphVersion": "1",
+    "apiVersion": "symposium.graphspec/v0alpha1",
+    "authority": {},
+    "identity": {
+      "canonicalizer": "jcs-like-json-v1;graphspec_sha256-omitted",
+      "topology_sha256": "57501e5c6808b3e14852a4ea21dc7873abf9409032a06f9b740c973e83f62cf7",
+      "lifecycle_sha256": "07d65f6d01a202a5a889bd1fb8171e82e80977e92a47b89f393a7ff684481739",
+      "loop_policy_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "effect_policy_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "graphspec_sha256": "2614bafba7949ab2ec7dadf869ab161a28182e1b977f2a87004d5e15fced63e8"
+    },
+    "graphspecDigest": "2614bafba7949ab2ec7dadf869ab161a28182e1b977f2a87004d5e15fced63e8",
+    "sourceLocator": "file://fixture/g.json",
+    "sourceDigest": "sha256:b84924d53e991fb15109ef3f8f7c1ebb81aeb7caa763e4ace825192e11018f40"
+  },
+  "topology": {
+    "nodes": [],
+    "edges": []
+  },
+  "evidence": {},
+  "bindings": {
+    "nodes": [],
+    "evidence": [],
+    "unboundNodeIds": [],
+    "unboundEdgeIds": []
+  },
+  "guarantees": {
+    "structure": "DECLARED_FROM_GRAPHSPEC",
+    "geipValidation": "NOT_RUN",
+    "execution": "NOT_EXECUTED"
+  }
+}
+✔ graph import supplies exact graph text to bindings (53.095152ms)
+✔ legacy project preserves records, utterance and anchors when --out aliases any input (5639.645582ms)
+✔ CLI rejects missing files and invalid arguments without creating output (3747.729148ms)
+✔ CLI lifecycle: pierce, audit/check/write, rebind, validate and projection (6873.180806ms)
+✔ language CLI checks, compiles, observes and projects USL while preserving source inputs (4237.588207ms)
+✔ context CLI exposes role-preserving reverse navigation and scoped limits without resolving endpoints (4280.01168ms)
+✔ observe CLI saves attributable baselines and detects meaning-only changes without replacing input (4254.030857ms)
+✔ compact context CLI bounds the AI payload and skips only an identical cached context (3573.478484ms)
+✔ code-native declarations close dependencies, preserve aliases, and never run bound code (23.813319ms)
+✔ code declarations reject bad locators/conflicts and source round-trips (8.142502ms)
+✔ constructors and compiled plans are detached snapshots (0.43141ms)
+✔ binding preserves generic functions and Effect composition (0.679344ms)
+✔ source emission cannot attach a different plan digest merely because JSON fields compare structurally equal (5.8418ms)
+✔ token budget is captured before a counter can mutate caller options (6.31644ms)
+✔ null delivery options or counter return a typed invalid-options error (1.295097ms)
+✔ counter exceptions and invalid numeric results are rejected (1.824526ms)
+✔ FULL compact context preserves reconstructible paths, target, n-ary context, and route direction (17.059994ms)
+✔ cache returns the exact minimal unchanged envelope and invalidates for plan meaning or query changes (9.549439ms)
+✔ byte and artificial token budgets include the newline and honor exact boundaries (6.410039ms)
+✔ invalid compact options fail closed and output cannot mutate plan, query, or later output (1.453018ms)
+✔ compression lowers delivered bytes on a representative branching chain (4.221029ms)
+✔ meaning contracts declare applicability and evidence checks without changing old meaning syntax (6.403529ms)
+✔ meaning contract validation rejects incomplete or invalid evidence contracts (5.741061ms)
+✔ KG projection preserves the complete meaning contract as JSON properties (2.429711ms)
+✔ code + real GraphSpec fixture + scoped observation produce an HSWM handoff without reading the KG (116.568372ms)
+✔ synthetic game workflow keeps observations attributable and scopes reads to the chosen link (178.059289ms)
+✔ GraphSpec bindings preserve authority, exact source identity, topology and only emit explicitly bound edges (29.615149ms)
+✔ digest or exact source mismatches are rejected before a usable USL plan exists (1.586857ms)
+✔ rejects stale component hashes and forged snapshots even when the outer hash is refreshed (1.205856ms)
+✔ semantic edge changes with valid GEIP hashes change the compiled USL meanings digest (3.487827ms)
+✔ copied GraphSpec matches the pinned source-file digest and remains parseable (13.108436ms)
+✔ raw integer, float and exponent spellings match independent Python canonical hash vectors (12.865679ms)
+✔ object-based imports cannot attach raw source with incompatible integer/float identity (2.301636ms)
+✔ edge identifiers remain stable when a graph lists the same edges in a different order (22.372987ms)
+✔ prepares deep-copied, exact HSWM v2 adapter arguments without creating authority (29.663401ms)
+✔ requires caller authorization and independent exact pins; never derives either from the report (10.394408ms)
+✔ rejects canonical URL aliases that the current HSWM v2 validator cannot consume (14.256475ms)
+✔ HSWM authority preflight rejects malformed data and plan mismatch before an observation (15.105787ms)
+✔ USL compiles heterogeneous resources and a meaning-bearing link independently of declaration order (7.540593ms)
+✔ USL rejects role type before any IO (4.8922ms)
+✔ USL rejects missing role before any IO (0.323512ms)
+✔ USL rejects duplicate role before any IO (0.266833ms)
+✔ USL rejects unknown resource before any IO (0.49891ms)
+✔ USL rejects unknown meaning before any IO (0.505148ms)
+✔ USL rejects duplicate declaration before any IO (0.366791ms)
+✔ USL rejects empty meaning before any IO (0.506499ms)
+✔ USL rejects invalid grounding before any IO (1.308198ms)
+✔ USL rejects language version before any IO (0.486261ms)
+✔ parser reports source location and respects URL/string comment boundaries (0.642426ms)
+✔ role-bearing links support multiple participants and intentional resource aliasing (0.520711ms)
+✔ Effect observation resolves references without asserting semantic truth (305.831628ms)
+✔ KG projection preserves meanings, roles and resource identities as pending declarations (1.26666ms)
+✔ KG projection keeps foreign source UIDs distinct and preserves author source hash (0.806914ms)
+✔ kg locator round-trips (1.671213ms)
+✔ url locator round-trips (0.342719ms)
+✔ git locator round-trips with symbol and lines (1.227258ms)
+✔ git locator without symbol/lines (0.402566ms)
+✔ file locator requires host and absolute path (0.516357ms)
+✔ unknown scheme fails closed (0.208235ms)
+✔ line ranges reject zero, reversed and unsafe integers (1.49169ms)
+✔ MCP startup policy is exact and defaults to deny-all with no programs (1.727631ms)
+✔ stdio MCP client lists tools and dispatches read-free compile (1235.409611ms)
+✔ MCP default observe policy cannot be expanded by a client (804.849976ms)
+✔ MCP connection maps native IDs and refreshes a host-owned graph snapshot (905.404199ms)
+✔ a configured program ID refreshes on valid edits and refuses an invalid newest edit (791.009779ms)
+✔ MCP starts when its entrypoint is invoked through a package-bin symlink (790.889734ms)
+✔ both ends traverse the same assertion with original roles and no invented inverse (14.941785ms)
+✔ a multi-hop witness preserves the original n-ary claim and every participant (1.474743ms)
+✔ typed role routes constrain travel without deleting contextual participants (3.961938ms)
+✔ aliased roles and self links preserve all roles without duplicating or conflating resources (0.999625ms)
+✔ BFS terminates cycles and returns a deterministic shortest witness, not every walk (1.22731ms)
+✔ a hop limit distinguishes unknown beyond the boundary from scoped absence (2.259068ms)
+✔ resource budget admits whole hyperedges or reports truncation without partial assertions (0.879309ms)
+✔ link and incidence-visit budgets are bounded and do not hide truncation (1.12758ms)
+✔ invalid names, role routes and budgets fail instead of silently broadening the query (5.381937ms)
+✔ navigation neither mutates the supplied plan nor requires reachable external endpoints (2.175564ms)
+✔ every emitted path is reconstructible from retained original roles and closed link context (7.172937ms)
+✔ annotating an agent context cannot mutate the source plan, query or later contexts (1.030298ms)
+✔ null selection, permission and budget fail before any resolver invocation (42.72518ms)
+✔ each completed resolution is detached before subsequent resolver work and after return (35.630707ms)
+✔ resolver-owned request and policy copies cannot mutate the plan or report scope (8.323486ms)
+✔ KG resolved identity forgery is rejected even if target is allowed and outer digest is recomputed (18.257054ms)
+✔ malformed resolver snapshots and changed KG identities fail with ObservationError (24.891734ms)
+✔ option snapshots honor class, inherited, and non-enumerable fields without widening reads (53.305854ms)
+✔ explicit null option fields remain typed failures before resolver IO (9.856522ms)
+✔ malformed resolver failures are typed ObservationErrors and valid failures remain detached (37.236414ms)
+✔ equivalent URL declarations share one budget slot and exact resolver snapshot (55.05025ms)
+✔ URL aliases share denial counts for request policy and resolver policy failures (19.056967ms)
+✔ URL aliases cannot carry conflicting evidence or forged raw-address statistics (13.888827ms)
+✔ different URL paths remain separate requests and budget entries (9.792285ms)
+✔ valid successful, denied, failed, alias, and grounding-deduplicated reports validate (47.434948ms)
+✔ validator accepts non-unique and config-policy denials within the requested scope (8.98629ms)
+✔ validation rejects forged execution, report shape, scope, and metrics after digest recomputation (49.358252ms)
+✔ validation ties statuses, checks, resolutions, and fingerprints to the selected declarations (11.882296ms)
+✔ validation rejects unused selected-report declarations even with a fresh digest (6.351895ms)
+✔ observations bind their exact plan and meaning contracts even with identical endpoint results (26.996327ms)
+✔ selected observation reads only selected participants and groundings, deduplicates aliases, and never runs checks (5.642314ms)
+✔ allowlists and invalid observation requests fail closed before resolver calls (25.90678ms)
+✔ observation snapshots the plan before async reads and keeps its report detached (2.927867ms)
+✔ observation captures sourceText before async reads (10.513587ms)
+✔ observation comparison separates address, content, and semantic-contract changes (39.504373ms)
+✔ comparison rejects stale schemas and digest corruption before making a change claim (15.301609ms)
+✔ observation allowlists use the same URL normalization as the live resolver (1.326497ms)
+✔ rebinding a participant alias changes the address binding rather than the meaning contract (8.132467ms)
+✔ exact locator policy permits selected reads and denies unselected reads before fetch (52.127891ms)
+✔ redirect targets need their own allowlist entry before a second request (2.484322ms)
+✔ filesystem symlink targets require separate canonical locator authorization (57.767656ms)
+✔ invalid policy entries fail before resolver I/O (0.616943ms)
+✔ live request policy can narrow Config policy but cannot broaden it (13.218951ms)
+✔ malformed base policy is not hidden by a narrower request policy (1.973526ms)
+✔ KG and Git denials happen before their endpoint access (0.708461ms)
+✔ URL policy normalizes equivalent URL spellings (2.022497ms)
+✔ user pair kg → kg: stable snapshot, drift and repeat audit preserve baseline (201.978836ms)
+✔ user pair url → kg: stable snapshot, drift and repeat audit preserve baseline (73.578722ms)
+✔ user pair git → kg: stable snapshot, drift and repeat audit preserve baseline (239.803003ms)
+✔ user pair fs → kg: stable snapshot, drift and repeat audit preserve baseline (85.668563ms)
+✔ user pair kg → fs: stable snapshot, drift and repeat audit preserve baseline (64.457435ms)
+✔ user pair url → fs: stable snapshot, drift and repeat audit preserve baseline (66.757567ms)
+✔ user pair fs → url: stable snapshot, drift and repeat audit preserve baseline (55.510399ms)
+✔ user pair git → fs: stable snapshot, drift and repeat audit preserve baseline (151.195619ms)
+✔ missing baseline cannot pass GetPut after endpoint recovers; explicit rebind completes it (51.528741ms)
+✔ audit reports both orphan endpoints and the underlying transport issue (29.634361ms)
+✔ a recovered audit restores EXTRACTED confidence before its RESOLVES record is persisted (40.327536ms)
+✔ git pins full commit, ignores worktree edits, rejects missing path and unsupported symbol (93.323718ms)
+✔ symlink relocation with identical content is LabelRot (31.606518ms)
+✔ KG collision and transport failure are AMBIGUOUS (29.481006ms)
+✔ registered sources reuse unchanged plans and rebuild only the changed file (72.631361ms)
+✔ watch atomically installs valid edits, retains old snapshots and exposes failed edits (14.206636ms)
+✔ in-flight observations keep their original semantic version across a refresh (38.175455ms)
+✔ source size limits and invalid newest edits fail without silently widening reads (5.762658ms)
+✔ projection emits registry-safe shapes: ≤4 labels, flat properties, kg anchors, typed relations (6.23056ms)
+✔ projection rejects malformed/mismatched locators and UID collisions (3.696332ms)
+✔ projection requires explicit mapping for a different KG source (1.402896ms)
+✔ KG 등급은 레코드 status 에서 파생된다 — 해석 실패를 CANONICAL 로 앉히지 않는다 (감사 D23) (1.418155ms)
+✔ 도구 버전 표기는 레코드 provenance 에서 오지 실행 중 바이너리에서 오지 않는다 (감사 F5) (0.50314ms)
+✔ adapts a read-only property-graph snapshot with stable hashed identities and n-ary roles (17.326344ms)
+✔ uses KG fallback only for nodes without a locator and declares missing descriptions explicitly (0.652901ms)
+✔ binds raw source and semantic descriptions and contracts to the compiled plan identity (1.514854ms)
+✔ binds directed endpoints and description presence even with an explicit n-ary participant view (1.963434ms)
+✔ canonicalizes orderless n-ary role bindings while retaining every role and UID (0.645328ms)
+✔ RESOLVES observations classify directed reversal as semantic and order-only n-ary changes as unchanged (32.860724ms)
+✔ rejects ambiguous or malformed graph inputs before compiling a plan (1.130303ms)
+✔ requires explicit n-ary participants to retain both relation endpoints (0.273008ms)
+✔ preserves a hostile-but-valid original relation UID as a data key (0.384766ms)
+✔ incomplete or incoherent RESOLVES records cannot become canonical KG assertions (12.583401ms)
+✔ non-RESOLVES records retain incomplete-baseline recovery compatibility (5.621022ms)
+✔ RESOLVES KG evidence keeps the requested source and UID, while URL redirects and historical drift remain representable (1.53344ms)
+✔ projection uses its validated snapshot when input status is accessor-backed or mutated by an option getter (0.864143ms)
+✔ KG routes by source and never fetches an unregistered source (35.420272ms)
+✔ KG validates identity, cardinality, protocol errors and HTTP status (9.499642ms)
+✔ KG parses SSE messages after heartbeat/progress events (1.485281ms)
+✔ HTTP 401 classification (1.012604ms)
+✔ HTTP 403 classification (0.491161ms)
+✔ HTTP 404 classification (0.526875ms)
+✔ HTTP 410 classification (0.612837ms)
+✔ HTTP 429 classification (0.698253ms)
+✔ HTTP 500 classification (0.593461ms)
+✔ HTTP 503 classification (0.67868ms)
+✔ resolution deadline cancels fetch; body size limit fails with IO (22.121753ms)
+✔ line bounds, inaccessible checkout and unrepresentable realpath cannot resolve (81.211822ms)
+✔ whole Git repository and filesystem directory are first-class resources (49.968383ms)
+✔ semantic projection rejects a source whose opposite meaning did not produce the supplied plan (4.698646ms)
+✔ semantic projection accepts matching source and records the digest of that source (1.007703ms)
+✔ semantic projection snapshots the plan and source option before accessors can change caller data (0.70341ms)
+✔ semantic projection remains compatible without source text and hashes its plan snapshot (0.387028ms)
+✔ snapshot writes reject stale data and active writers without changing original bytes (31.141281ms)
+✔ records with unknown fields fail validation instead of silently losing data (81.474709ms)
+ℹ tests 192
+ℹ suites 0
+ℹ pass 192
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28349.044194

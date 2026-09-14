@@ -1,5 +1,7 @@
 # 함수형 코드에서 USL 쓰기
 
+현재 추가 SDK 진입점은 `usl/resource-graph`와 `usl/lean4`다. [범용 자원 연결](RESOURCE_GRAPH.md), [Lean 4 연결](LEAN4_INTEGRATION.md)을 기존 코드 선언과 조합할 수 있다.
+
 USL 선언을 TypeScript 값으로 만들고, 함수·Effect와 함께 보관할 수 있다. `usl`은 예약어나 특별한 변수명이 아니다. 아래처럼 원하는 변수 이름으로 쓰고, 명시적으로 지정한 namespace와 link 이름으로 연결을 식별한다.
 
 ```ts
