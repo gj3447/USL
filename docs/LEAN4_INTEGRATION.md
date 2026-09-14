@@ -63,7 +63,7 @@ const connection = connectUsl({
 
 ## 형식 검증 범위
 
-`lean/Usl/Core.lean`에는 역할 이름을 가진 하이퍼그래프와 선택·탐색 모델이 있다.
+역할 이름을 가진 하이퍼그래프를 형식화하고 **37개 정리**를 Lean 4.33.1로 검증한다. [Core.lean](../lean/Usl/Core.lean)은 기본 모델과 10개 정리, [Verification.lean](../lean/Usl/Verification.lean)은 경로·선택·읽기 예산에 관한 20개 정리, [Contracts.lean](../lean/Usl/Contracts.lean)은 구조 검사와 역할 방향에 관한 7개 정리를 담는다.
 
 | 정리 | 보장 |
 |---|---|
@@ -77,11 +77,40 @@ const connection = connectUsl({
 | `narrower_reads` | 허용 범위 축소가 읽기를 확대하지 않음 |
 | `reachableWithin_reflexive` | 시작 자원 자신은 홉 수와 무관하게 도달 |
 | `reachableWithin_sound` | 실행 가능한 유한 홉 탐색의 성공에는 실제 경로 증거가 있음 |
+| `reachableWithin_correct` | 탐색 성공 **↔ 해당 홉 예산 안에 경로 존재**, 모든 그래프·자원·자연수 예산에 대해 성립 |
+| `reachableWithin_complete`, `reachable_iff_exists_budget` | 유한 경로가 있으면 충분한 홉 예산에서 반드시 찾음 |
+| `PathWithin.mono/trans/symm`, `reachableWithin_monotone/symmetric/composition` | 예산 증가 시 도달성 유지, 경로 합성 시 예산 합산, 무방향 경로의 같은 예산 역방향 탐색 |
+| `reachableWithin_false_iff` | 실패는 해당 홉 예산 안에 경로가 없다는 뜻이며 더 긴 경로를 배제하지 않음 |
+| `reachableWithin_stays_in_graph` | 참조가 유효한 그래프의 선언된 자원에서 출발하면 도착 자원도 선언되어 있음 |
+| `selected_link_iff`, `selectLinks_idempotent/commute` | 링크 ID 선택의 정확성, 반복 선택의 안정성, 선택 순서 독립성 |
+| `selectReads_exact/idempotent/commute` | 읽기는 요청과 허용 범위의 교집합이며 반복·순서에 대해 안정적 |
+| `admitted_read_exact`, `admitted_reads_budget`, `oversized_reads_rejected` | 중복 제거한 요청 수를 먼저 검사하고, 승인 결과는 요청·권한 안에 있으며 예산 이하; 초과 요청은 거부 |
+| `validateGraph_correct` | 실행 가능한 구조 검사 성공 ↔ 모델의 구조 조건 만족 |
+| `validGraph_wellformed`, `selection_preserves_validGraph/validation` | 구조 검사는 참조 무결성을 함의하며 링크 선택 후에도 유효성 유지 |
+| `routedStep_correct`, `routedStep_original`, `no_routes_no_step` | 지정한 의미·진입 역할·이탈 역할에 맞는 원래 참여자 사이에서만 한 단계 이동; 빈 역할 정책은 이동을 허용하지 않음 |
+
+핵심 명제는 다음처럼 **실행 함수와 경로 명세의 동치**로 작성되어 있다. 유한한 예시만 열거한 정리가 아니다.
+
+```lean
+theorem reachableWithin_correct {graph : Graph} {start target : String} {hops : Nat} :
+    reachableWithin graph start target hops = true ↔ PathWithin graph hops start target
+```
+
+`GraphValid`는 비어 있지 않은 자원 목록, 고유 자원·링크 ID, 비어 있지 않은 참여자 목록, 링크 내 고유 역할, 선언된 자원 참조를 검사한다. 문자열 문법, 의미 선언 목록, locator 파싱, metadata, 출처 참조와 descriptor ID 충돌은 이 모델 밖이다. `RoutedAdjacent`는 원래 링크와 참여자 및 일치하는 정책의 존재 증거를 요구한다. 방향을 지정한 역할 탐색에는 무방향 경로의 대칭성 정리를 적용하지 않는다.
 
 ```sh
 npm run test:lean
 ```
 
-Lean 모델의 100개 경로(순환, 고립 자원, 다자 관계, 0–3 홉)와 읽기 범위 선택을 실제 TS runtime에 대조한다. 실제 Lean 실행의 정상 정리, 간접 `sorry`, export 이후 오류, 중복 export도 검사한다.
+위 명령은 라이브러리를 빌드하고 [ProofAudit.lean](../lean/Examples/ProofAudit.lean)의 전체 37개 정리를 export한다. 각 선언이 정리이고 unsafe/partial이 아니며 전이적 공리 의존성이 `propext`, `Classical.choice`, `Quot.sound` 안에만 있는지 검사한다. `sorryAx` 및 사용자 정의 공리 의존성은 실패 처리한다. 선언 목록 누락도 검사한다. 일반 export 기능 자체는 외부 선언의 사용자 공리를 지우지 않는다.
 
-10개 정리는 **Lean 모델에 대한 증명**이다. TypeScript의 parser·compiler·해시·전체 탐색 구현, 모든 예산 조합, 외부 resolver, 사용자 의미 대응을 형식 증명하지 않았다. TS와 모델의 연결은 현재 유한한 대조 테스트이며 전 프로그램 refinement proof로 표기하지 않는다.
+[Conformance.lean](../lean/Examples/Conformance.lean)의 실행 결과를 실제 TS 구현과 다음 **383건** 대조하고 별도로 읽기 허용 목록의 기본 예시를 검사한다.
+
+- 100개 경로: 순환, 고립 자원, 다자 관계, 0–3 홉.
+- 80개 역할 이동: 서로 다른 출발·도착 자원 20쌍 × 빈 정책·정방향·역방향·양방향 정책. 발견된 TS 경로의 의미와 진입·이탈 역할도 검사한다.
+- 192개 읽기 예산: 허용 목록 32조합 × 예산 0–5. 초과 요청은 resolver 호출 전에 실패하고, 승인 시 실제 호출 자원이 모델과 일치한다.
+- 11개 구조 검사: 정상·빈 자원 목록·중복 ID·빈 참여자·중복 역할·미선언 자원·링크 선택·단항 링크·여러 역할에 같은 자원·빈 링크 목록.
+
+실제 Lean 실행의 간접 `sorry`, export 이후 오류, 중복 export, 실행 제한도 검사한다. 홉 예산 초과와 전역 비도달성의 차이, 역할 탐색의 비대칭성, 도달성이 읽기 권한을 부여하지 않는다는 세 경계 예시도 Lean에서 검사한다. [검증 기록](../audit/LEAN_PROOFS_2026-09-14.md)을 참고한다.
+
+37개 정리는 **Lean 모델에 대한 증명**이다. TypeScript의 parser·compiler·해시·BFS 전체 구현, locator 정규화, 외부 resolver, 사용자 의미 대응은 형식 증명하지 않았다. 모델의 일반 탐색은 홉 예산만 다루며 TS의 자원·링크·방문 예산과 최대 32홉 제한까지 완전성을 주장하지 않는다. 역할 정책의 증명은 한 단계 이동에 관한 것이다. TS와 모델의 연결은 현재 유한한 대조 테스트이며 전 프로그램 refinement proof로 표기하지 않는다.

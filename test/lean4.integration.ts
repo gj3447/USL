@@ -2,7 +2,7 @@ import { test } from "node:test"
 import assert from "node:assert/strict"
 import { execFile } from "node:child_process"
 import { promisify } from "node:util"
-import { mkdtemp, rm, writeFile } from "node:fs/promises"
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
 import { Effect, Either } from "effect"
@@ -27,6 +27,22 @@ test("real Lean elaborates model proofs and exports full names, types and axiom 
   assert.match(snapshot.declarations.find(declaration => declaration.name === "Demo.dash_requires_ground")!.type, /grounded/)
 })
 
+test("all 37 public model theorems pass Lean with only the allowed foundational axioms", async () => {
+  const raw = await Effect.runPromise(readLean4Export({ cwd, file: "Examples/ProofAudit.lean" }))
+  const snapshot = lean4ExportSchema.parse(JSON.parse(raw))
+  const sources = await Promise.all(["Core", "Verification", "Contracts"].map(name => readFile(join(cwd, "Usl", `${name}.lean`), "utf8")))
+  const names = sources.flatMap(source => [...source.matchAll(/^theorem ([A-Za-z0-9_.]+)/gm)].map(match => `Usl.${match[1]}`))
+  assert.equal(names.length, 37)
+  assert.deepEqual(snapshot.declarations.map(declaration => declaration.name).sort(), names.sort())
+  const allowedAxioms = new Set(["propext", "Classical.choice", "Quot.sound"])
+  for (const declaration of snapshot.declarations) {
+    assert.equal(declaration.kind, "theorem", declaration.name)
+    assert.equal(declaration.unsafe, false, declaration.name)
+    assert.equal(declaration.partial, false, declaration.name)
+    for (const axiom of declaration.axioms) assert.ok(allowedAxioms.has(axiom), `${declaration.name} depends on ${axiom}`)
+  }
+})
+
 test("transitive sorry is retained; failed compilation and duplicate exports never yield a successful report", async t => {
   const dir = await mkdtemp(join(cwd, ".lake", "usl-test-"))
   t.after(() => rm(dir, { recursive: true, force: true }))
@@ -43,7 +59,7 @@ test("transitive sorry is retained; failed compilation and duplicate exports nev
   await assert.rejects(Effect.runPromise(readLean4Export({ cwd, file, timeoutMs: 0 })), /execution limit/)
 })
 
-test("100 bounded paths and read-scope selection agree between Lean's model and the TS implementation", async () => {
+test("100 paths, 80 role routes, 192 read budgets and 11 graph cases agree with TypeScript", async () => {
   const { stdout } = await run("lake", ["env", "lean", "Examples/Conformance.lean"], { cwd, timeout: 30000, maxBuffer: 1024 * 1024 })
   const expected = JSON.parse(stdout)
   const input: ResourceGraph = {
@@ -72,4 +88,46 @@ test("100 bounded paths and read-scope selection agree between Lean's model and 
         resolvedAt: "2026-09-14T00:00:00.000Z", guaranteeLevel: "pure" as const, matchCount: 1 }
     }) })))
   assert.deepEqual(calls.sort(), expected.reads.map((id: string) => `file://fixture/${id}`).sort())
+  for (const route of expected.routes) {
+    const routes = route.policy.map((policy: { meaning: string; enter: string; exit: string }) => {
+      const original = input.links.find(link => link.meaning === policy.meaning)!
+      const meaning = graph.plan.links.find(link => link.name === graph.identities.links[original.id])!.meaning
+      return { ...policy, meaning }
+    })
+    const context = Either.getOrThrow(agentContext(graph.plan, {
+      focus: graph.identities.resources[route.start]!, target: graph.identities.resources[route.target]!, maxHops: 1, routes,
+    }))
+    assert.equal(context.target?.status === "FOUND", route.found, JSON.stringify(route))
+    if (route.found) {
+      const step = context.target!.path!.steps[0]!
+      assert.ok(routes.some((policy: { meaning: string; enter: string; exit: string }) =>
+        policy.meaning === step.meaning && policy.enter === step.enteredRole && policy.exit === step.exitedRole))
+    }
+  }
+  assert.equal(expected.routes.length, 80)
+  for (const fixture of expected.validation) {
+    assert.equal(Either.isRight(adaptResourceGraph(JSON.stringify(fixture.graph), { namespace: "validation" })), fixture.valid, fixture.name)
+  }
+  assert.equal(expected.validation.length, 11)
+  for (const fixture of expected.budgets) {
+    const reads: string[] = []
+    const result = await Effect.runPromise(observeProgram(graph.plan, {
+      maxResources: fixture.budget,
+      allowedLocators: fixture.allowed.map((id: string) => `file://fixture/${id}`),
+    }).pipe(Effect.provideService(Resolvers, { resolve: locator => Effect.sync(() => {
+      reads.push(formatLocator(locator))
+      return { locator, resolvedLocator: formatLocator(locator), contentHash: "a".repeat(64),
+        resolvedAt: "2026-09-14T00:00:00.000Z", guaranteeLevel: "pure" as const, matchCount: 1 }
+    }) }), Effect.either))
+    if (fixture.output === null) {
+      assert.ok(Either.isLeft(result), JSON.stringify(fixture))
+      assert.match(result.left.detail, /exceeding maxResources/)
+      assert.deepEqual(reads, [], "an excessive request must fail before resolver IO")
+    } else {
+      assert.ok(Either.isRight(result), JSON.stringify(fixture))
+      assert.deepEqual(reads.sort(), fixture.output.map((id: string) => `file://fixture/${id}`).sort())
+      assert.ok(reads.length <= fixture.budget)
+    }
+  }
+  assert.equal(expected.budgets.length, 192)
 })

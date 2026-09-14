@@ -66,7 +66,7 @@ npm run test:lean
 
 독립 RDF/SHACL 검사에는 Python 환경에서 `pip install -r scripts/requirements-standards.txt` 후 `npm run test:standards`를 실행한다.
 
-Lean의 형식 모델은 역할 기반 연결, 경로 합성·역방향 탐색, 연결 선택의 보존성, 읽기 범위 축소를 증명한다. 실행 가능한 모델의 100개 경로를 TypeScript 구현과 대조한다. 전체 TypeScript 프로그램이나 외부 관계의 참을 증명한 것은 아니다. [검증 범위](docs/LEAN4_INTEGRATION.md#형식-검증-범위).
+Lean의 형식 모델은 **37개 정리**로 유한 홉 탐색의 정확성·완전성, 경로 합성, 연결·역할 보존, 그래프 구조 검사, 읽기 권한·예산 제한을 증명한다. 모든 정리의 전이적 공리 의존성을 검사하고 실행 모델을 TypeScript와 **383건** 대조한다. 전체 TypeScript 프로그램이나 외부 관계의 참을 증명한 것은 아니다. [검증 범위](docs/LEAN4_INTEGRATION.md#형식-검증-범위).
 
 ## 호환성과 과거 기록
 

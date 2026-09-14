@@ -1,0 +1,497 @@
+{
+  "schema": "usl-lean-proof-verification/v1",
+  "generatedAt": "2026-09-14T08:03:34.986850+00:00",
+  "baseCommit": "b0b02001858bd0bfc20c17dd9933b376c217a5b8",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "scope": "Lean graph, bounded paths, structural validation, one-step role routes, link selection and normalized-key read admission models. TypeScript correspondence is finite conformance testing, not whole-program refinement.",
+  "sourceDigests": {
+    "lean/Usl.lean": "sha256:0a7bff73b7d0ed845be8577ed623869dc844fd2fde9e8ebc72f363020db60ffc",
+    "lean/Usl/Core.lean": "sha256:d0ac020f9f6f69ce9793dcffded8a5a2869d1e3b1a6b7ac6a850747acf57a2a5",
+    "lean/Usl/Verification.lean": "sha256:839ff963eb3e8f7d3d7184f766c51732604c084ba7c669a19a9b4fd6e439d2a9",
+    "lean/Usl/Contracts.lean": "sha256:723fca645e721edce0e2d56cd0584a0d16a88c527e78a09b05a0a0eb96160a17",
+    "lean/Usl/Export.lean": "sha256:e9d71776e3f6051ef80b84182add193b04c4b9153e80394ccd697014399541d0",
+    "lean/Examples/ProofAudit.lean": "sha256:545834a29a74a28832e6725f2fdefa272cf268d7de685d20d36c0e16823820b8",
+    "lean/Examples/Conformance.lean": "sha256:5afcef565a25f772718ebd7c8ac4fb7248d8ab14ab2fb7f486e06a99bf9f31f5",
+    "lean/Examples/Connections.lean": "sha256:674cdf0df653d069fb55cdfcc44627586b1642a6a6b375c3d1fd6ecb8478081e",
+    "lean/lean-toolchain": "sha256:3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+    "lean/lakefile.toml": "sha256:dc9aadfe7cbde13068f218e8123a56bc52c2508b1991186008dee9ed3b5f8bd2",
+    "lean/lake-manifest.json": "sha256:5cade933f1311e12499fe3ed9323a597f31906a194bbe653aa35ac1e43b6caf5",
+    "test/lean4.integration.ts": "sha256:f0e6abc7c83b2e4c8927fbb2bba2de7595769410f84ed6f9e3f42661c1b48baf",
+    "src/language/navigation.ts": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+    "src/language/runtime.ts": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8",
+    "src/language/compiler.ts": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f",
+    "src/language/model.ts": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+    "src/integrations/resource-graph.ts": "sha256:67be21489c9ce301469506b34d5c6f53754eba9d028b43e65ad7d7ee66580d1a",
+    "src/integrations/lean4.ts": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7",
+    "src/locator.ts": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3",
+    "src/resolve.ts": "sha256:87174ba05285f4d30ac9463f3e14988b2c8d5a4b3279866bb85939dcff2cd109",
+    "package.json": "sha256:52cbce87a7deec66ca7c0a1ddf806ec11cc1ab4811fa2dc88cec70612d62cfb1",
+    "package-lock.json": "sha256:d6edd6744bdc552c7f438d9310f152daa0c4d687414154a9a1fa2e37f3173d7f",
+    "tsconfig.json": "sha256:abb0cd88fb45161901617fa2fcec2f735a429dfca899215589d2a3880529c762",
+    "tsconfig.build.json": "sha256:b4ecd0e74f924ac3b1eb3f74d3e5f6116f2f2abaac06d43c5547c7be6edfe00f",
+    "scripts/check-docs.py": "sha256:41dfcd22d2ad92f47b52d2dd3ad3883a813e1d0354ee1deb400ab4cef2fe8ad4",
+    "README.md": "sha256:1c06c848ea7170dd4ff190adb23b7e8f7c206e82d95c6e26eb7bd9b78aceddb6",
+    "docs/LEAN4_INTEGRATION.md": "sha256:c16b4afb20c67ddbb096c0d67585e70bdb186ecd1f1c21576ab405bef7f3b56f",
+    "docs/DECISIONS.md": "sha256:38e409a8618df53c1ee37bce65a718abaa2934a38b4b12d947c62ad3c27beb71"
+  },
+  "axiomPolicy": {
+    "allowed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "theoremsChecked": 37,
+    "unapprovedDependencies": []
+  },
+  "export": {
+    "declarations": [
+      {
+        "axioms": [],
+        "kind": "theorem",
+        "name": "Usl.adjacent_symmetric",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String}, Usl.Adjacent graph a b → Usl.Adjacent graph b a",
+        "unsafe": false
+      },
+      {
+        "axioms": [],
+        "kind": "theorem",
+        "name": "Usl.reachable_transitive",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b c : String}, Usl.Reachable graph a b → Usl.Reachable graph b c → Usl.Reachable graph a c",
+        "unsafe": false
+      },
+      {
+        "axioms": [],
+        "kind": "theorem",
+        "name": "Usl.reachable_symmetric",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String}, Usl.Reachable graph a b → Usl.Reachable graph b a",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selected_link_original",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {ids : List String} {link : Usl.Link},\n  link ∈ (Usl.selectLinks graph ids).links → link ∈ graph.links",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selection_preserves_wellformed",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {ids : List String}, Usl.WellFormed graph → Usl.WellFormed (Usl.selectLinks graph ids)",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selected_read_allowed",
+        "partial": false,
+        "type": "∀ {requested allowed : List String} {resource : String},\n  resource ∈ Usl.selectReads requested allowed → resource ∈ allowed",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.deny_all",
+        "partial": false,
+        "type": "∀ (requested : List String), Usl.selectReads requested [] = []",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.narrower_reads",
+        "partial": false,
+        "type": "∀ {requested allowed narrow : List String},\n  (∀ (resource : String), resource ∈ narrow → resource ∈ allowed) →\n    ∀ {resource : String}, resource ∈ Usl.selectReads requested narrow → resource ∈ Usl.selectReads requested allowed",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_reflexive",
+        "partial": false,
+        "type": "∀ (graph : Usl.Graph) (resource : String) (hops : Nat), Usl.reachableWithin graph resource resource hops = true",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_sound",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {start target : String} {hops : Nat},\n  Usl.reachableWithin graph start target hops = true → Usl.Reachable graph start target",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_correct",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {start target : String} {hops : Nat},\n  Usl.reachableWithin graph start target hops = true ↔ Usl.PathWithin graph hops start target",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.PathWithin.mono",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String} {n m : Nat}, Usl.PathWithin graph n a b → n ≤ m → Usl.PathWithin graph m a b",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.PathWithin.trans",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b c : String} {n m : Nat},\n  Usl.PathWithin graph n a b → Usl.PathWithin graph m b c → Usl.PathWithin graph (n + m) a c",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.PathWithin.symm",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String} {n : Nat}, Usl.PathWithin graph n a b → Usl.PathWithin graph n b a",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_monotone",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String} {n m : Nat},\n  n ≤ m → Usl.reachableWithin graph a b n = true → Usl.reachableWithin graph a b m = true",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_symmetric",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String} {n : Nat},\n  Usl.reachableWithin graph a b n = true → Usl.reachableWithin graph b a n = true",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_composition",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b c : String} {n m : Nat},\n  Usl.reachableWithin graph a b n = true →\n    Usl.reachableWithin graph b c m = true → Usl.reachableWithin graph a c (n + m) = true",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_complete",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String}, Usl.Reachable graph a b → ∃ hops, Usl.reachableWithin graph a b hops = true",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachable_iff_exists_budget",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String}, Usl.Reachable graph a b ↔ ∃ hops, Usl.reachableWithin graph a b hops = true",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_false_iff",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String} {hops : Nat},\n  Usl.reachableWithin graph a b hops = false ↔ ¬Usl.PathWithin graph hops a b",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.reachableWithin_stays_in_graph",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {a b : String} {hops : Nat},\n  Usl.WellFormed graph → a ∈ graph.resources → Usl.reachableWithin graph a b hops = true → b ∈ graph.resources",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selected_link_iff",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {ids : List String} {link : Usl.Link},\n  link ∈ (Usl.selectLinks graph ids).links ↔ link ∈ graph.links ∧ link.id ∈ ids",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selectLinks_idempotent",
+        "partial": false,
+        "type": "∀ (graph : Usl.Graph) (ids : List String), Usl.selectLinks (Usl.selectLinks graph ids) ids = Usl.selectLinks graph ids",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selectLinks_commute",
+        "partial": false,
+        "type": "∀ (graph : Usl.Graph) (first second : List String),\n  Usl.selectLinks (Usl.selectLinks graph first) second = Usl.selectLinks (Usl.selectLinks graph second) first",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selectReads_exact",
+        "partial": false,
+        "type": "∀ {requested allowed : List String} {resource : String},\n  resource ∈ Usl.selectReads requested allowed ↔ resource ∈ requested ∧ resource ∈ allowed",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selectReads_idempotent",
+        "partial": false,
+        "type": "∀ (requested allowed : List String),\n  Usl.selectReads (Usl.selectReads requested allowed) allowed = Usl.selectReads requested allowed",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selectReads_commute",
+        "partial": false,
+        "type": "∀ (requested first second : List String),\n  Usl.selectReads (Usl.selectReads requested first) second = Usl.selectReads (Usl.selectReads requested second) first",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.admitted_read_exact",
+        "partial": false,
+        "type": "∀ {requested allowed output : List String} {budget : Nat},\n  Usl.admitReads requested allowed budget = some output →\n    ∀ {resource : String}, resource ∈ output ↔ resource ∈ requested ∧ resource ∈ allowed",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.admitted_reads_budget",
+        "partial": false,
+        "type": "∀ {requested allowed output : List String} {budget : Nat},\n  Usl.admitReads requested allowed budget = some output → output.length ≤ budget",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.oversized_reads_rejected",
+        "partial": false,
+        "type": "∀ (requested allowed : List String) (budget : Nat),\n  budget < requested.eraseDups.length → Usl.admitReads requested allowed budget = none",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.validateGraph_correct",
+        "partial": false,
+        "type": "∀ (graph : Usl.Graph), Usl.validateGraph graph = true ↔ Usl.GraphValid graph",
+        "unsafe": false
+      },
+      {
+        "axioms": [],
+        "kind": "theorem",
+        "name": "Usl.validGraph_wellformed",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph}, Usl.GraphValid graph → Usl.WellFormed graph",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selection_preserves_validGraph",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph}, Usl.GraphValid graph → ∀ (ids : List String), Usl.GraphValid (Usl.selectLinks graph ids)",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.selection_preserves_validation",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph},\n  Usl.validateGraph graph = true → ∀ (ids : List String), Usl.validateGraph (Usl.selectLinks graph ids) = true",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.routedStep_correct",
+        "partial": false,
+        "type": "∀ (graph : Usl.Graph) (routes : List Usl.RoleRoute) (a b : String),\n  Usl.routedStep graph routes a b = true ↔ Usl.RoutedAdjacent graph routes a b",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.routedStep_original",
+        "partial": false,
+        "type": "∀ {graph : Usl.Graph} {routes : List Usl.RoleRoute} {a b : String},\n  Usl.routedStep graph routes a b = true → Usl.Adjacent graph a b",
+        "unsafe": false
+      },
+      {
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "kind": "theorem",
+        "name": "Usl.no_routes_no_step",
+        "partial": false,
+        "type": "∀ (graph : Usl.Graph) (a b : String), Usl.routedStep graph [] a b = false",
+        "unsafe": false
+      }
+    ],
+    "leanVersion": "4.33.1",
+    "schema": "usl-lean4-export/v1"
+  },
+  "conformance": {
+    "boundedPaths": 100,
+    "roleRoutes": 80,
+    "readBudgets": 192,
+    "graphValidation": 11,
+    "total": 383,
+    "additionalReadSelectionCases": 1,
+    "leanBoundaryExamples": 3
+  },
+  "checks": [
+    {
+      "command": "npm run test:lean",
+      "exitCode": 0,
+      "tests": 4,
+      "passed": 4
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 210,
+      "passed": 210
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "lake env lean --json Examples/ProofAudit.lean",
+      "cwd": "lean",
+      "exitCode": 0,
+      "theorems": 37
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "exitCode": 0,
+      "result": {
+        "active_documents": 30,
+        "archived_hashes_verified": 23,
+        "broken_links": 0
+      }
+    }
+  ]
+}
