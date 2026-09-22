@@ -1,0 +1,198 @@
+{
+  "schema": "usl-engineering-receipt/v1",
+  "runId": "urn:uuid:a9a3a1ce-a56f-4c52-a5d2-1d539b3abaac",
+  "startedAt": "2026-09-22T07:30:42.340Z",
+  "finishedAt": "2026-09-22T07:30:42.961Z",
+  "catalogDigest": "sha256:71bac72e4f3b77a1b37b0707ea84802ab677bed1655aeecef6946ee9954a2d8b",
+  "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
+  "sourceDigests": {
+    "package-lock.json": "sha256:b9281674b37dcf8d702fd0508d5f6284121ffdcacd55eeca2e423822016fd974",
+    "package.json": "sha256:474a24eca8f764186765011ef03246515530c1506961faddaea7ce65337640ef",
+    "schemas/resource-graph.shacl.ttl": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
+    "scripts/build-engineering-review.ts": "sha256:d40d36556c22003e1dc2c27b3c904678bfca6a6ae4a3fd8f9dd654fad946b4df",
+    "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+    "src/application.ts": "sha256:3510e6ad1cc5bb7e10093b3c7106d319386b12608ab5a14eec79bc6e36ade9a6",
+    "src/bounded-read.ts": "sha256:d4f0729a5f49b4a0016912592024075a77b51ceb2f95da8d7b17db2d196c2ee4",
+    "src/capabilities.ts": "sha256:8b6b79855447cf77f528c85638f64fdc9093d459ea21ed3201cf6a31ad860068",
+    "src/cli-adapter.ts": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+    "src/cli-platform.ts": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+    "src/cli.ts": "sha256:c002eae003823f36a469cfd38166b564e243202e601626ca8b58f96ce996bd12",
+    "src/contract-core.ts": "sha256:46ae83c7435c4c8ab2dfec0fef9a4356ab6fded12044bc0b6dbe8bb3e1ce1a81",
+    "src/domain-profile.ts": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
+    "src/domain.ts": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d",
+    "src/engineering-review.ts": "sha256:9c5eed58e088fcec45350f2516d41dad5b5add3bb5fb3e004ca94e8db0daf577",
+    "src/index.ts": "sha256:9cc55b3edb3c0a6874b537ef8e395e857bb019b1365a6808b96a2d77da3bed91",
+    "src/integrations/capability-inventory.ts": "sha256:b959005c33e254358ac04862dba28cb3c10c288d6b3a0a6b10e9a15280439d61",
+    "src/integrations/graph-engineering.ts": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
+    "src/integrations/hswm.ts": "sha256:bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30",
+    "src/integrations/lean4.ts": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7",
+    "src/integrations/property-graph.ts": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
+    "src/integrations/resource-graph.ts": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+    "src/language/code.ts": "sha256:76b97d1dc700cc58bc82d5b9ff66fe8809f642c191c90297acd8d4662bd99a27",
+    "src/language/compact.ts": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416",
+    "src/language/comparison.ts": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862",
+    "src/language/compiler.ts": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f",
+    "src/language/digest.ts": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1",
+    "src/language/index.ts": "sha256:d86e7908c37388c8cf7a1538d7674033ab604f238bcb3c2f4c80a1dbf4c2f369",
+    "src/language/model.ts": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+    "src/language/navigation.ts": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+    "src/language/observation-schema.ts": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5",
+    "src/language/parser.ts": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed",
+    "src/language/project.ts": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c",
+    "src/language/runtime.ts": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8",
+    "src/locator.ts": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3",
+    "src/mcp-config.ts": "sha256:372733e872b229bf725c701fb09eaeba578d789ff72780c89046cc9f10edfa7a",
+    "src/mcp.ts": "sha256:69dfbd17b7c978e1472d927dcf89b3c8c473fef86016583e6a904efe59b1f1a2",
+    "src/pierce.ts": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e",
+    "src/program-store.ts": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca",
+    "src/project.ts": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de",
+    "src/resolve.ts": "sha256:87174ba05285f4d30ac9463f3e14988b2c8d5a4b3279866bb85939dcff2cd109",
+    "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
+    "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
+    "test/engineering-adversarial-cases.ts": "sha256:ae54bc353782324636fa6f106fcd0e338112505245c9488e481ea4b7ec630fd1",
+    "tsconfig.json": "sha256:cb0a842fdc3bdebad8414e7b57739eb4cb11f43eb37537867243f726e754a335"
+  },
+  "checks": [
+    {
+      "id": "role-type",
+      "control": "C01",
+      "status": "PASS",
+      "detail": "잘못된 도메인 타입은 실제 변환 경로에서 거부한다"
+    },
+    {
+      "id": "roles-and-unknown-meaning",
+      "control": "C01",
+      "status": "PASS",
+      "detail": "필수 역할 누락과 미등록 의미를 닫힌 profile이 거부한다"
+    },
+    {
+      "id": "unit-and-revision",
+      "control": "C02",
+      "status": "PASS",
+      "detail": "단위·revision의 누락 및 불일치를 구분한다"
+    },
+    {
+      "id": "input-unit",
+      "control": "C02",
+      "status": "PASS",
+      "detail": "동일 number schema라도 단위가 다르면 호출하지 않는다"
+    },
+    {
+      "id": "authority",
+      "control": "C03",
+      "status": "PASS",
+      "detail": "기능의 요구 scope가 호스트의 권한을 확대하지 않는다"
+    },
+    {
+      "id": "schema-and-budget",
+      "control": "C04",
+      "status": "PASS",
+      "detail": "입력 형 변환·초과 payload를 IO 이전에 거부한다"
+    },
+    {
+      "id": "unsupported-schema",
+      "control": "C04",
+      "status": "PASS",
+      "detail": "외부 ref와 모르는 keyword를 성공으로 간주하지 않는다"
+    },
+    {
+      "id": "stale-pins",
+      "control": "C05",
+      "status": "PASS",
+      "detail": "계약·원본 snapshot pin이 오래되면 거부한다"
+    },
+    {
+      "id": "profile-drift",
+      "control": "C05",
+      "status": "PASS",
+      "detail": "profile 변경이 관측할 의미 계약 digest를 바꾼다"
+    },
+    {
+      "id": "mapping-loss",
+      "control": "C06",
+      "status": "PASS",
+      "detail": "누락·부분 변환을 실행 가능한 완전한 매핑으로 사용하지 않는다"
+    },
+    {
+      "id": "bounded-discovery",
+      "control": "C07",
+      "status": "PASS",
+      "detail": "부분 목록과 제한된 탐색에서 전역 부재를 주장하지 않는다"
+    },
+    {
+      "id": "executor-outcome",
+      "control": "C08",
+      "status": "PASS",
+      "detail": "효과 후 오류·잘못된 응답을 재시도 없이 결과 불명으로 남긴다"
+    },
+    {
+      "id": "timeout",
+      "control": "C08",
+      "status": "PASS",
+      "detail": "시간 초과는 성공·확정 실패로 승격하지 않는다"
+    },
+    {
+      "id": "unsupported-subscribe",
+      "control": "C08",
+      "status": "PASS",
+      "detail": "미구현 stream lifecycle은 호출 전에 거부한다"
+    },
+    {
+      "id": "immutable-owner-policy",
+      "control": "C03",
+      "status": "PASS",
+      "detail": "등록 이후 mutable policy·descriptor 변경은 권한을 넓히지 못한다"
+    },
+    {
+      "id": "mcp-annotations",
+      "control": "C09",
+      "status": "PASS",
+      "detail": "MCP의 readOnlyHint나 자연어가 실행 권한·의미를 만들지 않는다"
+    },
+    {
+      "id": "inventory-gaps",
+      "control": "C09",
+      "status": "PASS",
+      "detail": "pagination·외부 참조·OpenAPI 미지원 binding을 명시한다"
+    },
+    {
+      "id": "inventory-positive",
+      "control": "C09",
+      "status": "PASS",
+      "detail": "명시적 호스트 binding을 가진 OpenAPI JSON 연산만 계약 확인 후 실행한다"
+    },
+    {
+      "id": "declaration-not-truth",
+      "control": "C10",
+      "status": "PASS",
+      "detail": "형태 검사·그래프 경로·실행 성공이 의미의 참을 만들지 않는다"
+    },
+    {
+      "id": "identity-and-roles",
+      "control": "C11",
+      "status": "PASS",
+      "detail": "native ID 충돌과 역할의 붕괴를 구조 검사에서 거부한다"
+    },
+    {
+      "id": "nary-and-standard-export",
+      "control": "C12",
+      "status": "PASS",
+      "detail": "JSON-LD 교환에서 모든 역할·출처·선언 지위를 보존한다"
+    },
+    {
+      "id": "profile-invalid-json",
+      "control": "C01",
+      "status": "PASS",
+      "detail": "중복 profile과 getter·상속 입력을 거부한다"
+    },
+    {
+      "id": "receipt-evidence-gate",
+      "control": "C10",
+      "status": "PASS",
+      "detail": "검증 상태의 자칭·누락·오래된 코드·위조 영수증을 통과 처리하지 않는다"
+    }
+  ],
+  "scope": "LOCAL_USL_COUNTEREXAMPLES",
+  "upstreamExecution": "NOT_TESTED",
+  "receiptDigest": "sha256:5b39bc796991a7a13fbdee640caae7d673fbf1b21a7ff085c416a7d391d1bb76"
+}

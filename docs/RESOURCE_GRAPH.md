@@ -27,6 +27,8 @@ metadata에는 native 심볼, 버전, 문서 selector, 실행 세대, 데이터 
 
 ## SDK
 
+선택적 `adaptResourceGraph(raw, { namespace, profile })`은 역할 타입·필수 metadata·허용 meaning을 변환 전에 검사한다. CLI는 `--profile FILE`, MCP 고정 연결은 `profile` 파일 경로를 사용한다. 생략하면 기존 동작을 유지한다. [profile 계약과 예제](ENGINEERING_CONTRACTS.md)를 참고한다.
+
 ```ts
 import { Effect } from "effect"
 import { connectUsl } from "usl/adapters"

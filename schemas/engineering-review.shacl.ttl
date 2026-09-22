@@ -1,0 +1,86 @@
+@prefix usl: <urn:usl:vocab:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+usl:EngineeringRoleShape a sh:NodeShape ; sh:targetClass usl:Link ;
+  sh:or ( usl:EngineeringMeaning_0 usl:EngineeringMeaning_1 usl:EngineeringMeaning_2 usl:EngineeringMeaning_3 usl:EngineeringMeaning_4 ) .
+
+usl:EngineeringMeaning_0 a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:engineering:assesses" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "technology" "limitation" "requirement" "attack" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "technology" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Technology> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "limitation" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Limitation> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "requirement" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Requirement> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "attack" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:AdversarialCase> ]
+    ] ] .
+usl:EngineeringMeaning_1 a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:engineering:mitigates" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "requirement" "control" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "requirement" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Requirement> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "control" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Control> ]
+    ] ] .
+usl:EngineeringMeaning_2 a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:engineering:implemented_by" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "control" "implementation" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "control" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Control> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "implementation" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Implementation> ]
+    ] ] .
+usl:EngineeringMeaning_3 a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:engineering:checked_by" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "control" "check" "run" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "control" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Control> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "check" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:LocalCheck> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "run" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:VerificationRun> ]
+    ] ] .
+usl:EngineeringMeaning_4 a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:engineering:cites" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "limitation" "source" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "limitation" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Limitation> ]
+    ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+    sh:qualifiedValueShape [
+      sh:property [ sh:path usl:role ; sh:hasValue "source" ] ;
+      sh:property [ sh:path usl:resource ; sh:class <urn:usl:engineering:Source> ]
+    ] ] .

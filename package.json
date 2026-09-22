@@ -55,6 +55,22 @@
     "./hswm": {
       "types": "./dist/src/integrations/hswm.d.ts",
       "import": "./dist/src/integrations/hswm.js"
+    },
+    "./capabilities": {
+      "types": "./dist/src/capabilities.d.ts",
+      "import": "./dist/src/capabilities.js"
+    },
+    "./domain-profile": {
+      "types": "./dist/src/domain-profile.d.ts",
+      "import": "./dist/src/domain-profile.js"
+    },
+    "./capability-inventory": {
+      "types": "./dist/src/integrations/capability-inventory.d.ts",
+      "import": "./dist/src/integrations/capability-inventory.js"
+    },
+    "./engineering-review": {
+      "types": "./dist/src/engineering-review.d.ts",
+      "import": "./dist/src/engineering-review.js"
     }
   },
   "engines": {
@@ -66,15 +82,20 @@
     "example:engineering": "tsx examples/engineering-workflow.ts",
     "example:adapter": "tsx examples/adapter-workflow.ts",
     "example:lean": "tsx examples/lean4-workflow.ts",
-    "test:lean": "lake --dir lean build && tsx --test test/lean4.integration.ts",
+    "test:lean": "cd lean && lake build && cd .. && tsx --test test/lean4.integration.ts",
     "test:standards": "python3 scripts/validate-rdf.py",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test test/*.test.ts",
     "usl": "tsx src/cli.ts",
-    "mcp": "tsx src/mcp.ts"
+    "mcp": "tsx src/mcp.ts",
+    "engineering:build": "tsx scripts/build-engineering-review.ts",
+    "engineering:check": "tsx scripts/build-engineering-review.ts --check",
+    "engineering:standards": "python3 scripts/validate-engineering-rdf.py",
+    "example:capability": "tsx examples/capability-workflow.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",
+    "ajv": "8.20.0",
     "effect": "^3.22.1",
     "zod": "4.5.4"
   },

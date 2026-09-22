@@ -6,8 +6,9 @@ import { parseLocator } from "./locator.js"
 import { adaptPropertyGraph } from "./integrations/property-graph.js"
 import { adaptResourceGraph } from "./integrations/resource-graph.js"
 import { readUtf8Bounded } from "./bounded-read.js"
+import { parseDomainProfile } from "./domain-profile.js"
 
-export interface FileGraphConnection { readonly graph: string; readonly namespace: string; readonly kgSource?: string; readonly format?: "property-graph" | "resource-graph" }
+export interface FileGraphConnection { readonly graph: string; readonly namespace: string; readonly kgSource?: string; readonly format?: "property-graph" | "resource-graph"; readonly profile?: string }
 export interface UslMcpFileConfig {
   readonly policy: UslOperationPolicy
   readonly programs: Readonly<Record<string, string>>
@@ -29,15 +30,17 @@ const connections = (input: unknown, base: string): Readonly<Record<string, File
   return Object.freeze(Object.fromEntries(Object.entries(value).map(([id, raw]) => {
     text(id, "connection ID")
     const entry = record(raw, `connection ${id}`)
-    keys(entry, ["graph", "namespace", "kgSource", "format"], `connection ${id}`)
+    keys(entry, ["graph", "namespace", "kgSource", "format", "profile"], `connection ${id}`)
     const format = entry.format
     if (format !== undefined && format !== "property-graph" && format !== "resource-graph") throw new Error("invalid connection format")
     if (format === "resource-graph" && entry.kgSource !== undefined) throw new Error("resource-graph uses explicit locators, not kgSource")
+    if (entry.profile !== undefined && format !== "resource-graph") throw new Error("profile requires resource-graph")
     const namespace = text(entry.namespace, "namespace")
     if (namespace !== namespace.trim()) throw new Error("namespace must not have surrounding whitespace")
     const kgSource = entry.kgSource
     if (kgSource !== undefined && (typeof kgSource !== "string" || !/^[A-Za-z0-9._-]+$/.test(kgSource))) throw new Error("invalid kgSource")
     return [id, Object.freeze({ graph: resolve(base, text(entry.graph, "graph")), namespace,
+      ...(entry.profile === undefined ? {} : { profile: resolve(base, text(entry.profile, "profile")) }),
       ...(kgSource === undefined ? {} : { kgSource: kgSource as string }), ...(format === undefined ? {} : { format }) })]
   })))
 }
@@ -83,7 +86,10 @@ export const fileConnectionResolver = (input: Readonly<Record<string, FileGraphC
     if (!Object.hasOwn(registered, id)) throw new Error(`unknown connection: ${id}`)
     const connection = registered[id]!
     const raw = await readUtf8Bounded(connection.graph, maxBytes)
-    if (connection.format === "resource-graph") return Either.getOrThrowWith(adaptResourceGraph(raw, { namespace: connection.namespace }), failure => failure)
+    if (connection.format === "resource-graph") {
+      const profile = connection.profile === undefined ? undefined : parseDomainProfile(JSON.parse(await readUtf8Bounded(connection.profile, maxBytes)))
+      return Either.getOrThrowWith(adaptResourceGraph(raw, { namespace: connection.namespace, ...(profile === undefined ? {} : { profile }) }), failure => failure)
+    }
     return Either.getOrThrowWith(adaptPropertyGraph(raw, { namespace: connection.namespace,
       ...(connection.kgSource === undefined ? {} : { kgSource: connection.kgSource }) }), failure => failure)
   }

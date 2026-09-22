@@ -2,6 +2,8 @@
 
 작성일: **2026-09-22** · 기준 커밋: `250b493` · 상태: **조사에 따른 AI 제안, 미구현**.
 
+후속 구현: 같은 날짜의 사용자 요청으로 [공학 보완 계약](ENGINEERING_CONTRACTS.md)과 [40항목 검증 그래프](ENGINEERING_ADVERSARIAL_MATRIX.md)를 추가했다. 아래 원래 계획 전체를 완료한 것은 아니다. P0는 SDK descriptor/발견과 MCP tools·OpenAPI 3.1의 제한된 순수 importer, P1은 역할 타입/metadata 및 손실 gate, P3는 host callback의 사전 검사·단일 시도·불명 결과까지 구현했다. P2의 실제 SCIP/OpenLineage 연결, 범용 구독·durable 실행, P4의 외부 공학 driver는 남아 있다.
+
 [유사 기술 조사](RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md)를 실제 작업 단위로 옮긴다. 기존 사용자 방향인 문법·연결 계층, 원본 소유권 유지, TypeScript + Effect, Lean 연동을 따른다. 아래 타입 이름·파일 이름·순서는 구현 제안이며 사용자 결정 기록이나 새 공개 API가 아니다.
 
 목표는 **새 도메인과 프로토콜을 adapter/profile로 추가하면서 AI가 연결의 의미·조건·근거를 확인할 수 있는 구조**다. 현재의 KG를 대체하거나 별도 USL DB를 요구하지 않는다.

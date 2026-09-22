@@ -1,0 +1,142 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:engineering:review-profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:engineering:assesses",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "technology",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Technology"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "limitation",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Limitation"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Requirement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "attack",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:AdversarialCase"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:engineering:mitigates",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Requirement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "control",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Control"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:engineering:implemented_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "control",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Control"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "implementation",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Implementation"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:engineering:checked_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "control",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Control"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "check",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:LocalCheck"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "run",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:VerificationRun"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:engineering:cites",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "limitation",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Limitation"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:engineering:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

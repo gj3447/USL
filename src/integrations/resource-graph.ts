@@ -6,6 +6,7 @@ import { compileProgram } from "../language/compiler.js"
 import { digestSource } from "../language/digest.js"
 import { LanguageError, type Declaration } from "../language/model.js"
 import type { AdaptedGraph } from "../adapters.js"
+import { checkResourceGraphProfile, parseDomainProfile, type DomainProfile } from "../domain-profile.js"
 
 const text = z.string().min(1).regex(/\S/u, "expected nonempty text")
 const iri = z.string().regex(/^[A-Za-z][A-Za-z0-9+.-]*:[^\s<>"{}|^`\\\u0000-\u001f\u007f]+$/u, "expected an absolute type IRI")
@@ -23,7 +24,7 @@ export const resourceGraphSchema = z.strictObject({
   provenance: z.strictObject({ sources: z.array(text), activity: text.optional(), agent: text.optional() }).optional(),
 })
 export type ResourceGraph = z.infer<typeof resourceGraphSchema>
-export type ResourceGraphOptions = { readonly namespace: string }
+export type ResourceGraphOptions = { readonly namespace: string; readonly profile?: DomainProfile }
 const unwrap = <A, E>(value: Either.Either<A, E>): A => Either.getOrThrowWith(value, error => error)
 const fail = (detail: string): never => { throw new LanguageError({ phase: "compile", detail }) }
 const attempt = <T>(run: () => T): Either.Either<T, LanguageError> => Either.try({ try: run,
@@ -59,6 +60,9 @@ export const parseResourceGraph = (raw: string): Either.Either<ResourceGraph, La
 /** Unary descriptor links keep domain metadata visible without inventing reachability. */
 export const adaptResourceGraph = (raw: string, options: ResourceGraphOptions): Either.Either<AdaptedGraph, LanguageError> => attempt(() => {
   const graph = unwrap(parseResourceGraph(raw))
+  const profile = options.profile === undefined ? undefined : parseDomainProfile(options.profile)
+  const validation = profile === undefined ? undefined : checkResourceGraphProfile(graph, profile)
+  if (validation?.status === "VIOLATES") fail(`domain profile violation: ${JSON.stringify(validation.issues)}`)
   const declarations: Declaration[] = []
   const resources: Record<string, string> = Object.create(null), links: Record<string, string> = Object.create(null)
   const addLink = (id: string, description: unknown, participants: ReadonlyArray<{ role: string; resource: string }>) => {
@@ -77,6 +81,7 @@ export const adaptResourceGraph = (raw: string, options: ResourceGraphOptions): 
   for (const resource of sorted(graph.resources)) addLink(resourceDescriptorId(resource.id), {
     schema: "usl-resource-description/v1", id: resource.id, types: [...new Set(resource.types)].sort(),
     metadata: resource.metadata ?? {}, provenance: graph.provenance ?? null,
+    ...(validation === undefined ? {} : { domainProfile: { id: profile!.id, version: profile!.version, digest: validation.profileDigest } }),
   }, [{ role: "resource", resource: resource.id }])
   const meanings = new Map(graph.meanings.map(meaning => [meaning.id, meaning]))
   const descriptors = new Map(graph.resources.map(resource => [resource.id, {
@@ -84,6 +89,8 @@ export const adaptResourceGraph = (raw: string, options: ResourceGraphOptions): 
   }]))
   for (const link of sorted(graph.links)) addLink(link.id, {
     schema: "usl-role-link/v1", meaning: meanings.get(link.meaning), metadata: link.metadata ?? {},
+    ...(validation === undefined ? {} : { domainProfile: { id: profile!.id, version: profile!.version, digest: validation.profileDigest,
+      checked: !validation.unprofiledLinks.includes(link.id), semanticTruth: "NOT_EVALUATED" } }),
     resources: [...new Set(link.participants.map(participant => participant.resource))].sort().map(id => descriptors.get(id)),
     provenance: graph.provenance ?? null,
   }, link.participants)
@@ -96,6 +103,7 @@ export const resourceGraphJsonLd = (raw: string, options: ResourceGraphOptions):
   const graph = unwrap(parseResourceGraph(raw))
   // Also validate locators, namespace and compiler constraints on the exchange path.
   unwrap(adaptResourceGraph(raw, options))
+  const validation = options.profile === undefined ? undefined : checkResourceGraphProfile(graph, options.profile)
   const id = (kind: string, native: string) => `urn:usl:${encodeURIComponent(options.namespace)}:${kind}:${encodeURIComponent(native)}`
   const ref = (kind: string, native: string) => ({ "@id": id(kind, native) })
   const snapshot = `urn:usl:source:${digestSource(raw).slice(7)}`
@@ -108,12 +116,16 @@ export const resourceGraphJsonLd = (raw: string, options: ResourceGraphOptions):
     "@context": { usl: "urn:usl:vocab:", prov: "http://www.w3.org/ns/prov#" },
     "@graph": [
       { "@id": snapshot, "@type": "prov:Entity", "usl:sourceDigest": digestSource(raw) },
+      ...(validation === undefined ? [] : [{ "@id": `urn:usl:profile:${validation.profileDigest.slice(7)}`, "@type": "usl:DomainProfile",
+        "usl:profileDigest": validation.profileDigest, "usl:profile": { "@value": parseDomainProfile(options.profile), "@type": "@json" } }]),
       ...graph.resources.map(resource => ({ ...ref("resource", resource.id), "@type": ["usl:Resource", ...resource.types],
         "usl:nativeId": resource.id, "usl:locator": resource.locator,
         "usl:metadata": { "@value": resource.metadata ?? {}, "@type": "@json" } })),
       ...graph.meanings.map(meaning => ({ ...ref("meaning", meaning.id), "@type": "usl:Meaning", "usl:nativeId": meaning.id, "usl:description": meaning.description })),
       ...graph.links.map(link => ({ ...ref("link", link.id), "@type": ["usl:Link", "prov:Entity"], ...provenance,
         "usl:nativeId": link.id, "usl:status": "DECLARED", "usl:meaning": ref("meaning", link.meaning),
+        ...(validation === undefined || validation.unprofiledLinks.includes(link.id) ? {} : {
+          "usl:checkedAgainst": { "@id": `urn:usl:profile:${validation.profileDigest.slice(7)}` }, "usl:validationScope": "ROLE_TYPES_AND_METADATA" }),
         "usl:participant": link.participants.map(participant => ({ "@type": "usl:Participant", "usl:role": participant.role, "usl:resource": ref("resource", participant.resource) })),
         "usl:metadata": { "@value": link.metadata ?? {}, "@type": "@json" } })),
     ],

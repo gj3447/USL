@@ -16,6 +16,12 @@
       "graph": "fixtures/resource-graph.json",
       "namespace": "example.resources",
       "format": "resource-graph"
+    },
+    "engineering-review": {
+      "graph": "../research/engineering/graph.json",
+      "profile": "../research/engineering/profile.json",
+      "namespace": "usl.engineering.review",
+      "format": "resource-graph"
     }
   }
 }

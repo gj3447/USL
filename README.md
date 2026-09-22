@@ -8,6 +8,7 @@
 - [범용 자원 연결 문법·SDK·CLI·MCP](docs/RESOURCE_GRAPH.md)
 - [Lean 4 연결과 형식 검증](docs/LEAN4_INTEGRATION.md)
 - [AI native 어댑터·유사 기술 40항목 조사](docs/RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md) · [개발 로드맵 제안](docs/AI_NATIVE_ADAPTER_ROADMAP.md)
+- [40항목 공학 보완 그래프·적대적 검증](docs/ENGINEERING_ADVERSARIAL_MATRIX.md) · [구현된 계약과 사용법](docs/ENGINEERING_CONTRACTS.md)
 - [사용자 매뉴얼](docs/USER_MANUAL.md) · [빠른 시작](docs/GETTING_STARTED.md) · [CLI](docs/CLI.md) · [MCP](docs/MCP.md)
 - [기존 `.usl` 문법](docs/LANGUAGE.md) · [TypeScript 코드 내장](docs/CODE_INTEGRATION.md)
 - [과거 설계·검증 기록](archive/README.md)
@@ -55,6 +56,13 @@ npm run test:lean
 Lean의 `#usl_export [...]`는 선언 이름·종류·명제·의존 공리를 내보낸다. SDK가 성공한 Lean 실행의 출력만 읽고 원본 `.lean` 파일 digest를 연결한다. KG나 코드가 그 정리의 의도와 정확히 대응하는지는 별도의 주장이다.
 
 ## 표준과 검증
+
+선택적 도메인 profile로 역할 타입·필수 정보·단위·revision을 검사한다. SDK의 capability 계약은 기능 발견, JSON Schema 입력/출력 검사, owner scope/effect, source/descriptor pin과 변환 손실을 다룬다. MCP tool 목록과 OpenAPI 3.1 문서의 제한된 순수 importer를 제공하며, 실제 실행은 호스트가 등록한 Effect callback에 한정한다. [지원 범위와 남은 한계](docs/ENGINEERING_CONTRACTS.md).
+
+```sh
+npm run example:capability
+npm run engineering:check
+```
 
 JSON-LD 1.1/RDF 교환, PROV-O 출처 관계와 SHACL 구조 검사를 지원한다. `urn:usl:vocab:` 어휘와 GEIP는 프로젝트 고유 규약이다. [표준별 적용표](docs/ARCHITECTURE.md#표준-적용)를 참고한다.
 
