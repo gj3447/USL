@@ -4,6 +4,8 @@ import { Effect, Either } from "effect"
 import { adaptResourceGraph, resourceGraphJsonLd, parseResourceGraph, type ResourceGraph } from "../src/integrations/resource-graph.js"
 import { checkResourceGraphProfile, parseDomainProfile, type DomainProfile } from "../src/domain-profile.js"
 import { connectCapability, preflightCapability, discoverCapabilities, type CapabilityDescriptor, type CapabilityInvocation, type CapabilityPolicy } from "../src/capabilities.js"
+import { discoverCapabilityCatalog } from "../src/capability-catalog.js"
+import { executeUslOperation, type UslOperationPolicy } from "../src/application.js"
 import { importMcpTools, importOpenApi, inventoryResourceGraph } from "../src/integrations/capability-inventory.js"
 import { contractDigest } from "../src/contract-core.js"
 import { digestSource, planDigest } from "../src/language/digest.js"
@@ -82,6 +84,17 @@ export const engineeringAdversarialCases: readonly AdversarialCase[] = [
     const g = capabilityFixture(); g.descriptor.kind = "ACTION"; g.descriptor.effect = "WRITE"; pin(g); await rejected(g, "EFFECT_DENIED")
     const h = capabilityFixture(); h.policy.connection = "another-owner"; await rejected(h, "WRONG_BINDING")
   } },
+  { id: "host-catalog-preflight", control: "C03", description: "호스트 등록 catalog 밖의 caller policy·descriptor와 잘못된 요청은 조회 전에 거부한다", run: async () => {
+    const f = capabilityFixture(), registered = { schema: "usl-capability-catalog/v1" as const, complete: true, entries: [{ descriptor: f.descriptor, policy: f.policy }] }
+    let lookups = 0
+    const policy: UslOperationPolicy = { allowedLocators: [], maxResources: 64, maxInputBytes: 1024 * 1024, maxOutputBytes: 1024 * 1024,
+      getCapabilityCatalog: async (id) => { lookups++; assert.equal(id, "trusted"); return registered } }
+    await assert.rejects(executeUslOperation("capability_preflight", { catalog: "trusted", selection: { connection: "owner", capability: "read", invocation: f.request },
+      policy: { allowedEffects: ["WRITE"] }, descriptor: { effect: "WRITE" } }, policy), /unknown input field/)
+    assert.equal(lookups, 0)
+    await assert.rejects(executeUslOperation("capability_preflight", { catalog: "trusted", selection: { connection: "owner", capability: "read", invocation: {} } }, policy))
+    assert.equal(lookups, 0)
+  } },
   { id: "schema-and-budget", control: "C04", description: "입력 형 변환·초과 payload를 IO 이전에 거부한다", run: async () => {
     const f = capabilityFixture(); f.request.input.value = { value: "1" }; await rejected(f, "INPUT_SCHEMA")
     const g = capabilityFixture(); g.policy.maxInputBytes = 1; await rejected(g, "INPUT_BUDGET")
@@ -116,6 +129,15 @@ export const engineeringAdversarialCases: readonly AdversarialCase[] = [
     const found = discoverCapabilities([descriptor, second], { ...query, meaning: "urn:test:read", maxInspected: 2 }, true)
     assert.equal(found.matches.length, 1); assert.equal(found.coverage.complete, false); assert.equal(found.authorization, "NOT_EVALUATED")
   } },
+  { id: "catalog-discovery-scope", control: "C07", description: "부분 host catalog은 owner 범위의 같은 native ID를 구분하고 policy를 발견 결과에 싣지 않는다", run: () => {
+    const f = capabilityFixture(), other = { ...f.descriptor, connection: "other" }
+    const result = discoverCapabilityCatalog({ schema: "usl-capability-catalog/v1", complete: false,
+      entries: [{ descriptor: f.descriptor, policy: f.policy }, { descriptor: other }] },
+    { meaning: "urn:test:read", connection: "owner", maxResults: 2, maxInspected: 2 })
+    assert.equal(result.status, "FOUND"); assert.equal(result.coverage.complete, false)
+    assert.equal(result.matches.length, 1); assert.equal(result.matches[0]!.descriptor.connection, "owner")
+    assert.equal("policy" in result.matches[0]!, false); assert.match(result.catalogDigest, /^sha256:/)
+  } },
   { id: "executor-outcome", control: "C08", description: "효과 후 오류·잘못된 응답을 재시도 없이 결과 불명으로 남긴다", run: async () => {
     const f = capabilityFixture(); let calls = 0
     const connection = connectCapability({ ...f, execute: () => Effect.sync(() => { calls++; throw new Error("after effect") }) })
@@ -149,6 +171,10 @@ export const engineeringAdversarialCases: readonly AdversarialCase[] = [
     assert.equal(graph.resources.length, 2)
     const forged = { ...structuredClone(imported), sourceText: imported.sourceText + " " }
     assert.throws(() => inventoryResourceGraph(forged, "file://fixture/mcp.json"), /digest/)
+    const forgedOperation = structuredClone(imported); forgedOperation.capabilities[0]!.nativeOperation = "forged"
+    assert.throws(() => inventoryResourceGraph(forgedOperation, "file://fixture/mcp.json"), /descriptors do not match/)
+    const forgedSchema = structuredClone(imported); forgedSchema.capabilities[0]!.input.schema = false
+    assert.throws(() => inventoryResourceGraph(forgedSchema, "file://fixture/mcp.json"), /descriptors do not match/)
   } },
   { id: "inventory-gaps", control: "C09", description: "pagination·외부 참조·OpenAPI 미지원 binding을 명시한다", run: () => {
     const options = { connection: "owner", complete: true, bindings: {} }
@@ -156,6 +182,8 @@ export const engineeringAdversarialCases: readonly AdversarialCase[] = [
     assert.equal(mcp.complete, false); assert.equal(mcp.capabilities[0]!.mapping.completeness, "PARTIAL")
     const api = importOpenApi(JSON.stringify({ openapi: "3.1.1", paths: { "/x": { get: { parameters: [{ name: "q", in: "query" }], responses: { "200": { $ref: "https://invalid.test/response" } } } } } }), options)
     assert.ok(api.capabilities[0]!.mapping.unsupported.length >= 2)
+    const templated = importOpenApi(JSON.stringify({ openapi: "3.1.1", paths: { "/x/{id}": { get: { responses: { "200": { content: { "application/json": { schema: true } } } } } } } }), options)
+    assert.ok(templated.capabilities[0]!.mapping.unsupported.some(s => s.startsWith("path template:")))
     assert.throws(() => importOpenApi(JSON.stringify({ openapi: "3.1.1", paths: { "/x": { $ref: "https://invalid.test/path" } } }), options), /unsupported/)
   } },
   { id: "inventory-positive", control: "C09", description: "명시적 호스트 binding을 가진 OpenAPI JSON 연산만 계약 확인 후 실행한다", run: async () => {

@@ -1,33 +1,36 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:a9a3a1ce-a56f-4c52-a5d2-1d539b3abaac",
-  "startedAt": "2026-09-22T07:30:42.340Z",
-  "finishedAt": "2026-09-22T07:30:42.961Z",
-  "catalogDigest": "sha256:71bac72e4f3b77a1b37b0707ea84802ab677bed1655aeecef6946ee9954a2d8b",
+  "runId": "urn:uuid:204b8311-09d4-44af-98f0-9ef3bdda543f",
+  "startedAt": "2026-09-22T09:52:32.929Z",
+  "finishedAt": "2026-09-22T09:52:33.631Z",
+  "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
     "package-lock.json": "sha256:b9281674b37dcf8d702fd0508d5f6284121ffdcacd55eeca2e423822016fd974",
-    "package.json": "sha256:474a24eca8f764186765011ef03246515530c1506961faddaea7ce65337640ef",
+    "package.json": "sha256:1f5c72a9bb1a8982d4431c5e1c61d9cfbf30196194873d9194c3a69c59f89709",
     "schemas/resource-graph.shacl.ttl": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
-    "scripts/build-engineering-review.ts": "sha256:d40d36556c22003e1dc2c27b3c904678bfca6a6ae4a3fd8f9dd654fad946b4df",
+    "scripts/build-engineering-review.ts": "sha256:d14afc6e263836ffe9b0024ed7aeef4fa7018934386fbe37ad1f29f3b782f6fa",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
-    "src/application.ts": "sha256:3510e6ad1cc5bb7e10093b3c7106d319386b12608ab5a14eec79bc6e36ade9a6",
+    "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
     "src/bounded-read.ts": "sha256:d4f0729a5f49b4a0016912592024075a77b51ceb2f95da8d7b17db2d196c2ee4",
-    "src/capabilities.ts": "sha256:8b6b79855447cf77f528c85638f64fdc9093d459ea21ed3201cf6a31ad860068",
+    "src/capabilities.ts": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
+    "src/capability-catalog.ts": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc",
     "src/cli-adapter.ts": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+    "src/cli-capabilities.ts": "sha256:12dee7bd3253d55923df1be8a03f4ed79c41066f52313aa3aff95aed251c2370",
     "src/cli-platform.ts": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
-    "src/cli.ts": "sha256:c002eae003823f36a469cfd38166b564e243202e601626ca8b58f96ce996bd12",
-    "src/contract-core.ts": "sha256:46ae83c7435c4c8ab2dfec0fef9a4356ab6fded12044bc0b6dbe8bb3e1ce1a81",
+    "src/cli.ts": "sha256:53531e676232b7a719f3b3121a092038e1d5badec4ab21dc6b8df74604fad0c7",
+    "src/contract-core.ts": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
     "src/domain-profile.ts": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
     "src/domain.ts": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d",
     "src/engineering-review.ts": "sha256:9c5eed58e088fcec45350f2516d41dad5b5add3bb5fb3e004ca94e8db0daf577",
-    "src/index.ts": "sha256:9cc55b3edb3c0a6874b537ef8e395e857bb019b1365a6808b96a2d77da3bed91",
-    "src/integrations/capability-inventory.ts": "sha256:b959005c33e254358ac04862dba28cb3c10c288d6b3a0a6b10e9a15280439d61",
+    "src/index.ts": "sha256:0385d2f2440bc3b2c15d4e63163aad173b4b1585b928cb7bba5fbf246da8befc",
+    "src/integrations/capability-inventory.ts": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c",
     "src/integrations/graph-engineering.ts": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
     "src/integrations/hswm.ts": "sha256:bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30",
     "src/integrations/lean4.ts": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7",
     "src/integrations/property-graph.ts": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
     "src/integrations/resource-graph.ts": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+    "src/json-data.ts": "sha256:bfd430f5dde0b1d1917acda4d54a80f833989e765e4329ecffe48a5072a2ad8a",
     "src/language/code.ts": "sha256:76b97d1dc700cc58bc82d5b9ff66fe8809f642c191c90297acd8d4662bd99a27",
     "src/language/compact.ts": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416",
     "src/language/comparison.ts": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862",
@@ -41,15 +44,15 @@
     "src/language/project.ts": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c",
     "src/language/runtime.ts": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8",
     "src/locator.ts": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3",
-    "src/mcp-config.ts": "sha256:372733e872b229bf725c701fb09eaeba578d789ff72780c89046cc9f10edfa7a",
-    "src/mcp.ts": "sha256:69dfbd17b7c978e1472d927dcf89b3c8c473fef86016583e6a904efe59b1f1a2",
+    "src/mcp-config.ts": "sha256:d2e77e10dec777daaa9d777c9a14c6a10e3a0a2ec4776f655e2651eadeef9776",
+    "src/mcp.ts": "sha256:a4e9832cbf87934751ff3ac0d849ec32b25a46842c2f662b445f667914d77f2f",
     "src/pierce.ts": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e",
     "src/program-store.ts": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca",
     "src/project.ts": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de",
     "src/resolve.ts": "sha256:87174ba05285f4d30ac9463f3e14988b2c8d5a4b3279866bb85939dcff2cd109",
     "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
     "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
-    "test/engineering-adversarial-cases.ts": "sha256:ae54bc353782324636fa6f106fcd0e338112505245c9488e481ea4b7ec630fd1",
+    "test/engineering-adversarial-cases.ts": "sha256:3c9220c56b0c7b4c4ea30884488bc51635a1e01c820bf6d3d419a3913b8e2c94",
     "tsconfig.json": "sha256:cb0a842fdc3bdebad8414e7b57739eb4cb11f43eb37537867243f726e754a335"
   },
   "checks": [
@@ -82,6 +85,12 @@
       "control": "C03",
       "status": "PASS",
       "detail": "기능의 요구 scope가 호스트의 권한을 확대하지 않는다"
+    },
+    {
+      "id": "host-catalog-preflight",
+      "control": "C03",
+      "status": "PASS",
+      "detail": "호스트 등록 catalog 밖의 caller policy·descriptor와 잘못된 요청은 조회 전에 거부한다"
     },
     {
       "id": "schema-and-budget",
@@ -118,6 +127,12 @@
       "control": "C07",
       "status": "PASS",
       "detail": "부분 목록과 제한된 탐색에서 전역 부재를 주장하지 않는다"
+    },
+    {
+      "id": "catalog-discovery-scope",
+      "control": "C07",
+      "status": "PASS",
+      "detail": "부분 host catalog은 owner 범위의 같은 native ID를 구분하고 policy를 발견 결과에 싣지 않는다"
     },
     {
       "id": "executor-outcome",
@@ -194,5 +209,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:5b39bc796991a7a13fbdee640caae7d673fbf1b21a7ff085c416a7d391d1bb76"
+  "receiptDigest": "sha256:e1c0ca5e1255923f9201005ba58b7f4474e98aa8645545ca96592113c35e206a"
 }

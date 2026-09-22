@@ -39,11 +39,18 @@
       "scope": "소유자 binding·scope·effect를 확인하고 등록 시 snapshot을 고정한다.",
       "implementation": [
         "src/capabilities.ts",
-        "src/contract-core.ts"
+        "src/capability-catalog.ts",
+        "src/json-data.ts",
+        "src/contract-core.ts",
+        "src/application.ts",
+        "src/mcp.ts",
+        "src/mcp-config.ts",
+        "src/cli-capabilities.ts"
       ],
       "checks": [
         "authority",
-        "immutable-owner-policy"
+        "immutable-owner-policy",
+        "host-catalog-preflight"
       ],
       "residual": "호스트의 거짓 선언이나 외부 서비스가 허용 범위를 어기는 행동까지 차단하는 sandbox는 아니다."
     },
@@ -93,10 +100,12 @@
       "title": "예산 있는 기능 발견",
       "scope": "공급된 목록 안에서 의미·입력 타입을 조회하고 불완전 범위를 표시한다.",
       "implementation": [
-        "src/capabilities.ts"
+        "src/capabilities.ts",
+        "src/capability-catalog.ts"
       ],
       "checks": [
-        "bounded-discovery"
+        "bounded-discovery",
+        "catalog-discovery-scope"
       ],
       "residual": "자연어 의미 추론·전체 인터넷 검색·전역적 기능 발견을 수행하지 않는다."
     },

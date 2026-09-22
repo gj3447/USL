@@ -1,5 +1,7 @@
 # MCP server
 
+선택적 `capabilityCatalogs` 또는 host `policy.getCapabilityCatalog`를 설정하면 `capability_discover`와 `capability_preflight` 두 읽기 전용 tool을 추가한다. 설정 없는 기본 서버는 기존 9개 tool을 유지한다. [카탈로그 설정과 요청 예제](CAPABILITY_CATALOG.md)를 참고한다. `examples/usl.config.json`에는 로컬 demo 카탈로그가 등록돼 있다.
+
 2026-09-22: `resource-graph` 연결은 선택적 `"profile": "profile.json"` 경로를 받는다. 관리자 설정이 선택한 역할 타입·필수 metadata 계약을 매 요청에 적용한다. 클라이언트는 이 제약을 교체할 수 없다. `engineering-review` 예제와 [공학 계약 안내](ENGINEERING_CONTRACTS.md)를 참고한다.
 
 2026-09-14: 고정 연결 설정에 `"format": "resource-graph"`를 지정하면 열린 도메인 타입과 역할을 가진 자원 응답을 읽는다. `examples/usl.config.json`의 `resources` 연결을 참고한다. 이 형식에는 `kgSource`를 쓰지 않는다. [범용 연결](RESOURCE_GRAPH.md), [Lean 호스트 연결](LEAN4_INTEGRATION.md).

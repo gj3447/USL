@@ -9,7 +9,7 @@
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/catalog.json",
       "metadata": {
         "authority": "SECONDARY_AI",
-        "digest": "sha256:71bac72e4f3b77a1b37b0707ea84802ab677bed1655aeecef6946ee9954a2d8b",
+        "digest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
         "upstreamExecution": "NOT_TESTED"
       }
     },
@@ -20,13 +20,13 @@
       ],
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/receipt.json",
       "metadata": {
-        "runId": "urn:uuid:a9a3a1ce-a56f-4c52-a5d2-1d539b3abaac",
+        "runId": "urn:uuid:204b8311-09d4-44af-98f0-9ef3bdda543f",
         "scope": "LOCAL_USL_COUNTEREXAMPLES",
-        "receiptDigest": "sha256:5b39bc796991a7a13fbdee640caae7d673fbf1b21a7ff085c416a7d391d1bb76",
+        "receiptDigest": "sha256:e1c0ca5e1255923f9201005ba58b7f4474e98aa8645545ca96592113c35e206a",
         "verification": "HOST_REPORTED_LOCAL_TESTS",
         "upstreamExecution": "NOT_TESTED",
-        "startedAt": "2026-09-22T07:30:42.340Z",
-        "finishedAt": "2026-09-22T07:30:42.961Z"
+        "startedAt": "2026-09-22T09:52:32.929Z",
+        "finishedAt": "2026-09-22T09:52:33.631Z"
       }
     },
     {
@@ -169,7 +169,7 @@
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/capabilities.ts",
       "metadata": {
         "path": "src/capabilities.ts",
-        "sourceDigest": "sha256:8b6b79855447cf77f528c85638f64fdc9093d459ea21ed3201cf6a31ad860068"
+        "sourceDigest": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018"
       }
     },
     {
@@ -212,11 +212,18 @@
         "scope": "소유자 binding·scope·effect를 확인하고 등록 시 snapshot을 고정한다.",
         "implementation": [
           "src/capabilities.ts",
-          "src/contract-core.ts"
+          "src/capability-catalog.ts",
+          "src/json-data.ts",
+          "src/contract-core.ts",
+          "src/application.ts",
+          "src/mcp.ts",
+          "src/mcp-config.ts",
+          "src/cli-capabilities.ts"
         ],
         "checks": [
           "authority",
-          "immutable-owner-policy"
+          "immutable-owner-policy",
+          "host-catalog-preflight"
         ],
         "residual": "호스트의 거짓 선언이나 외부 서비스가 허용 범위를 어기는 행동까지 차단하는 sandbox는 아니다.",
         "assessment": {
@@ -229,6 +236,28 @@
       }
     },
     {
+      "id": "implementation:src/capability-catalog.ts",
+      "types": [
+        "urn:usl:engineering:Implementation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/capability-catalog.ts",
+      "metadata": {
+        "path": "src/capability-catalog.ts",
+        "sourceDigest": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc"
+      }
+    },
+    {
+      "id": "implementation:src/json-data.ts",
+      "types": [
+        "urn:usl:engineering:Implementation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/json-data.ts",
+      "metadata": {
+        "path": "src/json-data.ts",
+        "sourceDigest": "sha256:bfd430f5dde0b1d1917acda4d54a80f833989e765e4329ecffe48a5072a2ad8a"
+      }
+    },
+    {
       "id": "implementation:src/contract-core.ts",
       "types": [
         "urn:usl:engineering:Implementation"
@@ -236,7 +265,51 @@
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/contract-core.ts",
       "metadata": {
         "path": "src/contract-core.ts",
-        "sourceDigest": "sha256:46ae83c7435c4c8ab2dfec0fef9a4356ab6fded12044bc0b6dbe8bb3e1ce1a81"
+        "sourceDigest": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322"
+      }
+    },
+    {
+      "id": "implementation:src/application.ts",
+      "types": [
+        "urn:usl:engineering:Implementation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/application.ts",
+      "metadata": {
+        "path": "src/application.ts",
+        "sourceDigest": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f"
+      }
+    },
+    {
+      "id": "implementation:src/mcp.ts",
+      "types": [
+        "urn:usl:engineering:Implementation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/mcp.ts",
+      "metadata": {
+        "path": "src/mcp.ts",
+        "sourceDigest": "sha256:a4e9832cbf87934751ff3ac0d849ec32b25a46842c2f662b445f667914d77f2f"
+      }
+    },
+    {
+      "id": "implementation:src/mcp-config.ts",
+      "types": [
+        "urn:usl:engineering:Implementation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/mcp-config.ts",
+      "metadata": {
+        "path": "src/mcp-config.ts",
+        "sourceDigest": "sha256:d2e77e10dec777daaa9d777c9a14c6a10e3a0a2ec4776f655e2651eadeef9776"
+      }
+    },
+    {
+      "id": "implementation:src/cli-capabilities.ts",
+      "types": [
+        "urn:usl:engineering:Implementation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-capabilities.ts",
+      "metadata": {
+        "path": "src/cli-capabilities.ts",
+        "sourceDigest": "sha256:12dee7bd3253d55923df1be8a03f4ed79c41066f52313aa3aff95aed251c2370"
       }
     },
     {
@@ -265,6 +338,20 @@
         "applicability": "LOCAL_CHECKS_PASS",
         "scope": "LOCAL_USL_COUNTEREXAMPLES",
         "detail": "등록 이후 mutable policy·descriptor 변경은 권한을 넓히지 못한다"
+      }
+    },
+    {
+      "id": "check:host-catalog-preflight",
+      "types": [
+        "urn:usl:engineering:LocalCheck"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/receipt.json",
+      "metadata": {
+        "id": "host-catalog-preflight",
+        "status": "PASS",
+        "applicability": "LOCAL_CHECKS_PASS",
+        "scope": "LOCAL_USL_COUNTEREXAMPLES",
+        "detail": "호스트 등록 catalog 밖의 caller policy·descriptor와 잘못된 요청은 조회 전에 거부한다"
       }
     },
     {
@@ -431,10 +518,12 @@
         "title": "예산 있는 기능 발견",
         "scope": "공급된 목록 안에서 의미·입력 타입을 조회하고 불완전 범위를 표시한다.",
         "implementation": [
-          "src/capabilities.ts"
+          "src/capabilities.ts",
+          "src/capability-catalog.ts"
         ],
         "checks": [
-          "bounded-discovery"
+          "bounded-discovery",
+          "catalog-discovery-scope"
         ],
         "residual": "자연어 의미 추론·전체 인터넷 검색·전역적 기능 발견을 수행하지 않는다.",
         "assessment": {
@@ -458,6 +547,20 @@
         "applicability": "LOCAL_CHECKS_PASS",
         "scope": "LOCAL_USL_COUNTEREXAMPLES",
         "detail": "부분 목록과 제한된 탐색에서 전역 부재를 주장하지 않는다"
+      }
+    },
+    {
+      "id": "check:catalog-discovery-scope",
+      "types": [
+        "urn:usl:engineering:LocalCheck"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/receipt.json",
+      "metadata": {
+        "id": "catalog-discovery-scope",
+        "status": "PASS",
+        "applicability": "LOCAL_CHECKS_PASS",
+        "scope": "LOCAL_USL_COUNTEREXAMPLES",
+        "detail": "부분 host catalog은 owner 범위의 같은 native ID를 구분하고 policy를 발견 결과에 싣지 않는다"
       }
     },
     {
@@ -567,7 +670,7 @@
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/integrations/capability-inventory.ts",
       "metadata": {
         "path": "src/integrations/capability-inventory.ts",
-        "sourceDigest": "sha256:b959005c33e254358ac04862dba28cb3c10c288d6b3a0a6b10e9a15280439d61"
+        "sourceDigest": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c"
       }
     },
     {
@@ -3573,6 +3676,34 @@
       ]
     },
     {
+      "id": "implementation:C03:src/capability-catalog.ts",
+      "meaning": "urn:usl:engineering:implemented_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C03"
+        },
+        {
+          "role": "implementation",
+          "resource": "implementation:src/capability-catalog.ts"
+        }
+      ]
+    },
+    {
+      "id": "implementation:C03:src/json-data.ts",
+      "meaning": "urn:usl:engineering:implemented_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C03"
+        },
+        {
+          "role": "implementation",
+          "resource": "implementation:src/json-data.ts"
+        }
+      ]
+    },
+    {
       "id": "implementation:C03:src/contract-core.ts",
       "meaning": "urn:usl:engineering:implemented_by",
       "participants": [
@@ -3583,6 +3714,62 @@
         {
           "role": "implementation",
           "resource": "implementation:src/contract-core.ts"
+        }
+      ]
+    },
+    {
+      "id": "implementation:C03:src/application.ts",
+      "meaning": "urn:usl:engineering:implemented_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C03"
+        },
+        {
+          "role": "implementation",
+          "resource": "implementation:src/application.ts"
+        }
+      ]
+    },
+    {
+      "id": "implementation:C03:src/mcp.ts",
+      "meaning": "urn:usl:engineering:implemented_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C03"
+        },
+        {
+          "role": "implementation",
+          "resource": "implementation:src/mcp.ts"
+        }
+      ]
+    },
+    {
+      "id": "implementation:C03:src/mcp-config.ts",
+      "meaning": "urn:usl:engineering:implemented_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C03"
+        },
+        {
+          "role": "implementation",
+          "resource": "implementation:src/mcp-config.ts"
+        }
+      ]
+    },
+    {
+      "id": "implementation:C03:src/cli-capabilities.ts",
+      "meaning": "urn:usl:engineering:implemented_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C03"
+        },
+        {
+          "role": "implementation",
+          "resource": "implementation:src/cli-capabilities.ts"
         }
       ]
     },
@@ -3615,6 +3802,24 @@
         {
           "role": "check",
           "resource": "check:immutable-owner-policy"
+        },
+        {
+          "role": "run",
+          "resource": "review:run"
+        }
+      ]
+    },
+    {
+      "id": "check:C03:host-catalog-preflight",
+      "meaning": "urn:usl:engineering:checked_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C03"
+        },
+        {
+          "role": "check",
+          "resource": "check:host-catalog-preflight"
         },
         {
           "role": "run",
@@ -3811,6 +4016,20 @@
       ]
     },
     {
+      "id": "implementation:C07:src/capability-catalog.ts",
+      "meaning": "urn:usl:engineering:implemented_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C07"
+        },
+        {
+          "role": "implementation",
+          "resource": "implementation:src/capability-catalog.ts"
+        }
+      ]
+    },
+    {
       "id": "check:C07:bounded-discovery",
       "meaning": "urn:usl:engineering:checked_by",
       "participants": [
@@ -3821,6 +4040,24 @@
         {
           "role": "check",
           "resource": "check:bounded-discovery"
+        },
+        {
+          "role": "run",
+          "resource": "review:run"
+        }
+      ]
+    },
+    {
+      "id": "check:C07:catalog-discovery-scope",
+      "meaning": "urn:usl:engineering:checked_by",
+      "participants": [
+        {
+          "role": "control",
+          "resource": "control:C07"
+        },
+        {
+          "role": "check",
+          "resource": "check:catalog-discovery-scope"
         },
         {
           "role": "run",

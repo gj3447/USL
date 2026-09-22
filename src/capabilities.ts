@@ -53,18 +53,18 @@ export const compileCapabilitySchema = (schema: unknown): ValidateFunction => {
   return new Ajv2020({ strict: true, allErrors: false, coerceTypes: false, useDefaults: false, removeAdditional: false }).compile(captured as AnySchema)
 }
 
-const policySchema = z.strictObject({
+export const capabilityPolicySchema = z.strictObject({
   connection: contractText, capabilityId: contractText, descriptorDigest: contractHash, sourceDigest: contractHash,
   allowedEffects: z.array(z.enum(["READ", "WRITE"])).max(2), allowedScopes: z.array(contractText).max(128),
   allowLossy: z.boolean(), maxInputBytes: z.number().int().min(0).max(1024 * 1024),
   maxOutputBytes: z.number().int().min(0).max(1024 * 1024), timeoutMs: z.number().int().min(1).max(300000),
 })
-export type CapabilityPolicy = z.infer<typeof policySchema>
-const invocationSchema = z.strictObject({
+export type CapabilityPolicy = z.infer<typeof capabilityPolicySchema>
+export const capabilityInvocationSchema = z.strictObject({
   descriptorDigest: contractHash, sourceDigest: contractHash,
   input: z.strictObject({ types: z.array(contractIri).max(64), unit: contractIri.optional(), value: z.json() }),
 })
-export type CapabilityInvocation = z.infer<typeof invocationSchema>
+export type CapabilityInvocation = z.infer<typeof capabilityInvocationSchema>
 export interface CapabilityPreflight {
   readonly status: "READY" | "REJECTED"
   readonly issues: readonly ContractIssue[]
@@ -75,8 +75,8 @@ export interface CapabilityPreflight {
   readonly semanticTruth: "NOT_EVALUATED"
 }
 export const preflightCapability = (descriptorInput: unknown, requestInput: unknown, policyInput: unknown): CapabilityPreflight => {
-  const descriptor = parseCapability(descriptorInput), request = invocationSchema.parse(contractSnapshot(requestInput))
-  const policy = policySchema.parse(contractSnapshot(policyInput)), descriptorDigest = contractDigest(descriptor)
+  const descriptor = parseCapability(descriptorInput), request = capabilityInvocationSchema.parse(contractSnapshot(requestInput))
+  const policy = capabilityPolicySchema.parse(contractSnapshot(policyInput)), descriptorDigest = contractDigest(descriptor)
   const issues: ContractIssue[] = []
   const issue = (code: string, detail: string) => { issues.push({ code, at: descriptor.id, detail }) }
   if (descriptor.id !== policy.capabilityId || descriptor.connection !== policy.connection) issue("WRONG_BINDING", "owner binding differs")
@@ -102,14 +102,14 @@ export const preflightCapability = (descriptorInput: unknown, requestInput: unkn
     requestDigest: contractDigest(request), execution: "NOT_EXECUTED", semanticTruth: "NOT_EVALUATED" })
 }
 
-const discoveryQuery = z.strictObject({ meaning: contractIri, inputType: contractIri.optional(),
+export const capabilityDiscoveryQuerySchema = z.strictObject({ meaning: contractIri, inputType: contractIri.optional(),
   connection: contractText.optional(), maxResults: z.number().int().min(1).max(256), maxInspected: z.number().int().min(1).max(4096) })
 /** Only supplied descriptors are searched; partial inventory is never reported as global absence. */
 export const discoverCapabilities = (input: readonly unknown[], queryInput: unknown, inventoryComplete: boolean) => {
   if (typeof inventoryComplete !== "boolean") throw new Error("inventoryComplete must be explicit")
   const descriptors = z.array(z.unknown()).max(4096).parse(contractSnapshot(input)).map(parseCapability)
   uniqueContractIds(descriptors.map(d => JSON.stringify([d.connection, d.id])), "connection/capability identity")
-  const query = discoveryQuery.parse(contractSnapshot(queryInput))
+  const query = capabilityDiscoveryQuerySchema.parse(contractSnapshot(queryInput))
   const matches: Array<{ descriptor: CapabilityDescriptor; descriptorDigest: string }> = []
   let inspected = 0, truncated = false
   for (const descriptor of descriptors) {
@@ -140,13 +140,13 @@ export const connectCapability = <E, R>(config: {
   descriptor: CapabilityDescriptor; policy: CapabilityPolicy;
   execute: (value: unknown, context: { expectedSourceDigest: string }) => Effect.Effect<unknown, E, R>
 }) => {
-  const descriptor = parseCapability(config.descriptor), policy = freezeContract(policySchema.parse(contractSnapshot(config.policy))), execute = config.execute
+  const descriptor = parseCapability(config.descriptor), policy = freezeContract(capabilityPolicySchema.parse(contractSnapshot(config.policy))), execute = config.execute
   if (typeof execute !== "function") throw new Error("host executor is required")
   const result = (body: Omit<CapabilityExecutionResult, "receiptDigest">): CapabilityExecutionResult => freezeContract({ ...body, receiptDigest: contractDigest(body) })
   return Object.freeze({
     describe: () => descriptor,
     invoke: (input: CapabilityInvocation): Effect.Effect<CapabilityExecutionResult, Error, R> => Effect.gen(function* () {
-      const request = yield* Effect.try({ try: () => invocationSchema.parse(contractSnapshot(input)), catch: e => new Error(String(e)) })
+      const request = yield* Effect.try({ try: () => capabilityInvocationSchema.parse(contractSnapshot(input)), catch: e => new Error(String(e)) })
       const preflight = preflightCapability(descriptor, request, policy)
       const base = { schema: "usl-capability-execution/v1" as const, preflight, sourceDigest: descriptor.sourceDigest, semanticTruth: "NOT_EVALUATED" as const }
       if (preflight.status === "REJECTED") return result({ ...base, status: "REJECTED", attempts: 0 })

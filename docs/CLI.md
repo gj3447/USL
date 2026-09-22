@@ -1,5 +1,7 @@
 # CLI
 
+`usl capability-discover --config FILE --input REQUEST.json`과 `usl capability-preflight --config FILE --input REQUEST.json`은 호스트가 등록한 기능을 검색하고 호출 조건을 검사한다. 둘 다 `--out FILE`을 지원하며 기능을 실행하지 않는다. [요청·설정 예제](CAPABILITY_CATALOG.md)를 참고한다.
+
 2026-09-14: `usl adapt --format resource-graph --graph FILE --namespace NAME`으로 범용 자원 응답을 읽는다. `--operation jsonld`로 JSON-LD를 출력한다. `check`, `context`, `observe`도 지원하며 생략한 `--format`은 기존 `property-graph`이다. [범용 연결 예제](RESOURCE_GRAPH.md#cli와-mcp).
 
 `npm run usl -- --help` lists the installed command surface. Existing `check`, `compile`, `context`, `observe`, record lifecycle, and `project` commands remain available.
@@ -11,8 +13,8 @@ accepts native relation IDs with `--link`, an explicit `--allow-locator` list or
 `--deny-all`, and `--max-resources`. Endpoint reads default to deny-all. The graph
 is an existing export/query response, not a new USL store. `--out` saves the
 result envelope, including native source digest, identity map and receipt. Its
-`result` field contains the usual observation/context; pass `result` to the
-observation validator. Unresolved observation exits 2; usage errors exit 64.
+`result` field contains the usual observation/context; pass the complete observation
+envelope to the validator to preserve its source and receipt checks. Unresolved observation exits 2; usage errors exit 64.
 
 Create a standalone declaration with `usl init --out game.usl`; it refuses to overwrite an existing file. `usl watch --source game.usl --once` validates and prints the current source/plan digests. Without `--once`, it emits JSONL status updates and keeps the last valid plan after an invalid edit.
 

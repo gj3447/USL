@@ -1,0 +1,20 @@
+{
+  "catalog": "demo",
+  "selection": {
+    "connection": "local-demo",
+    "capability": "read_sample",
+    "invocation": {
+      "descriptorDigest": "sha256:b0b4a23e3bc2deeb1211ab850343906f7372dc3d1b5600bc3ce5f9ff3b5d61b4",
+      "sourceDigest": "sha256:744ac52265f85e1b1e22a8def33dfba915df83e4814f660726b2d79687fac798",
+      "input": {
+        "types": [
+          "urn:example:Duration"
+        ],
+        "unit": "urn:unit:SECOND",
+        "value": {
+          "seconds": 1
+        }
+      }
+    }
+  }
+}

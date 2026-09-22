@@ -2,7 +2,7 @@
 import { z } from "zod"
 import { Either } from "effect"
 import { capabilitySchema, compileCapabilitySchema, parseCapability, type CapabilityDescriptor } from "../capabilities.js"
-import { contractDigest, contractSnapshot, contractText, freezeContract, uniqueContractIds } from "../contract-core.js"
+import { contractDigest, contractHash, contractSnapshot, contractText, freezeContract, uniqueContractIds } from "../contract-core.js"
 import { digestSource } from "../language/digest.js"
 import { parseResourceGraph, type ResourceGraph } from "./resource-graph.js"
 import { parseLocator } from "../locator.js"
@@ -36,6 +36,10 @@ const optionsSchema = z.strictObject({ connection: contractText, complete: z.boo
   outputTypes: capabilitySchema.shape.output.shape.types, inputUnit: capabilitySchema.shape.input.shape.unit,
   outputUnit: capabilitySchema.shape.output.shape.unit,
 })) })
+const inventorySchema = z.strictObject({
+  schema: z.literal("usl-capability-inventory/v1"), adapter: z.enum(["mcp-tools/v1", "openapi-3.1/v1"]), complete: z.boolean(),
+  sourceDigest: contractHash, capabilities: z.array(capabilitySchema).max(1024), sourceText: z.string(),
+})
 const source = (raw: string) => {
   if (typeof raw !== "string" || Buffer.byteLength(raw) > 1024 * 1024) throw new Error("inventory must be at most 1 MiB of JSON")
   return contractSnapshot(JSON.parse(raw)) as unknown
@@ -64,6 +68,16 @@ export const importMcpTools = (raw: string, supplied: InventoryOptions): Capabil
   return freezeContract({ schema: "usl-capability-inventory/v1", adapter: "mcp-tools/v1", complete, sourceDigest: digest, capabilities, sourceText: raw })
 }
 const record = (input: unknown): Record<string, unknown> | undefined => input !== null && typeof input === "object" && !Array.isArray(input) ? input as Record<string, unknown> : undefined
+const hasUnmappedResponseHeaders = (response: Record<string, unknown> | undefined): boolean => {
+  if (response?.headers === undefined) return false
+  const headers = record(response.headers)
+  return headers === undefined || Object.keys(headers).some(name => name.toLowerCase() !== "content-type")
+}
+const hasUnmappedResponseLinks = (response: Record<string, unknown> | undefined): boolean => {
+  if (response?.links === undefined) return false
+  const links = record(response.links)
+  return links === undefined || Object.keys(links).length > 0
+}
 const schemaFromContent = (input: unknown, unsupported: string[], where: string): unknown => {
   const container = record(input), content = record(container?.content), json = record(content?.["application/json"])
   if (container?.$ref !== undefined) unsupported.push(`${where}: reference requires a separately verified resolver`)
@@ -92,12 +106,22 @@ export const importOpenApi = (raw: string, supplied: InventoryOptions): Capabili
       const inherited = item.parameters ?? [], own = operation.parameters ?? []
       if (!Array.isArray(inherited) || !Array.isArray(own)) throw new Error("parameters must be arrays")
       if (inherited.length || own.length) unsupported.push("parameters: binding serialization is not implemented")
+      // OAS path templates require path parameters. This adapter has no parameter serializer,
+      // so even an omitted declaration must not become a body-only callable operation.
+      if (/\{[^{}]+\}/u.test(path)) unsupported.push("path template: parameter binding serialization is not implemented")
       if (operation.requestBody !== undefined) input = schemaFromContent(operation.requestBody, unsupported, "requestBody")
       const responses = record(operation.responses)
       const successes = responses ? Object.entries(responses).filter(([status]) => /^2(?:\d\d|XX)$/.test(status)) : []
       let output: unknown = true
       if (successes.length !== 1) unsupported.push("responses: require one explicit success response")
-      else output = schemaFromContent(successes[0]![1], unsupported, "response")
+      else {
+        const selected = successes[0]![1], response = record(selected)
+        output = schemaFromContent(selected, unsupported, "response")
+        // Response Object headers and links are distinct output/follow-up semantics. Content-Type
+        // is explicitly ignored by OAS here; all other declared headers need a host mapping.
+        if (hasUnmappedResponseHeaders(response)) unsupported.push("response headers: output header mapping is not implemented")
+        if (hasUnmappedResponseLinks(response)) unsupported.push("response links: follow-up operation mapping is not implemented")
+      }
       // These semantics cannot be erased when claiming a callable mapping.
       for (const field of ["callbacks", "security"]) if (operation[field] !== undefined || document[field] !== undefined) unsupported.push(`${field}: owner protocol mapping is required`)
       const id = operation.operationId === undefined ? key : contractText.parse(operation.operationId)
@@ -114,20 +138,39 @@ export const importOpenApi = (raw: string, supplied: InventoryOptions): Capabili
 
 /** The caller binds the exact inventory representation to a real locator; no invented protocol URI. */
 export const inventoryResourceGraph = (inventoryInput: CapabilityInventory, sourceLocator: string): ResourceGraph => {
-  const inventory = contractSnapshot(inventoryInput), sourceId = `inventory:${inventory.sourceDigest}`
+  const inventory = inventorySchema.parse(contractSnapshot(inventoryInput)), sourceId = `inventory:${inventory.sourceDigest}`
   if (Either.isLeft(parseLocator(sourceLocator))) throw new Error("inventory representation requires a USL locator")
-  if (inventory.schema !== "usl-capability-inventory/v1" || !["mcp-tools/v1", "openapi-3.1/v1"].includes(inventory.adapter) || typeof inventory.complete !== "boolean") throw new Error("invalid inventory envelope")
   if (digestSource(inventory.sourceText) !== inventory.sourceDigest) throw new Error("inventory source digest mismatch")
-  for (const c of inventory.capabilities) if (parseCapability(c).sourceDigest !== inventory.sourceDigest) throw new Error("capability source digest mismatch")
-  uniqueContractIds(inventory.capabilities.map(c => JSON.stringify([c.connection, c.id])), "inventory identities")
+  const capabilities = inventory.capabilities.map(parseCapability)
+  for (const c of capabilities) if (c.sourceDigest !== inventory.sourceDigest) throw new Error("capability source digest mismatch")
+  uniqueContractIds(capabilities.map(c => JSON.stringify([c.connection, c.id])), "inventory identities")
+  uniqueContractIds(capabilities.map(c => c.nativeOperation), "inventory native operations")
+  const connections = [...new Set(capabilities.map(c => c.connection))]
+  if (connections.length > 1) throw new Error("inventory capabilities must have one owner connection")
+  const bindings: Record<string, InventoryBinding> = Object.create(null)
+  for (const c of capabilities) bindings[c.nativeOperation] = {
+    meanings: c.meanings, effect: c.effect, requiredScopes: c.requiredScopes,
+    inputTypes: c.input.types, outputTypes: c.output.types,
+    ...(c.input.unit === undefined ? {} : { inputUnit: c.input.unit }),
+    ...(c.output.unit === undefined ? {} : { outputUnit: c.output.unit }),
+  }
+  // Re-import the pinned representation using only its declared owner bindings. A cloned envelope
+  // cannot add operations, swap schemas, or turn an incomplete source into a complete inventory.
+  const expected = inventory.adapter === "mcp-tools/v1"
+    ? importMcpTools(inventory.sourceText, { connection: connections[0] ?? "empty-inventory", complete: inventory.complete, bindings })
+    : importOpenApi(inventory.sourceText, { connection: connections[0] ?? "empty-inventory", complete: inventory.complete, bindings })
+  if (expected.complete !== inventory.complete || expected.capabilities.length !== capabilities.length ||
+    expected.capabilities.some((c, index) => contractDigest(c) !== contractDigest(capabilities[index]!))) {
+    throw new Error("inventory descriptors do not match pinned source representation")
+  }
   const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [
     { id: sourceId, types: ["urn:usl:engineering:Inventory"], locator: sourceLocator,
       metadata: { sourceDigest: inventory.sourceDigest, complete: inventory.complete, representation: z.json().parse(source(inventory.sourceText)) } },
-    ...inventory.capabilities.map(raw => { const c = parseCapability(raw); return { id: JSON.stringify([c.connection, c.id]),
+    ...capabilities.map(c => ({ id: JSON.stringify([c.connection, c.id]),
       types: ["urn:usl:engineering:Capability"], locator: sourceLocator, metadata: { descriptor: z.json().parse(c), descriptorDigest: contractDigest(c),
-        semantics: "OWNER_BINDING_DECLARATION_NOT_UPSTREAM_AUTHORIZATION" } } }),
+        semantics: "OWNER_BINDING_DECLARATION_NOT_UPSTREAM_AUTHORIZATION" } })),
   ], meanings: [{ id: "urn:usl:engineering:exposes", description: "The supplied inventory describes this capability; invocation and authorization remain separate." }],
-  links: inventory.capabilities.map(c => ({ id: `exposes:${JSON.stringify([c.connection, c.id])}`, meaning: "urn:usl:engineering:exposes",
+  links: capabilities.map(c => ({ id: `exposes:${JSON.stringify([c.connection, c.id])}`, meaning: "urn:usl:engineering:exposes",
     participants: [{ role: "inventory", resource: sourceId }, { role: "capability", resource: JSON.stringify([c.connection, c.id]) }] })), provenance: { sources: [sourceId] } }
   return Either.getOrThrow(parseResourceGraph(JSON.stringify(graph)))
 }

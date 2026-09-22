@@ -6,6 +6,9 @@
   "programs": {
     "navigation": "agent-navigation.usl"
   },
+  "capabilityCatalogs": {
+    "demo": "fixtures/capability-catalog.json"
+  },
   "connections": {
     "game": {
       "graph": "fixtures/native-graph.json",

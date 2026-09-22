@@ -7,12 +7,14 @@ import { adaptPropertyGraph } from "./integrations/property-graph.js"
 import { adaptResourceGraph } from "./integrations/resource-graph.js"
 import { readUtf8Bounded } from "./bounded-read.js"
 import { parseDomainProfile } from "./domain-profile.js"
+import { parseCapabilityCatalog } from "./capability-catalog.js"
 
 export interface FileGraphConnection { readonly graph: string; readonly namespace: string; readonly kgSource?: string; readonly format?: "property-graph" | "resource-graph"; readonly profile?: string }
 export interface UslMcpFileConfig {
   readonly policy: UslOperationPolicy
   readonly programs: Readonly<Record<string, string>>
   readonly connections?: Readonly<Record<string, FileGraphConnection>>
+  readonly capabilityCatalogs?: Readonly<Record<string, string>>
 }
 const record = (value: unknown, label: string): Record<string, unknown> => {
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object`)
@@ -25,6 +27,10 @@ const text = (value: unknown, label: string): string => {
 const keys = (value: Record<string, unknown>, allowed: readonly string[], label: string) => {
   for (const key of Object.keys(value)) if (!allowed.includes(key)) throw new Error(`unknown ${label} field: ${key}`)
 }
+const namedFiles = (input: unknown, base: string, label: string): Readonly<Record<string, string>> =>
+  Object.freeze(Object.fromEntries(Object.entries(record(input, `${label}s`)).map(([id, file]) => {
+    text(id, `${label} ID`); return [id, resolve(base, text(file, `${label} file`))]
+  })))
 const connections = (input: unknown, base: string): Readonly<Record<string, FileGraphConnection>> => {
   const value = record(input, "connections")
   return Object.freeze(Object.fromEntries(Object.entries(value).map(([id, raw]) => {
@@ -51,7 +57,7 @@ export const parseMcpConfig = (encoded: string, baseDirectory: string, label = "
   assertJsonData(input)
   const data = record(input, label)
   const required = ["allowedLocators", "maxResources", "maxInputBytes", "maxOutputBytes", "programs"]
-  keys(data, [...required, "connections"], label)
+  keys(data, [...required, "connections", "capabilityCatalogs"], label)
   for (const key of required) if (!Object.hasOwn(data, key)) throw new Error(`${label}.${key} is required`)
   if (!Array.isArray(data.allowedLocators) || data.allowedLocators.some(value => typeof value !== "string" || Either.isLeft(parseLocator(value)))) throw new Error(`${label}.allowedLocators must contain valid locators`)
   const limit = (key: string) => {
@@ -59,11 +65,10 @@ export const parseMcpConfig = (encoded: string, baseDirectory: string, label = "
     if (typeof value !== "number" || !Number.isSafeInteger(value) || value < 0) throw new Error(`${label}.${key} must be a nonnegative safe integer`)
     return value
   }
-  const programs = Object.fromEntries(Object.entries(record(data.programs, "programs")).map(([id, file]) => {
-    text(id, "program ID"); return [id, resolve(baseDirectory, text(file, "program file"))]
-  }))
+  const programs = namedFiles(data.programs, baseDirectory, "program")
   return { policy: Object.freeze({ allowedLocators: Object.freeze([...data.allowedLocators] as string[]), maxResources: limit("maxResources"), maxInputBytes: limit("maxInputBytes"), maxOutputBytes: limit("maxOutputBytes") }),
-    programs: Object.freeze(programs), ...(data.connections === undefined ? {} : { connections: connections(data.connections, baseDirectory) }) }
+    programs, ...(data.connections === undefined ? {} : { connections: connections(data.connections, baseDirectory) }),
+    ...(data.capabilityCatalogs === undefined ? {} : { capabilityCatalogs: namedFiles(data.capabilityCatalogs, baseDirectory, "capability catalog") }) }
 }
 
 export const readMcpConfigFromEnv = (env: NodeJS.ProcessEnv = process.env): UslMcpFileConfig => {
@@ -92,5 +97,15 @@ export const fileConnectionResolver = (input: Readonly<Record<string, FileGraphC
     }
     return Either.getOrThrowWith(adaptPropertyGraph(raw, { namespace: connection.namespace,
       ...(connection.kgSource === undefined ? {} : { kgSource: connection.kgSource }) }), failure => failure)
+  }
+}
+
+/** Every request reads the selected registered file; invalid edits never fall back to old policy. */
+export const fileCapabilityCatalogResolver = (input: Readonly<Record<string, string>>, maxBytes: number): NonNullable<UslOperationPolicy["getCapabilityCatalog"]> => {
+  assertJsonData(input)
+  const registered = namedFiles(structuredClone(input), process.cwd(), "capability catalog")
+  return async id => {
+    if (!Object.hasOwn(registered, id)) throw new Error(`unknown capability catalog: ${id}`)
+    return parseCapabilityCatalog(JSON.parse(await readUtf8Bounded(registered[id]!, maxBytes)), maxBytes)
   }
 }

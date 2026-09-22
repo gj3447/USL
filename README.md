@@ -9,6 +9,7 @@
 - [Lean 4 연결과 형식 검증](docs/LEAN4_INTEGRATION.md)
 - [AI native 어댑터·유사 기술 40항목 조사](docs/RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md) · [개발 로드맵 제안](docs/AI_NATIVE_ADAPTER_ROADMAP.md)
 - [40항목 공학 보완 그래프·적대적 검증](docs/ENGINEERING_ADVERSARIAL_MATRIX.md) · [구현된 계약과 사용법](docs/ENGINEERING_CONTRACTS.md)
+- [AI용 기능 발견·사전검사: SDK·CLI·MCP](docs/CAPABILITY_CATALOG.md)
 - [사용자 매뉴얼](docs/USER_MANUAL.md) · [빠른 시작](docs/GETTING_STARTED.md) · [CLI](docs/CLI.md) · [MCP](docs/MCP.md)
 - [기존 `.usl` 문법](docs/LANGUAGE.md) · [TypeScript 코드 내장](docs/CODE_INTEGRATION.md)
 - [과거 설계·검증 기록](archive/README.md)

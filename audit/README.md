@@ -1,5 +1,7 @@
 # 검증 기록
 
+- [2026-09-22 기능 카탈로그: SDK·CLI·MCP 통합 검증](CAPABILITY_CATALOG_2026-09-22.md)
+
 - [2026-09-22 공학 보완 계약·40항목 그래프 검증](ENGINEERING_CONTRACTS_2026-09-22.md) · [독립 RDF/SHACL 결과](engineering-standards-2026-09-22.json)
 
 이 디렉터리의 날짜별 보고서·로그·source pin은 **해당 실행 시점의 증거**다. 특히 2026-09-08의 HSWM source pin은 그 시점의 USL 파일을 가리키므로 이후 구현 변경에 대한 최신 pin으로 재사용하지 않는다.

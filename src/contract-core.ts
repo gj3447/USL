@@ -1,7 +1,7 @@
 /** Shared mechanics for optional contracts; existing plan/source digests are unchanged. */
 import { createHash } from "node:crypto"
 import { z } from "zod"
-import { assertJsonData } from "./application.js"
+import { assertJsonData } from "./json-data.js"
 
 export const contractText = z.string().min(1).max(4096).regex(/\S/u)
 export const contractIri = contractText.regex(/^[A-Za-z][A-Za-z0-9+.-]*:[^\s<>"{}|^`\\\u0000-\u001f\u007f]+$/u)

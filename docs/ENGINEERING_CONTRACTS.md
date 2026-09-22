@@ -69,6 +69,8 @@ MCP는 관리자 설정에 `profile` 파일을 등록한다. 경로는 설정 �
 
 `discoverCapabilities(descriptors, query, inventoryComplete)`는 공급한 목록 안에서 정확한 meaning IRI와 선택적 input type/connection으로 검색한다. `maxResults`, `maxInspected`를 반드시 지정한다. 부분 inventory나 제한 초과에서 못 찾은 경우 `UNKNOWN_WITHIN_LIMITS`를 반환한다. 검색 성공은 실행 인가가 아니다.
 
+호스트가 관리하는 [capability catalog](CAPABILITY_CATALOG.md)를 등록하면 같은 발견·사전 검사 기능을 CLI와 MCP에서도 사용할 수 있다. 카탈로그는 설명자와 선택적 정책을 결속하고, 요청에는 등록 ID만 받는다.
+
 `preflightCapability(descriptor, request, policy)`는 다음을 확인한다.
 
 1. 소유자 connection/capability binding과 descriptor/source pin.
@@ -88,6 +90,8 @@ JSON Schema 검사는 [Ajv strict mode](https://ajv.js.org/strict-mode.html)를 
 `importOpenApi(raw, options)`는 OpenAPI **3.1.x JSON 문서의 제한된 operation 목록**을 가져온다. native operation ID는 `METHOD /path`, resource identity는 명시된 `operationId` 또는 그 대체값이다. JSON body/단일 success response schema를 받아들인다. parameters 직렬화·보안 scheme mapping·callbacks·여러 성공 응답·여러 media type·알 수 없는 document dialect는 미지원으로 표시하고 callable 계약으로 쓰지 않는다. path item `$ref`는 inventory 누락을 숨기지 않도록 import 자체를 거부한다. webhooks가 있으면 수입 범위를 부분으로 표시한다. 외부 주소를 읽거나 API를 호출하지 않는다.
 
 `inventoryResourceGraph(inventory, sourceLocator)`는 정확한 원문과 source digest를 검사하고 기능 설명을 기존 resource graph로 연결한다. locator는 host가 공급한 실제 표현의 주소다. 기능에 붙인 의미·effect는 owner binding의 선언이며 upstream의 인가로 해석하지 않는다. 현재 importer는 MCP resource/prompt 전체나 OpenAPI의 완전한 HTTP driver가 아니다.
+
+원문을 재해석해 native operation·schema·완전성이 보존됐는지도 검사한다. OpenAPI path template, 매핑되지 않은 응답 헤더와 후속 links는 `unsupported`로 남긴다.
 
 ## 4. Effect 실행 경계와 결과
 

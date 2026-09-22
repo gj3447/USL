@@ -1,8 +1,10 @@
 # USL AI native 어댑터 개발 로드맵
 
-작성일: **2026-09-22** · 기준 커밋: `250b493` · 상태: **조사에 따른 AI 제안, 미구현**.
+작성일: **2026-09-22** · 원안 기준 커밋: `250b493` · 상태: **단계별 구현 중**. 아래 계획 원안과 완료된 범위를 구분한다.
 
 후속 구현: 같은 날짜의 사용자 요청으로 [공학 보완 계약](ENGINEERING_CONTRACTS.md)과 [40항목 검증 그래프](ENGINEERING_ADVERSARIAL_MATRIX.md)를 추가했다. 아래 원래 계획 전체를 완료한 것은 아니다. P0는 SDK descriptor/발견과 MCP tools·OpenAPI 3.1의 제한된 순수 importer, P1은 역할 타입/metadata 및 손실 gate, P3는 host callback의 사전 검사·단일 시도·불명 결과까지 구현했다. P2의 실제 SCIP/OpenLineage 연결, 범용 구독·durable 실행, P4의 외부 공학 driver는 남아 있다.
+
+추가 진척: [등록된 기능 카탈로그](CAPABILITY_CATALOG.md)로 P0의 SDK·CLI·MCP 발견 경로를 연결했다. 같은 호스트 정책으로 사전 검사도 제공하며, 카탈로그를 설정한 MCP에서만 2개 tool이 추가된다. 기본 9개 tool과 임의 실행을 제공하지 않는 경계는 유지한다.
 
 [유사 기술 조사](RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md)를 실제 작업 단위로 옮긴다. 기존 사용자 방향인 문법·연결 계층, 원본 소유권 유지, TypeScript + Effect, Lean 연동을 따른다. 아래 타입 이름·파일 이름·순서는 구현 제안이며 사용자 결정 기록이나 새 공개 API가 아니다.
 

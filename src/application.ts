@@ -1,5 +1,7 @@
 /** Shared CLI/MCP application boundary. No filesystem paths, writes or command execution. */
 import { Effect, Either, Layer } from "effect"
+import { assertJsonData, UslApplicationError } from "./json-data.js"
+export { assertJsonData, UslApplicationError } from "./json-data.js"
 import { ConfigLive, Resolvers, ResolversLive, locatorKey } from "./resolve.js"
 import type { Locator, Resolution } from "./domain.js"
 import type { ResolveError, ResolverOptions } from "./resolve.js"
@@ -13,8 +15,10 @@ import type { GraphEngineeringBindings } from "./integrations/graph-engineering.
 import { prepareHswmAdapterArguments } from "./integrations/hswm.js"
 import type { HswmAdapterArguments } from "./integrations/hswm.js"
 import { DEFAULT_NAVIGATION_LIMITS, MAX_NAVIGATION_LIMITS } from "./language/navigation.js"
+import { capabilityCatalogDiscoveryQuerySchema, capabilityCatalogSelectionSchema, parseCapabilityCatalog,
+  discoverCapabilityCatalog, preflightCapabilityCatalog, type CapabilityCatalog } from "./capability-catalog.js"
 
-export const USL_OPERATIONS = ["check", "compile", "context", "observe", "compare", "validate_observation", "graph_import", "hswm_prepare", "project"] as const
+export const USL_OPERATIONS = ["check", "compile", "context", "observe", "compare", "validate_observation", "graph_import", "hswm_prepare", "project", "capability_discover", "capability_preflight"] as const
 export type UslOperation = typeof USL_OPERATIONS[number]
 export interface UslProgramSnapshot { readonly source: string; readonly plan: SemanticPlan }
 export interface UslOperationPolicy {
@@ -26,9 +30,10 @@ export interface UslOperationPolicy {
   /** An administrator-owned name lookup; never interprets a client ID as a filesystem path. */
   readonly getProgram?: (id: string) => Promise<UslProgramSnapshot>
   readonly getConnection?: (id: string) => Promise<AdaptedGraph>
+  /** Host-owned descriptions and policy only. This callback must not invoke capabilities. */
+  readonly getCapabilityCatalog?: (id: string) => Promise<CapabilityCatalog>
 }
 export const DEFAULT_USL_POLICY: UslOperationPolicy = Object.freeze({ allowedLocators: Object.freeze([]), maxResources: 64, maxInputBytes: 1024 * 1024, maxOutputBytes: 1024 * 1024 })
-export class UslApplicationError extends Error { readonly _tag = "UslApplicationError" }
 const fail = (message: string): never => { throw new UslApplicationError(message) }
 const object = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === "object" && !Array.isArray(value)
 const record = (value: unknown, label: string) => object(value) ? value : fail(`${label} must be an object`)
@@ -40,30 +45,6 @@ const fields = (value: Record<string, unknown>, allowed: ReadonlyArray<string>) 
 }
 const size = (value: unknown) => Buffer.byteLength(JSON.stringify(value), "utf8")
 const normalizeLocator = (value: unknown) => locatorKey(unwrap(parseLocator(string(value, "allowed locator"))))
-
-// This boundary accepts JSON data. Reject options that JSON/structuredClone
-// would silently erase (inherited limits, accessors, sparse arrays, undefined).
-export const assertJsonData = (value: unknown, ancestors = new Set<object>()): void => {
-  if (value === null || typeof value === "string" || typeof value === "boolean") return
-  if (typeof value === "number" && Number.isFinite(value)) return
-  if (typeof value !== "object" || value === null) fail("input must contain JSON data only")
-  const item = value as object
-  const prototype = Object.getPrototypeOf(item)
-  if (Array.isArray(item) ? prototype !== Array.prototype : prototype !== Object.prototype && prototype !== null) fail("input must use plain JSON objects; inherited options are not supported")
-  if (ancestors.has(item)) fail("input must not contain cycles")
-  ancestors.add(item)
-  const descriptors = Object.getOwnPropertyDescriptors(item)
-  if (Array.isArray(item) && Object.keys(descriptors).length !== item.length + 1) fail("input arrays must be dense JSON arrays")
-  for (const key of Reflect.ownKeys(descriptors)) {
-    if (Array.isArray(item) && key === "length") continue
-    if (typeof key !== "string") return fail("input cannot contain symbol keys")
-    const descriptor = descriptors[key]!
-    if (!descriptor.enumerable || !("value" in descriptor)) fail("input must contain enumerable JSON values, not accessors")
-    if (Array.isArray(item) && !/^(0|[1-9][0-9]*)$/.test(key)) fail("input arrays cannot carry extra options")
-    assertJsonData(descriptor.value, ancestors)
-  }
-  ancestors.delete(item)
-}
 
 /** One validation boundary for direct SDK snapshots and host-provided connections.
  * Preserve the original field order: validation must not rewrite hashed plans. */
@@ -112,8 +93,17 @@ const observationInput = (value: unknown): { report: ProgramObservation; source:
 }
 
 type InputPolicy = Pick<UslOperationPolicy, "allowedLocators" | "maxResources" | "maxInputBytes" | "maxOutputBytes">
+const validateCapabilityInput = (operation: "capability_discover" | "capability_preflight", data: Record<string, unknown>, policy: InputPolicy): void => {
+  fields(data, operation === "capability_discover" ? ["catalog", "query"] : ["catalog", "selection"])
+  string(data.catalog, "catalog")
+  if (operation === "capability_discover") {
+    const query = capabilityCatalogDiscoveryQuerySchema.parse(data.query)
+    if (query.maxResults > policy.maxResources || query.maxInspected > policy.maxResources) fail("capability query exceeds server maxResources")
+  } else capabilityCatalogSelectionSchema.parse(data.selection)
+}
 const validateUslOperationData = (operation: UslOperation, data: Record<string, unknown>, policy: InputPolicy): void => {
   if (size(data) > policy.maxInputBytes) return fail("input exceeds maxInputBytes")
+  if (operation === "capability_discover" || operation === "capability_preflight") return validateCapabilityInput(operation, data, policy)
   const permitted = ["source", "program", "connection", ...(operation === "context" ? ["query", "compact", "maxBytes", "knownContextDigest"] : operation === "observe" ? ["options", "baseline"] : operation === "project" ? ["options"] : [])]
   fields(data, permitted)
   const sources = ["source", "program", "connection"].filter((key) => data[key] !== undefined)
@@ -176,7 +166,7 @@ export const executeUslOperation = async (operation: UslOperation, input: unknow
   // Capture permission-bearing settings explicitly, including inherited fields.
   const settings = { allowedLocators: structuredClone(policy.allowedLocators), maxResources: integer(policy.maxResources, "policy.maxResources"),
     maxInputBytes: integer(policy.maxInputBytes, "policy.maxInputBytes"), maxOutputBytes: integer(policy.maxOutputBytes, "policy.maxOutputBytes"),
-    resolvers: policy.resolvers, getProgram: policy.getProgram, getConnection: policy.getConnection }
+    resolvers: policy.resolvers, getProgram: policy.getProgram, getConnection: policy.getConnection, getCapabilityCatalog: policy.getCapabilityCatalog }
   if (!Array.isArray(settings.allowedLocators)) return fail("policy.allowedLocators must be an array")
   const allowed = [...new Set(settings.allowedLocators.map(normalizeLocator))]
   assertJsonData(input)
@@ -185,6 +175,14 @@ export const executeUslOperation = async (operation: UslOperation, input: unknow
   const output = (value: unknown) => {
     if (size(value) > settings.maxOutputBytes) return fail("output exceeds maxOutputBytes; narrow the request or use compact context")
     return value
+  }
+  if (operation === "capability_discover" || operation === "capability_preflight") {
+    validateCapabilityInput(operation, data, settings)
+    if (!settings.getCapabilityCatalog) return fail("capability catalogs are not configured")
+    const id = string(data.catalog, "catalog")
+    const catalog = parseCapabilityCatalog(await settings.getCapabilityCatalog(id), settings.maxInputBytes)
+    return output({ catalog: id, ...(operation === "capability_discover"
+      ? discoverCapabilityCatalog(catalog, data.query) : preflightCapabilityCatalog(catalog, data.selection)) })
   }
   if (operation === "compare") {
     fields(data, ["before", "after"])

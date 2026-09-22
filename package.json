@@ -71,6 +71,10 @@
     "./engineering-review": {
       "types": "./dist/src/engineering-review.d.ts",
       "import": "./dist/src/engineering-review.js"
+    },
+    "./capability-catalog": {
+      "types": "./dist/src/capability-catalog.d.ts",
+      "import": "./dist/src/capability-catalog.js"
     }
   },
   "engines": {

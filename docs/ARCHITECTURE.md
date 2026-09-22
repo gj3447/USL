@@ -46,6 +46,8 @@ USL은 의미 연결 문법과 실행 라이브러리다. 저장소·질의 엔�
 
 ## 확장 범위
 
+기능 설명과 정책은 [호스트 소유 catalog](CAPABILITY_CATALOG.md)에서 결속한다. `capability_discover`와 `capability_preflight`는 SDK·CLI·MCP가 같은 application 경로를 사용하며, executor를 받지 않는다. 공통 JSON 데이터 검증은 `json-data.ts`에 두어 계약 계층이 application에 역으로 의존하지 않게 했다.
+
 2026-09-22부터 선택적 [공학 계약](ENGINEERING_CONTRACTS.md)을 추가했다. resource graph에 owner가 선택한 DomainProfile을 적용하면 역할의 domain type·필수 metadata를 실제 검사하고 profile digest를 의미 계약에 보존한다. 기본 v1 출력은 유지한다. capability 계층은 제한된 MCP/OpenAPI inventory 수입, 예산 있는 기능 발견, 입력/출력 schema·단위·scope·effect·snapshot 검사와 host Effect callback의 결과 영수증을 제공한다. 기존 CLI/MCP resource graph 입력에도 profile을 등록할 수 있다. 원격 protocol driver와 전체 domain 의미 검증은 이 계약과 구분한다.
 
 `types`에 새 도메인 IRI를 쓰는 데 코어 수정은 필요 없다. [14종 fixture](../examples/fixtures/resource-graph.json)는 요구사항·코드 심볼·checkout·Lean 정리·빌드 실행·산출물·데이터셋·모델·도구·워크플로·문서 일부·에이전트·프로세스·측정값을 연결한다. 이것은 표현·탐색·교환 경로의 검증용 예제다.

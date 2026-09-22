@@ -1,0 +1,81 @@
+{
+  "schema": "usl-capability-catalog/v1",
+  "complete": true,
+  "entries": [
+    {
+      "descriptor": {
+        "schema": "usl-capability/v1",
+        "id": "read_sample",
+        "version": "1",
+        "connection": "local-demo",
+        "nativeOperation": "read_sample",
+        "sourceDigest": "sha256:744ac52265f85e1b1e22a8def33dfba915df83e4814f660726b2d79687fac798",
+        "kind": "READ",
+        "effect": "READ",
+        "meanings": [
+          "urn:example:sample"
+        ],
+        "requiredScopes": [
+          "sample:read"
+        ],
+        "input": {
+          "types": [
+            "urn:example:Duration"
+          ],
+          "unit": "urn:unit:SECOND",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "seconds": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "seconds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "output": {
+          "types": [
+            "urn:example:Sample"
+          ],
+          "schema": {
+            "type": "object",
+            "properties": {
+              "sample": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "sample"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "mapping": {
+          "completeness": "COMPLETE",
+          "losses": [],
+          "unsupported": []
+        }
+      },
+      "policy": {
+        "connection": "local-demo",
+        "capabilityId": "read_sample",
+        "descriptorDigest": "sha256:b0b4a23e3bc2deeb1211ab850343906f7372dc3d1b5600bc3ce5f9ff3b5d61b4",
+        "sourceDigest": "sha256:744ac52265f85e1b1e22a8def33dfba915df83e4814f660726b2d79687fac798",
+        "allowedEffects": [
+          "READ"
+        ],
+        "allowedScopes": [
+          "sample:read"
+        ],
+        "allowLossy": false,
+        "maxInputBytes": 4096,
+        "maxOutputBytes": 4096,
+        "timeoutMs": 1000
+      }
+    }
+  ]
+}

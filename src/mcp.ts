@@ -10,7 +10,8 @@ import { Either } from "effect"
 import { parseLocator } from "./locator.js"
 import { DEFAULT_USL_POLICY, executeUslOperation, type UslOperation, type UslOperationPolicy } from "./application.js"
 import { openProgramRegistry } from "./program-store.js"
-import { fileConnectionResolver, readMcpConfig, type FileGraphConnection } from "./mcp-config.js"
+import { fileConnectionResolver, fileCapabilityCatalogResolver, readMcpConfig, type FileGraphConnection } from "./mcp-config.js"
+import { capabilityCatalogDiscoveryQuerySchema, capabilityCatalogSelectionSchema } from "./capability-catalog.js"
 export { readMcpConfigFromEnv, readMcpConfig } from "./mcp-config.js"
 
 export interface UslMcpServerConfig {
@@ -22,6 +23,8 @@ export interface UslMcpServerConfig {
   readonly programs?: Readonly<Record<string, string>>
   /** Administrator-owned native graph files, read afresh for each selected call. */
   readonly connections?: Readonly<Record<string, FileGraphConnection>>
+  /** Read-only capability descriptions and host policy, never executable handlers. */
+  readonly capabilityCatalogs?: Readonly<Record<string, string>>
 }
 
 const json = z.unknown()
@@ -37,6 +40,8 @@ const schemas: Record<UslOperation, z.ZodType> = {
   graph_import: z.object({ graph: z.string(), bindings: object }).strict(),
   hswm_prepare: z.object({ arguments: json }).strict(),
   project: z.object({ ...selection, options: object }).strict(),
+  capability_discover: z.object({ catalog: z.string(), query: capabilityCatalogDiscoveryQuerySchema }).strict(),
+  capability_preflight: z.object({ catalog: z.string(), selection: capabilityCatalogSelectionSchema }).strict(),
 }
 
 const descriptions: Record<UslOperation, string> = {
@@ -49,6 +54,8 @@ const descriptions: Record<UslOperation, string> = {
   graph_import: "Import a raw GEIP GraphSpec plus explicit USL bindings; this does not execute the graph.",
   hswm_prepare: "Prepare a pure HSWM handoff argument bundle; this does not contact HSWM.",
   project: "Produce a semantic projection from USL source or a registered program; this server performs no KG write.",
+  capability_discover: "Find capabilities in a host-registered catalog within explicit limits. Discovery grants no authority and invokes nothing.",
+  capability_preflight: "Check a pinned request against the registered descriptor and host policy. READY is a snapshot assessment; nothing is executed.",
 }
 const annotations = (operation: UslOperation) => ({ readOnlyHint: true, destructiveHint: false, idempotentHint: operation !== "observe", openWorldHint: operation === "observe" })
 
@@ -58,7 +65,8 @@ const frozenPolicy = (supplied: UslOperationPolicy | undefined): UslOperationPol
     maxInputBytes: policy.maxInputBytes, maxOutputBytes: policy.maxOutputBytes,
     ...(policy.resolvers === undefined ? {} : { resolvers: policy.resolvers }),
     ...(policy.getProgram === undefined ? {} : { getProgram: policy.getProgram }),
-    ...(policy.getConnection === undefined ? {} : { getConnection: policy.getConnection }) }
+    ...(policy.getConnection === undefined ? {} : { getConnection: policy.getConnection }),
+    ...(policy.getCapabilityCatalog === undefined ? {} : { getCapabilityCatalog: policy.getCapabilityCatalog }) }
   if (!Array.isArray(captured.allowedLocators) || captured.allowedLocators.some(value => typeof value !== "string" || Either.isLeft(parseLocator(value))) ||
     [captured.maxResources, captured.maxInputBytes, captured.maxOutputBytes].some(value => !Number.isSafeInteger(value) || value < 0)) throw new Error("invalid MCP policy")
   return Object.freeze({ ...captured, allowedLocators: Object.freeze(captured.allowedLocators) })
@@ -66,7 +74,9 @@ const frozenPolicy = (supplied: UslOperationPolicy | undefined): UslOperationPol
 const connectionPolicy = (config: UslMcpServerConfig): UslOperationPolicy => {
   const base = frozenPolicy(config.policy)
   if (config.connections !== undefined && base.getConnection !== undefined) throw new Error("configure either policy.getConnection or connections, not both")
-  return frozenPolicy({ ...base, ...(config.connections === undefined ? {} : { getConnection: fileConnectionResolver(config.connections, base.maxInputBytes) }) })
+  if (config.capabilityCatalogs !== undefined && base.getCapabilityCatalog !== undefined) throw new Error("configure either policy.getCapabilityCatalog or capabilityCatalogs, not both")
+  return frozenPolicy({ ...base, ...(config.connections === undefined ? {} : { getConnection: fileConnectionResolver(config.connections, base.maxInputBytes) }),
+    ...(config.capabilityCatalogs === undefined ? {} : { getCapabilityCatalog: fileCapabilityCatalogResolver(config.capabilityCatalogs, base.maxInputBytes) }) })
 }
 const response = (value: unknown) => ({ content: [{ type: "text" as const, text: JSON.stringify(value) }], structuredContent: value as Record<string, unknown> })
 const failure = (error: unknown) => ({ content: [{ type: "text" as const, text: error instanceof Error ? error.message : String(error) }], isError: true })
@@ -76,6 +86,7 @@ export const createUslMcpServer = (config: UslMcpServerConfig = {}): McpServer =
   const policy = connectionPolicy(config)
   const server = new McpServer({ name: config.name ?? "usl", version: config.version ?? "0.3.0" })
   for (const operation of Object.keys(schemas) as UslOperation[]) {
+    if (operation.startsWith("capability_") && policy.getCapabilityCatalog === undefined) continue
     const schema = schemas[operation]
     server.registerTool(operation, { description: descriptions[operation], annotations: annotations(operation), inputSchema: schema }, async (input) => {
       try { return response(await executeUslOperation(operation, input, policy)) }

@@ -1,0 +1,33 @@
+{
+  "tools": [
+    {
+      "name": "read_sample",
+      "description": "Local demonstration only.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "seconds": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "seconds"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "sample"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

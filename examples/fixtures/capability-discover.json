@@ -1,0 +1,8 @@
+{
+  "catalog": "demo",
+  "query": {
+    "meaning": "urn:example:sample",
+    "maxResults": 4,
+    "maxInspected": 16
+  }
+}
