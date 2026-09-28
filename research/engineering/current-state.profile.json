@@ -1,0 +1,250 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:status:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:status:implemented_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:status:Artifact"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:tested_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:status:TestEvidence"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:modeled_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "model",
+          "required": true,
+          "types": [
+            "urn:usl:status:FormalModel"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:defined_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "model",
+          "required": true,
+          "types": [
+            "urn:usl:status:FormalModel"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:status:Artifact"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:proved_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "model",
+          "required": true,
+          "types": [
+            "urn:usl:status:FormalModel"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:status:FormalEvidence"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:compared_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "model",
+          "required": true,
+          "types": [
+            "urn:usl:status:FormalModel"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:status:ComparisonEvidence"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:bounded_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "limitation",
+          "required": true,
+          "types": [
+            "urn:usl:status:Limitation"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:addressed_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "limitation",
+          "required": true,
+          "types": [
+            "urn:usl:status:Limitation"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:informed_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:status:ExternalSource"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:structurally_checked_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:status:Artifact"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:status:StructuralEvidence"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

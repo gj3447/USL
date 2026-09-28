@@ -1,0 +1,1 @@
+{"scope": "RDF_SHACL_AND_REVIEW_TRACEABILITY_ONLY", "conforms": true, "features": 7, "proposed_tasks": 6, "triples": 1572, "negative_cases": 2, "task_dependencies": "ACYCLIC", "source_sha256": "3bf0585671ca17957cf2549cb15f9e432affd34b4b289d370308c6a170c67619"}

@@ -1,5 +1,8 @@
 # 검증 기록
 
+- [2026-09-28 Lean 증명 범위 감사](LEAN_SCOPE_2026-09-28.md) · [같은 구현의 TS 282개 재실행 로그](current-state-2026-09-28-tests.log) · [현재 상태 그래프와 후속 계획](../docs/CURRENT_STATE_AND_NEXT_STEPS.md)
+- [2026-09-28 현재 상태 그래프의 독립 RDF/SHACL 검사](current-state-2026-09-28-standards.json)
+
 - [2026-09-22 기능 카탈로그: SDK·CLI·MCP 통합 검증](CAPABILITY_CATALOG_2026-09-22.md)
 
 - [2026-09-22 공학 보완 계약·40항목 그래프 검증](ENGINEERING_CONTRACTS_2026-09-22.md) · [독립 RDF/SHACL 결과](engineering-standards-2026-09-22.json)

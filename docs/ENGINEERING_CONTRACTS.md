@@ -1,5 +1,7 @@
 # 공학 보완 계약과 40항목 검증 그래프
 
+2026-09-28의 [현재 상태 그래프와 다음 작업](CURRENT_STATE_AND_NEXT_STEPS.md)은 새 CLI·resource binding, Lean 증명 범위, 후속 작업을 별도로 연결한다. 이 문서의 12개 제어·25개 반례 영수증은 기존 조사 범위를 유지하며 전체 CLI 테스트나 Lean 실행을 포함했다고 해석하지 않는다.
+
 2026-09-22 구현. 이전 [조사](RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md)의 40항목을 **기술 → 적용 한계 → USL 요구사항 → 구현 → 로컬 반례 검사 → 실행 증거**로 연결했다. 사람이 읽는 결과는 [보완 매트릭스](ENGINEERING_ADVERSARIAL_MATRIX.md), 원본은 [catalog](../research/engineering/catalog.json)다.
 
 이번 변경은 실제 USL 라이브러리·CLI·MCP 설정 경로에 보완 계약을 추가한다. 40개 제품을 모두 설치하거나 그 구현을 공격한 결과는 아니다. 공식 자료가 설명하는 범위, 그 범위를 넘겨 사용할 때의 반례, USL의 로컬 검사 결과를 구분한다. 모든 항목에 미구현 driver와 남는 한계가 있다. 표의 `LOCAL_CHECKS_PASS`는 연결된 공통 방어 기능이 로컬 테스트를 통과했다는 뜻이다.

@@ -5,6 +5,7 @@
 2026-09-14 사용자 결정: **DB가 아닌 문법/연결 계층**, **Lean 선언·증명 연동과 USL 성질의 형식 검증 둘 다**, **가능한 다양한 자원으로 확장**. 사용자 원문과 구현 선택은 [결정 기록](docs/DECISIONS.md)에서 구분한다. 초기 KG 정의는 `sym:Concept:usl`이며 이 저장소의 최신 사용자 지시를 반영한 현재 기준은 이 README와 아래 문서다. 이 변경이 원격 KG의 옛 설명을 자동 갱신하지는 않는다.
 
 - [현재 구조와 표준의 적용 범위](docs/ARCHITECTURE.md)
+- [2026-09-28 현재 상태 그래프·Lean 증명 범위·다음 작업](docs/CURRENT_STATE_AND_NEXT_STEPS.md)
 - [범용 자원 연결 문법·SDK·CLI·MCP](docs/RESOURCE_GRAPH.md)
 - [Lean 4 연결과 형식 검증](docs/LEAN4_INTEGRATION.md)
 - [AI native 어댑터·유사 기술 40항목 조사](docs/RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md) · [개발 로드맵 제안](docs/AI_NATIVE_ADAPTER_ROADMAP.md)
@@ -59,7 +60,7 @@ Lean의 `#usl_export [...]`는 선언 이름·종류·명제·의존 공리를 �
 
 ## 표준과 검증
 
-선택적 도메인 profile로 역할 타입·필수 정보·단위·revision을 검사한다. SDK의 capability 계약은 기능 발견, JSON Schema 입력/출력 검사, owner scope/effect, source/descriptor pin과 변환 손실을 다룬다. MCP tool 목록과 OpenAPI 3.1 문서의 제한된 순수 importer를 제공하며, 실제 실행은 호스트가 등록한 Effect callback에 한정한다. [지원 범위와 남은 한계](docs/ENGINEERING_CONTRACTS.md).
+선택적 도메인 profile로 역할 타입·필수 정보·단위·revision을 검사한다. SDK의 capability 계약은 기능 발견, JSON Schema 입력/출력 검사, owner scope/effect, source/descriptor pin과 변환 손실을 다룬다. MCP tool 목록과 OpenAPI 3.1 문서의 제한된 순수 importer를 제공하며, 실제 실행은 호스트가 등록한 Effect callback 또는 아래 CLI host 경로를 사용한다. [지원 범위와 남은 한계](docs/ENGINEERING_CONTRACTS.md).
 
 ```sh
 npm run example:capability

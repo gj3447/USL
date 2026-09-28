@@ -1,5 +1,7 @@
 # Lean 4와 USL
 
+2026-09-28 재검증과 새 CLI/resource binding의 미증명 범위는 [Lean 범위 감사](../audit/LEAN_SCOPE_2026-09-28.md)에 정리했다. 실행 상태 모델을 우선하는 후속 계획은 [현재 상태와 다음 작업](CURRENT_STATE_AND_NEXT_STEPS.md)을 참고한다.
+
 Lean 선언·증명과 외부 자원을 연결하는 경로, USL 자체 모델의 형식 검증을 모두 제공한다. 런타임은 TypeScript + Effect이며 Lean은 기존 증명 환경과 형식 검증을 담당한다. 새 DB는 만들지 않는다.
 
 ## Lean에서 연결할 선언 내보내기

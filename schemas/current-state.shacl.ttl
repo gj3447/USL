@@ -1,0 +1,60 @@
+@prefix usl: <urn:usl:vocab:> .
+@prefix st: <urn:usl:status:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+st:RoleShape a sh:NodeShape ; sh:targetClass usl:Link ; sh:or ( st:implemented_byShape st:tested_byShape st:modeled_byShape st:defined_byShape st:proved_byShape st:compared_byShape st:bounded_byShape st:addressed_byShape st:depends_onShape st:informed_byShape st:structurally_checked_byShape ) .
+st:implemented_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:implemented_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "feature" "artifact" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "feature" ] ; sh:property [ sh:path usl:resource ; sh:class st:Feature ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "artifact" ] ; sh:property [ sh:path usl:resource ; sh:class st:Artifact ] ] ] .
+st:tested_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:tested_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "feature" "evidence" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "feature" ] ; sh:property [ sh:path usl:resource ; sh:class st:Feature ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "evidence" ] ; sh:property [ sh:path usl:resource ; sh:class st:TestEvidence ] ] ] .
+st:modeled_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:modeled_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "feature" "model" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "feature" ] ; sh:property [ sh:path usl:resource ; sh:class st:Feature ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "model" ] ; sh:property [ sh:path usl:resource ; sh:class st:FormalModel ] ] ] .
+st:defined_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:defined_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "model" "artifact" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "model" ] ; sh:property [ sh:path usl:resource ; sh:class st:FormalModel ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "artifact" ] ; sh:property [ sh:path usl:resource ; sh:class st:Artifact ] ] ] .
+st:proved_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:proved_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "model" "evidence" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "model" ] ; sh:property [ sh:path usl:resource ; sh:class st:FormalModel ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "evidence" ] ; sh:property [ sh:path usl:resource ; sh:class st:FormalEvidence ] ] ] .
+st:compared_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:compared_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "model" "evidence" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "model" ] ; sh:property [ sh:path usl:resource ; sh:class st:FormalModel ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "evidence" ] ; sh:property [ sh:path usl:resource ; sh:class st:ComparisonEvidence ] ] ] .
+st:bounded_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:bounded_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "feature" "limitation" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "feature" ] ; sh:property [ sh:path usl:resource ; sh:class st:Feature ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "limitation" ] ; sh:property [ sh:path usl:resource ; sh:class st:Limitation ] ] ] .
+st:addressed_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:addressed_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "limitation" "task" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "limitation" ] ; sh:property [ sh:path usl:resource ; sh:class st:Limitation ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class st:Task ] ] ] .
+st:depends_onShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:depends_on" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "task" "prerequisite" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class st:Task ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "prerequisite" ] ; sh:property [ sh:path usl:resource ; sh:class st:Task ] ] ] .
+st:informed_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:informed_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "task" "source" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class st:Task ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "source" ] ; sh:property [ sh:path usl:resource ; sh:class st:ExternalSource ] ] ] .
+st:structurally_checked_byShape a sh:NodeShape ;
+sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:status:structurally_checked_by" ] ;
+sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "artifact" "evidence" ) ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "artifact" ] ; sh:property [ sh:path usl:resource ; sh:class st:Artifact ] ] ] ;
+sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "evidence" ] ; sh:property [ sh:path usl:resource ; sh:class st:StructuralEvidence ] ] ] .

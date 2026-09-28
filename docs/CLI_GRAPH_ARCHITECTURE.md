@@ -123,6 +123,8 @@ source pin은 열거한 파일만 검사한다. 의존 파일, lockfile, 빌드 
 
 ## 다음 확장 순서와 완료 조건
 
+아래 확장 항목의 구현 우선순위는 후속 [현재 상태·다음 작업 검토](CURRENT_STATE_AND_NEXT_STEPS.md)에서 구체화했다. 실행 상태 계약과 복구/중복 처리를 먼저 진행하고, Git identity는 병렬로 보완하며, 다단계 runtime은 그 뒤에 둔다.
+
 1. **원본 identity 확인:** Git remote 정규화, worktree/commit/dirty 상태, GitHub repository ID를 호스트 adapter에서 확인한다. 이름·URL만 보고 fork나 mirror를 합치지 않는다. 지금의 binding은 명시적 등록이며 원격 GitHub 사실의 검증기가 아니다.
 2. **실제 task 하나의 완주:** 기존 검증 CLI처럼 입출력이 명확한 프로그램부터 등록한다. discovery → 선택 → context → plan → run → receipt가 이어져야 한다. 오류·이동·pin drift·권한 거부에서도 같은 계약을 유지한다.
 3. **다단계 GraphSpec 집행:** 데이터 간선의 schema, gate의 독립 인가, FSM 전이, loop budget, 중복 효과 식별, checkpoint 호환성, unknown effect의 reconciliation을 집행한다. 그 전까지 entry node 단독 실행을 전체 workflow 성공으로 승격하지 않는다.

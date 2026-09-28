@@ -1,0 +1,4501 @@
+{
+  "@context": {
+    "usl": "urn:usl:vocab:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf",
+      "@type": "prov:Entity",
+      "usl:sourceDigest": "sha256:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+    },
+    {
+      "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6",
+      "@type": "usl:DomainProfile",
+      "usl:profileDigest": "sha256:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6",
+      "usl:profile": {
+        "@value": {
+          "schema": "usl-domain-profile/v1",
+          "id": "urn:usl:status:profile",
+          "version": "1",
+          "closedMeanings": true,
+          "meanings": [
+            {
+              "id": "urn:usl:status:implemented_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Artifact"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:tested_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:TestEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:modeled_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:defined_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Artifact"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:proved_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:compared_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:ComparisonEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:bounded_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "limitation",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Limitation"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:addressed_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "limitation",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Limitation"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:depends_on",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "prerequisite",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:informed_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "source",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:ExternalSource"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:structurally_checked_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Artifact"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:StructuralEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            }
+          ]
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:review%3Adocument",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Source"
+      ],
+      "usl:nativeId": "review:document",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "path": "docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+          "sourceDigest": "sha256:5c97a040a328a36c58f0105f7ba73ec5ce65649f01613a0f3a40d42e24fd0a8c",
+          "authority": "SECONDARY_AI",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:review%3Agenerator",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Source"
+      ],
+      "usl:nativeId": "review:generator",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/scripts/build-current-state.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "scripts/build-current-state.ts",
+          "sourceDigest": "sha256:74103eccac26c2af75c6095572ac4a2db5e7ebbadfc3da0dd87d4e5a26470c1e"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:review%3Aactivity",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ReviewActivity"
+      ],
+      "usl:nativeId": "review:activity",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "reviewedAt": "2026-09-28",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "scope": "REPOSITORY_REVIEW",
+          "workflowExecution": "NOT_EXECUTED",
+          "internationalCertification": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:review%3Aagent",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Agent"
+      ],
+      "usl:nativeId": "review:agent",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "ratification": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:evidence%3Atypescript",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "evidence:typescript",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/audit/current-state-2026-09-28-tests.log",
+      "usl:metadata": {
+        "@value": {
+          "path": "audit/current-state-2026-09-28-tests.log",
+          "sourceDigest": "sha256:cf84c777a30513fed699dfcd225c0dc4070a6cab874c32a6ba6169722da46719",
+          "command": "npm test",
+          "tests": 282,
+          "passed": 282,
+          "failed": 0,
+          "verification": "HOST_REPORTED_LOCAL_TESTS",
+          "scope": "FINITE_TEST_CASES_AT_REVIEWED_COMMIT",
+          "executionBinding": "HOST_ASSERTION_WITH_CODE_COMPARISON_AND_LOG_DIGEST",
+          "signed": false
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:evidence%3Alean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:FormalEvidence"
+      ],
+      "usl:nativeId": "evidence:lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/audit/LEAN_SCOPE_2026-09-28.md",
+      "usl:metadata": {
+        "@value": {
+          "path": "audit/LEAN_SCOPE_2026-09-28.md",
+          "sourceDigest": "sha256:3b0799f6d7807e1fa8b3ef81c5d2b280f3bebbe560cea8b93ebf29fb71c46dc3",
+          "scope": "LEAN_ABSTRACT_GRAPH_MODEL_ONLY",
+          "theorems": 37,
+          "toolchain": "4.33.1",
+          "runtimeRefinement": "NOT_ESTABLISHED",
+          "cliHostCoverage": "NOT_ESTABLISHED",
+          "allowedAxioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "proofExecution": "HOST_REPORTED_LEAN_KERNEL_AND_AXIOM_AUDIT",
+          "independentChecker": "NOT_RUN"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:evidence%3Acomparison",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ComparisonEvidence"
+      ],
+      "usl:nativeId": "evidence:comparison",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/test/lean4.integration.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/lean4.integration.ts",
+          "sourceDigest": "sha256:f0e6abc7c83b2e4c8927fbb2bba2de7595769410f84ed6f9e3f42661c1b48baf",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "cases": 383,
+          "scope": "FINITE_TS_LEAN_COMPARISONS",
+          "refinementProof": "NOT_ESTABLISHED",
+          "runEvidence": "evidence:lean"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:model%3Alean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:FormalModel"
+      ],
+      "usl:nativeId": "model:lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Examples/ProofAudit.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Examples/ProofAudit.lean",
+          "sourceDigest": "sha256:545834a29a74a28832e6725f2fdefa272cf268d7de685d20d36c0e16823820b8",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "scope": "LEAN_ABSTRACT_GRAPH_MODEL_ONLY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:feature%3Agraph",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:graph",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "의미 그래프·역할·탐색·읽기 범위",
+          "implementationStatus": "IMPLEMENTED_AT_REVIEWED_COMMIT",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "leanCoverage": "PARTIAL_ABSTRACT_MODEL"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fresource-graph.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/resource-graph.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/integrations/resource-graph.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/resource-graph.ts",
+          "sourceDigest": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Flanguage%2Fnavigation.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/language/navigation.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/language/navigation.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/language/navigation.ts",
+          "sourceDigest": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Flanguage%2Fruntime.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/language/runtime.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/language/runtime.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/language/runtime.ts",
+          "sourceDigest": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:gap%3Agraph",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:graph",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "Lean 모델 일부와 유한 대조만 있으며 TS 전체 refinement와 외부 의미의 참은 미증명"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:feature%3Abindings",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:bindings",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "stable resource ID·명시적 복수 표현·경로 이동",
+          "implementationStatus": "IMPLEMENTED_AT_REVIEWED_COMMIT",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "leanCoverage": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/resource-bindings.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/resource-bindings.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/resource-bindings.ts",
+          "sourceDigest": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/resource-bindings.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/integrations/resource-bindings.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/resource-bindings.ts",
+          "sourceDigest": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:gap%3Abindings",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:bindings",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "Git repository/worktree/dirty 자동 attestation과 binding Lean 모델 없음"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:feature%3Acapability",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:capability",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "기능 발견·호스트 정책·schema와 source pin",
+          "implementationStatus": "IMPLEMENTED_AT_REVIEWED_COMMIT",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "leanCoverage": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcapabilities.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/capabilities.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/capabilities.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/capabilities.ts",
+          "sourceDigest": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcapability-catalog.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/capability-catalog.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/capability-catalog.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/capability-catalog.ts",
+          "sourceDigest": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:gap%3Acapability",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:capability",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "실제 owner 인가·정책 revision/위임/철회 근거는 호스트 의존"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:feature%3Acli",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:cli",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "GraphSpec entry에 결속한 단일 CLI 실행",
+          "implementationStatus": "IMPLEMENTED_AT_REVIEWED_COMMIT",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "leanCoverage": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-host.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-host.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-host.ts",
+          "sourceDigest": "sha256:cec2500864bab71067971721c3c509792713a5d0b64cb3731883fa5e95b697e2",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcli-host-command.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-host-command.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-host-command.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-host-command.ts",
+          "sourceDigest": "sha256:0f7e40030bdce296092ced1085e4214025e3ed2b819ede59287107374aec4877",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcli-process.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-process.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-process.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-process.ts",
+          "sourceDigest": "sha256:c9d20c5af3b9a8aeb81c42a5ded7b4706d59dee08ac2d15d101de34b11d3fa29",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:gap%3Acli",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:cli",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "intent-only 자동 복구·operation 중복 식별·effect reconciliation·Lean 상태 모델 미구현"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:feature%3Ageip",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:geip",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "GEIP GraphSpec 문서·digest·entry 제약",
+          "implementationStatus": "IMPLEMENTED_AT_REVIEWED_COMMIT",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "leanCoverage": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fgraph-engineering.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/graph-engineering.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/integrations/graph-engineering.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/graph-engineering.ts",
+          "sourceDigest": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Aexamples%2Ffixtures%2Fcli%2Fgraphspec.json",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:examples/fixtures/cli/graphspec.json",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/cli/graphspec.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "examples/fixtures/cli/graphspec.json",
+          "sourceDigest": "sha256:90c60f522a72e4eeaac7c16986e7450a2ee2715a0c922e1d25e8ef5af8589778",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:gap%3Ageip",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:geip",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "로컬 draft 구조 검사와 entry node만 제공; 전체 lifecycle/gate/loop 집행 없음"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:feature%3Aintegration",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:integration",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "SDK·CLI·MCP와 지침의 연결",
+          "implementationStatus": "IMPLEMENTED_AT_REVIEWED_COMMIT",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "leanCoverage": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fapplication.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/application.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/application.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/application.ts",
+          "sourceDigest": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fmcp.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/mcp.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/mcp.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/mcp.ts",
+          "sourceDigest": "sha256:a4e9832cbf87934751ff3ac0d849ec32b25a46842c2f662b445f667914d77f2f",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fcapability-inventory.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/capability-inventory.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/integrations/capability-inventory.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/capability-inventory.ts",
+          "sourceDigest": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:gap%3Aintegration",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:integration",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "범용 원격 driver와 실제 여러 단계 업무의 복구 포함 완주 미구현"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:feature%3Aobservation",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:observation",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "filesystem·Git·HTTP 관측 예산",
+          "implementationStatus": "IMPLEMENTED_AT_REVIEWED_COMMIT",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "leanCoverage": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fbounded-read.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/bounded-read.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/bounded-read.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/bounded-read.ts",
+          "sourceDigest": "sha256:e016f04530b8046daccc274269412cfccee5607ba661fd718730ee15c0a7e7c7",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fresolve.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/resolve.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/resolve.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/resolve.ts",
+          "sourceDigest": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:gap%3Aobservation",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:observation",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "OS IO 의미론·프로세스 취소·외부 서비스의 전체 동작은 Lean 증명 범위 밖"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FUsl%2FCore.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:lean/Usl/Core.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Core.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Usl/Core.lean",
+          "sourceDigest": "sha256:d0ac020f9f6f69ce9793dcffded8a5a2869d1e3b1a6b7ac6a850747acf57a2a5",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FUsl%2FVerification.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:lean/Usl/Verification.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Verification.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Usl/Verification.lean",
+          "sourceDigest": "sha256:839ff963eb3e8f7d3d7184f766c51732604c084ba7c669a19a9b4fd6e439d2a9",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FUsl%2FContracts.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:lean/Usl/Contracts.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Contracts.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Usl/Contracts.lean",
+          "sourceDigest": "sha256:723fca645e721edce0e2d56cd0584a0d16a88c527e78a09b05a0a0eb96160a17",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FExamples%2FConformance.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:lean/Examples/Conformance.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Examples/Conformance.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Examples/Conformance.lean",
+          "sourceDigest": "sha256:5afcef565a25f772718ebd7c8ac4fb7248d8ab14ab2fb7f486e06a99bf9f31f5",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Alean%2Flean-toolchain",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:lean/lean-toolchain",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/lean-toolchain",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/lean-toolchain",
+          "sourceDigest": "sha256:3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:evidence%3Ageip",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:StructuralEvidence"
+      ],
+      "usl:nativeId": "evidence:geip",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/examples/fixtures/cli/graphspec-validation.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "examples/fixtures/cli/graphspec-validation.json",
+          "sourceDigest": "sha256:45af01bd9b1c2f1f2e389611e658faaf99f0d14051bf10dd2c3e7c182f557f07",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "scope": "GEIP_DOCUMENT_STRUCTURE_ONLY",
+          "runtimeConformance": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:task%3AT1",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "task:T1",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "priority": "P0",
+          "title": "실행 상태 계약과 Lean 모델",
+          "acceptance": "Intent-before-spawn, mismatch-before-start, no automatic retry; finite TS traces kept separate from proof",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "execution": "NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:task%3AT2",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "task:T2",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "priority": "P0",
+          "title": "조회·복구와 logical operation 중복 처리",
+          "acceptance": "Crash/restart matrix; owner APPLIED/NOT_APPLIED/UNKNOWN evidence; stable key + semantic intent hash; collision rejection",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "execution": "NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:task%3AT3",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "task:T3",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "priority": "P1",
+          "title": "Git identity 관측과 binding 모델",
+          "acceptance": "Repo/worktree/commit/dirty provenance; explicit fork/mirror policy; relocation cases and Lean selection/ID preservation model",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "execution": "NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:task%3AT4",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "task:T4",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "priority": "P1",
+          "title": "최소 READ-only GraphSpec DAG",
+          "acceptance": "2-3 nodes, typed data edges, dependency and failure propagation, step/time budgets; unsupported gate/loop rejection",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "execution": "NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:task%3AT5",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "task:T5",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "priority": "P2",
+          "title": "실제 프로그램 하나를 동일 host 계약으로 이관",
+          "acceptance": "Discover/context/plan/run/inspect/reconcile on one real task; thin skill/MCP facade",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "execution": "NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:task%3AT6",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "task:T6",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "priority": "P2",
+          "title": "소유자·정책 revision과 provenance 신뢰 범위",
+          "acceptance": "Owner/revision evidence and trust policy; signatures only where required; no automatic SLSA/in-toto claim",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "execution": "NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:external%3Aprov",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ExternalSource"
+      ],
+      "usl:nativeId": "external:prov",
+      "usl:locator": "https://www.w3.org/TR/prov-o/",
+      "usl:metadata": {
+        "@value": {
+          "consultedAt": "2026-09-28",
+          "application": "DESIGN_INFERENCE_NOT_CERTIFICATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:external%3Alean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ExternalSource"
+      ],
+      "usl:nativeId": "external:lean",
+      "usl:locator": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+      "usl:metadata": {
+        "@value": {
+          "consultedAt": "2026-09-28",
+          "application": "DESIGN_INFERENCE_NOT_CERTIFICATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:external%3Aidempotency",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ExternalSource"
+      ],
+      "usl:nativeId": "external:idempotency",
+      "usl:locator": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "usl:metadata": {
+        "@value": {
+          "consultedAt": "2026-09-28",
+          "application": "DESIGN_INFERENCE_NOT_CERTIFICATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:external%3Aslsa",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ExternalSource"
+      ],
+      "usl:nativeId": "external:slsa",
+      "usl:locator": "https://slsa.dev/spec/v1.2/build-requirements",
+      "usl:metadata": {
+        "@value": {
+          "consultedAt": "2026-09-28",
+          "application": "DESIGN_INFERENCE_NOT_CERTIFICATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:external%3Amcp",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ExternalSource"
+      ],
+      "usl:nativeId": "external:mcp",
+      "usl:locator": "https://modelcontextprotocol.io/specification/2025-11-25/server",
+      "usl:metadata": {
+        "@value": {
+          "consultedAt": "2026-09-28",
+          "application": "DESIGN_INFERENCE_NOT_CERTIFICATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:review%3Adirection",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Source"
+      ],
+      "usl:nativeId": "review:direction",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/DIRECTION_REVIEW_2026-09-28.md",
+      "usl:metadata": {
+        "@value": {
+          "path": "research/engineering/DIRECTION_REVIEW_2026-09-28.md",
+          "sourceDigest": "sha256:3f87697a3df503eef66549d4f845e1fbcabd82277cd9f55d5e0a84b9d8f670d5"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:review%3Aengineering",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Source"
+      ],
+      "usl:nativeId": "review:engineering",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/receipt.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "research/engineering/receipt.json",
+          "sourceDigest": "sha256:936a18888294b428c2b1dff64e5c9d9ebed5f3e227a45e289d9a198cfb89dc85",
+          "scope": "12_CONTROLS_25_CHECKS_ONLY",
+          "cliReplay": "NOT_INCLUDED",
+          "leanReplay": "NOT_INCLUDED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:resource:artifact%3Aci",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:ci",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/.github/workflows/verify.yml",
+      "usl:metadata": {
+        "@value": {
+          "path": ".github/workflows/verify.yml",
+          "sourceDigest": "sha256:6d41ae5710189d01312c77c40454341d7942c73337be63752688c8ccef10047c",
+          "reviewedCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+          "remoteExecution": "NOT_OBSERVED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:implemented_by",
+      "usl:description": "Dated review relation implemented_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:tested_by",
+      "usl:description": "Dated review relation tested_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Amodeled_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:modeled_by",
+      "usl:description": "Dated review relation modeled_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adefined_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:defined_by",
+      "usl:description": "Dated review relation defined_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aproved_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:proved_by",
+      "usl:description": "Dated review relation proved_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Acompared_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:compared_by",
+      "usl:description": "Dated review relation compared_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:bounded_by",
+      "usl:description": "Dated review relation bounded_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:addressed_by",
+      "usl:description": "Dated review relation addressed_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adepends_on",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:depends_on",
+      "usl:description": "Dated review relation depends_on; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Ainformed_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:informed_by",
+      "usl:description": "Dated review relation informed_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Astructurally_checked_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:structurally_checked_by",
+      "usl:description": "Dated review relation structurally_checked_by; declared traceability only, no new execution, authority or runtime proof."
+    },
+    {
+      "@id": "urn:usl:usl.status:link:proved_by%3Amodel%3Alean%3Aevidence%3Alean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "proved_by:model:lean:evidence:lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aproved_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Alean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:compared_by%3Amodel%3Alean%3Aevidence%3Acomparison",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "compared_by:model:lean:evidence:comparison",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Acompared_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Acomparison"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Agraph%3Aartifact%3Asrc%2Fintegrations%2Fresource-graph.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:graph:artifact:src/integrations/resource-graph.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Agraph"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fresource-graph.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Agraph%3Aartifact%3Asrc%2Flanguage%2Fnavigation.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:graph:artifact:src/language/navigation.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Agraph"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Flanguage%2Fnavigation.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Agraph%3Aartifact%3Asrc%2Flanguage%2Fruntime.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:graph:artifact:src/language/runtime.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Agraph"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Flanguage%2Fruntime.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:tested_by%3Afeature%3Agraph%3Aevidence%3Atypescript",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:graph:evidence:typescript",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Agraph"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Atypescript"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:bounded_by%3Afeature%3Agraph%3Agap%3Agraph",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:graph:gap:graph",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Agraph"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Agraph"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Agraph%3Atask%3AT1",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:graph:task:T1",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Agraph"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT1"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Abindings%3Aartifact%3Asrc%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:bindings:artifact:src/resource-bindings.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Abindings"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fresource-bindings.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Abindings%3Aartifact%3Asrc%2Fintegrations%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:bindings:artifact:src/integrations/resource-bindings.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Abindings"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fresource-bindings.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:tested_by%3Afeature%3Abindings%3Aevidence%3Atypescript",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:bindings:evidence:typescript",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Abindings"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Atypescript"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:bounded_by%3Afeature%3Abindings%3Agap%3Abindings",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:bindings:gap:bindings",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Abindings"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Abindings"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Abindings%3Atask%3AT3",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:bindings:task:T3",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Abindings"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT3"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Acapability%3Aartifact%3Asrc%2Fcapabilities.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:capability:artifact:src/capabilities.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acapability"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcapabilities.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Acapability%3Aartifact%3Asrc%2Fcapability-catalog.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:capability:artifact:src/capability-catalog.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acapability"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcapability-catalog.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:tested_by%3Afeature%3Acapability%3Aevidence%3Atypescript",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:capability:evidence:typescript",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acapability"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Atypescript"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:bounded_by%3Afeature%3Acapability%3Agap%3Acapability",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:capability:gap:capability",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acapability"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Acapability"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Acapability%3Atask%3AT6",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:capability:task:T6",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Acapability"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT6"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Acli%3Aartifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:cli:artifact:src/cli-host.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcli-host.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Acli%3Aartifact%3Asrc%2Fcli-host-command.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:cli:artifact:src/cli-host-command.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcli-host-command.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Acli%3Aartifact%3Asrc%2Fcli-process.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:cli:artifact:src/cli-process.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fcli-process.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:tested_by%3Afeature%3Acli%3Aevidence%3Atypescript",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:cli:evidence:typescript",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Atypescript"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:bounded_by%3Afeature%3Acli%3Agap%3Acli",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:cli:gap:cli",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Acli"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Acli%3Atask%3AT1",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:cli:task:T1",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT1"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Acli%3Atask%3AT2",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:cli:task:T2",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT2"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Ageip%3Aartifact%3Asrc%2Fintegrations%2Fgraph-engineering.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:geip:artifact:src/integrations/graph-engineering.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Ageip"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fgraph-engineering.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Ageip%3Aartifact%3Aexamples%2Ffixtures%2Fcli%2Fgraphspec.json",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:geip:artifact:examples/fixtures/cli/graphspec.json",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Ageip"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Aexamples%2Ffixtures%2Fcli%2Fgraphspec.json"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:tested_by%3Afeature%3Ageip%3Aevidence%3Atypescript",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:geip:evidence:typescript",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Ageip"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Atypescript"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:bounded_by%3Afeature%3Ageip%3Agap%3Ageip",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:geip:gap:geip",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Ageip"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Ageip"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Ageip%3Atask%3AT4",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:geip:task:T4",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Ageip"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT4"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Aintegration%3Aartifact%3Asrc%2Fapplication.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:integration:artifact:src/application.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aintegration"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fapplication.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Aintegration%3Aartifact%3Asrc%2Fmcp.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:integration:artifact:src/mcp.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aintegration"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fmcp.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Aintegration%3Aartifact%3Asrc%2Fintegrations%2Fcapability-inventory.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:integration:artifact:src/integrations/capability-inventory.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aintegration"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fintegrations%2Fcapability-inventory.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:tested_by%3Afeature%3Aintegration%3Aevidence%3Atypescript",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:integration:evidence:typescript",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aintegration"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Atypescript"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:bounded_by%3Afeature%3Aintegration%3Agap%3Aintegration",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:integration:gap:integration",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aintegration"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Aintegration"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Aintegration%3Atask%3AT5",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:integration:task:T5",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Aintegration"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT5"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Aobservation%3Aartifact%3Asrc%2Fbounded-read.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:observation:artifact:src/bounded-read.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aobservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fbounded-read.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:implemented_by%3Afeature%3Aobservation%3Aartifact%3Asrc%2Fresolve.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:observation:artifact:src/resolve.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aobservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Asrc%2Fresolve.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:tested_by%3Afeature%3Aobservation%3Aevidence%3Atypescript",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:observation:evidence:typescript",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aobservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Atypescript"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:bounded_by%3Afeature%3Aobservation%3Agap%3Aobservation",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:observation:gap:observation",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Aobservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Aobservation"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:addressed_by%3Agap%3Aobservation%3Atask%3AT1",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:observation:task:T1",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:gap%3Aobservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT1"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:modeled_by%3Afeature%3Agraph%3Amodel%3Alean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "modeled_by:feature:graph:model:lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Amodeled_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:feature%3Agraph"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:defined_by%3Amodel%3Alean%3Aartifact%3Alean%2FUsl%2FCore.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "defined_by:model:lean:artifact:lean/Usl/Core.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adefined_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FUsl%2FCore.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:defined_by%3Amodel%3Alean%3Aartifact%3Alean%2FUsl%2FVerification.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "defined_by:model:lean:artifact:lean/Usl/Verification.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adefined_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FUsl%2FVerification.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:defined_by%3Amodel%3Alean%3Aartifact%3Alean%2FUsl%2FContracts.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "defined_by:model:lean:artifact:lean/Usl/Contracts.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adefined_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FUsl%2FContracts.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:defined_by%3Amodel%3Alean%3Aartifact%3Alean%2FExamples%2FConformance.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "defined_by:model:lean:artifact:lean/Examples/Conformance.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adefined_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Alean%2FExamples%2FConformance.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:defined_by%3Amodel%3Alean%3Aartifact%3Alean%2Flean-toolchain",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "defined_by:model:lean:artifact:lean/lean-toolchain",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adefined_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:model%3Alean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Alean%2Flean-toolchain"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:structurally_checked_by%3Aartifact%3Aexamples%2Ffixtures%2Fcli%2Fgraphspec.json%3Aevidence%3Ageip",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "structurally_checked_by:artifact:examples/fixtures/cli/graphspec.json:evidence:geip",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Astructurally_checked_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:artifact%3Aexamples%2Ffixtures%2Fcli%2Fgraphspec.json"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:evidence%3Ageip"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:depends_on%3Atask%3AT2%3Atask%3AT1",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "depends_on:task:T2:task:T1",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adepends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT2"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT1"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:depends_on%3Atask%3AT4%3Atask%3AT1",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "depends_on:task:T4:task:T1",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adepends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT4"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT1"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:depends_on%3Atask%3AT4%3Atask%3AT2",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "depends_on:task:T4:task:T2",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adepends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT4"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT2"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:depends_on%3Atask%3AT5%3Atask%3AT3",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "depends_on:task:T5:task:T3",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adepends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT5"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT3"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:depends_on%3Atask%3AT5%3Atask%3AT4",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "depends_on:task:T5:task:T4",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adepends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT5"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT4"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:depends_on%3Atask%3AT6%3Atask%3AT2",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "depends_on:task:T6:task:T2",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Adepends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT6"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT2"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:informed_by%3Atask%3AT3%3Aexternal%3Aprov",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "informed_by:task:T3:external:prov",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT3"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "source",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:external%3Aprov"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:informed_by%3Atask%3AT1%3Aexternal%3Alean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "informed_by:task:T1:external:lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT1"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "source",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:external%3Alean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:informed_by%3Atask%3AT2%3Aexternal%3Aidempotency",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "informed_by:task:T2:external:idempotency",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT2"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "source",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:external%3Aidempotency"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:informed_by%3Atask%3AT6%3Aexternal%3Aslsa",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "informed_by:task:T6:external:slsa",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT6"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "source",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:external%3Aslsa"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.status:link:informed_by%3Atask%3AT5%3Aexternal%3Amcp",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:16c0138c8a8af16fceb4b1ed27bc48d4ae48677ed67012a445435e8eb7bbbaaf"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Adocument"
+        },
+        {
+          "@id": "urn:usl:usl.status:resource:review%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.status:resource:review%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.status:resource:review%3Aagent"
+      },
+      "usl:nativeId": "informed_by:task:T5:external:mcp",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.status:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:task%3AT5"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "source",
+          "usl:resource": {
+            "@id": "urn:usl:usl.status:resource:external%3Amcp"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    }
+  ]
+}
