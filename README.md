@@ -10,6 +10,7 @@
 - [AI native 어댑터·유사 기술 40항목 조사](docs/RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md) · [개발 로드맵 제안](docs/AI_NATIVE_ADAPTER_ROADMAP.md)
 - [40항목 공학 보완 그래프·적대적 검증](docs/ENGINEERING_ADVERSARIAL_MATRIX.md) · [구현된 계약과 사용법](docs/ENGINEERING_CONTRACTS.md)
 - [AI용 기능 발견·사전검사: SDK·CLI·MCP](docs/CAPABILITY_CATALOG.md)
+- [경로 이동·여러 표현·그래프에서 CLI 실행](docs/CLI_GRAPH_ARCHITECTURE.md) · [portable resource bindings](docs/RESOURCE_BINDINGS.md)
 - [사용자 매뉴얼](docs/USER_MANUAL.md) · [빠른 시작](docs/GETTING_STARTED.md) · [CLI](docs/CLI.md) · [MCP](docs/MCP.md)
 - [기존 `.usl` 문법](docs/LANGUAGE.md) · [TypeScript 코드 내장](docs/CODE_INTEGRATION.md)
 - [과거 설계·검증 기록](archive/README.md)
@@ -65,6 +66,13 @@ npm run example:capability
 npm run engineering:check
 ```
 
+호스트가 등록한 CLI 프로그램은 `cli-list → cli-plan → cli-run`으로 호출한다. 자원 ID와 로컬/Git/URL 표현을 분리하므로 작업 폴더 이동은 workspace binding 변경으로 처리한다. `bind-graph`는 기존 resource graph의 ID·의미를 유지하면서 선택한 locator를 갱신한다. CLI 실행은 GraphSpec의 의존성 없는 진입 노드 하나에 한정하며, 소스·실행 파일·계획 pin과 입출력 계약을 검사한다. [설정·보장 범위](docs/CLI_GRAPH_ARCHITECTURE.md).
+
+```sh
+npm run example:cli
+npm run usl -- cli-run --help
+```
+
 JSON-LD 1.1/RDF 교환, PROV-O 출처 관계와 SHACL 구조 검사를 지원한다. `urn:usl:vocab:` 어휘와 GEIP는 프로젝트 고유 규약이다. [표준별 적용표](docs/ARCHITECTURE.md#표준-적용)를 참고한다.
 
 ```sh
@@ -75,6 +83,8 @@ npm run test:lean
 ```
 
 독립 RDF/SHACL 검사에는 Python 환경에서 `pip install -r scripts/requirements-standards.txt` 후 `npm run test:standards`를 실행한다.
+
+[CI](.github/workflows/verify.yml)는 push·pull request마다 타입·테스트·빌드·문서·고정 Lean toolchain·RDF/SHACL·공학 산출물 일치 검사를 실행한다. 파일·Git blob·HTTP 응답·직접 디렉터리 목록 관측은 `maxResponseBytes`의 기본 8 MiB 한도를 적용한다.
 
 Lean의 형식 모델은 **37개 정리**로 유한 홉 탐색의 정확성·완전성, 경로 합성, 연결·역할 보존, 그래프 구조 검사, 읽기 권한·예산 제한을 증명한다. 모든 정리의 전이적 공리 의존성을 검사하고 실행 모델을 TypeScript와 **383건** 대조한다. 전체 TypeScript 프로그램이나 외부 관계의 참을 증명한 것은 아니다. [검증 범위](docs/LEAN4_INTEGRATION.md#형식-검증-범위).
 

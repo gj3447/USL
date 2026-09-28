@@ -6,6 +6,7 @@ import { promises as fs } from "node:fs"
 import * as os from "node:os"
 import { TOOL_VERSION, type FsLocator, type GitLocator, type GuaranteeLevel, type KgLocator, type Locator, type Resolution, type UrlLocator } from "./domain.js"
 import { formatLocator, parseLocator, validLines } from "./locator.js"
+import { readBytesBounded } from "./bounded-read.js"
 
 export class ResolveError extends Data.TaggedError("ResolveError")<{
   readonly kind: Locator["kind"]
@@ -18,6 +19,11 @@ export const sha256 = (b: Uint8Array | string): string => createHash("sha256").u
 const now = () => new Date().toISOString()
 const failure = (l: Locator, reason: ResolveError["reason"], detail: string) => new ResolveError({ kind: l.kind, locator: formatLocator(l), reason, detail })
 const ioFailure = (l: Locator, e: unknown) => failure(l, ["ENOENT", "ENOTDIR"].includes((e as NodeJS.ErrnoException)?.code ?? "") ? "ORPHAN" : "IO", String(e))
+const responseLimit = (cfg: ResolverConfig): number | undefined => {
+  const limit = cfg.maxResponseBytes ?? 8 * 1024 * 1024
+  return Number.isSafeInteger(limit) && limit > 0 ? limit : undefined
+}
+const limitFailure = (l: Locator) => failure(l, "IO", "maxResponseBytes must be a positive safe integer")
 
 const contentAt = (buf: Buffer, l: FsLocator | GitLocator): Effect.Effect<Uint8Array | string, ResolveError> => {
   if (!validLines(l)) return Effect.fail(failure(l, "AMBIGUOUS", "invalid line range"))
@@ -70,7 +76,33 @@ const allowed = (l: Locator, cfg: ResolverConfig, locator = locatorKey(l)): Reso
     ? undefined
     : failure(l, "DENIED", `locator is not allowed: ${locator}`)
 
+const readDirectoryBounded = async (directory: string, maxBytes: number, signal: AbortSignal): Promise<Array<[string, string]>> => {
+  // Even an empty listing hashes the two UTF-8 bytes of JSON.stringify([]).
+  if (maxBytes < 2) throw new Error(`response exceeds ${maxBytes} bytes`)
+  const dir = await fs.opendir(directory)
+  const entries: Array<[string, string]> = []
+  // This is the byte size of JSON.stringify(entries) as it is assembled.
+  // Keeping it incrementally bounded means a hostile directory cannot force
+  // an unbounded readdir() result or an unbounded sort allocation.
+  let encodedBytes = 2
+  try {
+    for await (const entry of dir) {
+      signal.throwIfAborted()
+      const value: [string, string] = [entry.name, entry.isDirectory() ? "directory" : entry.isFile() ? "file" : entry.isSymbolicLink() ? "symlink" : "other"]
+      const valueBytes = Buffer.byteLength(JSON.stringify(value))
+      const next = encodedBytes + valueBytes + (entries.length === 0 ? 0 : 1)
+      if (next > maxBytes) throw new Error(`response exceeds ${maxBytes} bytes`)
+      entries.push(value)
+      encodedBytes = next
+    }
+    signal.throwIfAborted()
+    return entries.sort((a, b) => a[0]! < b[0]! ? -1 : a[0]! > b[0]! ? 1 : 0)
+  } finally { await dir.close().catch(() => {}) }
+}
+
 const resolveFs = (l: FsLocator, cfg: ResolverConfig): Effect.Effect<Resolution, ResolveError> => Effect.gen(function* () {
+  const limit = responseLimit(cfg)
+  if (limit === undefined) return yield* limitFailure(l)
   if (l.host !== cfg.hostname) return yield* failure(l, "IO", `host ${l.host} != local ${cfg.hostname}; remote filesystem resolution is unsupported`)
   const real = yield* Effect.tryPromise({ try: () => fs.realpath(l.path), catch: (e) => ioFailure(l, e) })
   const canonicalLocator = locatorKey({ ...l, path: real })
@@ -80,19 +112,18 @@ const resolveFs = (l: FsLocator, cfg: ResolverConfig): Effect.Effect<Resolution,
   const stat = yield* Effect.tryPromise({ try: () => fs.stat(real), catch: (e) => ioFailure(l, e) })
   if (stat.isDirectory()) {
     if (l.lineStart !== undefined) return yield* failure(l, "AMBIGUOUS", "line ranges require a file")
-    const entries = yield* Effect.tryPromise({ try: () => fs.readdir(real, { withFileTypes: true }), catch: (e) => ioFailure(l, e) })
-    const listing = entries.map((e) => [e.name, e.isDirectory() ? "directory" : e.isFile() ? "file" : e.isSymbolicLink() ? "symlink" : "other"]).sort((a, b) => a[0]! < b[0]! ? -1 : a[0]! > b[0]! ? 1 : 0)
+    const listing = yield* Effect.tryPromise({ try: (signal) => readDirectoryBounded(real, limit, signal), catch: (e) => ioFailure(l, e) })
     return { locator: l, resolvedLocator: formatLocator({ ...l, path: real }), contentHash: sha256(JSON.stringify(listing)), resolvedAt: now(), guaranteeLevel: "trust_host", matchCount: 1 }
   }
   if (!stat.isFile()) return yield* failure(l, "AMBIGUOUS", "only regular files and directories are supported")
-  const buf = yield* Effect.tryPromise({ try: () => fs.readFile(real), catch: (e) => ioFailure(l, e) })
+  const buf = yield* Effect.tryPromise({ try: (signal) => readBytesBounded(real, limit, { signal, limitName: "maxResponseBytes" }), catch: (e) => ioFailure(l, e) })
   const content = yield* contentAt(buf, l)
   return { locator: l, resolvedLocator: formatLocator({ ...l, path: real }), contentHash: sha256(content), resolvedAt: now(), guaranteeLevel: "trust_host", matchCount: 1 }
 })
 
 const readBody = async (res: Response, cfg: ResolverConfig, signal: AbortSignal): Promise<Uint8Array> => {
-  const limit = cfg.maxResponseBytes ?? 8 * 1024 * 1024
-  if (!Number.isSafeInteger(limit) || limit <= 0) { await res.body?.cancel(); throw new Error("maxResponseBytes must be a positive safe integer") }
+  const limit = responseLimit(cfg)
+  if (limit === undefined) { await res.body?.cancel(); throw new Error("maxResponseBytes must be a positive safe integer") }
   if (Number(res.headers.get("content-length")) > limit) { await res.body?.cancel(); throw new Error(`response exceeds ${limit} bytes`) }
   if (!res.body) return new Uint8Array()
   const reader = res.body.getReader()
@@ -150,14 +181,19 @@ const resolveUrl = (l: UrlLocator, cfg: ResolverConfig): Effect.Effect<Resolutio
   catch: (e) => e instanceof ResolveError ? e : failure(l, "IO", String(e)),
 })
 
-const git = (cwd: string, args: ReadonlyArray<string>): Effect.Effect<Buffer, Error> => Effect.async((resume) => {
-  const child = execFile("git", ["-C", cwd, ...args], { maxBuffer: 64 * 1024 * 1024, encoding: "buffer", timeout: 15_000 }, (err, stdout) => {
-    resume(err ? Effect.fail(err) : Effect.succeed(stdout as Buffer))
+const git = (cwd: string, args: ReadonlyArray<string>, maxBytes = 64 * 1024 * 1024): Effect.Effect<Buffer, Error> => Effect.async((resume) => {
+  // One extra byte distinguishes an exact-limit Git blob from an oversized one.
+  const child = execFile("git", ["-C", cwd, ...args], { maxBuffer: maxBytes + 1, encoding: "buffer", timeout: 15_000 }, (err, stdout) => {
+    if (err) resume(Effect.fail(err))
+    else if ((stdout as Buffer).byteLength > maxBytes) resume(Effect.fail(new Error(`response exceeds ${maxBytes} bytes`)))
+    else resume(Effect.succeed(stdout as Buffer))
   })
   return Effect.sync(() => { child.kill() })
 })
 
 const resolveGit = (l: GitLocator, cfg: ResolverConfig): Effect.Effect<Resolution, ResolveError> => Effect.gen(function* () {
+  const limit = responseLimit(cfg)
+  if (limit === undefined) return yield* limitFailure(l)
   const local = Object.hasOwn(cfg.gitRepos, l.repo) ? cfg.gitRepos[l.repo] : undefined
   if (!local) return yield* failure(l, "IO", `no local checkout registered for ${l.repo} (USL_GIT_REPOS)`)
   yield* git(local, ["rev-parse", "--git-dir"]).pipe(Effect.mapError((e) => failure(l, "IO", `checkout unavailable: ${e.message.split("\n")[0]}`)))
@@ -166,7 +202,7 @@ const resolveGit = (l: GitLocator, cfg: ResolverConfig): Effect.Effect<Resolutio
   const objectType = (yield* git(local, ["cat-file", "-t", `${full}:${l.path}`]).pipe(Effect.mapError((e) => failure(l, "ORPHAN", `path at commit: ${e.message.split("\n")[0]}`)))).toString().trim()
   if (objectType !== "blob") return yield* failure(l, "AMBIGUOUS", `expected file blob, got ${objectType}`)
   if (l.symbol !== undefined) return yield* failure(l, "AMBIGUOUS", "symbol resolution requires a symbol adapter; file or line resolution cannot verify a symbol")
-  const blob = yield* git(local, ["cat-file", "blob", `${full}:${l.path}`]).pipe(Effect.mapError((e) => failure(l, "IO", e.message.split("\n")[0]!)))
+  const blob = yield* git(local, ["cat-file", "blob", `${full}:${l.path}`], limit).pipe(Effect.mapError((e) => failure(l, "IO", e.message.split("\n")[0]!)))
   const content = yield* contentAt(blob, l)
   // Reading Git objects is a host process, not a sandbox.
   return { locator: l, resolvedLocator: formatLocator({ ...l, commit: full }), contentHash: sha256(content), resolvedAt: now(), guaranteeLevel: "trust_host", matchCount: 1 }

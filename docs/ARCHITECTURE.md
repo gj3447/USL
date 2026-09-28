@@ -25,6 +25,7 @@ USL은 의미 연결 문법과 실행 라이브러리다. 저장소·질의 엔�
 3. **소비:** 제한된 탐색·문맥, 선택 관측·비교, 교환 표현 생성.
 4. **호스트 IO:** 기존 DB/API 조회, KG·Git·URL·파일 resolver, 명시적으로 설정한 Lean 실행.
 5. **별도 소비자:** HSWM 정책 판정·실행, GEIP 구조 검증, RDF/SHACL 검사.
+6. **선택적 로컬 CLI host:** portable binding을 환경 root에 해석하고 호스트가 등록한 entry node의 고정 명령을 단일 시도로 실행한다. graph adapter와 MCP tool은 이 실행 권한을 만들지 않는다. [경로·실행 설계](CLI_GRAPH_ARCHITECTURE.md).
 
 `context`는 연결 구조를 탐색한다. `observe`는 허용된 locator만 읽는다. Lean export를 생성하는 호스트 callback은 Lean 컴파일을 실행하므로 단순 파일 관측과 구분한다. MCP 파일 설정에서는 이미 생성된 응답 파일만 읽으며, 클라이언트가 명령·소스 경로·DB 질의를 지정할 수 없다.
 

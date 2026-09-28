@@ -1,0 +1,53 @@
+{
+  "schema": "usl-geip-validator-receipt/v1",
+  "observed_at": "2026-09-28",
+  "subject": {
+    "graphspec_path": "examples/fixtures/cli/graphspec.json",
+    "graphspec_sha256": "90c60f522a72e4eeaac7c16986e7450a2ee2715a0c922e1d25e8ef5af8589778",
+    "graphspec_schema_sha256": "0d49310c6580867c47281f4225d5ff1f385dad17e37e3f9c217078fdf0fed37c",
+    "validator_sha256": "e065e4c15f12d7789ca84079aff2c1c5821db04bc3d0f5c3c96a38a6dceb0650"
+  },
+  "validator": {
+    "name": "symposium-graphspec-validator",
+    "version": "0.2.0",
+    "verdict": "STRUCTURALLY_CONFORMANT",
+    "invariants": {
+      "GEIP-001": "PASS",
+      "GEIP-002": "PASS",
+      "GEIP-003": "PASS",
+      "GEIP-004": "PASS",
+      "GEIP-005": "PASS",
+      "GEIP-006": "PASS",
+      "GEIP-007": "PASS",
+      "GEIP-008": "PASS",
+      "GEIP-009": "PASS",
+      "GEIP-010": "PASS",
+      "GEIP-011": "PASS",
+      "GEIP-012": "PASS",
+      "GEIP-013": "PASS",
+      "GEIP-014": "PASS",
+      "GEIP-015": "PASS"
+    },
+    "integrity_errors": [],
+    "schema_errors": []
+  },
+  "scope": "document-structural",
+  "limitations": [
+    "The validator checked only the GraphSpec document structure and declared invariants.",
+    "No CLI action, workflow runtime, approval, liveness, effect reconciliation, or production readiness was executed or established.",
+    "This SECONDARY_AI DESIGN_PROPOSAL fixture is not canonical or ratified."
+  ],
+  "derivation": {
+    "source_fixture_path": "examples/fixtures/graph-engineering/graphspec.json",
+    "source_fixture_sha256": "4a98d88495e18d17845afd33819dddab390d326fbc99a090645f936d87d2c510",
+    "preserved_fields": [
+      "lifecycle",
+      "loop",
+      "effects",
+      "evidence",
+      "harness",
+      "dispatch",
+      "conformance"
+    ]
+  }
+}

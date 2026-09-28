@@ -4,7 +4,7 @@ import { appendFile, open, readFile, writeFile } from "node:fs/promises"
 import { execFile } from "node:child_process"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
-import { readUtf8Bounded } from "../src/bounded-read.js"
+import { readBytesBounded, readUtf8Bounded } from "../src/bounded-read.js"
 import { temporary } from "./fixtures.js"
 
 const root = fileURLToPath(new URL("..", import.meta.url))
@@ -100,6 +100,12 @@ test("bounded reader rejects non-files and invalid budgets", async (t) => {
   const dir = await temporary(t)
   await assert.rejects(readUtf8Bounded(dir, 1), /regular file/)
   await assert.rejects(readUtf8Bounded(join(dir, "none"), -1), /nonnegative safe integer/)
+})
+
+test("bounded reader honors an aborted signal before opening or reading", async (t) => {
+  const dir = await temporary(t), input = join(dir, "cancelled.json")
+  await writeFile(input, "content")
+  await assert.rejects(readBytesBounded(input, 7, { signal: AbortSignal.abort() }), { name: "AbortError" })
 })
 
 test("adapt CLI rejects an oversized valid graph before creating --out", async (t) => {

@@ -1,5 +1,7 @@
 # Graph Engineering integration
 
+2026-09-28: the separate [CLI host](CLI_GRAPH_ARCHITECTURE.md) can bind one declared `code`/`tool` entry node to a host-registered process. It checks source/graph/plan pins and refuses incoming dependencies. Its result records `ENTRY_NODE_ONLY` and `wholeGraphExecution: NOT_EXECUTED`; it does not execute GraphSpec lifecycle, gate, or workflow policies. The import adapter described below retains its original pure declaration boundary.
+
 `src/integrations/graph-engineering.ts` imports a GEIP v0alpha1 GraphSpec as a
 lossless wrapper around a compiled USL plan. It preserves `metadata.graph_id`,
 `graph_version`, full `authority`, full `identity`, topology, and evidence.

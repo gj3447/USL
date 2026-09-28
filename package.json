@@ -75,6 +75,14 @@
     "./capability-catalog": {
       "types": "./dist/src/capability-catalog.d.ts",
       "import": "./dist/src/capability-catalog.js"
+    },
+    "./resource-bindings": {
+      "types": "./dist/src/resource-bindings.d.ts",
+      "import": "./dist/src/resource-bindings.js"
+    },
+    "./cli-host": {
+      "types": "./dist/src/cli-host.d.ts",
+      "import": "./dist/src/cli-host.js"
     }
   },
   "engines": {
@@ -95,7 +103,8 @@
     "engineering:build": "tsx scripts/build-engineering-review.ts",
     "engineering:check": "tsx scripts/build-engineering-review.ts --check",
     "engineering:standards": "python3 scripts/validate-engineering-rdf.py",
-    "example:capability": "tsx examples/capability-workflow.ts"
+    "example:capability": "tsx examples/capability-workflow.ts",
+    "example:cli": "tsx examples/cli-workflow.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",

@@ -11,6 +11,7 @@ import { parseEngineeringCatalog, engineeringReceiptSchema, engineeringCatalogSc
 import { checkResourceGraphProfile, domainProfileSchema } from "../src/domain-profile.js"
 import { capabilitySchema } from "../src/capabilities.js"
 import { capabilityCatalogSchema } from "../src/capability-catalog.js"
+import { cliHostSchema } from "../src/cli-host.js"
 import { contractDigest } from "../src/contract-core.js"
 import { digestSource } from "../src/language/digest.js"
 import { adaptResourceGraph, resourceGraphJsonLd } from "../src/integrations/resource-graph.js"
@@ -79,6 +80,7 @@ const outputs: Record<string, string> = {
   "schemas/domain-profile.schema.json": json(z.toJSONSchema(domainProfileSchema)),
   "schemas/capability.schema.json": json(z.toJSONSchema(capabilitySchema)),
   "schemas/capability-catalog.schema.json": json(z.toJSONSchema(capabilityCatalogSchema)),
+  "schemas/cli-host.schema.json": json(z.toJSONSchema(cliHostSchema)),
   "schemas/engineering-review.schema.json": json(z.toJSONSchema(engineeringCatalogSchema)),
   "schemas/engineering-receipt.schema.json": json(z.toJSONSchema(engineeringReceiptSchema)),
   "schemas/engineering-review.shacl.ttl": roleShapes,

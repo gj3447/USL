@@ -1,5 +1,11 @@
 # USL 결정 기록
 
+## 경로·CLI 실행 구조 보완 — 2026-09-28
+
+> 남은 문제들 해결해주고 그 경로가 바뀌거나 멀티경로거나 (작업환경 경로가 있고 github 주소가 있는경우 ㅇㅇ) 그런경우에 어케 정리해야할지 그리고 너가 말한 문제도 어케해결을 해줘야할지 그리고 그 skills 나 mcp 를 대체해서 그 표준 그래프 엔지니어링으로 활성화된 내용과 cli 기반 프로그램으로 동작을 어케해줘야할지 싹다 생각좀 해줘봐봐 깊이 생각해줘 ㅇㅇ
+
+파일 관측 한도를 보완하고 CI를 추가했다. 자원 ID·표현 ID·환경 경로를 분리하는 optional binding 문서와 기존 resource graph rebinding을 구현했다. 실행은 독립 호스트 설정의 고정 CLI와 capability 계약을 결속하며 GraphSpec entry node 한 개로 제한한다. plan pin, 실행 파일·source hash, 단일 시도와 intent/result 기록을 사용한다. 이 schema·CLI 명칭·단계 구분은 AI의 구현 선택이며 사용자에게 세부 표준 비준이나 새 HSWM 권한을 귀속하지 않는다. [설계와 구현 범위](CLI_GRAPH_ARCHITECTURE.md).
+
 ## 기능 접근 경로 통합 — 2026-09-22
 
 > USL 이 좀더 깔끔하고 대단해지도록 개발 쭉쭉 진행해줘봐봐

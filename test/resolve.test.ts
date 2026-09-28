@@ -3,6 +3,7 @@ import assert from "node:assert/strict"
 import { Effect, Either } from "effect"
 import { promises as fs } from "node:fs"
 import * as path from "node:path"
+import * as os from "node:os"
 import { parseLocator } from "../src/locator.js"
 import { resolveWith, type ResolverConfig } from "../src/resolve.js"
 import { fixture, rpcResponse } from "./fixtures.js"
@@ -72,4 +73,37 @@ test("whole Git repository and filesystem directory are first-class resources", 
   const changed = await resolve(f.cfg, dir)
   assert.ok(Either.isRight(changed)); assert.notEqual(changed.right.contentHash, initial.right.contentHash)
   expectReason(await resolve(f.cfg, `${dir}#L1-L1`), "AMBIGUOUS")
+})
+
+test("filesystem observations apply the byte limit before whole-file and line hashing", async (t) => {
+  const f = await fixture(t)
+  const file = path.join(f.dir, "bounded.txt")
+  await fs.writeFile(file, "abcd")
+  const locator = `file://${os.hostname()}${file}`
+  const local = { ...f.cfg, hostname: os.hostname(), maxResponseBytes: 4 }
+  assert.ok(Either.isRight(await resolve(local, locator)))
+  assert.ok(Either.isRight(await resolve(local, `${locator}#L1-L1`)))
+  await fs.writeFile(file, "abcde")
+  expectReason(await resolve(local, locator), "IO")
+  // A selector never bypasses the file budget by reading only its requested line.
+  expectReason(await resolve(local, `${locator}#L1-L1`), "IO")
+})
+
+test("filesystem directory observations bound their listing input while preserving an exact empty listing", async (t) => {
+  const f = await fixture(t)
+  const empty = path.join(f.dir, "empty-directory")
+  await fs.mkdir(empty)
+  const locator = `file://${os.hostname()}${empty}`
+  const local = { ...f.cfg, hostname: os.hostname(), maxResponseBytes: 2 }
+  assert.ok(Either.isRight(await resolve(local, locator))) // JSON.stringify([]) is exactly two bytes.
+  expectReason(await resolve({ ...local, maxResponseBytes: 1 }, locator), "IO")
+  await fs.writeFile(path.join(empty, "a"), "")
+  expectReason(await resolve(local, locator), "IO")
+})
+
+test("Git blob observations apply the byte limit", async (t) => {
+  const f = await fixture(t)
+  const exact = { ...f.cfg, maxResponseBytes: Buffer.byteLength("first\nsecond\n") }
+  assert.ok(Either.isRight(await resolve(exact, f.loc.git)))
+  expectReason(await resolve({ ...exact, maxResponseBytes: 12 }, f.loc.git), "IO")
 })

@@ -56,6 +56,8 @@ observeProgram(plan, {
 
 직접 주입한 `Resolvers` 구현은 두 번째 인자의 정책도 준수해야 한다. 기본 관측의 선택 범위와 호스트 설정은 HSWM owner/permit 인증이나 OS sandbox를 구현한 것이 아니다. 파일 라인 범위는 현재 파일을 읽은 뒤 해당 구간을 해시하며, Git은 등록된 checkout에서 객체를 읽는다. `trust_host` 보장은 유지한다.
 
+resolver의 `maxResponseBytes` 기본값은 8 MiB이며 URL·KG 응답, 일반 파일, Git blob, 디렉터리 목록에 공통으로 적용한다. 파일과 blob은 한 바이트만 추가로 읽어 한도를 판정하고, line selector도 파일 전체가 한도 안에 있어야 한다. 디렉터리는 스트리밍으로 항목을 읽고 JSON 목록의 UTF-8 크기가 한도를 넘으면 실패한다. 목록은 한도 안에서 이름순 정렬한 기존 표현을 해시하므로 정상 크기 디렉터리의 지문 형식은 유지된다. 취소나 deadline은 후속 파일·디렉터리 읽기를 중단하고 열린 파일 핸들을 닫는다. 이 한도는 host filesystem, Git checkout, MCP 서버의 접근 권한을 제한하는 sandbox가 아니다.
+
 resolver에는 내부 plan·허용 목록과 분리한 사본을 전달한다. 각 응답은 완료 즉시 깊게 복제하고 필드 형식·요청 identity·허용된 결과 주소를 검사한다. 다른 resolver를 기다리는 동안이나 보고서 반환 후 adapter가 보관한 객체를 수정해도 수집된 관측은 바뀌지 않는다. KG 결과는 요청한 source/UID와 동일해야 하며, 직렬화된 관측을 검증할 때도 같은 조건을 적용한다.
 
 실패 응답도 `kind`·`locator`·`reason`·`detail`을 고정해 검증한다. 잘못된 필드나 다른 요청의 실패를 반환하는 adapter는 `ObservationError`로 종료한다. 정상적인 `ORPHAN`·`AMBIGUOUS`·`IO`·`DENIED`는 기존대로 미확정 관측에 포함된다.

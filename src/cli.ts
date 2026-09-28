@@ -10,6 +10,7 @@ import { ConfigLive, ResolversLive } from "./resolve.js"
 import { runPlatformCommand, PLATFORM_USAGE, PlatformUsageError } from "./cli-platform.js"
 import { runAdapterCommand, ADAPTER_USAGE } from "./cli-adapter.js"
 import { runCapabilityCommand, CAPABILITY_USAGE } from "./cli-capabilities.js"
+import { runCliHostCommand, CLI_HOST_USAGE } from "./cli-host-command.js"
 import { readRecords, writeRecords, writeTextAtomic } from "./storage.js"
 import { agentContext, compactAgentContext, compareObservations, compileSource, observeProgram, toSemanticBundle, validateObservation, type NavigationQuery } from "./language/index.js"
 
@@ -34,11 +35,13 @@ const usage = `USL ${TOOL_VERSION}
 ${PLATFORM_USAGE}
 ${ADAPTER_USAGE}
 ${CAPABILITY_USAGE}
+${CLI_HOST_USAGE}
 
 Audit preserves the original snapshot; rebind explicitly replaces it after both ends resolve.
 Exit: 0 success, 1 operation/validation failure, 2 observation unresolved/changed or audit --check drift, 64 usage error.`
 const main = async () => {
   if (await runCapabilityCommand(process.argv.slice(2))) return
+  if (await runCliHostCommand(process.argv.slice(2))) return
   if (await runAdapterCommand(process.argv.slice(2))) return
   if (await runPlatformCommand(process.argv.slice(2))) return
   const [cmd, ...rest] = process.argv.slice(2)

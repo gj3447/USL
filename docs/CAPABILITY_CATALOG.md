@@ -1,5 +1,7 @@
 # 등록된 기능의 발견과 호출 전 검사
 
+2026-09-28: 실제 로컬 프로그램 실행에는 별도의 [CLI host](CLI_GRAPH_ARCHITECTURE.md)를 등록할 수 있다. 이 문서의 discovery/preflight와 MCP tools는 계속 실행기를 받지 않는다. CLI host는 같은 capability 계약을 재사용하며 명시적으로 선택한 entry node를 단일 시도로 실행한다.
+
 USL은 호스트가 등록한 기능 목록을 SDK·CLI·MCP에서 같은 계약으로 읽는다. AI는 의미 IRI로 기능을 찾고, 반환된 descriptor/source digest를 입력에 붙여 사전 검사를 요청한다. 파일 경로·정책·실행기는 호스트가 관리한다.
 
 ## 바로 실행하기
