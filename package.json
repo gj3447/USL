@@ -115,7 +115,8 @@
     "binding-progress:check": "tsx scripts/build-binding-progress.ts --check",
     "binding-progress:standards": "python3 scripts/validate-binding-progress.py",
     "example:capability": "tsx examples/capability-workflow.ts",
-    "example:cli": "tsx examples/cli-workflow.ts"
+    "example:cli": "tsx examples/cli-workflow.ts",
+    "example:hswm": "tsx examples/hswm-connection.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",

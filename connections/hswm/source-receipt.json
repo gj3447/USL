@@ -1,0 +1,86 @@
+{
+  "schema": "usl-repository-connection-observation/v1",
+  "observedAt": "2026-09-28T06:52:21.266620Z",
+  "repository": {
+    "id": 1305437076,
+    "nodeId": "R_kgDOTc9jlA",
+    "fullName": "gj3447/HSWM",
+    "url": "https://github.com/gj3447/HSWM",
+    "defaultBranch": "main",
+    "pushedAt": "2026-09-28T06:40:24Z"
+  },
+  "snapshot": {
+    "commit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+    "commitUrl": "https://github.com/gj3447/HSWM/commit/59cff67777cac245b9b0929cb23a511d3e106a0f",
+    "committedAt": "2026-09-28T06:40:15Z",
+    "subject": "docs: map whole HSWM Lean targets to runtime and pinned papers",
+    "localHeadAtObservation": "59cff67777cac245b9b0929cb23a511d3e106a0f"
+  },
+  "verification": "GITHUB_CONTENTS_API_BYTES_COMPARED_WITH_SELECTED_LOCAL_FILES",
+  "scope": "SELECTED_FILES_ONLY; HOST_REPORTED_NOT_SIGNED; NO_RUNTIME_OR_EFFICACY_PROOF",
+  "artifacts": [
+    {
+      "resource": "hswm:research-plan",
+      "path": "docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md",
+      "bytes": 13119,
+      "sha256": "sha256:71827c7ef8e40629e27083743ccfccac9c37bec53f5b44cb7df134696ef94e28",
+      "githubBlobSha": "6ebc431e49d020237e25784a7cbc83c0781945ab",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/HSWM/contents/docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md?ref=59cff67777cac245b9b0929cb23a511d3e106a0f",
+      "worktreeMatchedAtObservation": true
+    },
+    {
+      "resource": "hswm:execution-contract",
+      "path": "docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md",
+      "bytes": 6493,
+      "sha256": "sha256:47faad081f73edb80e0d2655b1c1042b825190ab42e82e0b4a3108075e29b2b7",
+      "githubBlobSha": "13e55ae3d99cab70c828b80de8edec9827295668",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/HSWM/contents/docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md?ref=59cff67777cac245b9b0929cb23a511d3e106a0f",
+      "worktreeMatchedAtObservation": true
+    },
+    {
+      "resource": "hswm:execution-adapter",
+      "path": "src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts",
+      "bytes": 10301,
+      "sha256": "sha256:373de59938e07a2b262dd4adab4459daf0b39ec5ae5a7f9e765e40fac1e21cba",
+      "githubBlobSha": "cb3f984f68cfce05b96bcee646af809437cb04e7",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/HSWM/contents/src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts?ref=59cff67777cac245b9b0929cb23a511d3e106a0f",
+      "worktreeMatchedAtObservation": true
+    },
+    {
+      "resource": "hswm:selected-state",
+      "path": "src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts",
+      "bytes": 12178,
+      "sha256": "sha256:850e2e64ecab8e042af06cf210a05090e6ea1da8b48236a652044ebfbb9609d3",
+      "githubBlobSha": "e2b970063f95944999ec9c0e9a6aeeb81a19c633",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/HSWM/contents/src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts?ref=59cff67777cac245b9b0929cb23a511d3e106a0f",
+      "worktreeMatchedAtObservation": true
+    },
+    {
+      "resource": "hswm:selected-test",
+      "path": "tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts",
+      "bytes": 7764,
+      "sha256": "sha256:e9fb1e6e9a67ef35071cd1f5c41489b4c7a324b770bed3af2eb79aa4d45e84a6",
+      "githubBlobSha": "ff1fa91c8f32e9fff8c6e0d988f288eb82cdcb1d",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/HSWM/contents/tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts?ref=59cff67777cac245b9b0929cb23a511d3e106a0f",
+      "worktreeMatchedAtObservation": true
+    },
+    {
+      "resource": "hswm:abstraction-model",
+      "path": "formal/HSWMOperationalAbstraction.lean",
+      "bytes": 8715,
+      "sha256": "sha256:a472db368cd43f61918c3d5506bc5e7dbb27cd6c18ef34d4e6cbed4d92d76612",
+      "githubBlobSha": "121a5eefcc9c33fa80f1f1f0897c0a6514a2f220",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/HSWM/contents/formal/HSWMOperationalAbstraction.lean?ref=59cff67777cac245b9b0929cb23a511d3e106a0f",
+      "worktreeMatchedAtObservation": true
+    },
+    {
+      "resource": "hswm:proof-record",
+      "path": "_research/operational_philosophy_proof_v1/lean-verification.v1.json",
+      "bytes": 18514,
+      "sha256": "sha256:4b2a242c88195c0ffb86c2b081e6b1f9191bba264ebd0af757c48876c6ee5b52",
+      "githubBlobSha": "6dcbf154792fac9acda7c85c9771b4a4ea4ddc81",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/HSWM/contents/_research/operational_philosophy_proof_v1/lean-verification.v1.json?ref=59cff67777cac245b9b0929cb23a511d3e106a0f",
+      "worktreeMatchedAtObservation": true
+    }
+  ]
+}

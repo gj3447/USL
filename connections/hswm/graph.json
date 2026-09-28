@@ -1,0 +1,225 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "github:repo:1305437076",
+      "types": [
+        "urn:usl:research:Repository"
+      ],
+      "locator": "https://github.com/gj3447/HSWM",
+      "metadata": {
+        "githubRepositoryId": 1305437076,
+        "githubNodeId": "R_kgDOTc9jlA",
+        "fullNameAtBinding": "gj3447/HSWM",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "title": "HSWM 연구 저장소"
+      }
+    },
+    {
+      "id": "hswm:research-plan",
+      "types": [
+        "urn:usl:research:ResearchPlan"
+      ],
+      "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md",
+      "metadata": {
+        "title": "전체 HSWM 증명 목표와 현재 연구 공백",
+        "path": "docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md",
+        "repository": "github:repo:1305437076",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "expectedContentDigest": "sha256:71827c7ef8e40629e27083743ccfccac9c37bec53f5b44cb7df134696ef94e28",
+        "githubPermalink": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md",
+        "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
+      }
+    },
+    {
+      "id": "hswm:execution-contract",
+      "types": [
+        "urn:usl:research:ExecutionContract"
+      ],
+      "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md",
+      "metadata": {
+        "title": "측정한 의미 상태 선택과 다음 실행 계약",
+        "path": "docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md",
+        "repository": "github:repo:1305437076",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "expectedContentDigest": "sha256:47faad081f73edb80e0d2655b1c1042b825190ab42e82e0b4a3108075e29b2b7",
+        "githubPermalink": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md",
+        "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
+      }
+    },
+    {
+      "id": "hswm:execution-adapter",
+      "types": [
+        "urn:usl:research:Implementation"
+      ],
+      "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts",
+      "metadata": {
+        "title": "저장된 분기 평가와 선택 실행 adapter",
+        "path": "src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts",
+        "repository": "github:repo:1305437076",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "expectedContentDigest": "sha256:373de59938e07a2b262dd4adab4459daf0b39ec5ae5a7f9e765e40fac1e21cba",
+        "githubPermalink": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts",
+        "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
+      }
+    },
+    {
+      "id": "hswm:selected-state",
+      "types": [
+        "urn:usl:research:Implementation"
+      ],
+      "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts",
+      "metadata": {
+        "title": "선택된 canonical 의미 상태의 재개방",
+        "path": "src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts",
+        "repository": "github:repo:1305437076",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "expectedContentDigest": "sha256:850e2e64ecab8e042af06cf210a05090e6ea1da8b48236a652044ebfbb9609d3",
+        "githubPermalink": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts",
+        "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
+      }
+    },
+    {
+      "id": "hswm:selected-test",
+      "types": [
+        "urn:usl:research:TestDefinition"
+      ],
+      "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts",
+      "metadata": {
+        "title": "선택 상태에 대한 유한 integration 테스트 정의",
+        "path": "tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts",
+        "repository": "github:repo:1305437076",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "expectedContentDigest": "sha256:e9fb1e6e9a67ef35071cd1f5c41489b4c7a324b770bed3af2eb79aa4d45e84a6",
+        "githubPermalink": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts",
+        "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
+      }
+    },
+    {
+      "id": "hswm:abstraction-model",
+      "types": [
+        "urn:usl:research:FormalModel"
+      ],
+      "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:formal/HSWMOperationalAbstraction.lean",
+      "metadata": {
+        "title": "운영 추상화의 Lean 모델",
+        "path": "formal/HSWMOperationalAbstraction.lean",
+        "repository": "github:repo:1305437076",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "expectedContentDigest": "sha256:a472db368cd43f61918c3d5506bc5e7dbb27cd6c18ef34d4e6cbed4d92d76612",
+        "githubPermalink": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/formal/HSWMOperationalAbstraction.lean",
+        "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
+      }
+    },
+    {
+      "id": "hswm:proof-record",
+      "types": [
+        "urn:usl:research:HistoricalEvidence"
+      ],
+      "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:_research/operational_philosophy_proof_v1/lean-verification.v1.json",
+      "metadata": {
+        "title": "기존 운영 추상화 Lean 검사 기록",
+        "path": "_research/operational_philosophy_proof_v1/lean-verification.v1.json",
+        "repository": "github:repo:1305437076",
+        "snapshotCommit": "59cff67777cac245b9b0929cb23a511d3e106a0f",
+        "expectedContentDigest": "sha256:4b2a242c88195c0ffb86c2b081e6b1f9191bba264ebd0af757c48876c6ee5b52",
+        "githubPermalink": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/_research/operational_philosophy_proof_v1/lean-verification.v1.json",
+        "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "hswm:research-entry",
+      "description": "Curated navigation from the repository to its research plan and execution contract; no research completion claim."
+    },
+    {
+      "id": "hswm:selected-execution-materials",
+      "description": "Contract, adapter, selected-state implementation and its test definition for selected execution; tests are not executed by this link."
+    },
+    {
+      "id": "hswm:formalization-materials",
+      "description": "Research plan points to an abstract Lean model and a historical owner-reported verification record; no runtime refinement or efficacy claim."
+    }
+  ],
+  "links": [
+    {
+      "id": "hswm:research-entry-link",
+      "meaning": "hswm:research-entry",
+      "participants": [
+        {
+          "role": "repository",
+          "resource": "github:repo:1305437076"
+        },
+        {
+          "role": "plan",
+          "resource": "hswm:research-plan"
+        },
+        {
+          "role": "contract",
+          "resource": "hswm:execution-contract"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI_NAVIGATION",
+        "execution": "NOT_EXECUTED",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "hswm:selected-execution-link",
+      "meaning": "hswm:selected-execution-materials",
+      "participants": [
+        {
+          "role": "contract",
+          "resource": "hswm:execution-contract"
+        },
+        {
+          "role": "adapter",
+          "resource": "hswm:execution-adapter"
+        },
+        {
+          "role": "implementation",
+          "resource": "hswm:selected-state"
+        },
+        {
+          "role": "test_definition",
+          "resource": "hswm:selected-test"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI_NAVIGATION",
+        "execution": "NOT_EXECUTED",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "hswm:formalization-link",
+      "meaning": "hswm:formalization-materials",
+      "participants": [
+        {
+          "role": "plan",
+          "resource": "hswm:research-plan"
+        },
+        {
+          "role": "abstract_model",
+          "resource": "hswm:abstraction-model"
+        },
+        {
+          "role": "historical_record",
+          "resource": "hswm:proof-record"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI_NAVIGATION",
+        "execution": "NOT_EXECUTED",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "github:repo:1305437076"
+    ]
+  }
+}

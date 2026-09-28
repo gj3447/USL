@@ -6,6 +6,7 @@
 
 - [현재 구조와 표준의 적용 범위](docs/ARCHITECTURE.md)
 - [바인딩 조회·경로 이동·중복 실행 차단·복구 조회](docs/BINDING_OPERATIONS.md)
+- [실제 연결: gj3447/HSWM 연구 자료·로컬 경로·GitHub](docs/HSWM_CONNECTION.md)
 - [01239ca 시점의 검토·후속 작업 제안](docs/CURRENT_STATE_AND_NEXT_STEPS.md) · [후속 구현 그래프](research/engineering/binding-progress.graph.json)
 - [범용 자원 연결 문법·SDK·CLI·MCP](docs/RESOURCE_GRAPH.md)
 - [Lean 4 연결과 형식 검증](docs/LEAN4_INTEGRATION.md)

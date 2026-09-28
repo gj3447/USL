@@ -1,0 +1,34 @@
+[
+  {
+    "resource": "github:repo:1305437076",
+    "representation": "repository-local"
+  },
+  {
+    "resource": "hswm:research-plan",
+    "representation": "research-plan-local"
+  },
+  {
+    "resource": "hswm:execution-contract",
+    "representation": "execution-contract-local"
+  },
+  {
+    "resource": "hswm:execution-adapter",
+    "representation": "execution-adapter-local"
+  },
+  {
+    "resource": "hswm:selected-state",
+    "representation": "selected-state-local"
+  },
+  {
+    "resource": "hswm:selected-test",
+    "representation": "selected-test-local"
+  },
+  {
+    "resource": "hswm:abstraction-model",
+    "representation": "abstraction-model-local"
+  },
+  {
+    "resource": "hswm:proof-record",
+    "representation": "proof-record-local"
+  }
+]

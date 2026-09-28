@@ -1,0 +1,211 @@
+{
+  "schema": "usl-resource-bindings/v1",
+  "resources": [
+    {
+      "id": "github:repo:1305437076",
+      "representations": [
+        {
+          "id": "repository-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "."
+        },
+        {
+          "id": "repository-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM"
+        },
+        {
+          "id": "repository-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f"
+        }
+      ]
+    },
+    {
+      "id": "hswm:research-plan",
+      "representations": [
+        {
+          "id": "research-plan-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md",
+          "digest": "sha256:71827c7ef8e40629e27083743ccfccac9c37bec53f5b44cb7df134696ef94e28"
+        },
+        {
+          "id": "research-plan-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md",
+          "digest": "sha256:71827c7ef8e40629e27083743ccfccac9c37bec53f5b44cb7df134696ef94e28"
+        },
+        {
+          "id": "research-plan-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/docs/operations/HSWM_WHOLE_SYSTEM_LEAN_TARGETS_2026-09-28.md"
+        }
+      ]
+    },
+    {
+      "id": "hswm:execution-contract",
+      "representations": [
+        {
+          "id": "execution-contract-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md",
+          "digest": "sha256:47faad081f73edb80e0d2655b1c1042b825190ab42e82e0b4a3108075e29b2b7"
+        },
+        {
+          "id": "execution-contract-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md",
+          "digest": "sha256:47faad081f73edb80e0d2655b1c1042b825190ab42e82e0b4a3108075e29b2b7"
+        },
+        {
+          "id": "execution-contract-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/docs/operations/HSWM_SEMANTIC_SELECTED_EXECUTION.md"
+        }
+      ]
+    },
+    {
+      "id": "hswm:execution-adapter",
+      "representations": [
+        {
+          "id": "execution-adapter-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts",
+          "digest": "sha256:373de59938e07a2b262dd4adab4459daf0b39ec5ae5a7f9e765e40fac1e21cba"
+        },
+        {
+          "id": "execution-adapter-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts",
+          "digest": "sha256:373de59938e07a2b262dd4adab4459daf0b39ec5ae5a7f9e765e40fac1e21cba"
+        },
+        {
+          "id": "execution-adapter-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/src/hswm/effect-runtime/src/semantic-lifecycle-selected-execution.ts"
+        }
+      ]
+    },
+    {
+      "id": "hswm:selected-state",
+      "representations": [
+        {
+          "id": "selected-state-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts",
+          "digest": "sha256:850e2e64ecab8e042af06cf210a05090e6ea1da8b48236a652044ebfbb9609d3"
+        },
+        {
+          "id": "selected-state-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts",
+          "digest": "sha256:850e2e64ecab8e042af06cf210a05090e6ea1da8b48236a652044ebfbb9609d3"
+        },
+        {
+          "id": "selected-state-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/src/hswm/effect-runtime/src/canonical-atom-v2-semantic-selected-state.ts"
+        }
+      ]
+    },
+    {
+      "id": "hswm:selected-test",
+      "representations": [
+        {
+          "id": "selected-test-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts",
+          "digest": "sha256:e9fb1e6e9a67ef35071cd1f5c41489b4c7a324b770bed3af2eb79aa4d45e84a6"
+        },
+        {
+          "id": "selected-test-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts",
+          "digest": "sha256:e9fb1e6e9a67ef35071cd1f5c41489b4c7a324b770bed3af2eb79aa4d45e84a6"
+        },
+        {
+          "id": "selected-test-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/tests/effect-runtime/canonical-atom-v2-semantic-selected-state.test.ts"
+        }
+      ]
+    },
+    {
+      "id": "hswm:abstraction-model",
+      "representations": [
+        {
+          "id": "abstraction-model-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "formal/HSWMOperationalAbstraction.lean",
+          "digest": "sha256:a472db368cd43f61918c3d5506bc5e7dbb27cd6c18ef34d4e6cbed4d92d76612"
+        },
+        {
+          "id": "abstraction-model-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:formal/HSWMOperationalAbstraction.lean",
+          "digest": "sha256:a472db368cd43f61918c3d5506bc5e7dbb27cd6c18ef34d4e6cbed4d92d76612"
+        },
+        {
+          "id": "abstraction-model-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/formal/HSWMOperationalAbstraction.lean"
+        }
+      ]
+    },
+    {
+      "id": "hswm:proof-record",
+      "representations": [
+        {
+          "id": "proof-record-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "_research/operational_philosophy_proof_v1/lean-verification.v1.json",
+          "digest": "sha256:4b2a242c88195c0ffb86c2b081e6b1f9191bba264ebd0af757c48876c6ee5b52"
+        },
+        {
+          "id": "proof-record-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@59cff67777cac245b9b0929cb23a511d3e106a0f:_research/operational_philosophy_proof_v1/lean-verification.v1.json",
+          "digest": "sha256:4b2a242c88195c0ffb86c2b081e6b1f9191bba264ebd0af757c48876c6ee5b52"
+        },
+        {
+          "id": "proof-record-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/59cff67777cac245b9b0929cb23a511d3e106a0f/_research/operational_philosophy_proof_v1/lean-verification.v1.json"
+        }
+      ]
+    }
+  ]
+}
