@@ -30,6 +30,28 @@
       "minimum": 1,
       "maximum": 16777216
     },
+    "operations": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096,
+          "pattern": "\\S"
+        },
+        "directory": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "namespace",
+        "directory"
+      ],
+      "additionalProperties": false
+    },
     "actions": {
       "maxItems": 128,
       "type": "array",

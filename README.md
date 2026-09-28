@@ -1,11 +1,12 @@
 # USL — Universal Semantic Link
 
-**USL은 서로 다른 시스템의 자원을 의미와 역할로 연결하는 문법과 TypeScript + Effect 라이브러리다.** KG·Git·URL·파일·Lean 4를 연결하며, 원본 데이터·고유 ID·권한은 각 시스템에 둔다. 별도 USL DB나 새 KG를 만들지 않는다.
+**USL은 서로 다른 시스템의 자원을 의미와 역할로 연결하는 바인딩 도구다.** 문법과 TypeScript + Effect 라이브러리, CLI로 KG·Git·URL·파일·Lean 4를 연결하며, 원본 데이터·고유 ID·권한은 각 시스템에 둔다. 별도 USL DB나 새 KG를 만들지 않는다.
 
 2026-09-14 사용자 결정: **DB가 아닌 문법/연결 계층**, **Lean 선언·증명 연동과 USL 성질의 형식 검증 둘 다**, **가능한 다양한 자원으로 확장**. 사용자 원문과 구현 선택은 [결정 기록](docs/DECISIONS.md)에서 구분한다. 초기 KG 정의는 `sym:Concept:usl`이며 이 저장소의 최신 사용자 지시를 반영한 현재 기준은 이 README와 아래 문서다. 이 변경이 원격 KG의 옛 설명을 자동 갱신하지는 않는다.
 
 - [현재 구조와 표준의 적용 범위](docs/ARCHITECTURE.md)
-- [2026-09-28 현재 상태 그래프·Lean 증명 범위·다음 작업](docs/CURRENT_STATE_AND_NEXT_STEPS.md)
+- [바인딩 조회·경로 이동·중복 실행 차단·복구 조회](docs/BINDING_OPERATIONS.md)
+- [01239ca 시점의 검토·후속 작업 제안](docs/CURRENT_STATE_AND_NEXT_STEPS.md) · [후속 구현 그래프](research/engineering/binding-progress.graph.json)
 - [범용 자원 연결 문법·SDK·CLI·MCP](docs/RESOURCE_GRAPH.md)
 - [Lean 4 연결과 형식 검증](docs/LEAN4_INTEGRATION.md)
 - [AI native 어댑터·유사 기술 40항목 조사](docs/RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md) · [개발 로드맵 제안](docs/AI_NATIVE_ADAPTER_ROADMAP.md)
@@ -74,6 +75,8 @@ npm run example:cli
 npm run usl -- cli-run --help
 ```
 
+`inspect-binding`은 파일 pin과 로컬 Git/worktree/dirty 상태를 확인한다. 선택적 operation 저장소는 경로 이동 뒤에도 같은 작업 키의 재실행을 차단한다. `cli-inspect`는 과거 영수증을 조회하며, 불명확한 외부 효과는 등록된 소유자 조회 함수로 대조한다. [설정과 사용법](docs/BINDING_OPERATIONS.md).
+
 JSON-LD 1.1/RDF 교환, PROV-O 출처 관계와 SHACL 구조 검사를 지원한다. `urn:usl:vocab:` 어휘와 GEIP는 프로젝트 고유 규약이다. [표준별 적용표](docs/ARCHITECTURE.md#표준-적용)를 참고한다.
 
 ```sh
@@ -87,7 +90,7 @@ npm run test:lean
 
 [CI](.github/workflows/verify.yml)는 push·pull request마다 타입·테스트·빌드·문서·고정 Lean toolchain·RDF/SHACL·공학 산출물 일치 검사를 실행한다. 파일·Git blob·HTTP 응답·직접 디렉터리 목록 관측은 `maxResponseBytes`의 기본 8 MiB 한도를 적용한다.
 
-Lean의 형식 모델은 **37개 정리**로 유한 홉 탐색의 정확성·완전성, 경로 합성, 연결·역할 보존, 그래프 구조 검사, 읽기 권한·예산 제한을 증명한다. 모든 정리의 전이적 공리 의존성을 검사하고 실행 모델을 TypeScript와 **383건** 대조한다. 전체 TypeScript 프로그램이나 외부 관계의 참을 증명한 것은 아니다. [검증 범위](docs/LEAN4_INTEGRATION.md#형식-검증-범위).
+Lean의 형식 모델은 **54개 정리**로 유한 홉 탐색·경로 합성·연결과 역할 보존·구조 검사·읽기 예산에 더해 시도 상태 전이와 바인딩 선택·ID 보존을 증명한다. 모든 정리의 전이적 공리 의존성을 검사하고 TypeScript와 **444건** 대조한다. 전체 TypeScript 프로그램이나 OS·외부 효과를 증명한 것은 아니다. [검증 범위](docs/LEAN4_INTEGRATION.md#형식-검증-범위).
 
 ## 호환성과 과거 기록
 

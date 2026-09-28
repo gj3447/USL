@@ -20,7 +20,7 @@ flowchart LR
 
 새 [CLI host](../src/cli-host.ts)는 등록된 GraphSpec의 `code` 또는 `tool` 진입 노드 하나를 호스트의 고정 명령에 연결한다. 선택 노드로 들어오는 간선이 있으면 거부한다. 선행 데이터·승인·분기 등을 실행했다고 추정하지 않기 위해서다. `scope: ENTRY_NODE_ONLY`, `wholeGraphExecution: NOT_EXECUTED`, `geipValidation: NOT_RUN`을 기록한다.
 
-이 범위는 GraphSpec 전체 실행기의 첫 구성 요소다. GEIP의 lifecycle·gate·retry·outbox·checkpoint를 지원하는 엔진이 있다는 뜻은 아니다. 그런 그래프의 자동 실행은 아래 확장 조건을 충족해야 한다.
+현재 제품 범위는 자원과 등록 프로그램의 바인딩이다. GEIP의 gate·retry·outbox·checkpoint를 집행하는 전체 엔진은 미구현이다. 별도 다단계 실행이 필요하면 아래 확장 조건을 먼저 충족해야 한다.
 
 ## 경로를 정리하는 기준
 
@@ -68,7 +68,7 @@ usl bind-graph --config host.json --graph graph.json \
 | 경로와 참조 찾기 | 자원 ID → 명시적 표현 → workspace binding | `locate`, `bind-graph` |
 | 입력·권한 검사 | owner policy·descriptor/source pin·schema | `cli-plan`, 실행 직전 재검사 |
 | 로컬 프로그램 호출 | 고정 executable/argv/cwd + JSON stdin | `cli-run`, 한 번의 시도 |
-| 상태·근거 남기기 | intent/result 파일 + 계획·결과 digest | 구현, 자동 재시도 없음 |
+| 상태·근거 남기기 | intent/result, 선택적 operation 예약, owner 조회 | `cli-inspect`, SDK reconciler; 자동 재시도 없음 |
 | 원격 세션·인증·구독 | MCP/HTTP 등의 transport adapter | 기존 MCP 경로 유지; 새 범용 원격 driver 미구현 |
 | 다단계 workflow 실행 | GraphSpec를 집행하는 외부 runtime | 미구현; 들어오는 의존 간선은 거부 |
 
@@ -80,7 +80,7 @@ usl bind-graph --config host.json --graph graph.json \
 
 전체 예제는 `npm run example:cli`다. 임시 설정을 만들고 실제 USL `check` CLI를 자식 프로세스로 실행한다. [예제 코드](../examples/cli-workflow.ts)는 기존 `.usl` 파일과 runtime source를 pin하며, 완료 후 임시 파일을 정리한다.
 
-`npm run example:cli -- --out-dir /tmp/my-usl-host`를 쓰면 새 디렉터리에 실제 `host.json`, `bindings.json`, `invocation.json`, `plan.json`, 실행 영수증을 남긴다. 기존 디렉터리는 덮어쓰지 않는다. 출력된 설정과 요청으로 위 CLI를 직접 호출할 수 있으며, 재실행에는 새 receipt directory가 필요하다.
+`npm run example:cli -- --out-dir /tmp/my-usl-host`를 쓰면 새 디렉터리에 실제 `host.json`, `bindings.json`, `invocation.json`, `plan.json`, 실행 영수증을 남긴다. 기존 디렉터리는 덮어쓰지 않는다. 예제는 파일 pin 조회와 과거 영수증 조회도 수행하며 `example-check-1` 키의 중복 실행 거부를 확인한다. 보존된 host는 `--operation-key`를 요구한다. 별개 작업의 새 실행에는 새 키와 receipt directory가 필요하다.
 
 예제의 [GraphSpec](../examples/fixtures/cli/graphspec.json)은 기존 GEIP 전체 제안 형식에서 파생했다. 실제 SYMPOSIUM validator v0.2.0에서 GEIP-001∼015의 문서 구조 검사를 통과한 [영수증](../examples/fixtures/cli/graphspec-validation.json)을 보존한다. lifecycle·effect·checkpoint 필드의 구조 적합성과 CLI host가 그 정책 전체를 집행한다는 주장은 다르다. 실행 시 validator를 다시 호출하지 않으므로 runtime receipt는 계속 `geipValidation: NOT_RUN`이다.
 
@@ -92,6 +92,7 @@ usl bind-graph --config host.json --graph graph.json \
 - `command`: 현재 Node 실행 파일 또는 호스트의 절대 executable, 고정 인수, 허용한 환경 변수 이름. 인수에 자원 선택을 쓰면 해당 파일 pin을 요구한다.
 - `cwd`: 명시적으로 선택한 workspace 디렉터리. `pins`: 실행에 영향을 주는 호스트 선택 파일들의 정확한 내용.
 - `maxSourceBytes`: pin 검사를 위해 읽는 파일들의 합산 한도. capability policy의 timeout과 출력 한도는 실제 프로세스에도 적용한다.
+- `operations`(선택): 호스트 소유 namespace와 로컬 예약 저장소. 같은 작업 키의 중복·충돌을 실행 전에 거부한다. [설정과 제한](BINDING_OPERATIONS.md).
 
 실행 파일은 별도로 최대 256 MiB까지 스트리밍 SHA-256을 계산해 계획에 결속한다. 크기와 수정시각만 같은 다른 실행 파일로 바뀌어도 이전 계획으로 실행할 수 없다.
 
@@ -117,18 +118,20 @@ stdout과 stderr를 합산해 제한한다. timeout/취소 때 POSIX에서는 �
 
 `intent.json`만 남으면 프로세스 중단이나 결과 저장 실패가 가능하다. 이를 실패 확정으로 간주해 재실행하지 않고 소유자 쪽 효과를 확인한다. digest는 변경 검출용이며 서명·사용자 승인·HSWM Permit이 아니다.
 
+`cli-inspect`는 이 과거 기록을 host 설정 없이 검증한다. `connectCliReconciler`는 intent-only 또는 `INDETERMINATE` 시도를 등록된 소유자 함수에 조회하고 별도 영수증을 남긴다. operation 키와 reconciliation lock은 자동 해제하지 않는다. 상태 모델은 dispatch 허용 `AUTHORIZED`와 실제 process 시작 관측을 구분한다. [사용법과 Lean 범위](BINDING_OPERATIONS.md).
+
 실행 전 취소나 spawn 실패처럼 자식 프로세스가 시작하지 않았으면 `REJECTED`, `attempts: 0`이다. 실행 후 result 저장 실패는 `RECEIPT_WRITE_FAILED`, `receiptPersisted: false`의 불명 결과를 반환한다. 결과에는 저장한 intent의 digest를 연결해 조사할 시도를 식별한다.
 
 source pin은 열거한 파일만 검사한다. 의존 파일, lockfile, 빌드 산출물과 도구 버전도 실행에 영향을 주면 등록해야 한다. 실행 전후 검사는 바꾸었다 되돌리는 경쟁 상태를 증명하지 못한다. 더 강한 재현성이 필요하면 고정 commit의 깨끗한 worktree 또는 immutable container에서 실행하고 그 환경 identity를 함께 기록해야 한다.
 
 ## 다음 확장 순서와 완료 조건
 
-아래 확장 항목의 구현 우선순위는 후속 [현재 상태·다음 작업 검토](CURRENT_STATE_AND_NEXT_STEPS.md)에서 구체화했다. 실행 상태 계약과 복구/중복 처리를 먼저 진행하고, Git identity는 병렬로 보완하며, 다단계 runtime은 그 뒤에 둔다.
+아래는 확장 후보이며 [이전 검토](CURRENT_STATE_AND_NEXT_STEPS.md)의 제안을 포함한다. 이후 단일 시도 상태 계약·로컬 중복 예약·과거 기록 조회·owner 대조 SDK·Git metadata 관측·binding Lean 모델을 구현했다. 다음 실사용 우선순위는 [바인딩 작업 안내](BINDING_OPERATIONS.md#검증-범위와-다음-작업)의 프로그램 하나 연결과 실제 owner 조회다.
 
-1. **원본 identity 확인:** Git remote 정규화, worktree/commit/dirty 상태, GitHub repository ID를 호스트 adapter에서 확인한다. 이름·URL만 보고 fork나 mirror를 합치지 않는다. 지금의 binding은 명시적 등록이며 원격 GitHub 사실의 검증기가 아니다.
+1. **원본 identity 확인:** 로컬 remote 후보·worktree/commit/dirty 관측은 구현했다. GitHub repository ID 검증은 해당 서비스의 호스트 adapter로 보완한다. 이름·URL만 보고 fork나 mirror를 합치지 않는다.
 2. **실제 task 하나의 완주:** 기존 검증 CLI처럼 입출력이 명확한 프로그램부터 등록한다. discovery → 선택 → context → plan → run → receipt가 이어져야 한다. 오류·이동·pin drift·권한 거부에서도 같은 계약을 유지한다.
 3. **다단계 GraphSpec 집행:** 데이터 간선의 schema, gate의 독립 인가, FSM 전이, loop budget, 중복 효과 식별, checkpoint 호환성, unknown effect의 reconciliation을 집행한다. 그 전까지 entry node 단독 실행을 전체 workflow 성공으로 승격하지 않는다.
 4. **원격 driver와 실행 근거:** 필요한 실제 시스템부터 SCIP/OpenLineage/MCP/OpenAPI adapter를 추가한다. 등록된 기능 목록과 실제 호출 transport를 분리하고, 명세에 등장한 주소를 자동 호출하지 않는다.
 5. **thin skill/MCP facade:** 같은 application/host 계약을 쓰는 얇은 호출부로 전환한다. 호출부마다 별도 경로·정책·workflow 설명이 누적되지 않게 한다.
 
-전체 로드맵을 한 번에 구현했다고 표시하지 않는다. 현재 완료 범위는 기존 읽기 한도 보완, 자동 CI, 이동 가능한 자원 결속, resource graph rebinding, 그리고 GraphSpec entry node에 근거를 둔 실제 CLI 실행 경로다.
+전체 로드맵을 한 번에 구현했다고 표시하지 않는다. 현재 완료 범위와 남은 보장 경계는 [바인딩 작업 안내](BINDING_OPERATIONS.md), 순수 모델 증명은 [Lean 안내](LEAN4_INTEGRATION.md)에 정리한다.

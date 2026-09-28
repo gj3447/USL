@@ -1,0 +1,891 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "progress:generator",
+      "types": [
+        "urn:usl:status:Source"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/scripts/build-binding-progress.ts",
+      "metadata": {
+        "path": "scripts/build-binding-progress.ts",
+        "sourceDigest": "sha256:ec471a3216361f5f0830aec98ce1292a3993a4e6297677036d002aba4fc0c78a",
+        "scope": "DETERMINISTIC_SOURCE_TRACEABILITY_ONLY"
+      }
+    },
+    {
+      "id": "progress:activity",
+      "types": [
+        "urn:usl:status:ReviewActivity"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "scope": "CURRENT_INCREMENT_SOURCE_DEFINITIONS",
+        "testExecution": "NOT_CLAIMED",
+        "runtimeRefinement": "NOT_ESTABLISHED",
+        "remoteIdentityVerification": "NOT_ESTABLISHED",
+        "exactlyOnceExecution": "NOT_ESTABLISHED",
+        "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
+        "sourceRootStatus": "RECORDED_HOST_LOCATOR_REBIND_ON_RELOCATION"
+      }
+    },
+    {
+      "id": "progress:agent",
+      "types": [
+        "urn:usl:status:Agent"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "ratification": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/resource-bindings.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/resource-bindings.ts",
+      "metadata": {
+        "path": "src/resource-bindings.ts",
+        "sourceDigest": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef"
+      }
+    },
+    {
+      "id": "artifact:src/integrations/resource-bindings.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/integrations/resource-bindings.ts",
+      "metadata": {
+        "path": "src/integrations/resource-bindings.ts",
+        "sourceDigest": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902"
+      }
+    },
+    {
+      "id": "artifact:src/binding-inspection.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/binding-inspection.ts",
+      "metadata": {
+        "path": "src/binding-inspection.ts",
+        "sourceDigest": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8"
+      }
+    },
+    {
+      "id": "artifact:src/attempt-state.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/attempt-state.ts",
+      "metadata": {
+        "path": "src/attempt-state.ts",
+        "sourceDigest": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e"
+      }
+    },
+    {
+      "id": "artifact:src/cli-operation.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-operation.ts",
+      "metadata": {
+        "path": "src/cli-operation.ts",
+        "sourceDigest": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b"
+      }
+    },
+    {
+      "id": "artifact:src/cli-recovery.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-recovery.ts",
+      "metadata": {
+        "path": "src/cli-recovery.ts",
+        "sourceDigest": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9"
+      }
+    },
+    {
+      "id": "artifact:src/cli-host.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-host.ts",
+      "metadata": {
+        "path": "src/cli-host.ts",
+        "sourceDigest": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692"
+      }
+    },
+    {
+      "id": "test-definition:test/binding-inspection.test.ts",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/test/binding-inspection.test.ts",
+      "metadata": {
+        "path": "test/binding-inspection.test.ts",
+        "sourceDigest": "sha256:78a3b1a44ff4a03813af44ccd0ebb529011cee7de0ff7e0a8e846b999db59dcd",
+        "evidenceKind": "TEST_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "finiteCoverage": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "test-definition:test/attempt-state.test.ts",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/test/attempt-state.test.ts",
+      "metadata": {
+        "path": "test/attempt-state.test.ts",
+        "sourceDigest": "sha256:5d7de5365f5000e0647001f7e48cf7d4250702e0a04dbc2e0670265f0d9dd648",
+        "evidenceKind": "TEST_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "finiteCoverage": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "test-definition:test/cli-operation.test.ts",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/test/cli-operation.test.ts",
+      "metadata": {
+        "path": "test/cli-operation.test.ts",
+        "sourceDigest": "sha256:3ad6ba12db67f3449ee44e53b9eedcd0a9eaadc8ce2e76179ff3bacf1027a736",
+        "evidenceKind": "TEST_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "finiteCoverage": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "test-definition:test/cli-recovery.test.ts",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/test/cli-recovery.test.ts",
+      "metadata": {
+        "path": "test/cli-recovery.test.ts",
+        "sourceDigest": "sha256:c8f869a178c735d68c0a50634f871599bbcf521597c9cd6f6a76f5260e5e44a5",
+        "evidenceKind": "TEST_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "finiteCoverage": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "test-definition:test/cli-host.test.ts",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/test/cli-host.test.ts",
+      "metadata": {
+        "path": "test/cli-host.test.ts",
+        "sourceDigest": "sha256:d384ea041e287b90e756354103b8f32bded899960c333b901a3ef91d9a4ccb2f",
+        "evidenceKind": "TEST_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "finiteCoverage": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "model:lean/Usl/Attempt.lean",
+      "types": [
+        "urn:usl:status:FormalModel"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Attempt.lean",
+      "metadata": {
+        "path": "lean/Usl/Attempt.lean",
+        "sourceDigest": "sha256:ed668c89b6dfafc1867caf12fddb5c1dd9c4dcd96944be5e0123747af3beeaf6",
+        "scope": "PURE_ATTEMPT_STATE_MACHINE",
+        "runtimeRefinement": "NOT_ESTABLISHED",
+        "proofExecution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "model:lean/Usl/Bindings.lean",
+      "types": [
+        "urn:usl:status:FormalModel"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Bindings.lean",
+      "metadata": {
+        "path": "lean/Usl/Bindings.lean",
+        "sourceDigest": "sha256:3270c827f959c4391d70727b685dee7df980b09271e694f1ab003a6cdf87fb96",
+        "scope": "PURE_BINDING_SELECTION_AND_REBINDING",
+        "runtimeRefinement": "NOT_ESTABLISHED",
+        "proofExecution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:lean/Usl/Attempt.lean",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Attempt.lean",
+      "metadata": {
+        "path": "lean/Usl/Attempt.lean",
+        "sourceDigest": "sha256:ed668c89b6dfafc1867caf12fddb5c1dd9c4dcd96944be5e0123747af3beeaf6",
+        "role": "LEAN_MODEL_SOURCE",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "artifact:lean/Usl/Bindings.lean",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Bindings.lean",
+      "metadata": {
+        "path": "lean/Usl/Bindings.lean",
+        "sourceDigest": "sha256:3270c827f959c4391d70727b685dee7df980b09271e694f1ab003a6cdf87fb96",
+        "role": "LEAN_MODEL_SOURCE",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "feature:binding-inspection",
+      "types": [
+        "urn:usl:status:Feature"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "title": "명시적 표현의 경계 있는 로컬 binding 관찰",
+        "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+        "historicalTask": "T3",
+        "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+        "testExecution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "gap:binding-inspection",
+      "types": [
+        "urn:usl:status:Limitation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "detail": "원격 origin 후보는 비밀값을 제거한 관찰일 뿐이며 GitHub·fork·mirror의 동일성이나 원격 commit 신뢰를 검증하지 않는다."
+      }
+    },
+    {
+      "id": "historical-task:T3",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "metadata": {
+        "id": "T3",
+        "status": "PARTIALLY_ADDRESSED_BY_CURRENT_INCREMENT",
+        "acceptanceComplete": false,
+        "source": "HISTORICAL_CURRENT_STATE_GRAPH",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "feature:attempt-state",
+      "types": [
+        "urn:usl:status:Feature"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "title": "intent 저장 뒤 실행 허용과 시작 전 거부 상태 계약",
+        "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+        "historicalTask": "T1",
+        "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+        "testExecution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "gap:attempt-state",
+      "types": [
+        "urn:usl:status:Limitation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "detail": "Lean은 순수 상태 전이만 모델링하며 TypeScript, 파일 시스템, subprocess와의 refinement 증명은 없다."
+      }
+    },
+    {
+      "id": "historical-task:T1",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "metadata": {
+        "id": "T1",
+        "status": "PARTIALLY_ADDRESSED_BY_CURRENT_INCREMENT",
+        "acceptanceComplete": false,
+        "source": "HISTORICAL_CURRENT_STATE_GRAPH",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "feature:operation-reservation",
+      "types": [
+        "urn:usl:status:Feature"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "title": "logical operation 예약과 중복 실행 거절",
+        "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+        "historicalTask": "T2",
+        "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+        "testExecution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "gap:operation-reservation",
+      "types": [
+        "urn:usl:status:Limitation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "detail": "예약은 현재 host 저장소 범위다. 외부 효과의 exactly-once 보장이나 분산 owner 간 동일 operation 합의는 제공하지 않는다."
+      }
+    },
+    {
+      "id": "historical-task:T2",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "metadata": {
+        "id": "T2",
+        "status": "PARTIALLY_ADDRESSED_BY_CURRENT_INCREMENT",
+        "acceptanceComplete": false,
+        "source": "HISTORICAL_CURRENT_STATE_GRAPH",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "feature:recovery",
+      "types": [
+        "urn:usl:status:Feature"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "title": "불명확 attempt의 명시적 owner reconciliation",
+        "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+        "historicalTask": "T2",
+        "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+        "testExecution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "gap:recovery",
+      "types": [
+        "urn:usl:status:Limitation"
+      ],
+      "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "metadata": {
+        "detail": "reconciler의 외부 관찰은 owner가 제공하는 best effort evidence이며 원격 효과·네트워크·crash recovery 전체를 형식 증명하지 않는다."
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:status:implemented_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:implemented_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:tested_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:tested_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:modeled_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:modeled_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:defined_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:defined_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:proved_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:proved_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:compared_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:compared_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:bounded_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:bounded_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:addressed_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:addressed_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:depends_on",
+      "description": "Current binding-progress traceability relation urn:usl:status:depends_on; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:informed_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:informed_by; structural declaration only."
+    },
+    {
+      "id": "urn:usl:status:structurally_checked_by",
+      "description": "Current binding-progress traceability relation urn:usl:status:structurally_checked_by; structural declaration only."
+    }
+  ],
+  "links": [
+    {
+      "id": "implemented_by:feature:binding-inspection:artifact:src/resource-bindings.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:binding-inspection"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/resource-bindings.ts"
+        }
+      ]
+    },
+    {
+      "id": "implemented_by:feature:binding-inspection:artifact:src/integrations/resource-bindings.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:binding-inspection"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/integrations/resource-bindings.ts"
+        }
+      ]
+    },
+    {
+      "id": "implemented_by:feature:binding-inspection:artifact:src/binding-inspection.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:binding-inspection"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/binding-inspection.ts"
+        }
+      ]
+    },
+    {
+      "id": "tested_by:feature:binding-inspection:test-definition:test/binding-inspection.test.ts",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:binding-inspection"
+        },
+        {
+          "role": "evidence",
+          "resource": "test-definition:test/binding-inspection.test.ts"
+        }
+      ],
+      "metadata": {
+        "relationScope": "TEST_DEFINITION_ONLY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "modeled_by:feature:binding-inspection:model:lean/Usl/Bindings.lean",
+      "meaning": "urn:usl:status:modeled_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:binding-inspection"
+        },
+        {
+          "role": "model",
+          "resource": "model:lean/Usl/Bindings.lean"
+        }
+      ],
+      "metadata": {
+        "relationScope": "SELECTION_AND_STABLE_ID_PRESERVATION_ONLY",
+        "gitObservation": "NOT_MODELED",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "bounded_by:feature:binding-inspection:gap:binding-inspection",
+      "meaning": "urn:usl:status:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:binding-inspection"
+        },
+        {
+          "role": "limitation",
+          "resource": "gap:binding-inspection"
+        }
+      ]
+    },
+    {
+      "id": "addressed_by:gap:binding-inspection:historical-task:T3",
+      "meaning": "urn:usl:status:addressed_by",
+      "participants": [
+        {
+          "role": "limitation",
+          "resource": "gap:binding-inspection"
+        },
+        {
+          "role": "task",
+          "resource": "historical-task:T3"
+        }
+      ],
+      "metadata": {
+        "progress": "PARTIAL_ONLY",
+        "acceptanceComplete": false
+      }
+    },
+    {
+      "id": "implemented_by:feature:attempt-state:artifact:src/attempt-state.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:attempt-state"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/attempt-state.ts"
+        }
+      ]
+    },
+    {
+      "id": "implemented_by:feature:attempt-state:artifact:src/cli-host.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:attempt-state"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-host.ts"
+        }
+      ]
+    },
+    {
+      "id": "tested_by:feature:attempt-state:test-definition:test/attempt-state.test.ts",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:attempt-state"
+        },
+        {
+          "role": "evidence",
+          "resource": "test-definition:test/attempt-state.test.ts"
+        }
+      ],
+      "metadata": {
+        "relationScope": "TEST_DEFINITION_ONLY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tested_by:feature:attempt-state:test-definition:test/cli-host.test.ts",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:attempt-state"
+        },
+        {
+          "role": "evidence",
+          "resource": "test-definition:test/cli-host.test.ts"
+        }
+      ],
+      "metadata": {
+        "relationScope": "TEST_DEFINITION_ONLY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "modeled_by:feature:attempt-state:model:lean/Usl/Attempt.lean",
+      "meaning": "urn:usl:status:modeled_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:attempt-state"
+        },
+        {
+          "role": "model",
+          "resource": "model:lean/Usl/Attempt.lean"
+        }
+      ],
+      "metadata": {
+        "relationScope": "PURE_ATTEMPT_STATE_ONLY",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "bounded_by:feature:attempt-state:gap:attempt-state",
+      "meaning": "urn:usl:status:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:attempt-state"
+        },
+        {
+          "role": "limitation",
+          "resource": "gap:attempt-state"
+        }
+      ]
+    },
+    {
+      "id": "addressed_by:gap:attempt-state:historical-task:T1",
+      "meaning": "urn:usl:status:addressed_by",
+      "participants": [
+        {
+          "role": "limitation",
+          "resource": "gap:attempt-state"
+        },
+        {
+          "role": "task",
+          "resource": "historical-task:T1"
+        }
+      ],
+      "metadata": {
+        "progress": "PARTIAL_ONLY",
+        "acceptanceComplete": false
+      }
+    },
+    {
+      "id": "implemented_by:feature:operation-reservation:artifact:src/cli-operation.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:operation-reservation"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-operation.ts"
+        }
+      ]
+    },
+    {
+      "id": "implemented_by:feature:operation-reservation:artifact:src/cli-host.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:operation-reservation"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-host.ts"
+        }
+      ]
+    },
+    {
+      "id": "tested_by:feature:operation-reservation:test-definition:test/cli-operation.test.ts",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:operation-reservation"
+        },
+        {
+          "role": "evidence",
+          "resource": "test-definition:test/cli-operation.test.ts"
+        }
+      ],
+      "metadata": {
+        "relationScope": "TEST_DEFINITION_ONLY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tested_by:feature:operation-reservation:test-definition:test/cli-host.test.ts",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:operation-reservation"
+        },
+        {
+          "role": "evidence",
+          "resource": "test-definition:test/cli-host.test.ts"
+        }
+      ],
+      "metadata": {
+        "relationScope": "TEST_DEFINITION_ONLY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "bounded_by:feature:operation-reservation:gap:operation-reservation",
+      "meaning": "urn:usl:status:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:operation-reservation"
+        },
+        {
+          "role": "limitation",
+          "resource": "gap:operation-reservation"
+        }
+      ]
+    },
+    {
+      "id": "addressed_by:gap:operation-reservation:historical-task:T2",
+      "meaning": "urn:usl:status:addressed_by",
+      "participants": [
+        {
+          "role": "limitation",
+          "resource": "gap:operation-reservation"
+        },
+        {
+          "role": "task",
+          "resource": "historical-task:T2"
+        }
+      ],
+      "metadata": {
+        "progress": "PARTIAL_ONLY",
+        "acceptanceComplete": false
+      }
+    },
+    {
+      "id": "implemented_by:feature:recovery:artifact:src/cli-recovery.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:recovery"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-recovery.ts"
+        }
+      ]
+    },
+    {
+      "id": "implemented_by:feature:recovery:artifact:src/cli-host.ts",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:recovery"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-host.ts"
+        }
+      ]
+    },
+    {
+      "id": "tested_by:feature:recovery:test-definition:test/cli-recovery.test.ts",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:recovery"
+        },
+        {
+          "role": "evidence",
+          "resource": "test-definition:test/cli-recovery.test.ts"
+        }
+      ],
+      "metadata": {
+        "relationScope": "TEST_DEFINITION_ONLY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tested_by:feature:recovery:test-definition:test/cli-host.test.ts",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:recovery"
+        },
+        {
+          "role": "evidence",
+          "resource": "test-definition:test/cli-host.test.ts"
+        }
+      ],
+      "metadata": {
+        "relationScope": "TEST_DEFINITION_ONLY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "bounded_by:feature:recovery:gap:recovery",
+      "meaning": "urn:usl:status:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:recovery"
+        },
+        {
+          "role": "limitation",
+          "resource": "gap:recovery"
+        }
+      ]
+    },
+    {
+      "id": "addressed_by:gap:recovery:historical-task:T2",
+      "meaning": "urn:usl:status:addressed_by",
+      "participants": [
+        {
+          "role": "limitation",
+          "resource": "gap:recovery"
+        },
+        {
+          "role": "task",
+          "resource": "historical-task:T2"
+        }
+      ],
+      "metadata": {
+        "progress": "PARTIAL_ONLY",
+        "acceptanceComplete": false
+      }
+    },
+    {
+      "id": "defined_by:model:lean/Usl/Attempt.lean:artifact:lean/Usl/Attempt.lean",
+      "meaning": "urn:usl:status:defined_by",
+      "participants": [
+        {
+          "role": "model",
+          "resource": "model:lean/Usl/Attempt.lean"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:lean/Usl/Attempt.lean"
+        }
+      ],
+      "metadata": {
+        "relationship": "FORMAL_MODEL_DEFINED_IN_SOURCE",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "defined_by:model:lean/Usl/Bindings.lean:artifact:lean/Usl/Bindings.lean",
+      "meaning": "urn:usl:status:defined_by",
+      "participants": [
+        {
+          "role": "model",
+          "resource": "model:lean/Usl/Bindings.lean"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:lean/Usl/Bindings.lean"
+        }
+      ],
+      "metadata": {
+        "relationship": "FORMAL_MODEL_DEFINED_IN_SOURCE",
+        "runtimeRefinement": "NOT_ESTABLISHED"
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "progress:generator"
+    ],
+    "activity": "progress:activity",
+    "agent": "progress:agent"
+  }
+}

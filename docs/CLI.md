@@ -4,13 +4,17 @@
 
 ```sh
 usl locate --config HOST.json --resource ID --representation REPRESENTATION_ID
+usl inspect-binding --config HOST.json --resource ID --representation REPRESENTATION_ID
 usl bind-graph --config HOST.json --graph GRAPH.json --selections SELECTIONS.json --out NEW_ENVELOPE.json
 usl cli-list --config HOST.json
 usl cli-plan --config HOST.json --action ID --input INVOCATION.json --out NEW_PLAN.json
-usl cli-run --config HOST.json --action ID --input INVOCATION.json --expected-plan sha256:... --receipt-dir NEW_DIRECTORY
+usl cli-run --config HOST.json --action ID --input INVOCATION.json --expected-plan sha256:... --receipt-dir NEW_DIRECTORY [--operation-key KEY]
+usl cli-inspect --receipt-dir DIRECTORY
 ```
 
 `HOST.json`은 별도 `usl-cli-host/v1` 설정이다. MCP 설정과 혼용하지 않는다. `bind-graph` 출력은 `graph`와 `bindingReceipt` envelope이며 기존 `adapt`에 넣을 때는 `graph`를 사용한다. plan/graph 출력 파일은 새 파일만 허용한다. run은 intent와 result를 새 디렉터리에 기록한다. 거부·불명 결과는 exit 2이며 자동 재시도하지 않는다. `npm run example:cli`로 실제 실행 예제를 확인한다.
+
+`inspect-binding`은 파일 pin과 로컬 Git 상태를 조회하며 원격 내용을 가져오지 않는다. host에 `operations`가 있으면 `cli-run`의 `--operation-key`가 필수다. `cli-inspect`는 현재 host 없이 과거 기록을 검사하며, 유효한 intent-only 기록은 `UNKNOWN`으로 출력하고 exit 0이다. 소유자 대조는 SDK의 등록된 `connectCliReconciler` 콜백을 사용한다. [바인딩·중복 키·복구 사용법](BINDING_OPERATIONS.md).
 
 `usl capability-discover --config FILE --input REQUEST.json`과 `usl capability-preflight --config FILE --input REQUEST.json`은 호스트가 등록한 기능을 검색하고 호출 조건을 검사한다. 둘 다 `--out FILE`을 지원하며 기능을 실행하지 않는다. [요청·설정 예제](CAPABILITY_CATALOG.md)를 참고한다.
 

@@ -1,6 +1,6 @@
 # Lean 4와 USL
 
-2026-09-28 재검증과 새 CLI/resource binding의 미증명 범위는 [Lean 범위 감사](../audit/LEAN_SCOPE_2026-09-28.md)에 정리했다. 실행 상태 모델을 우선하는 후속 계획은 [현재 상태와 다음 작업](CURRENT_STATE_AND_NEXT_STEPS.md)을 참고한다.
+2026-09-28의 [Lean 범위 감사](../audit/LEAN_SCOPE_2026-09-28.md)는 당시 37개 그래프 모델 정리에 대한 역사 기록이다. 현재 실행 상태·자원 바인딩 모델의 범위와 수치는 이 문서의 아래 내용을 기준으로 한다. 실행 상태 모델을 우선하는 후속 계획은 [현재 상태와 다음 작업](CURRENT_STATE_AND_NEXT_STEPS.md)을 참고한다.
 
 Lean 선언·증명과 외부 자원을 연결하는 경로, USL 자체 모델의 형식 검증을 모두 제공한다. 런타임은 TypeScript + Effect이며 Lean은 기존 증명 환경과 형식 검증을 담당한다. 새 DB는 만들지 않는다.
 
@@ -65,7 +65,15 @@ const connection = connectUsl({
 
 ## 형식 검증 범위
 
-역할 이름을 가진 하이퍼그래프를 형식화하고 **37개 정리**를 Lean 4.33.1로 검증한다. [Core.lean](../lean/Usl/Core.lean)은 기본 모델과 10개 정리, [Verification.lean](../lean/Usl/Verification.lean)은 경로·선택·읽기 예산에 관한 20개 정리, [Contracts.lean](../lean/Usl/Contracts.lean)은 구조 검사와 역할 방향에 관한 7개 정리를 담는다.
+역할 이름을 가진 하이퍼그래프, 순수 실행 시도 상태, 휴대 가능한 자원 바인딩의 일부를 형식화하고 **54개 정리**를 Lean 4.33.1로 검증한다.
+
+| Lean 소스 | 정리 수 | 모델 범위 |
+|---|---:|---|
+| [Core.lean](../lean/Usl/Core.lean) | 10 | 기본 하이퍼그래프, 링크 선택, 허용 읽기, 유한 홉 탐색 soundness |
+| [Verification.lean](../lean/Usl/Verification.lean) | 20 | 경로·선택·읽기 예산의 정확성, 완전성, 보존성 |
+| [Contracts.lean](../lean/Usl/Contracts.lean) | 7 | 구조 검사와 역할 방향 |
+| [Attempt.lean](../lean/Usl/Attempt.lean) | 11 | durable intent, pin 일치 후 실행 권한, 종료 상태의 재시도 불가 |
+| [Bindings.lean](../lean/Usl/Bindings.lean) | 6 | resource/representation ID와 환경 address 분리, 단일 선택, address 재바인딩 |
 
 | 정리 | 보장 |
 |---|---|
@@ -90,6 +98,10 @@ const connection = connectUsl({
 | `validateGraph_correct` | 실행 가능한 구조 검사 성공 ↔ 모델의 구조 조건 만족 |
 | `validGraph_wellformed`, `selection_preserves_validGraph/validation` | 구조 검사는 참조 무결성을 함의하며 링크 선택 후에도 유효성 유지 |
 | `routedStep_correct`, `routedStep_original`, `no_routes_no_step` | 지정한 의미·진입 역할·이탈 역할에 맞는 원래 참여자 사이에서만 한 단계 이동; 빈 역할 정책은 이동을 허용하지 않음 |
+| `authorize_requires_durable_intent_and_matching_pins` | `AUTHORIZED` 전이는 durable intent 상태와 `pinsMatch = true`일 때에만 가능 |
+| `finished_attempt_cannot_retry`, `terminal_immutable` | 성공·불명확·거절 종료 상태에서 후속 전이는 없으며, 순수 상태 계약은 자동 재시도 권한을 만들지 않음 |
+| `explicit_selection_requires_exactly_one`, `omitted_selection_requires_exactly_one` | 표현을 명시했을 때와 생략했을 때 모두 후보가 정확히 하나일 때에만 선택됨 |
+| `rebind_preserves_resource_id`, `rebind_preserves_representation_ids`, `rebind_preserves_wellformedness`, `rebind_selected_locator_replaced` | 재바인딩은 resource ID와 representation ID를 보존하고, well-formed ID 목록을 유지하며 선택된 address만 바꿈 |
 
 핵심 명제는 다음처럼 **실행 함수와 경로 명세의 동치**로 작성되어 있다. 유한한 예시만 열거한 정리가 아니다.
 
@@ -104,15 +116,19 @@ theorem reachableWithin_correct {graph : Graph} {start target : String} {hops : 
 npm run test:lean
 ```
 
-위 명령은 라이브러리를 빌드하고 [ProofAudit.lean](../lean/Examples/ProofAudit.lean)의 전체 37개 정리를 export한다. 각 선언이 정리이고 unsafe/partial이 아니며 전이적 공리 의존성이 `propext`, `Classical.choice`, `Quot.sound` 안에만 있는지 검사한다. `sorryAx` 및 사용자 정의 공리 의존성은 실패 처리한다. 선언 목록 누락도 검사한다. 일반 export 기능 자체는 외부 선언의 사용자 공리를 지우지 않는다.
+위 명령은 라이브러리를 빌드하고 [ProofAudit.lean](../lean/Examples/ProofAudit.lean)의 전체 54개 정리를 export한다. 각 선언이 정리이고 unsafe/partial이 아니며 전이적 공리 의존성이 `propext`, `Classical.choice`, `Quot.sound` 안에만 있는지 검사한다. `sorryAx` 및 사용자 정의 공리 의존성은 실패 처리한다. 선언 목록 누락도 검사한다. 일반 export 기능 자체는 외부 선언의 사용자 공리를 지우지 않는다.
 
-[Conformance.lean](../lean/Examples/Conformance.lean)의 실행 결과를 실제 TS 구현과 다음 **383건** 대조하고 별도로 읽기 허용 목록의 기본 예시를 검사한다.
+[Conformance.lean](../lean/Examples/Conformance.lean)의 실행 결과를 실제 TS 구현과 다음 **444건** 대조하고 별도로 Lean 경계 예시를 검사한다.
 
 - 100개 경로: 순환, 고립 자원, 다자 관계, 0–3 홉.
 - 80개 역할 이동: 서로 다른 출발·도착 자원 20쌍 × 빈 정책·정방향·역방향·양방향 정책. 발견된 TS 경로의 의미와 진입·이탈 역할도 검사한다.
 - 192개 읽기 예산: 허용 목록 32조합 × 예산 0–5. 초과 요청은 resolver 호출 전에 실패하고, 승인 시 실제 호출 자원이 모델과 일치한다.
 - 11개 구조 검사: 정상·빈 자원 목록·중복 ID·빈 참여자·중복 역할·미선언 자원·링크 선택·단항 링크·여러 역할에 같은 자원·빈 링크 목록.
+- 7개 상태 trace: 계획·intent 기록·권한 부여·실행 전 거절·미시작 종료·성공·불명확 종료.
+- 48개 상태 전이: 6개 phase × 8개 event의 전 표. Lean의 `none`은 TypeScript의 전이 거절과 대조한다.
+- 5개 표현 선택: 명시 선택, 누락 선택, 없는 표현, 여러 표현의 모호성을 대조한다.
+- 1개 실제 relocation: 임시 workspace의 `before/item.txt`와 `after/item.txt`를 `resolveResourceRepresentation`으로 해석해 resource ID와 representation ID는 같고 locator만 달라지는지 확인한다.
 
 실제 Lean 실행의 간접 `sorry`, export 이후 오류, 중복 export, 실행 제한도 검사한다. 홉 예산 초과와 전역 비도달성의 차이, 역할 탐색의 비대칭성, 도달성이 읽기 권한을 부여하지 않는다는 세 경계 예시도 Lean에서 검사한다. [검증 기록](../audit/LEAN_PROOFS_2026-09-14.md)을 참고한다.
 
-37개 정리는 **Lean 모델에 대한 증명**이다. TypeScript의 parser·compiler·해시·BFS 전체 구현, locator 정규화, 외부 resolver, 사용자 의미 대응은 형식 증명하지 않았다. 모델의 일반 탐색은 홉 예산만 다루며 TS의 자원·링크·방문 예산과 최대 32홉 제한까지 완전성을 주장하지 않는다. 역할 정책의 증명은 한 단계 이동에 관한 것이다. TS와 모델의 연결은 현재 유한한 대조 테스트이며 전 프로그램 refinement proof로 표기하지 않는다.
+54개 정리는 **Lean의 순수 모델에 대한 증명**이다. `Attempt.lean`은 OS 프로세스가 실제로 시작·종료했는지, fsync가 영속됐는지, 영수증이 외부 효과와 원자적인지를 모델링하지 않는다. `Bindings.lean`은 ID 선택과 address 교체만 모델링하며 filesystem realpath·symlink containment, Git/HTTP 내용, worktree, 네트워크를 증명하지 않는다. TypeScript의 parser·compiler·해시·BFS 전체 구현, locator 정규화, 외부 resolver, 사용자 의미 대응도 형식 증명하지 않았다. 모델의 일반 탐색은 홉 예산만 다루며 TS의 자원·링크·방문 예산과 최대 32홉 제한까지 완전성을 주장하지 않는다. 역할 정책의 증명은 한 단계 이동에 관한 것이다. TS와 모델의 연결은 444개의 유한 대조 테스트이며 전 프로그램 refinement proof나 OS·외부 시스템 보증으로 표기하지 않는다.

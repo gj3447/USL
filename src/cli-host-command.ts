@@ -4,7 +4,8 @@ import { resolve } from "node:path"
 import { parseArgs, type ParseArgsOptionsConfig } from "node:util"
 import { readUtf8Bounded } from "./bounded-read.js"
 import { capabilityInvocationSchema, type CapabilityInvocation } from "./capabilities.js"
-import { bindCliResourceGraph, executeCliAction, listCliActions, locateCliResource, planCliAction } from "./cli-host.js"
+import { bindCliResourceGraph, executeCliAction, inspectCliBinding, listCliActions, locateCliResource, planCliAction } from "./cli-host.js"
+import { inspectCliAttempt } from "./cli-recovery.js"
 import { PlatformUsageError } from "./cli-platform.js"
 import { writeTextAtomic } from "./storage.js"
 
@@ -14,9 +15,11 @@ const canonical = (file: string) => realpath(file).catch(() => resolve(file))
 
 export const CLI_HOST_USAGE = `  usl cli-list --config FILE
   usl locate --config FILE --resource ID [--representation ID]
+  usl inspect-binding --config FILE --resource ID --representation ID
   usl bind-graph --config HOST --graph RESOURCE_GRAPH.json --selections SELECTIONS.json [--out FILE]
   usl cli-plan --config FILE --action ID --input INVOCATION.json [--out FILE]
-  usl cli-run --config FILE --action ID --input INVOCATION.json --expected-plan sha256:... --receipt-dir NEW_DIRECTORY`
+  usl cli-run --config FILE --action ID --input INVOCATION.json --expected-plan sha256:... --receipt-dir NEW_DIRECTORY [--operation-key KEY]
+  usl cli-inspect --receipt-dir DIRECTORY`
 
 const required = (value: string | undefined, flag: string): string => {
   if (!value?.trim()) throw new PlatformUsageError(`--${flag} is required`)
@@ -51,8 +54,21 @@ const setExitStatus = (result: unknown): void => {
 
 export const runCliHostCommand = async (argv: readonly string[]): Promise<boolean> => {
   const command = argv[0]
-  if (command === undefined || !["cli-list", "locate", "bind-graph", "cli-plan", "cli-run"].includes(command)) return false
+  if (command === undefined || !["cli-list", "locate", "inspect-binding", "bind-graph", "cli-plan", "cli-run", "cli-inspect"].includes(command)) return false
   if (argv.length === 2 && argv[1] === "--help") { console.log(CLI_HOST_USAGE); return true }
+
+  if (command === "cli-inspect") {
+    const values = parse(argv.slice(1), { "receipt-dir": { type: "string" } })
+    process.stdout.write(output(await inspectCliAttempt(required(values["receipt-dir"], "receipt-dir"))))
+    return true
+  }
+  if (command === "inspect-binding") {
+    const values = parse(argv.slice(1), { config: { type: "string" }, resource: { type: "string" }, representation: { type: "string" } })
+    process.stdout.write(output(await inspectCliBinding(required(values.config, "config"), {
+      resource: required(values.resource, "resource"), representation: required(values.representation, "representation"),
+    })))
+    return true
+  }
 
   if (command === "cli-list") {
     const values = parse(argv.slice(1), { config: { type: "string" } })
@@ -106,7 +122,7 @@ export const runCliHostCommand = async (argv: readonly string[]): Promise<boolea
     setExitStatus(result)
     return true
   }
-  const values = parse(argv.slice(1), { config: { type: "string" }, action: { type: "string" }, input: { type: "string" }, "expected-plan": { type: "string" }, "receipt-dir": { type: "string" } })
+  const values = parse(argv.slice(1), { config: { type: "string" }, action: { type: "string" }, input: { type: "string" }, "expected-plan": { type: "string" }, "receipt-dir": { type: "string" }, "operation-key": { type: "string" } })
   const expectedPlanDigest = required(values["expected-plan"], "expected-plan")
   if (!EXPECTED_PLAN_DIGEST.test(expectedPlanDigest)) throw new PlatformUsageError("--expected-plan must be sha256:<lowercase-hex>")
   const controller = new AbortController()
@@ -116,7 +132,9 @@ export const runCliHostCommand = async (argv: readonly string[]): Promise<boolea
   let result: Awaited<ReturnType<typeof executeCliAction>>
   try {
     result = await executeCliAction(required(values.config, "config"), required(values.action, "action"),
-      await invocation(required(values.input, "input")), expectedPlanDigest, required(values["receipt-dir"], "receipt-dir"), { signal: controller.signal })
+      await invocation(required(values.input, "input")), expectedPlanDigest, required(values["receipt-dir"], "receipt-dir"), {
+        signal: controller.signal, ...(values["operation-key"] === undefined ? {} : { operationKey: required(values["operation-key"], "operation-key") }),
+      })
   } finally {
     process.removeListener("SIGINT", abort)
     process.removeListener("SIGTERM", abort)

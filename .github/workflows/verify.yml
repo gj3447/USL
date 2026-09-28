@@ -46,3 +46,5 @@ jobs:
       - run: npm run test:standards
       - run: npm run engineering:check
       - run: npm run engineering:standards
+      - run: npm run binding-progress:check
+      - run: npm run binding-progress:standards

@@ -1,0 +1,2311 @@
+{
+  "@context": {
+    "usl": "urn:usl:vocab:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4",
+      "@type": "prov:Entity",
+      "usl:sourceDigest": "sha256:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+    },
+    {
+      "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6",
+      "@type": "usl:DomainProfile",
+      "usl:profileDigest": "sha256:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6",
+      "usl:profile": {
+        "@value": {
+          "schema": "usl-domain-profile/v1",
+          "id": "urn:usl:status:profile",
+          "version": "1",
+          "closedMeanings": true,
+          "meanings": [
+            {
+              "id": "urn:usl:status:implemented_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Artifact"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:tested_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:TestEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:modeled_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:defined_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Artifact"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:proved_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:compared_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "model",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:FormalModel"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:ComparisonEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:bounded_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Feature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "limitation",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Limitation"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:addressed_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "limitation",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Limitation"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:depends_on",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "prerequisite",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:informed_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Task"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "source",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:ExternalSource"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:status:structurally_checked_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:Artifact"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "evidence",
+                  "required": true,
+                  "types": [
+                    "urn:usl:status:StructuralEvidence"
+                  ],
+                  "metadata": []
+                }
+              ]
+            }
+          ]
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Source"
+      ],
+      "usl:nativeId": "progress:generator",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/scripts/build-binding-progress.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "scripts/build-binding-progress.ts",
+          "sourceDigest": "sha256:ec471a3216361f5f0830aec98ce1292a3993a4e6297677036d002aba4fc0c78a",
+          "scope": "DETERMINISTIC_SOURCE_TRACEABILITY_ONLY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:ReviewActivity"
+      ],
+      "usl:nativeId": "progress:activity",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "scope": "CURRENT_INCREMENT_SOURCE_DEFINITIONS",
+          "testExecution": "NOT_CLAIMED",
+          "runtimeRefinement": "NOT_ESTABLISHED",
+          "remoteIdentityVerification": "NOT_ESTABLISHED",
+          "exactlyOnceExecution": "NOT_ESTABLISHED",
+          "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
+          "sourceRootStatus": "RECORDED_HOST_LOCATOR_REBIND_ON_RELOCATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Agent"
+      ],
+      "usl:nativeId": "progress:agent",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "ratification": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/resource-bindings.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/resource-bindings.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/resource-bindings.ts",
+          "sourceDigest": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fintegrations%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/resource-bindings.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/integrations/resource-bindings.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/resource-bindings.ts",
+          "sourceDigest": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fbinding-inspection.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/binding-inspection.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/binding-inspection.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/binding-inspection.ts",
+          "sourceDigest": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fattempt-state.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/attempt-state.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/attempt-state.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/attempt-state.ts",
+          "sourceDigest": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-operation.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-operation.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-operation.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-operation.ts",
+          "sourceDigest": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-recovery.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-recovery.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-recovery.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-recovery.ts",
+          "sourceDigest": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-host.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-host.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-host.ts",
+          "sourceDigest": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fbinding-inspection.test.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "test-definition:test/binding-inspection.test.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/test/binding-inspection.test.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/binding-inspection.test.ts",
+          "sourceDigest": "sha256:78a3b1a44ff4a03813af44ccd0ebb529011cee7de0ff7e0a8e846b999db59dcd",
+          "evidenceKind": "TEST_DEFINITION",
+          "execution": "NOT_CLAIMED",
+          "finiteCoverage": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fattempt-state.test.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "test-definition:test/attempt-state.test.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/test/attempt-state.test.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/attempt-state.test.ts",
+          "sourceDigest": "sha256:5d7de5365f5000e0647001f7e48cf7d4250702e0a04dbc2e0670265f0d9dd648",
+          "evidenceKind": "TEST_DEFINITION",
+          "execution": "NOT_CLAIMED",
+          "finiteCoverage": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-operation.test.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "test-definition:test/cli-operation.test.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/test/cli-operation.test.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/cli-operation.test.ts",
+          "sourceDigest": "sha256:3ad6ba12db67f3449ee44e53b9eedcd0a9eaadc8ce2e76179ff3bacf1027a736",
+          "evidenceKind": "TEST_DEFINITION",
+          "execution": "NOT_CLAIMED",
+          "finiteCoverage": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-recovery.test.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "test-definition:test/cli-recovery.test.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/test/cli-recovery.test.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/cli-recovery.test.ts",
+          "sourceDigest": "sha256:c8f869a178c735d68c0a50634f871599bbcf521597c9cd6f6a76f5260e5e44a5",
+          "evidenceKind": "TEST_DEFINITION",
+          "execution": "NOT_CLAIMED",
+          "finiteCoverage": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-host.test.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "test-definition:test/cli-host.test.ts",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/test/cli-host.test.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/cli-host.test.ts",
+          "sourceDigest": "sha256:d384ea041e287b90e756354103b8f32bded899960c333b901a3ef91d9a4ccb2f",
+          "evidenceKind": "TEST_DEFINITION",
+          "execution": "NOT_CLAIMED",
+          "finiteCoverage": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:model%3Alean%2FUsl%2FAttempt.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:FormalModel"
+      ],
+      "usl:nativeId": "model:lean/Usl/Attempt.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Attempt.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Usl/Attempt.lean",
+          "sourceDigest": "sha256:ed668c89b6dfafc1867caf12fddb5c1dd9c4dcd96944be5e0123747af3beeaf6",
+          "scope": "PURE_ATTEMPT_STATE_MACHINE",
+          "runtimeRefinement": "NOT_ESTABLISHED",
+          "proofExecution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:model%3Alean%2FUsl%2FBindings.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:FormalModel"
+      ],
+      "usl:nativeId": "model:lean/Usl/Bindings.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Bindings.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Usl/Bindings.lean",
+          "sourceDigest": "sha256:3270c827f959c4391d70727b685dee7df980b09271e694f1ab003a6cdf87fb96",
+          "scope": "PURE_BINDING_SELECTION_AND_REBINDING",
+          "runtimeRefinement": "NOT_ESTABLISHED",
+          "proofExecution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Alean%2FUsl%2FAttempt.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:lean/Usl/Attempt.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Attempt.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Usl/Attempt.lean",
+          "sourceDigest": "sha256:ed668c89b6dfafc1867caf12fddb5c1dd9c4dcd96944be5e0123747af3beeaf6",
+          "role": "LEAN_MODEL_SOURCE",
+          "runtimeRefinement": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:artifact%3Alean%2FUsl%2FBindings.lean",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:lean/Usl/Bindings.lean",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/lean/Usl/Bindings.lean",
+      "usl:metadata": {
+        "@value": {
+          "path": "lean/Usl/Bindings.lean",
+          "sourceDigest": "sha256:3270c827f959c4391d70727b685dee7df980b09271e694f1ab003a6cdf87fb96",
+          "role": "LEAN_MODEL_SOURCE",
+          "runtimeRefinement": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:feature%3Abinding-inspection",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:binding-inspection",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "명시적 표현의 경계 있는 로컬 binding 관찰",
+          "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+          "historicalTask": "T3",
+          "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+          "testExecution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:gap%3Abinding-inspection",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:binding-inspection",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "detail": "원격 origin 후보는 비밀값을 제거한 관찰일 뿐이며 GitHub·fork·mirror의 동일성이나 원격 commit 신뢰를 검증하지 않는다."
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:historical-task%3AT3",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "historical-task:T3",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "id": "T3",
+          "status": "PARTIALLY_ADDRESSED_BY_CURRENT_INCREMENT",
+          "acceptanceComplete": false,
+          "source": "HISTORICAL_CURRENT_STATE_GRAPH",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:feature%3Aattempt-state",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:attempt-state",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "intent 저장 뒤 실행 허용과 시작 전 거부 상태 계약",
+          "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+          "historicalTask": "T1",
+          "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+          "testExecution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:gap%3Aattempt-state",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:attempt-state",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "detail": "Lean은 순수 상태 전이만 모델링하며 TypeScript, 파일 시스템, subprocess와의 refinement 증명은 없다."
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:historical-task%3AT1",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "historical-task:T1",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "id": "T1",
+          "status": "PARTIALLY_ADDRESSED_BY_CURRENT_INCREMENT",
+          "acceptanceComplete": false,
+          "source": "HISTORICAL_CURRENT_STATE_GRAPH",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:feature%3Aoperation-reservation",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:operation-reservation",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "logical operation 예약과 중복 실행 거절",
+          "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+          "historicalTask": "T2",
+          "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+          "testExecution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:gap%3Aoperation-reservation",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:operation-reservation",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "detail": "예약은 현재 host 저장소 범위다. 외부 효과의 exactly-once 보장이나 분산 owner 간 동일 operation 합의는 제공하지 않는다."
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:historical-task%3AT2",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Task"
+      ],
+      "usl:nativeId": "historical-task:T2",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/docs/CURRENT_STATE_AND_NEXT_STEPS.md",
+      "usl:metadata": {
+        "@value": {
+          "id": "T2",
+          "status": "PARTIALLY_ADDRESSED_BY_CURRENT_INCREMENT",
+          "acceptanceComplete": false,
+          "source": "HISTORICAL_CURRENT_STATE_GRAPH",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:feature%3Arecovery",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:recovery",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "불명확 attempt의 명시적 owner reconciliation",
+          "implementationStatus": "CURRENT_INCREMENT_IMPLEMENTED",
+          "historicalTask": "T2",
+          "historicalAcceptance": "PARTIAL_PROGRESS_ONLY",
+          "testExecution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:resource:gap%3Arecovery",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "gap:recovery",
+      "usl:locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/binding-progress.graph.json",
+      "usl:metadata": {
+        "@value": {
+          "detail": "reconciler의 외부 관찰은 owner가 제공하는 best effort evidence이며 원격 효과·네트워크·crash recovery 전체를 형식 증명하지 않는다."
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:implemented_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:implemented_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:tested_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:tested_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Amodeled_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:modeled_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:modeled_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Adefined_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:defined_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:defined_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aproved_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:proved_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:proved_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Acompared_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:compared_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:compared_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Abounded_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:bounded_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:bounded_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aaddressed_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:addressed_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:addressed_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Adepends_on",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:depends_on",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:depends_on; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Ainformed_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:informed_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:informed_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Astructurally_checked_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:status:structurally_checked_by",
+      "usl:description": "Current binding-progress traceability relation urn:usl:status:structurally_checked_by; structural declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Abinding-inspection%3Aartifact%3Asrc%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:binding-inspection:artifact:src/resource-bindings.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Abinding-inspection"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fresource-bindings.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Abinding-inspection%3Aartifact%3Asrc%2Fintegrations%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:binding-inspection:artifact:src/integrations/resource-bindings.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Abinding-inspection"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fintegrations%2Fresource-bindings.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Abinding-inspection%3Aartifact%3Asrc%2Fbinding-inspection.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:binding-inspection:artifact:src/binding-inspection.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Abinding-inspection"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fbinding-inspection.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:tested_by%3Afeature%3Abinding-inspection%3Atest-definition%3Atest%2Fbinding-inspection.test.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:binding-inspection:test-definition:test/binding-inspection.test.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Abinding-inspection"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fbinding-inspection.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "TEST_DEFINITION_ONLY",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:modeled_by%3Afeature%3Abinding-inspection%3Amodel%3Alean%2FUsl%2FBindings.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "modeled_by:feature:binding-inspection:model:lean/Usl/Bindings.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Amodeled_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Abinding-inspection"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:model%3Alean%2FUsl%2FBindings.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "SELECTION_AND_STABLE_ID_PRESERVATION_ONLY",
+          "gitObservation": "NOT_MODELED",
+          "runtimeRefinement": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:bounded_by%3Afeature%3Abinding-inspection%3Agap%3Abinding-inspection",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:binding-inspection:gap:binding-inspection",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Abinding-inspection"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Abinding-inspection"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:addressed_by%3Agap%3Abinding-inspection%3Ahistorical-task%3AT3",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:binding-inspection:historical-task:T3",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Abinding-inspection"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:historical-task%3AT3"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "progress": "PARTIAL_ONLY",
+          "acceptanceComplete": false
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Aattempt-state%3Aartifact%3Asrc%2Fattempt-state.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:attempt-state:artifact:src/attempt-state.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aattempt-state"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fattempt-state.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Aattempt-state%3Aartifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:attempt-state:artifact:src/cli-host.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aattempt-state"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-host.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:tested_by%3Afeature%3Aattempt-state%3Atest-definition%3Atest%2Fattempt-state.test.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:attempt-state:test-definition:test/attempt-state.test.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aattempt-state"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fattempt-state.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "TEST_DEFINITION_ONLY",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:tested_by%3Afeature%3Aattempt-state%3Atest-definition%3Atest%2Fcli-host.test.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:attempt-state:test-definition:test/cli-host.test.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aattempt-state"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-host.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "TEST_DEFINITION_ONLY",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:modeled_by%3Afeature%3Aattempt-state%3Amodel%3Alean%2FUsl%2FAttempt.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "modeled_by:feature:attempt-state:model:lean/Usl/Attempt.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Amodeled_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aattempt-state"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:model%3Alean%2FUsl%2FAttempt.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "PURE_ATTEMPT_STATE_ONLY",
+          "runtimeRefinement": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:bounded_by%3Afeature%3Aattempt-state%3Agap%3Aattempt-state",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:attempt-state:gap:attempt-state",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aattempt-state"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Aattempt-state"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:addressed_by%3Agap%3Aattempt-state%3Ahistorical-task%3AT1",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:attempt-state:historical-task:T1",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Aattempt-state"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:historical-task%3AT1"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "progress": "PARTIAL_ONLY",
+          "acceptanceComplete": false
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Aoperation-reservation%3Aartifact%3Asrc%2Fcli-operation.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:operation-reservation:artifact:src/cli-operation.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aoperation-reservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-operation.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Aoperation-reservation%3Aartifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:operation-reservation:artifact:src/cli-host.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aoperation-reservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-host.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:tested_by%3Afeature%3Aoperation-reservation%3Atest-definition%3Atest%2Fcli-operation.test.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:operation-reservation:test-definition:test/cli-operation.test.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aoperation-reservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-operation.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "TEST_DEFINITION_ONLY",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:tested_by%3Afeature%3Aoperation-reservation%3Atest-definition%3Atest%2Fcli-host.test.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:operation-reservation:test-definition:test/cli-host.test.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aoperation-reservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-host.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "TEST_DEFINITION_ONLY",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:bounded_by%3Afeature%3Aoperation-reservation%3Agap%3Aoperation-reservation",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:operation-reservation:gap:operation-reservation",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Aoperation-reservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Aoperation-reservation"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:addressed_by%3Agap%3Aoperation-reservation%3Ahistorical-task%3AT2",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:operation-reservation:historical-task:T2",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Aoperation-reservation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:historical-task%3AT2"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "progress": "PARTIAL_ONLY",
+          "acceptanceComplete": false
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Arecovery%3Aartifact%3Asrc%2Fcli-recovery.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:recovery:artifact:src/cli-recovery.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Arecovery"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-recovery.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:implemented_by%3Afeature%3Arecovery%3Aartifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "implemented_by:feature:recovery:artifact:src/cli-host.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Arecovery"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Asrc%2Fcli-host.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:tested_by%3Afeature%3Arecovery%3Atest-definition%3Atest%2Fcli-recovery.test.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:recovery:test-definition:test/cli-recovery.test.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Arecovery"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-recovery.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "TEST_DEFINITION_ONLY",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:tested_by%3Afeature%3Arecovery%3Atest-definition%3Atest%2Fcli-host.test.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "tested_by:feature:recovery:test-definition:test/cli-host.test.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Arecovery"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:test-definition%3Atest%2Fcli-host.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationScope": "TEST_DEFINITION_ONLY",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:bounded_by%3Afeature%3Arecovery%3Agap%3Arecovery",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "bounded_by:feature:recovery:gap:recovery",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:feature%3Arecovery"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Arecovery"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:addressed_by%3Agap%3Arecovery%3Ahistorical-task%3AT2",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "addressed_by:gap:recovery:historical-task:T2",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Aaddressed_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:gap%3Arecovery"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:historical-task%3AT2"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "progress": "PARTIAL_ONLY",
+          "acceptanceComplete": false
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:defined_by%3Amodel%3Alean%2FUsl%2FAttempt.lean%3Aartifact%3Alean%2FUsl%2FAttempt.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "defined_by:model:lean/Usl/Attempt.lean:artifact:lean/Usl/Attempt.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Adefined_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:model%3Alean%2FUsl%2FAttempt.lean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Alean%2FUsl%2FAttempt.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationship": "FORMAL_MODEL_DEFINED_IN_SOURCE",
+          "runtimeRefinement": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.binding.progress:link:defined_by%3Amodel%3Alean%2FUsl%2FBindings.lean%3Aartifact%3Alean%2FUsl%2FBindings.lean",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+        },
+        {
+          "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.binding.progress:resource:progress%3Aagent"
+      },
+      "usl:nativeId": "defined_by:model:lean/Usl/Bindings.lean:artifact:lean/Usl/Bindings.lean",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.binding.progress:meaning:urn%3Ausl%3Astatus%3Adefined_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "model",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:model%3Alean%2FUsl%2FBindings.lean"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.binding.progress:resource:artifact%3Alean%2FUsl%2FBindings.lean"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "relationship": "FORMAL_MODEL_DEFINED_IN_SOURCE",
+          "runtimeRefinement": "NOT_ESTABLISHED"
+        },
+        "@type": "@json"
+      }
+    }
+  ]
+}

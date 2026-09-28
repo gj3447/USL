@@ -15,6 +15,9 @@ import { parseGraphEngineeringSource } from "./integrations/graph-engineering.js
 import { parseResourceBindings, resolveResourceRepresentation, type ResourceRepresentationSelection } from "./resource-bindings.js"
 import { runCliProcess, type CliProcessResult } from "./cli-process.js"
 import { bindResourceGraph } from "./integrations/resource-bindings.js"
+import { inspectResourceBinding } from "./binding-inspection.js"
+import { initialAttemptState, transitionAttempt } from "./attempt-state.js"
+import { cliOperationStoreSchema, cliOperationKeySchema, reserveCliOperation } from "./cli-operation.js"
 
 const LIMIT = 1024 * 1024
 const selectionSchema = z.strictObject({ resource: contractText, representation: contractText.optional() })
@@ -40,6 +43,7 @@ export const cliHostSchema = z.strictObject({
   schema: z.literal("usl-cli-host/v1"), bindings: contractText,
   workspaces: z.record(z.string().regex(/^[A-Za-z_][A-Za-z0-9_.-]*$/), contractText),
   maxSourceBytes: z.number().int().min(1).max(16 * LIMIT),
+  operations: cliOperationStoreSchema.optional(),
   actions: z.array(actionSchema).max(128),
 })
 export type CliHostConfig = z.infer<typeof cliHostSchema>
@@ -62,8 +66,14 @@ const readHost = async (file: string) => {
 type Host = Awaited<ReturnType<typeof readHost>>
 
 export const locateCliResource = async (configFile: string, selection: ResourceRepresentationSelection) => {
+  const captured = exactSelection(selectionSchema.parse(contractSnapshot(selection)))
   const host = await readHost(configFile)
-  return resolveResourceRepresentation(host.bindings, exactSelection(selectionSchema.parse(contractSnapshot(selection))), { workspaces: host.workspaces })
+  return resolveResourceRepresentation(host.bindings, captured, { workspaces: host.workspaces })
+}
+export const inspectCliBinding = async (configFile: string, selection: ResourceRepresentationSelection) => {
+  const captured = exactSelection(selectionSchema.parse(contractSnapshot(selection)))
+  const host = await readHost(configFile)
+  return inspectResourceBinding(host.bindings, captured, { workspaces: host.workspaces, maxBytes: host.config.maxSourceBytes })
 }
 export const bindCliResourceGraph = async (configFile: string, raw: string, selections: readonly ResourceRepresentationSelection[]) => {
   const captured = contractSnapshot(selections)
@@ -177,10 +187,21 @@ const prepare = async (configFile: string, actionId: string, requestInput: unkno
     const command = { executable, args, cwd: cwd.path, environmentKeys: Object.keys(env).sort(), environmentDigest: contractDigest(env),
       executableIdentity: { ...executablePin,
         runtime: action.command.executable === "node" ? process.version : null } }
+    // Bind logical work to stable selections/content; a workspace root move alone
+    // changes the execution plan but must not make an old operation key reusable.
+    const operation = host.config.operations === undefined ? undefined : {
+      namespace: host.config.operations.namespace, keyRequired: true as const,
+      semanticDigest: contractDigest({ schema: "usl-cli-logical-operation/v1", namespace: host.config.operations.namespace,
+        action: action.id, descriptorDigest: contractDigest(action.descriptor), requestDigest: base.requestDigest, graph,
+        cwd: { resource: cwd.resource, representation: cwd.representation },
+        command: { args: action.command.args, executableIdentity: command.executableIdentity, environmentDigest: command.environmentDigest },
+        sources: sources.map(({ resource, representation, digest }) => ({ resource, representation, digest })).sort((a, b) => key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0) }),
+    }
     const body = { ...base, status: "READY" as const, issues: [], graph, command, sources,
       limits: { timeoutMs: action.policy.timeoutMs, maxOutputBytes: action.policy.maxOutputBytes, maxSourceBytes: host.config.maxSourceBytes },
-      sourceGuarantee: "DECLARED_FILES_ONLY" as const }
-    return { plan: freezeContract({ ...body, planDigest: contractDigest(body) }), runtime: { action, request, executable, args, cwd: cwd.path, env } }
+      sourceGuarantee: "DECLARED_FILES_ONLY" as const, ...(operation === undefined ? {} : { operation }) }
+    return { plan: freezeContract({ ...body, planDigest: contractDigest(body) }), runtime: { action, request, executable, args, cwd: cwd.path, env,
+      operationDirectory: host.config.operations === undefined ? undefined : resolve(dirname(host.hostPath), host.config.operations.directory) } }
   } catch (error) { return rejected([{ code: "HOST_BINDING", detail: String(error) }]) }
 }
 
@@ -193,20 +214,24 @@ const processEvidence = (process: CliProcessResult) => ({
   stderr: process.stderr.slice(0, 4096),
 })
 
+const syncEvidenceDirectory = async (directory: string) => {
+  if (process.platform === "win32") return
+  const handle = await open(directory, "r")
+  try { await handle.sync() } finally { await handle.close() }
+}
+
 const writeEvidence = async (directory: string, name: string, value: unknown) => {
   const file = await open(resolve(directory, name), "wx", 0o600)
   try { await file.writeFile(JSON.stringify(value, null, 2) + "\n"); await file.sync() } finally { await file.close() }
   // Sync the directory entry as well as the file before the effect boundary.
-  if (process.platform !== "win32") {
-    const handle = await open(directory, "r")
-    try { await handle.sync() } finally { await handle.close() }
-  }
+  await syncEvidenceDirectory(directory)
 }
 
 /** A new receipt directory reserves an attempt before spawning; retries always need a new explicit invocation. */
 export const executeCliAction = async (configFile: string, actionId: string, requestInput: unknown,
-  expectedPlanDigest: string, receiptDirectory: string, options: { signal?: AbortSignal } = {}) => {
+  expectedPlanDigest: string, receiptDirectory: string, options: { signal?: AbortSignal; operationKey?: string } = {}) => {
   contractHash.parse(expectedPlanDigest)
+  const operationKey = options.operationKey === undefined ? undefined : cliOperationKeySchema.parse(options.operationKey)
   const request = contractSnapshot(requestInput)
   const prepared = await prepare(configFile, actionId, request)
   const plan = prepared.plan
@@ -216,20 +241,49 @@ export const executeCliAction = async (configFile: string, actionId: string, req
     return freezeContract({ ...body, receiptDigest: contractDigest(body) })
   }
   const runtime = prepared.runtime
+  const keyIssue = plan.operation !== undefined && operationKey === undefined ? "OPERATION_KEY_REQUIRED"
+    : plan.operation === undefined && operationKey !== undefined ? "OPERATION_STORE_REQUIRED" : null
+  if (keyIssue !== null) {
+    const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0, plan,
+      reason: keyIssue, semanticTruth: "NOT_EVALUATED" }
+    return freezeContract({ ...body, receiptDigest: contractDigest(body) })
+  }
+  const operation = plan.operation === undefined ? undefined : { namespace: plan.operation.namespace, key: operationKey!, semanticDigest: plan.operation.semanticDigest }
+  let lifecycle = initialAttemptState()
   const directory = resolve(receiptDirectory), attempt = randomUUID(), startedAt = new Date().toISOString()
   await mkdir(directory, { mode: 0o700 })
-  const intentBody = { schema: "usl-cli-intent/v1", attempt, startedAt, plan, status: "ATTEMPTING", recovery: "RECONCILE_WITH_OWNER; NEVER_AUTOMATICALLY_RETRY" }
+  // Persist the new attempt directory's name before marking its intent durable.
+  await syncEvidenceDirectory(dirname(directory))
+  const intentBody = { schema: "usl-cli-intent/v1", attempt, startedAt, plan, status: "ATTEMPTING", recovery: "RECONCILE_WITH_OWNER; NEVER_AUTOMATICALLY_RETRY",
+    ...(operation === undefined ? {} : { operation }) }
   const intent = { ...intentBody, intentDigest: contractDigest(intentBody) }
   await writeEvidence(directory, "intent.json", intent)
+  lifecycle = transitionAttempt(lifecycle, { type: "INTENT_SAVED" })
+  if (operation !== undefined) {
+    const reserved = await reserveCliOperation(runtime.operationDirectory!, operation, {
+      attempt, intentDigest: intent.intentDigest, planDigest: plan.planDigest, receiptDirectory: directory, createdAt: startedAt })
+    if (reserved.status === "REJECTED") {
+      lifecycle = transitionAttempt(lifecycle, { type: "REJECT_BEFORE_START" })
+      const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0, attempt, startedAt,
+        finishedAt: new Date().toISOString(), planDigest: plan.planDigest, intentDigest: intent.intentDigest,
+        reason: reserved.reason, ...("previous" in reserved ? { previousAttempt: reserved.previous } : {}),
+        lifecycle, semanticTruth: "NOT_EVALUATED", automaticRetry: false }
+      const receipt = freezeContract({ ...body, receiptDigest: contractDigest(body) })
+      await writeEvidence(directory, "result.json", receipt)
+      return receipt
+    }
+  }
   const fresh = options.signal?.aborted ? undefined : await prepare(configFile, actionId, request).catch(() => undefined)
   if (!fresh || fresh.plan.planDigest !== expectedPlanDigest) {
+    lifecycle = transitionAttempt(lifecycle, { type: "REJECT_BEFORE_START" })
     const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0, attempt,
       startedAt, finishedAt: new Date().toISOString(), planDigest: plan.planDigest, intentDigest: intent.intentDigest,
-      reason: options.signal?.aborted ? "ABORTED" : "BINDING_CHANGED_BEFORE_START", semanticTruth: "NOT_EVALUATED" }
+      reason: options.signal?.aborted ? "ABORTED" : "BINDING_CHANGED_BEFORE_START", lifecycle, semanticTruth: "NOT_EVALUATED" }
     const receipt = freezeContract({ ...body, receiptDigest: contractDigest(body) })
     await writeEvidence(directory, "result.json", receipt)
     return receipt
   }
+  lifecycle = transitionAttempt(lifecycle, { type: "AUTHORIZE_START", pinsMatch: true })
   // This fixed argv has no request interpolation; request data goes only to stdin.
   const child = await runCliProcess({ executable: runtime.executable, args: runtime.args, cwd: runtime.cwd, env: runtime.env,
     input: JSON.stringify(runtime.request.input.value) + "\n", timeoutMs: runtime.action.policy.timeoutMs,
@@ -246,15 +300,18 @@ export const executeCliAction = async (configFile: string, actionId: string, req
     const current = await prepare(configFile, actionId, request)
     if (current.plan.planDigest !== expectedPlanDigest) reason = "SOURCE_OR_BINDING_CHANGED"
   } catch { reason = "SOURCE_OR_BINDING_CHANGED" }
+  const completedLifecycle = transitionAttempt(lifecycle, { type: "FINISH", started: child.started, succeeded: reason === null })
   const body = { schema: "usl-cli-execution/v1" as const, status: !child.started ? "REJECTED" as const : reason === null ? "SUCCEEDED" as const : "INDETERMINATE" as const,
     attempt, attempts: child.started ? 1 : 0, startedAt, finishedAt: new Date().toISOString(), planDigest: plan.planDigest, intentDigest: intent.intentDigest,
     graph: plan.graph, sourceGuarantee: plan.sourceGuarantee, process: processEvidence(child), reason,
-    ...(reason === null ? { output } : {}), semanticTruth: "NOT_EVALUATED", automaticRetry: false }
+    ...(reason === null ? { output } : {}), lifecycle: completedLifecycle, semanticTruth: "NOT_EVALUATED", automaticRetry: false }
   const receipt = freezeContract({ ...body, receiptDigest: contractDigest(body) })
   try { await writeEvidence(directory, "result.json", receipt) }
   catch {
     const failed = { ...body, status: child.started ? "INDETERMINATE" as const : "REJECTED" as const,
-      reason: "RECEIPT_WRITE_FAILED", observedStatus: body.status, receiptPersisted: false, receiptDirectory: directory }
+      reason: "RECEIPT_WRITE_FAILED", observedStatus: body.status,
+      lifecycle: transitionAttempt(lifecycle, { type: "FINISH", started: child.started, succeeded: false }),
+      receiptPersisted: false, receiptDirectory: directory }
     return freezeContract({ ...failed, receiptDigest: contractDigest(failed) })
   }
   return receipt

@@ -83,6 +83,14 @@
     "./cli-host": {
       "types": "./dist/src/cli-host.d.ts",
       "import": "./dist/src/cli-host.js"
+    },
+    "./binding-inspection": {
+      "types": "./dist/src/binding-inspection.d.ts",
+      "import": "./dist/src/binding-inspection.js"
+    },
+    "./cli-recovery": {
+      "types": "./dist/src/cli-recovery.d.ts",
+      "import": "./dist/src/cli-recovery.js"
     }
   },
   "engines": {
@@ -103,6 +111,9 @@
     "engineering:build": "tsx scripts/build-engineering-review.ts",
     "engineering:check": "tsx scripts/build-engineering-review.ts --check",
     "engineering:standards": "python3 scripts/validate-engineering-rdf.py",
+    "binding-progress:build": "tsx scripts/build-binding-progress.ts",
+    "binding-progress:check": "tsx scripts/build-binding-progress.ts --check",
+    "binding-progress:standards": "python3 scripts/validate-binding-progress.py",
     "example:capability": "tsx examples/capability-workflow.ts",
     "example:cli": "tsx examples/cli-workflow.ts"
   },

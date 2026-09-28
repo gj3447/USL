@@ -56,3 +56,18 @@ as the portable value from the document.
 existing `resource-graph/v1` while preserving its resource IDs, meaning/role
 links and metadata. The `bind-graph` CLI returns the rebound `graph` with a
 `bindingReceipt`; see [the graph/CLI architecture](CLI_GRAPH_ARCHITECTURE.md).
+
+## Observing a selected binding
+
+`inspectResourceBinding(document, selection, options)` is a separate I/O API.
+It requires an explicit representation, reads bounded local file bytes to check
+the declared SHA-256, and observes local Git worktree/HEAD/dirty/origin metadata.
+`usl inspect-binding --config host.json --resource validator --representation
+validator-worktree` uses the host's workspace roots. Remote representations
+remain `NOT_CHECKED` and are never fetched. A local origin is an owner-configured
+address candidate, not verified remote identity or mirror equivalence.
+
+See [binding operations](BINDING_OPERATIONS.md) for limits, operation keys that
+survive workspace relocation, and historical receipt inspection. The pure
+selection/rebinding model has Lean proofs; filesystem resolution and Git
+observations are outside that proof scope.

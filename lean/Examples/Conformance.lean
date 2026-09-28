@@ -13,6 +13,76 @@ def forward : RoleRoute := ⟨"implements", "implementation", "specification"⟩
 def backward : RoleRoute := ⟨"implements", "specification", "implementation"⟩
 def routePolicies : List (List RoleRoute) := [[], [forward], [backward], [forward, backward]]
 
+def runAttempt (events : List AttemptEvent) : Option AttemptState :=
+  events.foldl (fun current event => current.bind fun state => transitionAttempt state event) (some initialAttemptState)
+
+def attemptPhase : Option AttemptState → String
+  | some ⟨.planned⟩ => "PLANNED"
+  | some ⟨.intentDurable⟩ => "INTENT_DURABLE"
+  | some ⟨.authorized⟩ => "AUTHORIZED"
+  | some ⟨.succeeded⟩ => "SUCCEEDED"
+  | some ⟨.indeterminate⟩ => "INDETERMINATE"
+  | some ⟨.rejected⟩ => "REJECTED"
+  | none => "INVALID"
+
+def bindingCases : List (String × List BindingRepresentation × Option String) := [
+  ("explicit-local", [⟨"local", "before/item.txt"⟩, ⟨"github", "https://example.test/item"⟩], some "local"),
+  ("explicit-snapshot", [⟨"local", "before/item.txt"⟩, ⟨"github", "https://example.test/item"⟩], some "github"),
+  ("explicit-missing", [⟨"local", "before/item.txt"⟩, ⟨"github", "https://example.test/item"⟩], some "archive"),
+  ("omitted-ambiguous", [⟨"local", "before/item.txt"⟩, ⟨"github", "https://example.test/item"⟩], none),
+  ("omitted-single", [⟨"only", "before/item.txt"⟩], none)]
+
+def attemptJson (events : List AttemptEvent) : Json := Json.mkObj [
+  ("trace", toJson <| events.map fun event => match event with
+    | .intentSaved => "INTENT_SAVED"
+    | .authorizeStart pins => s!"AUTHORIZE_START:{pins}"
+    | .rejectBeforeStart => "REJECT_BEFORE_START"
+    | .finish started succeeded => s!"FINISH:{started}:{succeeded}"),
+  ("phase", toJson (attemptPhase (runAttempt events)))]
+
+def bindingJson : List Json := bindingCases.map fun (name, representations, selected) =>
+  let binding : BindingResource := ⟨"node:portable", representations⟩
+  Json.mkObj [
+    ("name", toJson name), ("representations", toJson <| representations.map (·.id)), ("selected", toJson selected),
+    ("found", toJson (selectRepresentation binding selected).isSome),
+    ("resource", toJson (rebindAddress binding "local" "after/item.txt").resource),
+    ("representationIds", toJson <| representationIds (rebindAddress binding "local" "after/item.txt")),
+    ("relocatedFound", toJson (selectRepresentation (rebindAddress binding "local" "after/item.txt") (some "local")).isSome)]
+
+def relocationBefore : BindingResource := ⟨"node:portable", [⟨"local", "before/item.txt"⟩]⟩
+def relocationAfter : BindingResource := rebindAddress relocationBefore "local" "after/item.txt"
+
+def bindingStateJson (binding : BindingResource) : Json := Json.mkObj [
+  ("resource", toJson binding.resource),
+  ("representationIds", toJson (representationIds binding)),
+  ("addresses", toJson (binding.representations.map (·.address)))]
+
+def relocationJson : Json := Json.mkObj [
+  ("before", bindingStateJson relocationBefore),
+  ("after", bindingStateJson relocationAfter)]
+
+def phaseName : AttemptPhase → String
+  | .planned => "PLANNED"
+  | .intentDurable => "INTENT_DURABLE"
+  | .authorized => "AUTHORIZED"
+  | .succeeded => "SUCCEEDED"
+  | .indeterminate => "INDETERMINATE"
+  | .rejected => "REJECTED"
+
+def eventName : AttemptEvent → String
+  | .intentSaved => "INTENT_SAVED"
+  | .authorizeStart pins => s!"AUTHORIZE_START:{pins}"
+  | .rejectBeforeStart => "REJECT_BEFORE_START"
+  | .finish started succeeded => s!"FINISH:{started}:{succeeded}"
+
+def attemptPhases : List AttemptPhase := [.planned, .intentDurable, .authorized, .succeeded, .indeterminate, .rejected]
+def attemptEvents : List AttemptEvent := [.intentSaved, .authorizeStart false, .authorizeStart true, .rejectBeforeStart,
+  .finish false false, .finish false true, .finish true false, .finish true true]
+
+def attemptMatrixJson : List Json := attemptPhases.flatMap fun phase => attemptEvents.map fun event =>
+  Json.mkObj [("phase", toJson (phaseName phase)), ("event", toJson (eventName event)),
+    ("result", toJson (attemptPhase (transitionAttempt ⟨phase⟩ event)))]
+
 -- Checked boundary examples: hop exhaustion is not global non-reachability;
 -- directed role traversal is not symmetric; reachability grants no read permission.
 example : reachableWithin graph "a" "d" 1 = false ∧ reachableWithin graph "a" "d" 2 = true := by decide
@@ -63,4 +133,11 @@ def graphJson (g : Graph) : Json := Json.mkObj [
           ("meaning", toJson route.meaning), ("enter", toJson route.enter), ("exit", toJson route.exit)]),
         ("found", toJson (routedStep graph policy start target))]),
   ("validation", toJson <| validationCases.map fun (name, fixture) => Json.mkObj [
-    ("name", toJson name), ("graph", graphJson fixture), ("valid", toJson (validateGraph fixture))])]).compress
+    ("name", toJson name), ("graph", graphJson fixture), ("valid", toJson (validateGraph fixture))]),
+  ("attempts", toJson [
+    attemptJson [], attemptJson [.intentSaved], attemptJson [.intentSaved, .authorizeStart true],
+    attemptJson [.intentSaved, .rejectBeforeStart], attemptJson [.intentSaved, .authorizeStart true, .finish false true],
+    attemptJson [.intentSaved, .authorizeStart true, .finish true true], attemptJson [.intentSaved, .authorizeStart true, .finish true false]]),
+  ("attemptMatrix", toJson attemptMatrixJson),
+  ("bindings", toJson bindingJson),
+  ("relocation", relocationJson)]).compress
