@@ -17,6 +17,16 @@
       "id": "user:binding-only",
       "text": "그거를 할수 있게끔하는 단순 바인딩 문법이잖아 USL 은 ㅇㅇ;",
       "authority": "USER_PRIMARY"
+    },
+    {
+      "id": "user:cli-programs",
+      "text": "그게 가능하도록만 해주면되 문법적으로 그 너가 말한 수많은거는 cli 기반으로 프로그램 USL 기반 프로그램이 올려지는거고 ㅇㅇ 뭔말하는지 알겟지 ㅇㅇ?",
+      "authority": "USER_PRIMARY"
+    },
+    {
+      "id": "user:compression-cost",
+      "text": "ㅇㅇ 그 내용으로 표준 그래프 엔지니어링 구축해주고 USL 문법에 그것도 고려해야해 얼마나 압축할지 압축기술 데이터 최소로 최대한의 데이터를 우겨넣어야 좋잖아 메모리도 아끼고 토큰도 아끼고 ㅇㅇ ai 토큰기술과 그 압축기술에 대해서도 한번 알아줘봐봐 비용최소화 해야해 문법 자체로써도",
+      "authority": "USER_PRIMARY"
     }
   ],
   "scope": "USL은 상위 시스템이 기능을 만들 수 있게 하는 단순 의미 바인딩 문법이다. 도메인 규칙은 선택형 애드온으로 연결한다.",
@@ -47,7 +57,8 @@
       "dependsOn": [],
       "requirements": [
         "user:hswm-plan",
-        "user:binding-only"
+        "user:binding-only",
+        "user:compression-cost"
       ],
       "proposals": [],
       "deliverables": [
@@ -58,7 +69,8 @@
       "acceptance": [
         "resource·meaning·이름 있는 역할로 단항/다자 연결을 표현하는 기존 계약을 확인한다.",
         "안정 ID와 로컬 경로/GitHub 등 표현 위치를 구분하고 경로 변경에도 연결 의미와 역할을 보존한다.",
-        "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다."
+        "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다.",
+        "문법 압축은 기존 resource/meaning 선언 재사용, 짧은 local alias와 stable canonical ID map, lossless whitespace 정리까지로 한정하고, positional/table shorthand는 측정 후 선택적·가산적으로만 제안한다."
       ],
       "hswmAlignment": "HSWM 같은 상위 시스템이 사용할 연결의 기초만 제공한다.",
       "proofTargets": [
@@ -77,7 +89,8 @@
       ],
       "requirements": [
         "user:addon-rules",
-        "user:binding-only"
+        "user:binding-only",
+        "user:compression-cost"
       ],
       "proposals": [],
       "deliverables": [
@@ -88,7 +101,8 @@
         "기존 meaning/link, metadata, 선택적 domain profile로 규칙 식별자·버전·대상·설정 참조를 표현한다.",
         "애드온을 선택하지 않은 기본 바인딩은 그대로 동작하고 선택한 profile의 구조 검증만 적용한다.",
         "의미 가중치 해석/조정, 계층 탐색, M 맵, HSWM 규칙의 구현과 실행은 애드온 또는 소유 프로그램의 책임으로 명시한다.",
-        "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다."
+        "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다.",
+        "압축 dictionary·schema alias와 consumer cache는 canonical ID·role·metadata·provenance를 losslessly 복원하고, cache state와 digest가 없는 small payload는 full payload로 fallback한다."
       ],
       "hswmAlignment": "HSWM 전용 규칙을 바인딩 위에 선택적으로 붙일 수 있게 한다.",
       "proofTargets": [],
@@ -106,7 +120,9 @@
       "requirements": [
         "user:syntax-cli",
         "user:binding-only",
-        "user:addon-rules"
+        "user:addon-rules",
+        "user:cli-programs",
+        "user:compression-cost"
       ],
       "proposals": [
         "proposal:graph-cli"
@@ -120,7 +136,8 @@
         "기존 check/compile/context/adapt/bind-graph 경로로 선언·검사·탐색·바인딩 예제를 재현한다.",
         "동일 연결에 기본 사용과 명시적으로 선택한 애드온 profile을 각각 적용하고 요구사항·결과를 구분한다.",
         "이동한 경로와 복수 표현을 확인하고 알려지지 않은 애드온 데이터가 실행·권한으로 해석되지 않음을 확인한다.",
-        "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다."
+        "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다.",
+        "같은 fixture에서 UTF-8 payload byte와 token encoding별 count를 따로 기록한다. 이는 serialized payload 크기이며 parsed heap 측정이 아니고, offline 결과가 billing·LLM quality·actual heap을 뜻하지 않음을 출력한다."
       ],
       "hswmAlignment": "상위 프로그램은 자신의 규칙을 사용하면서 USL CLI를 단순 연결 도구로 호출한다.",
       "proofTargets": [

@@ -9,7 +9,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
       "metadata": {
         "path": "research/architecture/syntax-cli.catalog.json",
-        "sourceDigest": "sha256:35695434aa1c13128ebcb470cac1e8bed0f83a86262103d75196dc9e41c8330a",
+        "sourceDigest": "sha256:4cab4a3895bccab858a871b954a1c18db42fe08e34e0df8a91d98e24c57e2959",
         "authority": "SECONDARY_AI",
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
@@ -23,7 +23,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-syntax-cli-architecture.ts",
       "metadata": {
         "path": "scripts/build-syntax-cli-architecture.ts",
-        "sourceDigest": "sha256:813bf54f87c397ab95c1a39238a9e2578117ca73afc00648b87fb22fa6b2db1f",
+        "sourceDigest": "sha256:46c5ae715239622cf7101732b342860a10238341378ee77805fad9cfba924030",
         "scope": "DETERMINISTIC_GENERATOR",
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
@@ -37,10 +37,45 @@
       "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
       "metadata": {
         "path": "research/architecture/hswm-like.plan.json",
-        "sourceDigest": "sha256:ee73b55dce08e5837985c00fcf85d769b588243159eb0c4cfd68914620f4f1bb",
+        "sourceDigest": "sha256:db34e2a2694a0972df2af1bc8a1d5611536802f040fb2650f6ccb0ad2c4b5878",
         "authority": "SECONDARY_AI",
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:compression-sources",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/compression/sources.json",
+      "metadata": {
+        "path": "research/compression/sources.json",
+        "sourceDigest": "sha256:507da711702270da2a9764ec941cf3d96609c4d40be241bdc153287b6d63e528",
+        "authority": "EXTERNAL_RESEARCH_CATALOG",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:compression-benchmark",
+      "types": [
+        "urn:usl:syntax-cli:BenchmarkArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/compression/benchmark-results.json",
+      "metadata": {
+        "path": "research/compression/benchmark-results.json",
+        "sourceDigest": "sha256:11add98a5c9849fc3a381accfee57d8998ee308bed54dc76d2883815e3247be8",
+        "resultStatus": "OFFLINE_PAYLOAD_MEASUREMENT_NOT_RUNTIME_MEMORY_OR_BILLED_USAGE",
+        "validationStatus": "FIXTURE_ROUNDTRIPS_PASSED",
+        "memory": "HEAP_NOT_MEASURED",
+        "tokenEncodings": [
+          "cl100k_base",
+          "o200k_base"
+        ],
+        "billing": "NOT_MEASURED",
+        "llmQuality": "NOT_MEASURED",
+        "remoteExecution": "NOT_PERFORMED"
       }
     },
     {
@@ -150,6 +185,288 @@
       }
     },
     {
+      "id": "user:cli-programs",
+      "types": [
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "metadata": {
+        "status": "USER_PRIMARY",
+        "text": "그게 가능하도록만 해주면되 문법적으로 그 너가 말한 수많은거는 cli 기반으로 프로그램 USL 기반 프로그램이 올려지는거고 ㅇㅇ 뭔말하는지 알겟지 ㅇㅇ?",
+        "authority": "USER_PRIMARY",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "user:compression-cost",
+      "types": [
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "metadata": {
+        "status": "USER_PRIMARY",
+        "text": "ㅇㅇ 그 내용으로 표준 그래프 엔지니어링 구축해주고 USL 문법에 그것도 고려해야해 얼마나 압축할지 압축기술 데이터 최소로 최대한의 데이터를 우겨넣어야 좋잖아 메모리도 아끼고 토큰도 아끼고 ㅇㅇ ai 토큰기술과 그 압축기술에 대해서도 한번 알아줘봐봐 비용최소화 해야해 문법 자체로써도",
+        "authority": "USER_PRIMARY",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:compression:openai-token-counting",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://developers.openai.com/api/docs/guides/token-counting",
+      "metadata": {
+        "title": "OpenAI token counting guide",
+        "checkedAt": "2026-09-29",
+        "scope": "text encodings and request-token accounting considerations",
+        "limitation": "plain encoding counts are not billed request usage; model, message role and tool overhead can differ",
+        "authority": "EXTERNAL_SOURCE",
+        "sourceReview": "DOCUMENT_READ_2026-09-29",
+        "remoteObservation": "NOT_PERFORMED_BY_USL_RUNTIME"
+      }
+    },
+    {
+      "id": "technique:compression:openai-token-counting",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://developers.openai.com/api/docs/guides/token-counting",
+      "metadata": {
+        "title": "model-aware local token estimation",
+        "scope": "text encodings and request-token accounting considerations",
+        "limitation": "plain encoding counts are not billed request usage; model, message role and tool overhead can differ",
+        "status": "RESEARCH_REFERENCE_NOT_USL_FEATURE"
+      }
+    },
+    {
+      "id": "source:compression:openai-prompt-caching",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "metadata": {
+        "title": "OpenAI prompt caching guide",
+        "checkedAt": "2026-09-29",
+        "scope": "consumer-side/provider prompt cache behavior",
+        "limitation": "cache use does not reduce the request context itself and hit behavior depends on matching prefixes and provider conditions",
+        "authority": "EXTERNAL_SOURCE",
+        "sourceReview": "DOCUMENT_READ_2026-09-29",
+        "remoteObservation": "NOT_PERFORMED_BY_USL_RUNTIME"
+      }
+    },
+    {
+      "id": "technique:compression:openai-prompt-caching",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "metadata": {
+        "title": "reused prompt prefix caching",
+        "scope": "consumer-side/provider prompt cache behavior",
+        "limitation": "cache use does not reduce the request context itself and hit behavior depends on matching prefixes and provider conditions",
+        "status": "RESEARCH_REFERENCE_NOT_USL_FEATURE"
+      }
+    },
+    {
+      "id": "source:compression:rfc8878-zstd",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://www.rfc-editor.org/rfc/rfc8878.html",
+      "metadata": {
+        "title": "RFC 8878: Zstandard Compression",
+        "checkedAt": "2026-09-29",
+        "scope": "transport or storage of bytes",
+        "limitation": "a model normally needs decompressed text; compressed bytes and base64 do not imply fewer model tokens",
+        "authority": "EXTERNAL_SOURCE",
+        "sourceReview": "DOCUMENT_READ_2026-09-29",
+        "remoteObservation": "NOT_PERFORMED_BY_USL_RUNTIME"
+      }
+    },
+    {
+      "id": "technique:compression:rfc8878-zstd",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://www.rfc-editor.org/rfc/rfc8878.html",
+      "metadata": {
+        "title": "lossless binary compression",
+        "scope": "transport or storage of bytes",
+        "limitation": "a model normally needs decompressed text; compressed bytes and base64 do not imply fewer model tokens",
+        "status": "RESEARCH_REFERENCE_NOT_USL_FEATURE"
+      }
+    },
+    {
+      "id": "source:compression:rfc8949-cbor",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://www.rfc-editor.org/rfc/rfc8949.html",
+      "metadata": {
+        "title": "RFC 8949: Concise Binary Object Representation",
+        "checkedAt": "2026-09-29",
+        "scope": "wire/storage encoding of structured values",
+        "limitation": "requires a decoder and is not a directly readable prompt representation",
+        "authority": "EXTERNAL_SOURCE",
+        "sourceReview": "DOCUMENT_READ_2026-09-29",
+        "remoteObservation": "NOT_PERFORMED_BY_USL_RUNTIME"
+      }
+    },
+    {
+      "id": "technique:compression:rfc8949-cbor",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://www.rfc-editor.org/rfc/rfc8949.html",
+      "metadata": {
+        "title": "lossless binary structured encoding",
+        "scope": "wire/storage encoding of structured values",
+        "limitation": "requires a decoder and is not a directly readable prompt representation",
+        "status": "RESEARCH_REFERENCE_NOT_USL_FEATURE"
+      }
+    },
+    {
+      "id": "source:compression:toon-spec",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://github.com/toon-format/spec",
+      "metadata": {
+        "title": "TOON Format Specification",
+        "checkedAt": "2026-09-29",
+        "scope": "repeated fields and uniform object arrays in prompts",
+        "limitation": "working-draft external format; token benefit and model comprehension require USL-specific measurement",
+        "authority": "EXTERNAL_SOURCE",
+        "sourceReview": "DOCUMENT_READ_2026-09-29",
+        "remoteObservation": "NOT_PERFORMED_BY_USL_RUNTIME"
+      }
+    },
+    {
+      "id": "technique:compression:toon-spec",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://github.com/toon-format/spec",
+      "metadata": {
+        "title": "readable table/dictionary-style JSON-data encoding",
+        "scope": "repeated fields and uniform object arrays in prompts",
+        "limitation": "working-draft external format; token benefit and model comprehension require USL-specific measurement",
+        "status": "RESEARCH_REFERENCE_NOT_USL_FEATURE"
+      }
+    },
+    {
+      "id": "source:compression:llmlingua2",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://arxiv.org/abs/2403.12968",
+      "metadata": {
+        "title": "LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression",
+        "checkedAt": "2026-09-29",
+        "scope": "optional lossy prompt pre-processing research",
+        "limitation": "can omit information, so it cannot be a lossless USL core representation or mandatory dependency",
+        "authority": "EXTERNAL_SOURCE",
+        "sourceReview": "DOCUMENT_READ_2026-09-29",
+        "remoteObservation": "NOT_PERFORMED_BY_USL_RUNTIME"
+      }
+    },
+    {
+      "id": "technique:compression:llmlingua2",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://arxiv.org/abs/2403.12968",
+      "metadata": {
+        "title": "learned extractive prompt compression",
+        "scope": "optional lossy prompt pre-processing research",
+        "limitation": "can omit information, so it cannot be a lossless USL core representation or mandatory dependency",
+        "status": "RESEARCH_REFERENCE_NOT_USL_FEATURE"
+      }
+    },
+    {
+      "id": "technique:compression:source-minification",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/compression/benchmark-results.json",
+      "metadata": {
+        "title": "Lossless fixture source minification",
+        "scope": "same compiled plan digest for source fixtures",
+        "baseline": "source-original",
+        "lanes": "source-original -> source-minified",
+        "implementationStatus": "BENCHMARK_EXPERIMENT_NOT_USL_RUNTIME_FEATURE",
+        "limitation": "Comments and whitespace are removed only where the benchmark scanner preserves compilation; no new core syntax is adopted.",
+        "status": "LOCAL_OFFLINE_MEASUREMENT"
+      }
+    },
+    {
+      "id": "technique:compression:compact-full",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/compression/benchmark-results.json",
+      "metadata": {
+        "title": "Existing compact FULL context projection",
+        "scope": "scoped AgentContext transport projection with reconstructible paths and target witness",
+        "baseline": "context-minified",
+        "lanes": "context-minified -> compact-full",
+        "implementationStatus": "IMPLEMENTED_CURRENT_USL_FEATURE",
+        "limitation": "It is not a lossless serialization of the entire source graph or an actual heap measurement.",
+        "status": "LOCAL_OFFLINE_MEASUREMENT"
+      }
+    },
+    {
+      "id": "technique:compression:dictionary-table",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/compression/benchmark-results.json",
+      "metadata": {
+        "title": "Dictionary/table JSON experiment",
+        "scope": "exact JSON roundtrip; standalone lane includes a decoder guide",
+        "baseline": "context-minified",
+        "lanes": "dictionary-table-data-needs-decoder; dictionary-table-standalone",
+        "implementationStatus": "BENCHMARK_EXPERIMENT_NOT_USL_RUNTIME_FEATURE",
+        "limitation": "No model quality result exists; the standalone decoder overhead is included and it is not adopted into USL.",
+        "status": "LOCAL_OFFLINE_MEASUREMENT"
+      }
+    },
+    {
+      "id": "technique:compression:compact-unchanged",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/compression/benchmark-results.json",
+      "metadata": {
+        "title": "Existing digest-pinned UNCHANGED packet",
+        "scope": "conditional response only when receiver retains matching prior FULL context",
+        "baseline": "compact-full",
+        "lanes": "compact-full -> compact-unchanged-requires-prior-full",
+        "implementationStatus": "IMPLEMENTED_CURRENT_USL_FEATURE",
+        "limitation": "It is not provider prompt caching and cannot replace FULL for a receiver without prior context.",
+        "status": "LOCAL_OFFLINE_MEASUREMENT"
+      }
+    },
+    {
+      "id": "technique:compression:binary-transport",
+      "types": [
+        "urn:usl:syntax-cli:CompressionTechnique"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/compression/benchmark-results.json",
+      "metadata": {
+        "title": "gzip/brotli binary transport comparison",
+        "scope": "compressed bytes and base64 text counts for each payload lane",
+        "baseline": "each text payload lane",
+        "lanes": "gzipBytes; brotliBytes; gzipBase64Bytes; brotliBase64Bytes",
+        "implementationStatus": "BENCHMARK_TRANSPORT_COMPARISON_NOT_USL_RUNTIME_FEATURE",
+        "limitation": "A decoder is required; base64 token counts do not establish lower prompt tokens or model comprehension.",
+        "status": "LOCAL_OFFLINE_MEASUREMENT"
+      }
+    },
+    {
       "id": "feature:grammar",
       "types": [
         "urn:usl:syntax-cli:ImplementedFeature"
@@ -251,6 +568,32 @@
         "status": "IMPLEMENTED_CURRENT_SOURCE",
         "semanticTruth": "NOT_EVALUATED",
         "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "feature:compact-context",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "Digest-pinned compact agent-context delivery",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/language/compact.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/compact.ts",
+      "metadata": {
+        "path": "src/language/compact.ts",
+        "sourceDigest": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
       }
     },
     {
@@ -539,7 +882,8 @@
         "dependsOn": [],
         "requirements": [
           "user:hswm-plan",
-          "user:binding-only"
+          "user:binding-only",
+          "user:compression-cost"
         ],
         "proposals": [],
         "deliverables": [
@@ -550,7 +894,8 @@
         "acceptance": [
           "resource·meaning·이름 있는 역할로 단항/다자 연결을 표현하는 기존 계약을 확인한다.",
           "안정 ID와 로컬 경로/GitHub 등 표현 위치를 구분하고 경로 변경에도 연결 의미와 역할을 보존한다.",
-          "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다."
+          "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다.",
+          "문법 압축은 기존 resource/meaning 선언 재사용, 짧은 local alias와 stable canonical ID map, lossless whitespace 정리까지로 한정하고, positional/table shorthand는 측정 후 선택적·가산적으로만 제안한다."
         ],
         "hswmAlignment": "HSWM 같은 상위 시스템이 사용할 연결의 기초만 제공한다.",
         "proofTargets": [
@@ -574,7 +919,8 @@
         "checks": [
           "resource·meaning·이름 있는 역할로 단항/다자 연결을 표현하는 기존 계약을 확인한다.",
           "안정 ID와 로컬 경로/GitHub 등 표현 위치를 구분하고 경로 변경에도 연결 의미와 역할을 보존한다.",
-          "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다."
+          "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다.",
+          "문법 압축은 기존 resource/meaning 선언 재사용, 짧은 local alias와 stable canonical ID map, lossless whitespace 정리까지로 한정하고, positional/table shorthand는 측정 후 선택적·가산적으로만 제안한다."
         ],
         "status": "PLANNED_NOT_EXECUTED"
       }
@@ -594,7 +940,8 @@
         ],
         "requirements": [
           "user:addon-rules",
-          "user:binding-only"
+          "user:binding-only",
+          "user:compression-cost"
         ],
         "proposals": [],
         "deliverables": [
@@ -605,7 +952,8 @@
           "기존 meaning/link, metadata, 선택적 domain profile로 규칙 식별자·버전·대상·설정 참조를 표현한다.",
           "애드온을 선택하지 않은 기본 바인딩은 그대로 동작하고 선택한 profile의 구조 검증만 적용한다.",
           "의미 가중치 해석/조정, 계층 탐색, M 맵, HSWM 규칙의 구현과 실행은 애드온 또는 소유 프로그램의 책임으로 명시한다.",
-          "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다."
+          "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다.",
+          "압축 dictionary·schema alias와 consumer cache는 canonical ID·role·metadata·provenance를 losslessly 복원하고, cache state와 digest가 없는 small payload는 full payload로 fallback한다."
         ],
         "hswmAlignment": "HSWM 전용 규칙을 바인딩 위에 선택적으로 붙일 수 있게 한다.",
         "proofTargets": [],
@@ -628,7 +976,8 @@
           "기존 meaning/link, metadata, 선택적 domain profile로 규칙 식별자·버전·대상·설정 참조를 표현한다.",
           "애드온을 선택하지 않은 기본 바인딩은 그대로 동작하고 선택한 profile의 구조 검증만 적용한다.",
           "의미 가중치 해석/조정, 계층 탐색, M 맵, HSWM 규칙의 구현과 실행은 애드온 또는 소유 프로그램의 책임으로 명시한다.",
-          "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다."
+          "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다.",
+          "압축 dictionary·schema alias와 consumer cache는 canonical ID·role·metadata·provenance를 losslessly 복원하고, cache state와 digest가 없는 small payload는 full payload로 fallback한다."
         ],
         "status": "PLANNED_NOT_EXECUTED"
       }
@@ -649,7 +998,9 @@
         "requirements": [
           "user:syntax-cli",
           "user:binding-only",
-          "user:addon-rules"
+          "user:addon-rules",
+          "user:cli-programs",
+          "user:compression-cost"
         ],
         "proposals": [
           "proposal:graph-cli"
@@ -663,7 +1014,8 @@
           "기존 check/compile/context/adapt/bind-graph 경로로 선언·검사·탐색·바인딩 예제를 재현한다.",
           "동일 연결에 기본 사용과 명시적으로 선택한 애드온 profile을 각각 적용하고 요구사항·결과를 구분한다.",
           "이동한 경로와 복수 표현을 확인하고 알려지지 않은 애드온 데이터가 실행·권한으로 해석되지 않음을 확인한다.",
-          "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다."
+          "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다.",
+          "같은 fixture에서 UTF-8 payload byte와 token encoding별 count를 따로 기록한다. 이는 serialized payload 크기이며 parsed heap 측정이 아니고, offline 결과가 billing·LLM quality·actual heap을 뜻하지 않음을 출력한다."
         ],
         "hswmAlignment": "상위 프로그램은 자신의 규칙을 사용하면서 USL CLI를 단순 연결 도구로 호출한다.",
         "proofTargets": [
@@ -688,7 +1040,8 @@
           "기존 check/compile/context/adapt/bind-graph 경로로 선언·검사·탐색·바인딩 예제를 재현한다.",
           "동일 연결에 기본 사용과 명시적으로 선택한 애드온 profile을 각각 적용하고 요구사항·결과를 구분한다.",
           "이동한 경로와 복수 표현을 확인하고 알려지지 않은 애드온 데이터가 실행·권한으로 해석되지 않음을 확인한다.",
-          "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다."
+          "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다.",
+          "같은 fixture에서 UTF-8 payload byte와 token encoding별 count를 따로 기록한다. 이는 serialized payload 크기이며 parsed heap 측정이 아니고, offline 결과가 billing·LLM quality·actual heap을 뜻하지 않음을 출력한다."
         ],
         "status": "PLANNED_NOT_EXECUTED"
       }
@@ -730,9 +1083,293 @@
     {
       "id": "urn:usl:syntax-cli:advances",
       "description": "Architecture trace relation advances; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:evaluated_by",
+      "description": "Architecture trace relation evaluated_by; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:measured_by",
+      "description": "Architecture trace relation measured_by; declaration only."
     }
   ],
   "links": [
+    {
+      "id": "evaluated_by:user:compression-cost:technique:compression:openai-token-counting:source:compression:openai-token-counting",
+      "meaning": "urn:usl:syntax-cli:evaluated_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:openai-token-counting"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:compression:openai-token-counting"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_TRACE",
+        "claimStatus": "MEASUREMENT_REQUIRED"
+      }
+    },
+    {
+      "id": "evaluated_by:user:compression-cost:technique:compression:openai-prompt-caching:source:compression:openai-prompt-caching",
+      "meaning": "urn:usl:syntax-cli:evaluated_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:openai-prompt-caching"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:compression:openai-prompt-caching"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_TRACE",
+        "claimStatus": "MEASUREMENT_REQUIRED"
+      }
+    },
+    {
+      "id": "evaluated_by:user:compression-cost:technique:compression:rfc8878-zstd:source:compression:rfc8878-zstd",
+      "meaning": "urn:usl:syntax-cli:evaluated_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:rfc8878-zstd"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:compression:rfc8878-zstd"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_TRACE",
+        "claimStatus": "MEASUREMENT_REQUIRED"
+      }
+    },
+    {
+      "id": "evaluated_by:user:compression-cost:technique:compression:rfc8949-cbor:source:compression:rfc8949-cbor",
+      "meaning": "urn:usl:syntax-cli:evaluated_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:rfc8949-cbor"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:compression:rfc8949-cbor"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_TRACE",
+        "claimStatus": "MEASUREMENT_REQUIRED"
+      }
+    },
+    {
+      "id": "evaluated_by:user:compression-cost:technique:compression:toon-spec:source:compression:toon-spec",
+      "meaning": "urn:usl:syntax-cli:evaluated_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:toon-spec"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:compression:toon-spec"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_TRACE",
+        "claimStatus": "MEASUREMENT_REQUIRED"
+      }
+    },
+    {
+      "id": "evaluated_by:user:compression-cost:technique:compression:llmlingua2:source:compression:llmlingua2",
+      "meaning": "urn:usl:syntax-cli:evaluated_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:llmlingua2"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:compression:llmlingua2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_TRACE",
+        "claimStatus": "MEASUREMENT_REQUIRED"
+      }
+    },
+    {
+      "id": "measured_by:user:compression-cost:technique:compression:openai-token-counting:artifact:compression-benchmark",
+      "meaning": "urn:usl:syntax-cli:measured_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:openai-token-counting"
+        },
+        {
+          "role": "benchmark",
+          "resource": "artifact:compression-benchmark"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "OFFLINE_MEASUREMENT_TRACE",
+        "claimStatus": "NO_BILLING_OR_QUALITY_CLAIM"
+      }
+    },
+    {
+      "id": "measured_by:user:compression-cost:technique:compression:source-minification:artifact:compression-benchmark",
+      "meaning": "urn:usl:syntax-cli:measured_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:source-minification"
+        },
+        {
+          "role": "benchmark",
+          "resource": "artifact:compression-benchmark"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "OFFLINE_MEASUREMENT_TRACE",
+        "claimStatus": "NO_BILLING_OR_QUALITY_CLAIM"
+      }
+    },
+    {
+      "id": "measured_by:user:compression-cost:technique:compression:compact-full:artifact:compression-benchmark",
+      "meaning": "urn:usl:syntax-cli:measured_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:compact-full"
+        },
+        {
+          "role": "benchmark",
+          "resource": "artifact:compression-benchmark"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "OFFLINE_MEASUREMENT_TRACE",
+        "claimStatus": "NO_BILLING_OR_QUALITY_CLAIM"
+      }
+    },
+    {
+      "id": "measured_by:user:compression-cost:technique:compression:dictionary-table:artifact:compression-benchmark",
+      "meaning": "urn:usl:syntax-cli:measured_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:dictionary-table"
+        },
+        {
+          "role": "benchmark",
+          "resource": "artifact:compression-benchmark"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "OFFLINE_MEASUREMENT_TRACE",
+        "claimStatus": "NO_BILLING_OR_QUALITY_CLAIM"
+      }
+    },
+    {
+      "id": "measured_by:user:compression-cost:technique:compression:compact-unchanged:artifact:compression-benchmark",
+      "meaning": "urn:usl:syntax-cli:measured_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:compact-unchanged"
+        },
+        {
+          "role": "benchmark",
+          "resource": "artifact:compression-benchmark"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "OFFLINE_MEASUREMENT_TRACE",
+        "claimStatus": "NO_BILLING_OR_QUALITY_CLAIM"
+      }
+    },
+    {
+      "id": "measured_by:user:compression-cost:technique:compression:binary-transport:artifact:compression-benchmark",
+      "meaning": "urn:usl:syntax-cli:measured_by",
+      "participants": [
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        },
+        {
+          "role": "technique",
+          "resource": "technique:compression:binary-transport"
+        },
+        {
+          "role": "benchmark",
+          "resource": "artifact:compression-benchmark"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "OFFLINE_MEASUREMENT_TRACE",
+        "claimStatus": "NO_BILLING_OR_QUALITY_CLAIM"
+      }
+    },
     {
       "id": "implemented_by:feature:grammar:artifact:src/language/parser.ts",
       "meaning": "urn:usl:syntax-cli:implemented_by",
@@ -918,6 +1555,39 @@
         {
           "role": "feature",
           "resource": "feature:navigation"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:compact-context:artifact:src/language/compact.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:compact-context"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/compact.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:compact-context",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:compact-context"
         }
       ],
       "metadata": {
@@ -1349,6 +2019,28 @@
       }
     },
     {
+      "id": "planned_work:task:P01:criterion:P01:user:compression-cost",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:P01"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:P01"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
       "id": "planned_work:task:P02:criterion:P02:user:addon-rules",
       "meaning": "urn:usl:syntax-cli:planned_work",
       "participants": [
@@ -1385,6 +2077,28 @@
         {
           "role": "requirement",
           "resource": "user:binding-only"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
+      "id": "planned_work:task:P02:criterion:P02:user:compression-cost",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:P02"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:P02"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
         }
       ],
       "metadata": {
@@ -1477,6 +2191,50 @@
       }
     },
     {
+      "id": "planned_work:task:P03:criterion:P03:user:cli-programs",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:P03"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:P03"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:cli-programs"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
+      "id": "planned_work:task:P03:criterion:P03:user:compression-cost",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:P03"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:P03"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:compression-cost"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
       "id": "task_depends_on:task:P03:task:P02",
       "meaning": "urn:usl:syntax-cli:task_depends_on",
       "participants": [
@@ -1517,7 +2275,9 @@
     "sources": [
       "source:catalog",
       "source:generator",
-      "source:hswm-plan"
+      "source:hswm-plan",
+      "source:compression-sources",
+      "artifact:compression-benchmark"
     ],
     "activity": "activity:architecture",
     "agent": "agent:secondary"

@@ -1,0 +1,2 @@
+# Offline tokenizer for the reproducible compression benchmark.
+tiktoken==0.12.0

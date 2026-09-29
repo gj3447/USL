@@ -1,0 +1,563 @@
+{
+  "schema": "usl-compression-benchmark-results/v1",
+  "scope": "OFFLINE_PAYLOAD_MEASUREMENT_NOT_RUNTIME_MEMORY_OR_BILLED_USAGE",
+  "validationStatus": "FIXTURE_ROUNDTRIPS_PASSED",
+  "environment": {
+    "node": "v24.20.0",
+    "pythonVersion": "3.13.5",
+    "tiktokenVersion": "0.12.0",
+    "encodings": [
+      "cl100k_base",
+      "o200k_base"
+    ],
+    "tokenCounting": "tiktoken.encode_ordinary; comparison baseline only, not billed API usage",
+    "compression": [
+      "gzip",
+      "brotli"
+    ],
+    "memory": "HEAP_NOT_MEASURED"
+  },
+  "inputs": {
+    "digest": "sha256:9d260e81d465c880aa3d4c81ee734776e80158812c1b96f284ebd5c678cad271",
+    "benchmarkScriptDigest": "sha256:222f45c77dedf525012f93979a318724d38cdef6d710d0b5bb0d30b6bcce5484",
+    "tokenScriptDigest": "sha256:0d7bbfd87f6fd32a86776661e22c615011048a9fd3638012030b47d8f3bf0054",
+    "requirementsDigest": "sha256:e23ea0ab8a83095b7b81e501cc7efc35ccd6f0d6bf8d17c2cf8f71e6ae071108"
+  },
+  "fixtures": [
+    {
+      "id": "agent-navigation-usl",
+      "input": {
+        "kind": "usl",
+        "path": "examples/agent-navigation.usl",
+        "baseSourceDigest": null,
+        "metadataOverlay": null,
+        "sourceDigest": "sha256:3d9b200e76105cfa07ca642a3274bf4cdce17e136f313fd5586a19c779b207cf",
+        "minifiedSourceDigest": "sha256:306a6bb99b24a0252494861a14f5f5add8993211a3de6bf2f2079e467b50860f",
+        "canonicalSourceDigest": "sha256:a5620bcab03a7c6cfe67ad11e327a02b3946099ff3b8ab0c7780fca81275426e",
+        "planDigest": "sha256:84c3b4f2732bb81b821a6031f0290d08c2a710a7a2bd1873343bcd17948ab69b",
+        "generatedParameters": null
+      },
+      "guarantees": {
+        "source": "USL_SOURCE_AND_TOKENIZER_SAFE_WHITESPACE_MINIFIED_SOURCE_SAME_PLAN_DIGEST",
+        "contextPrettyAndMinified": "EXACT_JSON_VALUE",
+        "dictionaryTable": "EXACT_JSON_ROUNDTRIP; STANDALONE_LANE_INCLUDES_DECODER_GUIDE; LLM_QUALITY_NOT_TESTED",
+        "compactFull": "TRANSPORT_PROJECTION_WITH_RECONSTRUCTIBLE_PATHS_AND_TARGET_WITNESS",
+        "compactUnchanged": "REQUIRES_RECEIVER_PRIOR_FULL_CONTEXT"
+      },
+      "lanes": {
+        "source-original": {
+          "utf8Bytes": 810,
+          "gzipBytes": 452,
+          "brotliBytes": 358,
+          "gzipBase64Bytes": 604,
+          "brotliBase64Bytes": 480,
+          "payloadDigest": "sha256:3d9b200e76105cfa07ca642a3274bf4cdce17e136f313fd5586a19c779b207cf"
+        },
+        "source-minified": {
+          "utf8Bytes": 666,
+          "gzipBytes": 371,
+          "brotliBytes": 302,
+          "gzipBase64Bytes": 496,
+          "brotliBase64Bytes": 404,
+          "payloadDigest": "sha256:306a6bb99b24a0252494861a14f5f5add8993211a3de6bf2f2079e467b50860f"
+        },
+        "context-pretty": {
+          "utf8Bytes": 4454,
+          "gzipBytes": 1133,
+          "brotliBytes": 880,
+          "gzipBase64Bytes": 1512,
+          "brotliBase64Bytes": 1176,
+          "payloadDigest": "sha256:91d785c3e31243f95c58620fef0bce2d91deef893b37cf3e906d09646412c790"
+        },
+        "context-minified": {
+          "utf8Bytes": 2774,
+          "gzipBytes": 1024,
+          "brotliBytes": 788,
+          "gzipBase64Bytes": 1368,
+          "brotliBase64Bytes": 1052,
+          "payloadDigest": "sha256:0bd7ac90425d119c26fe738ed75cf2c9e9bb67ea1baf87a8a750edb8e6359dd1"
+        },
+        "compact-full": {
+          "utf8Bytes": 2353,
+          "gzipBytes": 1080,
+          "brotliBytes": 820,
+          "gzipBase64Bytes": 1440,
+          "brotliBase64Bytes": 1096,
+          "payloadDigest": "sha256:67e7f72c912cb5fffbcb118f85dd8e1de83c2e7273c9a1d15b6b64bac46a92d4"
+        },
+        "dictionary-table-data-needs-decoder": {
+          "utf8Bytes": 3185,
+          "gzipBytes": 1235,
+          "brotliBytes": 941,
+          "gzipBase64Bytes": 1648,
+          "brotliBase64Bytes": 1256,
+          "payloadDigest": "sha256:3397b61bcced602a770c54d887a3221b46ae63a9d4214032f6eed6359c0591df"
+        },
+        "dictionary-table-standalone": {
+          "utf8Bytes": 3520,
+          "gzipBytes": 1411,
+          "brotliBytes": 1095,
+          "gzipBase64Bytes": 1884,
+          "brotliBase64Bytes": 1460,
+          "payloadDigest": "sha256:74fb7f2d8f64162c6ed9e98dc157baa06f3ec23b6c912609e4e24d6fbcc9c781"
+        },
+        "compact-unchanged-requires-prior-full": {
+          "utf8Bytes": 238,
+          "gzipBytes": 201,
+          "brotliBytes": 170,
+          "gzipBase64Bytes": 268,
+          "brotliBase64Bytes": 228,
+          "payloadDigest": "sha256:e8380c00de53b8747d4cae2213572e8a26595dcd15076ef6f7987d4913339088"
+        }
+      },
+      "tokens": {
+        "cl100k_base": {
+          "source-original": {
+            "text": 181,
+            "gzipBase64": 437,
+            "brotliBase64": 336
+          },
+          "source-minified": {
+            "text": 157,
+            "gzipBase64": 349,
+            "brotliBase64": 287
+          },
+          "context-pretty": {
+            "text": 1180,
+            "gzipBase64": 1083,
+            "brotliBase64": 872
+          },
+          "context-minified": {
+            "text": 662,
+            "gzipBase64": 963,
+            "brotliBase64": 742
+          },
+          "compact-full": {
+            "text": 595,
+            "gzipBase64": 1031,
+            "brotliBase64": 785
+          },
+          "dictionary-table-data-needs-decoder": {
+            "text": 1421,
+            "gzipBase64": 1163,
+            "brotliBase64": 911
+          },
+          "dictionary-table-standalone": {
+            "text": 1507,
+            "gzipBase64": 1330,
+            "brotliBase64": 1059
+          },
+          "compact-unchanged-requires-prior-full": {
+            "text": 107,
+            "gzipBase64": 178,
+            "brotliBase64": 166
+          }
+        },
+        "o200k_base": {
+          "source-original": {
+            "text": 169,
+            "gzipBase64": 421,
+            "brotliBase64": 326
+          },
+          "source-minified": {
+            "text": 145,
+            "gzipBase64": 330,
+            "brotliBase64": 271
+          },
+          "context-pretty": {
+            "text": 1170,
+            "gzipBase64": 1025,
+            "brotliBase64": 824
+          },
+          "context-minified": {
+            "text": 670,
+            "gzipBase64": 918,
+            "brotliBase64": 713
+          },
+          "compact-full": {
+            "text": 603,
+            "gzipBase64": 982,
+            "brotliBase64": 756
+          },
+          "dictionary-table-data-needs-decoder": {
+            "text": 1408,
+            "gzipBase64": 1110,
+            "brotliBase64": 883
+          },
+          "dictionary-table-standalone": {
+            "text": 1493,
+            "gzipBase64": 1274,
+            "brotliBase64": 1000
+          },
+          "compact-unchanged-requires-prior-full": {
+            "text": 108,
+            "gzipBase64": 175,
+            "brotliBase64": 158
+          }
+        }
+      }
+    },
+    {
+      "id": "resource-graph-metadata",
+      "input": {
+        "kind": "resource-graph",
+        "path": "examples/fixtures/resource-graph.json",
+        "baseSourceDigest": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
+        "metadataOverlay": {
+          "resource": "example:proof",
+          "metadata": {
+            "labelKo": "한국어 증명 메타데이터",
+            "labelEn": "mixed metadata benchmark",
+            "tags": [
+              "USL",
+              "연결",
+              "binding"
+            ],
+            "revision": "bench-v1"
+          }
+        },
+        "sourceDigest": "sha256:9830bc9dcdc00688ff169e55cb1260973f8cf8a551cd599f99f366d94673c827",
+        "minifiedSourceDigest": "sha256:31d71f4b3f90b58acbb9a8507434a345e56b5b8cc02a602a33d8c409a3575573",
+        "canonicalSourceDigest": "sha256:ca0a5ecf62a92c54cc3be26d26eb362e2ee4166843b4ef50fa1a6d926fac954d",
+        "planDigest": "sha256:fcdac7c57d57ea4dfbf40c4c4c4eae81b4124727c13bc1035af6a2c2fb5cf1f6",
+        "generatedParameters": null
+      },
+      "guarantees": {
+        "source": "RESOURCE_GRAPH_PRETTY_AND_MINIFIED_SAME_ADAPTED_PLAN_DIGEST",
+        "contextPrettyAndMinified": "EXACT_JSON_VALUE",
+        "dictionaryTable": "EXACT_JSON_ROUNDTRIP; STANDALONE_LANE_INCLUDES_DECODER_GUIDE; LLM_QUALITY_NOT_TESTED",
+        "compactFull": "TRANSPORT_PROJECTION_WITH_RECONSTRUCTIBLE_PATHS_AND_TARGET_WITNESS",
+        "compactUnchanged": "REQUIRES_RECEIVER_PRIOR_FULL_CONTEXT"
+      },
+      "lanes": {
+        "source-original": {
+          "utf8Bytes": 5527,
+          "gzipBytes": 1153,
+          "brotliBytes": 950,
+          "gzipBase64Bytes": 1540,
+          "brotliBase64Bytes": 1268,
+          "payloadDigest": "sha256:9830bc9dcdc00688ff169e55cb1260973f8cf8a551cd599f99f366d94673c827"
+        },
+        "source-minified": {
+          "utf8Bytes": 3589,
+          "gzipBytes": 1060,
+          "brotliBytes": 864,
+          "gzipBase64Bytes": 1416,
+          "brotliBase64Bytes": 1152,
+          "payloadDigest": "sha256:31d71f4b3f90b58acbb9a8507434a345e56b5b8cc02a602a33d8c409a3575573"
+        },
+        "context-pretty": {
+          "utf8Bytes": 26972,
+          "gzipBytes": 3104,
+          "brotliBytes": 2504,
+          "gzipBase64Bytes": 4140,
+          "brotliBase64Bytes": 3340,
+          "payloadDigest": "sha256:9d52a6a9de7208eaa03d7a61ad2293ea9cd73b2c3648b62a222f8ad61028fb31"
+        },
+        "context-minified": {
+          "utf8Bytes": 21038,
+          "gzipBytes": 2955,
+          "brotliBytes": 2363,
+          "gzipBase64Bytes": 3940,
+          "brotliBase64Bytes": 3152,
+          "payloadDigest": "sha256:cf402dd560a79b32083f142a826d35ba8ea8090b29346db4b5342bb814a71d29"
+        },
+        "compact-full": {
+          "utf8Bytes": 13284,
+          "gzipBytes": 2858,
+          "brotliBytes": 2355,
+          "gzipBase64Bytes": 3812,
+          "brotliBase64Bytes": 3140,
+          "payloadDigest": "sha256:7a1dbff88da00134878bc14c61d8e482dcfdba545eab1efa026a908ca1d1315a"
+        },
+        "dictionary-table-data-needs-decoder": {
+          "utf8Bytes": 12038,
+          "gzipBytes": 3071,
+          "brotliBytes": 2463,
+          "gzipBase64Bytes": 4096,
+          "brotliBase64Bytes": 3284,
+          "payloadDigest": "sha256:510487af7090b996143c8c1d2efedf8e908aa129f0d3f32c27b9ad8243c8c6c6"
+        },
+        "dictionary-table-standalone": {
+          "utf8Bytes": 12373,
+          "gzipBytes": 3248,
+          "brotliBytes": 2585,
+          "gzipBase64Bytes": 4332,
+          "brotliBase64Bytes": 3448,
+          "payloadDigest": "sha256:de2393967f1fbbf48b38ec5784e2306eb63a2e1011909925432ed57e85822445"
+        },
+        "compact-unchanged-requires-prior-full": {
+          "utf8Bytes": 238,
+          "gzipBytes": 199,
+          "brotliBytes": 176,
+          "gzipBase64Bytes": 268,
+          "brotliBase64Bytes": 236,
+          "payloadDigest": "sha256:36a5804acc04a05fa91db890ee18f3ecd13e128ea0d9b8ac398270b096eeadcc"
+        }
+      },
+      "tokens": {
+        "cl100k_base": {
+          "source-original": {
+            "text": 1381,
+            "gzipBase64": 1094,
+            "brotliBase64": 910
+          },
+          "source-minified": {
+            "text": 807,
+            "gzipBase64": 999,
+            "brotliBase64": 819
+          },
+          "context-pretty": {
+            "text": 10651,
+            "gzipBase64": 2910,
+            "brotliBase64": 2386
+          },
+          "context-minified": {
+            "text": 9020,
+            "gzipBase64": 2807,
+            "brotliBase64": 2272
+          },
+          "compact-full": {
+            "text": 5092,
+            "gzipBase64": 2700,
+            "brotliBase64": 2233
+          },
+          "dictionary-table-data-needs-decoder": {
+            "text": 5432,
+            "gzipBase64": 2935,
+            "brotliBase64": 2348
+          },
+          "dictionary-table-standalone": {
+            "text": 5518,
+            "gzipBase64": 3105,
+            "brotliBase64": 2487
+          },
+          "compact-unchanged-requires-prior-full": {
+            "text": 112,
+            "gzipBase64": 189,
+            "brotliBase64": 167
+          }
+        },
+        "o200k_base": {
+          "source-original": {
+            "text": 1377,
+            "gzipBase64": 1044,
+            "brotliBase64": 873
+          },
+          "source-minified": {
+            "text": 825,
+            "gzipBase64": 962,
+            "brotliBase64": 781
+          },
+          "context-pretty": {
+            "text": 10656,
+            "gzipBase64": 2798,
+            "brotliBase64": 2293
+          },
+          "context-minified": {
+            "text": 9068,
+            "gzipBase64": 2671,
+            "brotliBase64": 2159
+          },
+          "compact-full": {
+            "text": 5140,
+            "gzipBase64": 2570,
+            "brotliBase64": 2114
+          },
+          "dictionary-table-data-needs-decoder": {
+            "text": 5428,
+            "gzipBase64": 2798,
+            "brotliBase64": 2238
+          },
+          "dictionary-table-standalone": {
+            "text": 5513,
+            "gzipBase64": 2977,
+            "brotliBase64": 2350
+          },
+          "compact-unchanged-requires-prior-full": {
+            "text": 112,
+            "gzipBase64": 175,
+            "brotliBase64": 160
+          }
+        }
+      }
+    },
+    {
+      "id": "generated-medium-usl",
+      "input": {
+        "kind": "generated-usl",
+        "path": null,
+        "baseSourceDigest": null,
+        "metadataOverlay": null,
+        "sourceDigest": "sha256:505fe65899351fe02524fa9c33162627f88124df24837a33ab460d8e40792e91",
+        "minifiedSourceDigest": "sha256:0fe983648b6b1ce6035f258dc849ab7b23c81e29112440f3de84a737ce0966c7",
+        "canonicalSourceDigest": "sha256:540c6636f746d08cac5cc6f90577ff829cee9a718208656304dd9597a444f6a0",
+        "planDigest": "sha256:b8d5ea9883effadfbea6a7d125725b6e994039cd75086b1a6ee444edd7d5eaea",
+        "generatedParameters": {
+          "resources": 36,
+          "links": 30,
+          "metadataLabel": "한국어 mixed metadata 반복 설명"
+        }
+      },
+      "guarantees": {
+        "source": "USL_SOURCE_AND_TOKENIZER_SAFE_WHITESPACE_MINIFIED_SOURCE_SAME_PLAN_DIGEST",
+        "contextPrettyAndMinified": "EXACT_JSON_VALUE",
+        "dictionaryTable": "EXACT_JSON_ROUNDTRIP; STANDALONE_LANE_INCLUDES_DECODER_GUIDE; LLM_QUALITY_NOT_TESTED",
+        "compactFull": "TRANSPORT_PROJECTION_WITH_RECONSTRUCTIBLE_PATHS_AND_TARGET_WITNESS",
+        "compactUnchanged": "REQUIRES_RECEIVER_PRIOR_FULL_CONTEXT"
+      },
+      "lanes": {
+        "source-original": {
+          "utf8Bytes": 5174,
+          "gzipBytes": 798,
+          "brotliBytes": 496,
+          "gzipBase64Bytes": 1064,
+          "brotliBase64Bytes": 664,
+          "payloadDigest": "sha256:505fe65899351fe02524fa9c33162627f88124df24837a33ab460d8e40792e91"
+        },
+        "source-minified": {
+          "utf8Bytes": 4717,
+          "gzipBytes": 700,
+          "brotliBytes": 426,
+          "gzipBase64Bytes": 936,
+          "brotliBase64Bytes": 568,
+          "payloadDigest": "sha256:0fe983648b6b1ce6035f258dc849ab7b23c81e29112440f3de84a737ce0966c7"
+        },
+        "context-pretty": {
+          "utf8Bytes": 70971,
+          "gzipBytes": 2630,
+          "brotliBytes": 1571,
+          "gzipBase64Bytes": 3508,
+          "brotliBase64Bytes": 2096,
+          "payloadDigest": "sha256:b8582eb49d699ac221ace6204ee58cacc983270c02d310d76d20f299b4c82cc3"
+        },
+        "context-minified": {
+          "utf8Bytes": 38184,
+          "gzipBytes": 2069,
+          "brotliBytes": 1364,
+          "gzipBase64Bytes": 2760,
+          "brotliBase64Bytes": 1820,
+          "payloadDigest": "sha256:a0d1a66ea716b9f4d894461726f2195ffe6a8208e5f751d8341d432872d92e85"
+        },
+        "compact-full": {
+          "utf8Bytes": 17084,
+          "gzipBytes": 1770,
+          "brotliBytes": 1210,
+          "gzipBase64Bytes": 2360,
+          "brotliBase64Bytes": 1616,
+          "payloadDigest": "sha256:1015fe2e1a303f92971bb3a53efafd2b3a1b416bfa400225f645f0042314e7a7"
+        },
+        "dictionary-table-data-needs-decoder": {
+          "utf8Bytes": 38782,
+          "gzipBytes": 2561,
+          "brotliBytes": 1666,
+          "gzipBase64Bytes": 3416,
+          "brotliBase64Bytes": 2224,
+          "payloadDigest": "sha256:f481d7ff5b1c169193557825280c419f694bf3d76d7065a26aa3df155650ff9f"
+        },
+        "dictionary-table-standalone": {
+          "utf8Bytes": 39117,
+          "gzipBytes": 2740,
+          "brotliBytes": 1782,
+          "gzipBase64Bytes": 3656,
+          "brotliBase64Bytes": 2376,
+          "payloadDigest": "sha256:51b859e25425d60022e4245ca11b557ae7ed46f8353279383b49e627ab3a7fde"
+        },
+        "compact-unchanged-requires-prior-full": {
+          "utf8Bytes": 238,
+          "gzipBytes": 199,
+          "brotliBytes": 172,
+          "gzipBase64Bytes": 268,
+          "brotliBase64Bytes": 232,
+          "payloadDigest": "sha256:bb0f19137fb78344a272c69e0f5bcd586aaf6a63cdc7b58923e96c371f13ba4d"
+        }
+      },
+      "tokens": {
+        "cl100k_base": {
+          "source-original": {
+            "text": 1703,
+            "gzipBase64": 764,
+            "brotliBase64": 483
+          },
+          "source-minified": {
+            "text": 1526,
+            "gzipBase64": 664,
+            "brotliBase64": 416
+          },
+          "context-pretty": {
+            "text": 19578,
+            "gzipBase64": 2517,
+            "brotliBase64": 1511
+          },
+          "context-minified": {
+            "text": 11183,
+            "gzipBase64": 1950,
+            "brotliBase64": 1313
+          },
+          "compact-full": {
+            "text": 4901,
+            "gzipBase64": 1660,
+            "brotliBase64": 1160
+          },
+          "dictionary-table-data-needs-decoder": {
+            "text": 20160,
+            "gzipBase64": 2434,
+            "brotliBase64": 1583
+          },
+          "dictionary-table-standalone": {
+            "text": 20246,
+            "gzipBase64": 2619,
+            "brotliBase64": 1702
+          },
+          "compact-unchanged-requires-prior-full": {
+            "text": 108,
+            "gzipBase64": 179,
+            "brotliBase64": 164
+          }
+        },
+        "o200k_base": {
+          "source-original": {
+            "text": 1591,
+            "gzipBase64": 728,
+            "brotliBase64": 459
+          },
+          "source-minified": {
+            "text": 1414,
+            "gzipBase64": 632,
+            "brotliBase64": 391
+          },
+          "context-pretty": {
+            "text": 19480,
+            "gzipBase64": 2397,
+            "brotliBase64": 1447
+          },
+          "context-minified": {
+            "text": 11185,
+            "gzipBase64": 1854,
+            "brotliBase64": 1246
+          },
+          "compact-full": {
+            "text": 5098,
+            "gzipBase64": 1585,
+            "brotliBase64": 1099
+          },
+          "dictionary-table-data-needs-decoder": {
+            "text": 20059,
+            "gzipBase64": 2342,
+            "brotliBase64": 1496
+          },
+          "dictionary-table-standalone": {
+            "text": 20144,
+            "gzipBase64": 2483,
+            "brotliBase64": 1618
+          },
+          "compact-unchanged-requires-prior-full": {
+            "text": 108,
+            "gzipBase64": 171,
+            "brotliBase64": 160
+          }
+        }
+      }
+    }
+  ]
+}

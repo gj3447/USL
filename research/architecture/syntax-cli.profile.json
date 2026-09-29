@@ -217,6 +217,66 @@
           "metadata": []
         }
       ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:evaluated_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:UserStatement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "technique",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:CompressionTechnique"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:measured_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:UserStatement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "technique",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:CompressionTechnique"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "benchmark",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:BenchmarkArtifact"
+          ],
+          "metadata": []
+        }
+      ]
     }
   ]
 }

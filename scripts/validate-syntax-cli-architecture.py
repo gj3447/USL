@@ -12,6 +12,15 @@ profile = json.loads((root / "research/architecture/syntax-cli.profile.json").re
 catalog = json.loads((root / "research/architecture/syntax-cli.catalog.json").read_text())
 work_plan_path = root / "research/architecture/hswm-like.plan.json"
 work_plan = json.loads(work_plan_path.read_text())
+compression_sources_path = root / "research/compression/sources.json"
+compression_sources = json.loads(compression_sources_path.read_text())
+compression_benchmark_path = root / "research/compression/benchmark-results.json"
+compression_benchmark = json.loads(compression_benchmark_path.read_text())
+compression_inputs_path = root / "research/compression/benchmark-inputs.json"
+benchmark_script_path = root / "scripts/benchmark-compression.ts"
+token_script_path = root / "scripts/count-compression-tokens.py"
+requirements_path = root / "scripts/requirements-compression.txt"
+def sha256_file(path): return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
 resources = {r["id"]: r for r in raw["resources"]}
 links = raw["links"]
 assert len(resources) >= 25 and len(links) >= 20
@@ -32,6 +41,27 @@ assert resources["source:hswm-plan"]["metadata"]["sourceDigest"] == "sha256:" + 
 assert resources["user:hswm-plan"]["metadata"] == {"status":"USER_PRIMARY", "text":work_plan["userRequest"]["text"], "authority":"USER_PRIMARY", "locationStatus":"DECLARED_PUBLIC_LOCATION", "remoteObservation":"NOT_PERFORMED"}
 for correction in work_plan.get("scopeCorrections", []):
     assert resources[correction["id"]]["metadata"]["authority"] == "USER_PRIMARY"
+assert resources["user:cli-programs"]["metadata"]["authority"] == "USER_PRIMARY"
+assert resources["user:compression-cost"]["metadata"]["authority"] == "USER_PRIMARY"
+assert resources["source:compression-sources"]["metadata"]["sourceDigest"] == sha256_file(compression_sources_path)
+benchmark = resources["artifact:compression-benchmark"]
+assert benchmark["metadata"]["sourceDigest"] == sha256_file(compression_benchmark_path)
+assert benchmark["metadata"]["resultStatus"] == "OFFLINE_PAYLOAD_MEASUREMENT_NOT_RUNTIME_MEMORY_OR_BILLED_USAGE"
+assert benchmark["metadata"]["billing"] == "NOT_MEASURED" and benchmark["metadata"]["llmQuality"] == "NOT_MEASURED"
+assert compression_benchmark["scope"] == benchmark["metadata"]["resultStatus"]
+assert compression_benchmark["validationStatus"] == benchmark["metadata"]["validationStatus"] == "FIXTURE_ROUNDTRIPS_PASSED"
+assert compression_benchmark["inputs"] == {
+    "digest": sha256_file(compression_inputs_path),
+    "benchmarkScriptDigest": sha256_file(benchmark_script_path),
+    "tokenScriptDigest": sha256_file(token_script_path),
+    "requirementsDigest": sha256_file(requirements_path),
+}
+for fixture in compression_benchmark["fixtures"]:
+    fixture_input = fixture["input"]
+    if fixture_input["path"] is not None:
+        source_digest = fixture_input["baseSourceDigest"] or fixture_input["sourceDigest"]
+        assert sha256_file(root / fixture_input["path"]) == source_digest
+assert len(compression_sources) >= 4
 rules = {m["id"]: m for m in profile["meanings"]}
 def conforms(candidate):
     known = {r["id"]: set(r["types"]) for r in candidate["resources"]}
@@ -96,6 +126,39 @@ def planned_work_conforms(candidate):
 assert conforms(raw)
 assert claims_conform(raw)
 assert planned_work_conforms(raw)
+def compression_trace_conforms(candidate):
+    by_id = {r["id"]: r for r in candidate["resources"]}
+    def parts(link): return {p["role"]: p["resource"] for p in link["participants"]}
+    traces = [l for l in candidate["links"] if l["meaning"].endswith("evaluated_by")]
+    expected_source_pairs = {("technique:compression:" + source["id"], "source:compression:" + source["id"]) for source in compression_sources}
+    if {(parts(link).get("technique"), parts(link).get("evidence")) for link in traces} != expected_source_pairs: return False
+    for link in traces:
+        p = parts(link)
+        if set(p) != {"requirement", "technique", "evidence"} or p["requirement"] != "user:compression-cost": return False
+        if not p["technique"].startswith("technique:compression:") or not p["evidence"].startswith("source:compression:"): return False
+        if link.get("metadata", {}).get("claimStatus") != "MEASUREMENT_REQUIRED": return False
+        source = by_id.get(p["evidence"], {}).get("metadata", {})
+        if source.get("sourceReview") != "DOCUMENT_READ_" + source.get("checkedAt", "") or source.get("remoteObservation") != "NOT_PERFORMED_BY_USL_RUNTIME": return False
+    measured = [l for l in candidate["links"] if l["meaning"].endswith("measured_by")]
+    expected_measured = {"openai-token-counting", "source-minification", "compact-full", "dictionary-table", "compact-unchanged", "binary-transport"}
+    measured_techniques = {parts(link).get("technique", "").removeprefix("technique:compression:") for link in measured}
+    if measured_techniques != expected_measured: return False
+    for link in measured:
+        p = parts(link)
+        if p.get("requirement") != "user:compression-cost" or p.get("benchmark") != "artifact:compression-benchmark" or set(p) != {"requirement", "technique", "benchmark"}: return False
+        if link.get("metadata", {}).get("claimStatus") != "NO_BILLING_OR_QUALITY_CLAIM": return False
+    local_expected = {
+        "source-minification": ("source-original", "BENCHMARK_EXPERIMENT_NOT_USL_RUNTIME_FEATURE"),
+        "compact-full": ("context-minified", "IMPLEMENTED_CURRENT_USL_FEATURE"),
+        "dictionary-table": ("context-minified", "BENCHMARK_EXPERIMENT_NOT_USL_RUNTIME_FEATURE"),
+        "compact-unchanged": ("compact-full", "IMPLEMENTED_CURRENT_USL_FEATURE"),
+        "binary-transport": ("each text payload lane", "BENCHMARK_TRANSPORT_COMPARISON_NOT_USL_RUNTIME_FEATURE"),
+    }
+    for technique, (baseline, implementation_status) in local_expected.items():
+        metadata = by_id.get("technique:compression:" + technique, {}).get("metadata", {})
+        if metadata.get("status") != "LOCAL_OFFLINE_MEASUREMENT" or metadata.get("baseline") != baseline or metadata.get("implementationStatus") != implementation_status or not metadata.get("lanes") or not metadata.get("limitation"): return False
+    return True
+assert compression_trace_conforms(raw)
 def clone(): return json.loads(json.dumps(raw))
 broken_ref = clone(); broken_ref["links"][0]["participants"][0]["resource"] = "missing:resource"
 assert not conforms(broken_ref)
@@ -115,6 +178,9 @@ false_completed = clone()
 for resource in false_completed["resources"]:
     if resource["id"] == "task:P01": resource["metadata"]["status"] = "COMPLETED"
 assert not planned_work_conforms(false_completed)
+broken_compression = clone()
+broken_compression["links"] = [link for link in broken_compression["links"] if not (link["meaning"].endswith("measured_by") and any(participant["resource"] == "technique:compression:compact-full" for participant in link["participants"]))]
+assert not compression_trace_conforms(broken_compression)
 # Query the actual JSON-LD projection and run both shared and task-specific shapes.
 data = Graph().parse(jsonld_path, format="json-ld")
 shape_graph = Graph().parse(root / "schemas/resource-graph.shacl.ttl", format="turtle")
@@ -131,6 +197,7 @@ assert len(list(data.objects(trace, usl.participant))) == 3
 assert any(data.triples((None, RDF.type, prov.Activity))) and any(data.triples((None, RDF.type, prov.Agent)))
 assert any(link["meaning"].endswith("interpreted_as") and link.get("metadata", {}).get("authority") == "SECONDARY_AI" for link in links)
 assert any(link["meaning"].endswith("addresses") and link["participants"][0]["resource"] == "proposal:graph-cli" and link["participants"][1]["resource"] == "user:syntax-cli" for link in links)
+assert any(link["meaning"].endswith("evaluated_by") and len(link["participants"]) == 3 for link in links)
 task_resources = [r for r in resources.values() if "urn:usl:syntax-cli:Task" in r["types"]]
 assert [r["id"] for r in sorted(task_resources, key=lambda r: r["metadata"]["order"])] == ["task:P01", "task:P02", "task:P03"]
 assert min(task_resources, key=lambda r: r["metadata"]["order"])["id"] == "task:P01"
@@ -151,4 +218,4 @@ broken_role_rdf = copy_graph(); participant = next(broken_role_rdf.objects(links
 assert not validate(broken_role_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
 wrong_status_rdf = copy_graph(); wrong_status_rdf.set((links_rdf[0], usl.status, Literal("IMPLEMENTED_AND_PROVEN")))
 assert not validate(wrong_status_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
-print(json.dumps({"scope":"ARCHITECTURE_GRAPH_STRUCTURE_AND_COMPETENCY_QUERIES_ONLY","resources":len(resources),"links":len(links),"tasks":len(task_resources),"triples":len(data),"negative_cases":9,"graph_sha256":hashlib.sha256(graph_path.read_bytes()).hexdigest()}, ensure_ascii=False))
+print(json.dumps({"scope":"ARCHITECTURE_GRAPH_STRUCTURE_AND_COMPETENCY_QUERIES_ONLY","resources":len(resources),"links":len(links),"tasks":len(task_resources),"compressionSources":len(compression_sources),"triples":len(data),"negative_cases":10,"graph_sha256":hashlib.sha256(graph_path.read_bytes()).hexdigest()}, ensure_ascii=False))

@@ -2,7 +2,7 @@
 @prefix arc: <urn:usl:syntax-cli:> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-arc:ArchitectureRoleShape a sh:NodeShape ; sh:targetClass usl:Link ; sh:or ( arc:interpreted_asShape arc:implemented_byShape arc:traceShape arc:bounded_byShape arc:addressesShape arc:depends_onShape arc:planned_workShape arc:task_depends_onShape arc:advancesShape ) .
+arc:ArchitectureRoleShape a sh:NodeShape ; sh:targetClass usl:Link ; sh:or ( arc:interpreted_asShape arc:implemented_byShape arc:traceShape arc:bounded_byShape arc:addressesShape arc:depends_onShape arc:planned_workShape arc:task_depends_onShape arc:advancesShape arc:evaluated_byShape arc:measured_byShape ) .
 
 arc:interpreted_asShape a sh:NodeShape ;
   sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:interpreted_as" ] ;
@@ -51,3 +51,15 @@ arc:advancesShape a sh:NodeShape ;
   sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "task" "proposal" ) ] ;
   sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Task ] ] ] ;
   sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "proposal" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Proposal ] ] ] .
+arc:evaluated_byShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:evaluated_by" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "requirement" "technique" "evidence" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "requirement" ] ; sh:property [ sh:path usl:resource ; sh:class arc:UserStatement ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "technique" ] ; sh:property [ sh:path usl:resource ; sh:class arc:CompressionTechnique ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "evidence" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Source ] ] ] .
+arc:measured_byShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:measured_by" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "requirement" "technique" "benchmark" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "requirement" ] ; sh:property [ sh:path usl:resource ; sh:class arc:UserStatement ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "technique" ] ; sh:property [ sh:path usl:resource ; sh:class arc:CompressionTechnique ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "benchmark" ] ; sh:property [ sh:path usl:resource ; sh:class arc:BenchmarkArtifact ] ] ] .

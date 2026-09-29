@@ -1,0 +1,11 @@
+{
+  "schema": "usl-compression-benchmark-inputs/v1",
+  "fixtures": [
+    { "id": "agent-navigation-usl", "kind": "usl", "path": "examples/agent-navigation.usl", "query": { "focus": "checkout", "target": "concept", "maxHops": 2, "routes": [{ "meaning": "checkout_of", "enter": "local", "exit": "repository" }, { "meaning": "implements", "enter": "repository", "exit": "concept" }] } },
+    { "id": "resource-graph-metadata", "kind": "resource-graph", "path": "examples/fixtures/resource-graph.json", "metadataOverlay": { "resource": "example:proof", "metadata": { "labelKo": "한국어 증명 메타데이터", "labelEn": "mixed metadata benchmark", "tags": ["USL", "연결", "binding"], "revision": "bench-v1" } }, "query": { "focus": "example:spec", "target": "example:artifact", "maxHops": 4 } },
+    { "id": "generated-medium-usl", "kind": "generated-usl", "resources": 36, "links": 30, "metadataLabel": "한국어 mixed metadata 반복 설명", "query": { "focus": "r0", "target": "r30", "maxHops": 32 } }
+  ],
+  "tokenizers": ["cl100k_base", "o200k_base"],
+  "transport": ["gzip", "brotli"],
+  "dictionaryCodec": "benchmark-dictionary-table/v1"
+}

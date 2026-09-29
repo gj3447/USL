@@ -1,0 +1,56 @@
+[
+  {
+    "id": "openai-token-counting",
+    "title": "OpenAI token counting guide",
+    "url": "https://developers.openai.com/api/docs/guides/token-counting",
+    "technique": "model-aware local token estimation",
+    "scope": "text encodings and request-token accounting considerations",
+    "limitation": "plain encoding counts are not billed request usage; model, message role and tool overhead can differ",
+    "checkedAt": "2026-09-29"
+  },
+  {
+    "id": "openai-prompt-caching",
+    "title": "OpenAI prompt caching guide",
+    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "technique": "reused prompt prefix caching",
+    "scope": "consumer-side/provider prompt cache behavior",
+    "limitation": "cache use does not reduce the request context itself and hit behavior depends on matching prefixes and provider conditions",
+    "checkedAt": "2026-09-29"
+  },
+  {
+    "id": "rfc8878-zstd",
+    "title": "RFC 8878: Zstandard Compression",
+    "url": "https://www.rfc-editor.org/rfc/rfc8878.html",
+    "technique": "lossless binary compression",
+    "scope": "transport or storage of bytes",
+    "limitation": "a model normally needs decompressed text; compressed bytes and base64 do not imply fewer model tokens",
+    "checkedAt": "2026-09-29"
+  },
+  {
+    "id": "rfc8949-cbor",
+    "title": "RFC 8949: Concise Binary Object Representation",
+    "url": "https://www.rfc-editor.org/rfc/rfc8949.html",
+    "technique": "lossless binary structured encoding",
+    "scope": "wire/storage encoding of structured values",
+    "limitation": "requires a decoder and is not a directly readable prompt representation",
+    "checkedAt": "2026-09-29"
+  },
+  {
+    "id": "toon-spec",
+    "title": "TOON Format Specification",
+    "url": "https://github.com/toon-format/spec",
+    "technique": "readable table/dictionary-style JSON-data encoding",
+    "scope": "repeated fields and uniform object arrays in prompts",
+    "limitation": "working-draft external format; token benefit and model comprehension require USL-specific measurement",
+    "checkedAt": "2026-09-29"
+  },
+  {
+    "id": "llmlingua2",
+    "title": "LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression",
+    "url": "https://arxiv.org/abs/2403.12968",
+    "technique": "learned extractive prompt compression",
+    "scope": "optional lossy prompt pre-processing research",
+    "limitation": "can omit information, so it cannot be a lossless USL core representation or mandatory dependency",
+    "checkedAt": "2026-09-29"
+  }
+]
