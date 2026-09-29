@@ -15,6 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Architecture source locators are checked against a pinned Git commit.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v7
         with:
@@ -50,3 +53,5 @@ jobs:
       - run: npm run engineering:standards
       - run: npm run binding-progress:check
       - run: npm run binding-progress:standards
+      - run: node --import tsx scripts/build-syntax-cli-architecture.ts --check
+      - run: python3 scripts/validate-syntax-cli-architecture.py

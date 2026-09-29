@@ -1,0 +1,48 @@
+{
+  "schema": "usl-syntax-cli-architecture-catalog/v1",
+  "authority": "SECONDARY_AI",
+  "sourceCommit": "679c8eac984167a1b5fb6987c8176279b6a9d0ac",
+  "sourcePins": {
+    "src/language/parser.ts": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed",
+    "src/language/compiler.ts": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f",
+    "src/language/model.ts": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+    "src/language/navigation.ts": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+    "src/cli.ts": "sha256:71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+    "src/cli-platform.ts": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+    "src/cli-adapter.ts": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+    "src/cli-host-command.ts": "sha256:a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+    "src/cli-host.ts": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+    "src/integrations/resource-graph.ts": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+    "src/integrations/property-graph.ts": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
+    "src/resource-bindings.ts": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+    "src/integrations/resource-bindings.ts": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902"
+  },
+  "userStatements": [
+    {
+      "id": "user:syntax-cli",
+      "status": "USER_PRIMARY",
+      "text": "USL 은 문법같은거고 그 cli 도구로 깔끔하게 동작하도록 하는게 맞을것같은데 그것도 어케생각하냐 표준 그래프 엔지니어링으로 정리좀 해줘봐봐 ㅇㅇ"
+    },
+    {
+      "id": "user:weighted-hypergraph",
+      "status": "USER_PRIMARY",
+      "text": "HSWM like 하지 않은데 그 규칙은 ㅇㅇ? 그렇게 생각하지않냐 ? 그리고 그 USL 그자체로도 HSWM LIKENESS 하도록 그 하이퍼그래프 데이터 구조로 연결할수 있어야하고 그 시멘틱한 내용을 웨이트 가중치 조정하면서 연결 가능해야하고 그 M 맵 그 연결된 내용의 색인 인덱스 역할 가능하도록 구조가 그 상위 하위 구조가 가능해야해 그 내용 일단 머릿속에 박아넣어줘봐봐 ㅇㅇ"
+    }
+  ],
+  "implemented": [
+    ["feature:grammar", "USL v0.1 declarative grammar", ["src/language/parser.ts", "src/language/compiler.ts"]],
+    ["feature:semantic-plan", "Compiled SemanticPlan", ["src/language/model.ts", "src/language/compiler.ts"]],
+    ["feature:hyperedge", "Named-role n-ary links", ["src/language/model.ts", "src/language/compiler.ts", "src/language/navigation.ts"]],
+    ["feature:navigation", "Role-incidence bounded navigation", ["src/language/navigation.ts"]],
+    ["feature:cli", "USL CLI command surface", ["src/cli.ts", "src/cli-platform.ts", "src/cli-adapter.ts"]],
+    ["feature:cli-host", "Pinned host CLI planning and execution", ["src/cli-host-command.ts", "src/cli-host.ts"]],
+    ["feature:adapters", "Resource/property graph adapters and JSON-LD", ["src/integrations/resource-graph.ts", "src/integrations/property-graph.ts"]],
+    ["feature:bindings", "Portable resource bindings", ["src/resource-bindings.ts", "src/integrations/resource-bindings.ts"]]
+  ],
+  "proposals": [
+    ["proposal:weighted-assertion", "Versioned semantic weight assertions", "Weights are explicit evidence or ranking metadata, never semantic truth or authorization."],
+    ["proposal:m-map", "Derived M-map index", "A deterministic, digest-pinned index maps stable resources and hyperedges to representations and partitions."],
+    ["proposal:hierarchy", "Typed containment hierarchy", "A typed parent/child relation has explicit cycle policy and ancestor/descendant query semantics."],
+    ["proposal:graph-cli", "Consolidated graph CLI", "Graph validation, index build/query, hierarchy traversal and weight revision share one documented CLI contract."]
+  ]
+}

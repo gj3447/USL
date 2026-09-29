@@ -1,0 +1,2754 @@
+{
+  "@context": {
+    "usl": "urn:usl:vocab:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f",
+      "@type": "prov:Entity",
+      "usl:sourceDigest": "sha256:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+    },
+    {
+      "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18",
+      "@type": "usl:DomainProfile",
+      "usl:profileDigest": "sha256:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18",
+      "usl:profile": {
+        "@value": {
+          "schema": "usl-domain-profile/v1",
+          "id": "urn:usl:syntax-cli:profile",
+          "version": "1",
+          "closedMeanings": true,
+          "meanings": [
+            {
+              "id": "urn:usl:syntax-cli:interpreted_as",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "statement",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:UserStatement"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ImplementedFeature"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:implemented_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ImplementedFeature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Artifact"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:trace",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "statement",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:UserStatement"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ImplementedFeature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "artifact",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Artifact"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:bounded_by",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "feature",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ImplementedFeature"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "limitation",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Limitation"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:addresses",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "proposal",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Proposal"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "requirement",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:UserStatement"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:depends_on",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "proposal",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Proposal"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "prerequisite",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Proposal"
+                  ],
+                  "metadata": []
+                }
+              ]
+            }
+          ]
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Source"
+      ],
+      "usl:nativeId": "source:catalog",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "research/architecture/syntax-cli.catalog.json",
+          "sourceDigest": "sha256:612da61da2bd116881a5017e8ccaad0dd847096fa0c7afda55ac597bcd06c776",
+          "authority": "SECONDARY_AI",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Source"
+      ],
+      "usl:nativeId": "source:generator",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/scripts/build-syntax-cli-architecture.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "scripts/build-syntax-cli-architecture.ts",
+          "sourceDigest": "sha256:d125f983439b18c20bb638182bf41c8f0bfd63b7c79c21f902b2194ec764da44",
+          "scope": "DETERMINISTIC_GENERATOR",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ArchitectureActivity",
+        "http://www.w3.org/ns/prov#Activity"
+      ],
+      "usl:nativeId": "activity:architecture",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "status": "DECLARED",
+          "scope": "CURRENT_IMPLEMENTATION_AND_PROPOSAL_SEPARATION",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Agent",
+        "http://www.w3.org/ns/prov#Agent"
+      ],
+      "usl:nativeId": "agent:secondary",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "ratification": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ArchitectureSubject"
+      ],
+      "usl:nativeId": "subject:usl",
+      "usl:locator": "git://github.com/gj3447/USL",
+      "usl:metadata": {
+        "@value": {
+          "name": "USL",
+          "role": "LANGUAGE_AND_CLI_BINDING_LAYER"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "usl:nativeId": "user:syntax-cli",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "status": "USER_PRIMARY",
+          "text": "USL 은 문법같은거고 그 cli 도구로 깔끔하게 동작하도록 하는게 맞을것같은데 그것도 어케생각하냐 표준 그래프 엔지니어링으로 정리좀 해줘봐봐 ㅇㅇ",
+          "authority": "USER_PRIMARY",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aweighted-hypergraph",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "usl:nativeId": "user:weighted-hypergraph",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "status": "USER_PRIMARY",
+          "text": "HSWM like 하지 않은데 그 규칙은 ㅇㅇ? 그렇게 생각하지않냐 ? 그리고 그 USL 그자체로도 HSWM LIKENESS 하도록 그 하이퍼그래프 데이터 구조로 연결할수 있어야하고 그 시멘틱한 내용을 웨이트 가중치 조정하면서 연결 가능해야하고 그 M 맵 그 연결된 내용의 색인 인덱스 역할 가능하도록 구조가 그 상위 하위 구조가 가능해야해 그 내용 일단 머릿속에 박아넣어줘봐봐 ㅇㅇ",
+          "authority": "USER_PRIMARY",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Agrammar",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:grammar",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "USL v0.1 declarative grammar",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fparser.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/language/parser.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/parser.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/language/parser.ts",
+          "sourceDigest": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fcompiler.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/language/compiler.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/compiler.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/language/compiler.ts",
+          "sourceDigest": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Asemantic-plan",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:semantic-plan",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "Compiled SemanticPlan",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fmodel.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/language/model.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/model.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/language/model.ts",
+          "sourceDigest": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Ahyperedge",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:hyperedge",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "Named-role n-ary links",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fnavigation.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/language/navigation.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/navigation.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/language/navigation.ts",
+          "sourceDigest": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Anavigation",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:navigation",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "Role-incidence bounded navigation",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:cli",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "USL CLI command surface",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli.ts",
+          "sourceDigest": "sha256:71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-platform.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-platform.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-platform.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-platform.ts",
+          "sourceDigest": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-adapter.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-adapter.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-adapter.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-adapter.ts",
+          "sourceDigest": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli-host",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:cli-host",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "Pinned host CLI planning and execution",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-host-command.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-host-command.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-host-command.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-host-command.ts",
+          "sourceDigest": "sha256:a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/cli-host.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-host.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/cli-host.ts",
+          "sourceDigest": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Aadapters",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:adapters",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "Resource/property graph adapters and JSON-LD",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fintegrations%2Fresource-graph.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/resource-graph.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/integrations/resource-graph.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/resource-graph.ts",
+          "sourceDigest": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fintegrations%2Fproperty-graph.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/property-graph.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/integrations/property-graph.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/property-graph.ts",
+          "sourceDigest": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Abindings",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "usl:nativeId": "feature:bindings",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "title": "Portable resource bindings",
+          "status": "IMPLEMENTED_CURRENT_SOURCE",
+          "semanticTruth": "NOT_EVALUATED",
+          "runtimeTests": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/resource-bindings.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/resource-bindings.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/resource-bindings.ts",
+          "sourceDigest": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fintegrations%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/integrations/resource-bindings.ts",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/integrations/resource-bindings.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/integrations/resource-bindings.ts",
+          "sourceDigest": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902",
+          "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Aweights",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "usl:nativeId": "limitation:weights",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "Semantic weight adjustment is not implemented.",
+          "status": "CURRENT_GAP"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Am-map",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "usl:nativeId": "limitation:m-map",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "No persistent or derived M-map index is implemented.",
+          "status": "CURRENT_GAP"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Ahierarchy",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "usl:nativeId": "limitation:hierarchy",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "No typed parent/child hierarchy or ancestry query is implemented.",
+          "status": "CURRENT_GAP"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Acli-consolidation",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "usl:nativeId": "limitation:cli-consolidation",
+      "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "CLI commands are functional but help is not a consolidated graph-oriented interface.",
+          "status": "CURRENT_GAP"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Aweighted-assertion",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "usl:nativeId": "proposal:weighted-assertion",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "Versioned semantic weight assertions",
+          "detail": "Weights are explicit evidence or ranking metadata, never semantic truth or authorization.",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "implementation": "NOT_STARTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Am-map",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "usl:nativeId": "proposal:m-map",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "Derived M-map index",
+          "detail": "A deterministic, digest-pinned index maps stable resources and hyperedges to representations and partitions.",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "implementation": "NOT_STARTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Ahierarchy",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "usl:nativeId": "proposal:hierarchy",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "Typed containment hierarchy",
+          "detail": "A typed parent/child relation has explicit cycle policy and ancestor/descendant query semantics.",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "implementation": "NOT_STARTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Agraph-cli",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "usl:nativeId": "proposal:graph-cli",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "usl:metadata": {
+        "@value": {
+          "title": "Consolidated graph CLI",
+          "detail": "Graph validation, index build/query, hierarchy traversal and weight revision share one documented CLI contract.",
+          "status": "PROPOSED",
+          "authority": "SECONDARY_AI",
+          "implementation": "NOT_STARTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:interpreted_as",
+      "usl:description": "Architecture trace relation interpreted_as; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:implemented_by",
+      "usl:description": "Architecture trace relation implemented_by; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atrace",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:trace",
+      "usl:description": "Architecture trace relation trace; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:bounded_by",
+      "usl:description": "Architecture trace relation bounded_by; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:addresses",
+      "usl:description": "Architecture trace relation addresses; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Adepends_on",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:depends_on",
+      "usl:description": "Architecture trace relation depends_on; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Agrammar%3Aartifact%3Asrc%2Flanguage%2Fparser.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:grammar:artifact:src/language/parser.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Agrammar"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fparser.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Agrammar%3Aartifact%3Asrc%2Flanguage%2Fcompiler.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:grammar:artifact:src/language/compiler.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Agrammar"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fcompiler.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Agrammar",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:grammar",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Agrammar"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Asemantic-plan%3Aartifact%3Asrc%2Flanguage%2Fmodel.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:semantic-plan:artifact:src/language/model.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Asemantic-plan"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fmodel.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Asemantic-plan%3Aartifact%3Asrc%2Flanguage%2Fcompiler.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:semantic-plan:artifact:src/language/compiler.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Asemantic-plan"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fcompiler.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Asemantic-plan",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:semantic-plan",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Asemantic-plan"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Ahyperedge%3Aartifact%3Asrc%2Flanguage%2Fmodel.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:hyperedge:artifact:src/language/model.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Ahyperedge"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fmodel.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Ahyperedge%3Aartifact%3Asrc%2Flanguage%2Fcompiler.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:hyperedge:artifact:src/language/compiler.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Ahyperedge"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fcompiler.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Ahyperedge%3Aartifact%3Asrc%2Flanguage%2Fnavigation.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:hyperedge:artifact:src/language/navigation.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Ahyperedge"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fnavigation.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Ahyperedge",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:hyperedge",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Ahyperedge"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Anavigation%3Aartifact%3Asrc%2Flanguage%2Fnavigation.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:navigation:artifact:src/language/navigation.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Anavigation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fnavigation.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Anavigation",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:navigation",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Anavigation"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Acli%3Aartifact%3Asrc%2Fcli.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:cli:artifact:src/cli.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Acli%3Aartifact%3Asrc%2Fcli-platform.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:cli:artifact:src/cli-platform.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-platform.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Acli%3Aartifact%3Asrc%2Fcli-adapter.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:cli:artifact:src/cli-adapter.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-adapter.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Acli",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:cli",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Acli-host%3Aartifact%3Asrc%2Fcli-host-command.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:cli-host:artifact:src/cli-host-command.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli-host"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-host-command.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Acli-host%3Aartifact%3Asrc%2Fcli-host.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:cli-host:artifact:src/cli-host.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli-host"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fcli-host.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Acli-host",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:cli-host",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli-host"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Aadapters%3Aartifact%3Asrc%2Fintegrations%2Fresource-graph.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:adapters:artifact:src/integrations/resource-graph.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Aadapters"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fintegrations%2Fresource-graph.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Aadapters%3Aartifact%3Asrc%2Fintegrations%2Fproperty-graph.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:adapters:artifact:src/integrations/property-graph.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Aadapters"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fintegrations%2Fproperty-graph.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Aadapters",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:adapters",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Aadapters"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Abindings%3Aartifact%3Asrc%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:bindings:artifact:src/resource-bindings.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Abindings"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fresource-bindings.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Abindings%3Aartifact%3Asrc%2Fintegrations%2Fresource-bindings.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "implemented_by:feature:bindings:artifact:src/integrations/resource-bindings.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Abindings"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Fintegrations%2Fresource-bindings.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:interpreted_as%3Auser%3Asyntax-cli%3Afeature%3Abindings",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "interpreted_as:user:syntax-cli:feature:bindings",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Abindings"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:bounded_by%3Afeature%3Ahyperedge%3Alimitation%3Aweights",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "bounded_by:feature:hyperedge:limitation:weights",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Ahyperedge"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Aweights"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:bounded_by%3Afeature%3Anavigation%3Alimitation%3Am-map",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "bounded_by:feature:navigation:limitation:m-map",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Anavigation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Am-map"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:bounded_by%3Afeature%3Anavigation%3Alimitation%3Ahierarchy",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "bounded_by:feature:navigation:limitation:hierarchy",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Anavigation"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Ahierarchy"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:bounded_by%3Afeature%3Acli%3Alimitation%3Acli-consolidation",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "bounded_by:feature:cli:limitation:cli-consolidation",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Acli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:limitation%3Acli-consolidation"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:addresses%3Aproposal%3Aweighted-assertion%3Auser%3Aweighted-hypergraph",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "addresses:proposal:weighted-assertion:user:weighted-hypergraph",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "proposal",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Aweighted-assertion"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aweighted-hypergraph"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:addresses%3Aproposal%3Am-map%3Auser%3Aweighted-hypergraph",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "addresses:proposal:m-map:user:weighted-hypergraph",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "proposal",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Am-map"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aweighted-hypergraph"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:addresses%3Aproposal%3Ahierarchy%3Auser%3Aweighted-hypergraph",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "addresses:proposal:hierarchy:user:weighted-hypergraph",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "proposal",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Ahierarchy"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aweighted-hypergraph"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:addresses%3Aproposal%3Agraph-cli%3Auser%3Aweighted-hypergraph",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "addresses:proposal:graph-cli:user:weighted-hypergraph",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "proposal",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Agraph-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aweighted-hypergraph"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:addresses%3Aproposal%3Agraph-cli%3Auser%3Asyntax-cli",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "addresses:proposal:graph-cli:user:syntax-cli",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "proposal",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Agraph-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "INTERPRETATION"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:trace%3Auser%3Asyntax-cli%3Afeature%3Ahyperedge%3Aartifact%3Asrc%2Flanguage%2Fcompiler.ts",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "trace:user:syntax-cli:feature:hyperedge:artifact:src/language/compiler.ts",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atrace"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:feature%3Ahyperedge"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Asrc%2Flanguage%2Fcompiler.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "TRACEABILITY"
+        },
+        "@type": "@json"
+      }
+    }
+  ]
+}

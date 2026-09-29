@@ -1,0 +1,1077 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "source:catalog",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "path": "research/architecture/syntax-cli.catalog.json",
+        "sourceDigest": "sha256:612da61da2bd116881a5017e8ccaad0dd847096fa0c7afda55ac597bcd06c776",
+        "authority": "SECONDARY_AI",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:generator",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-syntax-cli-architecture.ts",
+      "metadata": {
+        "path": "scripts/build-syntax-cli-architecture.ts",
+        "sourceDigest": "sha256:d125f983439b18c20bb638182bf41c8f0bfd63b7c79c21f902b2194ec764da44",
+        "scope": "DETERMINISTIC_GENERATOR",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "activity:architecture",
+      "types": [
+        "urn:usl:syntax-cli:ArchitectureActivity",
+        "http://www.w3.org/ns/prov#Activity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "status": "DECLARED",
+        "scope": "CURRENT_IMPLEMENTATION_AND_PROPOSAL_SEPARATION",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "agent:secondary",
+      "types": [
+        "urn:usl:syntax-cli:Agent",
+        "http://www.w3.org/ns/prov#Agent"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "ratification": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "subject:usl",
+      "types": [
+        "urn:usl:syntax-cli:ArchitectureSubject"
+      ],
+      "locator": "git://github.com/gj3447/USL",
+      "metadata": {
+        "name": "USL",
+        "role": "LANGUAGE_AND_CLI_BINDING_LAYER"
+      }
+    },
+    {
+      "id": "user:syntax-cli",
+      "types": [
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "status": "USER_PRIMARY",
+        "text": "USL 은 문법같은거고 그 cli 도구로 깔끔하게 동작하도록 하는게 맞을것같은데 그것도 어케생각하냐 표준 그래프 엔지니어링으로 정리좀 해줘봐봐 ㅇㅇ",
+        "authority": "USER_PRIMARY",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "user:weighted-hypergraph",
+      "types": [
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "status": "USER_PRIMARY",
+        "text": "HSWM like 하지 않은데 그 규칙은 ㅇㅇ? 그렇게 생각하지않냐 ? 그리고 그 USL 그자체로도 HSWM LIKENESS 하도록 그 하이퍼그래프 데이터 구조로 연결할수 있어야하고 그 시멘틱한 내용을 웨이트 가중치 조정하면서 연결 가능해야하고 그 M 맵 그 연결된 내용의 색인 인덱스 역할 가능하도록 구조가 그 상위 하위 구조가 가능해야해 그 내용 일단 머릿속에 박아넣어줘봐봐 ㅇㅇ",
+        "authority": "USER_PRIMARY",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "feature:grammar",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "USL v0.1 declarative grammar",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/language/parser.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/parser.ts",
+      "metadata": {
+        "path": "src/language/parser.ts",
+        "sourceDigest": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:src/language/compiler.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/compiler.ts",
+      "metadata": {
+        "path": "src/language/compiler.ts",
+        "sourceDigest": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "feature:semantic-plan",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "Compiled SemanticPlan",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/language/model.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/model.ts",
+      "metadata": {
+        "path": "src/language/model.ts",
+        "sourceDigest": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "feature:hyperedge",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "Named-role n-ary links",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/language/navigation.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/language/navigation.ts",
+      "metadata": {
+        "path": "src/language/navigation.ts",
+        "sourceDigest": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "feature:navigation",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "Role-incidence bounded navigation",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "feature:cli",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "USL CLI command surface",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/cli.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli.ts",
+      "metadata": {
+        "path": "src/cli.ts",
+        "sourceDigest": "sha256:71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:src/cli-platform.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-platform.ts",
+      "metadata": {
+        "path": "src/cli-platform.ts",
+        "sourceDigest": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:src/cli-adapter.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-adapter.ts",
+      "metadata": {
+        "path": "src/cli-adapter.ts",
+        "sourceDigest": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "feature:cli-host",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "Pinned host CLI planning and execution",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/cli-host-command.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-host-command.ts",
+      "metadata": {
+        "path": "src/cli-host-command.ts",
+        "sourceDigest": "sha256:a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:src/cli-host.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/cli-host.ts",
+      "metadata": {
+        "path": "src/cli-host.ts",
+        "sourceDigest": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "feature:adapters",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "Resource/property graph adapters and JSON-LD",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/integrations/resource-graph.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/integrations/resource-graph.ts",
+      "metadata": {
+        "path": "src/integrations/resource-graph.ts",
+        "sourceDigest": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:src/integrations/property-graph.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/integrations/property-graph.ts",
+      "metadata": {
+        "path": "src/integrations/property-graph.ts",
+        "sourceDigest": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "feature:bindings",
+      "types": [
+        "urn:usl:syntax-cli:ImplementedFeature"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "title": "Portable resource bindings",
+        "status": "IMPLEMENTED_CURRENT_SOURCE",
+        "semanticTruth": "NOT_EVALUATED",
+        "runtimeTests": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "artifact:src/resource-bindings.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/resource-bindings.ts",
+      "metadata": {
+        "path": "src/resource-bindings.ts",
+        "sourceDigest": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:src/integrations/resource-bindings.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:src/integrations/resource-bindings.ts",
+      "metadata": {
+        "path": "src/integrations/resource-bindings.ts",
+        "sourceDigest": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902",
+        "scope": "LOCAL_CURRENT_AND_LOCAL_GIT_COMMIT_BYTES",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "limitation:weights",
+      "types": [
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "detail": "Semantic weight adjustment is not implemented.",
+        "status": "CURRENT_GAP"
+      }
+    },
+    {
+      "id": "limitation:m-map",
+      "types": [
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "detail": "No persistent or derived M-map index is implemented.",
+        "status": "CURRENT_GAP"
+      }
+    },
+    {
+      "id": "limitation:hierarchy",
+      "types": [
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "detail": "No typed parent/child hierarchy or ancestry query is implemented.",
+        "status": "CURRENT_GAP"
+      }
+    },
+    {
+      "id": "limitation:cli-consolidation",
+      "types": [
+        "urn:usl:syntax-cli:Limitation"
+      ],
+      "locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
+      "metadata": {
+        "detail": "CLI commands are functional but help is not a consolidated graph-oriented interface.",
+        "status": "CURRENT_GAP"
+      }
+    },
+    {
+      "id": "proposal:weighted-assertion",
+      "types": [
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "title": "Versioned semantic weight assertions",
+        "detail": "Weights are explicit evidence or ranking metadata, never semantic truth or authorization.",
+        "status": "PROPOSED",
+        "authority": "SECONDARY_AI",
+        "implementation": "NOT_STARTED"
+      }
+    },
+    {
+      "id": "proposal:m-map",
+      "types": [
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "title": "Derived M-map index",
+        "detail": "A deterministic, digest-pinned index maps stable resources and hyperedges to representations and partitions.",
+        "status": "PROPOSED",
+        "authority": "SECONDARY_AI",
+        "implementation": "NOT_STARTED"
+      }
+    },
+    {
+      "id": "proposal:hierarchy",
+      "types": [
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "title": "Typed containment hierarchy",
+        "detail": "A typed parent/child relation has explicit cycle policy and ancestor/descendant query semantics.",
+        "status": "PROPOSED",
+        "authority": "SECONDARY_AI",
+        "implementation": "NOT_STARTED"
+      }
+    },
+    {
+      "id": "proposal:graph-cli",
+      "types": [
+        "urn:usl:syntax-cli:Proposal"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
+      "metadata": {
+        "title": "Consolidated graph CLI",
+        "detail": "Graph validation, index build/query, hierarchy traversal and weight revision share one documented CLI contract.",
+        "status": "PROPOSED",
+        "authority": "SECONDARY_AI",
+        "implementation": "NOT_STARTED"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:syntax-cli:interpreted_as",
+      "description": "Architecture trace relation interpreted_as; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:implemented_by",
+      "description": "Architecture trace relation implemented_by; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:trace",
+      "description": "Architecture trace relation trace; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:bounded_by",
+      "description": "Architecture trace relation bounded_by; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:addresses",
+      "description": "Architecture trace relation addresses; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:depends_on",
+      "description": "Architecture trace relation depends_on; declaration only."
+    }
+  ],
+  "links": [
+    {
+      "id": "implemented_by:feature:grammar:artifact:src/language/parser.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:grammar"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/parser.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:grammar:artifact:src/language/compiler.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:grammar"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/compiler.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:grammar",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:grammar"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:semantic-plan:artifact:src/language/model.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:semantic-plan"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/model.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:semantic-plan:artifact:src/language/compiler.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:semantic-plan"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/compiler.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:semantic-plan",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:semantic-plan"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:hyperedge:artifact:src/language/model.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:hyperedge"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/model.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:hyperedge:artifact:src/language/compiler.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:hyperedge"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/compiler.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:hyperedge:artifact:src/language/navigation.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:hyperedge"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/navigation.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:hyperedge",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:hyperedge"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:navigation:artifact:src/language/navigation.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:navigation"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/navigation.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:navigation",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:navigation"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:cli:artifact:src/cli.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:cli"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:cli:artifact:src/cli-platform.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:cli"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-platform.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:cli:artifact:src/cli-adapter.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:cli"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-adapter.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:cli",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:cli"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:cli-host:artifact:src/cli-host-command.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:cli-host"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-host-command.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:cli-host:artifact:src/cli-host.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:cli-host"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/cli-host.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:cli-host",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:cli-host"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:adapters:artifact:src/integrations/resource-graph.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:adapters"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/integrations/resource-graph.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:adapters:artifact:src/integrations/property-graph.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:adapters"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/integrations/property-graph.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:adapters",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:adapters"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "implemented_by:feature:bindings:artifact:src/resource-bindings.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:bindings"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/resource-bindings.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "implemented_by:feature:bindings:artifact:src/integrations/resource-bindings.ts",
+      "meaning": "urn:usl:syntax-cli:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:bindings"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/integrations/resource-bindings.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "interpreted_as:user:syntax-cli:feature:bindings",
+      "meaning": "urn:usl:syntax-cli:interpreted_as",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:bindings"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "bounded_by:feature:hyperedge:limitation:weights",
+      "meaning": "urn:usl:syntax-cli:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:hyperedge"
+        },
+        {
+          "role": "limitation",
+          "resource": "limitation:weights"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "bounded_by:feature:navigation:limitation:m-map",
+      "meaning": "urn:usl:syntax-cli:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:navigation"
+        },
+        {
+          "role": "limitation",
+          "resource": "limitation:m-map"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "bounded_by:feature:navigation:limitation:hierarchy",
+      "meaning": "urn:usl:syntax-cli:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:navigation"
+        },
+        {
+          "role": "limitation",
+          "resource": "limitation:hierarchy"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "bounded_by:feature:cli:limitation:cli-consolidation",
+      "meaning": "urn:usl:syntax-cli:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:cli"
+        },
+        {
+          "role": "limitation",
+          "resource": "limitation:cli-consolidation"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "addresses:proposal:weighted-assertion:user:weighted-hypergraph",
+      "meaning": "urn:usl:syntax-cli:addresses",
+      "participants": [
+        {
+          "role": "proposal",
+          "resource": "proposal:weighted-assertion"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:weighted-hypergraph"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "addresses:proposal:m-map:user:weighted-hypergraph",
+      "meaning": "urn:usl:syntax-cli:addresses",
+      "participants": [
+        {
+          "role": "proposal",
+          "resource": "proposal:m-map"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:weighted-hypergraph"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "addresses:proposal:hierarchy:user:weighted-hypergraph",
+      "meaning": "urn:usl:syntax-cli:addresses",
+      "participants": [
+        {
+          "role": "proposal",
+          "resource": "proposal:hierarchy"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:weighted-hypergraph"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "addresses:proposal:graph-cli:user:weighted-hypergraph",
+      "meaning": "urn:usl:syntax-cli:addresses",
+      "participants": [
+        {
+          "role": "proposal",
+          "resource": "proposal:graph-cli"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:weighted-hypergraph"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "addresses:proposal:graph-cli:user:syntax-cli",
+      "meaning": "urn:usl:syntax-cli:addresses",
+      "participants": [
+        {
+          "role": "proposal",
+          "resource": "proposal:graph-cli"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:syntax-cli"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "INTERPRETATION"
+      }
+    },
+    {
+      "id": "trace:user:syntax-cli:feature:hyperedge:artifact:src/language/compiler.ts",
+      "meaning": "urn:usl:syntax-cli:trace",
+      "participants": [
+        {
+          "role": "statement",
+          "resource": "user:syntax-cli"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:hyperedge"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/language/compiler.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "TRACEABILITY"
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "source:catalog",
+      "source:generator"
+    ],
+    "activity": "activity:architecture",
+    "agent": "agent:secondary"
+  }
+}
