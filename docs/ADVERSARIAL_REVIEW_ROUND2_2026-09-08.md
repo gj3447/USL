@@ -24,7 +24,7 @@ TypeScript + Effect CLI의 관측·JSON 검증·투영·레거시 수명주기·
 
 ### R2-01 — 클래스·비열거 옵션의 조회 제한이 사라진다 (회귀)
 
-**위치:** [runtime.ts:42](/home/lagyeongjun/CD/USL/src/language/runtime.ts:42), [53](/home/lagyeongjun/CD/USL/src/language/runtime.ts:53), [67](/home/lagyeongjun/CD/USL/src/language/runtime.ts:67).
+**위치:** [runtime.ts:42](../src/language/runtime.ts:42), [53](../src/language/runtime.ts:53), [67](../src/language/runtime.ts:67).
 
 다음처럼 타입상 유효한 클래스 옵션을 전달한다.
 
@@ -45,7 +45,7 @@ class RestrictedOptions {
 
 ### R2-02 — 같은 URL을 두 번 읽고 자원 예산도 중복 계산한다
 
-**위치:** [runtime.ts:61](/home/lagyeongjun/CD/USL/src/language/runtime.ts:61), [66](/home/lagyeongjun/CD/USL/src/language/runtime.ts:66), [69](/home/lagyeongjun/CD/USL/src/language/runtime.ts:69).
+**위치:** [runtime.ts:61](../src/language/runtime.ts:61), [66](../src/language/runtime.ts:66), [69](../src/language/runtime.ts:69).
 
 유효한 `.usl`의 두 참여 자원에 `https://example.test`와 `https://example.test/`를 선언한다. 허용 정책의 `locatorKey`는 같은 URL로 정규화하지만 조회 대상 Map은 원래 문자열로 구분한다. KG grounding 한 개를 포함한 결과는 `uniqueLocators: 3`, URL 조회 2회와 KG 조회 1회다. 예산을 2로 주면 읽기 전에 예산 초과로 거부된다.
 
@@ -57,7 +57,7 @@ class RestrictedOptions {
 
 ### R2-03 — 레거시 JSON은 다른 KG UID의 결과를 확정 등급으로 받는다
 
-**위치:** [validation.ts:35](/home/lagyeongjun/CD/USL/src/validation.ts:35), [project.ts:58](/home/lagyeongjun/CD/USL/src/project.ts:58).
+**위치:** [validation.ts:35](../src/validation.ts:35), [project.ts:58](../src/project.ts:58).
 
 요청을 `kg://canonical-neo4j/sym:Concept:original`, `resolved_locator_from`을 `kg://canonical-neo4j/sym:Concept:substituted`로 작성하고 나머지 기준 필드를 채운 레거시 JSON을 입력한다. 검증과 투영이 성공하며 **`CANONICAL`, `review_required: false`**가 나온다.
 
@@ -71,7 +71,7 @@ class RestrictedOptions {
 
 ### R2-04 — 검증한 사본을 버려 getter가 확정 상태를 바꿀 수 있다
 
-**위치:** [project.ts:29](/home/lagyeongjun/CD/USL/src/project.ts:29), [43](/home/lagyeongjun/CD/USL/src/project.ts:43).
+**위치:** [project.ts:29](../src/project.ts:29), [43](../src/project.ts:43).
 
 근거가 불완전한 객체의 `status` getter가 최초에는 `DRIFT`, 이후에는 `RESOLVES`를 반환하도록 한다. `toBundle`은 `validateRecords`가 반환한 검증된 데이터를 사용하지 않고 원래 객체를 다시 읽는다. 그 결과 불완전한 근거와 `RESOLVES / CANONICAL / review_required: false`가 함께 투영됐다.
 
@@ -81,7 +81,7 @@ class RestrictedOptions {
 
 ### R2-05 — 잘못된 resolver 실패 객체로 자기 검증에 실패하는 보고서를 만든다
 
-**위치:** [runtime.ts:79](/home/lagyeongjun/CD/USL/src/language/runtime.ts:79), [102](/home/lagyeongjun/CD/USL/src/language/runtime.ts:102).
+**위치:** [runtime.ts:79](../src/language/runtime.ts:79), [102](../src/language/runtime.ts:102).
 
 사용자 정의 adapter가 실패값의 `reason`에 `NOT_A_REASON`을 전달하면 관측 함수는 완료되지만 그 결과를 `validateObservation`에 넣으면 거부된다. 성공 응답에는 schema 검사가 추가됐으나 실패 응답은 필드를 그대로 복사한다.
 

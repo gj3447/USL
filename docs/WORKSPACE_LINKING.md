@@ -83,6 +83,8 @@ python3 scripts/install-workspace-linking-rules.py --repo /path/to/project-a --r
 
 모든 `gj3447` 저장소에는 같은 표시된 공통 블록을 전파한다. 이 규칙은 모든 저장소에서 HSWM 연결 실행을 동일하게 준비·중단시키지만, 각 workspace owner의 개별 승인과 실제 host/provider 권한을 대신하지 않는다.
 
+2026-09-29 실행 결과는 [전파 검증 기록](WORKSPACE_RULE_ROLLOUT_2026-09-29.md)에 남겼다. 기본 브랜치 85개는 검증 완료했고, 1개는 GitHub 필수 리뷰를 기다리고 있다.
+
 ### GitHub 전체 저장소에 커밋하기
 
 소유자가 승인한 저장소 집합에는 [GitHub 동기화 도구](../scripts/sync-github-workspace-rules.py)를 사용한다. `gh` 인증이 필요하며 기본 동작은 미리보기다. 저장소 목록과 개별 commit SHA가 포함된 보고서는 비공개 로컬 위치에 둔다. USL checkout의 `.usl/local/`은 Git에서 제외되어 있다.
