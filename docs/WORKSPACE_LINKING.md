@@ -83,7 +83,7 @@ python3 scripts/install-workspace-linking-rules.py --repo /path/to/project-a --r
 
 모든 `gj3447` 저장소에는 같은 표시된 공통 블록을 전파한다. 이 규칙은 모든 저장소에서 HSWM 연결 실행을 동일하게 준비·중단시키지만, 각 workspace owner의 개별 승인과 실제 host/provider 권한을 대신하지 않는다.
 
-2026-09-29 실행 결과는 [전파 검증 기록](WORKSPACE_RULE_ROLLOUT_2026-09-29.md)에 남겼다. 기본 브랜치 85개는 검증 완료했고, 1개는 GitHub 필수 리뷰를 기다리고 있다.
+2026-09-29 실행 결과는 [전파 검증 기록](WORKSPACE_RULE_ROLLOUT_2026-09-29.md)에 남겼다. 86개 모두 기본 브랜치 반영과 원격 검증을 완료했다. 마지막 PR은 사용자가 승인한 일시 리뷰 수 변경으로 병합했고, 보호 설정을 원래대로 복구했다.
 
 ### GitHub 전체 저장소에 커밋하기
 
