@@ -267,6 +267,10 @@ assert task_meta["task:P03"]["dependsOn"] == ["task:P02"]
 assert task_meta["task:C02"]["dependsOn"] == ["task:C01"]
 assert task_meta["task:C03"]["dependsOn"] == ["task:C01"]
 assert task_meta["task:C04"]["dependsOn"] == ["task:C01"]
+ready_core_tasks = sorted(task for task, metadata in task_meta.items()
+    if task.startswith("task:C") and metadata["status"] == "PLANNED"
+    and all(task_meta[dependency]["status"] == "COMPLETED" for dependency in metadata["dependsOn"]))
+assert ready_core_tasks == ["task:C01"]
 for proposal in ["proposal:weighted-assertion", "proposal:hierarchy", "proposal:m-map"]:
     assert resources[proposal]["metadata"]["placement"] == "ADDON_RESPONSIBILITY"
 for boundary in ["limitation:weights", "limitation:m-map", "limitation:hierarchy"]:
@@ -281,4 +285,4 @@ broken_role_rdf = copy_graph(); participant = next(broken_role_rdf.objects(links
 assert not validate(broken_role_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
 wrong_status_rdf = copy_graph(); wrong_status_rdf.set((links_rdf[0], usl.status, Literal("IMPLEMENTED_AND_PROVEN")))
 assert not validate(wrong_status_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
-print(json.dumps({"scope":"ARCHITECTURE_GRAPH_STRUCTURE_AND_COMPETENCY_QUERIES_ONLY","resources":len(resources),"links":len(links),"tasks":len(task_resources),"compressionSources":len(compression_sources),"triples":len(data),"negative_cases":13,"graph_sha256":hashlib.sha256(graph_path.read_bytes()).hexdigest()}, ensure_ascii=False))
+print(json.dumps({"scope":"ARCHITECTURE_GRAPH_STRUCTURE_AND_COMPETENCY_QUERIES_ONLY","resources":len(resources),"links":len(links),"tasks":len(task_resources),"readyCoreTasks":ready_core_tasks,"compressionSources":len(compression_sources),"triples":len(data),"negative_cases":13,"graph_sha256":hashlib.sha256(graph_path.read_bytes()).hexdigest()}, ensure_ascii=False))
