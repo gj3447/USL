@@ -12,6 +12,10 @@ profile = json.loads((root / "research/architecture/syntax-cli.profile.json").re
 catalog = json.loads((root / "research/architecture/syntax-cli.catalog.json").read_text())
 work_plan_path = root / "research/architecture/hswm-like.plan.json"
 work_plan = json.loads(work_plan_path.read_text())
+core_plan_path = root / "research/architecture/core-cli.plan.json"
+core_plan = json.loads(core_plan_path.read_text())
+receipt_path = root / "research/architecture/binding-delivery.receipt.json"
+receipt = json.loads(receipt_path.read_text())
 compression_sources_path = root / "research/compression/sources.json"
 compression_sources = json.loads(compression_sources_path.read_text())
 compression_benchmark_path = root / "research/compression/benchmark-results.json"
@@ -38,7 +42,10 @@ for path, pin in catalog["sourcePins"].items():
     assert artifact["metadata"]["sourceDigest"] == pin
     assert artifact["locator"].startswith("git://github.com/gj3447/USL@" + catalog["sourceCommit"] + ":")
 assert resources["source:hswm-plan"]["metadata"]["sourceDigest"] == "sha256:" + hashlib.sha256(work_plan_path.read_bytes()).hexdigest()
+assert resources["source:core-cli-plan"]["metadata"]["sourceDigest"] == "sha256:" + hashlib.sha256(core_plan_path.read_bytes()).hexdigest()
+assert resources["source:binding-delivery-receipt"]["metadata"]["sourceDigest"] == "sha256:" + hashlib.sha256(receipt_path.read_bytes()).hexdigest()
 assert resources["user:hswm-plan"]["metadata"] == {"status":"USER_PRIMARY", "text":work_plan["userRequest"]["text"], "authority":"USER_PRIMARY", "locationStatus":"DECLARED_PUBLIC_LOCATION", "remoteObservation":"NOT_PERFORMED"}
+assert resources["user:core-cli-next"]["metadata"] == {"status":"USER_PRIMARY", "text":core_plan["userRequest"]["text"], "authority":"USER_PRIMARY", "locationStatus":"DECLARED_PUBLIC_LOCATION", "remoteObservation":"NOT_PERFORMED"}
 for correction in work_plan.get("scopeCorrections", []):
     assert resources[correction["id"]]["metadata"]["authority"] == "USER_PRIMARY"
 assert resources["user:cli-programs"]["metadata"]["authority"] == "USER_PRIMARY"
@@ -105,27 +112,66 @@ def task_dag_acyclic(graph):
         return ok
     return all(visit(task) for task in graph)
 
-def planned_work_conforms(candidate):
+def completed_binding_work_conforms(candidate):
     by_id = {r["id"]: r for r in candidate["resources"]}
     plan_tasks = work_plan["tasks"]
     if len({t["id"] for t in plan_tasks}) != len(plan_tasks): return False
-    if any(t["status"] != "PLANNED" or t["implementation"] != "NOT_STARTED" or t["proofStatus"] != "NOT_PROVEN" or not t["acceptance"] or not t["deliverables"] for t in plan_tasks): return False
-    if any(by_id.get(t["id"], {}).get("metadata", {}).get("status") != "PLANNED" or by_id.get(t["id"], {}).get("metadata", {}).get("implementation") != "NOT_STARTED" or by_id.get(t["id"], {}).get("metadata", {}).get("proofStatus") != "NOT_PROVEN" for t in plan_tasks): return False
+    if receipt.get("schema") != "usl-binding-delivery-receipt/v1" or receipt.get("authority") != "SECONDARY_AI" or receipt.get("status") != "PASS" or not isinstance(receipt.get("sourcePins"), dict): return False
+    if any(t["status"] != "COMPLETED" or t["implementation"] != "COMPLETE" or t["proofStatus"] != "NOT_PROVEN" or not t["acceptance"] or not t["deliverables"] for t in plan_tasks): return False
+    if any(by_id.get(t["id"], {}).get("metadata", {}).get("status") != "COMPLETED" or by_id.get(t["id"], {}).get("metadata", {}).get("implementation") != "COMPLETE" or by_id.get(t["id"], {}).get("metadata", {}).get("proofStatus") != "NOT_PROVEN" for t in plan_tasks): return False
+    receipt_tasks = {t.get("id"): t for t in receipt.get("tasks", [])}
+    expected_tests = {"task:P01": "test/navigation.test.ts", "task:P02": "test/addon-binding-cli.test.ts", "task:P03": "test/addon-binding-cli.test.ts"}
+    for path, digest in receipt["sourcePins"].items():
+        if not isinstance(path, str) or not isinstance(digest, str) or not (path.startswith(("src/", "docs/", "examples/", "test/", "scripts/", "research/")) or path in {"package.json", "package-lock.json", "tsconfig.json"}) or sha256_file(root / path) != digest: return False
     links_by_meaning = {}
     for link in candidate["links"]: links_by_meaning.setdefault(link["meaning"].split(":")[-1], []).append(link)
     def parts(link): return {p["role"]: p["resource"] for p in link["participants"]}
     for task in plan_tasks:
         criterion = "criterion:" + task["id"].split(":", 1)[1]
-        if by_id.get(criterion, {}).get("metadata", {}).get("checks") != task["acceptance"]: return False
+        if by_id.get(criterion, {}).get("metadata", {}).get("checks") != task["acceptance"] or by_id.get(criterion, {}).get("metadata", {}).get("status") != "PASS_RECORDED": return False
+        receipt_task = receipt_tasks.get(task["id"], {})
+        evidence = receipt_task.get("evidence", [])
+        commands = [item for item in evidence if item.get("kind") == "command"]
+        sources = [item for item in evidence if item.get("kind") == "source"]
+        if receipt_task.get("status") != "PASS" or not any(item.get("exitCode") == 0 and isinstance(item.get("command"), str) and item["command"].strip() and isinstance(item.get("observed"), str) and item["observed"].strip() for item in commands): return False
+        if any(receipt["sourcePins"].get(path) is None or not any(item.get("path") == path and item.get("sha256") == receipt["sourcePins"][path] for item in sources) for path in task["deliverables"]): return False
+        expected_test = expected_tests[task["id"]]
+        if receipt["sourcePins"].get(expected_test) is None or not any(item.get("path") == expected_test and item.get("sha256") == receipt["sourcePins"][expected_test] for item in sources) or not any(expected_test in item.get("command", "") for item in commands): return False
         work = [l for l in links_by_meaning.get("planned_work", []) if parts(l).get("task") == task["id"]]
         if {parts(l).get("requirement") for l in work} != set(task["requirements"]) or any(parts(l).get("criterion") != criterion or l.get("metadata", {}).get("authority") != "SECONDARY_AI" for l in work): return False
+        complete = [l for l in links_by_meaning.get("completed_by", []) if parts(l).get("task") == task["id"]]
+        if len(complete) != 1 or parts(complete[0]) != {"task": task["id"], "criterion": criterion, "evidence": "source:binding-delivery-receipt"} or complete[0].get("metadata", {}).get("proofStatus") != "NOT_PROVEN": return False
         deps = [parts(l).get("prerequisite") for l in links_by_meaning.get("task_depends_on", []) if parts(l).get("task") == task["id"]]
         if set(deps) != set(task["dependsOn"]): return False
     graph = {t["id"]: t["dependsOn"] for t in plan_tasks}
     return task_dag_acyclic(graph)
 assert conforms(raw)
 assert claims_conform(raw)
-assert planned_work_conforms(raw)
+assert completed_binding_work_conforms(raw)
+
+def planned_core_cli_work_conforms(candidate):
+    by_id = {r["id"]: r for r in candidate["resources"]}
+    tasks = core_plan.get("tasks", [])
+    if core_plan.get("schema") != "usl-core-cli-work-plan/v1" or core_plan.get("authority") != "SECONDARY_AI" or core_plan.get("status") != "PLANNED" or not tasks: return False
+    if any(t.get("status") != "PLANNED" or t.get("implementation") != "NOT_STARTED" or t.get("proofStatus") != "NOT_PROVEN" or not t.get("acceptance") for t in tasks): return False
+    expected_sources = core_plan.get("sourceEvidence", [])
+    if not expected_sources or any(source.get("kind") != "LOCAL_SNAPSHOT" or not source.get("path", "").startswith("src/") or sha256_file(root / source["path"]).removeprefix("sha256:") != source.get("sha256") for source in expected_sources): return False
+    links_by_meaning = {}
+    for link in candidate["links"]: links_by_meaning.setdefault(link["meaning"].split(":")[-1], []).append(link)
+    def parts(link): return {p["role"]: p["resource"] for p in link["participants"]}
+    source_ids = {"artifact:core-cli:" + source["path"] for source in expected_sources}
+    for task in tasks:
+        criterion = "criterion:" + task["id"].split(":", 1)[1]
+        task_metadata = by_id.get(task["id"], {}).get("metadata", {})
+        if task_metadata.get("status") != "PLANNED" or task_metadata.get("implementation") != "NOT_STARTED" or task_metadata.get("proofStatus") != "NOT_PROVEN" or task_metadata.get("dependsOn") != task["dependsOn"] or by_id.get(criterion, {}).get("metadata", {}).get("status") != "PLANNED_NOT_EXECUTED": return False
+        work = [l for l in links_by_meaning.get("planned_work", []) if parts(l).get("task") == task["id"]]
+        if len(work) != 1 or parts(work[0]) != {"task": task["id"], "criterion": criterion, "requirement": "user:core-cli-next"}: return False
+        deps = {parts(l).get("prerequisite") for l in links_by_meaning.get("task_depends_on", []) if parts(l).get("task") == task["id"]}
+        if deps != set(task["dependsOn"]): return False
+        evidence = {parts(l).get("artifact") for l in links_by_meaning.get("planned_evidence", []) if parts(l).get("task") == task["id"]}
+        if evidence != source_ids: return False
+    return task_dag_acyclic({t["id"]: t["dependsOn"] for t in tasks})
+assert planned_core_cli_work_conforms(raw)
 def compression_trace_conforms(candidate):
     by_id = {r["id"]: r for r in candidate["resources"]}
     def parts(link): return {p["role"]: p["resource"] for p in link["participants"]}
@@ -173,11 +219,26 @@ cycle["task:P01"].append("task:P03")
 assert not task_dag_acyclic(cycle)
 missing_criterion = clone()
 missing_criterion["resources"] = [r for r in missing_criterion["resources"] if r["id"] != "criterion:P01"]
-assert not planned_work_conforms(missing_criterion)
+assert not completed_binding_work_conforms(missing_criterion)
 false_completed = clone()
 for resource in false_completed["resources"]:
-    if resource["id"] == "task:P01": resource["metadata"]["status"] = "COMPLETED"
-assert not planned_work_conforms(false_completed)
+    if resource["id"] == "task:P01": resource["metadata"]["status"] = "PLANNED"
+assert not completed_binding_work_conforms(false_completed)
+missing_completion_evidence = clone()
+missing_completion_evidence["links"] = [link for link in missing_completion_evidence["links"] if not (link["meaning"].endswith("completed_by") and any(participant["resource"] == "task:P01" for participant in link["participants"]))]
+assert not completed_binding_work_conforms(missing_completion_evidence)
+missing_core_dependency = clone()
+for resource in missing_core_dependency["resources"]:
+    if resource["id"] == "task:C03": resource["metadata"]["dependsOn"] = []
+assert not planned_core_cli_work_conforms(missing_core_dependency)
+old_test_only = json.loads(json.dumps(receipt))
+for task in old_test_only["tasks"]:
+    if task["id"] == "task:P02":
+        task["evidence"] = [item for item in task["evidence"] if item.get("kind") != "command"] + [{"kind":"command", "command":"node --import tsx --test test/navigation.test.ts", "exitCode":0, "observed":"old test only"}]
+saved_receipt = receipt
+receipt = old_test_only
+assert not completed_binding_work_conforms(raw)
+receipt = saved_receipt
 broken_compression = clone()
 broken_compression["links"] = [link for link in broken_compression["links"] if not (link["meaning"].endswith("measured_by") and any(participant["resource"] == "technique:compression:compact-full" for participant in link["participants"]))]
 assert not compression_trace_conforms(broken_compression)
@@ -199,11 +260,13 @@ assert any(link["meaning"].endswith("interpreted_as") and link.get("metadata", {
 assert any(link["meaning"].endswith("addresses") and link["participants"][0]["resource"] == "proposal:graph-cli" and link["participants"][1]["resource"] == "user:syntax-cli" for link in links)
 assert any(link["meaning"].endswith("evaluated_by") and len(link["participants"]) == 3 for link in links)
 task_resources = [r for r in resources.values() if "urn:usl:syntax-cli:Task" in r["types"]]
-assert [r["id"] for r in sorted(task_resources, key=lambda r: r["metadata"]["order"])] == ["task:P01", "task:P02", "task:P03"]
-assert min(task_resources, key=lambda r: r["metadata"]["order"])["id"] == "task:P01"
+assert {r["id"] for r in task_resources} == {"task:P01", "task:P02", "task:P03", "task:C01", "task:C02", "task:C03", "task:C04"}
 task_meta = {r["id"]: r["metadata"] for r in task_resources}
 assert task_meta["task:P02"]["dependsOn"] == ["task:P01"]
 assert task_meta["task:P03"]["dependsOn"] == ["task:P02"]
+assert task_meta["task:C02"]["dependsOn"] == ["task:C01"]
+assert task_meta["task:C03"]["dependsOn"] == ["task:C01"]
+assert task_meta["task:C04"]["dependsOn"] == ["task:C01"]
 for proposal in ["proposal:weighted-assertion", "proposal:hierarchy", "proposal:m-map"]:
     assert resources[proposal]["metadata"]["placement"] == "ADDON_RESPONSIBILITY"
 for boundary in ["limitation:weights", "limitation:m-map", "limitation:hierarchy"]:
@@ -218,4 +281,4 @@ broken_role_rdf = copy_graph(); participant = next(broken_role_rdf.objects(links
 assert not validate(broken_role_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
 wrong_status_rdf = copy_graph(); wrong_status_rdf.set((links_rdf[0], usl.status, Literal("IMPLEMENTED_AND_PROVEN")))
 assert not validate(wrong_status_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
-print(json.dumps({"scope":"ARCHITECTURE_GRAPH_STRUCTURE_AND_COMPETENCY_QUERIES_ONLY","resources":len(resources),"links":len(links),"tasks":len(task_resources),"compressionSources":len(compression_sources),"triples":len(data),"negative_cases":10,"graph_sha256":hashlib.sha256(graph_path.read_bytes()).hexdigest()}, ensure_ascii=False))
+print(json.dumps({"scope":"ARCHITECTURE_GRAPH_STRUCTURE_AND_COMPETENCY_QUERIES_ONLY","resources":len(resources),"links":len(links),"tasks":len(task_resources),"compressionSources":len(compression_sources),"triples":len(data),"negative_cases":13,"graph_sha256":hashlib.sha256(graph_path.read_bytes()).hexdigest()}, ensure_ascii=False))

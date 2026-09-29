@@ -4,6 +4,23 @@
 representations. It is a portable binding document, not an access grant,
 content verifier, graph executor, or equivalence claim.
 
+## P01 binding contract
+
+The stable `resource.id` names the logical resource in the supplied binding
+scope. A workspace path, GitHub/Git locator, URL, worktree, or fixed revision
+is a separately identified representation for reading it. Selecting or moving
+a representation does not rename the resource or rewrite any meaning/link role
+that refers to that ID. A caller must select a representation explicitly when
+more than one exists.
+
+This boundary also makes compact exchange safe: a short local alias or a
+dictionary entry may reduce repeated text only when the receiver can losslessly
+restore the canonical resource ID, representation ID, named role, metadata,
+and provenance. A missing dictionary/cache state requires the full payload;
+the abbreviated form does not imply an address, access right, or equivalence
+between representations. Weights, hierarchy/M-index semantics, and HSWM
+policies belong to an optional consumer/profile, not this binding document.
+
 ```json
 {
   "schema": "usl-resource-bindings/v1",

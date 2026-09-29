@@ -175,6 +175,58 @@
       ]
     },
     {
+      "id": "urn:usl:syntax-cli:completed_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "criterion",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:AcceptanceCriterion"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:VerificationReceipt"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:planned_evidence",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Artifact"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
       "id": "urn:usl:syntax-cli:task_depends_on",
       "allowExtraRoles": false,
       "roles": [

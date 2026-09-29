@@ -1,7 +1,7 @@
 {
   "schema": "usl-hswm-like-work-plan/v1",
   "authority": "SECONDARY_AI",
-  "status": "PLANNED",
+  "status": "COMPLETED",
   "userRequest": {
     "id": "user:hswm-plan",
     "text": "ㅇㅇ 순서대로 표준그래프 엔지니어링으로 작업 계획 짜줘봐 HSWM LIKE 하게",
@@ -76,8 +76,8 @@
       "proofTargets": [
         "기존 ID·역할 보존 모델의 적용 범위 확인; 새 도메인 증명은 요구하지 않음"
       ],
-      "status": "PLANNED",
-      "implementation": "NOT_STARTED",
+      "status": "COMPLETED",
+      "implementation": "COMPLETE",
       "proofStatus": "NOT_PROVEN"
     },
     {
@@ -95,7 +95,8 @@
       "proposals": [],
       "deliverables": [
         "docs/ADDON_BINDING.md",
-        "examples/fixtures/addon-binding.json"
+        "examples/fixtures/addon-binding.json",
+        "examples/fixtures/addon-binding.profile.json"
       ],
       "acceptance": [
         "기존 meaning/link, metadata, 선택적 domain profile로 규칙 식별자·버전·대상·설정 참조를 표현한다.",
@@ -106,8 +107,8 @@
       ],
       "hswmAlignment": "HSWM 전용 규칙을 바인딩 위에 선택적으로 붙일 수 있게 한다.",
       "proofTargets": [],
-      "status": "PLANNED",
-      "implementation": "NOT_STARTED",
+      "status": "COMPLETED",
+      "implementation": "COMPLETE",
       "proofStatus": "NOT_PROVEN"
     },
     {
@@ -143,8 +144,8 @@
       "proofTargets": [
         "기존 구조 검증·바인딩 불변식 및 유한 CLI 검증 범위만 보고"
       ],
-      "status": "PLANNED",
-      "implementation": "NOT_STARTED",
+      "status": "COMPLETED",
+      "implementation": "COMPLETE",
       "proofStatus": "NOT_PROVEN"
     }
   ]

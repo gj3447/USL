@@ -23,7 +23,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-syntax-cli-architecture.ts",
       "metadata": {
         "path": "scripts/build-syntax-cli-architecture.ts",
-        "sourceDigest": "sha256:46c5ae715239622cf7101732b342860a10238341378ee77805fad9cfba924030",
+        "sourceDigest": "sha256:d002fcc6b0e20dcb4179a4d41397a9dc08db88f7c9cabc500eae5dd26d234c76",
         "scope": "DETERMINISTIC_GENERATOR",
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
@@ -37,8 +37,140 @@
       "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
       "metadata": {
         "path": "research/architecture/hswm-like.plan.json",
-        "sourceDigest": "sha256:db34e2a2694a0972df2af1bc8a1d5611536802f040fb2650f6ccb0ad2c4b5878",
+        "sourceDigest": "sha256:ed6e2eed6282f3fa0b167b8444b2588edea9a28d374005583689a97b537d3c26",
         "authority": "SECONDARY_AI",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:core-cli-plan",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "path": "research/architecture/core-cli.plan.json",
+        "sourceDigest": "sha256:2b7862c01bd4d46a4e8228930cba2901128ed2f0fac74f634a6db1d9faa82a73",
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED",
+        "sourceEvidence": [
+          {
+            "path": "src/cli.ts",
+            "sha256": "71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+            "kind": "LOCAL_SNAPSHOT"
+          },
+          {
+            "path": "src/cli-platform.ts",
+            "sha256": "0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+            "kind": "LOCAL_SNAPSHOT"
+          },
+          {
+            "path": "src/cli-adapter.ts",
+            "sha256": "e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+            "kind": "LOCAL_SNAPSHOT"
+          },
+          {
+            "path": "src/cli-host-command.ts",
+            "sha256": "a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+            "kind": "LOCAL_SNAPSHOT"
+          },
+          {
+            "path": "src/cli-host.ts",
+            "sha256": "80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+            "kind": "LOCAL_SNAPSHOT"
+          }
+        ],
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:binding-delivery-receipt",
+      "types": [
+        "urn:usl:syntax-cli:VerificationReceipt"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/binding-delivery.receipt.json",
+      "metadata": {
+        "path": "research/architecture/binding-delivery.receipt.json",
+        "sourceDigest": "sha256:71f614065d6df36a556ebc7f8424f590a5138808d1c9aa53f3dbe2123e7e5e6c",
+        "authority": "SECONDARY_AI",
+        "status": "PASS",
+        "generatedAt": "2026-09-29",
+        "sourcePins": {
+          "docs/ADDON_BINDING.md": "sha256:4e4fffc52f437f9b2a4e981ed31cb50c4110d251ce709bb8997fc0b2640fb4ea",
+          "docs/CLI.md": "sha256:afbc9a3c4a3a0c49fc7199427cf995cf69899bc109b36e38aae487ca448de7c5",
+          "docs/LANGUAGE.md": "sha256:15a34082fdc9c8a1f561119a5be556680615112250bc8838ad6fd1d7868a3556",
+          "docs/RESOURCE_BINDINGS.md": "sha256:474a509a98f8d8b2b5dc75afd4525ec8220d4f3048d6afaf4b41dfe364fbbaa1",
+          "examples/agent-navigation.usl": "sha256:3d9b200e76105cfa07ca642a3274bf4cdce17e136f313fd5586a19c779b207cf",
+          "examples/fixtures/addon-binding.json": "sha256:fe46aa7eea43bdb3afe764003a2726a24677574ae5ced58d26de25980bf7197c",
+          "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
+          "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
+          "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
+          "package.json": "sha256:46104ea4b3f455301d33ad16ebbaf5ecd5a26d8a4652dc7b8d7eaafd46f0f001",
+          "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+          "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
+          "src/attempt-state.ts": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
+          "src/binding-inspection.ts": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
+          "src/bounded-read.ts": "sha256:e016f04530b8046daccc274269412cfccee5607ba661fd718730ee15c0a7e7c7",
+          "src/capabilities.ts": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
+          "src/capability-catalog.ts": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc",
+          "src/cli-adapter.ts": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+          "src/cli-capabilities.ts": "sha256:12dee7bd3253d55923df1be8a03f4ed79c41066f52313aa3aff95aed251c2370",
+          "src/cli-host-command.ts": "sha256:a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+          "src/cli-host.ts": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+          "src/cli-operation.ts": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
+          "src/cli-platform.ts": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+          "src/cli-process.ts": "sha256:c9d20c5af3b9a8aeb81c42a5ded7b4706d59dee08ac2d15d101de34b11d3fa29",
+          "src/cli-recovery.ts": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
+          "src/cli.ts": "sha256:71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+          "src/contract-core.ts": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
+          "src/domain-profile.ts": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
+          "src/domain.ts": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d",
+          "src/engineering-review.ts": "sha256:9c5eed58e088fcec45350f2516d41dad5b5add3bb5fb3e004ca94e8db0daf577",
+          "src/index.ts": "sha256:f32c1c08aa8a23e5b8d0e15463ede1a9c24c5a4b5c9506bbbdda89a997c6aa36",
+          "src/integrations/capability-inventory.ts": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c",
+          "src/integrations/graph-engineering.ts": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
+          "src/integrations/hswm.ts": "sha256:bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30",
+          "src/integrations/lean4.ts": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7",
+          "src/integrations/property-graph.ts": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
+          "src/integrations/resource-bindings.ts": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902",
+          "src/integrations/resource-graph.ts": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+          "src/json-data.ts": "sha256:bfd430f5dde0b1d1917acda4d54a80f833989e765e4329ecffe48a5072a2ad8a",
+          "src/language/code.ts": "sha256:76b97d1dc700cc58bc82d5b9ff66fe8809f642c191c90297acd8d4662bd99a27",
+          "src/language/compact.ts": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416",
+          "src/language/comparison.ts": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862",
+          "src/language/compiler.ts": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f",
+          "src/language/digest.ts": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1",
+          "src/language/index.ts": "sha256:d86e7908c37388c8cf7a1538d7674033ab604f238bcb3c2f4c80a1dbf4c2f369",
+          "src/language/model.ts": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+          "src/language/navigation.ts": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+          "src/language/observation-schema.ts": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5",
+          "src/language/parser.ts": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed",
+          "src/language/project.ts": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c",
+          "src/language/runtime.ts": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8",
+          "src/locator.ts": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3",
+          "src/mcp-config.ts": "sha256:d2e77e10dec777daaa9d777c9a14c6a10e3a0a2ec4776f655e2651eadeef9776",
+          "src/mcp.ts": "sha256:a4e9832cbf87934751ff3ac0d849ec32b25a46842c2f662b445f667914d77f2f",
+          "src/pierce.ts": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e",
+          "src/program-store.ts": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca",
+          "src/project.ts": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de",
+          "src/resolve.ts": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78",
+          "src/resource-bindings.ts": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+          "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
+          "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
+          "test/addon-binding-cli.test.ts": "sha256:f22869c2ffb29b6ee7e52a26879dbccde78deef37bb1aac6ef02fc87d0d91fcf",
+          "test/binding-graph.test.ts": "sha256:cdc1b9aa5eac4c2646d0bd7302b7f4c3943a019a82a601c3f8e54aa23fca67bb",
+          "test/cli.test.ts": "sha256:0fa8d1841a065051f755070164bd2c8b6dee35140e4abec377ac5250e432ad6c",
+          "test/compact-counter.test.ts": "sha256:c94b3639cd0924f4c5b7c4106021d31e86389b842a07d63d7f739e74986bf252",
+          "test/compact.test.ts": "sha256:e66330a98884a2db2f4fa4cf67a67332c46f1572c8c10e11d1c6818a65e9f1ae",
+          "test/fixtures.ts": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7",
+          "test/language.test.ts": "sha256:beab4a369b8da4936ff6fecb8f33150bc9a74b0921c4d50bf4abe4a0b8a6b450",
+          "test/navigation.test.ts": "sha256:a7a9a2a5125151e20516a9e964c667176f1cedf76d068d0f794f05709d2d2118",
+          "test/resource-bindings.test.ts": "sha256:0436c0523a7abaf4d7c35facd821007f9b45a6dfda03c6d0da6e6ff588f58cd8",
+          "test/resource-graph-platform.test.ts": "sha256:dbd22b77cbb2152a8f26cc5767d0c2f354a19f2171c19c1a8ad58ff2d76c7959",
+          "tsconfig.json": "sha256:ce288df4f0d867a542d295146a5197524bfb39f5a02c138684840db4906ce0fa"
+        },
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
       }
@@ -151,6 +283,20 @@
       "metadata": {
         "status": "USER_PRIMARY",
         "text": "ㅇㅇ 순서대로 표준그래프 엔지니어링으로 작업 계획 짜줘봐 HSWM LIKE 하게",
+        "authority": "USER_PRIMARY",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "user:core-cli-next",
+      "types": [
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "status": "USER_PRIMARY",
+        "text": "다음 쭉쭉 구현해주고 메인 core cli 개발도 계획해줘봐 ㅇㅇ",
         "authority": "USER_PRIMARY",
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
@@ -901,11 +1047,11 @@
         "proofTargets": [
           "기존 ID·역할 보존 모델의 적용 범위 확인; 새 도메인 증명은 요구하지 않음"
         ],
-        "status": "PLANNED",
-        "implementation": "NOT_STARTED",
+        "status": "COMPLETED",
+        "implementation": "COMPLETE",
         "proofStatus": "NOT_PROVEN",
         "authority": "SECONDARY_AI",
-        "sourceStatus": "PLANNED_WORK"
+        "sourceStatus": "COMPLETED_WORK"
       }
     },
     {
@@ -922,7 +1068,7 @@
           "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다.",
           "문법 압축은 기존 resource/meaning 선언 재사용, 짧은 local alias와 stable canonical ID map, lossless whitespace 정리까지로 한정하고, positional/table shorthand는 측정 후 선택적·가산적으로만 제안한다."
         ],
-        "status": "PLANNED_NOT_EXECUTED"
+        "status": "PASS_RECORDED"
       }
     },
     {
@@ -946,7 +1092,8 @@
         "proposals": [],
         "deliverables": [
           "docs/ADDON_BINDING.md",
-          "examples/fixtures/addon-binding.json"
+          "examples/fixtures/addon-binding.json",
+          "examples/fixtures/addon-binding.profile.json"
         ],
         "acceptance": [
           "기존 meaning/link, metadata, 선택적 domain profile로 규칙 식별자·버전·대상·설정 참조를 표현한다.",
@@ -957,11 +1104,11 @@
         ],
         "hswmAlignment": "HSWM 전용 규칙을 바인딩 위에 선택적으로 붙일 수 있게 한다.",
         "proofTargets": [],
-        "status": "PLANNED",
-        "implementation": "NOT_STARTED",
+        "status": "COMPLETED",
+        "implementation": "COMPLETE",
         "proofStatus": "NOT_PROVEN",
         "authority": "SECONDARY_AI",
-        "sourceStatus": "PLANNED_WORK"
+        "sourceStatus": "COMPLETED_WORK"
       }
     },
     {
@@ -979,7 +1126,7 @@
           "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다.",
           "압축 dictionary·schema alias와 consumer cache는 canonical ID·role·metadata·provenance를 losslessly 복원하고, cache state와 digest가 없는 small payload는 full payload로 fallback한다."
         ],
-        "status": "PLANNED_NOT_EXECUTED"
+        "status": "PASS_RECORDED"
       }
     },
     {
@@ -1021,11 +1168,11 @@
         "proofTargets": [
           "기존 구조 검증·바인딩 불변식 및 유한 CLI 검증 범위만 보고"
         ],
-        "status": "PLANNED",
-        "implementation": "NOT_STARTED",
+        "status": "COMPLETED",
+        "implementation": "COMPLETE",
         "proofStatus": "NOT_PROVEN",
         "authority": "SECONDARY_AI",
-        "sourceStatus": "PLANNED_WORK"
+        "sourceStatus": "COMPLETED_WORK"
       }
     },
     {
@@ -1042,6 +1189,284 @@
           "이동한 경로와 복수 표현을 확인하고 알려지지 않은 애드온 데이터가 실행·권한으로 해석되지 않음을 확인한다.",
           "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다.",
           "같은 fixture에서 UTF-8 payload byte와 token encoding별 count를 따로 기록한다. 이는 serialized payload 크기이며 parsed heap 측정이 아니고, offline 결과가 billing·LLM quality·actual heap을 뜻하지 않음을 출력한다."
+        ],
+        "status": "PASS_RECORDED"
+      }
+    },
+    {
+      "id": "artifact:core-cli:src/cli.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/src/cli.ts",
+      "metadata": {
+        "path": "src/cli.ts",
+        "sourceDigest": "sha256:71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+        "scope": "LOCAL_SNAPSHOT",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:core-cli:src/cli-platform.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/src/cli-platform.ts",
+      "metadata": {
+        "path": "src/cli-platform.ts",
+        "sourceDigest": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+        "scope": "LOCAL_SNAPSHOT",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:core-cli:src/cli-adapter.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/src/cli-adapter.ts",
+      "metadata": {
+        "path": "src/cli-adapter.ts",
+        "sourceDigest": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+        "scope": "LOCAL_SNAPSHOT",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:core-cli:src/cli-host-command.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/src/cli-host-command.ts",
+      "metadata": {
+        "path": "src/cli-host-command.ts",
+        "sourceDigest": "sha256:a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+        "scope": "LOCAL_SNAPSHOT",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "artifact:core-cli:src/cli-host.ts",
+      "types": [
+        "urn:usl:syntax-cli:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/src/cli-host.ts",
+      "metadata": {
+        "path": "src/cli-host.ts",
+        "sourceDigest": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+        "scope": "LOCAL_SNAPSHOT",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "task:C01",
+      "types": [
+        "urn:usl:syntax-cli:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "id": "task:C01",
+        "order": 1,
+        "title": "Main entry help and command-family contracts",
+        "dependsOn": [],
+        "currentGap": "src/cli.ts concatenates every command family into one top-level usage string; delegated command modules expose independent help strings.",
+        "deliverables": [
+          "src/cli.ts",
+          "src/cli-platform.ts",
+          "src/cli-adapter.ts",
+          "src/cli-host-command.ts",
+          "docs/CLI.md",
+          "test/cli.test.ts"
+        ],
+        "acceptance": [
+          "Add usl help core|platform|adapter|host without renaming existing commands.",
+          "Generate top-level and command-family help from one command contract.",
+          "Verify command-family JSON stdout, error stderr, and exits 0/1/2/64 without adding a generic output envelope."
+        ],
+        "compatibility": [
+          "Preserve current command names and command-specific JSON schemas."
+        ],
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "authority": "SECONDARY_AI",
+        "sourceStatus": "PLANNED_CORE_CLI_WORK"
+      }
+    },
+    {
+      "id": "criterion:C01",
+      "types": [
+        "urn:usl:syntax-cli:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "task": "task:C01",
+        "checks": [
+          "Add usl help core|platform|adapter|host without renaming existing commands.",
+          "Generate top-level and command-family help from one command contract.",
+          "Verify command-family JSON stdout, error stderr, and exits 0/1/2/64 without adding a generic output envelope."
+        ],
+        "status": "PLANNED_NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "task:C02",
+      "types": [
+        "urn:usl:syntax-cli:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "id": "task:C02",
+        "order": 2,
+        "title": "Adapted context traversal and compact-delivery parity",
+        "dependsOn": [
+          "task:C01"
+        ],
+        "currentGap": "src/cli-adapter.ts accepts focus, target and compact for context, but not max-hops/max-links/max-visits/via/max-bytes/known-context/stats despite those being supported by src/cli.ts context.",
+        "deliverables": [
+          "src/cli-adapter.ts",
+          "src/adapters.ts",
+          "docs/CLI.md",
+          "test/adapter-boundaries.test.ts",
+          "test/cli.test.ts"
+        ],
+        "acceptance": [
+          "Support max-hops, max-resources, max-links, max-visits, repeated via, max-bytes, known-context and stats for adapt --operation context.",
+          "Use the same validation and compact fallback/error contract as source context.",
+          "Preserve native IDs and explicitly selected resource-graph profiles.",
+          "Preserve the existing max-resources policy cap when adding the missing query and delivery options."
+        ],
+        "compatibility": [
+          "Keep multiple representations explicit.",
+          "Do not equate a resource link with access permission.",
+          "Do not add automatic tokenizer dependencies."
+        ],
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "authority": "SECONDARY_AI",
+        "sourceStatus": "PLANNED_CORE_CLI_WORK"
+      }
+    },
+    {
+      "id": "criterion:C02",
+      "types": [
+        "urn:usl:syntax-cli:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "task": "task:C02",
+        "checks": [
+          "Support max-hops, max-resources, max-links, max-visits, repeated via, max-bytes, known-context and stats for adapt --operation context.",
+          "Use the same validation and compact fallback/error contract as source context.",
+          "Preserve native IDs and explicitly selected resource-graph profiles.",
+          "Preserve the existing max-resources policy cap when adding the missing query and delivery options."
+        ],
+        "status": "PLANNED_NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "task:C03",
+      "types": [
+        "urn:usl:syntax-cli:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "id": "task:C03",
+        "order": 3,
+        "title": "Bounded pure-core stdin/file pipeline",
+        "dependsOn": [
+          "task:C01"
+        ],
+        "currentGap": "src/cli.ts reads every source from a file path; there is no bounded UTF-8 --source - contract for pure core pipeline commands.",
+        "deliverables": [
+          "src/cli.ts",
+          "src/cli-io.ts",
+          "docs/CLI.md",
+          "test/cli.test.ts",
+          "test/cli-project-inputs.test.ts"
+        ],
+        "acceptance": [
+          "Support --source - only for check, compile and context.",
+          "Bound bytes before parsing and give stdin a stable source label in errors/provenance.",
+          "Keep observe, file-changing operations and registered-host execution file/config based."
+        ],
+        "compatibility": [
+          "Preserve JSON stdout and --out collision protection.",
+          "Do not change registered child-process stdin behavior."
+        ],
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "authority": "SECONDARY_AI",
+        "sourceStatus": "PLANNED_CORE_CLI_WORK"
+      }
+    },
+    {
+      "id": "criterion:C03",
+      "types": [
+        "urn:usl:syntax-cli:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "task": "task:C03",
+        "checks": [
+          "Support --source - only for check, compile and context.",
+          "Bound bytes before parsing and give stdin a stable source label in errors/provenance.",
+          "Keep observe, file-changing operations and registered-host execution file/config based."
+        ],
+        "status": "PLANNED_NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "task:C04",
+      "types": [
+        "urn:usl:syntax-cli:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "id": "task:C04",
+        "order": 4,
+        "title": "Built package-bin compatibility gate",
+        "dependsOn": [
+          "task:C01"
+        ],
+        "currentGap": "package.json maps the usl bin to dist/src/cli.js, but current CLI tests invoke TypeScript through tsx rather than a built package bin.",
+        "deliverables": [
+          "package.json",
+          "test/cli-package-bin.test.ts",
+          "docs/GETTING_STARTED.md"
+        ],
+        "acceptance": [
+          "After npm run build, invoke the package bin symlink for --help and one pure check fixture.",
+          "Verify dist import, shebang and exit status.",
+          "Retain moved-workspace and cli-list to cli-inspect tests as compatibility gates rather than new host development.",
+          "Provide the built-bin check as an explicit post-build command, preserving the current pre-build npm test workflow."
+        ],
+        "compatibility": [
+          "Do not add tokenizer dependencies or API cost estimates.",
+          "Do not change host registration or external execution authority."
+        ],
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "authority": "SECONDARY_AI",
+        "sourceStatus": "PLANNED_CORE_CLI_WORK"
+      }
+    },
+    {
+      "id": "criterion:C04",
+      "types": [
+        "urn:usl:syntax-cli:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli.plan.json",
+      "metadata": {
+        "task": "task:C04",
+        "checks": [
+          "After npm run build, invoke the package bin symlink for --help and one pure check fixture.",
+          "Verify dist import, shebang and exit status.",
+          "Retain moved-workspace and cli-list to cli-inspect tests as compatibility gates rather than new host development.",
+          "Provide the built-bin check as an explicit post-build command, preserving the current pre-build npm test workflow."
         ],
         "status": "PLANNED_NOT_EXECUTED"
       }
@@ -1075,6 +1500,14 @@
     {
       "id": "urn:usl:syntax-cli:planned_work",
       "description": "Architecture trace relation planned_work; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:completed_by",
+      "description": "Architecture trace relation completed_by; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:planned_evidence",
+      "description": "Architecture trace relation planned_evidence; declaration only."
     },
     {
       "id": "urn:usl:syntax-cli:task_depends_on",
@@ -1993,7 +2426,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2015,7 +2448,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2037,7 +2470,30 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
+      }
+    },
+    {
+      "id": "completed_by:task:P01:criterion:P01:source:binding-delivery-receipt",
+      "meaning": "urn:usl:syntax-cli:completed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:P01"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:P01"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:binding-delivery-receipt"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PASS_RECORDED",
+        "proofStatus": "NOT_PROVEN"
       }
     },
     {
@@ -2059,7 +2515,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2081,7 +2537,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2103,7 +2559,30 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
+      }
+    },
+    {
+      "id": "completed_by:task:P02:criterion:P02:source:binding-delivery-receipt",
+      "meaning": "urn:usl:syntax-cli:completed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:P02"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:P02"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:binding-delivery-receipt"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PASS_RECORDED",
+        "proofStatus": "NOT_PROVEN"
       }
     },
     {
@@ -2121,7 +2600,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_DEPENDENCY"
+        "status": "COMPLETED_DEPENDENCY"
       }
     },
     {
@@ -2143,7 +2622,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2165,7 +2644,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2187,7 +2666,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2209,7 +2688,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
       }
     },
     {
@@ -2231,7 +2710,30 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_WORKTRACE"
+        "status": "COMPLETED_WORKTRACE"
+      }
+    },
+    {
+      "id": "completed_by:task:P03:criterion:P03:source:binding-delivery-receipt",
+      "meaning": "urn:usl:syntax-cli:completed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:P03"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:P03"
+        },
+        {
+          "role": "evidence",
+          "resource": "source:binding-delivery-receipt"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PASS_RECORDED",
+        "proofStatus": "NOT_PROVEN"
       }
     },
     {
@@ -2249,7 +2751,7 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
-        "status": "PLANNED_DEPENDENCY"
+        "status": "COMPLETED_DEPENDENCY"
       }
     },
     {
@@ -2267,7 +2769,509 @@
       ],
       "metadata": {
         "authority": "SECONDARY_AI",
+        "status": "COMPLETED_WORKTRACE"
+      }
+    },
+    {
+      "id": "planned_work:task:C01:criterion:C01:user:core-cli-next",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C01"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:C01"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:core-cli-next"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
         "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C01:artifact:core-cli:src/cli.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C01"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C01:artifact:core-cli:src/cli-platform.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C01"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-platform.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C01:artifact:core-cli:src/cli-adapter.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C01"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-adapter.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C01:artifact:core-cli:src/cli-host-command.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C01"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host-command.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C01:artifact:core-cli:src/cli-host.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C01"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_work:task:C02:criterion:C02:user:core-cli-next",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C02"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:C02"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:core-cli-next"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
+      "id": "task_depends_on:task:C02:task:C01",
+      "meaning": "urn:usl:syntax-cli:task_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C02"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:C01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_DEPENDENCY"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C02:artifact:core-cli:src/cli.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C02"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C02:artifact:core-cli:src/cli-platform.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C02"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-platform.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C02:artifact:core-cli:src/cli-adapter.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C02"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-adapter.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C02:artifact:core-cli:src/cli-host-command.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C02"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host-command.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C02:artifact:core-cli:src/cli-host.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C02"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_work:task:C03:criterion:C03:user:core-cli-next",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C03"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:C03"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:core-cli-next"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
+      "id": "task_depends_on:task:C03:task:C01",
+      "meaning": "urn:usl:syntax-cli:task_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C03"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:C01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_DEPENDENCY"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C03:artifact:core-cli:src/cli.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C03"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C03:artifact:core-cli:src/cli-platform.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C03"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-platform.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C03:artifact:core-cli:src/cli-adapter.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C03"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-adapter.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C03:artifact:core-cli:src/cli-host-command.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C03"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host-command.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C03:artifact:core-cli:src/cli-host.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C03"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_work:task:C04:criterion:C04:user:core-cli-next",
+      "meaning": "urn:usl:syntax-cli:planned_work",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C04"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:C04"
+        },
+        {
+          "role": "requirement",
+          "resource": "user:core-cli-next"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_WORKTRACE"
+      }
+    },
+    {
+      "id": "task_depends_on:task:C04:task:C01",
+      "meaning": "urn:usl:syntax-cli:task_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C04"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:C01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED_DEPENDENCY"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C04:artifact:core-cli:src/cli.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C04"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C04:artifact:core-cli:src/cli-platform.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C04"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-platform.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C04:artifact:core-cli:src/cli-adapter.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C04"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-adapter.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C04:artifact:core-cli:src/cli-host-command.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C04"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host-command.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
+      }
+    },
+    {
+      "id": "planned_evidence:task:C04:artifact:core-cli:src/cli-host.ts",
+      "meaning": "urn:usl:syntax-cli:planned_evidence",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:C04"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:core-cli:src/cli-host.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_SNAPSHOT_EVIDENCE"
       }
     }
   ],
@@ -2276,6 +3280,8 @@
       "source:catalog",
       "source:generator",
       "source:hswm-plan",
+      "source:core-cli-plan",
+      "source:binding-delivery-receipt",
       "source:compression-sources",
       "artifact:compression-benchmark"
     ],

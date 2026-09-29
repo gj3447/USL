@@ -1,0 +1,41 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:addon:binding-profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:addon:applies_binding_rule",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "rule",
+          "required": true,
+          "types": ["urn:usl:addon:BindingRule"],
+          "metadata": [
+            { "key": "ruleId", "equals": "example-score-hint" },
+            { "key": "ruleVersion", "equals": "1" }
+          ]
+        },
+        {
+          "role": "target",
+          "required": true,
+          "types": ["urn:usl:addon:BindingTarget"],
+          "metadata": []
+        },
+        {
+          "role": "configuration",
+          "required": true,
+          "types": ["urn:usl:addon:BindingConfiguration"],
+          "metadata": []
+        },
+        {
+          "role": "consumer",
+          "required": true,
+          "types": ["urn:usl:addon:Program"],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

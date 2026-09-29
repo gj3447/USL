@@ -15,9 +15,15 @@ const read = (file: string) => readFile(resolve(root, file), "utf8")
 const catalog = JSON.parse(await read("research/architecture/syntax-cli.catalog.json")) as { schema: string; authority: string; sourceCommit: string; sourcePins: Record<string, string>; userStatements: Array<{ id: string; status: string; text: string }>; implemented: Array<[string, string, string[]]>; proposals: Array<[string, string, string]>; proposalPlacement: Record<string, string> }
 type PlannedTask = { id: string; order: number; title: string; dependsOn: string[]; requirements: string[]; proposals: string[]; deliverables: string[]; acceptance: string[]; hswmAlignment: string; proofTargets: string[]; status: string; implementation: string; proofStatus: string }
 type WorkPlan = { schema: string; authority: string; status: string; userRequest: { id: string; text: string; authority: string }; scopeCorrections?: Array<{ id: string; text: string; authority: string }>; tasks: PlannedTask[] }
+type CoreCliPlan = { schema: "usl-core-cli-work-plan/v1"; authority: "SECONDARY_AI"; status: "PLANNED"; userRequest: { id: string; text: string; authority: "USER_PRIMARY" }; sourceEvidence: Array<{ path: string; sha256: string; kind: "LOCAL_SNAPSHOT" }>; tasks: PlannedTask[] }
+type VerificationReceipt = { schema: "usl-binding-delivery-receipt/v1"; authority: "SECONDARY_AI"; status: "PASS"; generatedAt: string; sourcePins: Record<string, string>; tasks: Array<{ id: string; status: "PASS"; evidence: Array<{ kind: "command"; command: string; exitCode: 0; observed: string } | { kind: "source"; path: string; sha256: string }> }> }
 type CompressionSource = { id: string; title: string; url: string; technique: string; scope: string; limitation: string; checkedAt: string }
 type CompressionBenchmark = { schema: string; scope: string; validationStatus: string; environment: { encodings: string[]; memory: string }; inputs: { digest: string; benchmarkScriptDigest: string; tokenScriptDigest: string; requirementsDigest: string }; fixtures: unknown[] }
 const workPlan = JSON.parse(await read("research/architecture/hswm-like.plan.json")) as WorkPlan
+const receiptPath = "research/architecture/binding-delivery.receipt.json"
+const receipt = JSON.parse(await read(receiptPath)) as VerificationReceipt
+const corePlanPath = "research/architecture/core-cli.plan.json"
+const corePlan = JSON.parse(await read(corePlanPath)) as CoreCliPlan
 const compressionSources = JSON.parse(await read("research/compression/sources.json")) as CompressionSource[]
 const compressionBenchmark = JSON.parse(await read("research/compression/benchmark-results.json")) as CompressionBenchmark
 if (catalog.schema !== "usl-syntax-cli-architecture-catalog/v1" || catalog.authority !== "SECONDARY_AI" || !/^[a-f0-9]{40}$/.test(catalog.sourceCommit) ||
@@ -26,19 +32,29 @@ for (const statement of catalog.userStatements) if (!/^[a-z][a-z0-9-]*:[a-z][a-z
 for (const item of catalog.implemented) if (!Array.isArray(item) || item.length !== 3 || !item[0].startsWith("feature:") || !item[1].trim() || !Array.isArray(item[2]) || item[2].some(path => typeof path !== "string" || !path.startsWith("src/"))) throw new Error("invalid implemented feature")
 for (const item of catalog.proposals) if (!Array.isArray(item) || item.length !== 3 || !item[0].startsWith("proposal:") || item.slice(1).some(value => !value.trim())) throw new Error("invalid proposal")
 for (const [id] of catalog.proposals) if (!["ADDON_RESPONSIBILITY", "MINIMAL_BINDING_CLI"].includes(catalog.proposalPlacement[id] ?? "")) throw new Error(`invalid proposal placement: ${id}`)
-if (workPlan.schema !== "usl-hswm-like-work-plan/v1" || workPlan.authority !== "SECONDARY_AI" || workPlan.status !== "PLANNED" || workPlan.userRequest.id !== "user:hswm-plan" || workPlan.userRequest.authority !== "USER_PRIMARY" || !workPlan.userRequest.text.trim()) throw new Error("invalid HSWM-like work plan")
+if (workPlan.schema !== "usl-hswm-like-work-plan/v1" || workPlan.authority !== "SECONDARY_AI" || workPlan.status !== "COMPLETED" || workPlan.userRequest.id !== "user:hswm-plan" || workPlan.userRequest.authority !== "USER_PRIMARY" || !workPlan.userRequest.text.trim()) throw new Error("invalid HSWM-like work plan")
+if (receipt.schema !== "usl-binding-delivery-receipt/v1" || receipt.authority !== "SECONDARY_AI" || receipt.status !== "PASS" || !/^\d{4}-\d\d-\d\d$/.test(receipt.generatedAt) || !receipt.sourcePins || !Array.isArray(receipt.tasks)) throw new Error("invalid binding delivery receipt")
+for (const [path, digest] of Object.entries(receipt.sourcePins)) if (!(/^(src|docs|examples|test|scripts|research)\//.test(path) || ["package.json", "package-lock.json", "tsconfig.json"].includes(path)) || !/^sha256:[a-f0-9]{64}$/.test(digest) || digestSource(await read(path)) !== digest) throw new Error(`invalid receipt source pin: ${path}`)
+if (corePlan.schema !== "usl-core-cli-work-plan/v1" || corePlan.authority !== "SECONDARY_AI" || corePlan.status !== "PLANNED" || corePlan.userRequest.id !== "user:core-cli-next" || corePlan.userRequest.authority !== "USER_PRIMARY" || !corePlan.userRequest.text.trim() || !corePlan.sourceEvidence.length) throw new Error("invalid core CLI plan")
+for (const source of corePlan.sourceEvidence) if (!/^src\//.test(source.path) || !/^[a-f0-9]{64}$/.test(source.sha256) || source.kind !== "LOCAL_SNAPSHOT" || (digestSource(await read(source.path)) ?? "").replace("sha256:", "") !== source.sha256) throw new Error(`invalid core CLI source evidence: ${source.path}`)
 if (compressionSources.length < 4 || compressionSources.some(source => !/^[a-z0-9-]+$/.test(source.id) || !source.title.trim() || !/^https:\/\//.test(source.url) || !source.technique.trim() || !source.scope.trim() || !source.limitation.trim() || !/^\d{4}-\d\d-\d\d$/.test(source.checkedAt))) throw new Error("invalid compression source")
 if (compressionBenchmark.schema !== "usl-compression-benchmark-results/v1" || compressionBenchmark.scope !== "OFFLINE_PAYLOAD_MEASUREMENT_NOT_RUNTIME_MEMORY_OR_BILLED_USAGE" || compressionBenchmark.validationStatus !== "FIXTURE_ROUNDTRIPS_PASSED" || !compressionBenchmark.environment.encodings.length || !compressionBenchmark.environment.memory.includes("HEAP_NOT_MEASURED") || ![compressionBenchmark.inputs.digest, compressionBenchmark.inputs.benchmarkScriptDigest, compressionBenchmark.inputs.tokenScriptDigest, compressionBenchmark.inputs.requirementsDigest].every(value => /^sha256:[a-f0-9]{64}$/.test(value)) || !compressionBenchmark.fixtures.length) throw new Error("invalid compression benchmark")
 const taskIds = new Set<string>()
 for (const task of workPlan.tasks) {
-  if (!/^task:P\d\d$/.test(task.id) || taskIds.has(task.id) || !Number.isSafeInteger(task.order) || task.order < 1 || !task.title.trim() || task.status !== "PLANNED" || task.implementation !== "NOT_STARTED" || task.proofStatus !== "NOT_PROVEN" || !task.deliverables.length || task.deliverables.some(path => !/^(src|test|docs|schemas|examples|lean)\//.test(path)) || !task.acceptance.length || task.acceptance.some(item => !item.trim())) throw new Error(`invalid planned task: ${task.id}`)
+  if (!/^task:P\d\d$/.test(task.id) || taskIds.has(task.id) || !Number.isSafeInteger(task.order) || task.order < 1 || !task.title.trim() || task.status !== "COMPLETED" || task.implementation !== "COMPLETE" || task.proofStatus !== "NOT_PROVEN" || !task.deliverables.length || task.deliverables.some(path => !/^(src|test|docs|schemas|examples|lean)\//.test(path)) || !task.acceptance.length || task.acceptance.some(item => !item.trim())) throw new Error(`invalid completed task: ${task.id}`)
+  const receiptTask = receipt.tasks.find(item => item.id === task.id)
+  if (!receiptTask || receiptTask.status !== "PASS" || !receiptTask.evidence.some(evidence => evidence.kind === "command" && evidence.exitCode === 0 && evidence.command.trim() && evidence.observed.trim()) || !task.deliverables.every(path => receipt.sourcePins[path] !== undefined && receiptTask.evidence.some(evidence => evidence.kind === "source" && evidence.path === path && evidence.sha256 === receipt.sourcePins[path]))) throw new Error(`missing completion evidence: ${task.id}`)
+  taskIds.add(task.id)
+}
+for (const task of corePlan.tasks) {
+  if (!/^task:C\d\d$/.test(task.id) || taskIds.has(task.id) || !Number.isSafeInteger(task.order) || task.order < 1 || !task.title.trim() || task.status !== "PLANNED" || task.implementation !== "NOT_STARTED" || task.proofStatus !== "NOT_PROVEN" || !task.deliverables.length || !task.acceptance.length || task.acceptance.some(item => !item.trim())) throw new Error(`invalid core CLI task: ${task.id}`)
   taskIds.add(task.id)
 }
 const commit = catalog.sourceCommit
 const prefix = "urn:usl:syntax-cli:"
 const location = (path: string) => `git://github.com/gj3447/USL@${commit}:${path}`
 const publicLocation = (path: string) => `https://github.com/gj3447/USL/blob/master/${path}`
-const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator", "source:hswm-plan", "source:compression-sources", "artifact:compression-benchmark"], activity: "activity:architecture", agent: "agent:secondary" } }
+const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator", "source:hswm-plan", "source:core-cli-plan", "source:binding-delivery-receipt", "source:compression-sources", "artifact:compression-benchmark"], activity: "activity:architecture", agent: "agent:secondary" } }
 type Meta = NonNullable<ResourceGraph["resources"][number]["metadata"]>
 type LinkMeta = NonNullable<ResourceGraph["links"][number]["metadata"]>
 const add = (id: string, type: string | string[], locator: string, metadata: Meta) => { graph.resources.push({ id, types: (Array.isArray(type) ? type : [type]).map(t => t.startsWith("http") ? t : prefix + t), locator, metadata }); return id }
@@ -58,6 +74,8 @@ const rules: Array<[string, Array<[string, string]>]> = [
   ["addresses", [["proposal", "Proposal"], ["requirement", "UserStatement"]]],
   ["depends_on", [["proposal", "Proposal"], ["prerequisite", "Proposal"]]],
   ["planned_work", [["task", "Task"], ["criterion", "AcceptanceCriterion"], ["requirement", "UserStatement"]]],
+  ["completed_by", [["task", "Task"], ["criterion", "AcceptanceCriterion"], ["evidence", "VerificationReceipt"]]],
+  ["planned_evidence", [["task", "Task"], ["artifact", "Artifact"]]],
   ["task_depends_on", [["task", "Task"], ["prerequisite", "Task"]]],
   ["advances", [["task", "Task"], ["proposal", "Proposal"]]],
   ["evaluated_by", [["requirement", "UserStatement"], ["technique", "CompressionTechnique"], ["evidence", "Source"]]],
@@ -70,6 +88,8 @@ const link = (meaning: string, participants: Record<string, string>, metadata: L
 add("source:catalog", "Source", publicLocation("research/architecture/syntax-cli.catalog.json"), { path: "research/architecture/syntax-cli.catalog.json", sourceDigest: digestSource(await read("research/architecture/syntax-cli.catalog.json")), authority: "SECONDARY_AI", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("source:generator", "Source", publicLocation("scripts/build-syntax-cli-architecture.ts"), { path: "scripts/build-syntax-cli-architecture.ts", sourceDigest: digestSource(await read("scripts/build-syntax-cli-architecture.ts")), scope: "DETERMINISTIC_GENERATOR", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("source:hswm-plan", "Source", publicLocation("research/architecture/hswm-like.plan.json"), { path: "research/architecture/hswm-like.plan.json", sourceDigest: digestSource(await read("research/architecture/hswm-like.plan.json")), authority: "SECONDARY_AI", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+add("source:core-cli-plan", "Source", publicLocation(corePlanPath), { path: corePlanPath, sourceDigest: digestSource(await read(corePlanPath)), authority: corePlan.authority, status: corePlan.status, sourceEvidence: corePlan.sourceEvidence, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+add("source:binding-delivery-receipt", "VerificationReceipt", publicLocation(receiptPath), { path: receiptPath, sourceDigest: digestSource(await read(receiptPath)), authority: receipt.authority, status: receipt.status, generatedAt: receipt.generatedAt, sourcePins: receipt.sourcePins, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("source:compression-sources", "Source", publicLocation("research/compression/sources.json"), { path: "research/compression/sources.json", sourceDigest: digestSource(await read("research/compression/sources.json")), authority: "EXTERNAL_RESEARCH_CATALOG", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("artifact:compression-benchmark", "BenchmarkArtifact", publicLocation("research/compression/benchmark-results.json"), { path: "research/compression/benchmark-results.json", sourceDigest: digestSource(await read("research/compression/benchmark-results.json")), resultStatus: compressionBenchmark.scope, validationStatus: compressionBenchmark.validationStatus, memory: compressionBenchmark.environment.memory, tokenEncodings: compressionBenchmark.environment.encodings, billing: "NOT_MEASURED", llmQuality: "NOT_MEASURED", remoteExecution: "NOT_PERFORMED" })
 add("activity:architecture", ["ArchitectureActivity", "http://www.w3.org/ns/prov#Activity"], publicLocation("research/architecture/syntax-cli.catalog.json"), { status: "DECLARED", scope: "CURRENT_IMPLEMENTATION_AND_PROPOSAL_SEPARATION", runtimeTests: "NOT_CLAIMED" })
@@ -77,6 +97,7 @@ add("agent:secondary", ["Agent", "http://www.w3.org/ns/prov#Agent"], publicLocat
 add("subject:usl", "ArchitectureSubject", "git://github.com/gj3447/USL", { name: "USL", role: "LANGUAGE_AND_CLI_BINDING_LAYER" })
 for (const statement of catalog.userStatements) add(statement.id, "UserStatement", publicLocation("research/architecture/syntax-cli.catalog.json"), { status: statement.status, text: statement.text, authority: "USER_PRIMARY", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add(workPlan.userRequest.id, "UserStatement", publicLocation("research/architecture/hswm-like.plan.json"), { status: "USER_PRIMARY", text: workPlan.userRequest.text, authority: workPlan.userRequest.authority, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+add(corePlan.userRequest.id, "UserStatement", publicLocation(corePlanPath), { status: "USER_PRIMARY", text: corePlan.userRequest.text, authority: corePlan.userRequest.authority, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 for (const statement of workPlan.scopeCorrections ?? []) {
   if (!/^user:[a-z][a-z0-9-]*$/.test(statement.id) || statement.authority !== "USER_PRIMARY" || !statement.text.trim()) throw new Error("invalid scope correction")
   add(statement.id, "UserStatement", publicLocation("research/architecture/hswm-like.plan.json"), { status: "USER_PRIMARY", text: statement.text, authority: "USER_PRIMARY", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
@@ -119,12 +140,22 @@ link("addresses", { proposal: "proposal:graph-cli", requirement: "user:syntax-cl
 // This three-role edge is intentionally retained as the canonical n-ary trace.
 link("trace", { statement: "user:syntax-cli", feature: "feature:hyperedge", artifact: artifacts.get("src/language/compiler.ts")! }, { authority: "SECONDARY_AI", status: "TRACEABILITY" })
 for (const task of workPlan.tasks) {
-  add(task.id, "Task", publicLocation("research/architecture/hswm-like.plan.json"), { ...task, authority: "SECONDARY_AI", sourceStatus: "PLANNED_WORK" })
+  add(task.id, "Task", publicLocation("research/architecture/hswm-like.plan.json"), { ...task, authority: "SECONDARY_AI", sourceStatus: "COMPLETED_WORK" })
   const criterion = `criterion:${task.id.slice("task:".length)}`
-  add(criterion, "AcceptanceCriterion", publicLocation("research/architecture/hswm-like.plan.json"), { task: task.id, checks: task.acceptance, status: "PLANNED_NOT_EXECUTED" })
-  for (const requirement of task.requirements) link("planned_work", { task: task.id, criterion, requirement }, { authority: "SECONDARY_AI", status: "PLANNED_WORKTRACE" })
+  add(criterion, "AcceptanceCriterion", publicLocation("research/architecture/hswm-like.plan.json"), { task: task.id, checks: task.acceptance, status: "PASS_RECORDED" })
+  for (const requirement of task.requirements) link("planned_work", { task: task.id, criterion, requirement }, { authority: "SECONDARY_AI", status: "COMPLETED_WORKTRACE" })
+  link("completed_by", { task: task.id, criterion, evidence: "source:binding-delivery-receipt" }, { authority: "SECONDARY_AI", status: "PASS_RECORDED", proofStatus: task.proofStatus })
+  for (const prerequisite of task.dependsOn) link("task_depends_on", { task: task.id, prerequisite }, { authority: "SECONDARY_AI", status: "COMPLETED_DEPENDENCY" })
+  for (const proposal of task.proposals) link("advances", { task: task.id, proposal }, { authority: "SECONDARY_AI", status: "COMPLETED_WORKTRACE" })
+}
+const coreArtifacts = corePlan.sourceEvidence.map(source => add(`artifact:core-cli:${source.path}`, "Artifact", publicLocation(source.path), { path: source.path, sourceDigest: `sha256:${source.sha256}`, scope: source.kind, remoteObservation: "NOT_PERFORMED" }))
+for (const task of corePlan.tasks) {
+  add(task.id, "Task", publicLocation(corePlanPath), { ...task, authority: "SECONDARY_AI", sourceStatus: "PLANNED_CORE_CLI_WORK" })
+  const criterion = `criterion:${task.id.slice("task:".length)}`
+  add(criterion, "AcceptanceCriterion", publicLocation(corePlanPath), { task: task.id, checks: task.acceptance, status: "PLANNED_NOT_EXECUTED" })
+  link("planned_work", { task: task.id, criterion, requirement: corePlan.userRequest.id }, { authority: "SECONDARY_AI", status: "PLANNED_WORKTRACE" })
   for (const prerequisite of task.dependsOn) link("task_depends_on", { task: task.id, prerequisite }, { authority: "SECONDARY_AI", status: "PLANNED_DEPENDENCY" })
-  for (const proposal of task.proposals) link("advances", { task: task.id, proposal }, { authority: "SECONDARY_AI", status: "PLANNED_WORKTRACE" })
+  for (const artifact of coreArtifacts) link("planned_evidence", { task: task.id, artifact }, { authority: "SECONDARY_AI", status: "LOCAL_SNAPSHOT_EVIDENCE" })
 }
 const raw = JSON.stringify(graph, null, 2) + "\n"
 const report = checkResourceGraphProfile(graph, profile)

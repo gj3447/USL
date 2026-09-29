@@ -1,5 +1,41 @@
 # CLI
 
+## 단순 바인딩의 기본 흐름
+
+직접 작성한 선언은 `check → compile → context`로 사용한다.
+
+```sh
+npm run usl -- check --source examples/agent-navigation.usl
+npm run usl -- compile --source examples/agent-navigation.usl
+npm run usl -- context --source examples/agent-navigation.usl \
+  --focus checkout --target concept --compact
+```
+
+기존 그래프에는 `adapt`를 사용한다. [선택 규칙 예제](ADDON_BINDING.md)는
+동일한 그래프에 기본 검사와 선택한 profile 검사를 적용한다.
+
+```sh
+npm run usl -- adapt --format resource-graph \
+  --graph examples/fixtures/addon-binding.json --namespace addon.example --operation check
+npm run usl -- adapt --format resource-graph \
+  --graph examples/fixtures/addon-binding.json --namespace addon.example \
+  --profile examples/fixtures/addon-binding.profile.json --operation context \
+  --focus addon:target --target addon:rule --compact
+```
+
+profile 선택은 원래 resource/link ID를 유지하고 검사한 profile의 digest를
+해석에 포함하므로 `planDigest`는 기본 검사와 달라질 수 있다. context는 규칙·
+설정·소비자의 네 역할과 출처를 보존한다. 규칙 계산은 해당 소비자가 담당한다.
+
+폴더 이동은 host의 workspace mapping을 갱신하고, 로컬/Git/URL 표현의 병존은
+`locate`·`bind-graph`의 명시적 선택으로 처리한다. [설정 계약](RESOURCE_BINDINGS.md)과
+[실행 가능한 CLI 회귀 예제](../test/addon-binding-cli.test.ts)는 같은 자원 ID로
+경로 이동·Git 표현 선택·선택 profile 재검사를 확인한다.
+
+메인 CLI의 다음 개발 단계는 [Core CLI 계획](CORE_CLI_PLAN.md)에 정리했다.
+
+## 호스트 등록 프로그램과 확장 명령
+
 2026-09-28: 이동 가능한 자원 선택과 호스트 등록 CLI 실행을 추가했다. [전체 설정과 실행 범위](CLI_GRAPH_ARCHITECTURE.md).
 
 ```sh

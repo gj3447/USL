@@ -87,14 +87,15 @@ meaning_clause = 'grounded' string
               | 'applies' string
               | 'check' identifier '(' evidence_roles ')' '=' string ;
 evidence_roles = identifier (',' identifier)* ;
-roles    = role (',' role)+ ;
+roles    = role (',' role)* ;
 role     = identifier ':' ('kg' | 'git_repo' | 'url' | 'filesystem' | 'any') ;
 link     = 'link' identifier '=' identifier '(' participants ')' ';' ;
-participants = participant (',' participant)+ ;
+participants = participant (',' participant)* ;
 participant = identifier ':' identifier ;
 ```
 
 문자열은 JSON 문자열 문법, 이름은 ASCII 문자 또는 `_`로 시작해 문자·숫자·`_`를 잇는다. 문장 사이 공백·개행과 `//` 한 줄 주석을 허용한다. 선언 순서는 참조 해석 결과에 영향을 주지 않는다.
+`roles`와 `participants`의 첫 항목은 필수다. 따라서 단항 meaning/link와 역할 있는 다자 link를 모두 같은 문법으로 표현하며, 빈 `()`는 parser가 읽을 수 있어도 compiler가 거부한다.
 
 컴파일러는 다음을 검사한다.
 
@@ -137,3 +138,20 @@ participant = identifier ':' identifier ;
 주소의 연결, 의미 관계의 선언, 현실에서 그 관계의 참, 승인된 KG 정전은 서로 다른 판단이다. 자원끼리 연결됐다고 파일을 이동하거나 동기화하거나 데이터 포맷을 변환하지 않는다. 구현 언어는 TypeScript이고 USL은 그 위에서 해석되는 선언 언어다. IO·오류·취소·의존성 주입은 Effect가 담당한다.
 
 역할 기반 양방향 질의와 원 link를 보존한 경로 탐색은 `agentContext`로 지원한다. 자동 추론, 의미 관계 합성, 관계별 사실 검증기, 편집기 지원, 새 자원 adapter, HSWM의 구체적 편입 방식은 확장점이다. 현재 정의를 완성하기 위해 이들에 대한 정전을 발명하지 않는다. 특히 HSWM과 롱기누스의 기존 열린 질문은 사용자 결정과 별도로 유지한다.
+
+## P01 최소 바인딩과 표현 비용 경계
+
+최소 구성은 `resource`의 선언 이름과 locator, `meaning`의 이름·역할,
+`link`의 이름 있는 participant다. 의미 설명·선언 계약·출처도 기존 방식으로
+보존한다. 가중치 계산·조정, 계층 탐색, M map,
+HSWM 규칙과 학습·실행 정책은 이 문법의 필수 의미론이 아니다. 그런 해석은
+link/metadata/profile을 읽는 선택 consumer가 맡으며, core는 선언을 실행하거나
+사실로 판정하지 않는다.
+
+반복을 줄이는 현재 문법상의 수단은 resource와 meaning을 한 번 선언하고 이후
+link에서 짧은 local name으로 재사용하는 것이다. local name은 해당 `.usl` 문서
+scope 안의 alias이며 canonical resource identity를 잃게 하는 축약이 아니다.
+전달용 whitespace 정리는 같은 AST와 plan digest로 복원되어야 한다. 위치 기반
+participant, table/dictionary 축약은 named role·ID·metadata·provenance를
+losslessly 복원하고 bytes와 tokenizer별 token 측정이 확인된 경우에만 versioned,
+선택 form으로 추가 검토한다. 현재 core 문법이나 CLI의 기본 입력 형식은 아니다.

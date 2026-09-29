@@ -12,6 +12,12 @@ USL 코어는 자원과 의미, 이름 있는 참여 역할을 연결하는 문�
 이 순서와 구체적 수용 기준은 **SECONDARY_AI 계획**이며, 위 원문은
 **USER_PRIMARY** 방향이다.
 
+2026-09-29: P01~P03의 문서·예제·CLI 검증을 완료했다. 기초 계약 문서의 단항
+문법표를 수정하고, [선택 규칙 graph/profile](ADDON_BINDING.md)과 CLI 회귀 예제를
+추가했다. [검증 기록](../research/architecture/binding-delivery.receipt.json)은
+실제로 통과한 명령과 해당 파일의 digest를 보존한다. 메인 CLI의 후속 개발은
+[C01~C04 계획](CORE_CLI_PLAN.md)으로 이어지며 아직 구현 전이다.
+
 ```mermaid
 flowchart LR
   P01[P01 최소 바인딩 기반] --> P02[P02 선택 add-on 선언]
@@ -46,7 +52,8 @@ P01은 [언어](LANGUAGE.md), [resource bindings](RESOURCE_BINDINGS.md),
 USL 코어는 generic structural/profile constraint만 검사하고, 의미를 평가하거나
 규칙을 실행하지 않는다.
 
-P02 산출물은 `docs/ADDON_BINDING.md`와 `examples/fixtures/addon-binding.json`이다.
+P02 산출물은 `docs/ADDON_BINDING.md`, `examples/fixtures/addon-binding.json`,
+`examples/fixtures/addon-binding.profile.json`이다.
 owner consumer가 add-on의 뜻을 해석하고, 필요하다면 별도 저장소·인덱스·실행기
 또는 정책을 제공한다. 현재 실제 공백이 확인되기 전에는 새 loader, registry,
 자동 설치·실행 engine, DSL, 가중치 엔진, hierarchy traversal, M map,
@@ -93,4 +100,7 @@ HSWM gate나 원격 접근 확인을 필수로 추가하지 않는다.
 `planned_work(task, criterion, requirement)`는 작업·완료 기준·사용자 요구를,
 `task_depends_on(task, prerequisite)`는 선행 조건을 표현한다. 각 역할은 연결마다
 하나이며 순환 금지는 작업 선행 관계에만 적용한다. profile·SHACL·계획 상태
-검사는 이 계획의 일관성을 확인한다. 모든 작업 상태는 `PLANNED`다.
+검사는 이 계획의 일관성을 확인한다. P01~P03은 `COMPLETED`이며
+`completed_by(task, criterion, evidence)`로 검증 기록을 연결한다. 이는 해당
+예제와 유한 검증의 완료이며 새 Lean 증명을 뜻하지 않는다. C01~C04는 별도로
+`PLANNED` 상태와 선행 관계를 보존한다.

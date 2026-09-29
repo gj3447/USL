@@ -1,0 +1,63 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "addon:rule",
+      "types": ["urn:usl:addon:BindingRule"],
+      "locator": "https://example.test/usl/addons/example-score-hint/rule",
+      "metadata": {
+        "ruleId": "example-score-hint",
+        "ruleVersion": "1"
+      }
+    },
+    {
+      "id": "addon:target",
+      "types": ["urn:usl:addon:BindingTarget"],
+      "locator": "https://example.test/usl/bindings/target"
+    },
+    {
+      "id": "addon:configuration",
+      "types": ["urn:usl:addon:BindingConfiguration"],
+      "locator": "https://example.test/usl/addons/example-score-hint/configuration",
+      "metadata": {
+        "configuration": {
+          "weightHint": 0.8,
+          "hierarchyHint": "related",
+          "indexHint": "M:example"
+        }
+      }
+    },
+    {
+      "id": "addon:program",
+      "types": ["urn:usl:addon:Program"],
+      "locator": "https://example.test/usl/addons/example-score-hint/program"
+    },
+    {
+      "id": "addon:source",
+      "types": ["urn:usl:addon:Evidence"],
+      "locator": "https://example.test/usl/addons/example-score-hint/source"
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:addon:applies_binding_rule",
+      "description": "A consumer program declares that it may interpret a versioned addon rule for one target and configuration."
+    }
+  ],
+  "links": [
+    {
+      "id": "addon:binding_link",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        { "role": "rule", "resource": "addon:rule" },
+        { "role": "target", "resource": "addon:target" },
+        { "role": "configuration", "resource": "addon:configuration" },
+        { "role": "consumer", "resource": "addon:program" }
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": ["addon:source"],
+    "activity": "addon:program"
+  }
+}

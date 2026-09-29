@@ -1,0 +1,238 @@
+{
+  "schema": "usl-core-cli-work-plan/v1",
+  "authority": "SECONDARY_AI",
+  "status": "PLANNED",
+  "observedAt": "2026-09-29",
+  "userRequest": {
+    "id": "user:core-cli-next",
+    "text": "다음 쭉쭉 구현해주고 메인 core cli 개발도 계획해줘봐 ㅇㅇ",
+    "authority": "USER_PRIMARY"
+  },
+  "scope": {
+    "coreSyntax": [
+      "Resource",
+      "Meaning",
+      "named Participant role",
+      "Link"
+    ],
+    "coreCli": "Parse, validate, compile, context navigation, bounded observation and explicit graph adaptation.",
+    "registeredHost": "A separately configured host plans and runs one explicitly registered external CLI action.",
+    "addonResponsibility": [
+      "weight interpretation or adjustment",
+      "hierarchy algorithms",
+      "M-map storage/indexing",
+      "learning and HSWM-specific policies"
+    ],
+    "nonGoals": [
+      "new domain engine",
+      "automatic addon installation or execution",
+      "automatic credential or workspace disclosure",
+      "replacing skills or MCP",
+      "claiming a Lean proof for CLI effects or tokenizer costs"
+    ]
+  },
+  "currentContract": {
+    "coreCommands": [
+      "check",
+      "compile",
+      "context",
+      "observe",
+      "adapt"
+    ],
+    "hostCommands": [
+      "cli-list",
+      "locate",
+      "inspect-binding",
+      "bind-graph",
+      "cli-plan",
+      "cli-run",
+      "cli-inspect"
+    ],
+    "formats": {
+      "coreInput": [
+        "USL source file",
+        "JSON graph/profile/baseline files"
+      ],
+      "coreOutput": "command-specific JSON on stdout",
+      "hostInput": [
+        "host config",
+        "stable action/resource/representation IDs",
+        "CapabilityInvocation JSON file"
+      ],
+      "hostOutput": "schema-tagged plan, execution and inspection JSON on stdout",
+      "registeredProgramInput": "only cli-run passes input.value as JSON stdin to the registered child process"
+    },
+    "statusAndExit": {
+      "success": 0,
+      "unresolvedOrChanged": 2,
+      "hostNonSuccess": [
+        "REJECTED",
+        "INDETERMINATE"
+      ],
+      "usage": 64,
+      "otherFailure": 1
+    },
+    "representations": "Canonical resource IDs remain stable; selected local/Git/URL representations are resolved from host bindings and workspace mappings.",
+    "optionalProfile": "adapt --format resource-graph --profile validates an explicitly selected domain profile.",
+    "knownGaps": [
+      "Top-level help mixes command families in one long usage string.",
+      "adapt context lacks the source-context traversal and compact byte/digest option parity.",
+      "Pure core commands have no bounded explicit stdin pipeline.",
+      "No build-and-package-bin smoke test runs the usl executable from dist."
+    ],
+    "compact": {
+      "supported": [
+        "context --compact",
+        "--max-bytes",
+        "--known-context",
+        "--stats to stderr"
+      ],
+      "notCurrentlySupported": [
+        "CLI tokenizer selection",
+        "CLI --max-tokens",
+        "API billing estimate",
+        "heap measurement"
+      ]
+    }
+  },
+  "sourceEvidence": [
+    {
+      "path": "src/cli.ts",
+      "sha256": "71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+      "kind": "LOCAL_SNAPSHOT"
+    },
+    {
+      "path": "src/cli-platform.ts",
+      "sha256": "0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+      "kind": "LOCAL_SNAPSHOT"
+    },
+    {
+      "path": "src/cli-adapter.ts",
+      "sha256": "e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+      "kind": "LOCAL_SNAPSHOT"
+    },
+    {
+      "path": "src/cli-host-command.ts",
+      "sha256": "a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+      "kind": "LOCAL_SNAPSHOT"
+    },
+    {
+      "path": "src/cli-host.ts",
+      "sha256": "80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+      "kind": "LOCAL_SNAPSHOT"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task:C01",
+      "order": 1,
+      "title": "Main entry help and command-family contracts",
+      "dependsOn": [],
+      "currentGap": "src/cli.ts concatenates every command family into one top-level usage string; delegated command modules expose independent help strings.",
+      "deliverables": [
+        "src/cli.ts",
+        "src/cli-platform.ts",
+        "src/cli-adapter.ts",
+        "src/cli-host-command.ts",
+        "docs/CLI.md",
+        "test/cli.test.ts"
+      ],
+      "acceptance": [
+        "Add usl help core|platform|adapter|host without renaming existing commands.",
+        "Generate top-level and command-family help from one command contract.",
+        "Verify command-family JSON stdout, error stderr, and exits 0/1/2/64 without adding a generic output envelope."
+      ],
+      "compatibility": [
+        "Preserve current command names and command-specific JSON schemas."
+      ],
+      "status": "PLANNED",
+      "implementation": "NOT_STARTED",
+      "proofStatus": "NOT_PROVEN"
+    },
+    {
+      "id": "task:C02",
+      "order": 2,
+      "title": "Adapted context traversal and compact-delivery parity",
+      "dependsOn": [
+        "task:C01"
+      ],
+      "currentGap": "src/cli-adapter.ts accepts focus, target and compact for context, but not max-hops/max-links/max-visits/via/max-bytes/known-context/stats despite those being supported by src/cli.ts context.",
+      "deliverables": [
+        "src/cli-adapter.ts",
+        "src/adapters.ts",
+        "docs/CLI.md",
+        "test/adapter-boundaries.test.ts",
+        "test/cli.test.ts"
+      ],
+      "acceptance": [
+        "Support max-hops, max-resources, max-links, max-visits, repeated via, max-bytes, known-context and stats for adapt --operation context.",
+        "Use the same validation and compact fallback/error contract as source context.",
+        "Preserve native IDs and explicitly selected resource-graph profiles.",
+        "Preserve the existing max-resources policy cap when adding the missing query and delivery options."
+      ],
+      "compatibility": [
+        "Keep multiple representations explicit.",
+        "Do not equate a resource link with access permission.",
+        "Do not add automatic tokenizer dependencies."
+      ],
+      "status": "PLANNED",
+      "implementation": "NOT_STARTED",
+      "proofStatus": "NOT_PROVEN"
+    },
+    {
+      "id": "task:C03",
+      "order": 3,
+      "title": "Bounded pure-core stdin/file pipeline",
+      "dependsOn": [
+        "task:C01"
+      ],
+      "currentGap": "src/cli.ts reads every source from a file path; there is no bounded UTF-8 --source - contract for pure core pipeline commands.",
+      "deliverables": [
+        "src/cli.ts",
+        "src/cli-io.ts",
+        "docs/CLI.md",
+        "test/cli.test.ts",
+        "test/cli-project-inputs.test.ts"
+      ],
+      "acceptance": [
+        "Support --source - only for check, compile and context.",
+        "Bound bytes before parsing and give stdin a stable source label in errors/provenance.",
+        "Keep observe, file-changing operations and registered-host execution file/config based."
+      ],
+      "compatibility": [
+        "Preserve JSON stdout and --out collision protection.",
+        "Do not change registered child-process stdin behavior."
+      ],
+      "status": "PLANNED",
+      "implementation": "NOT_STARTED",
+      "proofStatus": "NOT_PROVEN"
+    },
+    {
+      "id": "task:C04",
+      "order": 4,
+      "title": "Built package-bin compatibility gate",
+      "dependsOn": [
+        "task:C01"
+      ],
+      "currentGap": "package.json maps the usl bin to dist/src/cli.js, but current CLI tests invoke TypeScript through tsx rather than a built package bin.",
+      "deliverables": [
+        "package.json",
+        "test/cli-package-bin.test.ts",
+        "docs/GETTING_STARTED.md"
+      ],
+      "acceptance": [
+        "After npm run build, invoke the package bin symlink for --help and one pure check fixture.",
+        "Verify dist import, shebang and exit status.",
+        "Retain moved-workspace and cli-list to cli-inspect tests as compatibility gates rather than new host development.",
+        "Provide the built-bin check as an explicit post-build command, preserving the current pre-build npm test workflow."
+      ],
+      "compatibility": [
+        "Do not add tokenizer dependencies or API cost estimates.",
+        "Do not change host registration or external execution authority."
+      ],
+      "status": "PLANNED",
+      "implementation": "NOT_STARTED",
+      "proofStatus": "NOT_PROVEN"
+    }
+  ]
+}
