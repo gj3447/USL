@@ -1,6 +1,6 @@
 {
   "schema": "usl-repository-connection-observation/v1",
-  "observedAt": "2026-09-29T02:18:07.791144Z",
+  "observedAt": "2026-09-29T03:45:47.010097Z",
   "repositories": [
     {
       "id": 1394029753,
@@ -9,11 +9,11 @@
       "url": "https://github.com/gj3447/CHU",
       "defaultBranch": "main",
       "snapshot": {
-        "commit": "752d127d146200632082bb38496ef3f5f08d1fe8",
-        "commitUrl": "https://github.com/gj3447/CHU/commit/752d127d146200632082bb38496ef3f5f08d1fe8",
-        "committedAt": "2026-09-29T02:17:50Z",
-        "subject": "research: Linux/Ubuntu OS study through standard graph engineering (T09)",
-        "localHeadAtObservation": "752d127d146200632082bb38496ef3f5f08d1fe8"
+        "commit": "6161702364d24f502d4905340753d4da38281917",
+        "commitUrl": "https://github.com/gj3447/CHU/commit/6161702364d24f502d4905340753d4da38281917",
+        "committedAt": "2026-09-29T03:45:04Z",
+        "subject": "journal: record 2026-09-29 session as a PROV-O graph",
+        "localHeadAtObservation": "6161702364d24f502d4905340753d4da38281917"
       }
     },
     {
@@ -37,11 +37,11 @@
       "url": "https://github.com/gj3447/USL",
       "defaultBranch": "master",
       "snapshot": {
-        "commit": "924cebd96c6ac6eb435685d59697ccea3979045c",
-        "commitUrl": "https://github.com/gj3447/USL/commit/924cebd96c6ac6eb435685d59697ccea3979045c",
-        "committedAt": "2026-09-29T01:35:58Z",
-        "subject": "fix: re-pin the CHU ecosystem connection after concurrent USL doc update",
-        "localHeadAtObservation": "924cebd96c6ac6eb435685d59697ccea3979045c"
+        "commit": "e537d7c7967a6212810bbdb06cc451998d60edd8",
+        "commitUrl": "https://github.com/gj3447/USL/commit/e537d7c7967a6212810bbdb06cc451998d60edd8",
+        "committedAt": "2026-09-29T03:33:36Z",
+        "subject": "docs: complete HSWM policy rollout across all 86 repositories",
+        "localHeadAtObservation": "e537d7c7967a6212810bbdb06cc451998d60edd8"
       }
     }
   ],
@@ -55,7 +55,7 @@
       "bytes": 3947,
       "sha256": "sha256:a876163f28dbcfc02e9dcf097916986b917234f22c705ae3598114beaf4ad36f",
       "githubBlobSha": "76a563dea91c2eeffe90810039a5953d4f9a3de5",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/ECOSYSTEM.md?ref=752d127d146200632082bb38496ef3f5f08d1fe8",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/ECOSYSTEM.md?ref=6161702364d24f502d4905340753d4da38281917",
       "worktreeMatchedAtObservation": true
     },
     {
@@ -65,7 +65,7 @@
       "bytes": 4801,
       "sha256": "sha256:20b5a7b3082c7fed355bc920f7628b6841c932ea0d0c1f8beaf25f6b383e44b6",
       "githubBlobSha": "f56d731f34bed2db358af64fee06bf436eb09387",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/canon/AI_NATIVE_THREE_PRINCIPLES.md?ref=752d127d146200632082bb38496ef3f5f08d1fe8",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/canon/AI_NATIVE_THREE_PRINCIPLES.md?ref=6161702364d24f502d4905340753d4da38281917",
       "worktreeMatchedAtObservation": true
     },
     {
@@ -75,7 +75,7 @@
       "bytes": 7606,
       "sha256": "sha256:81afdd642ef6282f610552739b1e7bb87e4a1335fd0d676c6039d1173d47670a",
       "githubBlobSha": "5d2794ff38aa5ab06dfc98663f6debefde70a440",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/WHY_HYPERGRAPH.md?ref=752d127d146200632082bb38496ef3f5f08d1fe8",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/WHY_HYPERGRAPH.md?ref=6161702364d24f502d4905340753d4da38281917",
       "worktreeMatchedAtObservation": true
     },
     {
@@ -85,7 +85,7 @@
       "bytes": 13803,
       "sha256": "sha256:72bb7f7012b55f17245dc613085892a3240b95637017df53afc625588e2c5417",
       "githubBlobSha": "f921593d714f6954f15d347e24588e663df44c5a",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/plan/chu_os_plan.graph.json?ref=752d127d146200632082bb38496ef3f5f08d1fe8",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/plan/chu_os_plan.graph.json?ref=6161702364d24f502d4905340753d4da38281917",
       "worktreeMatchedAtObservation": true
     },
     {
@@ -95,7 +95,7 @@
       "bytes": 11723,
       "sha256": "sha256:2a9cf6cff37132b05e202d57bba5bb85824a05dd2f53efbddd4e980ed6f13b91",
       "githubBlobSha": "c8a10f79f08c096f3443c2a9048efd78a21b4a34",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/lean/CHU_WolframRewrite.lean?ref=752d127d146200632082bb38496ef3f5f08d1fe8",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/lean/CHU_WolframRewrite.lean?ref=6161702364d24f502d4905340753d4da38281917",
       "worktreeMatchedAtObservation": true
     },
     {
@@ -105,7 +105,7 @@
       "bytes": 24845,
       "sha256": "sha256:5f2300f640eec6832cc0f883bdf9b7cee599150555586bcaad806532414ae3c4",
       "githubBlobSha": "2a58fa979e20c3536c085aaa0a5e7f04eb4cf07b",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/chu_core_prototype/chu_core.rs?ref=752d127d146200632082bb38496ef3f5f08d1fe8",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/CHU/contents/chu_core_prototype/chu_core.rs?ref=6161702364d24f502d4905340753d4da38281917",
       "worktreeMatchedAtObservation": true
     },
     {
@@ -145,17 +145,17 @@
       "bytes": 5483,
       "sha256": "sha256:cf27abde9e86a9a20988695b25965215123888c5b4f2e2a42e90acb6fe5949f6",
       "githubBlobSha": "a601fe429a443d1a8c45a37459281ba71df1bd5c",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/USL/contents/docs/RESOURCE_GRAPH.md?ref=924cebd96c6ac6eb435685d59697ccea3979045c",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/USL/contents/docs/RESOURCE_GRAPH.md?ref=e537d7c7967a6212810bbdb06cc451998d60edd8",
       "worktreeMatchedAtObservation": true
     },
     {
       "resource": "usl:workspace-linking",
       "repository": "gj3447/USL",
       "path": "docs/WORKSPACE_LINKING.md",
-      "bytes": 11017,
-      "sha256": "sha256:8e8f01d755b04c6d1fc2da83a1465a8423cb6665848c11b3b050951b58090520",
-      "githubBlobSha": "8369a40b298a2861e4cf9f5a9ba04fd696ca4dc6",
-      "githubContentsApi": "https://api.github.com/repos/gj3447/USL/contents/docs/WORKSPACE_LINKING.md?ref=924cebd96c6ac6eb435685d59697ccea3979045c",
+      "bytes": 11116,
+      "sha256": "sha256:9a05b3e307f43d177f13e790aafe32281087bcb70e94aae6907d1a4dc8d5d333",
+      "githubBlobSha": "4d879efabc5d70ce5ab748fc113fddded259f606",
+      "githubContentsApi": "https://api.github.com/repos/gj3447/USL/contents/docs/WORKSPACE_LINKING.md?ref=e537d7c7967a6212810bbdb06cc451998d60edd8",
       "worktreeMatchedAtObservation": true
     }
   ]

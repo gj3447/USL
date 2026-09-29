@@ -11,7 +11,7 @@
         "githubRepositoryId": 1394029753,
         "githubNodeId": "R_kgDOUxc0uQ",
         "fullNameAtBinding": "gj3447/CHU",
-        "snapshotCommit": "752d127d146200632082bb38496ef3f5f08d1fe8",
+        "snapshotCommit": "6161702364d24f502d4905340753d4da38281917",
         "title": "CHU 하이퍼그래프 OS 저장소"
       }
     },
@@ -39,7 +39,7 @@
         "githubRepositoryId": 1369458368,
         "githubNodeId": "R_kgDOUaBGwA",
         "fullNameAtBinding": "gj3447/USL",
-        "snapshotCommit": "924cebd96c6ac6eb435685d59697ccea3979045c",
+        "snapshotCommit": "e537d7c7967a6212810bbdb06cc451998d60edd8",
         "title": "USL 저장소"
       }
     },
@@ -48,14 +48,14 @@
       "types": [
         "urn:usl:research:Mapping"
       ],
-      "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:ECOSYSTEM.md",
+      "locator": "git://github.com/gj3447/CHU@6161702364d24f502d4905340753d4da38281917:ECOSYSTEM.md",
       "metadata": {
         "title": "CHU · HSWM · USL 관계와 연결 지점",
         "path": "ECOSYSTEM.md",
         "repository": "github:repo:1394029753",
-        "snapshotCommit": "752d127d146200632082bb38496ef3f5f08d1fe8",
+        "snapshotCommit": "6161702364d24f502d4905340753d4da38281917",
         "expectedContentDigest": "sha256:a876163f28dbcfc02e9dcf097916986b917234f22c705ae3598114beaf4ad36f",
-        "githubPermalink": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/ECOSYSTEM.md",
+        "githubPermalink": "https://github.com/gj3447/CHU/blob/6161702364d24f502d4905340753d4da38281917/ECOSYSTEM.md",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     },
@@ -64,14 +64,14 @@
       "types": [
         "urn:usl:research:Canon"
       ],
-      "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:canon/AI_NATIVE_THREE_PRINCIPLES.md",
+      "locator": "git://github.com/gj3447/CHU@6161702364d24f502d4905340753d4da38281917:canon/AI_NATIVE_THREE_PRINCIPLES.md",
       "metadata": {
         "title": "AI native 3대원칙 (사용자 원문 + 증명 상태)",
         "path": "canon/AI_NATIVE_THREE_PRINCIPLES.md",
         "repository": "github:repo:1394029753",
-        "snapshotCommit": "752d127d146200632082bb38496ef3f5f08d1fe8",
+        "snapshotCommit": "6161702364d24f502d4905340753d4da38281917",
         "expectedContentDigest": "sha256:20b5a7b3082c7fed355bc920f7628b6841c932ea0d0c1f8beaf25f6b383e44b6",
-        "githubPermalink": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/canon/AI_NATIVE_THREE_PRINCIPLES.md",
+        "githubPermalink": "https://github.com/gj3447/CHU/blob/6161702364d24f502d4905340753d4da38281917/canon/AI_NATIVE_THREE_PRINCIPLES.md",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     },
@@ -80,14 +80,14 @@
       "types": [
         "urn:usl:research:Rationale"
       ],
-      "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:WHY_HYPERGRAPH.md",
+      "locator": "git://github.com/gj3447/CHU@6161702364d24f502d4905340753d4da38281917:WHY_HYPERGRAPH.md",
       "metadata": {
         "title": "왜 하이퍼그래프인가 — Wolfram · ZFC · Transformer · HSWM",
         "path": "WHY_HYPERGRAPH.md",
         "repository": "github:repo:1394029753",
-        "snapshotCommit": "752d127d146200632082bb38496ef3f5f08d1fe8",
+        "snapshotCommit": "6161702364d24f502d4905340753d4da38281917",
         "expectedContentDigest": "sha256:81afdd642ef6282f610552739b1e7bb87e4a1335fd0d676c6039d1173d47670a",
-        "githubPermalink": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/WHY_HYPERGRAPH.md",
+        "githubPermalink": "https://github.com/gj3447/CHU/blob/6161702364d24f502d4905340753d4da38281917/WHY_HYPERGRAPH.md",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     },
@@ -96,14 +96,14 @@
       "types": [
         "urn:usl:research:ResearchPlan"
       ],
-      "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:plan/chu_os_plan.graph.json",
+      "locator": "git://github.com/gj3447/CHU@6161702364d24f502d4905340753d4da38281917:plan/chu_os_plan.graph.json",
       "metadata": {
         "title": "CHU OS 작업계획 하이퍼그래프",
         "path": "plan/chu_os_plan.graph.json",
         "repository": "github:repo:1394029753",
-        "snapshotCommit": "752d127d146200632082bb38496ef3f5f08d1fe8",
+        "snapshotCommit": "6161702364d24f502d4905340753d4da38281917",
         "expectedContentDigest": "sha256:72bb7f7012b55f17245dc613085892a3240b95637017df53afc625588e2c5417",
-        "githubPermalink": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/plan/chu_os_plan.graph.json",
+        "githubPermalink": "https://github.com/gj3447/CHU/blob/6161702364d24f502d4905340753d4da38281917/plan/chu_os_plan.graph.json",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     },
@@ -112,14 +112,14 @@
       "types": [
         "urn:usl:research:FormalModel"
       ],
-      "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:lean/CHU_WolframRewrite.lean",
+      "locator": "git://github.com/gj3447/CHU@6161702364d24f502d4905340753d4da38281917:lean/CHU_WolframRewrite.lean",
       "metadata": {
         "title": "Wolfram 재작성 동역학 Lean 모델",
         "path": "lean/CHU_WolframRewrite.lean",
         "repository": "github:repo:1394029753",
-        "snapshotCommit": "752d127d146200632082bb38496ef3f5f08d1fe8",
+        "snapshotCommit": "6161702364d24f502d4905340753d4da38281917",
         "expectedContentDigest": "sha256:2a9cf6cff37132b05e202d57bba5bb85824a05dd2f53efbddd4e980ed6f13b91",
-        "githubPermalink": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/lean/CHU_WolframRewrite.lean",
+        "githubPermalink": "https://github.com/gj3447/CHU/blob/6161702364d24f502d4905340753d4da38281917/lean/CHU_WolframRewrite.lean",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     },
@@ -128,14 +128,14 @@
       "types": [
         "urn:usl:research:Implementation"
       ],
-      "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:chu_core_prototype/chu_core.rs",
+      "locator": "git://github.com/gj3447/CHU@6161702364d24f502d4905340753d4da38281917:chu_core_prototype/chu_core.rs",
       "metadata": {
         "title": "CHU 커널 프로토타입 (multiway 재작성 · 4 포트)",
         "path": "chu_core_prototype/chu_core.rs",
         "repository": "github:repo:1394029753",
-        "snapshotCommit": "752d127d146200632082bb38496ef3f5f08d1fe8",
+        "snapshotCommit": "6161702364d24f502d4905340753d4da38281917",
         "expectedContentDigest": "sha256:5f2300f640eec6832cc0f883bdf9b7cee599150555586bcaad806532414ae3c4",
-        "githubPermalink": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/chu_core_prototype/chu_core.rs",
+        "githubPermalink": "https://github.com/gj3447/CHU/blob/6161702364d24f502d4905340753d4da38281917/chu_core_prototype/chu_core.rs",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     },
@@ -192,14 +192,14 @@
       "types": [
         "urn:usl:research:Specification"
       ],
-      "locator": "git://github.com/gj3447/USL@924cebd96c6ac6eb435685d59697ccea3979045c:docs/RESOURCE_GRAPH.md",
+      "locator": "git://github.com/gj3447/USL@e537d7c7967a6212810bbdb06cc451998d60edd8:docs/RESOURCE_GRAPH.md",
       "metadata": {
         "title": "USL 범용 자원 연결 문법",
         "path": "docs/RESOURCE_GRAPH.md",
         "repository": "github:repo:1369458368",
-        "snapshotCommit": "924cebd96c6ac6eb435685d59697ccea3979045c",
+        "snapshotCommit": "e537d7c7967a6212810bbdb06cc451998d60edd8",
         "expectedContentDigest": "sha256:cf27abde9e86a9a20988695b25965215123888c5b4f2e2a42e90acb6fe5949f6",
-        "githubPermalink": "https://github.com/gj3447/USL/blob/924cebd96c6ac6eb435685d59697ccea3979045c/docs/RESOURCE_GRAPH.md",
+        "githubPermalink": "https://github.com/gj3447/USL/blob/e537d7c7967a6212810bbdb06cc451998d60edd8/docs/RESOURCE_GRAPH.md",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     },
@@ -208,14 +208,14 @@
       "types": [
         "urn:usl:research:Contract"
       ],
-      "locator": "git://github.com/gj3447/USL@924cebd96c6ac6eb435685d59697ccea3979045c:docs/WORKSPACE_LINKING.md",
+      "locator": "git://github.com/gj3447/USL@e537d7c7967a6212810bbdb06cc451998d60edd8:docs/WORKSPACE_LINKING.md",
       "metadata": {
         "title": "USL 작업환경 연결 계약",
         "path": "docs/WORKSPACE_LINKING.md",
         "repository": "github:repo:1369458368",
-        "snapshotCommit": "924cebd96c6ac6eb435685d59697ccea3979045c",
-        "expectedContentDigest": "sha256:8e8f01d755b04c6d1fc2da83a1465a8423cb6665848c11b3b050951b58090520",
-        "githubPermalink": "https://github.com/gj3447/USL/blob/924cebd96c6ac6eb435685d59697ccea3979045c/docs/WORKSPACE_LINKING.md",
+        "snapshotCommit": "e537d7c7967a6212810bbdb06cc451998d60edd8",
+        "expectedContentDigest": "sha256:9a05b3e307f43d177f13e790aafe32281087bcb70e94aae6907d1a4dc8d5d333",
+        "githubPermalink": "https://github.com/gj3447/USL/blob/e537d7c7967a6212810bbdb06cc451998d60edd8/docs/WORKSPACE_LINKING.md",
         "claimScope": "NAVIGATION_AND_CONTENT_BINDING_ONLY"
       }
     }
