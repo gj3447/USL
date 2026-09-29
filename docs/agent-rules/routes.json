@@ -1,0 +1,55 @@
+{
+  "schema": "cd-instructions/v1",
+  "owner": "USL",
+  "source_provenance": {
+    "original_path": "AGENTS.md",
+    "original_sha256": "0a9447fee285e9017d3000bcc1f7aa693531fab5422043e70269ceb031956668",
+    "original_commit": "02a25ed46d9b71ed298c54865d1c6bfc3c79e9b5",
+    "markdown_link_rebases": [],
+    "deliberate_changes": []
+  },
+  "nodes": [
+    {
+      "id": "owner:1",
+      "type": "Source",
+      "path": "docs/agent-rules/OWNER.md",
+      "section": "working-preferences/@intro",
+      "content_role": "owner-instruction"
+    },
+    {
+      "id": "owner:2",
+      "type": "Source",
+      "path": "docs/agent-rules/OWNER.md",
+      "section": "usl-workspace-linking/@intro",
+      "content_role": "owner-instruction"
+    },
+    {
+      "id": "owner:usage",
+      "type": "Source",
+      "path": "README.md",
+      "section": "@body"
+    }
+  ],
+  "edges": [
+    {
+      "from": "task:edit",
+      "type": "REQUIRES",
+      "to": "owner:1"
+    },
+    {
+      "from": "task:hswm",
+      "type": "REQUIRES",
+      "to": "owner:2"
+    },
+    {
+      "from": "task:deploy",
+      "type": "REQUIRES",
+      "to": "owner:2"
+    },
+    {
+      "from": "task:cli",
+      "type": "REQUIRES",
+      "to": "owner:usage"
+    }
+  ]
+}
