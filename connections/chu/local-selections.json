@@ -1,0 +1,58 @@
+[
+  {
+    "resource": "github:repo:1394029753",
+    "representation": "chu-repository-local"
+  },
+  {
+    "resource": "github:repo:1305437076",
+    "representation": "hswm-repository-local"
+  },
+  {
+    "resource": "github:repo:1369458368",
+    "representation": "usl-repository-local"
+  },
+  {
+    "resource": "chu:ecosystem",
+    "representation": "ecosystem-local"
+  },
+  {
+    "resource": "chu:three-principles",
+    "representation": "three-principles-local"
+  },
+  {
+    "resource": "chu:why-hypergraph",
+    "representation": "why-hypergraph-local"
+  },
+  {
+    "resource": "chu:os-plan",
+    "representation": "os-plan-local"
+  },
+  {
+    "resource": "chu:rewrite-model",
+    "representation": "rewrite-model-local"
+  },
+  {
+    "resource": "chu:kernel-prototype",
+    "representation": "kernel-prototype-local"
+  },
+  {
+    "resource": "hswm:chu-scope-canon",
+    "representation": "chu-scope-canon-local"
+  },
+  {
+    "resource": "hswm:three-philosophies",
+    "representation": "three-philosophies-local"
+  },
+  {
+    "resource": "hswm:semantic-software-model",
+    "representation": "semantic-software-model-local"
+  },
+  {
+    "resource": "usl:resource-graph-spec",
+    "representation": "resource-graph-spec-local"
+  },
+  {
+    "resource": "usl:workspace-linking",
+    "representation": "workspace-linking-local"
+  }
+]

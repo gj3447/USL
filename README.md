@@ -9,6 +9,7 @@ Copyright © 2026 **Ra Gyeongjun (라경준)**. **AGPL-3.0-or-later 또는 별�
 - [현재 구조와 표준의 적용 범위](docs/ARCHITECTURE.md)
 - [바인딩 조회·경로 이동·중복 실행 차단·복구 조회](docs/BINDING_OPERATIONS.md)
 - [실제 연결: gj3447/HSWM 연구 자료·로컬 경로·GitHub](docs/HSWM_CONNECTION.md)
+- [CHU · HSWM · USL 생태계 연결: 하이퍼그래프 OS·LLM AI·n항 연결 문법](docs/CHU_CONNECTION.md)
 - [HSWM 필수 작업환경 연결·접근 확인·전체 저장소 agent 규칙](docs/WORKSPACE_LINKING.md)
 - [01239ca 시점의 검토·후속 작업 제안](docs/CURRENT_STATE_AND_NEXT_STEPS.md) · [후속 구현 그래프](research/engineering/binding-progress.graph.json)
 - [범용 자원 연결 문법·SDK·CLI·MCP](docs/RESOURCE_GRAPH.md)

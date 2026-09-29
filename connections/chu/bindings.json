@@ -1,0 +1,363 @@
+{
+  "schema": "usl-resource-bindings/v1",
+  "resources": [
+    {
+      "id": "github:repo:1394029753",
+      "representations": [
+        {
+          "id": "chu-repository-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "chu",
+          "path": "."
+        },
+        {
+          "id": "chu-repository-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/CHU"
+        },
+        {
+          "id": "chu-repository-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a"
+        }
+      ]
+    },
+    {
+      "id": "github:repo:1305437076",
+      "representations": [
+        {
+          "id": "hswm-repository-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "."
+        },
+        {
+          "id": "hswm-repository-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM"
+        },
+        {
+          "id": "hswm-repository-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@12c313ba892f729aa0f9232a9dadba39adeb3dd4"
+        }
+      ]
+    },
+    {
+      "id": "github:repo:1369458368",
+      "representations": [
+        {
+          "id": "usl-repository-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "."
+        },
+        {
+          "id": "usl-repository-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/USL"
+        },
+        {
+          "id": "usl-repository-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/USL@67a5cb44c62bf7d695d334800e550112b5c20caa"
+        }
+      ]
+    },
+    {
+      "id": "chu:ecosystem",
+      "representations": [
+        {
+          "id": "ecosystem-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "chu",
+          "path": "ECOSYSTEM.md",
+          "digest": "sha256:a876163f28dbcfc02e9dcf097916986b917234f22c705ae3598114beaf4ad36f"
+        },
+        {
+          "id": "ecosystem-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:ECOSYSTEM.md",
+          "digest": "sha256:a876163f28dbcfc02e9dcf097916986b917234f22c705ae3598114beaf4ad36f"
+        },
+        {
+          "id": "ecosystem-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/ECOSYSTEM.md"
+        }
+      ]
+    },
+    {
+      "id": "chu:three-principles",
+      "representations": [
+        {
+          "id": "three-principles-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "chu",
+          "path": "canon/AI_NATIVE_THREE_PRINCIPLES.md",
+          "digest": "sha256:20b5a7b3082c7fed355bc920f7628b6841c932ea0d0c1f8beaf25f6b383e44b6"
+        },
+        {
+          "id": "three-principles-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:canon/AI_NATIVE_THREE_PRINCIPLES.md",
+          "digest": "sha256:20b5a7b3082c7fed355bc920f7628b6841c932ea0d0c1f8beaf25f6b383e44b6"
+        },
+        {
+          "id": "three-principles-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/canon/AI_NATIVE_THREE_PRINCIPLES.md"
+        }
+      ]
+    },
+    {
+      "id": "chu:why-hypergraph",
+      "representations": [
+        {
+          "id": "why-hypergraph-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "chu",
+          "path": "WHY_HYPERGRAPH.md",
+          "digest": "sha256:81afdd642ef6282f610552739b1e7bb87e4a1335fd0d676c6039d1173d47670a"
+        },
+        {
+          "id": "why-hypergraph-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:WHY_HYPERGRAPH.md",
+          "digest": "sha256:81afdd642ef6282f610552739b1e7bb87e4a1335fd0d676c6039d1173d47670a"
+        },
+        {
+          "id": "why-hypergraph-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/WHY_HYPERGRAPH.md"
+        }
+      ]
+    },
+    {
+      "id": "chu:os-plan",
+      "representations": [
+        {
+          "id": "os-plan-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "chu",
+          "path": "plan/chu_os_plan.graph.json",
+          "digest": "sha256:364609bc6504c0df58ef9600d36f9802602c56bce7ffed3bf4c9c592630a3198"
+        },
+        {
+          "id": "os-plan-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:plan/chu_os_plan.graph.json",
+          "digest": "sha256:364609bc6504c0df58ef9600d36f9802602c56bce7ffed3bf4c9c592630a3198"
+        },
+        {
+          "id": "os-plan-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/plan/chu_os_plan.graph.json"
+        }
+      ]
+    },
+    {
+      "id": "chu:rewrite-model",
+      "representations": [
+        {
+          "id": "rewrite-model-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "chu",
+          "path": "lean/CHU_WolframRewrite.lean",
+          "digest": "sha256:2a9cf6cff37132b05e202d57bba5bb85824a05dd2f53efbddd4e980ed6f13b91"
+        },
+        {
+          "id": "rewrite-model-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:lean/CHU_WolframRewrite.lean",
+          "digest": "sha256:2a9cf6cff37132b05e202d57bba5bb85824a05dd2f53efbddd4e980ed6f13b91"
+        },
+        {
+          "id": "rewrite-model-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/lean/CHU_WolframRewrite.lean"
+        }
+      ]
+    },
+    {
+      "id": "chu:kernel-prototype",
+      "representations": [
+        {
+          "id": "kernel-prototype-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "chu",
+          "path": "chu_core_prototype/chu_core.rs",
+          "digest": "sha256:5f2300f640eec6832cc0f883bdf9b7cee599150555586bcaad806532414ae3c4"
+        },
+        {
+          "id": "kernel-prototype-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:chu_core_prototype/chu_core.rs",
+          "digest": "sha256:5f2300f640eec6832cc0f883bdf9b7cee599150555586bcaad806532414ae3c4"
+        },
+        {
+          "id": "kernel-prototype-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/chu_core_prototype/chu_core.rs"
+        }
+      ]
+    },
+    {
+      "id": "hswm:chu-scope-canon",
+      "representations": [
+        {
+          "id": "chu-scope-canon-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "docs/canon/USER_PRIMARY_CHU_HSWM_SOFTWARE_SCOPE_2026-09-27.md",
+          "digest": "sha256:713396619020c3142a9866a6aa03bc88152aa26e5d3a6403102be5b80dcab6e3"
+        },
+        {
+          "id": "chu-scope-canon-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@12c313ba892f729aa0f9232a9dadba39adeb3dd4:docs/canon/USER_PRIMARY_CHU_HSWM_SOFTWARE_SCOPE_2026-09-27.md",
+          "digest": "sha256:713396619020c3142a9866a6aa03bc88152aa26e5d3a6403102be5b80dcab6e3"
+        },
+        {
+          "id": "chu-scope-canon-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/12c313ba892f729aa0f9232a9dadba39adeb3dd4/docs/canon/USER_PRIMARY_CHU_HSWM_SOFTWARE_SCOPE_2026-09-27.md"
+        }
+      ]
+    },
+    {
+      "id": "hswm:three-philosophies",
+      "representations": [
+        {
+          "id": "three-philosophies-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "docs/research/HSWM_THREE_PHILOSOPHIES_LEAN_2026-09-27.md",
+          "digest": "sha256:e2a8b56b6810824e4e2c5efe21cb015fd6f8eb7be9c864e04e5714acdbee9545"
+        },
+        {
+          "id": "three-philosophies-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@12c313ba892f729aa0f9232a9dadba39adeb3dd4:docs/research/HSWM_THREE_PHILOSOPHIES_LEAN_2026-09-27.md",
+          "digest": "sha256:e2a8b56b6810824e4e2c5efe21cb015fd6f8eb7be9c864e04e5714acdbee9545"
+        },
+        {
+          "id": "three-philosophies-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/12c313ba892f729aa0f9232a9dadba39adeb3dd4/docs/research/HSWM_THREE_PHILOSOPHIES_LEAN_2026-09-27.md"
+        }
+      ]
+    },
+    {
+      "id": "hswm:semantic-software-model",
+      "representations": [
+        {
+          "id": "semantic-software-model-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "hswm",
+          "path": "formal/HSWMSemanticSoftware.lean",
+          "digest": "sha256:0bef96e6e99f9e125ea158bf9e09cf7ecbb976cec1b95d83c485ff9a633c04ea"
+        },
+        {
+          "id": "semantic-software-model-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/HSWM@12c313ba892f729aa0f9232a9dadba39adeb3dd4:formal/HSWMSemanticSoftware.lean",
+          "digest": "sha256:0bef96e6e99f9e125ea158bf9e09cf7ecbb976cec1b95d83c485ff9a633c04ea"
+        },
+        {
+          "id": "semantic-software-model-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/HSWM/blob/12c313ba892f729aa0f9232a9dadba39adeb3dd4/formal/HSWMSemanticSoftware.lean"
+        }
+      ]
+    },
+    {
+      "id": "usl:resource-graph-spec",
+      "representations": [
+        {
+          "id": "resource-graph-spec-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "docs/RESOURCE_GRAPH.md",
+          "digest": "sha256:cf27abde9e86a9a20988695b25965215123888c5b4f2e2a42e90acb6fe5949f6"
+        },
+        {
+          "id": "resource-graph-spec-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/USL@67a5cb44c62bf7d695d334800e550112b5c20caa:docs/RESOURCE_GRAPH.md",
+          "digest": "sha256:cf27abde9e86a9a20988695b25965215123888c5b4f2e2a42e90acb6fe5949f6"
+        },
+        {
+          "id": "resource-graph-spec-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/USL/blob/67a5cb44c62bf7d695d334800e550112b5c20caa/docs/RESOURCE_GRAPH.md"
+        }
+      ]
+    },
+    {
+      "id": "usl:workspace-linking",
+      "representations": [
+        {
+          "id": "workspace-linking-local",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "docs/WORKSPACE_LINKING.md",
+          "digest": "sha256:cb39559ff64998343026f1b3bb51906c081ca8df5e8f770b12395cb4ebe454ca"
+        },
+        {
+          "id": "workspace-linking-snapshot",
+          "relation": "snapshot",
+          "kind": "locator",
+          "locator": "git://github.com/gj3447/USL@67a5cb44c62bf7d695d334800e550112b5c20caa:docs/WORKSPACE_LINKING.md",
+          "digest": "sha256:cb39559ff64998343026f1b3bb51906c081ca8df5e8f770b12395cb4ebe454ca"
+        },
+        {
+          "id": "workspace-linking-github",
+          "relation": "documentation",
+          "kind": "locator",
+          "locator": "https://github.com/gj3447/USL/blob/67a5cb44c62bf7d695d334800e550112b5c20caa/docs/WORKSPACE_LINKING.md"
+        }
+      ]
+    }
+  ]
+}
