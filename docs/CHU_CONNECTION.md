@@ -61,7 +61,7 @@ npm run example:chu
 `chu:*`·`hswm:*`·`usl:*` 파일 ID는 이 연결의 탐색 ID다. 기존 `connections/hswm/`의 `hswm:*` ID와 겹치지 않는다.
 파일은 GitHub Contents API에서 고정 commit의 바이트를 받아 로컬 파일과 비교했고, SHA-256은
 [bindings.json](../connections/chu/bindings.json)과 [조회 기록](../connections/chu/source-receipt.json)에 있다.
-고정 commit: CHU `5ae3afd`, HSWM `f5f252b`, USL `4fbc15d` (2026-09-29 재고정: USL `WORKSPACE_LINKING.md`에 전파 결과 안내 2줄 추가를 검토함).
+고정 commit: CHU `752d127`, HSWM `f5f252b`, USL `924cebd` (2026-09-29 재고정: CHU 계획 그래프에 Linux 연구 노드 T09·T15·T22·T34 추가를 검토함).
 
 ## 이동·변경 시
 

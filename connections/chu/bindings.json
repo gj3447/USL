@@ -21,7 +21,7 @@
           "id": "chu-repository-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a"
+          "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8"
         }
       ]
     },
@@ -69,7 +69,7 @@
           "id": "usl-repository-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/USL@4fbc15d5d11b51f7ce166039c88512315db7ff85"
+          "locator": "git://github.com/gj3447/USL@924cebd96c6ac6eb435685d59697ccea3979045c"
         }
       ]
     },
@@ -88,14 +88,14 @@
           "id": "ecosystem-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:ECOSYSTEM.md",
+          "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:ECOSYSTEM.md",
           "digest": "sha256:a876163f28dbcfc02e9dcf097916986b917234f22c705ae3598114beaf4ad36f"
         },
         {
           "id": "ecosystem-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/ECOSYSTEM.md"
+          "locator": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/ECOSYSTEM.md"
         }
       ]
     },
@@ -114,14 +114,14 @@
           "id": "three-principles-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:canon/AI_NATIVE_THREE_PRINCIPLES.md",
+          "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:canon/AI_NATIVE_THREE_PRINCIPLES.md",
           "digest": "sha256:20b5a7b3082c7fed355bc920f7628b6841c932ea0d0c1f8beaf25f6b383e44b6"
         },
         {
           "id": "three-principles-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/canon/AI_NATIVE_THREE_PRINCIPLES.md"
+          "locator": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/canon/AI_NATIVE_THREE_PRINCIPLES.md"
         }
       ]
     },
@@ -140,14 +140,14 @@
           "id": "why-hypergraph-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:WHY_HYPERGRAPH.md",
+          "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:WHY_HYPERGRAPH.md",
           "digest": "sha256:81afdd642ef6282f610552739b1e7bb87e4a1335fd0d676c6039d1173d47670a"
         },
         {
           "id": "why-hypergraph-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/WHY_HYPERGRAPH.md"
+          "locator": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/WHY_HYPERGRAPH.md"
         }
       ]
     },
@@ -160,20 +160,20 @@
           "kind": "workspace",
           "workspace": "chu",
           "path": "plan/chu_os_plan.graph.json",
-          "digest": "sha256:364609bc6504c0df58ef9600d36f9802602c56bce7ffed3bf4c9c592630a3198"
+          "digest": "sha256:72bb7f7012b55f17245dc613085892a3240b95637017df53afc625588e2c5417"
         },
         {
           "id": "os-plan-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:plan/chu_os_plan.graph.json",
-          "digest": "sha256:364609bc6504c0df58ef9600d36f9802602c56bce7ffed3bf4c9c592630a3198"
+          "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:plan/chu_os_plan.graph.json",
+          "digest": "sha256:72bb7f7012b55f17245dc613085892a3240b95637017df53afc625588e2c5417"
         },
         {
           "id": "os-plan-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/plan/chu_os_plan.graph.json"
+          "locator": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/plan/chu_os_plan.graph.json"
         }
       ]
     },
@@ -192,14 +192,14 @@
           "id": "rewrite-model-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:lean/CHU_WolframRewrite.lean",
+          "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:lean/CHU_WolframRewrite.lean",
           "digest": "sha256:2a9cf6cff37132b05e202d57bba5bb85824a05dd2f53efbddd4e980ed6f13b91"
         },
         {
           "id": "rewrite-model-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/lean/CHU_WolframRewrite.lean"
+          "locator": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/lean/CHU_WolframRewrite.lean"
         }
       ]
     },
@@ -218,14 +218,14 @@
           "id": "kernel-prototype-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/CHU@5ae3afdb4fd829ca3c7db82427f9f910164b4a9a:chu_core_prototype/chu_core.rs",
+          "locator": "git://github.com/gj3447/CHU@752d127d146200632082bb38496ef3f5f08d1fe8:chu_core_prototype/chu_core.rs",
           "digest": "sha256:5f2300f640eec6832cc0f883bdf9b7cee599150555586bcaad806532414ae3c4"
         },
         {
           "id": "kernel-prototype-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/CHU/blob/5ae3afdb4fd829ca3c7db82427f9f910164b4a9a/chu_core_prototype/chu_core.rs"
+          "locator": "https://github.com/gj3447/CHU/blob/752d127d146200632082bb38496ef3f5f08d1fe8/chu_core_prototype/chu_core.rs"
         }
       ]
     },
@@ -322,14 +322,14 @@
           "id": "resource-graph-spec-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/USL@4fbc15d5d11b51f7ce166039c88512315db7ff85:docs/RESOURCE_GRAPH.md",
+          "locator": "git://github.com/gj3447/USL@924cebd96c6ac6eb435685d59697ccea3979045c:docs/RESOURCE_GRAPH.md",
           "digest": "sha256:cf27abde9e86a9a20988695b25965215123888c5b4f2e2a42e90acb6fe5949f6"
         },
         {
           "id": "resource-graph-spec-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/USL/blob/4fbc15d5d11b51f7ce166039c88512315db7ff85/docs/RESOURCE_GRAPH.md"
+          "locator": "https://github.com/gj3447/USL/blob/924cebd96c6ac6eb435685d59697ccea3979045c/docs/RESOURCE_GRAPH.md"
         }
       ]
     },
@@ -348,14 +348,14 @@
           "id": "workspace-linking-snapshot",
           "relation": "snapshot",
           "kind": "locator",
-          "locator": "git://github.com/gj3447/USL@4fbc15d5d11b51f7ce166039c88512315db7ff85:docs/WORKSPACE_LINKING.md",
+          "locator": "git://github.com/gj3447/USL@924cebd96c6ac6eb435685d59697ccea3979045c:docs/WORKSPACE_LINKING.md",
           "digest": "sha256:8e8f01d755b04c6d1fc2da83a1465a8423cb6665848c11b3b050951b58090520"
         },
         {
           "id": "workspace-linking-github",
           "relation": "documentation",
           "kind": "locator",
-          "locator": "https://github.com/gj3447/USL/blob/4fbc15d5d11b51f7ce166039c88512315db7ff85/docs/WORKSPACE_LINKING.md"
+          "locator": "https://github.com/gj3447/USL/blob/924cebd96c6ac6eb435685d59697ccea3979045c/docs/WORKSPACE_LINKING.md"
         }
       ]
     }
