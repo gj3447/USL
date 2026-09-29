@@ -2,6 +2,8 @@
 
 **USL은 서로 다른 시스템의 자원을 의미와 역할로 연결하는 바인딩 도구다.** 문법과 TypeScript + Effect 라이브러리, CLI로 KG·Git·URL·파일·Lean 4를 연결하며, 원본 데이터·고유 ID·권한은 각 시스템에 둔다. 별도 USL DB나 새 KG를 만들지 않는다.
 
+Copyright © 2026 **Ra Gyeongjun (라경준)**. **AGPL-3.0-or-later 또는 별도 상용 라이선스**로 제공한다. [라이선스 안내](LICENSING.md) · [라이선스 전문](LICENSE) · [기여 안내와 CLA](CONTRIBUTING.md).
+
 2026-09-14 사용자 결정: **DB가 아닌 문법/연결 계층**, **Lean 선언·증명 연동과 USL 성질의 형식 검증 둘 다**, **가능한 다양한 자원으로 확장**. 사용자 원문과 구현 선택은 [결정 기록](docs/DECISIONS.md)에서 구분한다. 초기 KG 정의는 `sym:Concept:usl`이며 이 저장소의 최신 사용자 지시를 반영한 현재 기준은 이 README와 아래 문서다. 이 변경이 원격 KG의 옛 설명을 자동 갱신하지는 않는다.
 
 - [현재 구조와 표준의 적용 범위](docs/ARCHITECTURE.md)

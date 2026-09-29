@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "USL: adapters connecting existing KG, HSWM, code, Git, URL and filesystem resources through scoped observations and agent context. TypeScript + Effect; no USL database required.",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "AGPL-3.0-or-later",
   "private": true,
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
