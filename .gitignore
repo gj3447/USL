@@ -6,3 +6,6 @@ dist/
 
 # Lean build outputs; source and toolchain pins are versioned.
 lean/.lake/
+
+# Personal workspace roots and connection details stay on the owner's machine.
+.usl/local/

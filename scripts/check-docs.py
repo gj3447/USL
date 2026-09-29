@@ -11,7 +11,7 @@ for item in manifest["files"]:
     data = (archive / item["original_path"]).read_bytes()
     assert hashlib.sha256(data).hexdigest() == item["sha256"], item["original_path"]
 
-documents = [root / "README.md", root / "LICENSING.md", root / "CONTRIBUTING.md", root / "CLA.md", root / "archive/README.md", root / "audit/README.md", *sorted((root / "docs").glob("*.md"))]
+documents = [root / "README.md", root / "LICENSING.md", root / "CONTRIBUTING.md", root / "CLA.md", root / "archive/README.md", root / "audit/README.md", *sorted((root / "docs").glob("*.md")), *sorted((root / "agent-rules").glob("*.md"))]
 broken = []
 for document in documents:
     body = re.sub(r"```.*?```", "", document.read_text(), flags=re.S)
