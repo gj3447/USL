@@ -30,19 +30,98 @@
     }
   ],
   "implemented": [
-    ["feature:grammar", "USL v0.1 declarative grammar", ["src/language/parser.ts", "src/language/compiler.ts"]],
-    ["feature:semantic-plan", "Compiled SemanticPlan", ["src/language/model.ts", "src/language/compiler.ts"]],
-    ["feature:hyperedge", "Named-role n-ary links", ["src/language/model.ts", "src/language/compiler.ts", "src/language/navigation.ts"]],
-    ["feature:navigation", "Role-incidence bounded navigation", ["src/language/navigation.ts"]],
-    ["feature:cli", "USL CLI command surface", ["src/cli.ts", "src/cli-platform.ts", "src/cli-adapter.ts"]],
-    ["feature:cli-host", "Pinned host CLI planning and execution", ["src/cli-host-command.ts", "src/cli-host.ts"]],
-    ["feature:adapters", "Resource/property graph adapters and JSON-LD", ["src/integrations/resource-graph.ts", "src/integrations/property-graph.ts"]],
-    ["feature:bindings", "Portable resource bindings", ["src/resource-bindings.ts", "src/integrations/resource-bindings.ts"]]
+    [
+      "feature:grammar",
+      "USL v0.1 declarative grammar",
+      [
+        "src/language/parser.ts",
+        "src/language/compiler.ts"
+      ]
+    ],
+    [
+      "feature:semantic-plan",
+      "Compiled SemanticPlan",
+      [
+        "src/language/model.ts",
+        "src/language/compiler.ts"
+      ]
+    ],
+    [
+      "feature:hyperedge",
+      "Named-role n-ary links",
+      [
+        "src/language/model.ts",
+        "src/language/compiler.ts",
+        "src/language/navigation.ts"
+      ]
+    ],
+    [
+      "feature:navigation",
+      "Role-incidence bounded navigation",
+      [
+        "src/language/navigation.ts"
+      ]
+    ],
+    [
+      "feature:cli",
+      "USL CLI command surface",
+      [
+        "src/cli.ts",
+        "src/cli-platform.ts",
+        "src/cli-adapter.ts"
+      ]
+    ],
+    [
+      "feature:cli-host",
+      "Pinned host CLI planning and execution",
+      [
+        "src/cli-host-command.ts",
+        "src/cli-host.ts"
+      ]
+    ],
+    [
+      "feature:adapters",
+      "Resource/property graph adapters and JSON-LD",
+      [
+        "src/integrations/resource-graph.ts",
+        "src/integrations/property-graph.ts"
+      ]
+    ],
+    [
+      "feature:bindings",
+      "Portable resource bindings",
+      [
+        "src/resource-bindings.ts",
+        "src/integrations/resource-bindings.ts"
+      ]
+    ]
   ],
   "proposals": [
-    ["proposal:weighted-assertion", "Versioned semantic weight assertions", "Weights are explicit evidence or ranking metadata, never semantic truth or authorization."],
-    ["proposal:m-map", "Derived M-map index", "A deterministic, digest-pinned index maps stable resources and hyperedges to representations and partitions."],
-    ["proposal:hierarchy", "Typed containment hierarchy", "A typed parent/child relation has explicit cycle policy and ancestor/descendant query semantics."],
-    ["proposal:graph-cli", "Consolidated graph CLI", "Graph validation, index build/query, hierarchy traversal and weight revision share one documented CLI contract."]
-  ]
+    [
+      "proposal:weighted-assertion",
+      "Versioned semantic weight assertions",
+      "Optional addon owns semantic weight interpretation and updates. USL only binds its references/data and preserves roles; weights grant no authority."
+    ],
+    [
+      "proposal:m-map",
+      "External M-map index binding",
+      "M-map indexing is owned by the addon or consuming program. USL connects the index, graph and resource references without building or storing the index itself."
+    ],
+    [
+      "proposal:hierarchy",
+      "Optional typed hierarchy rules",
+      "An addon or owner program defines hierarchy meaning, cycle policy and traversal. USL expresses the selected named relationships and profile references."
+    ],
+    [
+      "proposal:graph-cli",
+      "Minimal binding CLI and examples",
+      "Keep the existing declaration/check/context/binding CLI simple; demonstrate optional profile selection without adding a domain engine or addon platform."
+    ]
+  ],
+  "proposalPlacement": {
+    "proposal:weighted-assertion": "ADDON_RESPONSIBILITY",
+    "proposal:hierarchy": "ADDON_RESPONSIBILITY",
+    "proposal:m-map": "ADDON_RESPONSIBILITY",
+    "proposal:graph-cli": "MINIMAL_BINDING_CLI"
+  }
 }

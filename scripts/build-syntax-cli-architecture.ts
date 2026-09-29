@@ -12,17 +12,27 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const check = process.argv.slice(2).includes("--check")
 if (process.argv.slice(2).some(arg => arg !== "--check")) throw new Error("usage: build-syntax-cli-architecture.ts [--check]")
 const read = (file: string) => readFile(resolve(root, file), "utf8")
-const catalog = JSON.parse(await read("research/architecture/syntax-cli.catalog.json")) as { schema: string; authority: string; sourceCommit: string; sourcePins: Record<string, string>; userStatements: Array<{ id: string; status: string; text: string }>; implemented: Array<[string, string, string[]]>; proposals: Array<[string, string, string]> }
+const catalog = JSON.parse(await read("research/architecture/syntax-cli.catalog.json")) as { schema: string; authority: string; sourceCommit: string; sourcePins: Record<string, string>; userStatements: Array<{ id: string; status: string; text: string }>; implemented: Array<[string, string, string[]]>; proposals: Array<[string, string, string]>; proposalPlacement: Record<string, string> }
+type PlannedTask = { id: string; order: number; title: string; dependsOn: string[]; requirements: string[]; proposals: string[]; deliverables: string[]; acceptance: string[]; hswmAlignment: string; proofTargets: string[]; status: string; implementation: string; proofStatus: string }
+type WorkPlan = { schema: string; authority: string; status: string; userRequest: { id: string; text: string; authority: string }; scopeCorrections?: Array<{ id: string; text: string; authority: string }>; tasks: PlannedTask[] }
+const workPlan = JSON.parse(await read("research/architecture/hswm-like.plan.json")) as WorkPlan
 if (catalog.schema !== "usl-syntax-cli-architecture-catalog/v1" || catalog.authority !== "SECONDARY_AI" || !/^[a-f0-9]{40}$/.test(catalog.sourceCommit) ||
-  !catalog.sourcePins || !Array.isArray(catalog.userStatements) || !Array.isArray(catalog.implemented) || !Array.isArray(catalog.proposals)) throw new Error("invalid syntax-cli architecture catalog")
+  !catalog.sourcePins || !catalog.proposalPlacement || !Array.isArray(catalog.userStatements) || !Array.isArray(catalog.implemented) || !Array.isArray(catalog.proposals)) throw new Error("invalid syntax-cli architecture catalog")
 for (const statement of catalog.userStatements) if (!/^[a-z][a-z0-9-]*:[a-z][a-z0-9-]*$/.test(statement.id) || statement.status !== "USER_PRIMARY" || !statement.text.trim()) throw new Error("invalid user statement")
 for (const item of catalog.implemented) if (!Array.isArray(item) || item.length !== 3 || !item[0].startsWith("feature:") || !item[1].trim() || !Array.isArray(item[2]) || item[2].some(path => typeof path !== "string" || !path.startsWith("src/"))) throw new Error("invalid implemented feature")
 for (const item of catalog.proposals) if (!Array.isArray(item) || item.length !== 3 || !item[0].startsWith("proposal:") || item.slice(1).some(value => !value.trim())) throw new Error("invalid proposal")
+for (const [id] of catalog.proposals) if (!["ADDON_RESPONSIBILITY", "MINIMAL_BINDING_CLI"].includes(catalog.proposalPlacement[id] ?? "")) throw new Error(`invalid proposal placement: ${id}`)
+if (workPlan.schema !== "usl-hswm-like-work-plan/v1" || workPlan.authority !== "SECONDARY_AI" || workPlan.status !== "PLANNED" || workPlan.userRequest.id !== "user:hswm-plan" || workPlan.userRequest.authority !== "USER_PRIMARY" || !workPlan.userRequest.text.trim()) throw new Error("invalid HSWM-like work plan")
+const taskIds = new Set<string>()
+for (const task of workPlan.tasks) {
+  if (!/^task:P\d\d$/.test(task.id) || taskIds.has(task.id) || !Number.isSafeInteger(task.order) || task.order < 1 || !task.title.trim() || task.status !== "PLANNED" || task.implementation !== "NOT_STARTED" || task.proofStatus !== "NOT_PROVEN" || !task.deliverables.length || task.deliverables.some(path => !/^(src|test|docs|schemas|examples|lean)\//.test(path)) || !task.acceptance.length || task.acceptance.some(item => !item.trim())) throw new Error(`invalid planned task: ${task.id}`)
+  taskIds.add(task.id)
+}
 const commit = catalog.sourceCommit
 const prefix = "urn:usl:syntax-cli:"
 const location = (path: string) => `git://github.com/gj3447/USL@${commit}:${path}`
 const publicLocation = (path: string) => `https://github.com/gj3447/USL/blob/master/${path}`
-const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator"], activity: "activity:architecture", agent: "agent:secondary" } }
+const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator", "source:hswm-plan"], activity: "activity:architecture", agent: "agent:secondary" } }
 type Meta = NonNullable<ResourceGraph["resources"][number]["metadata"]>
 type LinkMeta = NonNullable<ResourceGraph["links"][number]["metadata"]>
 const add = (id: string, type: string | string[], locator: string, metadata: Meta) => { graph.resources.push({ id, types: (Array.isArray(type) ? type : [type]).map(t => t.startsWith("http") ? t : prefix + t), locator, metadata }); return id }
@@ -41,6 +51,9 @@ const rules: Array<[string, Array<[string, string]>]> = [
   ["bounded_by", [["feature", "ImplementedFeature"], ["limitation", "Limitation"]]],
   ["addresses", [["proposal", "Proposal"], ["requirement", "UserStatement"]]],
   ["depends_on", [["proposal", "Proposal"], ["prerequisite", "Proposal"]]],
+  ["planned_work", [["task", "Task"], ["criterion", "AcceptanceCriterion"], ["requirement", "UserStatement"]]],
+  ["task_depends_on", [["task", "Task"], ["prerequisite", "Task"]]],
+  ["advances", [["task", "Task"], ["proposal", "Proposal"]]],
 ]
 const profile: DomainProfile = { schema: "usl-domain-profile/v1", id: prefix + "profile", version: "1", closedMeanings: true,
   meanings: rules.map(([id, roles]) => ({ id: prefix + id, allowExtraRoles: false, roles: roles.map(([role, type]) => ({ role, required: true, types: [prefix + type], metadata: [] })) })) }
@@ -48,10 +61,16 @@ graph.meanings = rules.map(([id]) => ({ id: prefix + id, description: `Architect
 const link = (meaning: string, participants: Record<string, string>, metadata: LinkMeta = {}) => graph.links.push({ id: `${meaning}:${Object.values(participants).join(":")}`, meaning: prefix + meaning, participants: Object.entries(participants).map(([role, resource]) => ({ role, resource })), metadata })
 add("source:catalog", "Source", publicLocation("research/architecture/syntax-cli.catalog.json"), { path: "research/architecture/syntax-cli.catalog.json", sourceDigest: digestSource(await read("research/architecture/syntax-cli.catalog.json")), authority: "SECONDARY_AI", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("source:generator", "Source", publicLocation("scripts/build-syntax-cli-architecture.ts"), { path: "scripts/build-syntax-cli-architecture.ts", sourceDigest: digestSource(await read("scripts/build-syntax-cli-architecture.ts")), scope: "DETERMINISTIC_GENERATOR", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+add("source:hswm-plan", "Source", publicLocation("research/architecture/hswm-like.plan.json"), { path: "research/architecture/hswm-like.plan.json", sourceDigest: digestSource(await read("research/architecture/hswm-like.plan.json")), authority: "SECONDARY_AI", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("activity:architecture", ["ArchitectureActivity", "http://www.w3.org/ns/prov#Activity"], publicLocation("research/architecture/syntax-cli.catalog.json"), { status: "DECLARED", scope: "CURRENT_IMPLEMENTATION_AND_PROPOSAL_SEPARATION", runtimeTests: "NOT_CLAIMED" })
 add("agent:secondary", ["Agent", "http://www.w3.org/ns/prov#Agent"], publicLocation("research/architecture/syntax-cli.catalog.json"), { authority: "SECONDARY_AI", ratification: "NOT_CLAIMED" })
 add("subject:usl", "ArchitectureSubject", "git://github.com/gj3447/USL", { name: "USL", role: "LANGUAGE_AND_CLI_BINDING_LAYER" })
 for (const statement of catalog.userStatements) add(statement.id, "UserStatement", publicLocation("research/architecture/syntax-cli.catalog.json"), { status: statement.status, text: statement.text, authority: "USER_PRIMARY", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+add(workPlan.userRequest.id, "UserStatement", publicLocation("research/architecture/hswm-like.plan.json"), { status: "USER_PRIMARY", text: workPlan.userRequest.text, authority: workPlan.userRequest.authority, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+for (const statement of workPlan.scopeCorrections ?? []) {
+  if (!/^user:[a-z][a-z0-9-]*$/.test(statement.id) || statement.authority !== "USER_PRIMARY" || !statement.text.trim()) throw new Error("invalid scope correction")
+  add(statement.id, "UserStatement", publicLocation("research/architecture/hswm-like.plan.json"), { status: "USER_PRIMARY", text: statement.text, authority: "USER_PRIMARY", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+}
 const artifacts = new Map<string, string>()
 for (const [feature, title, paths] of catalog.implemented) {
   add(feature, "ImplementedFeature", location("README.md"), { title, status: "IMPLEMENTED_CURRENT_SOURCE", semanticTruth: "NOT_EVALUATED", runtimeTests: "NOT_CLAIMED" })
@@ -62,13 +81,21 @@ const limitations: Array<[string, string, string]> = [
   ["limitation:weights", "Semantic weight adjustment is not implemented.", "feature:hyperedge"],
   ["limitation:m-map", "No persistent or derived M-map index is implemented.", "feature:navigation"],
   ["limitation:hierarchy", "No typed parent/child hierarchy or ancestry query is implemented.", "feature:navigation"],
-  ["limitation:cli-consolidation", "CLI commands are functional but help is not a consolidated graph-oriented interface.", "feature:cli"],
+  ["limitation:cli-consolidation", "Existing CLI commands work; only minimal binding usage and help cleanup are in scope.", "feature:cli"],
 ]
-for (const [id, detail, feature] of limitations) { add(id, "Limitation", location("README.md"), { detail, status: "CURRENT_GAP" }); link("bounded_by", { feature, limitation: id }) }
-for (const [id, title, detail] of catalog.proposals) { add(id, "Proposal", publicLocation("research/architecture/syntax-cli.catalog.json"), { title, detail, status: "PROPOSED", authority: "SECONDARY_AI", implementation: "NOT_STARTED" }); link("addresses", { proposal: id, requirement: "user:weighted-hypergraph" }, { authority: "SECONDARY_AI", status: "INTERPRETATION" }) }
+for (const [id, detail, feature] of limitations) { const addon = ["limitation:weights", "limitation:m-map", "limitation:hierarchy"].includes(id); add(id, "Limitation", location("README.md"), { detail: addon ? `${detail} It is an addon responsibility, not a missing USL core feature.` : detail, status: addon ? "SCOPE_BOUNDARY" : "CURRENT_GAP" }); link("bounded_by", { feature, limitation: id }) }
+for (const [id, title, detail] of catalog.proposals) { add(id, "Proposal", publicLocation("research/architecture/syntax-cli.catalog.json"), { title, detail, placement: catalog.proposalPlacement[id]!, status: "PROPOSED", authority: "SECONDARY_AI", implementation: "NOT_STARTED" }); link("addresses", { proposal: id, requirement: "user:weighted-hypergraph" }, { authority: "SECONDARY_AI", status: "INTERPRETATION" }) }
 link("addresses", { proposal: "proposal:graph-cli", requirement: "user:syntax-cli" }, { authority: "SECONDARY_AI", status: "INTERPRETATION" })
 // This three-role edge is intentionally retained as the canonical n-ary trace.
 link("trace", { statement: "user:syntax-cli", feature: "feature:hyperedge", artifact: artifacts.get("src/language/compiler.ts")! }, { authority: "SECONDARY_AI", status: "TRACEABILITY" })
+for (const task of workPlan.tasks) {
+  add(task.id, "Task", publicLocation("research/architecture/hswm-like.plan.json"), { ...task, authority: "SECONDARY_AI", sourceStatus: "PLANNED_WORK" })
+  const criterion = `criterion:${task.id.slice("task:".length)}`
+  add(criterion, "AcceptanceCriterion", publicLocation("research/architecture/hswm-like.plan.json"), { task: task.id, checks: task.acceptance, status: "PLANNED_NOT_EXECUTED" })
+  for (const requirement of task.requirements) link("planned_work", { task: task.id, criterion, requirement }, { authority: "SECONDARY_AI", status: "PLANNED_WORKTRACE" })
+  for (const prerequisite of task.dependsOn) link("task_depends_on", { task: task.id, prerequisite }, { authority: "SECONDARY_AI", status: "PLANNED_DEPENDENCY" })
+  for (const proposal of task.proposals) link("advances", { task: task.id, proposal }, { authority: "SECONDARY_AI", status: "PLANNED_WORKTRACE" })
+}
 const raw = JSON.stringify(graph, null, 2) + "\n"
 const report = checkResourceGraphProfile(graph, profile)
 if (report.status !== "CONFORMS") throw new Error(JSON.stringify(report.issues))

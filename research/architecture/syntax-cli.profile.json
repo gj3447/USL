@@ -143,6 +143,80 @@
           "metadata": []
         }
       ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:planned_work",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "criterion",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:AcceptanceCriterion"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:UserStatement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:task_depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:advances",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "proposal",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Proposal"
+          ],
+          "metadata": []
+        }
+      ]
     }
   ]
 }

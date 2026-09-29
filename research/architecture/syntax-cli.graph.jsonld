@@ -5,14 +5,14 @@
   },
   "@graph": [
     {
-      "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f",
+      "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a",
       "@type": "prov:Entity",
-      "usl:sourceDigest": "sha256:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+      "usl:sourceDigest": "sha256:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
     },
     {
-      "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18",
+      "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7",
       "@type": "usl:DomainProfile",
-      "usl:profileDigest": "sha256:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18",
+      "usl:profileDigest": "sha256:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7",
       "usl:profile": {
         "@value": {
           "schema": "usl-domain-profile/v1",
@@ -159,6 +159,80 @@
                   "metadata": []
                 }
               ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:planned_work",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Task"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "criterion",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:AcceptanceCriterion"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "requirement",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:UserStatement"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:task_depends_on",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Task"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "prerequisite",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Task"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:advances",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Task"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "proposal",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Proposal"
+                  ],
+                  "metadata": []
+                }
+              ]
             }
           ]
         },
@@ -176,7 +250,7 @@
       "usl:metadata": {
         "@value": {
           "path": "research/architecture/syntax-cli.catalog.json",
-          "sourceDigest": "sha256:612da61da2bd116881a5017e8ccaad0dd847096fa0c7afda55ac597bcd06c776",
+          "sourceDigest": "sha256:35695434aa1c13128ebcb470cac1e8bed0f83a86262103d75196dc9e41c8330a",
           "authority": "SECONDARY_AI",
           "locationStatus": "DECLARED_PUBLIC_LOCATION",
           "remoteObservation": "NOT_PERFORMED"
@@ -195,8 +269,27 @@
       "usl:metadata": {
         "@value": {
           "path": "scripts/build-syntax-cli-architecture.ts",
-          "sourceDigest": "sha256:d125f983439b18c20bb638182bf41c8f0bfd63b7c79c21f902b2194ec764da44",
+          "sourceDigest": "sha256:813bf54f87c397ab95c1a39238a9e2578117ca73afc00648b87fb22fa6b2db1f",
           "scope": "DETERMINISTIC_GENERATOR",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Source"
+      ],
+      "usl:nativeId": "source:hswm-plan",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "research/architecture/hswm-like.plan.json",
+          "sourceDigest": "sha256:ee73b55dce08e5837985c00fcf85d769b588243159eb0c4cfd68914620f4f1bb",
+          "authority": "SECONDARY_AI",
           "locationStatus": "DECLARED_PUBLIC_LOCATION",
           "remoteObservation": "NOT_PERFORMED"
         },
@@ -285,6 +378,63 @@
         "@value": {
           "status": "USER_PRIMARY",
           "text": "HSWM like 하지 않은데 그 규칙은 ㅇㅇ? 그렇게 생각하지않냐 ? 그리고 그 USL 그자체로도 HSWM LIKENESS 하도록 그 하이퍼그래프 데이터 구조로 연결할수 있어야하고 그 시멘틱한 내용을 웨이트 가중치 조정하면서 연결 가능해야하고 그 M 맵 그 연결된 내용의 색인 인덱스 역할 가능하도록 구조가 그 상위 하위 구조가 가능해야해 그 내용 일단 머릿속에 박아넣어줘봐봐 ㅇㅇ",
+          "authority": "USER_PRIMARY",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Ahswm-plan",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "usl:nativeId": "user:hswm-plan",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "status": "USER_PRIMARY",
+          "text": "ㅇㅇ 순서대로 표준그래프 엔지니어링으로 작업 계획 짜줘봐 HSWM LIKE 하게",
+          "authority": "USER_PRIMARY",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aaddon-rules",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "usl:nativeId": "user:addon-rules",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "status": "USER_PRIMARY",
+          "text": "아니 USL 은 단순 연결이라니까 너무 많은걸 하지말아 그 기초는 가능하도록 만 해주면돼 ㅇㅇ 그 규칙은 에드온처럼 심고",
+          "authority": "USER_PRIMARY",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Abinding-only",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:UserStatement"
+      ],
+      "usl:nativeId": "user:binding-only",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "status": "USER_PRIMARY",
+          "text": "그거를 할수 있게끔하는 단순 바인딩 문법이잖아 USL 은 ㅇㅇ;",
           "authority": "USER_PRIMARY",
           "locationStatus": "DECLARED_PUBLIC_LOCATION",
           "remoteObservation": "NOT_PERFORMED"
@@ -680,8 +830,8 @@
       "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
       "usl:metadata": {
         "@value": {
-          "detail": "Semantic weight adjustment is not implemented.",
-          "status": "CURRENT_GAP"
+          "detail": "Semantic weight adjustment is not implemented. It is an addon responsibility, not a missing USL core feature.",
+          "status": "SCOPE_BOUNDARY"
         },
         "@type": "@json"
       }
@@ -696,8 +846,8 @@
       "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
       "usl:metadata": {
         "@value": {
-          "detail": "No persistent or derived M-map index is implemented.",
-          "status": "CURRENT_GAP"
+          "detail": "No persistent or derived M-map index is implemented. It is an addon responsibility, not a missing USL core feature.",
+          "status": "SCOPE_BOUNDARY"
         },
         "@type": "@json"
       }
@@ -712,8 +862,8 @@
       "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
       "usl:metadata": {
         "@value": {
-          "detail": "No typed parent/child hierarchy or ancestry query is implemented.",
-          "status": "CURRENT_GAP"
+          "detail": "No typed parent/child hierarchy or ancestry query is implemented. It is an addon responsibility, not a missing USL core feature.",
+          "status": "SCOPE_BOUNDARY"
         },
         "@type": "@json"
       }
@@ -728,7 +878,7 @@
       "usl:locator": "git://github.com/gj3447/USL@679c8eac984167a1b5fb6987c8176279b6a9d0ac:README.md",
       "usl:metadata": {
         "@value": {
-          "detail": "CLI commands are functional but help is not a consolidated graph-oriented interface.",
+          "detail": "Existing CLI commands work; only minimal binding usage and help cleanup are in scope.",
           "status": "CURRENT_GAP"
         },
         "@type": "@json"
@@ -745,7 +895,8 @@
       "usl:metadata": {
         "@value": {
           "title": "Versioned semantic weight assertions",
-          "detail": "Weights are explicit evidence or ranking metadata, never semantic truth or authorization.",
+          "detail": "Optional addon owns semantic weight interpretation and updates. USL only binds its references/data and preserves roles; weights grant no authority.",
+          "placement": "ADDON_RESPONSIBILITY",
           "status": "PROPOSED",
           "authority": "SECONDARY_AI",
           "implementation": "NOT_STARTED"
@@ -763,8 +914,9 @@
       "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
       "usl:metadata": {
         "@value": {
-          "title": "Derived M-map index",
-          "detail": "A deterministic, digest-pinned index maps stable resources and hyperedges to representations and partitions.",
+          "title": "External M-map index binding",
+          "detail": "M-map indexing is owned by the addon or consuming program. USL connects the index, graph and resource references without building or storing the index itself.",
+          "placement": "ADDON_RESPONSIBILITY",
           "status": "PROPOSED",
           "authority": "SECONDARY_AI",
           "implementation": "NOT_STARTED"
@@ -782,8 +934,9 @@
       "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
       "usl:metadata": {
         "@value": {
-          "title": "Typed containment hierarchy",
-          "detail": "A typed parent/child relation has explicit cycle policy and ancestor/descendant query semantics.",
+          "title": "Optional typed hierarchy rules",
+          "detail": "An addon or owner program defines hierarchy meaning, cycle policy and traversal. USL expresses the selected named relationships and profile references.",
+          "placement": "ADDON_RESPONSIBILITY",
           "status": "PROPOSED",
           "authority": "SECONDARY_AI",
           "implementation": "NOT_STARTED"
@@ -801,11 +954,209 @@
       "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/syntax-cli.catalog.json",
       "usl:metadata": {
         "@value": {
-          "title": "Consolidated graph CLI",
-          "detail": "Graph validation, index build/query, hierarchy traversal and weight revision share one documented CLI contract.",
+          "title": "Minimal binding CLI and examples",
+          "detail": "Keep the existing declaration/check/context/binding CLI simple; demonstrate optional profile selection without adding a domain engine or addon platform.",
+          "placement": "MINIMAL_BINDING_CLI",
           "status": "PROPOSED",
           "authority": "SECONDARY_AI",
           "implementation": "NOT_STARTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP01",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Task"
+      ],
+      "usl:nativeId": "task:P01",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "id": "task:P01",
+          "order": 1,
+          "title": "단순 바인딩의 기초 계약 점검",
+          "dependsOn": [],
+          "requirements": [
+            "user:hswm-plan",
+            "user:binding-only"
+          ],
+          "proposals": [],
+          "deliverables": [
+            "docs/LANGUAGE.md",
+            "docs/RESOURCE_BINDINGS.md",
+            "test/navigation.test.ts"
+          ],
+          "acceptance": [
+            "resource·meaning·이름 있는 역할로 단항/다자 연결을 표현하는 기존 계약을 확인한다.",
+            "안정 ID와 로컬 경로/GitHub 등 표현 위치를 구분하고 경로 변경에도 연결 의미와 역할을 보존한다.",
+            "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다."
+          ],
+          "hswmAlignment": "HSWM 같은 상위 시스템이 사용할 연결의 기초만 제공한다.",
+          "proofTargets": [
+            "기존 ID·역할 보존 모델의 적용 범위 확인; 새 도메인 증명은 요구하지 않음"
+          ],
+          "status": "PLANNED",
+          "implementation": "NOT_STARTED",
+          "proofStatus": "NOT_PROVEN",
+          "authority": "SECONDARY_AI",
+          "sourceStatus": "PLANNED_WORK"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP01",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:AcceptanceCriterion"
+      ],
+      "usl:nativeId": "criterion:P01",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "task": "task:P01",
+          "checks": [
+            "resource·meaning·이름 있는 역할로 단항/다자 연결을 표현하는 기존 계약을 확인한다.",
+            "안정 ID와 로컬 경로/GitHub 등 표현 위치를 구분하고 경로 변경에도 연결 의미와 역할을 보존한다.",
+            "가중치 계산·계층 알고리즘·M 색인·HSWM 정책을 코어의 필수 의미론으로 추가하지 않는다."
+          ],
+          "status": "PLANNED_NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP02",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Task"
+      ],
+      "usl:nativeId": "task:P02",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "id": "task:P02",
+          "order": 2,
+          "title": "선택형 애드온 규칙을 연결하는 방법 정리",
+          "dependsOn": [
+            "task:P01"
+          ],
+          "requirements": [
+            "user:addon-rules",
+            "user:binding-only"
+          ],
+          "proposals": [],
+          "deliverables": [
+            "docs/ADDON_BINDING.md",
+            "examples/fixtures/addon-binding.json"
+          ],
+          "acceptance": [
+            "기존 meaning/link, metadata, 선택적 domain profile로 규칙 식별자·버전·대상·설정 참조를 표현한다.",
+            "애드온을 선택하지 않은 기본 바인딩은 그대로 동작하고 선택한 profile의 구조 검증만 적용한다.",
+            "의미 가중치 해석/조정, 계층 탐색, M 맵, HSWM 규칙의 구현과 실행은 애드온 또는 소유 프로그램의 책임으로 명시한다.",
+            "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다."
+          ],
+          "hswmAlignment": "HSWM 전용 규칙을 바인딩 위에 선택적으로 붙일 수 있게 한다.",
+          "proofTargets": [],
+          "status": "PLANNED",
+          "implementation": "NOT_STARTED",
+          "proofStatus": "NOT_PROVEN",
+          "authority": "SECONDARY_AI",
+          "sourceStatus": "PLANNED_WORK"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP02",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:AcceptanceCriterion"
+      ],
+      "usl:nativeId": "criterion:P02",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "task": "task:P02",
+          "checks": [
+            "기존 meaning/link, metadata, 선택적 domain profile로 규칙 식별자·버전·대상·설정 참조를 표현한다.",
+            "애드온을 선택하지 않은 기본 바인딩은 그대로 동작하고 선택한 profile의 구조 검증만 적용한다.",
+            "의미 가중치 해석/조정, 계층 탐색, M 맵, HSWM 규칙의 구현과 실행은 애드온 또는 소유 프로그램의 책임으로 명시한다.",
+            "새 애드온 로더·레지스트리·자동 설치·실행 엔진을 만들지 않는다. 기존 표현 수단의 실제 부족이 확인될 때만 최소 확장을 제안한다."
+          ],
+          "status": "PLANNED_NOT_EXECUTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP03",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Task"
+      ],
+      "usl:nativeId": "task:P03",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "id": "task:P03",
+          "order": 3,
+          "title": "CLI 최소 사용 흐름과 호환 예제 검증",
+          "dependsOn": [
+            "task:P02"
+          ],
+          "requirements": [
+            "user:syntax-cli",
+            "user:binding-only",
+            "user:addon-rules"
+          ],
+          "proposals": [
+            "proposal:graph-cli"
+          ],
+          "deliverables": [
+            "docs/CLI.md",
+            "docs/ADDON_BINDING.md",
+            "examples/fixtures/addon-binding.json"
+          ],
+          "acceptance": [
+            "기존 check/compile/context/adapt/bind-graph 경로로 선언·검사·탐색·바인딩 예제를 재현한다.",
+            "동일 연결에 기본 사용과 명시적으로 선택한 애드온 profile을 각각 적용하고 요구사항·결과를 구분한다.",
+            "이동한 경로와 복수 표현을 확인하고 알려지지 않은 애드온 데이터가 실행·권한으로 해석되지 않음을 확인한다.",
+            "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다."
+          ],
+          "hswmAlignment": "상위 프로그램은 자신의 규칙을 사용하면서 USL CLI를 단순 연결 도구로 호출한다.",
+          "proofTargets": [
+            "기존 구조 검증·바인딩 불변식 및 유한 CLI 검증 범위만 보고"
+          ],
+          "status": "PLANNED",
+          "implementation": "NOT_STARTED",
+          "proofStatus": "NOT_PROVEN",
+          "authority": "SECONDARY_AI",
+          "sourceStatus": "PLANNED_WORK"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP03",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:AcceptanceCriterion"
+      ],
+      "usl:nativeId": "criterion:P03",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/hswm-like.plan.json",
+      "usl:metadata": {
+        "@value": {
+          "task": "task:P03",
+          "checks": [
+            "기존 check/compile/context/adapt/bind-graph 경로로 선언·검사·탐색·바인딩 예제를 재현한다.",
+            "동일 연결에 기본 사용과 명시적으로 선택한 애드온 profile을 각각 적용하고 요구사항·결과를 구분한다.",
+            "이동한 경로와 복수 표현을 확인하고 알려지지 않은 애드온 데이터가 실행·권한으로 해석되지 않음을 확인한다.",
+            "USL 기본 사용에 가중치 엔진·M DB·학습 루프·HSWM 실행 준비를 필수로 요구하지 않는다. 필요한 도움말만 정리하고 새 CLI 하위 시스템은 만들지 않는다."
+          ],
+          "status": "PLANNED_NOT_EXECUTED"
         },
         "@type": "@json"
       }
@@ -847,6 +1198,24 @@
       "usl:description": "Architecture trace relation depends_on; declaration only."
     },
     {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:planned_work",
+      "usl:description": "Architecture trace relation planned_work; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:task_depends_on",
+      "usl:description": "Architecture trace relation task_depends_on; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aadvances",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:advances",
+      "usl:description": "Architecture trace relation advances; declaration only."
+    },
+    {
       "@id": "urn:usl:usl.syntax.cli.architecture:link:implemented_by%3Afeature%3Agrammar%3Aartifact%3Asrc%2Flanguage%2Fparser.ts",
       "@type": [
         "usl:Link",
@@ -854,13 +1223,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -875,7 +1247,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -907,13 +1279,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -928,7 +1303,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -960,13 +1335,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -981,7 +1359,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1016,13 +1394,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1037,7 +1418,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1069,13 +1450,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1090,7 +1474,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1122,13 +1506,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1143,7 +1530,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1178,13 +1565,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1199,7 +1589,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1231,13 +1621,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1252,7 +1645,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1284,13 +1677,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1305,7 +1701,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1337,13 +1733,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1358,7 +1757,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1393,13 +1792,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1414,7 +1816,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1446,13 +1848,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1467,7 +1872,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1502,13 +1907,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1523,7 +1931,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1555,13 +1963,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1576,7 +1987,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1608,13 +2019,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1629,7 +2043,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1661,13 +2075,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1682,7 +2099,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1717,13 +2134,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1738,7 +2158,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1770,13 +2190,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1791,7 +2214,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1823,13 +2246,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1844,7 +2270,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1879,13 +2305,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1900,7 +2329,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1932,13 +2361,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -1953,7 +2385,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1985,13 +2417,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2006,7 +2441,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2041,13 +2476,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2062,7 +2500,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2094,13 +2532,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2115,7 +2556,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2147,13 +2588,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2168,7 +2612,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2203,13 +2647,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2224,7 +2671,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2256,13 +2703,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2277,7 +2727,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2309,13 +2759,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2330,7 +2783,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2362,13 +2815,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2383,7 +2839,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2415,13 +2871,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2436,7 +2895,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2471,13 +2930,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2492,7 +2954,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2527,13 +2989,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2548,7 +3013,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2583,13 +3048,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2604,7 +3072,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2639,13 +3107,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2660,7 +3131,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2695,13 +3166,16 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:cdcbd4c5d4c9fd171971157eb768a2f67b073e58e80f868c232005dbc38dd03f"
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2716,7 +3190,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atrace"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:a4cd4934493454e6678d1fd06b4427edfdb877f0d502d2e02564a1621af6ec18"
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2746,6 +3220,645 @@
         "@value": {
           "authority": "SECONDARY_AI",
           "status": "TRACEABILITY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:planned_work%3Atask%3AP01%3Acriterion%3AP01%3Auser%3Ahswm-plan",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "planned_work:task:P01:criterion:P01:user:hswm-plan",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP01"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "criterion",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP01"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Ahswm-plan"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:planned_work%3Atask%3AP01%3Acriterion%3AP01%3Auser%3Abinding-only",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "planned_work:task:P01:criterion:P01:user:binding-only",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP01"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "criterion",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP01"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Abinding-only"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:planned_work%3Atask%3AP02%3Acriterion%3AP02%3Auser%3Aaddon-rules",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "planned_work:task:P02:criterion:P02:user:addon-rules",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP02"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "criterion",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP02"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aaddon-rules"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:planned_work%3Atask%3AP02%3Acriterion%3AP02%3Auser%3Abinding-only",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "planned_work:task:P02:criterion:P02:user:binding-only",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP02"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "criterion",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP02"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Abinding-only"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:task_depends_on%3Atask%3AP02%3Atask%3AP01",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "task_depends_on:task:P02:task:P01",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP02"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP01"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_DEPENDENCY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:planned_work%3Atask%3AP03%3Acriterion%3AP03%3Auser%3Asyntax-cli",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "planned_work:task:P03:criterion:P03:user:syntax-cli",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "criterion",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Asyntax-cli"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:planned_work%3Atask%3AP03%3Acriterion%3AP03%3Auser%3Abinding-only",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "planned_work:task:P03:criterion:P03:user:binding-only",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "criterion",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Abinding-only"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:planned_work%3Atask%3AP03%3Acriterion%3AP03%3Auser%3Aaddon-rules",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "planned_work:task:P03:criterion:P03:user:addon-rules",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "criterion",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:criterion%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "requirement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aaddon-rules"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:task_depends_on%3Atask%3AP03%3Atask%3AP02",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "task_depends_on:task:P03:task:P02",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "prerequisite",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP02"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_DEPENDENCY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:advances%3Atask%3AP03%3Aproposal%3Agraph-cli",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:4046122d7da0275f060c3bfd4f1969ae49b8a9cb41cea6bbce6f3ac7a6502c2a"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "advances:task:P03:proposal:graph-cli",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aadvances"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:9cc1bf67d19c9adf4ac0d19d5e8465367ba6223c3e182b8c3c76a9d0c60bbbc7"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP03"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "proposal",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:proposal%3Agraph-cli"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PLANNED_WORKTRACE"
         },
         "@type": "@json"
       }

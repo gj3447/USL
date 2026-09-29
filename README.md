@@ -2,12 +2,14 @@
 
 **USL은 서로 다른 시스템의 자원을 의미와 역할로 연결하는 문법·바인딩 도구다.** 문법을 해석하는 TypeScript + Effect 라이브러리와 CLI로 KG·Git·URL·파일·Lean 4를 연결하며, 원본 데이터·고유 ID·권한은 각 시스템에 둔다. 별도 USL DB나 새 KG를 만들지 않는다.
 
+기본 책임은 **연결의 표현·보존·구조 검증**이다. 가중치 해석·조정, 계층 알고리즘, M 맵 색인, HSWM 전용 규칙은 선택형 애드온이나 이를 사용하는 프로그램이 담당한다. USL은 그 규칙과 대상을 연결할 수 있는 기초를 제공한다.
+
 Copyright © 2026 **Ra Gyeongjun (라경준)**. **AGPL-3.0-or-later 또는 별도 상용 라이선스**로 제공한다. [라이선스 안내](LICENSING.md) · [라이선스 전문](LICENSE) · [기여 안내와 CLA](CONTRIBUTING.md).
 
 2026-09-14 사용자 결정: **DB가 아닌 문법/연결 계층**, **Lean 선언·증명 연동과 USL 성질의 형식 검증 둘 다**, **가능한 다양한 자원으로 확장**. 사용자 원문과 구현 선택은 [결정 기록](docs/DECISIONS.md)에서 구분한다. 초기 KG 정의는 `sym:Concept:usl`이며 이 저장소의 최신 사용자 지시를 반영한 현재 기준은 이 README와 아래 문서다. 이 변경이 원격 KG의 옛 설명을 자동 갱신하지는 않는다.
 
 - [현재 구조와 표준의 적용 범위](docs/ARCHITECTURE.md)
-- [문법·하이퍼그래프 코어·CLI 정리와 가중치·M 맵 후속 설계](docs/SYNTAX_CLI_GRAPH_ARCHITECTURE.md) · [요구사항·구현 근거·제안 그래프](research/architecture/syntax-cli.graph.json)
+- [단순 바인딩 문법과 선택형 애드온의 경계](docs/SYNTAX_CLI_GRAPH_ARCHITECTURE.md) · [최소 작업 계획](docs/HSWM_LIKE_EXECUTION_PLAN.md) · [요구사항·구현 근거·작업 그래프](research/architecture/syntax-cli.graph.json)
 - [바인딩 조회·경로 이동·중복 실행 차단·복구 조회](docs/BINDING_OPERATIONS.md)
 - [실제 연결: gj3447/HSWM 연구 자료·로컬 경로·GitHub](docs/HSWM_CONNECTION.md)
 - [CHU · HSWM · USL 생태계 연결: 하이퍼그래프 OS·LLM AI·n항 연결 문법](docs/CHU_CONNECTION.md)

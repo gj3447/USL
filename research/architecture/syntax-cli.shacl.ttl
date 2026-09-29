@@ -2,7 +2,7 @@
 @prefix arc: <urn:usl:syntax-cli:> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-arc:ArchitectureRoleShape a sh:NodeShape ; sh:targetClass usl:Link ; sh:or ( arc:interpreted_asShape arc:implemented_byShape arc:traceShape arc:bounded_byShape arc:addressesShape arc:depends_onShape ) .
+arc:ArchitectureRoleShape a sh:NodeShape ; sh:targetClass usl:Link ; sh:or ( arc:interpreted_asShape arc:implemented_byShape arc:traceShape arc:bounded_byShape arc:addressesShape arc:depends_onShape arc:planned_workShape arc:task_depends_onShape arc:advancesShape ) .
 
 arc:interpreted_asShape a sh:NodeShape ;
   sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:interpreted_as" ] ;
@@ -35,3 +35,19 @@ arc:depends_onShape a sh:NodeShape ;
   sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "proposal" "prerequisite" ) ] ;
   sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "proposal" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Proposal ] ] ] ;
   sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "prerequisite" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Proposal ] ] ] .
+arc:planned_workShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:planned_work" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "task" "criterion" "requirement" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Task ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "criterion" ] ; sh:property [ sh:path usl:resource ; sh:class arc:AcceptanceCriterion ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "requirement" ] ; sh:property [ sh:path usl:resource ; sh:class arc:UserStatement ] ] ] .
+arc:task_depends_onShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:task_depends_on" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "task" "prerequisite" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Task ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "prerequisite" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Task ] ] ] .
+arc:advancesShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:advances" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "task" "proposal" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Task ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "proposal" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Proposal ] ] ] .
