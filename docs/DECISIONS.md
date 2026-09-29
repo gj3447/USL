@@ -1,5 +1,11 @@
 # USL 결정 기록
 
+## github-slideshow 필수 리뷰 승인 해제 — 2026-09-29
+
+> 규칙 제거해줘 왜 PR 작성자는 자기승인 불가여야하냐 ㅇㅇ?
+
+직전 논의 대상인 `gj3447/github-slideshow`의 `master`에서 필수 리뷰 승인 수를 1→0으로 변경하고 지속 설정으로 남겼다. PR 작성자의 자기 승인을 금지하는 GitHub 플랫폼 동작은 저장소 설정으로 변경할 수 없지만, 이제 이 저장소에는 별도 리뷰어의 승인이 병합 필수 조건이 아니다. PR 요구와 다른 보호 설정은 유지했고, 원격 설정 전체를 비교해 승인 수만 바뀌었음을 확인했다. 아래의 일시 변경·복구는 당시 처리 기록이며 이 지시가 이후 설정을 변경한다. [GitHub 공식 설명](https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews).
+
 ## 마지막 규칙 PR 병합과 보호 설정 복구 — 2026-09-29
 
 > 승인할게 왜 거부햇지 ㅇㅇ? 내 gh 인증 있지않냐 ㅇㅇ?
