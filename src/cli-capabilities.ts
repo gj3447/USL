@@ -1,3 +1,4 @@
+import { renderCommandHelp, renderFamilyUsage } from "./cli-help.js"
 /** Read-only catalog operations, sharing the exact application/MCP contracts. */
 import { realpath } from "node:fs/promises"
 import { resolve } from "node:path"
@@ -9,18 +10,18 @@ import { writeTextAtomic } from "./storage.js"
 import { PlatformUsageError } from "./cli-platform.js"
 
 const commands = { "capability-discover": "capability_discover", "capability-preflight": "capability_preflight" } as const
-export const CAPABILITY_USAGE = "  usl capability-discover --config FILE --input REQUEST.json [--out FILE]\n  usl capability-preflight --config FILE --input REQUEST.json [--out FILE]"
+export const CAPABILITY_USAGE = renderFamilyUsage("capability")
 const canonical = (file: string) => realpath(file).catch(() => resolve(file))
 
 export const runCapabilityCommand = async (argv: readonly string[]): Promise<boolean> => {
   const command = argv[0]
   if (command === undefined || !Object.hasOwn(commands, command)) return false
+  if (argv.slice(1).includes("--help")) { console.log(renderCommandHelp(command)); return true }
   const values = (() => {
     try { return parseArgs({ args: argv.slice(1), allowPositionals: false, options: {
       config: { type: "string" }, input: { type: "string" }, out: { type: "string" }, help: { type: "boolean" },
     } }).values } catch (error) { throw new PlatformUsageError(String(error)) }
   })()
-  if (values.help) { console.log(CAPABILITY_USAGE); return true }
   if (!values.config?.trim() || !values.input?.trim()) throw new PlatformUsageError("--config and --input are required")
   const config = await readMcpConfig(values.config)
   // An output file must never replace the registration or any registered source.

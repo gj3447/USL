@@ -1,5 +1,39 @@
 # CLI
 
+## 도움말과 명령군
+
+```sh
+npm run usl -- --help
+npm run usl -- help core
+npm run usl -- help host
+npm run usl -- help context
+npm run usl -- context --help
+```
+
+`usl help`와 `usl --help`는 전체 명령을 명령군별로 보여준다.
+`usl help <명령군>`은 사용 형식을, `usl help <명령>`과
+`usl <명령> --help`는 같은 개별 도움말을 보여준다.
+
+| 명령군 | 역할 |
+| --- | --- |
+| `core` | 선언 검사·컴파일·context·관찰·투영 |
+| `platform` | 선언 생성·보고서 비교·그래프 가져오기·watch·MCP |
+| `adapter` | 기존 그래프에 USL 바인딩 적용 |
+| `capability` | 등록된 기능 검색·호출 조건 검사 |
+| `host` | 자원 표현 선택·등록된 CLI 프로그램 계획과 실행 |
+| `legacy` | 링크 레코드 생성·감사·재바인딩·투영 |
+
+분류는 도움말 탐색용이다. 기존 명령 이름과 실행 방식은 같다. `project`는
+`--source`와 `--records` 두 입력 형식이 있어 `core`와 `legacy`에 모두 표시된다.
+명령 정의는 [공통 도움말 계약](../src/cli-help.ts)에서 관리한다.
+
+도움말은 입력 파일·설정을 읽거나 watch·MCP·host 작업을 시작하기 전에
+stdout으로 출력하고 exit 0으로 끝난다. 알 수 없는 도움말 주제·명령 또는
+`help`의 추가 위치 인자는 stderr 진단과 exit 64를 반환한다.
+실행 결과의 JSON/JSONL/MCP 형식과 `--out` 동작은 각 명령의 기존 계약을 따른다.
+종료 코드는 성공 `0`, 작업·검증 실패 `1`, 관찰 미해결·변경/`audit --check`
+드리프트/host `REJECTED`·`INDETERMINATE` 결과 `2`, 사용법 오류 `64`이다.
+
 ## 단순 바인딩의 기본 흐름
 
 직접 작성한 선언은 `check → compile → context`로 사용한다.

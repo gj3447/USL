@@ -1,3 +1,4 @@
+import { renderCommandHelp, renderFamilyUsage } from "./cli-help.js"
 import { parseArgs } from "node:util"
 import { realpath } from "node:fs/promises"
 import { resolve } from "node:path"
@@ -11,12 +12,12 @@ import { readUtf8Bounded } from "./bounded-read.js"
 import { PlatformUsageError } from "./cli-platform.js"
 import { parseDomainProfile } from "./domain-profile.js"
 
-export const ADAPTER_USAGE = "  usl adapt --graph FILE.json --namespace NAME [--format property-graph|resource-graph]\n    [--profile PROFILE.json] [--kg-source SOURCE] [--operation check|context|observe|jsonld]\n    [--focus UID] [--target UID] [--compact] [--link REL_UID] [--allow-locator LOC | --deny-all] [--max-resources N] [--out FILE]"
+export const ADAPTER_USAGE = renderFamilyUsage("adapter")
 const canonical = (file: string) => realpath(file).catch(() => resolve(file))
 
 export const runAdapterCommand = async (argv: readonly string[]): Promise<boolean> => {
   if (argv[0] !== "adapt") return false
-  if (argv.slice(1).includes("--help")) { console.log(ADAPTER_USAGE); return true }
+  if (argv.slice(1).includes("--help")) { console.log(renderCommandHelp("adapt")); return true }
   const parsed = (() => {
     try { return parseArgs({ args: argv.slice(1), allowPositionals: false, options: {
       graph: { type: "string" }, namespace: { type: "string" }, "kg-source": { type: "string" }, operation: { type: "string" }, format: { type: "string" },

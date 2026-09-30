@@ -1,3 +1,4 @@
+import { renderCommandHelp, renderFamilyUsage } from "./cli-help.js"
 import { promises as fs } from "node:fs"
 import { parseArgs } from "node:util"
 import * as path from "node:path"
@@ -13,14 +14,15 @@ const need = (values: Record<string, unknown>, key: string): string => { const v
 const parse = (args: string[]) => { try { return parseArgs({ args, options: { out: { type: "string" }, before: { type: "string" }, after: { type: "string" }, report: { type: "string" }, graph: { type: "string" }, bindings: { type: "string" }, input: { type: "string" }, source: { type: "string" }, once: { type: "boolean" }, help: { type: "boolean" }, config: { type: "string" } }, allowPositionals: false }).values as Record<string, unknown> } catch (error) { throw new PlatformUsageError(error instanceof Error ? error.message : String(error)) } }
 const write = async (value: unknown, out: string | undefined, inputs: readonly string[]) => { const text = JSON.stringify(value, null, 2) + "\n"; if (!out) return process.stdout.write(text); const target = await canonical(out); if ((await Promise.all(inputs.map(canonical))).includes(target)) throw new Error("--out must differ from input files"); await writeTextAtomic(out, text); console.log(JSON.stringify({ out })) }
 const example = 'usl "0.1";\nnamespace "game.example";\nresource spec = "https://example.test/spec";\nresource implementation = "file://host/project/src/game.ts";\nmeaning implements(specification: url, code: filesystem) = "코드가 명세를 구현한다" applies "고정된 빌드" check review(specification, code) = "명세와 코드를 대조한다";\nlink game_flow = implements(specification: spec, code: implementation);\n'
-export const PLATFORM_USAGE = `  usl init --out FILE.usl\n  usl compare --before REPORT --after REPORT\n  usl validate-observation --report REPORT\n  usl graph-import --graph FILE --bindings FILE [--out FILE]\n  usl hswm-prepare --input JSON [--out FILE]\n  usl watch --source FILE [--once]\n  usl mcp [--config FILE.json]`
+export const PLATFORM_USAGE = renderFamilyUsage("platform")
 
 export const runPlatformCommand = async (argv: readonly string[]): Promise<boolean> => {
   const [command, ...rest] = argv
   if (!command || !commands.has(command)) return false
+  if (rest.includes("--help")) { console.log(renderCommandHelp(command)); return true }
   const values = parse(rest)
   const allowed: Record<string, readonly string[]> = { init: ["out"], compare: ["before", "after", "out"], "validate-observation": ["report", "out"], "graph-import": ["graph", "bindings", "out"], "hswm-prepare": ["input", "out"], watch: ["source", "once"], mcp: ["config"] }
-  if (values.help) { console.log(`usl ${command} ${PLATFORM_USAGE.split("\n").find((line) => line.includes(`usl ${command} `))?.trim().replace(`usl ${command} `, "") ?? ""}`); return true }
+
   for (const key of Object.keys(values)) if (!allowed[command]!.includes(key)) throw new PlatformUsageError(`--${key} is not valid for ${command}`)
   if (command === "mcp") { const { readMcpConfig, startUslMcpServer } = await import("./mcp.js"); await startUslMcpServer(await readMcpConfig(typeof values.config === "string" ? values.config : undefined)); return true }
   if (command === "init") { const out = need(values, "out"); try { await writeTextAtomic(out, example, null) } catch (error) { if (String(error).includes("changed during operation")) throw new PlatformUsageError("--out already exists"); throw error }; console.log(JSON.stringify({ out })); return true }

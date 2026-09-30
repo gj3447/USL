@@ -112,6 +112,11 @@
       "kind": "LOCAL_SNAPSHOT"
     },
     {
+      "path": "src/cli-capabilities.ts",
+      "sha256": "48cee118eeccaaea3e2a0aefa3bdd292382a91a51e33a6895e4d7bd810ee1c70",
+      "kind": "LOCAL_SNAPSHOT"
+    },
+    {
       "path": "src/cli-host-command.ts",
       "sha256": "a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
       "kind": "LOCAL_SNAPSHOT"
@@ -131,11 +136,14 @@
       "currentGap": "src/cli.ts concatenates every command family into one top-level usage string; delegated command modules expose independent help strings.",
       "deliverables": [
         "src/cli.ts",
+        "src/cli-help.ts",
         "src/cli-platform.ts",
         "src/cli-adapter.ts",
+        "src/cli-capabilities.ts",
         "src/cli-host-command.ts",
         "docs/CLI.md",
-        "test/cli.test.ts"
+        "test/cli.test.ts",
+        "test/cli-help.test.ts"
       ],
       "acceptance": [
         "Add usl help core|platform|adapter|host without renaming existing commands.",

@@ -7,12 +7,14 @@ import { TOOL_VERSION } from "./domain.js"
 import { audit, pierce, rebind } from "./pierce.js"
 import { toBundle, type ProjectOptions } from "./project.js"
 import { ConfigLive, ResolversLive } from "./resolve.js"
-import { runPlatformCommand, PLATFORM_USAGE, PlatformUsageError } from "./cli-platform.js"
-import { runAdapterCommand, ADAPTER_USAGE } from "./cli-adapter.js"
-import { runCapabilityCommand, CAPABILITY_USAGE } from "./cli-capabilities.js"
-import { runCliHostCommand, CLI_HOST_USAGE } from "./cli-host-command.js"
+import { runPlatformCommand, PlatformUsageError } from "./cli-platform.js"
+import { runAdapterCommand } from "./cli-adapter.js"
+import { runCapabilityCommand } from "./cli-capabilities.js"
+import { runCliHostCommand } from "./cli-host-command.js"
 import { readRecords, writeRecords, writeTextAtomic } from "./storage.js"
 import { agentContext, compactAgentContext, compareObservations, compileSource, observeProgram, toSemanticBundle, validateObservation, type NavigationQuery } from "./language/index.js"
+
+import { renderCommandHelp, renderHelpTopic, renderRootHelp } from "./cli-help.js"
 
 class UsageError extends Error {}
 const canonicalPath = async (file: string): Promise<string> => fs.realpath(file).catch(() => path.resolve(file))
@@ -20,32 +22,27 @@ const requireDistinctOutput = async (out: string, inputs: ReadonlyArray<string>,
   const output = await canonicalPath(out)
   for (const input of inputs) if (output === await canonicalPath(input)) throw new UsageError(message)
 }
-const usage = `USL ${TOOL_VERSION}
-  usl check --source FILE.usl
-  usl compile --source FILE.usl [--out PLAN.json]
-  usl context --source FILE.usl --focus NAME [--target NAME] [--max-hops N] [--max-resources N] [--max-links N] [--max-visits N] [--via MEANING:ENTER:EXIT] [--out CONTEXT.json]
-    [--compact] [--max-bytes N] [--known-context SHA256] [--stats]
-  usl observe --source FILE.usl [--link NAME] [--allow-locator LOC | --deny-all] [--max-resources N] [--baseline REPORT.json] [--out REPORT.json]
-  usl project --source FILE.usl --out BUNDLE.json --bundle-uid UID --utterance-file FILE
-  usl pierce --link-id ID --relation REL --from LOC --to LOC [--records FILE] [--replace]
-  usl audit --records FILE [--write] [--check]
-  usl rebind --records FILE --link-id ID
-  usl validate --records FILE
-  usl project --records FILE --out FILE --bundle-uid UID --utterance-file FILE [--anchors FILE]
-${PLATFORM_USAGE}
-${ADAPTER_USAGE}
-${CAPABILITY_USAGE}
-${CLI_HOST_USAGE}
-
-Audit preserves the original snapshot; rebind explicitly replaces it after both ends resolve.
-Exit: 0 success, 1 operation/validation failure, 2 observation unresolved/changed or audit --check drift, 64 usage error.`
+const usage = renderRootHelp()
 const main = async () => {
-  if (await runCapabilityCommand(process.argv.slice(2))) return
-  if (await runCliHostCommand(process.argv.slice(2))) return
-  if (await runAdapterCommand(process.argv.slice(2))) return
-  if (await runPlatformCommand(process.argv.slice(2))) return
-  const [cmd, ...rest] = process.argv.slice(2)
-  if (cmd === "--help" || cmd === "help" || rest.includes("--help")) { console.log(usage); return }
+  const argv = process.argv.slice(2)
+  const [cmd, ...rest] = argv
+  if (cmd === "help" || cmd === "--help") {
+    if (rest.length > (cmd === "help" ? 1 : 0)) throw new UsageError("Usage: usl help [family|command]")
+    const help = renderHelpTopic(rest[0])
+    if (help === undefined) throw new UsageError(`Unknown help topic: ${rest[0]}. Use usl help.`)
+    console.log(help)
+    return
+  }
+  if (cmd && rest.includes("--help")) {
+    const help = renderCommandHelp(cmd)
+    if (help === undefined) throw new UsageError(`Unknown command: ${cmd}. Use usl help.`)
+    console.log(help)
+    return
+  }
+  if (await runCapabilityCommand(argv)) return
+  if (await runCliHostCommand(argv)) return
+  if (await runAdapterCommand(argv)) return
+  if (await runPlatformCommand(argv)) return
   if (!cmd || !["check", "compile", "context", "observe", "pierce", "audit", "rebind", "validate", "project"].includes(cmd)) throw new UsageError(usage)
   let parsed: ReturnType<typeof parseCli>
   try { parsed = parseCli(rest) } catch (e) { throw new UsageError(String(e)) }

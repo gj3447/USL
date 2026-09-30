@@ -1,3 +1,4 @@
+import { renderCommandHelp, renderFamilyUsage } from "./cli-help.js"
 /** Durable host-command CLI surface. The host owns all authority and receipts. */
 import { realpath } from "node:fs/promises"
 import { resolve } from "node:path"
@@ -13,13 +14,7 @@ const MAX_INVOCATION_BYTES = 1024 * 1024
 const EXPECTED_PLAN_DIGEST = /^sha256:[a-f0-9]{64}$/
 const canonical = (file: string) => realpath(file).catch(() => resolve(file))
 
-export const CLI_HOST_USAGE = `  usl cli-list --config FILE
-  usl locate --config FILE --resource ID [--representation ID]
-  usl inspect-binding --config FILE --resource ID --representation ID
-  usl bind-graph --config HOST --graph RESOURCE_GRAPH.json --selections SELECTIONS.json [--out FILE]
-  usl cli-plan --config FILE --action ID --input INVOCATION.json [--out FILE]
-  usl cli-run --config FILE --action ID --input INVOCATION.json --expected-plan sha256:... --receipt-dir NEW_DIRECTORY [--operation-key KEY]
-  usl cli-inspect --receipt-dir DIRECTORY`
+export const CLI_HOST_USAGE = renderFamilyUsage("host")
 
 const required = (value: string | undefined, flag: string): string => {
   if (!value?.trim()) throw new PlatformUsageError(`--${flag} is required`)
@@ -55,7 +50,7 @@ const setExitStatus = (result: unknown): void => {
 export const runCliHostCommand = async (argv: readonly string[]): Promise<boolean> => {
   const command = argv[0]
   if (command === undefined || !["cli-list", "locate", "inspect-binding", "bind-graph", "cli-plan", "cli-run", "cli-inspect"].includes(command)) return false
-  if (argv.length === 2 && argv[1] === "--help") { console.log(CLI_HOST_USAGE); return true }
+  if (argv.slice(1).includes("--help")) { console.log(renderCommandHelp(command)); return true }
 
   if (command === "cli-inspect") {
     const values = parse(argv.slice(1), { "receipt-dir": { type: "string" } })
