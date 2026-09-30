@@ -28,7 +28,7 @@ const main = async () => {
   const [cmd, ...rest] = argv
   if (cmd === "help" || cmd === "--help") {
     if (rest.length > (cmd === "help" ? 1 : 0)) throw new UsageError("Usage: usl help [family|command]")
-    const help = renderHelpTopic(rest[0])
+    const help = renderHelpTopic(rest[0] === "--help" ? undefined : rest[0])
     if (help === undefined) throw new UsageError(`Unknown help topic: ${rest[0]}. Use usl help.`)
     console.log(help)
     return

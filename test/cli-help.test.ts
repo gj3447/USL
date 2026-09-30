@@ -26,6 +26,12 @@ test("root help exposes every command family on stdout", async () => {
   for (const family of ["core", "platform", "adapter", "capability", "host", "legacy"]) {
     assert.match(result.stdout, new RegExp(`\\b${family}\\b`))
   }
+  for (const args of [["help"], ["help", "--help"]]) {
+    const alias = await cli(args)
+    assert.equal(alias.code, 0, alias.stderr)
+    assert.equal(alias.stderr, "")
+    assert.equal(alias.stdout, result.stdout)
+  }
 })
 
 test("family help lists only its registered commands and needs no input", async () => {
