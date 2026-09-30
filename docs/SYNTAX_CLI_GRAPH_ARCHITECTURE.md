@@ -125,7 +125,9 @@ outcome feedback과 이를 위한 Lean 확장을 단계적으로 넣는 안을 �
 2. P02: 필요한 도메인 규칙을 optional metadata/profile/named link add-on으로 선언
 3. P03: 기존 CLI 예제와 호환성, Lean의 현재 추상 구조 증명 범위를 유지
 
-완료 근거는 [P01~P03 기록](HSWM_LIKE_EXECUTION_PLAN.md)에 연결했다. 다음
-메인 CLI 개발은 [C01~C04](CORE_CLI_PLAN.md)의 도움말 정리, context 옵션 맞춤,
-명시적 stdin, 빌드된 실행 파일 검증 순서로 계획했다. 완료한 작업과 아직
-계획인 작업을 같은 그래프에서 서로 다른 상태로 조회할 수 있다.
+완료 근거는 [P01~P03 기록](HSWM_LIKE_EXECUTION_PLAN.md)과 C01의
+[도움말 계약 검증 기록](../research/architecture/core-cli-c01.receipt.json)에 연결했다.
+C01 도움말 정리는 완료했으며, 다음 메인 CLI 개발은
+[C02~C04](CORE_CLI_PLAN.md)의 context 옵션 맞춤, 명시적 stdin, 빌드된 실행 파일
+검증 순서다. 완료한 작업과 아직 계획인 작업을 같은 그래프에서 서로 다른 상태로
+조회할 수 있다.

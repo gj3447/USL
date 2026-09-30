@@ -2,13 +2,13 @@
   "schema": "usl-binding-delivery-receipt/v1",
   "authority": "SECONDARY_AI",
   "status": "PASS",
-  "generatedAt": "2026-09-29",
+  "generatedAt": "2026-09-30",
   "scope": "LOCAL_BINDING_FIXTURES_AND_CLI_CONTRACTS",
   "recording": "RECORDED_FROM_SUCCESSFUL_LOCAL_COMMAND_OUTPUT; NOT_A_SIGNED_ATTESTATION",
   "proofStatus": "NO_NEW_LEAN_PROOF",
   "sourcePins": {
     "docs/ADDON_BINDING.md": "sha256:4e4fffc52f437f9b2a4e981ed31cb50c4110d251ce709bb8997fc0b2640fb4ea",
-    "docs/CLI.md": "sha256:afbc9a3c4a3a0c49fc7199427cf995cf69899bc109b36e38aae487ca448de7c5",
+    "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
     "docs/LANGUAGE.md": "sha256:15a34082fdc9c8a1f561119a5be556680615112250bc8838ad6fd1d7868a3556",
     "docs/RESOURCE_BINDINGS.md": "sha256:474a509a98f8d8b2b5dc75afd4525ec8220d4f3048d6afaf4b41dfe364fbbaa1",
     "examples/agent-navigation.usl": "sha256:3d9b200e76105cfa07ca642a3274bf4cdce17e136f313fd5586a19c779b207cf",
@@ -24,15 +24,16 @@
     "src/bounded-read.ts": "sha256:e016f04530b8046daccc274269412cfccee5607ba661fd718730ee15c0a7e7c7",
     "src/capabilities.ts": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
     "src/capability-catalog.ts": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc",
-    "src/cli-adapter.ts": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
-    "src/cli-capabilities.ts": "sha256:12dee7bd3253d55923df1be8a03f4ed79c41066f52313aa3aff95aed251c2370",
-    "src/cli-host-command.ts": "sha256:a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+    "src/cli-adapter.ts": "sha256:4d2f6a159b40bbeb5b437cd9a600210453cafa598997b82246ba910b996349b4",
+    "src/cli-capabilities.ts": "sha256:48cee118eeccaaea3e2a0aefa3bdd292382a91a51e33a6895e4d7bd810ee1c70",
+    "src/cli-help.ts": "sha256:4df34b8da44cfa1dfbcd316610b6d44df11ff13e9209e21fdbb7167d5887c5dc",
+    "src/cli-host-command.ts": "sha256:f328f49fdd91046d1216f307e23e91cc06481e08af0f180609b8b3f07fd95f77",
     "src/cli-host.ts": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
     "src/cli-operation.ts": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
-    "src/cli-platform.ts": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+    "src/cli-platform.ts": "sha256:289c4a3a8bcd6c26811924bb703a0038894c7b64207964142ce25ae588c0771a",
     "src/cli-process.ts": "sha256:c9d20c5af3b9a8aeb81c42a5ded7b4706d59dee08ac2d15d101de34b11d3fa29",
     "src/cli-recovery.ts": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
-    "src/cli.ts": "sha256:71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+    "src/cli.ts": "sha256:5843b269a772cabcf62c700448af6fc331d97553c51d365f7b75657bd71abaa7",
     "src/contract-core.ts": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
     "src/domain-profile.ts": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
     "src/domain.ts": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d",
@@ -89,7 +90,7 @@
           "kind": "command",
           "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts",
           "exitCode": 0,
-          "observed": "57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
+          "observed": "Replayed 2026-09-30: 57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
         },
         {
           "kind": "source",
@@ -156,7 +157,7 @@
           "kind": "command",
           "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts",
           "exitCode": 0,
-          "observed": "57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
+          "observed": "Replayed 2026-09-30: 57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
         },
         {
           "kind": "source",
@@ -228,7 +229,7 @@
           "kind": "command",
           "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts",
           "exitCode": 0,
-          "observed": "57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
+          "observed": "Replayed 2026-09-30: 57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
         },
         {
           "kind": "source",
@@ -238,7 +239,7 @@
         {
           "kind": "source",
           "path": "docs/CLI.md",
-          "sha256": "sha256:afbc9a3c4a3a0c49fc7199427cf995cf69899bc109b36e38aae487ca448de7c5"
+          "sha256": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755"
         },
         {
           "kind": "source",
@@ -292,5 +293,7 @@
         }
       ]
     }
-  ]
+  ],
+  "supersedesReceiptDigest": "sha256:71f614065d6df36a556ebc7f8424f590a5138808d1c9aa53f3dbe2123e7e5e6c",
+  "sourceCommit": "8d38fa7dbf0bb52209f5d0c34dc72e3f97bcd3c6"
 }

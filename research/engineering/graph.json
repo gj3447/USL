@@ -20,13 +20,13 @@
       ],
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/receipt.json",
       "metadata": {
-        "runId": "urn:uuid:37ca3653-b01f-4949-a46d-a7c3d80578a9",
+        "runId": "urn:uuid:21086724-009b-4477-aaa7-6d7f17a1f624",
         "scope": "LOCAL_USL_COUNTEREXAMPLES",
-        "receiptDigest": "sha256:aed30f41a41642e3e70d7f7f674eb137c5acfd7b83d372d79c57d2e4fca5a646",
+        "receiptDigest": "sha256:35a53a8ffdd2ba5433b91a52e65da901382af717e7672bba2c1d5759c983cf6f",
         "verification": "HOST_REPORTED_LOCAL_TESTS",
         "upstreamExecution": "NOT_TESTED",
-        "startedAt": "2026-09-29T01:21:48.010Z",
-        "finishedAt": "2026-09-29T01:21:48.748Z"
+        "startedAt": "2026-09-30T02:23:00.445Z",
+        "finishedAt": "2026-09-30T02:23:01.292Z"
       }
     },
     {
@@ -309,7 +309,7 @@
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/src/cli-capabilities.ts",
       "metadata": {
         "path": "src/cli-capabilities.ts",
-        "sourceDigest": "sha256:12dee7bd3253d55923df1be8a03f4ed79c41066f52313aa3aff95aed251c2370"
+        "sourceDigest": "sha256:48cee118eeccaaea3e2a0aefa3bdd292382a91a51e33a6895e4d7bd810ee1c70"
       }
     },
     {

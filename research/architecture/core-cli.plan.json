@@ -1,8 +1,8 @@
 {
   "schema": "usl-core-cli-work-plan/v1",
   "authority": "SECONDARY_AI",
-  "status": "PLANNED",
-  "observedAt": "2026-09-29",
+  "status": "IN_PROGRESS",
+  "observedAt": "2026-09-30",
   "userRequest": {
     "id": "user:core-cli-next",
     "text": "다음 쭉쭉 구현해주고 메인 core cli 개발도 계획해줘봐 ㅇㅇ",
@@ -98,17 +98,22 @@
   "sourceEvidence": [
     {
       "path": "src/cli.ts",
-      "sha256": "71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+      "sha256": "5843b269a772cabcf62c700448af6fc331d97553c51d365f7b75657bd71abaa7",
+      "kind": "LOCAL_SNAPSHOT"
+    },
+    {
+      "path": "src/cli-help.ts",
+      "sha256": "4df34b8da44cfa1dfbcd316610b6d44df11ff13e9209e21fdbb7167d5887c5dc",
       "kind": "LOCAL_SNAPSHOT"
     },
     {
       "path": "src/cli-platform.ts",
-      "sha256": "0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+      "sha256": "289c4a3a8bcd6c26811924bb703a0038894c7b64207964142ce25ae588c0771a",
       "kind": "LOCAL_SNAPSHOT"
     },
     {
       "path": "src/cli-adapter.ts",
-      "sha256": "e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
+      "sha256": "4d2f6a159b40bbeb5b437cd9a600210453cafa598997b82246ba910b996349b4",
       "kind": "LOCAL_SNAPSHOT"
     },
     {
@@ -118,7 +123,7 @@
     },
     {
       "path": "src/cli-host-command.ts",
-      "sha256": "a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+      "sha256": "f328f49fdd91046d1216f307e23e91cc06481e08af0f180609b8b3f07fd95f77",
       "kind": "LOCAL_SNAPSHOT"
     },
     {
@@ -153,9 +158,10 @@
       "compatibility": [
         "Preserve current command names and command-specific JSON schemas."
       ],
-      "status": "PLANNED",
-      "implementation": "NOT_STARTED",
-      "proofStatus": "NOT_PROVEN"
+      "status": "COMPLETED",
+      "implementation": "COMPLETE",
+      "proofStatus": "NOT_PROVEN",
+      "verificationReceipt": "research/architecture/core-cli-c01.receipt.json"
     },
     {
       "id": "task:C02",

@@ -15,8 +15,10 @@ USL 코어는 자원과 의미, 이름 있는 참여 역할을 연결하는 문�
 2026-09-29: P01~P03의 문서·예제·CLI 검증을 완료했다. 기초 계약 문서의 단항
 문법표를 수정하고, [선택 규칙 graph/profile](ADDON_BINDING.md)과 CLI 회귀 예제를
 추가했다. [검증 기록](../research/architecture/binding-delivery.receipt.json)은
-실제로 통과한 명령과 해당 파일의 digest를 보존한다. 메인 CLI의 후속 개발은
-[C01~C04 계획](CORE_CLI_PLAN.md)으로 이어지며 아직 구현 전이다.
+실제로 통과한 명령과 해당 파일의 digest를 보존한다.
+
+2026-09-30: 메인 CLI의 C01 도움말·명령군 계약을 완료했다.
+후속 C02~C04는 [core CLI 계획](CORE_CLI_PLAN.md)에 남아 있다.
 
 ```mermaid
 flowchart LR
@@ -102,5 +104,5 @@ HSWM gate나 원격 접근 확인을 필수로 추가하지 않는다.
 하나이며 순환 금지는 작업 선행 관계에만 적용한다. profile·SHACL·계획 상태
 검사는 이 계획의 일관성을 확인한다. P01~P03은 `COMPLETED`이며
 `completed_by(task, criterion, evidence)`로 검증 기록을 연결한다. 이는 해당
-예제와 유한 검증의 완료이며 새 Lean 증명을 뜻하지 않는다. C01~C04는 별도로
-`PLANNED` 상태와 선행 관계를 보존한다.
+예제와 유한 검증의 완료이며 새 Lean 증명을 뜻하지 않는다. C01은 별도 검증
+기록으로 `COMPLETED`이고, C02~C04는 `PLANNED` 상태와 C01 선행 관계를 보존한다.

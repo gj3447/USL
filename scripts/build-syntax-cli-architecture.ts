@@ -13,10 +13,11 @@ const check = process.argv.slice(2).includes("--check")
 if (process.argv.slice(2).some(arg => arg !== "--check")) throw new Error("usage: build-syntax-cli-architecture.ts [--check]")
 const read = (file: string) => readFile(resolve(root, file), "utf8")
 const catalog = JSON.parse(await read("research/architecture/syntax-cli.catalog.json")) as { schema: string; authority: string; sourceCommit: string; sourcePins: Record<string, string>; userStatements: Array<{ id: string; status: string; text: string }>; implemented: Array<[string, string, string[]]>; proposals: Array<[string, string, string]>; proposalPlacement: Record<string, string> }
-type PlannedTask = { id: string; order: number; title: string; dependsOn: string[]; requirements: string[]; proposals: string[]; deliverables: string[]; acceptance: string[]; hswmAlignment: string; proofTargets: string[]; status: string; implementation: string; proofStatus: string }
+type PlannedTask = { id: string; order: number; title: string; dependsOn: string[]; requirements: string[]; proposals: string[]; deliverables: string[]; acceptance: string[]; hswmAlignment: string; proofTargets: string[]; status: string; implementation: string; proofStatus: string; verificationReceipt?: string }
 type WorkPlan = { schema: string; authority: string; status: string; userRequest: { id: string; text: string; authority: string }; scopeCorrections?: Array<{ id: string; text: string; authority: string }>; tasks: PlannedTask[] }
-type CoreCliPlan = { schema: "usl-core-cli-work-plan/v1"; authority: "SECONDARY_AI"; status: "PLANNED"; userRequest: { id: string; text: string; authority: "USER_PRIMARY" }; sourceEvidence: Array<{ path: string; sha256: string; kind: "LOCAL_SNAPSHOT" }>; tasks: PlannedTask[] }
+type CoreCliPlan = { schema: "usl-core-cli-work-plan/v1"; authority: "SECONDARY_AI"; status: "PLANNED" | "IN_PROGRESS" | "COMPLETED"; userRequest: { id: string; text: string; authority: "USER_PRIMARY" }; sourceEvidence: Array<{ path: string; sha256: string; kind: "LOCAL_SNAPSHOT" }>; tasks: PlannedTask[] }
 type VerificationReceipt = { schema: "usl-binding-delivery-receipt/v1"; authority: "SECONDARY_AI"; status: "PASS"; generatedAt: string; sourcePins: Record<string, string>; tasks: Array<{ id: string; status: "PASS"; evidence: Array<{ kind: "command"; command: string; exitCode: 0; observed: string } | { kind: "source"; path: string; sha256: string }> }> }
+type CoreVerificationReceipt = { schema: "usl-core-cli-verification-receipt/v1"; authority: "SECONDARY_AI"; status: "PASS"; generatedAt: string; sourceCommit: string; sourcePins: Record<string, string>; tasks: Array<{ id: string; status: "PASS"; evidence: Array<{ kind: "command"; command: string; exitCode: 0; observed: string } | { kind: "source"; path: string; sha256: string }> }> }
 type CompressionSource = { id: string; title: string; url: string; technique: string; scope: string; limitation: string; checkedAt: string }
 type CompressionBenchmark = { schema: string; scope: string; validationStatus: string; environment: { encodings: string[]; memory: string }; inputs: { digest: string; benchmarkScriptDigest: string; tokenScriptDigest: string; requirementsDigest: string }; fixtures: unknown[] }
 const workPlan = JSON.parse(await read("research/architecture/hswm-like.plan.json")) as WorkPlan
@@ -35,7 +36,7 @@ for (const [id] of catalog.proposals) if (!["ADDON_RESPONSIBILITY", "MINIMAL_BIN
 if (workPlan.schema !== "usl-hswm-like-work-plan/v1" || workPlan.authority !== "SECONDARY_AI" || workPlan.status !== "COMPLETED" || workPlan.userRequest.id !== "user:hswm-plan" || workPlan.userRequest.authority !== "USER_PRIMARY" || !workPlan.userRequest.text.trim()) throw new Error("invalid HSWM-like work plan")
 if (receipt.schema !== "usl-binding-delivery-receipt/v1" || receipt.authority !== "SECONDARY_AI" || receipt.status !== "PASS" || !/^\d{4}-\d\d-\d\d$/.test(receipt.generatedAt) || !receipt.sourcePins || !Array.isArray(receipt.tasks)) throw new Error("invalid binding delivery receipt")
 for (const [path, digest] of Object.entries(receipt.sourcePins)) if (!(/^(src|docs|examples|test|scripts|research)\//.test(path) || ["package.json", "package-lock.json", "tsconfig.json"].includes(path)) || !/^sha256:[a-f0-9]{64}$/.test(digest) || digestSource(await read(path)) !== digest) throw new Error(`invalid receipt source pin: ${path}`)
-if (corePlan.schema !== "usl-core-cli-work-plan/v1" || corePlan.authority !== "SECONDARY_AI" || corePlan.status !== "PLANNED" || corePlan.userRequest.id !== "user:core-cli-next" || corePlan.userRequest.authority !== "USER_PRIMARY" || !corePlan.userRequest.text.trim() || !corePlan.sourceEvidence.length) throw new Error("invalid core CLI plan")
+if (corePlan.schema !== "usl-core-cli-work-plan/v1" || corePlan.authority !== "SECONDARY_AI" || !["PLANNED", "IN_PROGRESS", "COMPLETED"].includes(corePlan.status) || corePlan.userRequest.id !== "user:core-cli-next" || corePlan.userRequest.authority !== "USER_PRIMARY" || !corePlan.userRequest.text.trim() || !corePlan.sourceEvidence.length) throw new Error("invalid core CLI plan")
 for (const source of corePlan.sourceEvidence) if (!/^src\//.test(source.path) || !/^[a-f0-9]{64}$/.test(source.sha256) || source.kind !== "LOCAL_SNAPSHOT" || (digestSource(await read(source.path)) ?? "").replace("sha256:", "") !== source.sha256) throw new Error(`invalid core CLI source evidence: ${source.path}`)
 if (compressionSources.length < 4 || compressionSources.some(source => !/^[a-z0-9-]+$/.test(source.id) || !source.title.trim() || !/^https:\/\//.test(source.url) || !source.technique.trim() || !source.scope.trim() || !source.limitation.trim() || !/^\d{4}-\d\d-\d\d$/.test(source.checkedAt))) throw new Error("invalid compression source")
 if (compressionBenchmark.schema !== "usl-compression-benchmark-results/v1" || compressionBenchmark.scope !== "OFFLINE_PAYLOAD_MEASUREMENT_NOT_RUNTIME_MEMORY_OR_BILLED_USAGE" || compressionBenchmark.validationStatus !== "FIXTURE_ROUNDTRIPS_PASSED" || !compressionBenchmark.environment.encodings.length || !compressionBenchmark.environment.memory.includes("HEAP_NOT_MEASURED") || ![compressionBenchmark.inputs.digest, compressionBenchmark.inputs.benchmarkScriptDigest, compressionBenchmark.inputs.tokenScriptDigest, compressionBenchmark.inputs.requirementsDigest].every(value => /^sha256:[a-f0-9]{64}$/.test(value)) || !compressionBenchmark.fixtures.length) throw new Error("invalid compression benchmark")
@@ -46,15 +47,43 @@ for (const task of workPlan.tasks) {
   if (!receiptTask || receiptTask.status !== "PASS" || !receiptTask.evidence.some(evidence => evidence.kind === "command" && evidence.exitCode === 0 && evidence.command.trim() && evidence.observed.trim()) || !task.deliverables.every(path => receipt.sourcePins[path] !== undefined && receiptTask.evidence.some(evidence => evidence.kind === "source" && evidence.path === path && evidence.sha256 === receipt.sourcePins[path]))) throw new Error(`missing completion evidence: ${task.id}`)
   taskIds.add(task.id)
 }
+const completedCoreTasks = corePlan.tasks.filter(task => task.status === "COMPLETED")
+const expectedCorePlanStatus = completedCoreTasks.length === 0 ? "PLANNED" : completedCoreTasks.length === corePlan.tasks.length ? "COMPLETED" : "IN_PROGRESS"
+if (corePlan.status !== expectedCorePlanStatus) throw new Error("invalid core CLI plan status")
 for (const task of corePlan.tasks) {
-  if (!/^task:C\d\d$/.test(task.id) || taskIds.has(task.id) || !Number.isSafeInteger(task.order) || task.order < 1 || !task.title.trim() || task.status !== "PLANNED" || task.implementation !== "NOT_STARTED" || task.proofStatus !== "NOT_PROVEN" || !task.deliverables.length || !task.acceptance.length || task.acceptance.some(item => !item.trim())) throw new Error(`invalid core CLI task: ${task.id}`)
+  const complete = task.status === "COMPLETED" && task.implementation === "COMPLETE"
+  const planned = task.status === "PLANNED" && task.implementation === "NOT_STARTED"
+  if (!/^task:C\d\d$/.test(task.id) || taskIds.has(task.id) || !Number.isSafeInteger(task.order) || task.order < 1 || !task.title.trim() || (!complete && !planned) || task.proofStatus !== "NOT_PROVEN" || !task.deliverables.length || !task.acceptance.length || task.acceptance.some(item => !item.trim()) || (complete !== Boolean(task.verificationReceipt))) throw new Error(`invalid core CLI task: ${task.id}`)
   taskIds.add(task.id)
+}
+const coreReceipts = new Map<string, { path: string; receipt: CoreVerificationReceipt }>()
+for (const task of completedCoreTasks) {
+  const receiptPath = task.verificationReceipt!
+  if (!/^research\/architecture\/[a-z0-9-]+\.receipt\.json$/.test(receiptPath)) throw new Error(`invalid core CLI receipt path: ${task.id}`)
+  const coreReceipt = JSON.parse(await read(receiptPath)) as CoreVerificationReceipt
+  if (coreReceipt.schema !== "usl-core-cli-verification-receipt/v1" || coreReceipt.authority !== "SECONDARY_AI" || coreReceipt.status !== "PASS" || !/^\d{4}-\d\d-\d\d$/.test(coreReceipt.generatedAt) || !/^[a-f0-9]{40}$/.test(coreReceipt.sourceCommit) || !coreReceipt.sourcePins || !Array.isArray(coreReceipt.tasks)) throw new Error(`invalid core CLI receipt: ${task.id}`)
+  const requiredPins = [
+    ...execFileSync("git", ["ls-tree", "-r", "--name-only", coreReceipt.sourceCommit, "src"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean),
+    "package.json", "package-lock.json", "tsconfig.json", "test/cli.test.ts", "test/cli-help.test.ts",
+  ]
+  if (!requiredPins.every(path => coreReceipt.sourcePins[path] !== undefined)) throw new Error(`missing required core CLI receipt source pin: ${task.id}`)
+  for (const [path, digest] of Object.entries(coreReceipt.sourcePins)) {
+    if (!(/^(src|docs|test)\//.test(path) || ["package.json", "package-lock.json", "tsconfig.json"].includes(path)) || !/^sha256:[a-f0-9]{64}$/.test(digest) || digestSource(await read(path)) !== digest) throw new Error(`invalid core CLI receipt source pin: ${path}`)
+    const committed = digestSource(execFileSync("git", ["show", `${coreReceipt.sourceCommit}:${path}`], { cwd: root, encoding: "buffer" }).toString("utf8"))
+    if (committed !== digest) throw new Error(`core CLI receipt source commit mismatch: ${path}`)
+  }
+  const receiptTask = coreReceipt.tasks.find(item => item.id === task.id)
+  const commands = receiptTask?.evidence.filter(item => item.kind === "command") ?? []
+  const sources = receiptTask?.evidence.filter(item => item.kind === "source") ?? []
+  const testDeliverables = task.deliverables.filter(path => path.startsWith("test/"))
+  if (receiptTask?.status !== "PASS" || !commands.some(item => item.exitCode === 0 && item.command.trim() && item.observed.trim()) || !task.deliverables.every(path => coreReceipt.sourcePins[path] !== undefined && sources.some(item => item.path === path && item.sha256 === coreReceipt.sourcePins[path])) || !testDeliverables.every(path => commands.some(item => item.command.includes(path)))) throw new Error(`missing core CLI completion evidence: ${task.id}`)
+  coreReceipts.set(task.id, { path: receiptPath, receipt: coreReceipt })
 }
 const commit = catalog.sourceCommit
 const prefix = "urn:usl:syntax-cli:"
 const location = (path: string) => `git://github.com/gj3447/USL@${commit}:${path}`
 const publicLocation = (path: string) => `https://github.com/gj3447/USL/blob/master/${path}`
-const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator", "source:hswm-plan", "source:core-cli-plan", "source:binding-delivery-receipt", "source:compression-sources", "artifact:compression-benchmark"], activity: "activity:architecture", agent: "agent:secondary" } }
+const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator", "source:hswm-plan", "source:core-cli-plan", "source:binding-delivery-receipt", ...[...coreReceipts.keys()].map(taskId => `source:core-cli-receipt:${taskId.slice("task:".length)}`), "source:compression-sources", "artifact:compression-benchmark"], activity: "activity:architecture", agent: "agent:secondary" } }
 type Meta = NonNullable<ResourceGraph["resources"][number]["metadata"]>
 type LinkMeta = NonNullable<ResourceGraph["links"][number]["metadata"]>
 const add = (id: string, type: string | string[], locator: string, metadata: Meta) => { graph.resources.push({ id, types: (Array.isArray(type) ? type : [type]).map(t => t.startsWith("http") ? t : prefix + t), locator, metadata }); return id }
@@ -90,6 +119,10 @@ add("source:generator", "Source", publicLocation("scripts/build-syntax-cli-archi
 add("source:hswm-plan", "Source", publicLocation("research/architecture/hswm-like.plan.json"), { path: "research/architecture/hswm-like.plan.json", sourceDigest: digestSource(await read("research/architecture/hswm-like.plan.json")), authority: "SECONDARY_AI", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("source:core-cli-plan", "Source", publicLocation(corePlanPath), { path: corePlanPath, sourceDigest: digestSource(await read(corePlanPath)), authority: corePlan.authority, status: corePlan.status, sourceEvidence: corePlan.sourceEvidence, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("source:binding-delivery-receipt", "VerificationReceipt", publicLocation(receiptPath), { path: receiptPath, sourceDigest: digestSource(await read(receiptPath)), authority: receipt.authority, status: receipt.status, generatedAt: receipt.generatedAt, sourcePins: receipt.sourcePins, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+for (const [taskId, value] of coreReceipts) {
+  const receiptId = `source:core-cli-receipt:${taskId.slice("task:".length)}`
+  add(receiptId, "VerificationReceipt", publicLocation(value.path), { path: value.path, sourceDigest: digestSource(await read(value.path)), authority: value.receipt.authority, status: value.receipt.status, generatedAt: value.receipt.generatedAt, sourceCommit: value.receipt.sourceCommit, sourcePins: value.receipt.sourcePins, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+}
 add("source:compression-sources", "Source", publicLocation("research/compression/sources.json"), { path: "research/compression/sources.json", sourceDigest: digestSource(await read("research/compression/sources.json")), authority: "EXTERNAL_RESEARCH_CATALOG", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("artifact:compression-benchmark", "BenchmarkArtifact", publicLocation("research/compression/benchmark-results.json"), { path: "research/compression/benchmark-results.json", sourceDigest: digestSource(await read("research/compression/benchmark-results.json")), resultStatus: compressionBenchmark.scope, validationStatus: compressionBenchmark.validationStatus, memory: compressionBenchmark.environment.memory, tokenEncodings: compressionBenchmark.environment.encodings, billing: "NOT_MEASURED", llmQuality: "NOT_MEASURED", remoteExecution: "NOT_PERFORMED" })
 add("activity:architecture", ["ArchitectureActivity", "http://www.w3.org/ns/prov#Activity"], publicLocation("research/architecture/syntax-cli.catalog.json"), { status: "DECLARED", scope: "CURRENT_IMPLEMENTATION_AND_PROPOSAL_SEPARATION", runtimeTests: "NOT_CLAIMED" })
@@ -150,12 +183,14 @@ for (const task of workPlan.tasks) {
 }
 const coreArtifacts = corePlan.sourceEvidence.map(source => add(`artifact:core-cli:${source.path}`, "Artifact", publicLocation(source.path), { path: source.path, sourceDigest: `sha256:${source.sha256}`, scope: source.kind, remoteObservation: "NOT_PERFORMED" }))
 for (const task of corePlan.tasks) {
-  add(task.id, "Task", publicLocation(corePlanPath), { ...task, authority: "SECONDARY_AI", sourceStatus: "PLANNED_CORE_CLI_WORK" })
+  const completed = task.status === "COMPLETED"
+  add(task.id, "Task", publicLocation(corePlanPath), { ...task, authority: "SECONDARY_AI", sourceStatus: completed ? "COMPLETED_CORE_CLI_WORK" : "PLANNED_CORE_CLI_WORK" })
   const criterion = `criterion:${task.id.slice("task:".length)}`
-  add(criterion, "AcceptanceCriterion", publicLocation(corePlanPath), { task: task.id, checks: task.acceptance, status: "PLANNED_NOT_EXECUTED" })
-  link("planned_work", { task: task.id, criterion, requirement: corePlan.userRequest.id }, { authority: "SECONDARY_AI", status: "PLANNED_WORKTRACE" })
-  for (const prerequisite of task.dependsOn) link("task_depends_on", { task: task.id, prerequisite }, { authority: "SECONDARY_AI", status: "PLANNED_DEPENDENCY" })
-  for (const artifact of coreArtifacts) link("planned_evidence", { task: task.id, artifact }, { authority: "SECONDARY_AI", status: "LOCAL_SNAPSHOT_EVIDENCE" })
+  add(criterion, "AcceptanceCriterion", publicLocation(corePlanPath), { task: task.id, checks: task.acceptance, status: completed ? "PASS_RECORDED" : "PLANNED_NOT_EXECUTED" })
+  link("planned_work", { task: task.id, criterion, requirement: corePlan.userRequest.id }, { authority: "SECONDARY_AI", status: completed ? "COMPLETED_WORKTRACE" : "PLANNED_WORKTRACE" })
+  for (const prerequisite of task.dependsOn) link("task_depends_on", { task: task.id, prerequisite }, { authority: "SECONDARY_AI", status: completed ? "COMPLETED_DEPENDENCY" : "PLANNED_DEPENDENCY" })
+  if (completed) link("completed_by", { task: task.id, criterion, evidence: `source:core-cli-receipt:${task.id.slice("task:".length)}` }, { authority: "SECONDARY_AI", status: "PASS_RECORDED", proofStatus: task.proofStatus })
+  else for (const artifact of coreArtifacts) link("planned_evidence", { task: task.id, artifact }, { authority: "SECONDARY_AI", status: "LOCAL_SNAPSHOT_EVIDENCE" })
 }
 const raw = JSON.stringify(graph, null, 2) + "\n"
 const report = checkResourceGraphProfile(graph, profile)
@@ -219,9 +254,10 @@ const overview = [
   "각 연결 안에서 표의 역할은 정확히 하나씩 필요하고 추가 역할은 허용하지 않는다. 한 작업에는 요구사항이나 선행 작업별로 여러 연결이 붙을 수 있다. 수용 기준과 완료 근거는 별도 자원으로 보존한다.", "",
   "## 4. 근거와 검증 범위", "",
   `- P01~P03은 [검증 기록](../${receiptPath})의 ${receipt.generatedAt} 로컬 명령 PASS와 파일 digest로 연결되어 있다. 이 요약의 재생성은 그 테스트 명령을 재실행하지 않는다.`,
+  ...[...coreReceipts.entries()].map(([taskId, value]) => `- ${short(taskId)}은 [검증 기록](../${value.path})의 ${value.receipt.generatedAt} 로컬 명령 PASS, 파일 digest와 source commit \`${value.receipt.sourceCommit}\`으로 연결되어 있다. 이 기록은 Lean 증명이 아니다.`),
   "- JSON-LD/RDF 교환 표현과 PROV-O 출처 관계, SHACL 역할·타입·카디널리티 검사를 사용한다. USL 어휘와 task 상태 규약은 프로젝트 소유다.",
   "- 별도 검증기가 현재 파일 digest, 완료 근거 연결, 작업 상태와 선행 관계의 순환 여부를 확인한다. 명령 기록은 서명된 실행 증명이나 원격 상태 관측이 아니다.",
-  "- P01~P03의 완료는 기초 계약·예제·유한 CLI 검증의 완료다. graph-cli 제안 전체나 C01~C04의 완료를 뜻하지 않는다.",
+  "- 완료된 작업은 해당 수용 기준의 로컬 검증 기록을 뜻한다. graph-cli 제안 전체나 남은 계획 작업의 완료를 뜻하지 않는다.",
   "- 기존 [Lean 모델의 증명 범위](LEAN4_INTEGRATION.md)와 이번 작업의 NOT_PROVEN을 구분한다. CLI 외부 효과·토큰 비용에 새 증명을 추가하지 않았다.",
   "- [압축 측정](COMPACT_SYNTAX_RESEARCH.md)은 bytes와 encoding별 tokens를 구분한다. 실제 heap·API 청구액·모델 품질은 미측정이다.", "",
   "## 5. 탐색과 재현", "",

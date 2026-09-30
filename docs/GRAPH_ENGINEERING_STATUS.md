@@ -22,7 +22,7 @@ flowchart LR
   P01["P01 · 완료"]
   P02["P02 · 완료"]
   P03["P03 · 완료"]
-  C01["C01 · 계획"]
+  C01["C01 · 완료"]
   C02["C02 · 계획"]
   C03["C03 · 계획"]
   C04["C04 · 계획"]
@@ -38,12 +38,12 @@ flowchart LR
 | P01 | 단순 바인딩의 기초 계약 점검 | COMPLETED | 없음 | 로컬 PASS 기록 / NOT_PROVEN |
 | P02 | 선택형 애드온 규칙을 연결하는 방법 정리 | COMPLETED | P01 | 로컬 PASS 기록 / NOT_PROVEN |
 | P03 | CLI 최소 사용 흐름과 호환 예제 검증 | COMPLETED | P02 | 로컬 PASS 기록 / NOT_PROVEN |
-| C01 | Main entry help and command-family contracts | PLANNED | 없음 | 구현 전 / NOT_PROVEN |
+| C01 | Main entry help and command-family contracts | COMPLETED | 없음 | 로컬 PASS 기록 / NOT_PROVEN |
 | C02 | Adapted context traversal and compact-delivery parity | PLANNED | C01 | 구현 전 / NOT_PROVEN |
 | C03 | Bounded pure-core stdin/file pipeline | PLANNED | C01 | 구현 전 / NOT_PROVEN |
 | C04 | Built package-bin compatibility gate | PLANNED | C01 | 구현 전 / NOT_PROVEN |
 
-**현재 선행 조건이 충족된 미완료 작업: C01.** 이는 작업 순서 판정이며 외부 실행 권한을 부여하지 않는다.
+**현재 선행 조건이 충족된 미완료 작업: C02, C03, C04.** 이는 작업 순서 판정이며 외부 실행 권한을 부여하지 않는다.
 
 C02·C03·C04 사이의 추가 선행 관계는 선언되어 있지 않다. 실제 작업 시 겹치는 파일의 변경을 조정한다.
 
@@ -61,10 +61,11 @@ C02·C03·C04 사이의 추가 선행 관계는 선언되어 있지 않다. 실�
 
 ## 4. 근거와 검증 범위
 
-- P01~P03은 [검증 기록](../research/architecture/binding-delivery.receipt.json)의 2026-09-29 로컬 명령 PASS와 파일 digest로 연결되어 있다. 이 요약의 재생성은 그 테스트 명령을 재실행하지 않는다.
+- P01~P03은 [검증 기록](../research/architecture/binding-delivery.receipt.json)의 2026-09-30 로컬 명령 PASS와 파일 digest로 연결되어 있다. 이 요약의 재생성은 그 테스트 명령을 재실행하지 않는다.
+- C01은 [검증 기록](../research/architecture/core-cli-c01.receipt.json)의 2026-09-30 로컬 명령 PASS, 파일 digest와 source commit `8d38fa7dbf0bb52209f5d0c34dc72e3f97bcd3c6`으로 연결되어 있다. 이 기록은 Lean 증명이 아니다.
 - JSON-LD/RDF 교환 표현과 PROV-O 출처 관계, SHACL 역할·타입·카디널리티 검사를 사용한다. USL 어휘와 task 상태 규약은 프로젝트 소유다.
 - 별도 검증기가 현재 파일 digest, 완료 근거 연결, 작업 상태와 선행 관계의 순환 여부를 확인한다. 명령 기록은 서명된 실행 증명이나 원격 상태 관측이 아니다.
-- P01~P03의 완료는 기초 계약·예제·유한 CLI 검증의 완료다. graph-cli 제안 전체나 C01~C04의 완료를 뜻하지 않는다.
+- 완료된 작업은 해당 수용 기준의 로컬 검증 기록을 뜻한다. graph-cli 제안 전체나 남은 계획 작업의 완료를 뜻하지 않는다.
 - 기존 [Lean 모델의 증명 범위](LEAN4_INTEGRATION.md)와 이번 작업의 NOT_PROVEN을 구분한다. CLI 외부 효과·토큰 비용에 새 증명을 추가하지 않았다.
 - [압축 측정](COMPACT_SYNTAX_RESEARCH.md)은 bytes와 encoding별 tokens를 구분한다. 실제 heap·API 청구액·모델 품질은 미측정이다.
 
@@ -84,4 +85,4 @@ python3 scripts/validate-syntax-cli-architecture.py
 
 SHACL 검사는 scripts/requirements-standards.txt를 설치한 Python 환경을 사용한다. 원본 catalog/plan 수정 후 generator를 --check 없이 실행하면 그래프와 이 문서를 함께 갱신한다.
 
-그래프 digest: `sha256:ddcde47614703640900ccf376c15a381275738b2c6463cccf13480a335abd90b`.
+그래프 digest: `sha256:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a`.

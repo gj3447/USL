@@ -1,8 +1,8 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:37ca3653-b01f-4949-a46d-a7c3d80578a9",
-  "startedAt": "2026-09-29T01:21:48.010Z",
-  "finishedAt": "2026-09-29T01:21:48.748Z",
+  "runId": "urn:uuid:21086724-009b-4477-aaa7-6d7f17a1f624",
+  "startedAt": "2026-09-30T02:23:00.445Z",
+  "finishedAt": "2026-09-30T02:23:01.292Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
@@ -17,15 +17,16 @@
     "src/bounded-read.ts": "sha256:e016f04530b8046daccc274269412cfccee5607ba661fd718730ee15c0a7e7c7",
     "src/capabilities.ts": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
     "src/capability-catalog.ts": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc",
-    "src/cli-adapter.ts": "sha256:e14290ed08ef7f19b1cc6f8fc60a7611642c6629e74adc58581907590e228ec2",
-    "src/cli-capabilities.ts": "sha256:12dee7bd3253d55923df1be8a03f4ed79c41066f52313aa3aff95aed251c2370",
-    "src/cli-host-command.ts": "sha256:a2cd015ba1965160ec0dff2df54e28ce645c8104b7c02c636287ba30bd43d29b",
+    "src/cli-adapter.ts": "sha256:4d2f6a159b40bbeb5b437cd9a600210453cafa598997b82246ba910b996349b4",
+    "src/cli-capabilities.ts": "sha256:48cee118eeccaaea3e2a0aefa3bdd292382a91a51e33a6895e4d7bd810ee1c70",
+    "src/cli-help.ts": "sha256:4df34b8da44cfa1dfbcd316610b6d44df11ff13e9209e21fdbb7167d5887c5dc",
+    "src/cli-host-command.ts": "sha256:f328f49fdd91046d1216f307e23e91cc06481e08af0f180609b8b3f07fd95f77",
     "src/cli-host.ts": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
     "src/cli-operation.ts": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
-    "src/cli-platform.ts": "sha256:0a44c9ad2acadb71be6e50ab6359f921be9f2bc6c005def00c688a0184757ec9",
+    "src/cli-platform.ts": "sha256:289c4a3a8bcd6c26811924bb703a0038894c7b64207964142ce25ae588c0771a",
     "src/cli-process.ts": "sha256:c9d20c5af3b9a8aeb81c42a5ded7b4706d59dee08ac2d15d101de34b11d3fa29",
     "src/cli-recovery.ts": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
-    "src/cli.ts": "sha256:71edd5b455f5f6b1719475656a063d6458d7a55af4f55e9d816e73692a597baf",
+    "src/cli.ts": "sha256:5843b269a772cabcf62c700448af6fc331d97553c51d365f7b75657bd71abaa7",
     "src/contract-core.ts": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
     "src/domain-profile.ts": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
     "src/domain.ts": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d",
@@ -218,5 +219,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:aed30f41a41642e3e70d7f7f674eb137c5acfd7b83d372d79c57d2e4fca5a646"
+  "receiptDigest": "sha256:35a53a8ffdd2ba5433b91a52e65da901382af717e7672bba2c1d5759c983cf6f"
 }
