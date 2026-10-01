@@ -1,0 +1,57 @@
+{
+  "schema": "usl-kg-bridge/v1",
+  "authority": "SECONDARY_AI",
+  "recordedAt": "2026-10-01",
+  "request": {
+    "text": "보완할 부분 보완좀 해줘봐봐 ㅇㅇ",
+    "authority": "USER_PRIMARY"
+  },
+  "subject": {
+    "uid": "sym:Concept:usl",
+    "locator": "kg://personal/sym:Concept:usl"
+  },
+  "observation": {
+    "observedAt": "2026-10-01T00:08:54Z",
+    "method": "ontology_get",
+    "uidMatchCount": 1,
+    "uidCollision": false,
+    "targetVersion": "\"2026-09-07T04:42:29.476Z\"",
+    "userUtteranceSha256": "sha256:d325f706c05d6222bfa3d6873ad0b52c27fbb1fd6ce4e2562d41988313ccc5f7",
+    "descriptionSha256": "sha256:04d84d7507e34175927df9a0680eece28e2996332dbbd2c2d1f532c5300d0026",
+    "authorityClass": "USER_PRIMARY",
+    "descriptionScope": "HISTORICAL_2026_09_07"
+  },
+  "repository": {
+    "url": "https://github.com/gj3447/USL",
+    "subject": "subject:usl",
+    "sourceCommit": "0b90a37d619617ab641803074ac8c1f4df2fe864"
+  },
+  "currentDecisions": [
+    "user:binding-only",
+    "user:addon-rules",
+    "user:cli-programs",
+    "user:compression-cost"
+  ],
+  "trackedTasks": [
+    "task:P01",
+    "task:P02",
+    "task:P03",
+    "task:C01",
+    "task:C02",
+    "task:C03",
+    "task:C04"
+  ],
+  "publication": {
+    "status": "PUBLISHED_DRAFT",
+    "noteUid": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+    "relation": "ABOUT",
+    "targetUid": "sym:Concept:usl",
+    "relationshipStatus": "PROPOSED",
+    "authority": "SECONDARY_AI",
+    "canonicalScope": "PENDING_OR_PRELIMINARY",
+    "reviewRequired": true,
+    "verifiedAt": "2026-10-01T00:08:54Z",
+    "bodySha256": "sha256:64c4f316be23af8edcf31ca0cc034de891d6023510f075513b7b8d0f16c425f9",
+    "recordPath": "research/architecture/kg-bridge.publication.json"
+  }
+}

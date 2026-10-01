@@ -20,6 +20,10 @@ compression_sources_path = root / "research/compression/sources.json"
 compression_sources = json.loads(compression_sources_path.read_text())
 compression_benchmark_path = root / "research/compression/benchmark-results.json"
 compression_benchmark = json.loads(compression_benchmark_path.read_text())
+kg_bridge_path = root / "research/architecture/kg-bridge.json"
+kg_publication_path = root / "research/architecture/kg-bridge.publication.json"
+kg_bridge = json.loads(kg_bridge_path.read_text())
+kg_publication = json.loads(kg_publication_path.read_text())
 compression_inputs_path = root / "research/compression/benchmark-inputs.json"
 benchmark_script_path = root / "scripts/benchmark-compression.ts"
 token_script_path = root / "scripts/count-compression-tokens.py"
@@ -44,12 +48,30 @@ for path, pin in catalog["sourcePins"].items():
 assert resources["source:hswm-plan"]["metadata"]["sourceDigest"] == "sha256:" + hashlib.sha256(work_plan_path.read_bytes()).hexdigest()
 assert resources["source:core-cli-plan"]["metadata"]["sourceDigest"] == "sha256:" + hashlib.sha256(core_plan_path.read_bytes()).hexdigest()
 assert resources["source:binding-delivery-receipt"]["metadata"]["sourceDigest"] == "sha256:" + hashlib.sha256(receipt_path.read_bytes()).hexdigest()
+assert resources["source:kg-bridge"]["metadata"]["sourceDigest"] == sha256_file(kg_bridge_path)
+assert resources["source:kg-bridge-publication"]["metadata"]["sourceDigest"] == sha256_file(kg_publication_path)
 assert resources["user:hswm-plan"]["metadata"] == {"status":"USER_PRIMARY", "text":work_plan["userRequest"]["text"], "authority":"USER_PRIMARY", "locationStatus":"DECLARED_PUBLIC_LOCATION", "remoteObservation":"NOT_PERFORMED"}
 assert resources["user:core-cli-next"]["metadata"] == {"status":"USER_PRIMARY", "text":core_plan["userRequest"]["text"], "authority":"USER_PRIMARY", "locationStatus":"DECLARED_PUBLIC_LOCATION", "remoteObservation":"NOT_PERFORMED"}
 for correction in work_plan.get("scopeCorrections", []):
     assert resources[correction["id"]]["metadata"]["authority"] == "USER_PRIMARY"
 assert resources["user:cli-programs"]["metadata"]["authority"] == "USER_PRIMARY"
 assert resources["user:compression-cost"]["metadata"]["authority"] == "USER_PRIMARY"
+assert kg_bridge["schema"] == "usl-kg-bridge/v1" and kg_bridge["authority"] == "SECONDARY_AI"
+assert kg_bridge["subject"] == {"uid": "sym:Concept:usl", "locator": "kg://personal/sym:Concept:usl"}
+assert kg_bridge["observation"]["method"] == "ontology_get" and kg_bridge["observation"]["uidMatchCount"] == 1 and kg_bridge["observation"]["uidCollision"] is False
+assert kg_bridge["repository"]["subject"] == "subject:usl" and kg_bridge["repository"]["url"] == "https://github.com/gj3447/USL"
+assert kg_publication["schema"] == "usl-kg-publication/v1" and kg_publication["status"] == "PUBLISHED_DRAFT"
+assert kg_publication["verifiedAt"] == kg_bridge["publication"]["verifiedAt"]
+assert "sha256:" + hashlib.sha256(kg_publication["saveRequest"]["body"].encode()).hexdigest() == kg_bridge["publication"]["bodySha256"]
+assert kg_publication["saveResult"]["uid"] == "sym:Note:chatgpt-" + kg_publication["saveRequest"]["name"]
+assert kg_publication["saveResult"]["title"] == kg_publication["saveRequest"]["title"]
+assert kg_publication["saveResult"]["uid"] == kg_bridge["publication"]["noteUid"] == kg_publication["readback"]["uid"]
+assert kg_publication["readback"]["bodySha256"] == kg_bridge["publication"]["bodySha256"]
+assert kg_publication["readback"]["authorityClass"] == kg_publication["readback"]["relationshipAuthority"] == "SECONDARY_AI"
+assert kg_publication["readback"]["canonicalScope"] == "PENDING_OR_PRELIMINARY" and kg_publication["readback"]["reviewRequired"] is True and kg_publication["readback"]["relationshipReviewRequired"] is True
+assert kg_publication["readback"]["relationshipStatus"] == kg_bridge["publication"]["relationshipStatus"] == "PROPOSED"
+assert kg_publication["readback"]["targetVersion"] == kg_publication["saveResult"]["target_version"]
+assert kg_publication["subjectPreservation"] == {"uid": kg_bridge["subject"]["uid"], "targetVersion": kg_bridge["observation"]["targetVersion"], "userUtteranceSha256": kg_bridge["observation"]["userUtteranceSha256"], "descriptionSha256": kg_bridge["observation"]["descriptionSha256"], "unchanged": True}
 assert resources["source:compression-sources"]["metadata"]["sourceDigest"] == sha256_file(compression_sources_path)
 benchmark = resources["artifact:compression-benchmark"]
 assert benchmark["metadata"]["sourceDigest"] == sha256_file(compression_benchmark_path)
@@ -147,6 +169,27 @@ def completed_binding_work_conforms(candidate):
     return task_dag_acyclic(graph)
 assert conforms(raw)
 assert claims_conform(raw)
+def kg_bridge_conforms(candidate):
+    by_id = {r["id"]: r for r in candidate["resources"]}
+    def parts(link): return {p["role"]: p["resource"] for p in link["participants"]}
+    external = by_id.get("sym:Concept:usl", {})
+    note = by_id.get(kg_bridge["publication"]["noteUid"], {})
+    if "urn:usl:syntax-cli:ExternalSubject" not in external.get("types", []) or external.get("locator") != "kg://personal/sym:Concept:usl": return False
+    if external.get("metadata", {}).get("nativeUid") != "sym:Concept:usl" or external.get("metadata", {}).get("authority") != "USER_PRIMARY" or external.get("metadata", {}).get("uidCollision") is not False: return False
+    if not {"urn:usl:syntax-cli:Source", "urn:usl:syntax-cli:ExternalSubject"}.issubset(set(note.get("types", []))) or note.get("locator") != "kg://personal/" + kg_bridge["publication"]["noteUid"] or note.get("metadata", {}).get("authority") != "SECONDARY_AI" or note.get("metadata", {}).get("canonicalScope") != "PENDING_OR_PRELIMINARY" or note.get("metadata", {}).get("reviewRequired") is not True: return False
+    links_by_meaning = {}
+    for link in candidate["links"]: links_by_meaning.setdefault(link["meaning"].split(":")[-1], []).append(link)
+    described = [link for link in links_by_meaning.get("describes_subject", []) if parts(link) == {"subject": "subject:usl", "external": "sym:Concept:usl"}]
+    if len(described) != 1 or described[0].get("metadata", {}).get("authority") != "SECONDARY_AI" or described[0].get("metadata", {}).get("equivalence") != "NOT_CLAIMED": return False
+    decisions = {parts(link).get("statement") for link in links_by_meaning.get("current_decision", []) if parts(link).get("subject") == "subject:usl"}
+    if decisions != set(kg_bridge["currentDecisions"]): return False
+    tracked = {parts(link).get("task") for link in links_by_meaning.get("tracks_work", []) if parts(link).get("subject") == "subject:usl"}
+    if tracked != set(kg_bridge["trackedTasks"]) or "task:C02" not in tracked: return False
+    published = [link for link in links_by_meaning.get("published_note", []) if parts(link) == {"record": kg_bridge["publication"]["noteUid"], "external": "sym:Concept:usl"}]
+    if len(published) != 1: return False
+    metadata = published[0].get("metadata", {})
+    return metadata.get("status") == "PUBLISHED_DRAFT" and metadata.get("relationshipStatus") == "PROPOSED" and metadata.get("canonicalScope") == "PENDING_OR_PRELIMINARY" and metadata.get("reviewRequired") is True and metadata.get("sharedKgRelation") == "RECORDED_FROM_READBACK_NOT_RATIFIED"
+assert kg_bridge_conforms(raw)
 assert completed_binding_work_conforms(raw)
 
 def core_cli_work_conforms(candidate):
@@ -286,6 +329,18 @@ receipt = saved_receipt
 broken_compression = clone()
 broken_compression["links"] = [link for link in broken_compression["links"] if not (link["meaning"].endswith("measured_by") and any(participant["resource"] == "technique:compression:compact-full" for participant in link["participants"]))]
 assert not compression_trace_conforms(broken_compression)
+wrong_kg_native_uid = clone()
+for resource in wrong_kg_native_uid["resources"]:
+    if resource["id"] == "sym:Concept:usl": resource["metadata"]["nativeUid"] = "sym:Concept:not-usl"
+assert not kg_bridge_conforms(wrong_kg_native_uid)
+wrong_kg_authority = clone()
+for resource in wrong_kg_authority["resources"]:
+    if resource["id"] == kg_bridge["publication"]["noteUid"]: resource["metadata"]["authority"] = "USER_PRIMARY"
+assert not kg_bridge_conforms(wrong_kg_authority)
+forged_publication_claim = clone()
+for link in forged_publication_claim["links"]:
+    if link["meaning"].endswith("published_note"): link["metadata"]["relationshipStatus"] = "ACTIVE"
+assert not kg_bridge_conforms(forged_publication_claim)
 # Query the actual JSON-LD projection and run both shared and task-specific shapes.
 data = Graph().parse(jsonld_path, format="json-ld")
 shape_graph = Graph().parse(root / "schemas/resource-graph.shacl.ttl", format="turtle")
@@ -330,5 +385,5 @@ broken_role_rdf = copy_graph(); participant = next(broken_role_rdf.objects(links
 assert not validate(broken_role_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
 wrong_status_rdf = copy_graph(); wrong_status_rdf.set((links_rdf[0], usl.status, Literal("IMPLEMENTED_AND_PROVEN")))
 assert not validate(wrong_status_rdf, shacl_graph=shape_graph, abort_on_first=True)[0]
-negative_cases = 13 + (2 if core_plan["status"] != "PLANNED" else 0)
+negative_cases = 16 + (2 if core_plan["status"] != "PLANNED" else 0)
 print(json.dumps({"scope":"ARCHITECTURE_GRAPH_STRUCTURE_AND_COMPETENCY_QUERIES_ONLY","resources":len(resources),"links":len(links),"tasks":len(task_resources),"readyCoreTasks":ready_core_tasks,"compressionSources":len(compression_sources),"triples":len(data),"negative_cases":negative_cases,"graph_sha256":hashlib.sha256(graph_path.read_bytes()).hexdigest()}, ensure_ascii=False))

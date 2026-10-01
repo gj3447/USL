@@ -1,0 +1,47 @@
+{
+  "schema": "usl-kg-publication/v1",
+  "status": "PUBLISHED_DRAFT",
+  "verifiedAt": "2026-10-01T00:08:54Z",
+  "saveRequest": {
+    "kind": "NOTE",
+    "name": "usl-current-state-2026-10-01",
+    "title": "USL 현재 범위·구현 근거 안내 — 2026-10-01",
+    "body": "이 노트는 sym:Concept:usl에서 최신 USL 저장소 결정과 구현 근거를 찾아가기 위한 SECONDARY_AI 안내다. 원래 USER_PRIMARY 개념·사용자 발화·2026-09-07 역사 기록을 수정하거나 대체하지 않는다. 이 노트와 ABOUT 연결은 검토 대상이며 정전 승인이나 형식 증명을 뜻하지 않는다.\n\n현재 사용자 결정의 원문 위치\n- docs/DECISIONS.md의 2026-09-29 «범위 명확화: 단순 바인딩 문법과 선택형 애드온», «USL 위에 올라가는 CLI 기반 프로그램».\n- research/architecture/hswm-like.plan.json의 scopeCorrections: user:binding-only, user:addon-rules, user:cli-programs, user:compression-cost.\n사용자는 USL을 단순 바인딩 문법으로 한정하고, 규칙은 애드온으로 연결하며 실제 기능은 그 위의 CLI 기반 프로그램에서 구현하도록 정정했다. 이 문단은 원문에 대한 AI 요약이며 새 사용자 발화가 아니다.\n\n책임과 연결\n- USL 문법: 자원·의미·이름 있는 참여 역할·Link·출처를 표현한다.\n- CLI/SDK: 검사·컴파일·연결 탐색·명시적 표현 선택·compact 문맥 전달을 제공한다.\n- 선택 profile: 명시적으로 선택한 역할 타입과 필수 metadata 구조를 검사한다.\n- 소비자/애드온: 가중치 해석·갱신, 계층 알고리즘, M 색인, HSWM 도메인 규칙과 실행을 담당한다.\n- 자원 stable ID와 로컬/Git/URL 표현을 구분한다. 경로 이동은 workspace mapping을 바꾸고, 복수 표현은 명시적으로 선택한다. 바인딩은 접근 권한을 주지 않는다.\n\n구현 현황 스냅샷\n- 로컬 Git revision: 0b90a37d619617ab641803074ac8c1f4df2fe864.\n- P01/P02/P03 및 C01은 COMPLETED. C01은 전체·명령군·개별 도움말을 공통 정의에서 생성한다.\n- C02/C03/C04는 PLANNED: adapted context 옵션 맞춤, bounded stdin, 빌드된 package-bin 검사.\n- docs/GRAPH_ENGINEERING_STATUS.md는 작업 그래프에서 생성한 상태 뷰다.\n- research/architecture/syntax-cli.graph.json, syntax-cli.graph.jsonld, syntax-cli.profile.json, syntax-cli.shacl.ttl이 구조·출처·검증 대상을 제공한다.\n- core-cli-c01.receipt.json과 binding-delivery.receipt.json은 로컬 실행 결과와 소스 pin을 기록한다. 이전 PASS를 현재 서비스의 실시간 동작 보증으로 해석하지 않는다.\n\n검증 범위\nJSON-LD/RDF 교환, PROV-O 출처, SHACL 구조 검사를 사용한다. USL 자체 어휘·작업 규약은 프로젝트 소유다. Lean 증명은 순수 모델 일부의 범위이며 CLI 전체·OS·외부 효과·tokenizer 비용을 증명하지 않는다. 압축 결과는 오프라인 bytes/encoding별 count이며 heap·API 청구·모델 품질은 별도다.\n\n탐색\n공유 KG에서 이 노트는 include_preliminary=true로 조회한다. 저장된 노트의 ABOUT 대상은 sym:Concept:usl이다. 기준 저장소는 https://github.com/gj3447/USL 이며 위 경로는 모두 저장소 상대 경로다. 이 스냅샷은 로컬 Git에서 확인했고 해당 revision의 원격 GitHub 게시 상태는 확인하지 않았다. 후속 상태는 저장소의 작업 그래프와 검증 근거를 다시 읽어 판단한다.",
+    "source_ref": "https://github.com/gj3447/USL",
+    "domain": "ENGINEERING",
+    "expected_version": ""
+  },
+  "saveResult": {
+    "canonical_scope": "PENDING_OR_PRELIMINARY",
+    "changed": true,
+    "review_required": true,
+    "revision": 1,
+    "target_version": "\"2026-10-01T00:07:50.633Z\"",
+    "title": "USL 현재 범위·구현 근거 안내 — 2026-10-01",
+    "uid": "sym:Note:chatgpt-usl-current-state-2026-10-01"
+  },
+  "linkResult": {
+    "relation": "ABOUT",
+    "source_uid": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+    "target_uid": "sym:Concept:usl"
+  },
+  "readback": {
+    "uid": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+    "bodySha256": "sha256:64c4f316be23af8edcf31ca0cc034de891d6023510f075513b7b8d0f16c425f9",
+    "sourceRef": "https://github.com/gj3447/USL",
+    "authorityClass": "SECONDARY_AI",
+    "canonicalScope": "PENDING_OR_PRELIMINARY",
+    "reviewRequired": true,
+    "targetVersion": "\"2026-10-01T00:07:50.633Z\"",
+    "relationshipStatus": "PROPOSED",
+    "relationshipAuthority": "SECONDARY_AI",
+    "relationshipReviewRequired": true
+  },
+  "subjectPreservation": {
+    "uid": "sym:Concept:usl",
+    "targetVersion": "\"2026-09-07T04:42:29.476Z\"",
+    "userUtteranceSha256": "sha256:d325f706c05d6222bfa3d6873ad0b52c27fbb1fd6ce4e2562d41988313ccc5f7",
+    "descriptionSha256": "sha256:04d84d7507e34175927df9a0680eece28e2996332dbbd2c2d1f532c5300d0026",
+    "unchanged": true
+  }
+}

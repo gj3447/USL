@@ -2,7 +2,7 @@
 @prefix arc: <urn:usl:syntax-cli:> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-arc:ArchitectureRoleShape a sh:NodeShape ; sh:targetClass usl:Link ; sh:or ( arc:interpreted_asShape arc:implemented_byShape arc:traceShape arc:bounded_byShape arc:addressesShape arc:depends_onShape arc:planned_workShape arc:completed_byShape arc:planned_evidenceShape arc:task_depends_onShape arc:advancesShape arc:evaluated_byShape arc:measured_byShape ) .
+arc:ArchitectureRoleShape a sh:NodeShape ; sh:targetClass usl:Link ; sh:or ( arc:interpreted_asShape arc:implemented_byShape arc:traceShape arc:bounded_byShape arc:addressesShape arc:depends_onShape arc:planned_workShape arc:completed_byShape arc:planned_evidenceShape arc:task_depends_onShape arc:advancesShape arc:evaluated_byShape arc:measured_byShape arc:describes_subjectShape arc:current_decisionShape arc:tracks_workShape arc:published_noteShape ) .
 
 arc:interpreted_asShape a sh:NodeShape ;
   sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:interpreted_as" ] ;
@@ -74,3 +74,23 @@ arc:measured_byShape a sh:NodeShape ;
   sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "requirement" ] ; sh:property [ sh:path usl:resource ; sh:class arc:UserStatement ] ] ] ;
   sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "technique" ] ; sh:property [ sh:path usl:resource ; sh:class arc:CompressionTechnique ] ] ] ;
   sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "benchmark" ] ; sh:property [ sh:path usl:resource ; sh:class arc:BenchmarkArtifact ] ] ] .
+arc:describes_subjectShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:describes_subject" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "subject" "external" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "subject" ] ; sh:property [ sh:path usl:resource ; sh:class arc:ArchitectureSubject ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "external" ] ; sh:property [ sh:path usl:resource ; sh:class arc:ExternalSubject ] ] ] .
+arc:current_decisionShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:current_decision" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "subject" "statement" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "subject" ] ; sh:property [ sh:path usl:resource ; sh:class arc:ArchitectureSubject ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "statement" ] ; sh:property [ sh:path usl:resource ; sh:class arc:UserStatement ] ] ] .
+arc:tracks_workShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:tracks_work" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "subject" "task" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "subject" ] ; sh:property [ sh:path usl:resource ; sh:class arc:ArchitectureSubject ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "task" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Task ] ] ] .
+arc:published_noteShape a sh:NodeShape ;
+  sh:property [ sh:path (usl:meaning usl:nativeId) ; sh:hasValue "urn:usl:syntax-cli:published_note" ] ;
+  sh:property [ sh:path (usl:participant usl:role) ; sh:in ( "record" "external" ) ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "record" ] ; sh:property [ sh:path usl:resource ; sh:class arc:Source ] ] ] ;
+  sh:property [ sh:path usl:participant ; sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ; sh:qualifiedValueShape [ sh:property [ sh:path usl:role ; sh:hasValue "external" ] ; sh:property [ sh:path usl:resource ; sh:class arc:ExternalSubject ] ] ] .

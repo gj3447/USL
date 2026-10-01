@@ -5,14 +5,14 @@
   },
   "@graph": [
     {
-      "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a",
+      "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd",
       "@type": "prov:Entity",
-      "usl:sourceDigest": "sha256:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+      "usl:sourceDigest": "sha256:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
     },
     {
-      "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0",
+      "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62",
       "@type": "usl:DomainProfile",
-      "usl:profileDigest": "sha256:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0",
+      "usl:profileDigest": "sha256:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62",
       "usl:profile": {
         "@value": {
           "schema": "usl-domain-profile/v1",
@@ -345,6 +345,94 @@
                   "metadata": []
                 }
               ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:describes_subject",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "subject",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ArchitectureSubject"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "external",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ExternalSubject"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:current_decision",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "subject",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ArchitectureSubject"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "statement",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:UserStatement"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:tracks_work",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "subject",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ArchitectureSubject"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "task",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Task"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:syntax-cli:published_note",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "record",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:Source"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "external",
+                  "required": true,
+                  "types": [
+                    "urn:usl:syntax-cli:ExternalSubject"
+                  ],
+                  "metadata": []
+                }
+              ]
             }
           ]
         },
@@ -381,7 +469,7 @@
       "usl:metadata": {
         "@value": {
           "path": "scripts/build-syntax-cli-architecture.ts",
-          "sourceDigest": "sha256:f76afbd5f0908334498c6e16e95726c1569456cee5127c4f0817c182601b28ee",
+          "sourceDigest": "sha256:a8034c162eeafaaf928f4398e3dd89cf34ab2965541093212b23fe4e2ecbb666",
           "scope": "DETERMINISTIC_GENERATOR",
           "locationStatus": "DECLARED_PUBLIC_LOCATION",
           "remoteObservation": "NOT_PERFORMED"
@@ -748,6 +836,52 @@
       }
     },
     {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Source"
+      ],
+      "usl:nativeId": "source:kg-bridge",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/kg-bridge.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "research/architecture/kg-bridge.json",
+          "sourceDigest": "sha256:dbfaf04b88b1ba236ae59c41de50f35fac3f8485d0cd0c7dfbee4427b02b83ad",
+          "authority": "SECONDARY_AI",
+          "recordedAt": "2026-10-01",
+          "observation": "LOCAL_RECORD_OF_ontology_get",
+          "sharedKgMutation": "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "NOT_PERFORMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Source"
+      ],
+      "usl:nativeId": "source:kg-bridge-publication",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/architecture/kg-bridge.publication.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "research/architecture/kg-bridge.publication.json",
+          "sourceDigest": "sha256:55cade0f47019c0c6f7e6b024781c7560feeb3f99b26cc7114abd1aacdce5662",
+          "authority": "SECONDARY_AI",
+          "status": "PUBLISHED_DRAFT",
+          "canonicalScope": "PENDING_OR_PRELIMINARY",
+          "reviewRequired": true,
+          "relationshipStatus": "PROPOSED",
+          "noteUid": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+          "locationStatus": "DECLARED_PUBLIC_LOCATION",
+          "remoteObservation": "PUBLISHED_DRAFT_READBACK_RECORDED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
       "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture",
       "@type": [
         "usl:Resource",
@@ -794,6 +928,60 @@
         "@value": {
           "name": "USL",
           "role": "LANGUAGE_AND_CLI_BINDING_LAYER"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:sym%3AConcept%3Ausl",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:ExternalSubject"
+      ],
+      "usl:nativeId": "sym:Concept:usl",
+      "usl:locator": "kg://personal/sym:Concept:usl",
+      "usl:metadata": {
+        "@value": {
+          "nativeUid": "sym:Concept:usl",
+          "authority": "USER_PRIMARY",
+          "descriptionScope": "HISTORICAL_2026_09_07",
+          "targetVersion": "\"2026-09-07T04:42:29.476Z\"",
+          "userUtteranceSha256": "sha256:d325f706c05d6222bfa3d6873ad0b52c27fbb1fd6ce4e2562d41988313ccc5f7",
+          "descriptionSha256": "sha256:04d84d7507e34175927df9a0680eece28e2996332dbbd2c2d1f532c5300d0026",
+          "observedAt": "2026-10-01T00:08:54Z",
+          "observationMethod": "ontology_get",
+          "uidMatchCount": 1,
+          "uidCollision": false,
+          "localRelationStatus": "NAVIGATION_ASSERTION_ONLY",
+          "sharedKgRelationMutation": "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:resource:sym%3ANote%3Achatgpt-usl-current-state-2026-10-01",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:syntax-cli:Source",
+        "urn:usl:syntax-cli:ExternalSubject"
+      ],
+      "usl:nativeId": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+      "usl:locator": "kg://personal/sym:Note:chatgpt-usl-current-state-2026-10-01",
+      "usl:metadata": {
+        "@value": {
+          "nativeUid": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+          "authority": "SECONDARY_AI",
+          "title": "USL 현재 범위·구현 근거 안내 — 2026-10-01",
+          "sourceRef": "https://github.com/gj3447/USL",
+          "canonicalScope": "PENDING_OR_PRELIMINARY",
+          "reviewRequired": true,
+          "targetVersion": "\"2026-10-01T00:07:50.633Z\"",
+          "bodySha256": "sha256:64c4f316be23af8edcf31ca0cc034de891d6023510f075513b7b8d0f16c425f9",
+          "relationshipStatus": "PROPOSED",
+          "relationshipAuthority": "SECONDARY_AI",
+          "relationshipReviewRequired": true,
+          "inputSource": "source:kg-bridge-publication",
+          "sharedKgRelationMutation": "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH"
         },
         "@type": "@json"
       }
@@ -2553,14 +2741,38 @@
       "usl:description": "Architecture trace relation measured_by; declaration only."
     },
     {
-      "@id": "urn:usl:usl.syntax.cli.architecture:link:evaluated_by%3Auser%3Acompression-cost%3Atechnique%3Acompression%3Aopenai-token-counting%3Asource%3Acompression%3Aopenai-token-counting",
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Adescribes_subject",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:describes_subject",
+      "usl:description": "Architecture trace relation describes_subject; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acurrent_decision",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:current_decision",
+      "usl:description": "Architecture trace relation current_decision; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:tracks_work",
+      "usl:description": "Architecture trace relation tracks_work; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Apublished_note",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:syntax-cli:published_note",
+      "usl:description": "Architecture trace relation published_note; declaration only."
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:describes_subject%3Asubject%3Ausl%3Asym%3AConcept%3Ausl",
       "@type": [
         "usl:Link",
         "prov:Entity"
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -2585,6 +2797,422 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "describes_subject:subject:usl:sym:Concept:usl",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Adescribes_subject"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "external",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:sym%3AConcept%3Ausl"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "equivalence": "NOT_CLAIMED",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:current_decision%3Asubject%3Ausl%3Auser%3Abinding-only",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "current_decision:subject:usl:user:binding-only",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acurrent_decision"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Abinding-only"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:current_decision%3Asubject%3Ausl%3Auser%3Aaddon-rules",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "current_decision:subject:usl:user:addon-rules",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acurrent_decision"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Aaddon-rules"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:current_decision%3Asubject%3Ausl%3Auser%3Acli-programs",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "current_decision:subject:usl:user:cli-programs",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acurrent_decision"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Acli-programs"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:current_decision%3Asubject%3Ausl%3Auser%3Acompression-cost",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "current_decision:subject:usl:user:compression-cost",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acurrent_decision"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "statement",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:user%3Acompression-cost"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:evaluated_by%3Auser%3Acompression-cost%3Atechnique%3Acompression%3Aopenai-token-counting%3Asource%3Acompression%3Aopenai-token-counting",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2599,7 +3227,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aevaluated_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2642,7 +3270,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -2667,6 +3295,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2681,7 +3315,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aevaluated_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2724,7 +3358,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -2749,6 +3383,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2763,7 +3403,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aevaluated_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2806,7 +3446,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -2831,6 +3471,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2845,7 +3491,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aevaluated_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2888,7 +3534,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -2913,6 +3559,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -2927,7 +3579,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aevaluated_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2970,7 +3622,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -2995,6 +3647,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3009,7 +3667,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aevaluated_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3052,7 +3710,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3077,6 +3735,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3091,7 +3755,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ameasured_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3134,7 +3798,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3159,6 +3823,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3173,7 +3843,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ameasured_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3216,7 +3886,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3241,6 +3911,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3255,7 +3931,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ameasured_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3298,7 +3974,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3323,6 +3999,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3337,7 +4019,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ameasured_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3380,7 +4062,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3405,6 +4087,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3419,7 +4107,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ameasured_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3462,7 +4150,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3487,6 +4175,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3501,7 +4195,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ameasured_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3544,7 +4238,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3569,6 +4263,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3583,7 +4283,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3615,7 +4315,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3640,6 +4340,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3654,7 +4360,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3686,7 +4392,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3711,6 +4417,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3725,7 +4437,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3760,7 +4472,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3785,6 +4497,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3799,7 +4517,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3831,7 +4549,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3856,6 +4574,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3870,7 +4594,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3902,7 +4626,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3927,6 +4651,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -3941,7 +4671,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -3976,7 +4706,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4001,6 +4731,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4015,7 +4751,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4047,7 +4783,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4072,6 +4808,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4086,7 +4828,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4118,7 +4860,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4143,6 +4885,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4157,7 +4905,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4189,7 +4937,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4214,6 +4962,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4228,7 +4982,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4263,7 +5017,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4288,6 +5042,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4302,7 +5062,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4334,7 +5094,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4359,6 +5119,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4373,7 +5139,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4408,7 +5174,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4433,6 +5199,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4447,7 +5219,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4479,7 +5251,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4504,6 +5276,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4518,7 +5296,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4553,7 +5331,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4578,6 +5356,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4592,7 +5376,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4624,7 +5408,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4649,6 +5433,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4663,7 +5453,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4695,7 +5485,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4720,6 +5510,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4734,7 +5530,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4766,7 +5562,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4791,6 +5587,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4805,7 +5607,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4837,7 +5639,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4862,6 +5664,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4876,7 +5684,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4908,7 +5716,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4933,6 +5741,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -4947,7 +5761,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -4982,7 +5796,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5007,6 +5821,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5021,7 +5841,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5053,7 +5873,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5078,6 +5898,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5092,7 +5918,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5124,7 +5950,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5149,6 +5975,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5163,7 +5995,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5198,7 +6030,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5223,6 +6055,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5237,7 +6075,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5269,7 +6107,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5294,6 +6132,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5308,7 +6152,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5340,7 +6184,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5365,6 +6209,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5379,7 +6229,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5414,7 +6264,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5439,6 +6289,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5453,7 +6309,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5485,7 +6341,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5510,6 +6366,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5524,7 +6386,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5556,7 +6418,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5581,6 +6443,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5595,7 +6463,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Ainterpreted_as"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5630,7 +6498,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5655,6 +6523,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5669,7 +6543,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5701,7 +6575,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5726,6 +6600,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5740,7 +6620,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5772,7 +6652,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5797,6 +6677,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5811,7 +6697,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5843,7 +6729,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5868,6 +6754,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5882,7 +6774,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5914,7 +6806,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5939,6 +6831,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -5953,7 +6851,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -5988,7 +6886,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6013,6 +6911,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6027,7 +6931,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6062,7 +6966,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6087,6 +6991,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6101,7 +7011,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6136,7 +7046,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6161,6 +7071,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6175,7 +7091,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6210,7 +7126,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6235,6 +7151,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6249,7 +7171,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aaddresses"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6284,7 +7206,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6309,6 +7231,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6323,7 +7251,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atrace"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6365,7 +7293,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6390,6 +7318,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6404,7 +7338,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6446,7 +7380,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6471,6 +7405,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6485,7 +7425,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6527,7 +7467,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6552,6 +7492,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6566,7 +7512,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6608,7 +7554,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6633,6 +7579,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6647,7 +7599,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acompleted_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6690,7 +7642,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6715,6 +7667,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6729,7 +7687,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6771,7 +7729,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6796,6 +7754,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6810,7 +7774,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6852,7 +7816,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6877,6 +7841,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6891,7 +7861,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -6933,7 +7903,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6958,6 +7928,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -6972,7 +7948,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acompleted_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7015,7 +7991,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7040,6 +8016,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7054,7 +8036,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7089,7 +8071,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7114,6 +8096,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7128,7 +8116,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7170,7 +8158,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7195,6 +8183,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7209,7 +8203,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7251,7 +8245,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7276,6 +8270,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7290,7 +8290,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7332,7 +8332,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7357,6 +8357,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7371,7 +8377,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7413,7 +8419,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7438,6 +8444,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7452,7 +8464,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7494,7 +8506,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7519,6 +8531,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7533,7 +8551,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acompleted_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7576,7 +8594,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7601,6 +8619,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7615,7 +8639,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7650,7 +8674,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7675,6 +8699,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7689,7 +8719,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aadvances"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7724,7 +8754,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7749,6 +8779,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7763,7 +8799,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7805,7 +8841,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7830,6 +8866,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7844,7 +8886,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Acompleted_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7887,7 +8929,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7912,6 +8954,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -7926,7 +8974,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -7968,7 +9016,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7993,6 +9041,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8007,7 +9061,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8042,7 +9096,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8067,6 +9121,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8081,7 +9141,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8116,7 +9176,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8141,6 +9201,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8155,7 +9221,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8190,7 +9256,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8215,6 +9281,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8229,7 +9301,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8264,7 +9336,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8289,6 +9361,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8303,7 +9381,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8338,7 +9416,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8363,6 +9441,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8377,7 +9461,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8412,7 +9496,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8437,6 +9521,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8451,7 +9541,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8486,7 +9576,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8511,6 +9601,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8525,7 +9621,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8560,7 +9656,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8585,6 +9681,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8599,7 +9701,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8641,7 +9743,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8666,6 +9768,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8680,7 +9788,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8715,7 +9823,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8740,6 +9848,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8754,7 +9868,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8789,7 +9903,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8814,6 +9928,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8828,7 +9948,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8863,7 +9983,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8888,6 +10008,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8902,7 +10028,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -8937,7 +10063,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8962,6 +10088,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -8976,7 +10108,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9011,7 +10143,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9036,6 +10168,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9050,7 +10188,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9085,7 +10223,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9110,6 +10248,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9124,7 +10268,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9159,7 +10303,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9184,6 +10328,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9198,7 +10348,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9233,7 +10383,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9258,6 +10408,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9272,7 +10428,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_work"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9314,7 +10470,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9339,6 +10495,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9353,7 +10515,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atask_depends_on"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9388,7 +10550,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9413,6 +10575,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9427,7 +10595,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9462,7 +10630,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9487,6 +10655,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9501,7 +10675,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9536,7 +10710,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9561,6 +10735,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9575,7 +10755,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9610,7 +10790,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9635,6 +10815,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9649,7 +10835,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9684,7 +10870,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9709,6 +10895,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9723,7 +10915,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9758,7 +10950,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9783,6 +10975,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9797,7 +10995,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9832,7 +11030,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:eda82a186e10220d6e15e39f4f0b80b54452ad6a5c2f1d28652abf626c48800a"
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9857,6 +11055,12 @@
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
         }
       ],
       "prov:wasGeneratedBy": {
@@ -9871,7 +11075,7 @@
         "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Aplanned_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:f8ea2624d8bb8cf06d3d01e738bd7daf5161a3d86002d94a7ff800e9b538bca0"
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -9894,6 +11098,666 @@
         "@value": {
           "authority": "SECONDARY_AI",
           "status": "LOCAL_SNAPSHOT_EVIDENCE"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:tracks_work%3Asubject%3Ausl%3Atask%3AP01",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "tracks_work:subject:usl:task:P01",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP01"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:tracks_work%3Asubject%3Ausl%3Atask%3AP02",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "tracks_work:subject:usl:task:P02",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP02"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:tracks_work%3Asubject%3Ausl%3Atask%3AP03",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "tracks_work:subject:usl:task:P03",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AP03"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:tracks_work%3Asubject%3Ausl%3Atask%3AC01",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "tracks_work:subject:usl:task:C01",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AC01"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:tracks_work%3Asubject%3Ausl%3Atask%3AC02",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "tracks_work:subject:usl:task:C02",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AC02"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:tracks_work%3Asubject%3Ausl%3Atask%3AC03",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "tracks_work:subject:usl:task:C03",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AC03"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:tracks_work%3Asubject%3Ausl%3Atask%3AC04",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "tracks_work:subject:usl:task:C04",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Atracks_work"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:subject%3Ausl"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:task%3AC04"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "LOCAL_NAVIGATION_ASSERTION",
+          "source": "source:kg-bridge",
+          "sharedKgRelation": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.syntax.cli.architecture:link:published_note%3Asym%3ANote%3Achatgpt-usl-current-state-2026-10-01%3Asym%3AConcept%3Ausl",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:91f664c82c82ec05101c15aa33a42b485a40714f8a4536ca84965aec3e3b71cd"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Agenerator"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Ahswm-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-plan"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Abinding-delivery-receipt"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acore-cli-receipt%3AC01"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acompression-sources"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:artifact%3Acompression-benchmark"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge"
+        },
+        {
+          "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Akg-bridge-publication"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:activity%3Aarchitecture"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:resource:agent%3Asecondary"
+      },
+      "usl:nativeId": "published_note:sym:Note:chatgpt-usl-current-state-2026-10-01:sym:Concept:usl",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.syntax.cli.architecture:meaning:urn%3Ausl%3Asyntax-cli%3Apublished_note"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "record",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:sym%3ANote%3Achatgpt-usl-current-state-2026-10-01"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "external",
+          "usl:resource": {
+            "@id": "urn:usl:usl.syntax.cli.architecture:resource:sym%3AConcept%3Ausl"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "authority": "SECONDARY_AI",
+          "status": "PUBLISHED_DRAFT",
+          "relation": "ABOUT",
+          "relationshipStatus": "PROPOSED",
+          "canonicalScope": "PENDING_OR_PRELIMINARY",
+          "reviewRequired": true,
+          "inputSource": "source:kg-bridge-publication",
+          "sharedKgRelation": "RECORDED_FROM_READBACK_NOT_RATIFIED"
         },
         "@type": "@json"
       }

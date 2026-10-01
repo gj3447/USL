@@ -2,6 +2,57 @@
 
 [현재 작업·근거·선행 관계를 한눈에 보기](GRAPH_ENGINEERING_STATUS.md).
 
+## 공유 KG와 최신 현황 찾기
+
+2026-10-01: 공유 KG의 기존 `sym:Concept:usl`에 최신 저장소 안내 노트를
+추가로 연결했다. 2026-09-07 사용자 원문과 당시 설명은 그대로 보존한다.
+
+| 대상 | 식별자 / 근거 | 상태 |
+|---|---|---|
+| 원래 USL 개념 | `sym:Concept:usl` | 기존 `USER_PRIMARY` 기록 유지 |
+| 최신 범위·구현 안내 | `sym:Note:chatgpt-usl-current-state-2026-10-01` | 실제 저장됨; `SECONDARY_AI`, `PENDING_OR_PRELIMINARY`, 검토 필요 |
+| KG 연결 | 안내 노트 → `ABOUT` → USL 개념 | 실제 저장됨; `PROPOSED` |
+| 로컬 탐색 연결 | [KG 연결 입력](../research/architecture/kg-bridge.json) → 기존 작업 그래프 | 현재 결정·작업·검증 기록을 조회하는 프로젝트 소유 연결 |
+
+KG 안내는 `0b90a37d619617ab641803074ac8c1f4df2fe864`의 저장소 현황을 설명하는
+날짜가 있는 스냅샷이다. 단순 바인딩 문법과 애드온의 책임, P01~P03·C01 완료,
+C02~C04 계획, Lean 및 압축 측정의 범위를 담았다. 최신 작업 상태는
+[현재 작업 그래프](../research/architecture/syntax-cli.graph.json)에서 다시 읽는다.
+해당 로컬 Git revision의 원격 GitHub 게시 상태는 확인하지 않았다.
+
+공유 KG에서는 다음 순서로 찾는다.
+
+1. `ontology_search(query="usl-current-state", include_preliminary=true)`로 안내를 찾는다.
+2. 반환된 정확한 UID로 `ontology_get`을 호출해 `text_fields`와 `source_fields`를 읽는다.
+3. 안내 노트에 `ontology_neighbors(include_preliminary=true)`를 사용해
+   `OUT / ABOUT / sym:Concept:usl / PROPOSED` 연결을 확인한다.
+
+기본 검색은 검토 대상 노트를 숨길 수 있다. `ACTIVE`인 노트 수명 상태와
+`PROPOSED`인 관계 상태를 구분하며, 정전 승인으로 해석하지 않는다.
+로컬 그래프는 정확한 KG UID에서 최신 사용자 결정·작업·완료 근거까지 탐색할 수 있게 한다.
+
+```sh
+npm run usl -- adapt --format resource-graph \
+  --graph research/architecture/syntax-cli.graph.json \
+  --profile research/architecture/syntax-cli.profile.json \
+  --namespace usl.architecture --operation context \
+  --focus sym:Concept:usl --target task:C02 --compact
+```
+
+`--target user:binding-only`로 바꾸면 단순 바인딩에 관한 최신 사용자 원문을 찾는다.
+이 명령은 로컬 그래프의 연결을 탐색하며, KG 노트를 읽을 때는 위 공유 KG 조회 도구를 쓴다.
+완료 근거는 `--focus task:C01 --target source:core-cli-receipt:C01`로 이어서 찾는다.
+현재 `adapt context`의 기본 탐색 한도를 넘는 긴 경로는 `NOT_FOUND_WITHIN_LIMITS`가
+될 수 있으므로 찾은 자원을 다음 focus로 사용한다. C02의 탐색 한도 옵션은 아직 계획 상태다.
+
+[게시·재조회 기록](../research/architecture/kg-bridge.publication.json)은 노트 본문,
+출처, UID, 관계 방향·상태를 대조한 결과와 원래 개념의 변경 전후 digest를
+보존한다. 재생성·구조 검사 명령은 이 기록을 읽을 뿐 KG에 다시 게시하지 않는다.
+내용 정정이 필요하면 해당 노트를 읽어 얻은 `target_version`으로 기존 게시 도구의
+수정 기능을 사용한다. 그 도구가 원문 revision 이력을 보존한다.
+
+## 현재 바인딩 설계
+
 2026-09-29 사용자 정정에 따른 현재 설계다. USL은 서로 다른 자원을 연결하는
 **단순 바인딩 문법**이며, CLI는 그 문법과 기존 그래프 입력을 검사·조회하는
 도구다. USL은 HSWM 전체, 새 DB, 가중치 평가기, 계층 엔진, M 인덱스, 학습

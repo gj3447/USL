@@ -23,7 +23,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-syntax-cli-architecture.ts",
       "metadata": {
         "path": "scripts/build-syntax-cli-architecture.ts",
-        "sourceDigest": "sha256:f76afbd5f0908334498c6e16e95726c1569456cee5127c4f0817c182601b28ee",
+        "sourceDigest": "sha256:a8034c162eeafaaf928f4398e3dd89cf34ab2965541093212b23fe4e2ecbb666",
         "scope": "DETERMINISTIC_GENERATOR",
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
@@ -358,6 +358,42 @@
       }
     },
     {
+      "id": "source:kg-bridge",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/kg-bridge.json",
+      "metadata": {
+        "path": "research/architecture/kg-bridge.json",
+        "sourceDigest": "sha256:dbfaf04b88b1ba236ae59c41de50f35fac3f8485d0cd0c7dfbee4427b02b83ad",
+        "authority": "SECONDARY_AI",
+        "recordedAt": "2026-10-01",
+        "observation": "LOCAL_RECORD_OF_ontology_get",
+        "sharedKgMutation": "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:kg-bridge-publication",
+      "types": [
+        "urn:usl:syntax-cli:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/kg-bridge.publication.json",
+      "metadata": {
+        "path": "research/architecture/kg-bridge.publication.json",
+        "sourceDigest": "sha256:55cade0f47019c0c6f7e6b024781c7560feeb3f99b26cc7114abd1aacdce5662",
+        "authority": "SECONDARY_AI",
+        "status": "PUBLISHED_DRAFT",
+        "canonicalScope": "PENDING_OR_PRELIMINARY",
+        "reviewRequired": true,
+        "relationshipStatus": "PROPOSED",
+        "noteUid": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+        "locationStatus": "DECLARED_PUBLIC_LOCATION",
+        "remoteObservation": "PUBLISHED_DRAFT_READBACK_RECORDED"
+      }
+    },
+    {
       "id": "activity:architecture",
       "types": [
         "urn:usl:syntax-cli:ArchitectureActivity",
@@ -391,6 +427,50 @@
       "metadata": {
         "name": "USL",
         "role": "LANGUAGE_AND_CLI_BINDING_LAYER"
+      }
+    },
+    {
+      "id": "sym:Concept:usl",
+      "types": [
+        "urn:usl:syntax-cli:ExternalSubject"
+      ],
+      "locator": "kg://personal/sym:Concept:usl",
+      "metadata": {
+        "nativeUid": "sym:Concept:usl",
+        "authority": "USER_PRIMARY",
+        "descriptionScope": "HISTORICAL_2026_09_07",
+        "targetVersion": "\"2026-09-07T04:42:29.476Z\"",
+        "userUtteranceSha256": "sha256:d325f706c05d6222bfa3d6873ad0b52c27fbb1fd6ce4e2562d41988313ccc5f7",
+        "descriptionSha256": "sha256:04d84d7507e34175927df9a0680eece28e2996332dbbd2c2d1f532c5300d0026",
+        "observedAt": "2026-10-01T00:08:54Z",
+        "observationMethod": "ontology_get",
+        "uidMatchCount": 1,
+        "uidCollision": false,
+        "localRelationStatus": "NAVIGATION_ASSERTION_ONLY",
+        "sharedKgRelationMutation": "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH"
+      }
+    },
+    {
+      "id": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+      "types": [
+        "urn:usl:syntax-cli:Source",
+        "urn:usl:syntax-cli:ExternalSubject"
+      ],
+      "locator": "kg://personal/sym:Note:chatgpt-usl-current-state-2026-10-01",
+      "metadata": {
+        "nativeUid": "sym:Note:chatgpt-usl-current-state-2026-10-01",
+        "authority": "SECONDARY_AI",
+        "title": "USL 현재 범위·구현 근거 안내 — 2026-10-01",
+        "sourceRef": "https://github.com/gj3447/USL",
+        "canonicalScope": "PENDING_OR_PRELIMINARY",
+        "reviewRequired": true,
+        "targetVersion": "\"2026-10-01T00:07:50.633Z\"",
+        "bodySha256": "sha256:64c4f316be23af8edcf31ca0cc034de891d6023510f075513b7b8d0f16c425f9",
+        "relationshipStatus": "PROPOSED",
+        "relationshipAuthority": "SECONDARY_AI",
+        "relationshipReviewRequired": true,
+        "inputSource": "source:kg-bridge-publication",
+        "sharedKgRelationMutation": "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH"
       }
     },
     {
@@ -1727,9 +1807,125 @@
     {
       "id": "urn:usl:syntax-cli:measured_by",
       "description": "Architecture trace relation measured_by; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:describes_subject",
+      "description": "Architecture trace relation describes_subject; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:current_decision",
+      "description": "Architecture trace relation current_decision; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:tracks_work",
+      "description": "Architecture trace relation tracks_work; declaration only."
+    },
+    {
+      "id": "urn:usl:syntax-cli:published_note",
+      "description": "Architecture trace relation published_note; declaration only."
     }
   ],
   "links": [
+    {
+      "id": "describes_subject:subject:usl:sym:Concept:usl",
+      "meaning": "urn:usl:syntax-cli:describes_subject",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "external",
+          "resource": "sym:Concept:usl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "equivalence": "NOT_CLAIMED",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "current_decision:subject:usl:user:binding-only",
+      "meaning": "urn:usl:syntax-cli:current_decision",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "statement",
+          "resource": "user:binding-only"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "current_decision:subject:usl:user:addon-rules",
+      "meaning": "urn:usl:syntax-cli:current_decision",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "statement",
+          "resource": "user:addon-rules"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "current_decision:subject:usl:user:cli-programs",
+      "meaning": "urn:usl:syntax-cli:current_decision",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "statement",
+          "resource": "user:cli-programs"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "current_decision:subject:usl:user:compression-cost",
+      "meaning": "urn:usl:syntax-cli:current_decision",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "statement",
+          "resource": "user:compression-cost"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
     {
       "id": "evaluated_by:user:compression-cost:technique:compression:openai-token-counting:source:compression:openai-token-counting",
       "meaning": "urn:usl:syntax-cli:evaluated_by",
@@ -3547,6 +3743,170 @@
         "authority": "SECONDARY_AI",
         "status": "LOCAL_SNAPSHOT_EVIDENCE"
       }
+    },
+    {
+      "id": "tracks_work:subject:usl:task:P01",
+      "meaning": "urn:usl:syntax-cli:tracks_work",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "task",
+          "resource": "task:P01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tracks_work:subject:usl:task:P02",
+      "meaning": "urn:usl:syntax-cli:tracks_work",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "task",
+          "resource": "task:P02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tracks_work:subject:usl:task:P03",
+      "meaning": "urn:usl:syntax-cli:tracks_work",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "task",
+          "resource": "task:P03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tracks_work:subject:usl:task:C01",
+      "meaning": "urn:usl:syntax-cli:tracks_work",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "task",
+          "resource": "task:C01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tracks_work:subject:usl:task:C02",
+      "meaning": "urn:usl:syntax-cli:tracks_work",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "task",
+          "resource": "task:C02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tracks_work:subject:usl:task:C03",
+      "meaning": "urn:usl:syntax-cli:tracks_work",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "task",
+          "resource": "task:C03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "tracks_work:subject:usl:task:C04",
+      "meaning": "urn:usl:syntax-cli:tracks_work",
+      "participants": [
+        {
+          "role": "subject",
+          "resource": "subject:usl"
+        },
+        {
+          "role": "task",
+          "resource": "task:C04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "LOCAL_NAVIGATION_ASSERTION",
+        "source": "source:kg-bridge",
+        "sharedKgRelation": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "published_note:sym:Note:chatgpt-usl-current-state-2026-10-01:sym:Concept:usl",
+      "meaning": "urn:usl:syntax-cli:published_note",
+      "participants": [
+        {
+          "role": "record",
+          "resource": "sym:Note:chatgpt-usl-current-state-2026-10-01"
+        },
+        {
+          "role": "external",
+          "resource": "sym:Concept:usl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PUBLISHED_DRAFT",
+        "relation": "ABOUT",
+        "relationshipStatus": "PROPOSED",
+        "canonicalScope": "PENDING_OR_PRELIMINARY",
+        "reviewRequired": true,
+        "inputSource": "source:kg-bridge-publication",
+        "sharedKgRelation": "RECORDED_FROM_READBACK_NOT_RATIFIED"
+      }
     }
   ],
   "provenance": {
@@ -3558,7 +3918,9 @@
       "source:binding-delivery-receipt",
       "source:core-cli-receipt:C01",
       "source:compression-sources",
-      "artifact:compression-benchmark"
+      "artifact:compression-benchmark",
+      "source:kg-bridge",
+      "source:kg-bridge-publication"
     ],
     "activity": "activity:architecture",
     "agent": "agent:secondary"

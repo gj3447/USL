@@ -329,6 +329,94 @@
           "metadata": []
         }
       ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:describes_subject",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "subject",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:ArchitectureSubject"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "external",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:ExternalSubject"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:current_decision",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "subject",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:ArchitectureSubject"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "statement",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:UserStatement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:tracks_work",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "subject",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:ArchitectureSubject"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:syntax-cli:published_note",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "record",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:Source"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "external",
+          "required": true,
+          "types": [
+            "urn:usl:syntax-cli:ExternalSubject"
+          ],
+          "metadata": []
+        }
+      ]
     }
   ]
 }

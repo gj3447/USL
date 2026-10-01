@@ -20,6 +20,8 @@ type VerificationReceipt = { schema: "usl-binding-delivery-receipt/v1"; authorit
 type CoreVerificationReceipt = { schema: "usl-core-cli-verification-receipt/v1"; authority: "SECONDARY_AI"; status: "PASS"; generatedAt: string; sourceCommit: string; sourcePins: Record<string, string>; tasks: Array<{ id: string; status: "PASS"; evidence: Array<{ kind: "command"; command: string; exitCode: 0; observed: string } | { kind: "source"; path: string; sha256: string }> }> }
 type CompressionSource = { id: string; title: string; url: string; technique: string; scope: string; limitation: string; checkedAt: string }
 type CompressionBenchmark = { schema: string; scope: string; validationStatus: string; environment: { encodings: string[]; memory: string }; inputs: { digest: string; benchmarkScriptDigest: string; tokenScriptDigest: string; requirementsDigest: string }; fixtures: unknown[] }
+type KgBridge = { schema: "usl-kg-bridge/v1"; authority: "SECONDARY_AI"; recordedAt: string; request: { text: string; authority: "USER_PRIMARY" }; subject: { uid: "sym:Concept:usl"; locator: "kg://personal/sym:Concept:usl" }; observation: { observedAt: string; method: "ontology_get"; uidMatchCount: 1; uidCollision: false; targetVersion: string; userUtteranceSha256: string; descriptionSha256: string; authorityClass: "USER_PRIMARY"; descriptionScope: "HISTORICAL_2026_09_07" }; repository: { url: "https://github.com/gj3447/USL"; subject: "subject:usl"; sourceCommit: string }; currentDecisions: string[]; trackedTasks: string[]; publication: { status: "PUBLISHED_DRAFT"; noteUid: string; relation: "ABOUT"; targetUid: "sym:Concept:usl"; relationshipStatus: "PROPOSED"; authority: "SECONDARY_AI"; canonicalScope: "PENDING_OR_PRELIMINARY"; reviewRequired: true; verifiedAt: string; bodySha256: string; recordPath: string } }
+type KgPublication = { schema: "usl-kg-publication/v1"; status: "PUBLISHED_DRAFT"; verifiedAt: string; saveRequest: { kind: "NOTE"; name: string; title: string; body: string; source_ref: "https://github.com/gj3447/USL"; domain: string; expected_version: string }; saveResult: { canonical_scope: "PENDING_OR_PRELIMINARY"; review_required: true; title: string; uid: string; target_version: string }; linkResult: { relation: "ABOUT"; source_uid: string; target_uid: "sym:Concept:usl" }; readback: { uid: string; bodySha256: string; sourceRef: "https://github.com/gj3447/USL"; authorityClass: "SECONDARY_AI"; canonicalScope: "PENDING_OR_PRELIMINARY"; reviewRequired: true; targetVersion: string; relationshipStatus: "PROPOSED"; relationshipAuthority: "SECONDARY_AI"; relationshipReviewRequired: true }; subjectPreservation: { uid: "sym:Concept:usl"; targetVersion: string; userUtteranceSha256: string; descriptionSha256: string; unchanged: true } }
 const workPlan = JSON.parse(await read("research/architecture/hswm-like.plan.json")) as WorkPlan
 const receiptPath = "research/architecture/binding-delivery.receipt.json"
 const receipt = JSON.parse(await read(receiptPath)) as VerificationReceipt
@@ -27,6 +29,10 @@ const corePlanPath = "research/architecture/core-cli.plan.json"
 const corePlan = JSON.parse(await read(corePlanPath)) as CoreCliPlan
 const compressionSources = JSON.parse(await read("research/compression/sources.json")) as CompressionSource[]
 const compressionBenchmark = JSON.parse(await read("research/compression/benchmark-results.json")) as CompressionBenchmark
+const kgBridgePath = "research/architecture/kg-bridge.json"
+const kgPublicationPath = "research/architecture/kg-bridge.publication.json"
+const kgBridge = JSON.parse(await read(kgBridgePath)) as KgBridge
+const kgPublication = JSON.parse(await read(kgPublicationPath)) as KgPublication
 if (catalog.schema !== "usl-syntax-cli-architecture-catalog/v1" || catalog.authority !== "SECONDARY_AI" || !/^[a-f0-9]{40}$/.test(catalog.sourceCommit) ||
   !catalog.sourcePins || !catalog.proposalPlacement || !Array.isArray(catalog.userStatements) || !Array.isArray(catalog.implemented) || !Array.isArray(catalog.proposals)) throw new Error("invalid syntax-cli architecture catalog")
 for (const statement of catalog.userStatements) if (!/^[a-z][a-z0-9-]*:[a-z][a-z0-9-]*$/.test(statement.id) || statement.status !== "USER_PRIMARY" || !statement.text.trim()) throw new Error("invalid user statement")
@@ -40,6 +46,8 @@ if (corePlan.schema !== "usl-core-cli-work-plan/v1" || corePlan.authority !== "S
 for (const source of corePlan.sourceEvidence) if (!/^src\//.test(source.path) || !/^[a-f0-9]{64}$/.test(source.sha256) || source.kind !== "LOCAL_SNAPSHOT" || (digestSource(await read(source.path)) ?? "").replace("sha256:", "") !== source.sha256) throw new Error(`invalid core CLI source evidence: ${source.path}`)
 if (compressionSources.length < 4 || compressionSources.some(source => !/^[a-z0-9-]+$/.test(source.id) || !source.title.trim() || !/^https:\/\//.test(source.url) || !source.technique.trim() || !source.scope.trim() || !source.limitation.trim() || !/^\d{4}-\d\d-\d\d$/.test(source.checkedAt))) throw new Error("invalid compression source")
 if (compressionBenchmark.schema !== "usl-compression-benchmark-results/v1" || compressionBenchmark.scope !== "OFFLINE_PAYLOAD_MEASUREMENT_NOT_RUNTIME_MEMORY_OR_BILLED_USAGE" || compressionBenchmark.validationStatus !== "FIXTURE_ROUNDTRIPS_PASSED" || !compressionBenchmark.environment.encodings.length || !compressionBenchmark.environment.memory.includes("HEAP_NOT_MEASURED") || ![compressionBenchmark.inputs.digest, compressionBenchmark.inputs.benchmarkScriptDigest, compressionBenchmark.inputs.tokenScriptDigest, compressionBenchmark.inputs.requirementsDigest].every(value => /^sha256:[a-f0-9]{64}$/.test(value)) || !compressionBenchmark.fixtures.length) throw new Error("invalid compression benchmark")
+if (kgBridge.schema !== "usl-kg-bridge/v1" || kgBridge.authority !== "SECONDARY_AI" || !/^\d{4}-\d\d-\d\d$/.test(kgBridge.recordedAt) || kgBridge.request.authority !== "USER_PRIMARY" || !kgBridge.request.text.trim() || kgBridge.subject.uid !== "sym:Concept:usl" || kgBridge.subject.locator !== "kg://personal/sym:Concept:usl" || kgBridge.observation.method !== "ontology_get" || kgBridge.observation.uidMatchCount !== 1 || kgBridge.observation.uidCollision || kgBridge.observation.authorityClass !== "USER_PRIMARY" || kgBridge.observation.descriptionScope !== "HISTORICAL_2026_09_07" || ![kgBridge.observation.userUtteranceSha256, kgBridge.observation.descriptionSha256].every(value => /^sha256:[a-f0-9]{64}$/.test(value)) || kgBridge.repository.url !== "https://github.com/gj3447/USL" || kgBridge.repository.subject !== "subject:usl" || !/^[a-f0-9]{40}$/.test(kgBridge.repository.sourceCommit) || kgBridge.publication.status !== "PUBLISHED_DRAFT" || kgBridge.publication.relation !== "ABOUT" || kgBridge.publication.targetUid !== kgBridge.subject.uid || kgBridge.publication.relationshipStatus !== "PROPOSED" || kgBridge.publication.authority !== "SECONDARY_AI" || kgBridge.publication.canonicalScope !== "PENDING_OR_PRELIMINARY" || kgBridge.publication.reviewRequired !== true || !/^sha256:[a-f0-9]{64}$/.test(kgBridge.publication.bodySha256) || kgBridge.publication.recordPath !== kgPublicationPath || !kgBridge.currentDecisions.length || !kgBridge.trackedTasks.length) throw new Error("invalid KG bridge")
+if (kgPublication.schema !== "usl-kg-publication/v1" || kgPublication.status !== "PUBLISHED_DRAFT" || kgPublication.verifiedAt !== kgBridge.publication.verifiedAt || kgPublication.saveRequest.kind !== "NOTE" || !/^[a-z0-9-]{3,80}$/.test(kgPublication.saveRequest.name) || !kgPublication.saveRequest.body.trim() || digestSource(kgPublication.saveRequest.body) !== kgBridge.publication.bodySha256 || kgPublication.saveRequest.source_ref !== kgBridge.repository.url || kgPublication.saveResult.uid !== kgBridge.publication.noteUid || kgPublication.saveResult.uid !== `sym:Note:chatgpt-${kgPublication.saveRequest.name}` || kgPublication.saveResult.title !== kgPublication.saveRequest.title || kgPublication.saveResult.canonical_scope !== "PENDING_OR_PRELIMINARY" || kgPublication.saveResult.review_required !== true || kgPublication.linkResult.relation !== "ABOUT" || kgPublication.linkResult.source_uid !== kgBridge.publication.noteUid || kgPublication.linkResult.target_uid !== kgBridge.subject.uid || kgPublication.readback.uid !== kgBridge.publication.noteUid || kgPublication.readback.bodySha256 !== kgBridge.publication.bodySha256 || kgPublication.readback.sourceRef !== kgBridge.repository.url || kgPublication.readback.targetVersion !== kgPublication.saveResult.target_version || kgPublication.readback.authorityClass !== "SECONDARY_AI" || kgPublication.readback.canonicalScope !== "PENDING_OR_PRELIMINARY" || kgPublication.readback.reviewRequired !== true || kgPublication.readback.relationshipStatus !== "PROPOSED" || kgPublication.readback.relationshipAuthority !== "SECONDARY_AI" || kgPublication.readback.relationshipReviewRequired !== true || kgPublication.subjectPreservation.uid !== kgBridge.subject.uid || kgPublication.subjectPreservation.targetVersion !== kgBridge.observation.targetVersion || kgPublication.subjectPreservation.userUtteranceSha256 !== kgBridge.observation.userUtteranceSha256 || kgPublication.subjectPreservation.descriptionSha256 !== kgBridge.observation.descriptionSha256 || kgPublication.subjectPreservation.unchanged !== true) throw new Error("invalid KG publication record")
 const taskIds = new Set<string>()
 for (const task of workPlan.tasks) {
   if (!/^task:P\d\d$/.test(task.id) || taskIds.has(task.id) || !Number.isSafeInteger(task.order) || task.order < 1 || !task.title.trim() || task.status !== "COMPLETED" || task.implementation !== "COMPLETE" || task.proofStatus !== "NOT_PROVEN" || !task.deliverables.length || task.deliverables.some(path => !/^(src|test|docs|schemas|examples|lean)\//.test(path)) || !task.acceptance.length || task.acceptance.some(item => !item.trim())) throw new Error(`invalid completed task: ${task.id}`)
@@ -83,7 +91,7 @@ const commit = catalog.sourceCommit
 const prefix = "urn:usl:syntax-cli:"
 const location = (path: string) => `git://github.com/gj3447/USL@${commit}:${path}`
 const publicLocation = (path: string) => `https://github.com/gj3447/USL/blob/master/${path}`
-const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator", "source:hswm-plan", "source:core-cli-plan", "source:binding-delivery-receipt", ...[...coreReceipts.keys()].map(taskId => `source:core-cli-receipt:${taskId.slice("task:".length)}`), "source:compression-sources", "artifact:compression-benchmark"], activity: "activity:architecture", agent: "agent:secondary" } }
+const graph: ResourceGraph = { schema: "usl-resource-graph/v1", resources: [], meanings: [], links: [], provenance: { sources: ["source:catalog", "source:generator", "source:hswm-plan", "source:core-cli-plan", "source:binding-delivery-receipt", ...[...coreReceipts.keys()].map(taskId => `source:core-cli-receipt:${taskId.slice("task:".length)}`), "source:compression-sources", "artifact:compression-benchmark", "source:kg-bridge", "source:kg-bridge-publication"], activity: "activity:architecture", agent: "agent:secondary" } }
 type Meta = NonNullable<ResourceGraph["resources"][number]["metadata"]>
 type LinkMeta = NonNullable<ResourceGraph["links"][number]["metadata"]>
 const add = (id: string, type: string | string[], locator: string, metadata: Meta) => { graph.resources.push({ id, types: (Array.isArray(type) ? type : [type]).map(t => t.startsWith("http") ? t : prefix + t), locator, metadata }); return id }
@@ -109,6 +117,10 @@ const rules: Array<[string, Array<[string, string]>]> = [
   ["advances", [["task", "Task"], ["proposal", "Proposal"]]],
   ["evaluated_by", [["requirement", "UserStatement"], ["technique", "CompressionTechnique"], ["evidence", "Source"]]],
   ["measured_by", [["requirement", "UserStatement"], ["technique", "CompressionTechnique"], ["benchmark", "BenchmarkArtifact"]]],
+  ["describes_subject", [["subject", "ArchitectureSubject"], ["external", "ExternalSubject"]]],
+  ["current_decision", [["subject", "ArchitectureSubject"], ["statement", "UserStatement"]]],
+  ["tracks_work", [["subject", "ArchitectureSubject"], ["task", "Task"]]],
+  ["published_note", [["record", "Source"], ["external", "ExternalSubject"]]],
 ]
 const profile: DomainProfile = { schema: "usl-domain-profile/v1", id: prefix + "profile", version: "1", closedMeanings: true,
   meanings: rules.map(([id, roles]) => ({ id: prefix + id, allowExtraRoles: false, roles: roles.map(([role, type]) => ({ role, required: true, types: [prefix + type], metadata: [] })) })) }
@@ -125,9 +137,14 @@ for (const [taskId, value] of coreReceipts) {
 }
 add("source:compression-sources", "Source", publicLocation("research/compression/sources.json"), { path: "research/compression/sources.json", sourceDigest: digestSource(await read("research/compression/sources.json")), authority: "EXTERNAL_RESEARCH_CATALOG", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add("artifact:compression-benchmark", "BenchmarkArtifact", publicLocation("research/compression/benchmark-results.json"), { path: "research/compression/benchmark-results.json", sourceDigest: digestSource(await read("research/compression/benchmark-results.json")), resultStatus: compressionBenchmark.scope, validationStatus: compressionBenchmark.validationStatus, memory: compressionBenchmark.environment.memory, tokenEncodings: compressionBenchmark.environment.encodings, billing: "NOT_MEASURED", llmQuality: "NOT_MEASURED", remoteExecution: "NOT_PERFORMED" })
+add("source:kg-bridge", "Source", publicLocation(kgBridgePath), { path: kgBridgePath, sourceDigest: digestSource(await read(kgBridgePath)), authority: kgBridge.authority, recordedAt: kgBridge.recordedAt, observation: "LOCAL_RECORD_OF_ontology_get", sharedKgMutation: "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
+add("source:kg-bridge-publication", "Source", publicLocation(kgPublicationPath), { path: kgPublicationPath, sourceDigest: digestSource(await read(kgPublicationPath)), authority: kgBridge.publication.authority, status: kgPublication.status, canonicalScope: kgBridge.publication.canonicalScope, reviewRequired: kgBridge.publication.reviewRequired, relationshipStatus: kgBridge.publication.relationshipStatus, noteUid: kgBridge.publication.noteUid, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "PUBLISHED_DRAFT_READBACK_RECORDED" })
 add("activity:architecture", ["ArchitectureActivity", "http://www.w3.org/ns/prov#Activity"], publicLocation("research/architecture/syntax-cli.catalog.json"), { status: "DECLARED", scope: "CURRENT_IMPLEMENTATION_AND_PROPOSAL_SEPARATION", runtimeTests: "NOT_CLAIMED" })
 add("agent:secondary", ["Agent", "http://www.w3.org/ns/prov#Agent"], publicLocation("research/architecture/syntax-cli.catalog.json"), { authority: "SECONDARY_AI", ratification: "NOT_CLAIMED" })
 add("subject:usl", "ArchitectureSubject", "git://github.com/gj3447/USL", { name: "USL", role: "LANGUAGE_AND_CLI_BINDING_LAYER" })
+add(kgBridge.subject.uid, "ExternalSubject", kgBridge.subject.locator, { nativeUid: kgBridge.subject.uid, authority: kgBridge.observation.authorityClass, descriptionScope: kgBridge.observation.descriptionScope, targetVersion: kgBridge.observation.targetVersion, userUtteranceSha256: kgBridge.observation.userUtteranceSha256, descriptionSha256: kgBridge.observation.descriptionSha256, observedAt: kgBridge.observation.observedAt, observationMethod: kgBridge.observation.method, uidMatchCount: kgBridge.observation.uidMatchCount, uidCollision: kgBridge.observation.uidCollision, localRelationStatus: "NAVIGATION_ASSERTION_ONLY", sharedKgRelationMutation: "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH" })
+add(kgBridge.publication.noteUid, ["Source", "ExternalSubject"], `kg://personal/${kgBridge.publication.noteUid}`, { nativeUid: kgBridge.publication.noteUid, authority: kgPublication.readback.authorityClass, title: kgPublication.saveRequest.title, sourceRef: kgPublication.readback.sourceRef, canonicalScope: kgPublication.readback.canonicalScope, reviewRequired: kgPublication.readback.reviewRequired, targetVersion: kgPublication.readback.targetVersion, bodySha256: kgPublication.readback.bodySha256, relationshipStatus: kgPublication.readback.relationshipStatus, relationshipAuthority: kgPublication.readback.relationshipAuthority, relationshipReviewRequired: kgPublication.readback.relationshipReviewRequired, inputSource: "source:kg-bridge-publication", sharedKgRelationMutation: "NOT_PERFORMED_BY_THIS_LOCAL_GRAPH" })
+link("describes_subject", { subject: "subject:usl", external: kgBridge.subject.uid }, { authority: "SECONDARY_AI", status: "LOCAL_NAVIGATION_ASSERTION", equivalence: "NOT_CLAIMED", sharedKgRelation: "NOT_CLAIMED" })
 for (const statement of catalog.userStatements) add(statement.id, "UserStatement", publicLocation("research/architecture/syntax-cli.catalog.json"), { status: statement.status, text: statement.text, authority: "USER_PRIMARY", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add(workPlan.userRequest.id, "UserStatement", publicLocation("research/architecture/hswm-like.plan.json"), { status: "USER_PRIMARY", text: workPlan.userRequest.text, authority: workPlan.userRequest.authority, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 add(corePlan.userRequest.id, "UserStatement", publicLocation(corePlanPath), { status: "USER_PRIMARY", text: corePlan.userRequest.text, authority: corePlan.userRequest.authority, locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
@@ -135,6 +152,8 @@ for (const statement of workPlan.scopeCorrections ?? []) {
   if (!/^user:[a-z][a-z0-9-]*$/.test(statement.id) || statement.authority !== "USER_PRIMARY" || !statement.text.trim()) throw new Error("invalid scope correction")
   add(statement.id, "UserStatement", publicLocation("research/architecture/hswm-like.plan.json"), { status: "USER_PRIMARY", text: statement.text, authority: "USER_PRIMARY", locationStatus: "DECLARED_PUBLIC_LOCATION", remoteObservation: "NOT_PERFORMED" })
 }
+if (new Set(kgBridge.currentDecisions).size !== kgBridge.currentDecisions.length || !kgBridge.currentDecisions.every(id => graph.resources.some(resource => resource.id === id && resource.types.includes(prefix + "UserStatement")))) throw new Error("invalid KG bridge decisions")
+for (const statement of kgBridge.currentDecisions) link("current_decision", { subject: "subject:usl", statement }, { authority: "SECONDARY_AI", status: "LOCAL_NAVIGATION_ASSERTION", source: "source:kg-bridge", sharedKgRelation: "NOT_CLAIMED" })
 for (const source of compressionSources) {
   const sourceId = `source:compression:${source.id}`
   const techniqueId = `technique:compression:${source.id}`
@@ -192,6 +211,9 @@ for (const task of corePlan.tasks) {
   if (completed) link("completed_by", { task: task.id, criterion, evidence: `source:core-cli-receipt:${task.id.slice("task:".length)}` }, { authority: "SECONDARY_AI", status: "PASS_RECORDED", proofStatus: task.proofStatus })
   else for (const artifact of coreArtifacts) link("planned_evidence", { task: task.id, artifact }, { authority: "SECONDARY_AI", status: "LOCAL_SNAPSHOT_EVIDENCE" })
 }
+if (new Set(kgBridge.trackedTasks).size !== kgBridge.trackedTasks.length || !kgBridge.trackedTasks.every(id => graph.resources.some(resource => resource.id === id && resource.types.includes(prefix + "Task")))) throw new Error("invalid KG bridge tasks")
+for (const task of kgBridge.trackedTasks) link("tracks_work", { subject: "subject:usl", task }, { authority: "SECONDARY_AI", status: "LOCAL_NAVIGATION_ASSERTION", source: "source:kg-bridge", sharedKgRelation: "NOT_CLAIMED" })
+link("published_note", { record: kgBridge.publication.noteUid, external: kgBridge.subject.uid }, { authority: "SECONDARY_AI", status: "PUBLISHED_DRAFT", relation: kgBridge.publication.relation, relationshipStatus: kgBridge.publication.relationshipStatus, canonicalScope: kgBridge.publication.canonicalScope, reviewRequired: kgBridge.publication.reviewRequired, inputSource: "source:kg-bridge-publication", sharedKgRelation: "RECORDED_FROM_READBACK_NOT_RATIFIED" })
 const raw = JSON.stringify(graph, null, 2) + "\n"
 const report = checkResourceGraphProfile(graph, profile)
 if (report.status !== "CONFORMS") throw new Error(JSON.stringify(report.issues))
@@ -215,7 +237,7 @@ const ready = taskNodes.filter(task => task.metadata?.status === "PLANNED" &&
   prerequisites(task.id).every(id => taskNodeById.get(id)?.metadata?.status === "COMPLETED"))
 const md = (value: unknown) => String(value).replaceAll("|", "\\|").replaceAll("\n", " ")
 const short = (id: string) => id.replace(/^task:/, "")
-const relationIds = new Set(["planned_work", "completed_by", "task_depends_on", "planned_evidence", "measured_by"])
+const relationIds = new Set(["planned_work", "completed_by", "task_depends_on", "planned_evidence", "measured_by", "describes_subject", "current_decision", "tracks_work", "published_note"])
 const overview = [
   "# USL 표준 그래프 엔지니어링 현황", "",
   "이 문서는 기존 작업 그래프에서 자동 생성한 **SECONDARY_AI 현황 뷰**다. 사용자 원문은 그래프의 USER_PRIMARY 자원에 보존한다.", "",
@@ -227,6 +249,10 @@ const overview = [
   "| 선택 profile | 사용자가 선택한 역할 타입·필수 metadata 검사 |",
   "| 소비자 프로그램 / 애드온 | 가중치 해석·갱신, 계층 알고리즘, M 색인, HSWM 규칙과 실행 |", "",
   "자원의 ID와 로컬 경로·GitHub·고정 revision 표현을 구분한다. 경로 이동은 workspace mapping으로 처리하며, 여러 표현은 명시적으로 선택한다.", "",
+  "## 공유 KG와 최신 현황", "",
+  `로컬 탐색 브리지는 공유 KG의 ${kgBridge.subject.uid}와 저장소 subject:usl을 연결한다. 이는 **SECONDARY_AI 로컬 탐색 주장**이며 두 대상을 동일한 엔터티로 선언하지 않고, 원본 KG 개념의 속성을 변경하지 않는다.`, "",
+  `현재 결정 ${kgBridge.currentDecisions.join(", ")} 및 작업 ${kgBridge.trackedTasks.join(", ")}는 subject:usl에서 관계로 탐색한다. 따라서 ${kgBridge.subject.uid} → subject:usl → task:C02 및 ${kgBridge.subject.uid} → subject:usl → user:binding-only 질의를 수행할 수 있다.`, "",
+  `공유 KG에는 노트 ${kgBridge.publication.noteUid}가 **PUBLISHED_DRAFT**로 저장되고 ABOUT 관계가 **PROPOSED**로 기록되었다. 작성 주체/권위 분류는 SECONDARY_AI, 범위는 PENDING_OR_PRELIMINARY, 검토 필요 상태다. 정전 승인·ACTIVE 관계·원본 사용자 기록의 최신화는 주장하지 않는다. 로컬 검증 입력은 ${kgBridgePath} 및 ${kgPublicationPath}이다.`, "",
   "## 2. 작업 상태와 선행 관계", "",
   "아래 화살표는 **선행 작업 → 후속 작업**이다. 저장된 task_depends_on 관계는 task → prerequisite 방향이며, 그림은 읽기 편하게 그 반대로 표시한다.", "",
   "```mermaid", "flowchart LR",
@@ -248,6 +274,10 @@ const overview = [
       task_depends_on: "작업의 선행 조건; 이 관계의 작업 그래프만 순환 금지",
       planned_evidence: "계획 판단에 참고한 현재 소스; 미래 구현 완료 근거와 구분",
       measured_by: "압축 요구·기법·오프라인 측정 결과의 연결",
+      describes_subject: "저장소 subject와 외부 KG subject 사이의 로컬 탐색 연결; 동일성·공유 KG 활성 관계는 주장하지 않음",
+      current_decision: "저장소 subject에서 보존된 USER_PRIMARY 결정으로의 로컬 탐색 연결",
+      tracks_work: "저장소 subject에서 계획·완료 작업으로의 로컬 탐색 연결",
+      published_note: "공유 KG에 저장된 SECONDARY_AI 초안 노트와 대상의 읽기 전용 기록; PROPOSED 상태를 보존",
     }
     return `| ${id} | ${roles.map(([role, type]) => `${role}: ${type}`).join(" / ")} | ${descriptions[id]} |`
   }), "",
@@ -266,6 +296,7 @@ const overview = [
   "| 코어와 프로그램의 책임은? | [아키텍처](SYNTAX_CLI_GRAPH_ARCHITECTURE.md) |",
   "| 무엇을 완료했나? | [P01~P03](HSWM_LIKE_EXECUTION_PLAN.md) · [애드온 예제](ADDON_BINDING.md) |",
   "| 다음 변경 파일과 완료 조건은? | [C01~C04 계획](CORE_CLI_PLAN.md) |",
+  `| 공유 KG ${kgBridge.subject.uid}에서 최신 로컬 근거는? | [bridge](../${kgBridgePath}) · [publication readback](../${kgPublicationPath}) · [아키텍처](SYNTAX_CLI_GRAPH_ARCHITECTURE.md#공유-kg와-최신-현황-찾기) |`,
   "| 기계가 읽는 원본은? | [resource graph](../research/architecture/syntax-cli.graph.json) · [JSON-LD](../research/architecture/syntax-cli.graph.jsonld) · [profile](../research/architecture/syntax-cli.profile.json) · [SHACL](../research/architecture/syntax-cli.shacl.ttl) |", "",
   "```sh",
   "node --import tsx scripts/build-syntax-cli-architecture.ts --check",
