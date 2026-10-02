@@ -1,16 +1,17 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:21086724-009b-4477-aaa7-6d7f17a1f624",
-  "startedAt": "2026-09-30T02:23:00.445Z",
-  "finishedAt": "2026-09-30T02:23:01.292Z",
+  "runId": "urn:uuid:9e7985d4-15ea-4a37-a324-916651632be7",
+  "startedAt": "2026-10-02T13:48:55.899Z",
+  "finishedAt": "2026-10-02T13:48:56.696Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:46104ea4b3f455301d33ad16ebbaf5ecd5a26d8a4652dc7b8d7eaafd46f0f001",
+    "package.json": "sha256:459215c61b9163fec7ce7b434d8363f89f44056279332fac827c170bdad3ee4f",
     "schemas/resource-graph.shacl.ttl": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
     "scripts/build-engineering-review.ts": "sha256:30cf09fd7c52bade45a9eecacc9f8fa2c0490b7a4a54df011be176064736c650",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+    "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
     "src/attempt-state.ts": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
     "src/binding-inspection.ts": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
@@ -63,7 +64,7 @@
     "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
     "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
     "test/engineering-adversarial-cases.ts": "sha256:3c9220c56b0c7b4c4ea30884488bc51635a1e01c820bf6d3d419a3913b8e2c94",
-    "tsconfig.json": "sha256:ce288df4f0d867a542d295146a5197524bfb39f5a02c138684840db4906ce0fa"
+    "tsconfig.json": "sha256:913490b2e7ec60b3cd5b1eff16798103beccc47d1e81a45e30af2395f87a8b2a"
   },
   "checks": [
     {
@@ -219,5 +220,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:35a53a8ffdd2ba5433b91a52e65da901382af717e7672bba2c1d5759c983cf6f"
+  "receiptDigest": "sha256:a989b34b022e7af36c0af441aaf4cc61aa7e789c4def7ccd9bb617fd313b75d6"
 }

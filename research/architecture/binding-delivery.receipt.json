@@ -2,12 +2,12 @@
   "schema": "usl-binding-delivery-receipt/v1",
   "authority": "SECONDARY_AI",
   "status": "PASS",
-  "generatedAt": "2026-09-30",
+  "generatedAt": "2026-10-02",
   "scope": "LOCAL_BINDING_FIXTURES_AND_CLI_CONTRACTS",
-  "recording": "RECORDED_FROM_SUCCESSFUL_LOCAL_COMMAND_OUTPUT; NOT_A_SIGNED_ATTESTATION",
+  "recording": "Fresh local command replay after optional rule-policy integration; prior receipt bytes are retained in research/architecture/history/.",
   "proofStatus": "NO_NEW_LEAN_PROOF",
   "sourcePins": {
-    "docs/ADDON_BINDING.md": "sha256:4e4fffc52f437f9b2a4e981ed31cb50c4110d251ce709bb8997fc0b2640fb4ea",
+    "docs/ADDON_BINDING.md": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de",
     "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
     "docs/LANGUAGE.md": "sha256:15a34082fdc9c8a1f561119a5be556680615112250bc8838ad6fd1d7868a3556",
     "docs/RESOURCE_BINDINGS.md": "sha256:474a509a98f8d8b2b5dc75afd4525ec8220d4f3048d6afaf4b41dfe364fbbaa1",
@@ -16,8 +16,9 @@
     "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
     "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:46104ea4b3f455301d33ad16ebbaf5ecd5a26d8a4652dc7b8d7eaafd46f0f001",
+    "package.json": "sha256:459215c61b9163fec7ce7b434d8363f89f44056279332fac827c170bdad3ee4f",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+    "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
     "src/attempt-state.ts": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
     "src/binding-inspection.ts": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
@@ -79,7 +80,8 @@
     "test/navigation.test.ts": "sha256:a7a9a2a5125151e20516a9e964c667176f1cedf76d068d0f794f05709d2d2118",
     "test/resource-bindings.test.ts": "sha256:0436c0523a7abaf4d7c35facd821007f9b45a6dfda03c6d0da6e6ff588f58cd8",
     "test/resource-graph-platform.test.ts": "sha256:dbd22b77cbb2152a8f26cc5767d0c2f354a19f2171c19c1a8ad58ff2d76c7959",
-    "tsconfig.json": "sha256:ce288df4f0d867a542d295146a5197524bfb39f5a02c138684840db4906ce0fa"
+    "test/rule-policy.test.ts": "sha256:e2efe34ed79ca85022c7fd8b942b0e67d534da2d3cdcf3608a481a914aa01c0a",
+    "tsconfig.json": "sha256:913490b2e7ec60b3cd5b1eff16798103beccc47d1e81a45e30af2395f87a8b2a"
   },
   "tasks": [
     {
@@ -88,9 +90,27 @@
       "evidence": [
         {
           "kind": "command",
-          "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts",
+          "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts test/cli-help.test.ts",
           "exitCode": 0,
-          "observed": "Replayed 2026-09-30: 57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
+          "observed": "Replayed 2026-10-02 against the rule-policy source snapshot: 63 tests passed, 0 failed, 0 skipped; binding/CLI/compact relocation and help compatibility."
+        },
+        {
+          "kind": "command",
+          "command": "npm test",
+          "exitCode": 0,
+          "observed": "324 tests passed, 0 failed, 0 skipped, including 12 optional rule-policy tests."
+        },
+        {
+          "kind": "command",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "observed": "TypeScript check passed."
+        },
+        {
+          "kind": "command",
+          "command": "npm run build",
+          "exitCode": 0,
+          "observed": "Build passed. Existing C04 work remains separate."
         },
         {
           "kind": "source",
@@ -155,14 +175,32 @@
       "evidence": [
         {
           "kind": "command",
-          "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts",
+          "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts test/cli-help.test.ts",
           "exitCode": 0,
-          "observed": "Replayed 2026-09-30: 57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
+          "observed": "Replayed 2026-10-02 against the rule-policy source snapshot: 63 tests passed, 0 failed, 0 skipped; binding/CLI/compact relocation and help compatibility."
+        },
+        {
+          "kind": "command",
+          "command": "npm test",
+          "exitCode": 0,
+          "observed": "324 tests passed, 0 failed, 0 skipped, including 12 optional rule-policy tests."
+        },
+        {
+          "kind": "command",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "observed": "TypeScript check passed."
+        },
+        {
+          "kind": "command",
+          "command": "npm run build",
+          "exitCode": 0,
+          "observed": "Build passed. Existing C04 work remains separate."
         },
         {
           "kind": "source",
           "path": "docs/ADDON_BINDING.md",
-          "sha256": "sha256:4e4fffc52f437f9b2a4e981ed31cb50c4110d251ce709bb8997fc0b2640fb4ea"
+          "sha256": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de"
         },
         {
           "kind": "source",
@@ -227,14 +265,32 @@
       "evidence": [
         {
           "kind": "command",
-          "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts",
+          "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts test/cli-help.test.ts",
           "exitCode": 0,
-          "observed": "Replayed 2026-09-30: 57 tests passed; 0 failed; 0 skipped. Local fixture/CLI assertions; no new Lean or domain-semantics proof."
+          "observed": "Replayed 2026-10-02 against the rule-policy source snapshot: 63 tests passed, 0 failed, 0 skipped; binding/CLI/compact relocation and help compatibility."
+        },
+        {
+          "kind": "command",
+          "command": "npm test",
+          "exitCode": 0,
+          "observed": "324 tests passed, 0 failed, 0 skipped, including 12 optional rule-policy tests."
+        },
+        {
+          "kind": "command",
+          "command": "npm run typecheck",
+          "exitCode": 0,
+          "observed": "TypeScript check passed."
+        },
+        {
+          "kind": "command",
+          "command": "npm run build",
+          "exitCode": 0,
+          "observed": "Build passed. Existing C04 work remains separate."
         },
         {
           "kind": "source",
           "path": "docs/ADDON_BINDING.md",
-          "sha256": "sha256:4e4fffc52f437f9b2a4e981ed31cb50c4110d251ce709bb8997fc0b2640fb4ea"
+          "sha256": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de"
         },
         {
           "kind": "source",
@@ -294,6 +350,6 @@
       ]
     }
   ],
-  "supersedesReceiptDigest": "sha256:71f614065d6df36a556ebc7f8424f590a5138808d1c9aa53f3dbe2123e7e5e6c",
-  "sourceCommit": "8d38fa7dbf0bb52209f5d0c34dc72e3f97bcd3c6"
+  "supersedesReceiptDigest": "sha256:da9ce37b2b98320dd9a308087460527414e7b67e3b2eb5f6677f157d48b20947",
+  "sourceCommit": "bb3f58e2490834d38f837b61e03069bdc640e099"
 }
