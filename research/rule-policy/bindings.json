@@ -1,0 +1,233 @@
+{
+  "schema": "usl-resource-bindings/v1",
+  "resources": [
+    {
+      "id": "urn:example:rule:references",
+      "representations": [
+        {
+          "id": "local-0",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/policy.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:rule:sources",
+      "representations": [
+        {
+          "id": "local-1",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/policy.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:rule:tags",
+      "representations": [
+        {
+          "id": "local-2",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/policy.json"
+        }
+      ]
+    },
+    {
+      "id": "example:dashboard-rule-configuration",
+      "representations": [
+        {
+          "id": "local-3",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/policy.json"
+        }
+      ]
+    },
+    {
+      "id": "example:dashboard-memory",
+      "representations": [
+        {
+          "id": "local-4",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/target.json"
+        }
+      ]
+    },
+    {
+      "id": "example:dashboard-consumer",
+      "representations": [
+        {
+          "id": "local-5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/rule-policy-workflow.ts"
+        }
+      ]
+    },
+    {
+      "id": "trace:request",
+      "representations": [
+        {
+          "id": "local-6",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/rule-policy/request.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:generator",
+      "representations": [
+        {
+          "id": "local-7",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "scripts/build-rule-policy.ts"
+        }
+      ]
+    },
+    {
+      "id": "trace:agent",
+      "representations": [
+        {
+          "id": "local-8",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/rule-policy/request.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:src/addons/rule-policy.ts",
+      "representations": [
+        {
+          "id": "local-9",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "src/addons/rule-policy.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:examples/rule-policy-fixture.ts",
+      "representations": [
+        {
+          "id": "local-10",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/rule-policy-fixture.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:examples/rule-policy-workflow.ts",
+      "representations": [
+        {
+          "id": "local-11",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/rule-policy-workflow.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-policy/policy.shacl.ttl",
+      "representations": [
+        {
+          "id": "local-12",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-policy/policy.shacl.ttl"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-policy/policy.schema.json",
+      "representations": [
+        {
+          "id": "local-13",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-policy/policy.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-policy/observations.schema.json",
+      "representations": [
+        {
+          "id": "local-14",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-policy/observations.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:docs/RULE_POLICY.md",
+      "representations": [
+        {
+          "id": "local-15",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "docs/RULE_POLICY.md"
+        }
+      ]
+    },
+    {
+      "id": "test:behavior",
+      "representations": [
+        {
+          "id": "local-16",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "test/rule-policy.test.ts"
+        }
+      ]
+    },
+    {
+      "id": "test:standards",
+      "representations": [
+        {
+          "id": "local-17",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "scripts/validate-rule-policy.py"
+        }
+      ]
+    },
+    {
+      "id": "example:evaluation",
+      "representations": [
+        {
+          "id": "local-18",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/report.json"
+        }
+      ]
+    }
+  ]
+}

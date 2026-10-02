@@ -1,0 +1,203 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "urn:example:rule:references",
+      "types": [
+        "urn:usl:addon:BindingRule"
+      ],
+      "locator": "https://example.invalid/rules/references",
+      "metadata": {
+        "ruleId": "urn:example:rule:references",
+        "ruleVersion": "1"
+      }
+    },
+    {
+      "id": "urn:example:rule:sources",
+      "types": [
+        "urn:usl:addon:BindingRule"
+      ],
+      "locator": "https://example.invalid/rules/sources",
+      "metadata": {
+        "ruleId": "urn:example:rule:sources",
+        "ruleVersion": "1"
+      }
+    },
+    {
+      "id": "urn:example:rule:tags",
+      "types": [
+        "urn:usl:addon:BindingRule"
+      ],
+      "locator": "https://example.invalid/rules/tags",
+      "metadata": {
+        "ruleId": "urn:example:rule:tags",
+        "ruleVersion": "1"
+      }
+    },
+    {
+      "id": "example:dashboard-memory",
+      "types": [
+        "urn:usl:addon:BindingTarget"
+      ],
+      "locator": "https://example.invalid/dashboard/memory"
+    },
+    {
+      "id": "example:dashboard-rule-configuration",
+      "types": [
+        "urn:usl:addon:BindingConfiguration"
+      ],
+      "locator": "https://example.invalid/dashboard/policy",
+      "metadata": {
+        "policy": {
+          "schema": "usl-rule-policy/v1",
+          "id": "urn:example:dashboard:memory-policy",
+          "version": "1",
+          "target": "example:dashboard-memory",
+          "consumer": "example:dashboard-consumer",
+          "scope": "example-memory-quality",
+          "conflictPolicy": "REJECT",
+          "scoring": "WEIGHTED_MEAN_VIOLATION_V1",
+          "rules": [
+            {
+              "id": "urn:example:rule:references",
+              "version": "1",
+              "description": "Every memory reference names an existing record",
+              "requirement": "REQUIRED",
+              "severity": "VIOLATION",
+              "onViolation": "BLOCK",
+              "weight": 0,
+              "evaluator": {
+                "id": "urn:example:dashboard:references-exist",
+                "version": "1"
+              }
+            },
+            {
+              "id": "urn:example:rule:sources",
+              "version": "1",
+              "description": "Prefer a declared original source for every record; does not verify the source",
+              "requirement": "RECOMMENDED",
+              "severity": "WARNING",
+              "onViolation": "PENALIZE",
+              "weight": 0.8,
+              "evaluator": {
+                "id": "urn:example:dashboard:sources-present",
+                "version": "1"
+              }
+            },
+            {
+              "id": "urn:example:rule:tags",
+              "version": "1",
+              "description": "Prefer at least one tag for every record",
+              "requirement": "RECOMMENDED",
+              "severity": "INFO",
+              "onViolation": "PENALIZE",
+              "weight": 0.2,
+              "evaluator": {
+                "id": "urn:example:dashboard:tags-present",
+                "version": "1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "example:dashboard-consumer",
+      "types": [
+        "urn:usl:addon:Program"
+      ],
+      "locator": "https://example.invalid/dashboard/example-consumer"
+    },
+    {
+      "id": "example:source",
+      "types": [
+        "urn:usl:addon:Evidence"
+      ],
+      "locator": "https://example.invalid/dashboard/source",
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "scope": "SYNTHETIC_EXAMPLE",
+        "liveDashboardConnection": false
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:addon:applies_binding_rule",
+      "description": "An explicit consumer interprets a versioned rule for one target and configuration; no authority is granted."
+    }
+  ],
+  "links": [
+    {
+      "id": "example:rule-binding:0",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:references"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ]
+    },
+    {
+      "id": "example:rule-binding:1",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:sources"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ]
+    },
+    {
+      "id": "example:rule-binding:2",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:tags"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "example:source"
+    ]
+  }
+}

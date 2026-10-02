@@ -1,0 +1,15 @@
+{
+  "schema": "usl-rule-policy-request/v1",
+  "source": "USER_MESSAGES_IN_CURRENT_CONVERSATION",
+  "recordedOn": "2026-10-02",
+  "authority": "USER_PRIMARY",
+  "utterances": [
+    "usl 피드백 왓다 ㅇㅇ usl 이 완전한 표준그래프 엔지니어링 최신 표준그래프 엔지니어링을 그 담을수 있냐? 어느정도 강제성 약한 강제성 웨이트가 있어야하는데 규칙에 대한 ㅇㅇ 그 metahumotonic_dashboard 한테 피드백 왔다",
+    "ㅇㅇ 내용 표준 그래프 엔지니어링으로 구축좀 해줘봐봐"
+  ],
+  "externalFeedback": "USER_REPORTED_NOT_INDEPENDENTLY_RETRIEVED",
+  "implementationInterpretation": {
+    "authority": "SECONDARY_AI",
+    "text": "기존 단순 바인딩 및 선택형 애드온 경계를 유지하며 규칙 강제 수준, 위반 처리, 가중치, 버전/증거, 미평가/미지원 상태를 명시하는 계약과 예제 소비자를 구현한다. 최신 표준 전체 지원이나 실제 대시보드 연동으로 표시하지 않는다."
+  }
+}

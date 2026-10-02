@@ -1,0 +1,78 @@
+[
+  {
+    "resource": "urn:example:rule:references",
+    "representation": "local-0"
+  },
+  {
+    "resource": "urn:example:rule:sources",
+    "representation": "local-1"
+  },
+  {
+    "resource": "urn:example:rule:tags",
+    "representation": "local-2"
+  },
+  {
+    "resource": "example:dashboard-rule-configuration",
+    "representation": "local-3"
+  },
+  {
+    "resource": "example:dashboard-memory",
+    "representation": "local-4"
+  },
+  {
+    "resource": "example:dashboard-consumer",
+    "representation": "local-5"
+  },
+  {
+    "resource": "trace:request",
+    "representation": "local-6"
+  },
+  {
+    "resource": "trace:generator",
+    "representation": "local-7"
+  },
+  {
+    "resource": "trace:agent",
+    "representation": "local-8"
+  },
+  {
+    "resource": "artifact:src/addons/rule-policy.ts",
+    "representation": "local-9"
+  },
+  {
+    "resource": "artifact:examples/rule-policy-fixture.ts",
+    "representation": "local-10"
+  },
+  {
+    "resource": "artifact:examples/rule-policy-workflow.ts",
+    "representation": "local-11"
+  },
+  {
+    "resource": "artifact:schemas/rule-policy/policy.shacl.ttl",
+    "representation": "local-12"
+  },
+  {
+    "resource": "artifact:schemas/rule-policy/policy.schema.json",
+    "representation": "local-13"
+  },
+  {
+    "resource": "artifact:schemas/rule-policy/observations.schema.json",
+    "representation": "local-14"
+  },
+  {
+    "resource": "artifact:docs/RULE_POLICY.md",
+    "representation": "local-15"
+  },
+  {
+    "resource": "test:behavior",
+    "representation": "local-16"
+  },
+  {
+    "resource": "test:standards",
+    "representation": "local-17"
+  },
+  {
+    "resource": "example:evaluation",
+    "representation": "local-18"
+  }
+]

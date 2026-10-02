@@ -1,0 +1,86 @@
+{
+  "schema": "usl-rule-evaluation/v1",
+  "policyId": "urn:example:dashboard:memory-policy",
+  "policyVersion": "1",
+  "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+  "observationsDigest": "sha256:ace782d9850f2ebd69d8b441337f71fb329cbb1baf760a676749129c6022377d",
+  "contextDigest": "sha256:21c5f3c136b73030d4131324e938ea3aa7ed6100ff1e4da87b56c2e16aa88ecb",
+  "target": "example:dashboard-memory",
+  "targetDigest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841",
+  "scope": "example-memory-quality",
+  "consumer": "example:dashboard-consumer",
+  "observedAt": "2026-10-02T00:00:00Z",
+  "decision": "ELIGIBLE",
+  "coverage": "COMPLETE",
+  "penalty": 0.6000000000000001,
+  "results": [
+    {
+      "rule": "urn:example:rule:references",
+      "ruleVersion": "1",
+      "requirement": "REQUIRED",
+      "severity": "VIOLATION",
+      "onViolation": "BLOCK",
+      "weight": 0,
+      "evaluator": {
+        "id": "urn:example:dashboard:references-exist",
+        "version": "1"
+      },
+      "status": "PASS",
+      "violation": 0,
+      "evidence": [
+        {
+          "resource": "example:dashboard-memory",
+          "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+        }
+      ],
+      "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+    },
+    {
+      "rule": "urn:example:rule:sources",
+      "ruleVersion": "1",
+      "requirement": "RECOMMENDED",
+      "severity": "WARNING",
+      "onViolation": "PENALIZE",
+      "weight": 0.8,
+      "evaluator": {
+        "id": "urn:example:dashboard:sources-present",
+        "version": "1"
+      },
+      "status": "FAIL",
+      "violation": 0.5,
+      "evidence": [
+        {
+          "resource": "example:dashboard-memory",
+          "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+        }
+      ],
+      "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+    },
+    {
+      "rule": "urn:example:rule:tags",
+      "ruleVersion": "1",
+      "requirement": "RECOMMENDED",
+      "severity": "INFO",
+      "onViolation": "PENALIZE",
+      "weight": 0.2,
+      "evaluator": {
+        "id": "urn:example:dashboard:tags-present",
+        "version": "1"
+      },
+      "status": "FAIL",
+      "violation": 1,
+      "evidence": [
+        {
+          "resource": "example:dashboard-memory",
+          "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+        }
+      ],
+      "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+    }
+  ],
+  "conflicts": [],
+  "evidenceTrust": "CONSUMER_REPORTED",
+  "execution": "NOT_REQUESTED",
+  "authority": "NOT_GRANTED",
+  "digest": "sha256:d7567bede7c25ddde851cf5a79e11bd11ed6725cacf7e0472f87ffac8bec2f10"
+}

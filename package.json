@@ -12,6 +12,10 @@
     "usl-mcp": "./dist/src/mcp.js"
   },
   "exports": {
+    "./rule-policy": {
+      "types": "./dist/src/addons/rule-policy.d.ts",
+      "import": "./dist/src/addons/rule-policy.js"
+    },
     ".": {
       "types": "./dist/src/index.d.ts",
       "import": "./dist/src/index.js"
@@ -97,6 +101,10 @@
     "node": ">=22"
   },
   "scripts": {
+    "example:rule-policy": "tsx examples/rule-policy-workflow.ts",
+    "rule-policy:build": "tsx scripts/build-rule-policy.ts",
+    "rule-policy:check": "tsx scripts/build-rule-policy.ts --check",
+    "rule-policy:standards": "python3 scripts/validate-rule-policy.py",
     "build": "tsc -p tsconfig.build.json",
     "example:code": "tsx examples/code-embedded.ts",
     "example:engineering": "tsx examples/engineering-workflow.ts",

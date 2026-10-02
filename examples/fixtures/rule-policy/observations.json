@@ -1,0 +1,62 @@
+{
+  "schema": "usl-rule-observations/v1",
+  "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+  "target": "example:dashboard-memory",
+  "targetDigest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841",
+  "scope": "example-memory-quality",
+  "observedAt": "2026-10-02T00:00:00Z",
+  "conflicts": [],
+  "observations": [
+    {
+      "rule": "urn:example:rule:references",
+      "ruleVersion": "1",
+      "evaluator": {
+        "id": "urn:example:dashboard:references-exist",
+        "version": "1"
+      },
+      "status": "PASS",
+      "violation": 0,
+      "evidence": [
+        {
+          "resource": "example:dashboard-memory",
+          "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+        }
+      ],
+      "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+    },
+    {
+      "rule": "urn:example:rule:sources",
+      "ruleVersion": "1",
+      "evaluator": {
+        "id": "urn:example:dashboard:sources-present",
+        "version": "1"
+      },
+      "status": "FAIL",
+      "violation": 0.5,
+      "evidence": [
+        {
+          "resource": "example:dashboard-memory",
+          "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+        }
+      ],
+      "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+    },
+    {
+      "rule": "urn:example:rule:tags",
+      "ruleVersion": "1",
+      "evaluator": {
+        "id": "urn:example:dashboard:tags-present",
+        "version": "1"
+      },
+      "status": "FAIL",
+      "violation": 1,
+      "evidence": [
+        {
+          "resource": "example:dashboard-memory",
+          "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+        }
+      ],
+      "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+    }
+  ]
+}

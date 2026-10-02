@@ -1,0 +1,84 @@
+{
+  "@context": {
+    "rp": "urn:usl:rule-policy:",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:example:dashboard:memory-policy",
+      "@type": "rp:Policy",
+      "rp:version": "1",
+      "rp:target": {
+        "@id": "example:dashboard-memory"
+      },
+      "rp:consumer": {
+        "@id": "example:dashboard-consumer"
+      },
+      "rp:scope": "example-memory-quality",
+      "rp:conflictPolicy": "REJECT",
+      "rp:scoring": "WEIGHTED_MEAN_VIOLATION_V1",
+      "rp:rule": [
+        {
+          "@id": "urn:example:rule:references"
+        },
+        {
+          "@id": "urn:example:rule:sources"
+        },
+        {
+          "@id": "urn:example:rule:tags"
+        }
+      ]
+    },
+    {
+      "@id": "urn:example:rule:references",
+      "@type": "rp:Rule",
+      "rp:version": "1",
+      "rp:description": "Every memory reference names an existing record",
+      "rp:requirement": "REQUIRED",
+      "rp:severity": "VIOLATION",
+      "rp:onViolation": "BLOCK",
+      "rp:weight": {
+        "@value": 0,
+        "@type": "xsd:double"
+      },
+      "rp:evaluator": {
+        "@id": "urn:example:dashboard:references-exist"
+      },
+      "rp:evaluatorVersion": "1"
+    },
+    {
+      "@id": "urn:example:rule:sources",
+      "@type": "rp:Rule",
+      "rp:version": "1",
+      "rp:description": "Prefer a declared original source for every record; does not verify the source",
+      "rp:requirement": "RECOMMENDED",
+      "rp:severity": "WARNING",
+      "rp:onViolation": "PENALIZE",
+      "rp:weight": {
+        "@value": 0.8,
+        "@type": "xsd:double"
+      },
+      "rp:evaluator": {
+        "@id": "urn:example:dashboard:sources-present"
+      },
+      "rp:evaluatorVersion": "1"
+    },
+    {
+      "@id": "urn:example:rule:tags",
+      "@type": "rp:Rule",
+      "rp:version": "1",
+      "rp:description": "Prefer at least one tag for every record",
+      "rp:requirement": "RECOMMENDED",
+      "rp:severity": "INFO",
+      "rp:onViolation": "PENALIZE",
+      "rp:weight": {
+        "@value": 0.2,
+        "@type": "xsd:double"
+      },
+      "rp:evaluator": {
+        "@id": "urn:example:dashboard:tags-present"
+      },
+      "rp:evaluatorVersion": "1"
+    }
+  ]
+}

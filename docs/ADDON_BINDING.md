@@ -1,5 +1,9 @@
 # 선택 add-on 바인딩
 
+규칙의 필수/권고/참고 수준과 경고·감점·차단은 선택형
+[규칙 policy 계약과 참조 소비자](RULE_POLICY.md)로 표현한다. 기존 네 역할을
+재사용하며 코어 자동 실행이나 가중치 해석은 추가하지 않는다.
+
 USL 코어는 resource, meaning, 이름 있는 participant, link, provenance를
 보존하는 연결 문법이다. domain rule을 실행하거나 weight를 계산하지 않는다.
 도메인 CLI program 또는 add-on은 기존 resource graph 위에 자기 rule을 **선언**할

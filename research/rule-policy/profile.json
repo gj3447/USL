@@ -1,0 +1,194 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:rule-policy:binding-profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:addon:applies_binding_rule",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "rule",
+          "required": true,
+          "types": [
+            "urn:usl:addon:BindingRule"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "target",
+          "required": true,
+          "types": [
+            "urn:usl:addon:BindingTarget"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "configuration",
+          "required": true,
+          "types": [
+            "urn:usl:addon:BindingConfiguration"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "consumer",
+          "required": true,
+          "types": [
+            "urn:usl:addon:Program"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:rule-policy:evaluated_policy",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "configuration",
+          "required": true,
+          "types": [
+            "urn:usl:addon:BindingConfiguration"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "target",
+          "required": true,
+          "types": [
+            "urn:usl:addon:BindingTarget"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "consumer",
+          "required": true,
+          "types": [
+            "urn:usl:addon:Program"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "result",
+          "required": true,
+          "types": [
+            "urn:usl:rule-policy:Evaluation"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:rule-policy:realized_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:implemented_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:status:Artifact"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:tested_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:status:TestEvidence"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:bounded_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "feature",
+          "required": true,
+          "types": [
+            "urn:usl:status:Feature"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "limitation",
+          "required": true,
+          "types": [
+            "urn:usl:status:Limitation"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:status:informed_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:status:ExternalSource"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

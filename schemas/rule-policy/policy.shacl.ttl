@@ -1,0 +1,30 @@
+@prefix rp: <urn:usl:rule-policy:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rp:PolicyShape a sh:NodeShape ;
+  sh:targetClass rp:Policy ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rp:version ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rp:target ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rp:consumer ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rp:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rp:conflictPolicy ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "REJECT" ] ;
+  sh:property [ sh:path rp:scoring ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "WEIGHTED_MEAN_VIOLATION_V1" ] ;
+  sh:property [ sh:path rp:rule ; sh:minCount 1 ; sh:maxCount 256 ; sh:nodeKind sh:IRI ; sh:class rp:Rule ; sh:node rp:RuleShape ] .
+
+rp:RuleShape a sh:NodeShape ;
+  sh:targetClass rp:Rule ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rp:version ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rp:description ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rp:requirement ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "REQUIRED" "RECOMMENDED" "INFORMATIONAL" ) ] ;
+  sh:property [ sh:path rp:severity ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "VIOLATION" "WARNING" "INFO" ) ] ;
+  sh:property [ sh:path rp:onViolation ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "BLOCK" "WARN" "PENALIZE" "RECORD" ) ] ;
+  sh:property [ sh:path rp:weight ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:double ; sh:minInclusive 0 ; sh:maxInclusive 1 ] ;
+  sh:property [ sh:path rp:evaluator ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rp:evaluatorVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:or (
+    [ sh:property [ sh:path rp:requirement ; sh:hasValue "REQUIRED" ] ; sh:property [ sh:path rp:onViolation ; sh:hasValue "BLOCK" ] ; sh:property [ sh:path rp:weight ; sh:maxInclusive 0 ] ]
+    [ sh:property [ sh:path rp:requirement ; sh:hasValue "RECOMMENDED" ] ; sh:property [ sh:path rp:onViolation ; sh:hasValue "WARN" ] ; sh:property [ sh:path rp:weight ; sh:maxInclusive 0 ] ]
+    [ sh:property [ sh:path rp:requirement ; sh:hasValue "RECOMMENDED" ] ; sh:property [ sh:path rp:onViolation ; sh:hasValue "PENALIZE" ] ; sh:property [ sh:path rp:weight ; sh:minExclusive 0 ] ]
+    [ sh:property [ sh:path rp:requirement ; sh:hasValue "INFORMATIONAL" ] ; sh:property [ sh:path rp:onViolation ; sh:hasValue "RECORD" ] ; sh:property [ sh:path rp:weight ; sh:maxInclusive 0 ] ]
+  ) .

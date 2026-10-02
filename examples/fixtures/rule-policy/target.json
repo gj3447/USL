@@ -1,0 +1,19 @@
+{
+  "schema": "dashboard-memory-example/v1",
+  "records": [
+    {
+      "id": "memory:a",
+      "references": [],
+      "source": "urn:example:source:a",
+      "tags": []
+    },
+    {
+      "id": "memory:b",
+      "references": [
+        "memory:a"
+      ],
+      "source": null,
+      "tags": []
+    }
+  ]
+}

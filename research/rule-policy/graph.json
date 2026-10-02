@@ -1,0 +1,846 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "urn:example:rule:references",
+      "types": [
+        "urn:usl:addon:BindingRule"
+      ],
+      "locator": "https://example.invalid/rules/references",
+      "metadata": {
+        "ruleId": "urn:example:rule:references",
+        "ruleVersion": "1"
+      }
+    },
+    {
+      "id": "urn:example:rule:sources",
+      "types": [
+        "urn:usl:addon:BindingRule"
+      ],
+      "locator": "https://example.invalid/rules/sources",
+      "metadata": {
+        "ruleId": "urn:example:rule:sources",
+        "ruleVersion": "1"
+      }
+    },
+    {
+      "id": "urn:example:rule:tags",
+      "types": [
+        "urn:usl:addon:BindingRule"
+      ],
+      "locator": "https://example.invalid/rules/tags",
+      "metadata": {
+        "ruleId": "urn:example:rule:tags",
+        "ruleVersion": "1"
+      }
+    },
+    {
+      "id": "example:dashboard-memory",
+      "types": [
+        "urn:usl:addon:BindingTarget"
+      ],
+      "locator": "https://example.invalid/dashboard/memory"
+    },
+    {
+      "id": "example:dashboard-rule-configuration",
+      "types": [
+        "urn:usl:addon:BindingConfiguration"
+      ],
+      "locator": "https://example.invalid/dashboard/policy",
+      "metadata": {
+        "policy": {
+          "schema": "usl-rule-policy/v1",
+          "id": "urn:example:dashboard:memory-policy",
+          "version": "1",
+          "target": "example:dashboard-memory",
+          "consumer": "example:dashboard-consumer",
+          "scope": "example-memory-quality",
+          "conflictPolicy": "REJECT",
+          "scoring": "WEIGHTED_MEAN_VIOLATION_V1",
+          "rules": [
+            {
+              "id": "urn:example:rule:references",
+              "version": "1",
+              "description": "Every memory reference names an existing record",
+              "requirement": "REQUIRED",
+              "severity": "VIOLATION",
+              "onViolation": "BLOCK",
+              "weight": 0,
+              "evaluator": {
+                "id": "urn:example:dashboard:references-exist",
+                "version": "1"
+              }
+            },
+            {
+              "id": "urn:example:rule:sources",
+              "version": "1",
+              "description": "Prefer a declared original source for every record; does not verify the source",
+              "requirement": "RECOMMENDED",
+              "severity": "WARNING",
+              "onViolation": "PENALIZE",
+              "weight": 0.8,
+              "evaluator": {
+                "id": "urn:example:dashboard:sources-present",
+                "version": "1"
+              }
+            },
+            {
+              "id": "urn:example:rule:tags",
+              "version": "1",
+              "description": "Prefer at least one tag for every record",
+              "requirement": "RECOMMENDED",
+              "severity": "INFO",
+              "onViolation": "PENALIZE",
+              "weight": 0.2,
+              "evaluator": {
+                "id": "urn:example:dashboard:tags-present",
+                "version": "1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "example:dashboard-consumer",
+      "types": [
+        "urn:usl:addon:Program"
+      ],
+      "locator": "https://example.invalid/dashboard/example-consumer"
+    },
+    {
+      "id": "example:source",
+      "types": [
+        "urn:usl:addon:Evidence"
+      ],
+      "locator": "https://example.invalid/dashboard/source",
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "scope": "SYNTHETIC_EXAMPLE",
+        "liveDashboardConnection": false
+      }
+    },
+    {
+      "id": "trace:request",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/rule-policy/request.json",
+      "metadata": {
+        "path": "research/rule-policy/request.json",
+        "sourceDigest": "sha256:c197973044501f0674ad14268ed820a65d33c0d5ad6ed58e1eefda9c309949f2",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "authority": "USER_PRIMARY",
+        "externalFeedback": "USER_REPORTED_ONLY"
+      }
+    },
+    {
+      "id": "trace:generator",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-rule-policy.ts",
+      "metadata": {
+        "path": "scripts/build-rule-policy.ts",
+        "sourceDigest": "sha256:ecc1040d6b223a3477031ab5ab8fe3b41c6218b362f2f000e9da02df2fed7f0a",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "trace:agent",
+      "types": [
+        "urn:usl:status:Agent",
+        "http://www.w3.org/ns/prov#Agent"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/rule-policy/request.json",
+      "metadata": {
+        "path": "research/rule-policy/request.json",
+        "sourceDigest": "sha256:c197973044501f0674ad14268ed820a65d33c0d5ad6ed58e1eefda9c309949f2",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "authority": "SECONDARY_AI",
+        "ratification": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:activity",
+      "types": [
+        "http://www.w3.org/ns/prov#Activity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-rule-policy.ts",
+      "metadata": {
+        "scope": "DETERMINISTIC_SOURCE_TRACEABILITY",
+        "testExecution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:task",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_POLICY.md",
+      "metadata": {
+        "scope": "OPTIONAL_RULE_POLICY_CONTRACT",
+        "implementationChoices": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "standard:shacl",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+      "metadata": {
+        "checkedOn": "2026-10-02",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "application": "RDF shape validation; severity alone does not select application enforcement"
+      }
+    },
+    {
+      "id": "standard:shacl12",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/2026/WD-shacl12-core-20260918/",
+      "metadata": {
+        "checkedOn": "2026-10-02",
+        "publicationStatus": "W3C_WORKING_DRAFT",
+        "application": "Design reference for explicit conformance-disallow settings; NOT_IMPLEMENTED"
+      }
+    },
+    {
+      "id": "standard:rdf12",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/rdf12-concepts/",
+      "metadata": {
+        "checkedOn": "2026-10-02",
+        "publicationStatus": "CANDIDATE_RECOMMENDATION_SNAPSHOT_AT_REVIEW",
+        "application": "Version/status tracking only; no RDF 1.2 conformance claim"
+      }
+    },
+    {
+      "id": "standard:prov",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/prov-o/",
+      "metadata": {
+        "checkedOn": "2026-10-02",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "application": "Existing JSON-LD export preserves entity/activity/agent provenance"
+      }
+    },
+    {
+      "id": "artifact:src/addons/rule-policy.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/src/addons/rule-policy.ts",
+      "metadata": {
+        "path": "src/addons/rule-policy.ts",
+        "sourceDigest": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:examples/rule-policy-fixture.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/rule-policy-fixture.ts",
+      "metadata": {
+        "path": "examples/rule-policy-fixture.ts",
+        "sourceDigest": "sha256:7f6bfd36dc31ea05637da6f79f69d8c8fa5fd33beaa408cc55426c40b5dc7b9f",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:examples/rule-policy-workflow.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/rule-policy-workflow.ts",
+      "metadata": {
+        "path": "examples/rule-policy-workflow.ts",
+        "sourceDigest": "sha256:f831f16b706e90f54495e7afc93af7ec5bb5a3e83a1bfe87f3ea92c9b8649558",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:schemas/rule-policy/policy.shacl.ttl",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-policy/policy.shacl.ttl",
+      "metadata": {
+        "path": "schemas/rule-policy/policy.shacl.ttl",
+        "sourceDigest": "sha256:f9cbcec406403b1634b6ae60386610cba7dc5995d12f90065aa1bc2129041417",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:schemas/rule-policy/policy.schema.json",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-policy/policy.schema.json",
+      "metadata": {
+        "path": "schemas/rule-policy/policy.schema.json",
+        "sourceDigest": "sha256:c21564779d549b760c8336e569e458fb3333f2206a778de7397b8e1b82e79967",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:schemas/rule-policy/observations.schema.json",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-policy/observations.schema.json",
+      "metadata": {
+        "path": "schemas/rule-policy/observations.schema.json",
+        "sourceDigest": "sha256:e4e7d3b907af09a8a2d1954866f4e6a08fa1023d7a6c722bbd5f74c77ec5a5b5",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:docs/RULE_POLICY.md",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_POLICY.md",
+      "metadata": {
+        "path": "docs/RULE_POLICY.md",
+        "sourceDigest": "sha256:a97bb69161c7d0009f7431dfbe960eed8c36ac713ce3d28ecb915dc6c6cb590a",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "test:behavior",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/test/rule-policy.test.ts",
+      "metadata": {
+        "path": "test/rule-policy.test.ts",
+        "sourceDigest": "sha256:e2efe34ed79ca85022c7fd8b942b0e67d534da2d3cdcf3608a481a914aa01c0a",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "evidenceKind": "TEST_DEFINITION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "test:standards",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/validate-rule-policy.py",
+      "metadata": {
+        "path": "scripts/validate-rule-policy.py",
+        "sourceDigest": "sha256:0a9491b359f2f4a8bafcfadd8631b320a6e7c00483944119768835b30de93f9e",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "evidenceKind": "VALIDATOR_DEFINITION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "feature:rule-policy",
+      "types": [
+        "urn:usl:status:Feature"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_POLICY.md",
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "scope": "DECLARATION_AND_PURE_REFERENCE_CONSUMER"
+      }
+    },
+    {
+      "id": "limitation:scope",
+      "types": [
+        "urn:usl:status:Limitation"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_POLICY.md",
+      "metadata": {
+        "detail": "No live dashboard integration, arbitrary predicate engine, conflict discovery, automatic exceptions, permissions, signed evidence, RDF 1.2 or SHACL 1.2 implementation. Base DomainProfile behavior remains strict."
+      }
+    },
+    {
+      "id": "example:evaluation",
+      "types": [
+        "urn:usl:rule-policy:Evaluation"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-policy/report.json",
+      "metadata": {
+        "path": "examples/fixtures/rule-policy/report.json",
+        "sourceDigest": "sha256:8342c6eb7b1c9d48799fbf70794aadafe3a2ff1f455be0d401eb95070774b4e4",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "report": {
+          "schema": "usl-rule-evaluation/v1",
+          "policyId": "urn:example:dashboard:memory-policy",
+          "policyVersion": "1",
+          "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+          "observationsDigest": "sha256:ace782d9850f2ebd69d8b441337f71fb329cbb1baf760a676749129c6022377d",
+          "contextDigest": "sha256:21c5f3c136b73030d4131324e938ea3aa7ed6100ff1e4da87b56c2e16aa88ecb",
+          "target": "example:dashboard-memory",
+          "targetDigest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841",
+          "scope": "example-memory-quality",
+          "consumer": "example:dashboard-consumer",
+          "observedAt": "2026-10-02T00:00:00Z",
+          "decision": "ELIGIBLE",
+          "coverage": "COMPLETE",
+          "penalty": 0.6000000000000001,
+          "results": [
+            {
+              "rule": "urn:example:rule:references",
+              "ruleVersion": "1",
+              "requirement": "REQUIRED",
+              "severity": "VIOLATION",
+              "onViolation": "BLOCK",
+              "weight": 0,
+              "evaluator": {
+                "id": "urn:example:dashboard:references-exist",
+                "version": "1"
+              },
+              "status": "PASS",
+              "violation": 0,
+              "evidence": [
+                {
+                  "resource": "example:dashboard-memory",
+                  "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+                }
+              ],
+              "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+            },
+            {
+              "rule": "urn:example:rule:sources",
+              "ruleVersion": "1",
+              "requirement": "RECOMMENDED",
+              "severity": "WARNING",
+              "onViolation": "PENALIZE",
+              "weight": 0.8,
+              "evaluator": {
+                "id": "urn:example:dashboard:sources-present",
+                "version": "1"
+              },
+              "status": "FAIL",
+              "violation": 0.5,
+              "evidence": [
+                {
+                  "resource": "example:dashboard-memory",
+                  "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+                }
+              ],
+              "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+            },
+            {
+              "rule": "urn:example:rule:tags",
+              "ruleVersion": "1",
+              "requirement": "RECOMMENDED",
+              "severity": "INFO",
+              "onViolation": "PENALIZE",
+              "weight": 0.2,
+              "evaluator": {
+                "id": "urn:example:dashboard:tags-present",
+                "version": "1"
+              },
+              "status": "FAIL",
+              "violation": 1,
+              "evidence": [
+                {
+                  "resource": "example:dashboard-memory",
+                  "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+                }
+              ],
+              "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+            }
+          ],
+          "conflicts": [],
+          "evidenceTrust": "CONSUMER_REPORTED",
+          "execution": "NOT_REQUESTED",
+          "authority": "NOT_GRANTED",
+          "digest": "sha256:d7567bede7c25ddde851cf5a79e11bd11ed6725cacf7e0472f87ffac8bec2f10"
+        },
+        "evidenceKind": "SYNTHETIC_EXAMPLE_RESULT",
+        "clock": "FIXED_FIXTURE_CLOCK_NOT_EXECUTION_TIME",
+        "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:addon:applies_binding_rule",
+      "description": "Declared role binding urn:usl:addon:applies_binding_rule; see RULE_POLICY.md for domain/range and scope."
+    },
+    {
+      "id": "urn:usl:rule-policy:evaluated_policy",
+      "description": "Declared role binding urn:usl:rule-policy:evaluated_policy; see RULE_POLICY.md for domain/range and scope."
+    },
+    {
+      "id": "urn:usl:rule-policy:realized_by",
+      "description": "Declared role binding urn:usl:rule-policy:realized_by; see RULE_POLICY.md for domain/range and scope."
+    },
+    {
+      "id": "urn:usl:status:implemented_by",
+      "description": "Declared role binding urn:usl:status:implemented_by; see RULE_POLICY.md for domain/range and scope."
+    },
+    {
+      "id": "urn:usl:status:tested_by",
+      "description": "Declared role binding urn:usl:status:tested_by; see RULE_POLICY.md for domain/range and scope."
+    },
+    {
+      "id": "urn:usl:status:bounded_by",
+      "description": "Declared role binding urn:usl:status:bounded_by; see RULE_POLICY.md for domain/range and scope."
+    },
+    {
+      "id": "urn:usl:status:informed_by",
+      "description": "Declared role binding urn:usl:status:informed_by; see RULE_POLICY.md for domain/range and scope."
+    }
+  ],
+  "links": [
+    {
+      "id": "example:rule-binding:0",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:references"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ]
+    },
+    {
+      "id": "example:rule-binding:1",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:sources"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ]
+    },
+    {
+      "id": "example:rule-binding:2",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:tags"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ]
+    },
+    {
+      "id": "trace:3",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "trace:request"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:4",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "standard:shacl"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:5",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "standard:shacl12"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:6",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "standard:rdf12"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:7",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "standard:prov"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:8",
+      "meaning": "urn:usl:rule-policy:realized_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:9",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/addons/rule-policy.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:10",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:examples/rule-policy-fixture.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:11",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:examples/rule-policy-workflow.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:12",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:schemas/rule-policy/policy.shacl.ttl"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:13",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:schemas/rule-policy/policy.schema.json"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:14",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:schemas/rule-policy/observations.schema.json"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:15",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:docs/RULE_POLICY.md"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:16",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "evidence",
+          "resource": "test:behavior"
+        }
+      ],
+      "metadata": {
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:17",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "evidence",
+          "resource": "test:standards"
+        }
+      ],
+      "metadata": {
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:18",
+      "meaning": "urn:usl:status:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-policy"
+        },
+        {
+          "role": "limitation",
+          "resource": "limitation:scope"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:19",
+      "meaning": "urn:usl:rule-policy:evaluated_policy",
+      "participants": [
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        },
+        {
+          "role": "result",
+          "resource": "example:evaluation"
+        }
+      ],
+      "metadata": {
+        "scope": "SYNTHETIC_EXAMPLE",
+        "liveDashboardConnection": false
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "trace:request",
+      "trace:generator"
+    ],
+    "activity": "trace:activity",
+    "agent": "trace:agent"
+  }
+}
