@@ -107,6 +107,10 @@
     "./portable-transfer": {
       "types": "./dist/src/addons/portable-transfer.d.ts",
       "import": "./dist/src/addons/portable-transfer.js"
+    },
+    "./checkout-guard": {
+      "types": "./dist/src/addons/checkout-guard.d.ts",
+      "import": "./dist/src/addons/checkout-guard.js"
     }
   },
   "engines": {

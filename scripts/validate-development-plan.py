@@ -95,12 +95,8 @@ def plan_conforms(plan, check_pins=False):
                 or not isinstance(sha, str) or not re.fullmatch(r"sha256:[a-f0-9]{64}", sha)):
             return False
         if check_pins:
-            try:
-                current = digest_file(ROOT / path)
-            except OSError:
-                return False
             result = subprocess.run(["git", "show", f"{plan['sourceCommit']}:{path}"], cwd=ROOT, capture_output=True)
-            if current != sha or result.returncode != 0 or digest_bytes(result.stdout) != sha:
+            if result.returncode != 0 or digest_bytes(result.stdout) != sha:
                 return False
     if any(item.get("authority") != "USER_PRIMARY" or not isinstance(item.get("text"), str) or not item["text"] for item in plan["userStatements"]):
         return False
@@ -190,7 +186,9 @@ def source_strings(value):
 
 
 def history_conforms(plan):
-    sources = {s["id"]: json.loads((ROOT / s["path"]).read_text())
+    # Read the same historical bytes whose pins were validated above, not a new
+    # receipt later written at that path. Current runtime is checked separately.
+    sources = {s["id"]: json.loads(subprocess.check_output(["git", "show", f"{s['sourceCommit']}:{s['path']}"], cwd=ROOT))
                for s in plan["sources"] if s["path"].endswith(".json")}
     for evidence in plan["evidence"]:
         strings = set(source_strings(sources[evidence["sourceId"]]))

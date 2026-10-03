@@ -72,5 +72,6 @@ jobs:
       - run: npx tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --exactOptionalPropertyTypes --noUncheckedIndexedAccess --skipLibCheck --types node scripts/build-development-plan.ts
       - run: node --import tsx scripts/build-development-plan.ts --check
       - run: python3 scripts/validate-development-plan.py
+      - run: python3 scripts/record-development-progress.py --check
       - run: node --import tsx scripts/build-syntax-cli-architecture.ts --check
       - run: python3 scripts/validate-syntax-cli-architecture.py

@@ -1,5 +1,7 @@
 # USL 통합 개발 계획
 
+이 문서는 원래 계획 스냅샷이다. 이후 구현 상태와 실제 실행 결과는 [개발 진행](DEVELOPMENT_PROGRESS.md)에서 확인한다.
+
 이 계획은 **기기·메모리·작업환경 이동과 Git worktree 분기에도 의미 있는 연결을 보존하는 USL**을 개발하기 위한 통합 작업 그래프다. 2026-10-03 기준 **요구사항 13개 · 후속 과제 14개 · 완료 조건 47개 · milestone 5개**로 구성한다.
 
 첫 구현은 **DG01: 선택형 checkout·worktree·revision guard**다. 잘못된 worktree 또는 HEAD를 선택했는데 파일 bytes만 같아서 일치로 보이는 경계를 먼저 막고, PT02 실제 snapshot/export → PT03 staging restore → PT04 환경별 검증으로 이어 간다.
@@ -497,7 +499,7 @@ Worktree 감사의 PASS에는 현재 한계를 재현한 검사가 포함된다.
 - 합성 offline W 검토와 운영 owner 결과는 어떻게 분리되는가?
 - 모든 미래 criterion이 NOT_RUN이고 과거 receipt가 재실행으로 승격되지 않았는가?
 
-[SHACL](../schemas/development-plan/plan.shacl.ttl)과 [독립 validator](../scripts/validate-development-plan.py)는 실제 RDF parsing, typed 관계의 정확한 endpoint 집합, 상태·provenance·source pins·DAG·원래 인수 조건 보존을 확인한다. 근거 제거·잘못된 타입/역할·순환·고아 criterion·미래 PASS/완료 승격 등의 변조는 거부해야 한다. 이 검증은 계획의 구조적 적합성이며 미래 runtime 인수검사나 형식 증명은 아니다.
+[SHACL](../schemas/development-plan/plan.shacl.ttl)과 [독립 validator](../scripts/validate-development-plan.py)는 실제 RDF parsing, typed 관계의 정확한 endpoint 집합, 상태·provenance·source pins·DAG·원래 인수 조건 보존을 확인한다. source pin은 계획 당시 고정 Git revision의 실제 bytes와 비교한다. 이후 같은 경로에 새 실행 영수증이 기록되어도 원래 계획의 근거와 미래 상태를 소급 변경하지 않는다. 현재 구현 진행과 새 실행 결과는 별도 진행 기록에서 검증한다. 근거 제거·잘못된 타입/역할·순환·고아 criterion·미래 PASS/완료 승격 등의 변조는 거부해야 한다. 이 검증은 계획의 구조적 적합성이며 미래 runtime 인수검사나 형식 증명은 아니다.
 
 ```sh
 node --import tsx scripts/build-development-plan.ts

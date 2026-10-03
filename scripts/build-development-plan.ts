@@ -31,7 +31,9 @@ const groups: [string, Entity[]][] = [["Source", data.sources], ["UserStatement"
 const ids = groups.flatMap(([, entities]) => entities.map(entity => entity.id))
 must(new Set(ids).size === ids.length, "duplicate plan ID")
 for (const source of data.sources) {
-  must(source.sourceCommit === data.sourceCommit && digestSource(await read(source.path)) === source.sha256, `current source drift: ${source.path}`)
+  // This is the original planning snapshot. Later execution receipts can change
+  // at the same path without rewriting the evidence that informed this plan.
+  must(source.sourceCommit === data.sourceCommit, `plan source revision differs: ${source.path}`)
   must(digestSource(execFileSync("git", ["show", `${source.sourceCommit}:${source.path}`], { cwd: root, encoding: "utf8" })) === source.sha256, `historical source drift: ${source.path}`)
 }
 const seen = new Set<string>(), active = new Set<string>()
@@ -119,6 +121,7 @@ const ready = data.tasks.filter(t => t.dependsOn.length === 0)
 const sourceLink = (id: string) => { const source = data.sources.find(x => x.id === id); must(source, "missing source"); return `[${source.path}](../${source.path})` }
 const document = [
   "# USL 통합 개발 계획", "",
+  "이 문서는 원래 계획 스냅샷이다. 이후 구현 상태와 실제 실행 결과는 [개발 진행](DEVELOPMENT_PROGRESS.md)에서 확인한다.", "",
   `이 계획은 **기기·메모리·작업환경 이동과 Git worktree 분기에도 의미 있는 연결을 보존하는 USL**을 개발하기 위한 통합 작업 그래프다. ${data.recordedOn} 기준 **요구사항 ${data.requirements.length}개 · 후속 과제 ${data.tasks.length}개 · 완료 조건 ${data.criteria.length}개 · milestone ${data.milestones.length}개**로 구성한다.`, "",
   "첫 구현은 **DG01: 선택형 checkout·worktree·revision guard**다. 잘못된 worktree 또는 HEAD를 선택했는데 파일 bytes만 같아서 일치로 보이는 경계를 먼저 막고, PT02 실제 snapshot/export → PT03 staging restore → PT04 환경별 검증으로 이어 간다.", "",
   `이 문서는 SECONDARY_AI의 구현 제안이다. 현재 모든 후속 과제는 **PLANNED / NOT_STARTED**, 미래 완료 조건은 **NOT_RUN**이다. 그래프 생성·검증 성공은 해당 기능의 구현 완료가 아니다. 근거 snapshot은 Git \`${data.sourceCommit}\`과 파일별 SHA-256으로 고정한다. 과거 실행 근거 ${data.evidence.filter(e => e.kind.includes("EXECUTION")).length}건을 포함한 근거 ${data.evidence.length}개를 참조하며 이번 계획 생성에서 재실행하지 않았다.`, "",
@@ -167,7 +170,7 @@ const document = [
   ...definitions.map(x => `| ${x.name} / ${x.predicate} | ${Object.values(x.roles).join(" → ")} | ${x.meaning} |`), "",
   "각 link는 profile에 지정한 역할을 정확히 하나씩 가진다. Task는 requirement·baseline·evidence·source·criterion을 하나 이상 참조한다. Criterion은 task 하나에 귀속되고 Task의 validatedBy와 역방향으로 일치한다. Requirement는 사용자 원문과 고정 source를 각각 하나 이상 참조한다. 모든 요구사항과 미래 과제는 작업/milestone에 연결된다.", "",
   ...data.competencyQuestions.map(q => `- ${q}`), "",
-  "[SHACL](../schemas/development-plan/plan.shacl.ttl)과 [독립 validator](../scripts/validate-development-plan.py)는 실제 RDF parsing, typed 관계의 정확한 endpoint 집합, 상태·provenance·source pins·DAG·원래 인수 조건 보존을 확인한다. 근거 제거·잘못된 타입/역할·순환·고아 criterion·미래 PASS/완료 승격 등의 변조는 거부해야 한다. 이 검증은 계획의 구조적 적합성이며 미래 runtime 인수검사나 형식 증명은 아니다.", "",
+  "[SHACL](../schemas/development-plan/plan.shacl.ttl)과 [독립 validator](../scripts/validate-development-plan.py)는 실제 RDF parsing, typed 관계의 정확한 endpoint 집합, 상태·provenance·source pins·DAG·원래 인수 조건 보존을 확인한다. source pin은 계획 당시 고정 Git revision의 실제 bytes와 비교한다. 이후 같은 경로에 새 실행 영수증이 기록되어도 원래 계획의 근거와 미래 상태를 소급 변경하지 않는다. 현재 구현 진행과 새 실행 결과는 별도 진행 기록에서 검증한다. 근거 제거·잘못된 타입/역할·순환·고아 criterion·미래 PASS/완료 승격 등의 변조는 거부해야 한다. 이 검증은 계획의 구조적 적합성이며 미래 runtime 인수검사나 형식 증명은 아니다.", "",
   "```sh", "node --import tsx scripts/build-development-plan.ts", "node --import tsx scripts/build-development-plan.ts --check", "python3 scripts/validate-development-plan.py", "```", "",
   "Python validator는 저장소 scripts/requirements-standards.txt의 rdflib/pyshacl을 사용한다. CI에서 생성물 일치·TypeScript 검사·독립 검증을 반복한다.", "",
   "| 고정 source | SHA-256 |", "|---|---|", ...data.sources.map(source => `| [${source.path}](../${source.path}) | \`${source.sha256}\` |`), "",
