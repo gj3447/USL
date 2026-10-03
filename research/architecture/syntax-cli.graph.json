@@ -103,7 +103,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/binding-delivery.receipt.json",
       "metadata": {
         "path": "research/architecture/binding-delivery.receipt.json",
-        "sourceDigest": "sha256:1887840e08b9c25aa6db61f66a13e509ff5ceb2ef580c606d90aa081dd5bd796",
+        "sourceDigest": "sha256:f48151822a15ef09ba87289b4f146c1bf36709ce8d9a4386f846a07ea5ea5275",
         "authority": "SECONDARY_AI",
         "status": "PASS",
         "generatedAt": "2026-10-03",
@@ -117,8 +117,9 @@
           "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
           "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
           "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-          "package.json": "sha256:755f48d689e870f016cf5e747b089e902ae2cdab8305b1b5ce85de01dc94d711",
+          "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
           "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+          "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
           "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
           "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
           "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
@@ -224,6 +225,7 @@
           "test/observation.test.ts": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73",
           "test/permissions.test.ts": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db",
           "test/pierce.test.ts": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40",
+          "test/portable-transfer.test.ts": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
           "test/program-store.test.ts": "sha256:e664fd9bd08ad302e126ea650419fca1cd33abf98cae562e24fe6820c8c14c19",
           "test/project.test.ts": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e",
           "test/property-graph.test.ts": "sha256:1b0708cb890158f480e8b1f78fe16f40e943ee3af6ec5d2d425fa249c40f4d2a",
@@ -238,7 +240,7 @@
           "test/rule-weight-review.test.ts": "sha256:0987adac389bb171e34304e53e90959806c64ba8a4d70efa9a77964ebca021fd",
           "test/semantic-projection-validation.test.ts": "sha256:e9ec995d425513b9844699a5410ac5dd1186f86373ef80b47363fa492476e2c8",
           "test/storage.test.ts": "sha256:22df92e8a30ec11d3afd41cbcff312ffe9afe8e92f1775d761caa7f0e0c6cc53",
-          "tsconfig.json": "sha256:290103982e2112b8c2f2a5fb18fff73e711331bad9d6e2d42c1e9e6a211b7c54"
+          "tsconfig.json": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
         },
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"
@@ -252,16 +254,17 @@
       "locator": "https://github.com/gj3447/USL/blob/master/research/architecture/core-cli-c01.receipt.json",
       "metadata": {
         "path": "research/architecture/core-cli-c01.receipt.json",
-        "sourceDigest": "sha256:a5365b8e6312bc2ab23abf7cd6fbaa51af9c39cc348b4835aa51ebdaf5677cd9",
+        "sourceDigest": "sha256:06ea0e588aac95521d97aad8b2673350e525e9c696239c7cc1c83aba147c9e14",
         "authority": "SECONDARY_AI",
         "status": "PASS",
         "generatedAt": "2026-10-03",
-        "sourceCommit": "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38",
+        "sourceCommit": "f7a93226f1ed4f71d578db0e318d5da35428fc3d",
         "sourcePins": {
           "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
           "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-          "package.json": "sha256:755f48d689e870f016cf5e747b089e902ae2cdab8305b1b5ce85de01dc94d711",
+          "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
           "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+          "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
           "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
           "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
           "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
@@ -367,6 +370,7 @@
           "test/observation.test.ts": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73",
           "test/permissions.test.ts": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db",
           "test/pierce.test.ts": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40",
+          "test/portable-transfer.test.ts": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
           "test/program-store.test.ts": "sha256:e664fd9bd08ad302e126ea650419fca1cd33abf98cae562e24fe6820c8c14c19",
           "test/project.test.ts": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e",
           "test/property-graph.test.ts": "sha256:1b0708cb890158f480e8b1f78fe16f40e943ee3af6ec5d2d425fa249c40f4d2a",
@@ -381,7 +385,7 @@
           "test/rule-weight-review.test.ts": "sha256:0987adac389bb171e34304e53e90959806c64ba8a4d70efa9a77964ebca021fd",
           "test/semantic-projection-validation.test.ts": "sha256:e9ec995d425513b9844699a5410ac5dd1186f86373ef80b47363fa492476e2c8",
           "test/storage.test.ts": "sha256:22df92e8a30ec11d3afd41cbcff312ffe9afe8e92f1775d761caa7f0e0c6cc53",
-          "tsconfig.json": "sha256:290103982e2112b8c2f2a5fb18fff73e711331bad9d6e2d42c1e9e6a211b7c54"
+          "tsconfig.json": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
         },
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"

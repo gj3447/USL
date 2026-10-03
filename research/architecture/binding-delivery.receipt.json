@@ -4,7 +4,7 @@
   "status": "PASS",
   "generatedAt": "2026-10-03",
   "scope": "LOCAL_BINDING_FIXTURES_AND_CLI_CONTRACTS",
-  "recording": "Fresh local verification after optional offline learner-review integration; prior receipt bytes remain reachable at previousReceipt.gitRevision/path.",
+  "recording": "Fresh local compatibility verification after PT01 optional portable manifest integration; previous receipt bytes remain reachable at previousReceipt.gitRevision/path. Actual transfer and restore remain unimplemented.",
   "proofStatus": "NO_NEW_LEAN_PROOF",
   "sourcePins": {
     "docs/ADDON_BINDING.md": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de",
@@ -16,8 +16,9 @@
     "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
     "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:755f48d689e870f016cf5e747b089e902ae2cdab8305b1b5ce85de01dc94d711",
+    "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+    "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
     "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
@@ -123,6 +124,7 @@
     "test/observation.test.ts": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73",
     "test/permissions.test.ts": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db",
     "test/pierce.test.ts": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40",
+    "test/portable-transfer.test.ts": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
     "test/program-store.test.ts": "sha256:e664fd9bd08ad302e126ea650419fca1cd33abf98cae562e24fe6820c8c14c19",
     "test/project.test.ts": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e",
     "test/property-graph.test.ts": "sha256:1b0708cb890158f480e8b1f78fe16f40e943ee3af6ec5d2d425fa249c40f4d2a",
@@ -137,7 +139,7 @@
     "test/rule-weight-review.test.ts": "sha256:0987adac389bb171e34304e53e90959806c64ba8a4d70efa9a77964ebca021fd",
     "test/semantic-projection-validation.test.ts": "sha256:e9ec995d425513b9844699a5410ac5dd1186f86373ef80b47363fa492476e2c8",
     "test/storage.test.ts": "sha256:22df92e8a30ec11d3afd41cbcff312ffe9afe8e92f1775d761caa7f0e0c6cc53",
-    "tsconfig.json": "sha256:290103982e2112b8c2f2a5fb18fff73e711331bad9d6e2d42c1e9e6a211b7c54"
+    "tsconfig.json": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
   },
   "tasks": [
     {
@@ -154,19 +156,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "342 tests passed, 0 failed, 0 skipped, including 6 rule-weight-review runtime tests and 5 companion CLI tests."
+          "observed": "354 tests passed, 0 failed, 0 skipped, including 12 PT01 portable-transfer contract tests. No actual transfer or restore is claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional offline learner-review contract, CLI, fixture and graph builders."
+          "observed": "TypeScript check passed, including the optional portable-transfer contract, tests and fixture/schema builder."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/rule-weight-review package export resolved separately. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/portable-transfer package export resolved separately. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -239,19 +241,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "342 tests passed, 0 failed, 0 skipped, including 6 rule-weight-review runtime tests and 5 companion CLI tests."
+          "observed": "354 tests passed, 0 failed, 0 skipped, including 12 PT01 portable-transfer contract tests. No actual transfer or restore is claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional offline learner-review contract, CLI, fixture and graph builders."
+          "observed": "TypeScript check passed, including the optional portable-transfer contract, tests and fixture/schema builder."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/rule-weight-review package export resolved separately. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/portable-transfer package export resolved separately. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -329,19 +331,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "342 tests passed, 0 failed, 0 skipped, including 6 rule-weight-review runtime tests and 5 companion CLI tests."
+          "observed": "354 tests passed, 0 failed, 0 skipped, including 12 PT01 portable-transfer contract tests. No actual transfer or restore is claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional offline learner-review contract, CLI, fixture and graph builders."
+          "observed": "TypeScript check passed, including the optional portable-transfer contract, tests and fixture/schema builder."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/rule-weight-review package export resolved separately. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/portable-transfer package export resolved separately. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -406,10 +408,10 @@
       ]
     }
   ],
-  "supersedesReceiptDigest": "sha256:1be0ebb394c43f45e01b95098c6429830a4d1877aeaf51782cbfc43b648c3dfe",
-  "sourceCommit": "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38",
+  "supersedesReceiptDigest": "sha256:1887840e08b9c25aa6db61f66a13e509ff5ceb2ef580c606d90aa081dd5bd796",
+  "sourceCommit": "f7a93226f1ed4f71d578db0e318d5da35428fc3d",
   "previousReceipt": {
-    "gitRevision": "bfbf110ddc8c9092b480ebe6948cb1681863bd81",
+    "gitRevision": "c9dd895496b9bd4f7997317d00a0ba0404e51a33",
     "path": "research/architecture/binding-delivery.receipt.json"
   }
 }
