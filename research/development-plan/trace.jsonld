@@ -1,0 +1,5506 @@
+{
+  "@context": {
+    "d": "urn:usl:development-plan:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:development-plan",
+      "@type": [
+        "d:Plan",
+        "prov:Entity"
+      ],
+      "d:status": "PLANNED",
+      "d:authority": "SECONDARY_AI",
+      "d:recordedOn": "2026-10-03",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21"
+    },
+    {
+      "@id": "source:development:portability-plan",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/portability-plan/plan.json",
+      "d:sha256": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:transfer-receipt",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/portable-transfer/contract.receipt.json",
+      "d:sha256": "sha256:b7a92a99d060ce940ac6ba50f5627c7a015d85909a9ab598d8e0a7879f02c0c3",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:transfer-contract",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "docs/PORTABLE_TRANSFER.md",
+      "d:sha256": "sha256:77d7b0f0ad3d9cf21ffe9c6a353f56f71039e69570185153b5d789054ddbecdc",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:portability-research",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/portability-research/research.json",
+      "d:sha256": "sha256:2653ab750d79fd9f63d95f808b18cc03d6aeb32adf254916b972b4a71166ac92",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:worktree-audit",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/worktree-audit/catalog.json",
+      "d:sha256": "sha256:ad8f4eb72248bc30b5d5fd36489b0fb2fb153bc8d056a6f5cb534738e1cb7c7d",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:worktree-receipt",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/worktree-audit/receipt.json",
+      "d:sha256": "sha256:07d265649e868e85d3d7021e7a88ce426f0d9eaa55556f378c920a76f08264f3",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:standards-coverage",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/standards-coverage/coverage.json",
+      "d:sha256": "sha256:ad5b9f6d84fb805418e14228574670ce66bb09e037a2167d0a36c8f9554cf1ae",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:engineering-catalog",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/engineering/catalog.json",
+      "d:sha256": "sha256:537b2b8d8cfd843fbbf7d2ea2b245873c73c5854f2faaef7e5aef71193e6cc2e",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:architecture-plan",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/architecture/hswm-like.plan.json",
+      "d:sha256": "sha256:ed6e2eed6282f3fa0b167b8444b2588edea9a28d374005583689a97b537d3c26",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:cli-plan",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/architecture/core-cli.plan.json",
+      "d:sha256": "sha256:f2e63859905bf13e94201ae3f1fcbcdd68aca2a82702cb6b431244d257cf0f4d",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:cli-receipt",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/architecture/core-cli-c01.receipt.json",
+      "d:sha256": "sha256:06ea0e588aac95521d97aad8b2673350e525e9c696239c7cc1c83aba147c9e14",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:binding-contract",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "docs/RESOURCE_BINDINGS.md",
+      "d:sha256": "sha256:474a509a98f8d8b2b5dc75afd4525ec8220d4f3048d6afaf4b41dfe364fbbaa1",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:rule-policy",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "docs/RULE_POLICY.md",
+      "d:sha256": "sha256:6302edb9518d49e94944670acc1efaa06117c64314b17727db2e67efb9870f26",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:weight-evidence",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "docs/RULE_WEIGHT_EVIDENCE.md",
+      "d:sha256": "sha256:c9cf0606eaa752e0b7078efd2b0735c89e163ba74d2a22b0a3344725ac7fae91",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:weight-review",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "docs/RULE_WEIGHT_REVIEW.md",
+      "d:sha256": "sha256:4fd9716a318eb02e77a960394d81735f9b7553d0118b1e00569e2657e1b9c789",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:learner-receipt",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "research/rule-weight-evidence/learner-execution.json",
+      "d:sha256": "sha256:42c4b25334c7958ecb77d0e556833671356f60eed8b147dd0a304adf0daff1d6",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "source:development:review-receipt",
+      "@type": [
+        "d:Source",
+        "prov:Entity"
+      ],
+      "d:path": "examples/fixtures/rule-weight-review/review.json",
+      "d:sha256": "sha256:e5fd0e6e298cfaab896a9ae2bdf183836f56cfce84e74e13488d4e227a6db66b",
+      "d:sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "d:kind": "PINNED_REPOSITORY_SNAPSHOT"
+    },
+    {
+      "@id": "user:development:portability",
+      "@type": [
+        "d:UserStatement",
+        "prov:Entity"
+      ],
+      "d:authority": "USER_PRIMARY",
+      "d:text": "ㅇㅇ 그 다른 컴퓨터 왓다갓다 해도 그 백업 메모리 작업환경 마구 옮기더라도 USL 은 강건해야하거든 어떡하면 그렇게 할수 있을지 인터넷 검색좀해줘봐봐 ㅇㅇ"
+    },
+    {
+      "@id": "user:development:standards",
+      "@type": [
+        "d:UserStatement",
+        "prov:Entity"
+      ],
+      "d:authority": "USER_PRIMARY",
+      "d:text": "그리고 현재 표준 그래프 엔지니어링 내용 싹 다가져와서 USL 이 표준 그래프 엔지니어링을 상위호환으로 수행하는지도 확인좀 해줘봐봐 ㅇㅇ"
+    },
+    {
+      "@id": "user:development:worktree",
+      "@type": [
+        "d:UserStatement",
+        "prov:Entity"
+      ],
+      "d:authority": "USER_PRIMARY",
+      "d:text": "그리고 git 워크트리가 갈라져도 강건하게 되냐 ㅇㅇ?? 기능적으로 다포함되는지 적대적 검증하면서 제대로 확인해줘봐봐 ㅇㅇ"
+    },
+    {
+      "@id": "user:development:weight",
+      "@type": [
+        "d:UserStatement",
+        "prov:Entity"
+      ],
+      "d:authority": "USER_PRIMARY",
+      "d:text": "그게 웨이트인거야 ㅇㅇ HSWM 의 W 역할도 해주는거지 ㅇㅇ"
+    },
+    {
+      "@id": "user:development:plan",
+      "@type": [
+        "d:UserStatement",
+        "prov:Entity"
+      ],
+      "d:authority": "USER_PRIMARY",
+      "d:text": "해당 개발 계획을 일단 표준그래프 엔지니어링으로 구축을 해줘봐봐 ㅇㅇ"
+    },
+    {
+      "@id": "requirement:R01",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "컴퓨터와 경로가 바뀌어도 자원 ID와 선택한 버전 및 역할을 보존한다.",
+      "d:authority": "SECONDARY_AI",
+      "d:inheritedFrom": "requirement:R01",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R02",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "선택한 복원 범위의 파일과 의존성 누락·손상·혼합 snapshot을 판별한다.",
+      "d:authority": "SECONDARY_AI",
+      "d:inheritedFrom": "requirement:R02",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R03",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "기존 작업환경을 덮어쓰지 않고 검증된 묶음만 새 로컬 바인딩으로 활성화한다.",
+      "d:authority": "SECONDARY_AI",
+      "d:inheritedFrom": "requirement:R03",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R04",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "파일과 메모리 조각의 위치 변경, 그래프 직렬화 차이를 자원 정체성과 구분한다.",
+      "d:authority": "SECONDARY_AI",
+      "d:inheritedFrom": "requirement:R04",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R05",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "서로 다른 기기의 수정·삭제·옛 백업을 구분하며 충돌과 이력을 보존한다.",
+      "d:authority": "SECONDARY_AI",
+      "d:inheritedFrom": "requirement:R05",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R06",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "이동한 링크와 과거 실행 기록을 접근 권한 또는 현재 외부 효과로 승격하지 않는다.",
+      "d:authority": "SECONDARY_AI",
+      "d:inheritedFrom": "requirement:R06",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R07",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "다른 OS와 복원 실패 상황에서 불변식과 실패 상태를 실제로 검증한다.",
+      "d:authority": "SECONDARY_AI",
+      "d:inheritedFrom": "requirement:R07",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R08",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "같은 파일 bytes라도 의도한 worktree·checkout·revision이 다르면 명시한 guard가 검출하고 미확인 상태를 일치로 승격하지 않는다.",
+      "d:authority": "SECONDARY_AI",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:worktree-audit"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R09",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "선택한 그래프 표준 profile의 입력·용어·property·왕복·손실 계약을 명시하고 실제 상호운용 범위를 검증한다.",
+      "d:authority": "SECONDARY_AI",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:standards-coverage"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R10",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "질의·추론·검증은 명시적으로 선택한 owner engine과 versioned profile로 위임하며 링크를 실행 권한으로 해석하지 않는다.",
+      "d:authority": "SECONDARY_AI",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:standards-coverage"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R11",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "규칙의 hard/soft 강제성, penalty coefficient, HSWM의 학습된 W, evidence confidence, 권한을 구분하고 결과 근거로 후보를 검토한다.",
+      "d:authority": "SECONDARY_AI",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:weight-review"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R12",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "기본 바인딩 core와 기존 CLI를 작게 유지하며 선택형 기능에서도 stable ID·role·metadata·provenance와 bounded delivery를 보존한다.",
+      "d:authority": "SECONDARY_AI",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:architecture-plan"
+        }
+      ]
+    },
+    {
+      "@id": "requirement:R13",
+      "@type": [
+        "d:Requirement",
+        "prov:Entity"
+      ],
+      "d:text": "실행된 근거와 미래 완료 조건을 구분하고 요구사항에서 release 판단까지 추적 가능하게 검증한다.",
+      "d:authority": "SECONDARY_AI",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:worktree-receipt"
+        }
+      ]
+    },
+    {
+      "@id": "baseline:binding-core",
+      "@type": [
+        "d:Baseline",
+        "prov:Entity"
+      ],
+      "d:title": "기본 바인딩과 선택형 addon 및 CLI 흐름",
+      "d:status": "AVAILABLE_WITH_LIMITS",
+      "d:implementation": "BOUNDED_IMPLEMENTED",
+      "d:scope": "P01–P03의 resource·meaning·named role·stable ID·로컬 표현 분리와 선택형 profile이 구현되어 있다.",
+      "d:remaining": "자동 위치 발견·완전한 backup·표준 엔진·분산 실행 보장은 포함하지 않는다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:architecture-plan"
+        },
+        {
+          "@id": "source:development:binding-contract"
+        }
+      ]
+    },
+    {
+      "@id": "task:PT01",
+      "@type": [
+        "d:Baseline",
+        "prov:Entity"
+      ],
+      "d:title": "PT01 고정 ID·revision·manifest 계약",
+      "d:status": "AVAILABLE_WITH_LIMITS",
+      "d:implementation": "CONTRACT_IMPLEMENTED",
+      "d:evidenceScope": "BOUNDED_PURE_MANIFEST_CONTRACT_ONLY",
+      "d:scope": "CONTRACT_ONLY: 후속 receipt에서 순수 manifest 계약의 로컬 검사 12개가 통과했다. 기존 최초 계획의 PLANNED 표시는 역사적 스냅샷으로 보존한다.",
+      "d:remaining": "실제 payload export·restore는 NOT_IMPLEMENTED, 다른 기기 인수검사는 NOT_RUN이다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:transfer-contract"
+        }
+      ]
+    },
+    {
+      "@id": "task:C01",
+      "@type": [
+        "d:Baseline",
+        "prov:Entity"
+      ],
+      "d:title": "C01 명령어별 도움말 계약",
+      "d:status": "AVAILABLE_WITH_LIMITS",
+      "d:implementation": "COMPLETE_WITHIN_ORIGINAL_SCOPE",
+      "d:scope": "기존 C01 완료와 receipt를 재사용한다.",
+      "d:remaining": "C02–C04 adapter context·stdin·built-bin 검증은 별도 후속 과제다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:cli-plan"
+        },
+        {
+          "@id": "source:development:cli-receipt"
+        }
+      ]
+    },
+    {
+      "@id": "baseline:rule-weight-review",
+      "@type": [
+        "d:Baseline",
+        "prov:Entity"
+      ],
+      "d:title": "선택형 rule policy·evidence·offline learner review",
+      "d:status": "AVAILABLE_WITH_LIMITS",
+      "d:implementation": "LOCAL_OFFLINE_REVIEW_IMPLEMENTED",
+      "d:scope": "hard/soft 규칙 계약과 W evidence/review bridge가 있다. HSWM_LIKENESS의 합성 640개 episode로 validate/run/replay와 REVIEW_READY를 기록했으며 disposition은 REVIEW_ONLY_NOT_APPLIED다.",
+      "d:remaining": "실제 운영 데이터의 성능 향상·live HSWM 상태 대조·owner 적용은 입증하지 않았다. learned estimate를 penalty coefficient로 복사하지 않는다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:rule-policy"
+        },
+        {
+          "@id": "source:development:weight-evidence"
+        },
+        {
+          "@id": "source:development:weight-review"
+        },
+        {
+          "@id": "source:development:learner-receipt"
+        },
+        {
+          "@id": "source:development:review-receipt"
+        }
+      ]
+    },
+    {
+      "@id": "evidence:development:PT01",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "PT01 bounded contract receipt",
+      "d:kind": "HISTORICAL_LOCAL_EXECUTION",
+      "d:sourceRecordId": "task:PT01",
+      "d:interpretation": "12개 로컬 계약 검사 PASS는 파일 전송·복원 완료가 아니다. 이번 계획 생성에서는 재실행하지 않았다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:core",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "P01–P03 기존 완료 기록",
+      "d:kind": "HISTORICAL_IMPLEMENTATION_RECORD",
+      "d:sourceRecordId": "task:P01,task:P02,task:P03",
+      "d:interpretation": "기본 바인딩과 선택형 addon의 범위만 재사용한다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:cli-C01",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "C01 기존 완료 영수증",
+      "d:kind": "HISTORICAL_LOCAL_EXECUTION",
+      "d:sourceRecordId": "task:C01",
+      "d:interpretation": "기존 도움말 계약의 완료 기록이며 C02–C04를 완료로 만들지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:C02",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Adapted context traversal and compact-delivery parity",
+      "d:kind": "RECORDED_BACKLOG",
+      "d:sourceRecordId": "task:C02",
+      "d:interpretation": "src/cli-adapter.ts accepts focus, target and compact for context, but not max-hops/max-links/max-visits/via/max-bytes/known-context/stats despite those being supported by src/cli.ts context.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:C03",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Bounded pure-core stdin/file pipeline",
+      "d:kind": "RECORDED_BACKLOG",
+      "d:sourceRecordId": "task:C03",
+      "d:interpretation": "src/cli.ts reads every source from a file path; there is no bounded UTF-8 --source - contract for pure core pipeline commands.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:C04",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Built package-bin compatibility gate",
+      "d:kind": "RECORDED_BACKLOG",
+      "d:sourceRecordId": "task:C04",
+      "d:interpretation": "package.json maps the usl bin to dist/src/cli.js, but current CLI tests invoke TypeScript through tsx rather than a built package bin.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:worktree-run",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "기존 worktree 감사 실행 기록",
+      "d:kind": "HISTORICAL_LOCAL_EXECUTION",
+      "d:sourceRecordId": "usl-worktree-audit-receipt/v1",
+      "d:interpretation": "Linux 로컬 assertion 50개 PASS에는 미구현 경계를 재현한 검사도 있다. 다른 OS/두 실기기/분산 실행 성공 증거가 아니다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT01",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "분기별 표현 선택과 그래프 ID 보존",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT01",
+      "d:interpretation": "COVERED_IN_FIXTURE: 같은 논리 자원을 main/worker의 서로 다른 표현으로 선택하며 다른 HEAD·bytes·주소를 관측한다. 그래프의 ID·역할·의미·metadata는 보존한다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT02",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "worktree별 index와 dirty 상태 분리",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT02",
+      "d:interpretation": "COVERED_IN_FIXTURE: main만 수정한 때와 worker만 stage한 때 dirty 결과가 각각 분리된다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT03",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Git move 후 명시적 host 재바인딩",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT03",
+      "d:interpretation": "COVERED_IN_FIXTURE: git worktree move 후 host root를 바꾸면 논리 자원/표현 ID는 유지되고 주소만 바뀐다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT04",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "수동 이동의 Git 연결 복구",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT04",
+      "d:interpretation": "LIMITATION_OBSERVED: main과 linked tree를 직접 옮기면 바뀐 root를 등록해도 NO_REPOSITORY다. Git worktree repair를 실행한 뒤 REPOSITORY로 돌아온다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT05",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "linked checkout 단독 복사는 독립 백업이 아님",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT05",
+      "d:interpretation": "LIMITATION_OBSERVED: 복사본의 파일은 읽히지만 commonGitDir은 원래 저장소를 가리킨다. 원래 main을 옮기면 복사본은 NO_REPOSITORY가 된다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT06",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "삭제·prune·sparse omission·symlink 경계",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT06",
+      "d:interpretation": "COVERED_IN_FIXTURE: 선택한 worktree가 사라지거나 sparse checkout에 파일이 없으면 다른 표현으로 자동 전환하지 않는다. 다른 worktree로 나가는 symlink도 거부한다. 삭제/prune 후 같은 경로를 일반 폴더로 만들면 NO_REPOSITORY다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT07",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "같은 파일 bytes로는 worktree·HEAD를 보증할 수 없음",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT07",
+      "d:interpretation": "LIMITATION_OBSERVED: 잘못 연결한 다른 HEAD의 worktree라도 선택 파일이 같으면 MATCH다. 선언한 pinned 파일이 같으면 HEAD가 바뀌어도 실행 planDigest가 같다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT08",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "이전 실행 계획과 바뀐 실행 파일 차단",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT08",
+      "d:interpretation": "COVERED_IN_FIXTURE: host root 변경 뒤 옛 plan은 PLAN_CHANGED, pinned runner bytes 변경은 PREFLIGHT_REJECTED이며 둘 다 attempts 0이다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT09",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "같은 예약 저장소의 중복 실행 차단",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT09",
+      "d:interpretation": "COVERED_IN_FIXTURE: 같은 namespace·작업 키·의미와 동일한 예약 저장소를 유지하면 worktree를 바꿔도 두 번째 실행을 막는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT10",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "예약 저장소 분리 시 중복 실행 허용",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT10",
+      "d:interpretation": "LIMITATION_OBSERVED: 동일 namespace와 작업 키라도 저장소를 worktree별로 나누면 두 작업 모두 SUCCEEDED이며 marker가 양쪽에 생긴다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT11",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "디렉터리 snapshot 및 검사 원자성",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT11",
+      "d:interpretation": "LIMITATION_OBSERVED: snapshot relation과 예상 digest를 선언해도 디렉터리 전체는 NOT_CHECKED이며 digest는 null이다. 코드가 선언한 일관성은 BEST_EFFORT_OBSERVATION이다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:WT12",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "등록한 하위 경로와 Git root의 차이",
+      "d:kind": "RECORDED_WORKTREE_FINDING",
+      "d:sourceRecordId": "finding:WT12",
+      "d:interpretation": "LIMITATION_OBSERVED: 하위 폴더를 workspace로 등록하면 파일은 그 범위 안에서 읽지만 Git root는 바깥의 상위 저장소일 수 있다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdf-model",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "RDF 1.1 graph / dataset / term model",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:rdf-model",
+      "d:interpretation": "DECLARATION_PROJECTION: USL Resource·Meaning·Link·Participant를 RDF 자원으로 내보낸다. 일반 RDF term/dataset import 및 named graph·blank-node scope·literal datatype/language의 무손실 왕복 계약이 없다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdf-syntax",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Turtle / N-Triples / N-Quads / TriG / RDF/XML",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:rdf-syntax",
+      "d:interpretation": "NOT_IMPLEMENTED: 현재 입력 adapter는 usl-resource-graph/v1 JSON을 받는다. 이 문법들의 범용 USL import/export 경로가 없다. Turtle 거부는 직접 관측했고 나머지는 공개 표면을 검토했다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-jsonld-export",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "JSON-LD 1.1 선언 export",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:jsonld-export",
+      "d:interpretation": "BOUNDED_EXPORT: 고정 context의 USL 선언 graph를 생성하며 독립 RDF parser로 읽을 수 있다. Meaning IRI와 역할을 기록하지만 원래 domain predicate triple을 직접 주장하지 않는다. 이것은 설계된 선언 projection이다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-jsonld-processing",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "JSON-LD expansion / compaction / flattening / RDF conversion / framing",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:jsonld-processing",
+      "d:interpretation": "NOT_IMPLEMENTED: resourceGraphJsonLd는 특정 출력 형식을 생성하는 함수다. 범용 JSON-LD API 또는 framing processor가 아니다. remote context 로딩 정책도 표준 processor로 제공하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdfc",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "RDFC-1.0 canonicalization",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:rdfc",
+      "d:interpretation": "NOT_IMPLEMENTED: raw bytes SHA-256 및 USL JSON contract digest가 존재한다. 정렬한 JSON의 hash는 blank node relabeling을 처리하는 RDFC 구현이 아니다. 의미적 동치 증명도 아니다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdfs",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "RDF/RDFS semantics / subclass / domain / range",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:rdfs",
+      "d:interpretation": "NOT_IMPLEMENTED: DomainProfile은 선언된 role/type IRI와 metadata의 정확한 일치를 검사한다. RDFS entailment closure를 수행하지 않는다는 명시적 코드 계약이다. metadata 검사 probe는 RDFS 규범 테스트가 아니다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-owl",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "OWL 2 profiles / reasoning",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:owl",
+      "d:interpretation": "NOT_IMPLEMENTED: USL은 type IRI를 보존할 수 있다. OWL 언어 처리·일관성 검사·EL/QL/RL reasoning을 제공하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-shacl",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "SHACL shape validation",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:shacl",
+      "d:interpretation": "EXTERNAL_TEST_TOOLING: rdflib와 pySHACL이 repository fixture와 USL shapes를 실제 검증한다. 이 검증 도구 사용은 USL runtime의 범용 SHACL engine 지원을 뜻하지 않는다. DomainProfile도 SHACL 전체가 아니다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-sparql-query",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "SPARQL 1.1 Query",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:sparql-query",
+      "d:interpretation": "EXTERNAL_TEST_TOOLING: Python 검증기가 generated trace에 실제 SELECT/ASK 질의를 수행한다. USL SDK의 범용 SPARQL query API나 endpoint가 아니다. 제한된 competency queries만 실행한다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-sparql-update",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "SPARQL Update / Protocol / Graph Store",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:sparql-update",
+      "d:interpretation": "NOT_IMPLEMENTED: USL link 선언 또는 host callback 연결과 별개인 protocol 영역이다. SPARQL update/service 또는 Graph Store HTTP를 구현한 USL driver는 없다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-sparql-results",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "SPARQL JSON/XML/CSV/TSV results / entailment regimes",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:sparql-results",
+      "d:interpretation": "NOT_IMPLEMENTED: 로컬 RDF 질의 결과를 연구 검증에 사용한다. USL public contract에 표준 query result interchange나 선택 가능한 entailment regime이 없다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-lpg",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Property graph data projection",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:lpg",
+      "d:interpretation": "LOSSY_PROJECTION: property-graph/v2는 native edge ID·direction·type·description 및 명시한 participants를 유지한다. 그 외 임의의 node/edge property는 adapted plan에 보존되지 않는다. source digest는 값 복원 수단이 아니다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-gql",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "ISO GQL / SQL PGQ language processing",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:gql",
+      "d:interpretation": "NOT_IMPLEMENTED: 일부 property graph JSON을 USL로 읽는 adapter만 있다. GQL/SQL-PGQ query·schema·mutation engine이 아니다. ISO 규범 전문 미열람으로 조항별 적합성은 평가하지 않았다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-prov",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "PROV-O provenance",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:prov",
+      "d:interpretation": "VOCABULARY_USE: JSON-LD에서 Entity와 wasDerivedFrom·wasGeneratedBy·wasAttributedTo 등을 사용한다. 선택한 출처 어휘 사용이며 모든 PROV 제약·외부 증언의 진실성 검증은 제공하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-skos",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "SKOS concepts / schemes / mapping",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:skos",
+      "d:interpretation": "NOT_IMPLEMENTED: type IRI나 JSON metadata로 일부 이름을 담을 수는 있다. SKOS 전용 교환 mapping·label integrity·scheme 검증은 구현하지 않았다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-catalog",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "DCAT / DQV / VoID",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:catalog",
+      "d:interpretation": "NOT_IMPLEMENTED: USL manifest·정책 weight·generic resource metadata가 존재한다. DCAT catalog나 DQV quality measurement, VoID dataset 기술의 명시적 mapping은 없다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-tabular",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "R2RML / CSVW ingestion",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:tabular",
+      "d:interpretation": "NOT_IMPLEMENTED: 범용 ResourceGraph 입력이 표준 tabular mapping을 대신하지 않는다. R2RML processor와 CSVW metadata/dialect 기반 processor는 제공하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-annotation",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Web Annotation selectors / state",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:annotation",
+      "d:interpretation": "NOT_IMPLEMENTED: portable-transfer는 selected identity/revision/representation의 계약을 선언한다. 표준 selector/state의 일반 processor나 이동 후 annotation anchor 재해결 기능은 아직 없다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-ldp",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Linked Data Platform HTTP behavior",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:ldp",
+      "d:interpretation": "NOT_IMPLEMENTED: URL을 locator로 기록하고 host가 선택한 operation을 연결할 수 있다. LDP resource/container HTTP semantics를 구현한 service가 아니다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-practice",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "그래프 공학 실무: ID·출처·역할·검증·상태",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:practice",
+      "d:interpretation": "BOUNDED_WORKFLOW: 기존 repository graph가 명명된 역할·출처·계획/관측 분리·SHACL·SPARQL 검증을 실제 사용한다. 명시한 local graph/profile의 공학 절차 준수이지 모든 그래프 시스템 기능의 구현을 뜻하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-nary",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "n-ary role 모델링",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:nary",
+      "d:interpretation": "BOUNDED_NATIVE_FEATURE: USL은 이름 있는 다항 역할을 직접 선언하고 검사한다. RDF/OWL도 relation node 방식으로 표현할 수 있어 n-ary 지원 자체가 엄격한 표현력 상위집합의 증명은 아니다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-drafts",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "RDF 1.2 / SHACL 1.2 / SPARQL 1.2 추적",
+      "d:kind": "RECORDED_STANDARDS_ASSESSMENT",
+      "d:sourceRecordId": "assessment:drafts",
+      "d:interpretation": "DRAFT_NOT_IMPLEMENTED: candidate/draft 문서는 확정 Recommendation과 분리해 기록한다. USL은 RDF 1.2 triple term·directional string 또는 SHACL 1.2 conformance를 제공하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR01",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "기존 정체성과 번들 사이 충돌을 보존한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR01",
+      "d:interpretation": "기존 owner/native ID를 보존한다. 새 revision·bundle에는 충돌 검사 가능한 전역 ID를 발급하고 경로·내용 해시로 기존 자원 ID를 바꾸지 않는다. 같은 revision ID의 다른 정의를 만나면 HOLD하고 명시적 fork만 새 자원이 된다. 남은 범위: v1의 native ID 256자 제한과 기존 bindings 4096자 범위를 비교해 지원 범위를 명시하거나 별도 버전으로 확장해야 한다. 자동 절단·정규화는 금지한다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR02",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "일관성 수준을 명시한 owner snapshot을 만든다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR02",
+      "d:interpretation": "Owner snapshot 또는 쓰기를 멈춘 범위에서 capture한다. 일반 파일을 순차 복사한 결과는 혼합 시점일 수 있으므로 BEST_EFFORT_CAPTURE와 CONSISTENT_SNAPSHOT을 구별한다. SQLite는 Backup API 등 owner 수단을 사용하고 재시도·시간 예산을 둔다. 남은 범위: 여러 DB와 파일의 공통 시점은 별도 owner 조정이 필요하다. stat 전후 비교만으로 전체 작업환경의 snapshot을 증명하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR03",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "복원 범위와 payload 목록을 닫는다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR03",
+      "d:interpretation": "별도 버전의 export inventory에 INCLUDED·REQUIRED_EXTERNAL·EXCLUDED와 이유, 원래 이름→ASCII payload 위치, hash·size·owner snapshot 참조를 기록한다. 선택한 복원 프로필에 필요한 항목이 모두 포함되어야 SELF_CONTAINED로 표시한다. 남은 범위: 현재 manifest는 복사된 실제 bytes·원래 파일 이름·의존성 범위·전체 역사 보존을 검증하지 않는다. strict v1을 묵시적으로 확장하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR04",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "Git과 작업환경을 별도 복원 프로필로 기술한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR04",
+      "d:interpretation": "Git refs/objects, dirty patch·untracked, submodule, LFS bytes를 각각 inventory에 담는다. 환경 recipe에는 toolchain·lockfile·설치 옵션·OS/architecture 요구를 pin하고 기기별 root와 비밀정보는 로컬 참조로 남긴다. 남은 범위: 환경 recipe의 저장은 설치·실행 승인이 아니다. 오프라인 복원에 필요한 dependency payload와 목표 플랫폼 지원을 별도 확인한다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR05",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "검증과 내구성 확인 뒤 새 목적지를 공개한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR05",
+      "d:interpretation": "새 목적지와 같은 filesystem의 private staging에 복원한다. 바이트·scope·경로를 검사하고 동기화한 뒤 no-replace publication을 수행한다. VISIBILITY_COMMITTED와 DURABILITY_CONFIRMED를 구분하며 binding을 마지막에 연결한다. 남은 범위: Node rename만으로 no-replace를 보장하지 않는다. 플랫폼 adapter 또는 배타적 destination 관리가 필요하며 cross-filesystem copy를 atomic publish라고 부르지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR06",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "경로 이름 검사와 목표 filesystem 검사를 나눈다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR06",
+      "d:interpretation": "번들 경로의 안전한 문자 규칙과 실제 목적지의 성분 길이·전체 길이·대소문자·Unicode·symlink/reparse point 정책을 별도로 검사한다. MVP는 regular file/directory만 지원하고 나머지는 명시적으로 거부한다. 남은 범위: 현재 300자 ASCII 성분은 v1 parser가 허용한다. 이는 실제 filesystem 생성 성공의 증거가 아니며 native OS 인수검사가 필요하다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR07",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "기기별 작업 주체와 인과 분기를 추가한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR07",
+      "d:interpretation": "복원 후 쓰기 가능한 clone에는 새 actor incarnation을 배정한다. actor/counter와 operation digest를 함께 비교하고 동일 ID의 다른 작업은 충돌로 보존한다. 부모 DAG에서 incomparable heads를 유지하며 시각으로 winner를 고르지 않는다. 남은 범위: 현재는 revision parent DAG만 있다. actor·operation·frontier·conflict contract와 owner의 merge 정책이 추가로 필요하다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR08",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "삭제와 오래된 백업의 재등장을 구별한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR08",
+      "d:interpretation": "Tombstone과 인과 이력을 유지해 옛 live backup 도착이 삭제를 취소하지 못하게 한다. 삭제 기록 정리는 명시한 안정성·보존 정책과 복원 가능성 판단이 있을 때만 수행한다. 남은 범위: 인과관계가 모자란 복원은 WITHDRAWN을 추정 확정하지 않고 CONFLICT 또는 UNKNOWN으로 남긴다. 단순 시간 만료만으로 tombstone을 지우지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR09",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "최신성 대조와 외부 효과를 owner 계약으로 제한한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR09",
+      "d:interpretation": "오프라인 역사 자료는 읽거나 새 로컬 분기로 쓸 수 있다. 전역 최신성은 owner의 현재 validator 조회 없이는 UNKNOWN이다. 외부 작업은 endpoint·request fingerprint·key 보존 기간·status 조회·조건부 버전·권한을 명시한 capability가 있어야 대조할 수 있다. 남은 범위: Idempotency-Key 초안은 만료 상태이고 보편적 서버 지원을 가정할 수 없다. 응답 유실·만료·효과 불명이면 UNRECONCILED를 유지하며 자동 재실행하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR10",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "메모리 조각과 digest의 의미 범위를 고정한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR10",
+      "d:interpretation": "자원 ID·revision digest에 원문 quote/context·position·State를 붙여 조각 이동 후보를 찾는다. 후보가 여러 개면 AMBIGUOUS다. raw bytes, 기존 USL contract digest, 선택적 JCS/RDFC digest는 알고리즘별로 별도 기록한다. 남은 범위: 기존 digest를 JCS나 RDFC라는 이름으로 재해석하지 않는다. RDF 정규화는 실제 dataset 동형성에만 적용하며 blank-node 복잡도·시간 한계를 둔다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR11",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "표준 검증 결과와 정책 웨이트를 분리한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR11",
+      "d:interpretation": "SHACL 2017 구조 검증과 USL REQUIRED/BLOCK 정책을 분리해 기록한다. RECOMMENDED/PENALIZE 계수는 완전한 평가에만 적용하며 hard failure와 UNKNOWN을 상쇄하지 않는다. HSWM W 추정치를 쓸 때도 model·context·evidence·mapping version을 명시한 제안으로 연결한다. HSWM 연결 방식은 인용한 표준의 규정이 아니라 현재 로컬 evidence/review 코드에 근거한 AI 설계 제안이며 live 상태는 NOT_CONNECTED다. 남은 범위: 로컬 정책 감점 계수가 HSWM W 자체가 되지는 않는다. SHACL 1.2는 조사 시점 Working Draft이며 실제 owner 연동은 수행하지 않았다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:PR12",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "출처와 상태를 포함한 반례 중심 인수검사를 한다",
+      "d:kind": "RECORDED_RESEARCH_DECISION",
+      "d:sourceRecordId": "decision:PR12",
+      "d:interpretation": "요구사항→설계판단→근거→코드→인수기준을 추적하고 실행한 검사와 미실행 기준을 구분한다. Source status·revision·bytes pin·관측 시각을 보존하고 domain/range·cardinality·DAG 및 정확한 query endpoint를 검사한다. 남은 범위: 이번 연구 그래프 검증은 export/import·다기기 내구성·외부 owner 연동의 실행 성공을 증명하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:learner",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "합성 데이터의 offline learner 실행",
+      "d:kind": "HISTORICAL_SYNTHETIC_EXECUTION",
+      "d:sourceRecordId": "usl-offline-learner-execution/v1",
+      "d:interpretation": "640 episodes의 실행 기록과 pinned runtime bytes를 보존한다. source-to-build 대응은 NOT_ATTESTED, operational efficacy는 NOT_ESTABLISHED, live apply는 NOT_PERFORMED다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:review",
+      "@type": [
+        "d:Evidence",
+        "prov:Entity"
+      ],
+      "d:title": "W 후보 검토 결과와 적용 분리",
+      "d:kind": "HISTORICAL_SYNTHETIC_REVIEW",
+      "d:sourceRecordId": "usl-rule-weight-review-receipt/v1",
+      "d:interpretation": "REVIEW_READY 후보는 REVIEW_ONLY_NOT_APPLIED이며 owner 현재 상태나 실제 성능 향상을 입증하지 않는다.",
+      "d:replayed": false,
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "선택형 checkout·worktree·revision guard",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P0",
+      "d:phase": "FOUNDATION",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "owner가 별도로 고정한 resource/representation/checkout identity·expected revision·dirty policy를 실제 관측과 비교한다. 기존 inspect의 보고 의미는 유지하고 엄격 검사를 선택형 consumer로 추가한다.",
+      "d:remaining": "같은 bytes의 잘못된 alias/HEAD를 현재 content MATCH만으로 거부하지 못한다. 영구 worktree 정체성은 owner가 관리하며 path·branch·commit·commonGitDir만으로 대체할 수 없다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:worktree-audit"
+        },
+        {
+          "@id": "source:development:worktree-receipt"
+        },
+        {
+          "@id": "source:development:binding-contract"
+        }
+      ]
+    },
+    {
+      "@id": "task:PT02",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "일관된 백업 snapshot과 전송 명세 생성",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P0",
+      "d:phase": "PORTABLE_MVP",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "선택한 복원 profile별 일관된 snapshot/export와 hash/size가 있는 닫힌 manifest를 만든다. Git main/linked admin data·index·선택한 dirty/untracked·submodule·LFS·alternates는 PACKAGED/EXTERNAL_REQUIRED/OPTIONAL로 분류한다. selfContained는 실제 필요한 의존성이 닫힌 범위에서만 가능하다.",
+      "d:remaining": "현재 디렉터리 전체 원문·필수 의존성·혼합 시점 파일에 대한 복원 manifest가 없다.",
+      "d:inheritedFrom": "task:PT02",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:worktree-audit"
+        }
+      ]
+    },
+    {
+      "@id": "task:PT03",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "검사 후 새 작업환경으로 복원하고 재바인딩",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P0",
+      "d:phase": "PORTABLE_MVP",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "owner가 새 기기에 선택한 root 아래 새 staging으로 검사·복원하고 로컬 표현만 재바인딩한다. Git worktree repair/reconstruction은 명시한 복원 profile의 검증 단계다. 도착 위치의 owner namespace/native ID 충돌을 검출하며 256자 계약에 안 맞는 ID를 자르지 않는다.",
+      "d:remaining": "root 변경은 지원하지만 bundle staging·완결성 검사·중복 import·복원 경합과 effect 재개 경계는 없다.",
+      "d:inheritedFrom": "task:PT03",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:worktree-audit"
+        }
+      ]
+    },
+    {
+      "@id": "task:PT04",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "기기 이동과 장애 복원 인수검사",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P0",
+      "d:phase": "PORTABLE_MVP",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "지원하려는 OS와 기기 이동·원본 부재·복사/게시 중단·손상·의존성 누락의 실제 인수검사 및 예산을 기록한다.",
+      "d:remaining": "기존 테스트는 같은 호스트에서 root 이동을 다루며 다른 OS의 복원·누락·충돌 전반을 실행한 증거는 아니다.",
+      "d:inheritedFrom": "task:PT04",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:worktree-audit"
+        }
+      ]
+    },
+    {
+      "@id": "task:PT05",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "메모리 조각 재탐색과 선택적 그래프 정규화",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P1",
+      "d:phase": "ADVANCED_PORTABILITY",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "stable fragment ID/source revision/quote context 재탐색과 선택한 RDF dataset의 RDFC digest를 추가한다. hash 목적과 적용 profile을 분리한다.",
+      "d:remaining": "파일 이동과 문단 이동은 다르며 원문 바이트 digest만으로 RDF 직렬화 차이와 문맥 이동을 구별하지 못한다.",
+      "d:inheritedFrom": "task:PT05",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:worktree-audit"
+        }
+      ]
+    },
+    {
+      "@id": "task:PT06",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "다중 기기 revision 병합과 삭제 이력",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P1",
+      "d:phase": "ADVANCED_PORTABILITY",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "owner/actor/operation 식별자와 revision DAG, fork·conflict·tombstone을 보존하고 명시적 병합 정책을 적용한다. 필요가 입증된 자료형만 선택형 CRDT로 확장한다.",
+      "d:remaining": "현재 USL에는 기기 간 causal history와 충돌 처리 및 tombstone 교환 규약이 없다.",
+      "d:inheritedFrom": "task:PT06",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:worktree-audit"
+        }
+      ]
+    },
+    {
+      "@id": "task:PT07",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "복원된 작업 기록과 소유 시스템 상태 대조",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P1",
+      "d:phase": "ADVANCED_PORTABILITY",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "복원된 역사적 intent/receipt와 현재 owner operation 상태를 허가된 범위에서 대조한다. 분리된 operation store는 중복 실행 방지의 공유 근거가 아니다.",
+      "d:remaining": "로컬 예약 저장소 복제는 기기 간 중복 외부 효과를 차단하지 못한다.",
+      "d:inheritedFrom": "task:PT07",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:worktree-audit"
+        }
+      ]
+    },
+    {
+      "@id": "task:DG02",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "표준 profile·무손실 교환·손실 보고 계약",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P1",
+      "d:phase": "STANDARD_INTEROP",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "선택한 RDF dataset/LPG profile의 지원 문법·의미·version·거부/손실 계약을 먼저 고정하고 선택형 교환 adapter를 구현한다. PROV/SKOS/DCAT/CSVW/annotation/LDP는 선언한 mapping/protocol 범위마다 지원 상태를 따로 기록한다.",
+      "d:remaining": "현재 일반 RDF 입력과 LPG 임의 property의 무손실 교환을 제공하지 않는다. 모든 어휘·프로토콜·draft를 한 번에 지원한다는 의미가 아니다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:standards-coverage"
+        },
+        {
+          "@id": "source:development:engineering-catalog"
+        },
+        {
+          "@id": "source:development:architecture-plan"
+        }
+      ]
+    },
+    {
+      "@id": "task:DG03",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "선택한 표준 엔진 위임과 적합성 검증",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P1",
+      "d:phase": "STANDARD_INTEROP",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "owner가 선택한 SHACL/SPARQL/추론/GQL 등의 adapter를 profile별로 연결하고 capability/version/result semantics·오류 계약·독립 suite를 명시한다. 실제 지원한 profile만 적합성을 주장한다.",
+      "d:remaining": "현재 외부 SHACL fixture 검증은 runtime SHACL engine 위임이 아니다. 모든 표준 엔진을 USL core에 구현하지 않는다. GQL의 유료 규범 접근 미평가를 유지한다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:standards-coverage"
+        },
+        {
+          "@id": "source:development:architecture-plan"
+        }
+      ]
+    },
+    {
+      "@id": "task:DG04",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "운영 결과 기반 W 후보 평가와 owner 검토 연결",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P1",
+      "d:phase": "WEIGHT_OPERATIONS",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "현재 offline review bridge를 재사용하여 versioned 운영 outcome을 owner 상태와 대조하고 맥락별 W 후보를 train/holdout·baseline·replay로 평가한다. 새 owner 데이터의 검토는 독립 진행하며 복원된 outcome/receipt를 쓰는 profile만 PT07 대조가 선행해야 한다. 산출물은 owner 검토 제안까지이며 실제 적용은 별도 owner 정책과 명시적 권한에 따른다.",
+      "d:remaining": "합성 데이터 실행만으로 metahumotonic_dashboard나 실제 HSWM 개선을 증명하지 못한다. 운영 outcome 공급·효과 측정·현재 owner 상태 대조가 남았다. 복원된 outcome을 사용할 때 PT07 선행이 필요하다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:rule-policy"
+        },
+        {
+          "@id": "source:development:weight-evidence"
+        },
+        {
+          "@id": "source:development:weight-review"
+        },
+        {
+          "@id": "source:development:learner-receipt"
+        },
+        {
+          "@id": "source:development:review-receipt"
+        }
+      ]
+    },
+    {
+      "@id": "task:C02",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "Adapted context traversal and compact-delivery parity",
+      "d:owner": "USL_CLI",
+      "d:priority": "P2",
+      "d:phase": "CLI_COMPATIBILITY",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "기존 CLI 계획의 범위를 그대로 이행한다. Keep multiple representations explicit. Do not equate a resource link with access permission. Do not add automatic tokenizer dependencies.",
+      "d:remaining": "src/cli-adapter.ts accepts focus, target and compact for context, but not max-hops/max-links/max-visits/via/max-bytes/known-context/stats despite those being supported by src/cli.ts context.",
+      "d:inheritedFrom": "task:C02",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:cli-plan"
+        },
+        {
+          "@id": "source:development:cli-receipt"
+        },
+        {
+          "@id": "source:development:architecture-plan"
+        }
+      ]
+    },
+    {
+      "@id": "task:C03",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "Bounded pure-core stdin/file pipeline",
+      "d:owner": "USL_CLI",
+      "d:priority": "P2",
+      "d:phase": "CLI_COMPATIBILITY",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "기존 CLI 계획의 범위를 그대로 이행한다. Preserve JSON stdout and --out collision protection. Do not change registered child-process stdin behavior.",
+      "d:remaining": "src/cli.ts reads every source from a file path; there is no bounded UTF-8 --source - contract for pure core pipeline commands.",
+      "d:inheritedFrom": "task:C03",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:cli-plan"
+        },
+        {
+          "@id": "source:development:cli-receipt"
+        },
+        {
+          "@id": "source:development:architecture-plan"
+        }
+      ]
+    },
+    {
+      "@id": "task:C04",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "Built package-bin compatibility gate",
+      "d:owner": "USL_CLI",
+      "d:priority": "P2",
+      "d:phase": "CLI_COMPATIBILITY",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "기존 CLI 계획의 범위를 그대로 이행한다. Do not add tokenizer dependencies or API cost estimates. Do not change host registration or external execution authority.",
+      "d:remaining": "package.json maps the usl bin to dist/src/cli.js, but current CLI tests invoke TypeScript through tsx rather than a built package bin.",
+      "d:inheritedFrom": "task:C04",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:cli-plan"
+        },
+        {
+          "@id": "source:development:cli-receipt"
+        },
+        {
+          "@id": "source:development:architecture-plan"
+        }
+      ]
+    },
+    {
+      "@id": "task:DG05",
+      "@type": [
+        "d:Task",
+        "prov:Entity"
+      ],
+      "d:title": "통합 인수검사와 지원 profile 출시 판정",
+      "d:owner": "USL_OPTIONAL_CONSUMER",
+      "d:priority": "P1",
+      "d:phase": "RELEASE_GATE",
+      "d:status": "PLANNED",
+      "d:implementation": "NOT_STARTED",
+      "d:scope": "선택한 기능 묶음에서 이동/분기/표준 교환/규칙 검토/CLI를 연결한 시나리오와 지원 범위별 release gate를 만든다. 중간 portable MVP 출시는 M2로 별도 판정하며 전체 gate를 기다릴 필요는 없다.",
+      "d:remaining": "현재 40개 기술·12개 control과 22개 표준 평가의 대응은 감사 목록이지 모두 구현한 인증이 아니다. proofStatus는 NOT_PROVEN이며 각 미지원 범위를 명시해야 한다.",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      },
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:worktree-receipt"
+        },
+        {
+          "@id": "source:development:standards-coverage"
+        },
+        {
+          "@id": "source:development:engineering-catalog"
+        },
+        {
+          "@id": "source:development:architecture-plan"
+        }
+      ]
+    },
+    {
+      "@id": "criterion:DG01-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "같은 bytes지만 다른 HEAD·worktree·root를 고른 경우 기대값의 독립 출처와 대조하여 MISMATCH/HOLD를 낸다. 올바른 move 후 명시적 remap은 동일 논리 ID/role을 보존한다.",
+      "d:negativeCase": "관측한 현재 HEAD를 expected HEAD로 자동 채우거나 alias·branch·commonGitDir 일치만으로 통과하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG01-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "clean/dirty 허용 정책과 worktree별 index·untracked 범위를 고정하고 detached/unborn/sparse/subdirectory/broken gitfile 상태를 구분한다. 정책 없는 기존 inspect는 기존 상태를 보고한다.",
+      "d:negativeCase": "Git 사실 불명·부분 검사·subdirectory 오인식을 VERIFIED로 승격하거나 guard 미선택 기본 바인딩을 깨면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG01-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "행동을 보호할 때 owner preflight가 작업 직전 고정 조건을 재검증한다. 검사 후 변경 가능성과 원자성 한계를 명시하고 stale plan은 실행 전에 중단한다.",
+      "d:negativeCase": "검사 뒤 HEAD·index·runner가 바뀌었는데 이전 판정만으로 실행하거나 관측 검사를 원자적 snapshot으로 주장하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "소유자가 지정한 범위에서 snapshot/session ID를 발급하고 실제 복사한 바이트의 hash·size를 기록한다. 일관된 owner export/잠금/snapshot이 불가능하면 export를 중단한다.",
+      "d:negativeCase": "스캔과 복사 사이 파일 변경, live DB 단순 복사, 중간 실패에서 완성 bundle을 공개하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "필수 artifact와 dependency를 PACKAGED, EXTERNAL_REQUIRED, OPTIONAL로 분류한다. selfContained=true는 모든 필수 의존성이 포함되고 검증된 경우에만 허용한다. Git objects/dirty/untracked/submodule/LFS를 각각 명시한다.",
+      "d:negativeCase": "필수 원문·고정 Git object 누락, manifest에 없는 payload, size/hash 불일치를 정상으로 기록하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "manifest body digest를 분리된 envelope에 넣어 자기 해시 순환을 피하고 스키마·정책·필요한 alias dictionary를 동봉한다. 기기 절대 root·credential·private action 등록은 기본 제외한다.",
+      "d:negativeCase": "검증되지 않은 manifest로 host pin을 자동 등록하거나 비밀값·기기 root를 내보내면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C4",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "복원 profile이 요구한 Git 공통 object/ref/admin 데이터와 각 worktree HEAD/index/config, 선택한 dirty/untracked 파일, submodule/LFS/alternates closure를 검증한다. payload에 실을 수 없으면 EXTERNAL_REQUIRED로 표기하고 독립 복원 가능 상태를 부여하지 않는다.",
+      "d:negativeCase": "linked worktree 디렉터리만 복사하거나 중간 mutation을 scan/hash만으로 원자적이라 주장하거나 host credential/config를 무분별하게 포함하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "임포터 소유의 새 staging 디렉터리에서 전 항목을 검증하고 대상 owner namespace를 확인한 뒤 사용자가 지정한 workspace root로 재바인딩한다. 캐시 없이 원본 ID·역할을 복구한다.",
+      "d:negativeCase": "이름/mtime/내용 유사성만으로 후보를 채택하거나 기존 resource ID·role을 바꾸면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "같은 파일시스템의 새 목적지만 원자적 publish하고 검증 실패·용량 초과·중단은 미완성 상태로 남긴다. 기존 환경은 보존하고 재import는 동일 bundle digest의 기존 결과를 확인한다.",
+      "d:negativeCase": "경로 탈출·심볼릭 링크·대소문자/Unicode 충돌·동시 목적지 생성·타 파일시스템 rename을 성공처럼 처리하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "MVP는 기존 상태와의 자동 merge를 하지 않는다. owner의 알려진 head/철회 정보와 충돌하면 DIVERGED/WITHDRAWN, 기준이 없으면 FRESHNESS_UNKNOWN으로 보존하고 최신 상태 활성화를 보류한다. 명시적 과거 snapshot 읽기는 허용한다. 명시적으로 선택한 복원 revision에서 새 로컬 작업 분기를 만들 수 있으며 전역 최신성은 미확정으로 유지한다.",
+      "d:negativeCase": "옛 backup의 삭제 전 자원을 현재 head로 부활시키거나 누락을 삭제로 추론하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C4",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "과거 operation/receipt를 역사 자료로 분류하고 외부 효과는 UNRECONCILED로 둔다. 복원 자체의 실행 호출은 0회이며 새 host 등록과 현재 상태 확인 전 자동 재시도/예약 해제를 금지한다.",
+      "d:negativeCase": "복원한 로컬 reservation을 분산 exactly-once 근거로 사용하거나 unknown 효과를 재실행하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C5",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "새 root에서 owner가 선택한 Git 재구성/repair를 수행한 후 원본 commonGitDir 없이 checkout 및 파일 pins를 재검증한다. 별도 namespace 등록은 동일 ID 충돌과 정의 불일치를 거부한다.",
+      "d:negativeCase": "원본 저장소를 계속 참조하는 gitfile로 복원 성공을 선언하거나 긴 native ID를 잘라 충돌시키면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT04-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Linux/macOS/Windows에서 서로 다른 root·사용자 홈·cache 없음·원본 장치 없음 조건으로 self-contained bundle을 복원한다. 기대하는 정확한 resource/revision/role 집합과 bytes를 비교한다.",
+      "d:negativeCase": "원래 절대 경로 또는 캐시가 있어야만 통과하거나 개수만 같아도 성공으로 판정하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT04-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "부분 복사·1 byte 손상·알고리즘 변경·의존성 누락·중복 import·중간 종료·대소문자/Unicode 충돌·삭제 전 backup·기준 미확인·복제된 실행 기록 반례를 자동 검사한다.",
+      "d:negativeCase": "누락/손상/분기/권한 없음이 VERIFIED 또는 현재 ACTIVE로 승격되면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT04-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "OS별 실제 실행 결과와 미실행 플랫폼을 따로 기록하고 기존 core binding/CLI 호환 검사를 유지한다. 전송 bytes·해시 시간·peak memory를 예산별 측정한다.",
+      "d:negativeCase": "한 OS의 PASS를 전 플랫폼 보장, benchmark를 운영 효과나 Lean 증명으로 기록하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT05-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "문서와 조각의 stable ID, 고정 source revision, exact/prefix/suffix selector를 보존한다. 등록 범위 내 재탐색 결과가 다수면 AMBIGUOUS, 0개면 MISSING으로 반환한다.",
+      "d:negativeCase": "줄 번호만으로 새 문단을 확정하거나 같은 인용문 여러 개 중 첫 항목을 자동 바인딩하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT05-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "원문 byte digest와 RDFC-1.0 dataset digest를 별도 필드로 둔다. 기존 contractDigest는 변경하지 않고 알고리즘 version·허용 quad/시간/메모리 한도를 명시한다.",
+      "d:negativeCase": "blank-node 라벨/직렬화 순서 차이를 내용 변경으로 오인하거나 semantic equivalence로 과대 주장하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT05-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "JSON-LD 외부 context는 고정·동봉된 자료만 사용하고 정규화 예산 초과는 미확정으로 반환한다. 관계의 역할과 ID가 바뀐 그래프는 달라야 한다.",
+      "d:negativeCase": "원격 context의 조용한 변경 또는 바뀐 role을 같은 그래프로 인정하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT06-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "revision parent DAG와 actor/operation identity로 후속·동시 변경을 구별한다. 복제된 장치 이미지의 actor counter 재사용을 막고 동일 operation import는 멱등 처리한다.",
+      "d:negativeCase": "기기 시계/mtime으로 승자를 고르거나 두 기기가 같은 actor-counter로 다른 변경을 쓰면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT06-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "동시 변경의 양쪽 원문과 provenance를 보존하고 owner가 선택한 merge 정책을 기록한다. CRDT는 필요가 입증된 선택형 소비자 구현으로만 평가한다.",
+      "d:negativeCase": "자동 수렴을 owner 권위·정책·의미적 정당성으로 간주하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT06-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "명시적 tombstone을 revision으로 유지한다. peer 확인/retention 정책 없이 삭제하지 않고 오래된 backup 및 offline peer 재등장에서 비의도적 부활을 차단한다.",
+      "d:negativeCase": "tombstone을 지워 old live revision을 새 현재 상태로 채택하거나 parent 누락을 숨기면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT07-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "historical receipt와 현재 owner 상태를 분리하고 owner의 idempotency key/status API가 있을 때만 명시적으로 대조한다. 외부 조회에는 기존 scoped host authorization을 적용한다.",
+      "d:negativeCase": "복원된 host/credential/예약 또는 artifact graph만으로 원격 접근·실행 권한을 얻으면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT07-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "현재 상태 digest와 operation ID를 고정하고 owner가 제공하는 조건부 갱신/중복 방지 범위를 문서화한다. 지원하지 않는 owner는 UNKNOWN/HOLD와 실행 0회를 유지한다.",
+      "d:negativeCase": "offline 두 컴퓨터가 각자 unknown을 성공/미실행으로 추정해 같은 외부 효과를 실행하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:PT07-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "대조 결과는 별도 관측으로 기록하고 기존 receipt/intent를 수정하지 않는다. 테스트는 fake owner의 명시적 보장 범위와 실제 연결 관측을 구분한다.",
+      "d:negativeCase": "로컬 모의 테스트로 실제 분산 exactly-once 또는 HSWM 연결 완료를 선언하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG02-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "표준 edition·profile·정규화 algorithm·지원 syntax·context resolver 정책과 loss report 형식을 버전으로 고정한다. Recommendation/Note/Draft와 ISO 공개 초록/규범 전문 접근 범위를 구분한다.",
+      "d:negativeCase": "미지원 keyword·프로토콜·확정되지 않은 draft를 무시하고 full support로 표기하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG02-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "선택 profile의 IRI·typed/language literal·blank-node scope·default/named graph·빈 graph 표현 한계와 LPG node/edge property·label을 왕복하거나 정확히 명시한 손실/거부 결과를 낸다.",
+      "d:negativeCase": "원문 domain triple 대신 USL 선언 wrapper만 출력하고 무손실 roundtrip이라고 하거나 임의 property를 조용히 버리면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG02-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "stable ID·named/n-ary roles·metadata·provenance를 보존하며 raw byte digest·contract digest·RDF dataset digest·entailment 비교를 구분한다. 외부 context는 pinned/bundled 허용 목록과 예산으로 제한한다.",
+      "d:negativeCase": "blank-node label이나 semantic similarity를 자원 ID로 쓰거나 stale dictionary/cache로 다른 그래프를 복원하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG03-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "engine ID/version·entailment regime·dataset/result terms·error/timeout·update capability를 owner 계약으로 고정하고 지원 여부를 조회 가능하게 한다. 읽기/변경은 기존 scoped owner 권한으로 분리한다.",
+      "d:negativeCase": "link/route를 engine 실행 허가로 읽거나 query capability를 update 권한으로 확대하거나 다른 version 결과를 재사용하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG03-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "선택 profile의 공식 또는 독립 fixture/suite revision과 실행 환경을 고정하고 실행·실패·제외·미실행 항목을 모두 기록한다. suite가 없거나 규범 전문을 확인하지 못한 항목은 NOT_ESTABLISHED로 남긴다.",
+      "d:negativeCase": "USL wrapper SHACL 통과를 RDF/OWL/GQL 전체 conformance로 승격하거나 알려진 오답 fixture를 통과시키면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG03-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "같은 입력과 profile의 direct engine 결과와 USL adapter 결과를 term identity·bindings·graph/result semantics·진단으로 비교한다. CPU/time/bytes 한계 초과는 명시적 결과로 종료한다.",
+      "d:negativeCase": "ASK/SELECT/CONSTRUCT 결과·SHACL severity·entailment·오류를 임의로 동일시하거나 실패를 빈 성공으로 바꾸면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG04-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "rule ID/revision·context·action·outcome·latency/cost 단위·evidence provenance·owner 상태를 고정한다. 결측/합성/실측과 관측 신뢰도를 구분하며 수집 범위와 원자료 접근은 owner가 정한다. 복원된 outcome/receipt가 하나라도 입력되면 PT07의 현재 owner 대조를 선행하고, 미대조 결과는 HOLD로 남긴다.",
+      "d:negativeCase": "이동한 receipt·copied registration·미인증 outcome을 현재 허가나 실제 개선 증거로 승격하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG04-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "데이터 누출을 차단한 baseline/train/holdout·맥락별 표본 수·후보 효과·불확실성·재현 가능한 replay를 보고한다. 근거가 부족하면 KEEP_BASELINE/HOLD로 남긴다.",
+      "d:negativeCase": "합성 holdout 승리를 운영 보장으로 바꾸거나 learned estimate를 soft coefficient에 자동 복사하거나 hard constraint를 W로 상쇄하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG04-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "review/apply 경계를 유지하고 실제 owner 상태/revision 변경이나 미승인은 HOLD/REVIEW_ONLY로 남긴다. 후속 적용이 승인되는 경우에도 owner capability·조건부 update·rollback·감사 근거를 별도 확보한다.",
+      "d:negativeCase": "candidate policy나 링크만으로 live HSWM/CHU/KG를 변경하거나 owner state 대조 없이 exactly-once를 주장하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C02-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Support max-hops, max-resources, max-links, max-visits, repeated via, max-bytes, known-context and stats for adapt --operation context.",
+      "d:negativeCase": "상한 우회·다른 validation·canonical ID/role 손실·선택하지 않은 profile 적용은 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C02-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Use the same validation and compact fallback/error contract as source context.",
+      "d:negativeCase": "상한 우회·다른 validation·canonical ID/role 손실·선택하지 않은 profile 적용은 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C02-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Preserve native IDs and explicitly selected resource-graph profiles.",
+      "d:negativeCase": "상한 우회·다른 validation·canonical ID/role 손실·선택하지 않은 profile 적용은 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C02-C4",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Preserve the existing max-resources policy cap when adding the missing query and delivery options.",
+      "d:negativeCase": "상한 우회·다른 validation·canonical ID/role 손실·선택하지 않은 profile 적용은 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C03-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Support --source - only for check, compile and context.",
+      "d:negativeCase": "unbounded stdin·관측/변경/host 실행으로 stdin 확대·--out 충돌 보호 제거는 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C03-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Bound bytes before parsing and give stdin a stable source label in errors/provenance.",
+      "d:negativeCase": "unbounded stdin·관측/변경/host 실행으로 stdin 확대·--out 충돌 보호 제거는 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C03-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Keep observe, file-changing operations and registered-host execution file/config based.",
+      "d:negativeCase": "unbounded stdin·관측/변경/host 실행으로 stdin 확대·--out 충돌 보호 제거는 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C04-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "After npm run build, invoke the package bin symlink for --help and one pure check fixture.",
+      "d:negativeCase": "tsx 직접 실행만 검사하거나 dist bin import/shebang/exit 오류를 놓치거나 기존 pre-build test를 깨면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C04-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Verify dist import, shebang and exit status.",
+      "d:negativeCase": "tsx 직접 실행만 검사하거나 dist bin import/shebang/exit 오류를 놓치거나 기존 pre-build test를 깨면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C04-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Retain moved-workspace and cli-list to cli-inspect tests as compatibility gates rather than new host development.",
+      "d:negativeCase": "tsx 직접 실행만 검사하거나 dist bin import/shebang/exit 오류를 놓치거나 기존 pre-build test를 깨면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:C04-C4",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "Provide the built-bin check as an explicit post-build command, preserving the current pre-build npm test workflow.",
+      "d:negativeCase": "tsx 직접 실행만 검사하거나 dist bin import/shebang/exit 오류를 놓치거나 기존 pre-build test를 깨면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG05-C1",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "요구사항→과제→criterion→실행 receipt→지원 profile을 추적한다. 기존 40 technologies/12 controls/22 assessments 각각에 지원·위임·미지원·제외 사유를 연결하고 변경된 원문 revision을 다시 조사한다.",
+      "d:negativeCase": "노드/edge 수 일치만으로 ID·role·metadata·상태·payload 정확성을 대체하거나 NOT_RUN을 PASS로 승격하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG05-C2",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "새 경로/사용자/cache 부재/원본 기기 부재/worktree 분기와 backup import/표준 roundtrip/W review 시나리오를 지원 OS 및 실제 환경에서 검사한다. 미실행 OS·실기기·서비스 경계는 별도로 표시한다.",
+      "d:negativeCase": "local Linux fixture만으로 모든 OS·분산 환경·운영 dashboard·기능적 완전 상위호환을 주장하면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "criterion:DG05-C3",
+      "@type": [
+        "d:Criterion",
+        "prov:Entity"
+      ],
+      "d:expectation": "bytes·시간·peak memory·정확성·관측/권한/실행 효과 상태를 분리하여 예산 내 종료와 호환성 회귀를 검증한다. W 등 미선택 기능은 별도 profile gate로 격리한다.",
+      "d:negativeCase": "payload byte 감소를 token/billing/heap/품질 개선이나 Lean 증명으로 대체하거나 optional 엔진을 기본 바인딩 필수 조건으로 만들면 실패.",
+      "d:execution": "NOT_RUN",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "milestone:DG-M1",
+      "@type": [
+        "d:Milestone",
+        "prov:Entity"
+      ],
+      "d:title": "의도한 checkout 보호",
+      "d:gate": "DG01 반례와 기존 inspect 호환성 검사 통과. 별도 명시적 guard만 완료로 표시.",
+      "d:status": "PLANNED",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "milestone:DG-M2",
+      "@type": [
+        "d:Milestone",
+        "prov:Entity"
+      ],
+      "d:title": "실제 휴대 가능한 backup/restore MVP",
+      "d:gate": "M1 선행. 선택한 restore profile의 closure·staging·재바인딩·지원 환경 인수검사 실행 근거가 있어야 portable MVP로 인정.",
+      "d:status": "PLANNED",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "milestone:DG-M3",
+      "@type": [
+        "d:Milestone",
+        "prov:Entity"
+      ],
+      "d:title": "조각·분기·복원된 작업 상태",
+      "d:gate": "M2와 DG02 관련 profile 선행. anchor/causality/tombstone/current owner reconciliation 결과와 미확인 상태 보존.",
+      "d:status": "PLANNED",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "milestone:DG-M4",
+      "@type": [
+        "d:Milestone",
+        "prov:Entity"
+      ],
+      "d:title": "명시한 표준 profile 상호운용",
+      "d:gate": "선택 profile의 무손실 또는 손실 보고와 engine adapter/suite 근거. 미지원 표준은 여전히 미지원.",
+      "d:status": "PLANNED",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "milestone:DG-M5",
+      "@type": [
+        "d:Milestone",
+        "prov:Entity"
+      ],
+      "d:title": "CLI 호환 및 운영 W 검토와 통합 gate",
+      "d:gate": "의존 DAG의 선택 기능 gate와 운영 근거 확인. owner 승인이 없는 W 적용은 하지 않으며 REVIEW_ONLY도 올바른 종료 상태.",
+      "d:status": "PLANNED",
+      "prov:wasAttributedTo": {
+        "@id": "agent:development-plan"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "urn:usl:development-plan",
+      "d:firstTask": {
+        "@id": "task:DG01"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:development-plan"
+      }
+    },
+    {
+      "@id": "agent:development-plan",
+      "@type": "prov:Agent",
+      "d:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "activity:development-plan",
+      "@type": "prov:Activity",
+      "d:recordedOn": "2026-10-03",
+      "prov:used": [
+        {
+          "@id": "user:development:portability"
+        },
+        {
+          "@id": "user:development:standards"
+        },
+        {
+          "@id": "user:development:worktree"
+        },
+        {
+          "@id": "user:development:weight"
+        },
+        {
+          "@id": "user:development:plan"
+        },
+        {
+          "@id": "source:development:portability-plan"
+        },
+        {
+          "@id": "source:development:transfer-receipt"
+        },
+        {
+          "@id": "source:development:transfer-contract"
+        },
+        {
+          "@id": "source:development:portability-research"
+        },
+        {
+          "@id": "source:development:worktree-audit"
+        },
+        {
+          "@id": "source:development:worktree-receipt"
+        },
+        {
+          "@id": "source:development:standards-coverage"
+        },
+        {
+          "@id": "source:development:engineering-catalog"
+        },
+        {
+          "@id": "source:development:architecture-plan"
+        },
+        {
+          "@id": "source:development:cli-plan"
+        },
+        {
+          "@id": "source:development:cli-receipt"
+        },
+        {
+          "@id": "source:development:binding-contract"
+        },
+        {
+          "@id": "source:development:rule-policy"
+        },
+        {
+          "@id": "source:development:weight-evidence"
+        },
+        {
+          "@id": "source:development:weight-review"
+        },
+        {
+          "@id": "source:development:learner-receipt"
+        },
+        {
+          "@id": "source:development:review-receipt"
+        }
+      ]
+    },
+    {
+      "@id": "task:DG01",
+      "d:addresses": {
+        "@id": "requirement:R01"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:addresses": {
+        "@id": "requirement:R08"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:addresses": {
+        "@id": "requirement:R12"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT07"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT12"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT02"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:motivatedBy": {
+        "@id": "evidence:development:worktree-run"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:motivatedBy": {
+        "@id": "evidence:development:core"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:usesSource": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:usesSource": {
+        "@id": "source:development:worktree-receipt"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:usesSource": {
+        "@id": "source:development:binding-contract"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:validatedBy": {
+        "@id": "criterion:DG01-C1"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:validatedBy": {
+        "@id": "criterion:DG01-C2"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "d:validatedBy": {
+        "@id": "criterion:DG01-C3"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:dependsOn": {
+        "@id": "task:DG01"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:addresses": {
+        "@id": "requirement:R02"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:addresses": {
+        "@id": "requirement:R06"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PT01"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT04"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT05"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT11"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR02"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR03"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR04"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR06"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:usesSource": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:usesSource": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:usesSource": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:usesSource": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:validatedBy": {
+        "@id": "criterion:PT02-C1"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:validatedBy": {
+        "@id": "criterion:PT02-C2"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:validatedBy": {
+        "@id": "criterion:PT02-C3"
+      }
+    },
+    {
+      "@id": "task:PT02",
+      "d:validatedBy": {
+        "@id": "criterion:PT02-C4"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:dependsOn": {
+        "@id": "task:PT02"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:addresses": {
+        "@id": "requirement:R01"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:addresses": {
+        "@id": "requirement:R03"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:addresses": {
+        "@id": "requirement:R05"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:addresses": {
+        "@id": "requirement:R06"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PT01"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT04"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT05"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR01"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR03"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR05"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR06"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR09"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:usesSource": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:usesSource": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:usesSource": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:usesSource": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:validatedBy": {
+        "@id": "criterion:PT03-C1"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:validatedBy": {
+        "@id": "criterion:PT03-C2"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:validatedBy": {
+        "@id": "criterion:PT03-C3"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:validatedBy": {
+        "@id": "criterion:PT03-C4"
+      }
+    },
+    {
+      "@id": "task:PT03",
+      "d:validatedBy": {
+        "@id": "criterion:PT03-C5"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:dependsOn": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:addresses": {
+        "@id": "requirement:R07"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:worktree-run"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT01"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT02"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT03"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT06"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT08"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT09"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR04"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR05"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR06"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR12"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:usesSource": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:usesSource": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:usesSource": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:usesSource": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:validatedBy": {
+        "@id": "criterion:PT04-C1"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:validatedBy": {
+        "@id": "criterion:PT04-C2"
+      }
+    },
+    {
+      "@id": "task:PT04",
+      "d:validatedBy": {
+        "@id": "criterion:PT04-C3"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:dependsOn": {
+        "@id": "task:PT04"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:dependsOn": {
+        "@id": "task:DG02"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:addresses": {
+        "@id": "requirement:R04"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR10"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-rdfc"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-annotation"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:usesSource": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:usesSource": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:usesSource": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:usesSource": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:validatedBy": {
+        "@id": "criterion:PT05-C1"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:validatedBy": {
+        "@id": "criterion:PT05-C2"
+      }
+    },
+    {
+      "@id": "task:PT05",
+      "d:validatedBy": {
+        "@id": "criterion:PT05-C3"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:dependsOn": {
+        "@id": "task:PT04"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:addresses": {
+        "@id": "requirement:R05"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR07"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR08"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT01"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:usesSource": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:usesSource": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:usesSource": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:usesSource": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:validatedBy": {
+        "@id": "criterion:PT06-C1"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:validatedBy": {
+        "@id": "criterion:PT06-C2"
+      }
+    },
+    {
+      "@id": "task:PT06",
+      "d:validatedBy": {
+        "@id": "criterion:PT06-C3"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:dependsOn": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:dependsOn": {
+        "@id": "task:PT06"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:addresses": {
+        "@id": "requirement:R06"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR09"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR11"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT10"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT08"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT09"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:usesSource": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:usesSource": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:usesSource": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:usesSource": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:validatedBy": {
+        "@id": "criterion:PT07-C1"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:validatedBy": {
+        "@id": "criterion:PT07-C2"
+      }
+    },
+    {
+      "@id": "task:PT07",
+      "d:validatedBy": {
+        "@id": "criterion:PT07-C3"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:addresses": {
+        "@id": "requirement:R04"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:addresses": {
+        "@id": "requirement:R09"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:addresses": {
+        "@id": "requirement:R12"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-rdf-model"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-rdf-syntax"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-jsonld-export"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-jsonld-processing"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-rdfc"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-lpg"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-prov"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-skos"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-catalog"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-tabular"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-annotation"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-ldp"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-nary"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-drafts"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:usesSource": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:usesSource": {
+        "@id": "source:development:engineering-catalog"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:usesSource": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:validatedBy": {
+        "@id": "criterion:DG02-C1"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:validatedBy": {
+        "@id": "criterion:DG02-C2"
+      }
+    },
+    {
+      "@id": "task:DG02",
+      "d:validatedBy": {
+        "@id": "criterion:DG02-C3"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:dependsOn": {
+        "@id": "task:DG02"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:addresses": {
+        "@id": "requirement:R09"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:addresses": {
+        "@id": "requirement:R10"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:addresses": {
+        "@id": "requirement:R13"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-rdfs"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-owl"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-shacl"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-sparql-query"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-sparql-update"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-sparql-results"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-gql"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:usesSource": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:usesSource": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:validatedBy": {
+        "@id": "criterion:DG03-C1"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:validatedBy": {
+        "@id": "criterion:DG03-C2"
+      }
+    },
+    {
+      "@id": "task:DG03",
+      "d:validatedBy": {
+        "@id": "criterion:DG03-C3"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:requiresReconciliation": {
+        "@id": "task:PT07"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:addresses": {
+        "@id": "requirement:R06"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:addresses": {
+        "@id": "requirement:R11"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:addresses": {
+        "@id": "requirement:R13"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:buildsOn": {
+        "@id": "baseline:rule-weight-review"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:learner"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:review"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PR11"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:WT10"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:usesSource": {
+        "@id": "source:development:rule-policy"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:usesSource": {
+        "@id": "source:development:weight-evidence"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:usesSource": {
+        "@id": "source:development:weight-review"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:usesSource": {
+        "@id": "source:development:learner-receipt"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:usesSource": {
+        "@id": "source:development:review-receipt"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:validatedBy": {
+        "@id": "criterion:DG04-C1"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:validatedBy": {
+        "@id": "criterion:DG04-C2"
+      }
+    },
+    {
+      "@id": "task:DG04",
+      "d:validatedBy": {
+        "@id": "criterion:DG04-C3"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:addresses": {
+        "@id": "requirement:R12"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:buildsOn": {
+        "@id": "task:C01"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:C02"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:motivatedBy": {
+        "@id": "evidence:development:cli-C01"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:usesSource": {
+        "@id": "source:development:cli-plan"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:usesSource": {
+        "@id": "source:development:cli-receipt"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:usesSource": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:validatedBy": {
+        "@id": "criterion:C02-C1"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:validatedBy": {
+        "@id": "criterion:C02-C2"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:validatedBy": {
+        "@id": "criterion:C02-C3"
+      }
+    },
+    {
+      "@id": "task:C02",
+      "d:validatedBy": {
+        "@id": "criterion:C02-C4"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:addresses": {
+        "@id": "requirement:R12"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:buildsOn": {
+        "@id": "task:C01"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:C03"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:motivatedBy": {
+        "@id": "evidence:development:cli-C01"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:usesSource": {
+        "@id": "source:development:cli-plan"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:usesSource": {
+        "@id": "source:development:cli-receipt"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:usesSource": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:validatedBy": {
+        "@id": "criterion:C03-C1"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:validatedBy": {
+        "@id": "criterion:C03-C2"
+      }
+    },
+    {
+      "@id": "task:C03",
+      "d:validatedBy": {
+        "@id": "criterion:C03-C3"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:addresses": {
+        "@id": "requirement:R12"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:buildsOn": {
+        "@id": "task:C01"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:C04"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:motivatedBy": {
+        "@id": "evidence:development:cli-C01"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:usesSource": {
+        "@id": "source:development:cli-plan"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:usesSource": {
+        "@id": "source:development:cli-receipt"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:usesSource": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:validatedBy": {
+        "@id": "criterion:C04-C1"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:validatedBy": {
+        "@id": "criterion:C04-C2"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:validatedBy": {
+        "@id": "criterion:C04-C3"
+      }
+    },
+    {
+      "@id": "task:C04",
+      "d:validatedBy": {
+        "@id": "criterion:C04-C4"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:PT05"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:PT06"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:PT07"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:DG03"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:DG04"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:C02"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:C03"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:dependsOn": {
+        "@id": "task:C04"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R01"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R02"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R03"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R04"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R05"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R06"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R07"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R08"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R09"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R10"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R11"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R12"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:addresses": {
+        "@id": "requirement:R13"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:buildsOn": {
+        "@id": "baseline:binding-core"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:buildsOn": {
+        "@id": "task:PT01"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:buildsOn": {
+        "@id": "task:C01"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:buildsOn": {
+        "@id": "baseline:rule-weight-review"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:motivatedBy": {
+        "@id": "evidence:development:worktree-run"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:motivatedBy": {
+        "@id": "evidence:development:PT01"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:motivatedBy": {
+        "@id": "evidence:development:standard-practice"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:motivatedBy": {
+        "@id": "evidence:development:learner"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:usesSource": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:usesSource": {
+        "@id": "source:development:worktree-receipt"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:usesSource": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:usesSource": {
+        "@id": "source:development:engineering-catalog"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:usesSource": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:validatedBy": {
+        "@id": "criterion:DG05-C1"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:validatedBy": {
+        "@id": "criterion:DG05-C2"
+      }
+    },
+    {
+      "@id": "task:DG05",
+      "d:validatedBy": {
+        "@id": "criterion:DG05-C3"
+      }
+    },
+    {
+      "@id": "criterion:DG01-C1",
+      "d:forTask": {
+        "@id": "task:DG01"
+      }
+    },
+    {
+      "@id": "criterion:DG01-C2",
+      "d:forTask": {
+        "@id": "task:DG01"
+      }
+    },
+    {
+      "@id": "criterion:DG01-C3",
+      "d:forTask": {
+        "@id": "task:DG01"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C1",
+      "d:forTask": {
+        "@id": "task:PT02"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C2",
+      "d:forTask": {
+        "@id": "task:PT02"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C3",
+      "d:forTask": {
+        "@id": "task:PT02"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C4",
+      "d:forTask": {
+        "@id": "task:PT02"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C1",
+      "d:forTask": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C2",
+      "d:forTask": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C3",
+      "d:forTask": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C4",
+      "d:forTask": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C5",
+      "d:forTask": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "criterion:PT04-C1",
+      "d:forTask": {
+        "@id": "task:PT04"
+      }
+    },
+    {
+      "@id": "criterion:PT04-C2",
+      "d:forTask": {
+        "@id": "task:PT04"
+      }
+    },
+    {
+      "@id": "criterion:PT04-C3",
+      "d:forTask": {
+        "@id": "task:PT04"
+      }
+    },
+    {
+      "@id": "criterion:PT05-C1",
+      "d:forTask": {
+        "@id": "task:PT05"
+      }
+    },
+    {
+      "@id": "criterion:PT05-C2",
+      "d:forTask": {
+        "@id": "task:PT05"
+      }
+    },
+    {
+      "@id": "criterion:PT05-C3",
+      "d:forTask": {
+        "@id": "task:PT05"
+      }
+    },
+    {
+      "@id": "criterion:PT06-C1",
+      "d:forTask": {
+        "@id": "task:PT06"
+      }
+    },
+    {
+      "@id": "criterion:PT06-C2",
+      "d:forTask": {
+        "@id": "task:PT06"
+      }
+    },
+    {
+      "@id": "criterion:PT06-C3",
+      "d:forTask": {
+        "@id": "task:PT06"
+      }
+    },
+    {
+      "@id": "criterion:PT07-C1",
+      "d:forTask": {
+        "@id": "task:PT07"
+      }
+    },
+    {
+      "@id": "criterion:PT07-C2",
+      "d:forTask": {
+        "@id": "task:PT07"
+      }
+    },
+    {
+      "@id": "criterion:PT07-C3",
+      "d:forTask": {
+        "@id": "task:PT07"
+      }
+    },
+    {
+      "@id": "criterion:DG02-C1",
+      "d:forTask": {
+        "@id": "task:DG02"
+      }
+    },
+    {
+      "@id": "criterion:DG02-C2",
+      "d:forTask": {
+        "@id": "task:DG02"
+      }
+    },
+    {
+      "@id": "criterion:DG02-C3",
+      "d:forTask": {
+        "@id": "task:DG02"
+      }
+    },
+    {
+      "@id": "criterion:DG03-C1",
+      "d:forTask": {
+        "@id": "task:DG03"
+      }
+    },
+    {
+      "@id": "criterion:DG03-C2",
+      "d:forTask": {
+        "@id": "task:DG03"
+      }
+    },
+    {
+      "@id": "criterion:DG03-C3",
+      "d:forTask": {
+        "@id": "task:DG03"
+      }
+    },
+    {
+      "@id": "criterion:DG04-C1",
+      "d:forTask": {
+        "@id": "task:DG04"
+      }
+    },
+    {
+      "@id": "criterion:DG04-C2",
+      "d:forTask": {
+        "@id": "task:DG04"
+      }
+    },
+    {
+      "@id": "criterion:DG04-C3",
+      "d:forTask": {
+        "@id": "task:DG04"
+      }
+    },
+    {
+      "@id": "criterion:C02-C1",
+      "d:forTask": {
+        "@id": "task:C02"
+      }
+    },
+    {
+      "@id": "criterion:C02-C2",
+      "d:forTask": {
+        "@id": "task:C02"
+      }
+    },
+    {
+      "@id": "criterion:C02-C3",
+      "d:forTask": {
+        "@id": "task:C02"
+      }
+    },
+    {
+      "@id": "criterion:C02-C4",
+      "d:forTask": {
+        "@id": "task:C02"
+      }
+    },
+    {
+      "@id": "criterion:C03-C1",
+      "d:forTask": {
+        "@id": "task:C03"
+      }
+    },
+    {
+      "@id": "criterion:C03-C2",
+      "d:forTask": {
+        "@id": "task:C03"
+      }
+    },
+    {
+      "@id": "criterion:C03-C3",
+      "d:forTask": {
+        "@id": "task:C03"
+      }
+    },
+    {
+      "@id": "criterion:C04-C1",
+      "d:forTask": {
+        "@id": "task:C04"
+      }
+    },
+    {
+      "@id": "criterion:C04-C2",
+      "d:forTask": {
+        "@id": "task:C04"
+      }
+    },
+    {
+      "@id": "criterion:C04-C3",
+      "d:forTask": {
+        "@id": "task:C04"
+      }
+    },
+    {
+      "@id": "criterion:C04-C4",
+      "d:forTask": {
+        "@id": "task:C04"
+      }
+    },
+    {
+      "@id": "criterion:DG05-C1",
+      "d:forTask": {
+        "@id": "task:DG05"
+      }
+    },
+    {
+      "@id": "criterion:DG05-C2",
+      "d:forTask": {
+        "@id": "task:DG05"
+      }
+    },
+    {
+      "@id": "criterion:DG05-C3",
+      "d:forTask": {
+        "@id": "task:DG05"
+      }
+    },
+    {
+      "@id": "evidence:development:PT01",
+      "d:recordedIn": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "evidence:development:core",
+      "d:recordedIn": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:cli-C01",
+      "d:recordedIn": {
+        "@id": "source:development:cli-receipt"
+      }
+    },
+    {
+      "@id": "evidence:development:C02",
+      "d:recordedIn": {
+        "@id": "source:development:cli-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:C03",
+      "d:recordedIn": {
+        "@id": "source:development:cli-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:C04",
+      "d:recordedIn": {
+        "@id": "source:development:cli-plan"
+      }
+    },
+    {
+      "@id": "evidence:development:worktree-run",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-receipt"
+      }
+    },
+    {
+      "@id": "evidence:development:WT01",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT02",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT03",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT04",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT05",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT06",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT07",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT08",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT09",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT10",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT11",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:WT12",
+      "d:recordedIn": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdf-model",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdf-syntax",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-jsonld-export",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-jsonld-processing",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdfc",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-rdfs",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-owl",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-shacl",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-sparql-query",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-sparql-update",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-sparql-results",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-lpg",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-gql",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-prov",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-skos",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-catalog",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-tabular",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-annotation",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-ldp",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-practice",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-nary",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:standard-drafts",
+      "d:recordedIn": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "evidence:development:PR01",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR02",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR03",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR04",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR05",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR06",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR07",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR08",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR09",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR10",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR11",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:PR12",
+      "d:recordedIn": {
+        "@id": "source:development:portability-research"
+      }
+    },
+    {
+      "@id": "evidence:development:learner",
+      "d:recordedIn": {
+        "@id": "source:development:learner-receipt"
+      }
+    },
+    {
+      "@id": "evidence:development:review",
+      "d:recordedIn": {
+        "@id": "source:development:review-receipt"
+      }
+    },
+    {
+      "@id": "requirement:R01",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "requirement:R01",
+      "d:interprets": {
+        "@id": "user:development:portability"
+      }
+    },
+    {
+      "@id": "requirement:R02",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "requirement:R02",
+      "d:interprets": {
+        "@id": "user:development:portability"
+      }
+    },
+    {
+      "@id": "requirement:R03",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "requirement:R03",
+      "d:interprets": {
+        "@id": "user:development:portability"
+      }
+    },
+    {
+      "@id": "requirement:R04",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "requirement:R04",
+      "d:interprets": {
+        "@id": "user:development:portability"
+      }
+    },
+    {
+      "@id": "requirement:R05",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "requirement:R05",
+      "d:interprets": {
+        "@id": "user:development:portability"
+      }
+    },
+    {
+      "@id": "requirement:R06",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "requirement:R06",
+      "d:interprets": {
+        "@id": "user:development:portability"
+      }
+    },
+    {
+      "@id": "requirement:R07",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "requirement:R07",
+      "d:interprets": {
+        "@id": "user:development:portability"
+      }
+    },
+    {
+      "@id": "requirement:R08",
+      "d:derivedFrom": {
+        "@id": "source:development:worktree-audit"
+      }
+    },
+    {
+      "@id": "requirement:R08",
+      "d:interprets": {
+        "@id": "user:development:worktree"
+      }
+    },
+    {
+      "@id": "requirement:R09",
+      "d:derivedFrom": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "requirement:R09",
+      "d:interprets": {
+        "@id": "user:development:standards"
+      }
+    },
+    {
+      "@id": "requirement:R10",
+      "d:derivedFrom": {
+        "@id": "source:development:standards-coverage"
+      }
+    },
+    {
+      "@id": "requirement:R10",
+      "d:interprets": {
+        "@id": "user:development:standards"
+      }
+    },
+    {
+      "@id": "requirement:R11",
+      "d:derivedFrom": {
+        "@id": "source:development:weight-review"
+      }
+    },
+    {
+      "@id": "requirement:R11",
+      "d:interprets": {
+        "@id": "user:development:weight"
+      }
+    },
+    {
+      "@id": "requirement:R12",
+      "d:derivedFrom": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "requirement:R12",
+      "d:interprets": {
+        "@id": "user:development:plan"
+      }
+    },
+    {
+      "@id": "requirement:R13",
+      "d:derivedFrom": {
+        "@id": "source:development:worktree-receipt"
+      }
+    },
+    {
+      "@id": "requirement:R13",
+      "d:interprets": {
+        "@id": "user:development:plan"
+      }
+    },
+    {
+      "@id": "baseline:binding-core",
+      "d:derivedFrom": {
+        "@id": "source:development:architecture-plan"
+      }
+    },
+    {
+      "@id": "baseline:binding-core",
+      "d:derivedFrom": {
+        "@id": "source:development:binding-contract"
+      }
+    },
+    {
+      "@id": "task:PT01",
+      "d:derivedFrom": {
+        "@id": "source:development:portability-plan"
+      }
+    },
+    {
+      "@id": "task:PT01",
+      "d:derivedFrom": {
+        "@id": "source:development:transfer-receipt"
+      }
+    },
+    {
+      "@id": "task:PT01",
+      "d:derivedFrom": {
+        "@id": "source:development:transfer-contract"
+      }
+    },
+    {
+      "@id": "task:C01",
+      "d:derivedFrom": {
+        "@id": "source:development:cli-plan"
+      }
+    },
+    {
+      "@id": "task:C01",
+      "d:derivedFrom": {
+        "@id": "source:development:cli-receipt"
+      }
+    },
+    {
+      "@id": "baseline:rule-weight-review",
+      "d:derivedFrom": {
+        "@id": "source:development:rule-policy"
+      }
+    },
+    {
+      "@id": "baseline:rule-weight-review",
+      "d:derivedFrom": {
+        "@id": "source:development:weight-evidence"
+      }
+    },
+    {
+      "@id": "baseline:rule-weight-review",
+      "d:derivedFrom": {
+        "@id": "source:development:weight-review"
+      }
+    },
+    {
+      "@id": "baseline:rule-weight-review",
+      "d:derivedFrom": {
+        "@id": "source:development:learner-receipt"
+      }
+    },
+    {
+      "@id": "baseline:rule-weight-review",
+      "d:derivedFrom": {
+        "@id": "source:development:review-receipt"
+      }
+    },
+    {
+      "@id": "milestone:DG-M1",
+      "d:includes": {
+        "@id": "task:DG01"
+      }
+    },
+    {
+      "@id": "milestone:DG-M2",
+      "d:includes": {
+        "@id": "task:PT02"
+      }
+    },
+    {
+      "@id": "milestone:DG-M2",
+      "d:includes": {
+        "@id": "task:PT03"
+      }
+    },
+    {
+      "@id": "milestone:DG-M2",
+      "d:includes": {
+        "@id": "task:PT04"
+      }
+    },
+    {
+      "@id": "milestone:DG-M3",
+      "d:includes": {
+        "@id": "task:PT05"
+      }
+    },
+    {
+      "@id": "milestone:DG-M3",
+      "d:includes": {
+        "@id": "task:PT06"
+      }
+    },
+    {
+      "@id": "milestone:DG-M3",
+      "d:includes": {
+        "@id": "task:PT07"
+      }
+    },
+    {
+      "@id": "milestone:DG-M4",
+      "d:includes": {
+        "@id": "task:DG02"
+      }
+    },
+    {
+      "@id": "milestone:DG-M4",
+      "d:includes": {
+        "@id": "task:DG03"
+      }
+    },
+    {
+      "@id": "milestone:DG-M5",
+      "d:includes": {
+        "@id": "task:C02"
+      }
+    },
+    {
+      "@id": "milestone:DG-M5",
+      "d:includes": {
+        "@id": "task:C03"
+      }
+    },
+    {
+      "@id": "milestone:DG-M5",
+      "d:includes": {
+        "@id": "task:C04"
+      }
+    },
+    {
+      "@id": "milestone:DG-M5",
+      "d:includes": {
+        "@id": "task:DG04"
+      }
+    },
+    {
+      "@id": "milestone:DG-M5",
+      "d:includes": {
+        "@id": "task:DG05"
+      }
+    }
+  ]
+}

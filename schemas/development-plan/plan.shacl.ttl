@@ -1,0 +1,57 @@
+@prefix d: <urn:usl:development-plan:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+d:SourceShape a sh:NodeShape ; sh:targetClass d:Source ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:path ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path d:sourceCommit ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:kind ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+d:UserStatementShape a sh:NodeShape ; sh:targetClass d:UserStatement ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "USER_PRIMARY" ] ;
+  sh:property [ sh:path d:text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+d:RequirementShape a sh:NodeShape ; sh:targetClass d:Requirement ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
+  sh:property [ sh:path d:text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:derivedFrom ; sh:minCount 1 ; sh:class d:Source ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:interprets ; sh:minCount 1 ; sh:class d:UserStatement ; sh:nodeKind sh:IRI ] .
+d:BaselineShape a sh:NodeShape ; sh:targetClass d:Baseline ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:title ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "AVAILABLE_WITH_LIMITS" ] ;
+  sh:property [ sh:path d:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:remaining ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:derivedFrom ; sh:minCount 1 ; sh:class d:Source ; sh:nodeKind sh:IRI ] .
+d:EvidenceShape a sh:NodeShape ; sh:targetClass d:Evidence ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:title ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:kind ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:sourceRecordId ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:interpretation ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:replayed ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue false ] ;
+  sh:property [ sh:path d:recordedIn ; sh:minCount 1 ; sh:maxCount 1 ; sh:class d:Source ; sh:nodeKind sh:IRI ] .
+d:TaskShape a sh:NodeShape ; sh:targetClass d:Task ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:title ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:owner ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:priority ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:phase ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "PLANNED" ] ;
+  sh:property [ sh:path d:implementation ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_STARTED" ] ;
+  sh:property [ sh:path d:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:remaining ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:dependsOn ; sh:class d:Task ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:requiresReconciliation ; sh:class d:Task ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:addresses ; sh:minCount 1 ; sh:class d:Requirement ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:buildsOn ; sh:minCount 1 ; sh:class d:Baseline ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:motivatedBy ; sh:minCount 1 ; sh:class d:Evidence ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:usesSource ; sh:minCount 1 ; sh:class d:Source ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:validatedBy ; sh:minCount 1 ; sh:class d:Criterion ; sh:nodeKind sh:IRI ] .
+d:CriterionShape a sh:NodeShape ; sh:targetClass d:Criterion ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:forTask ; sh:minCount 1 ; sh:maxCount 1 ; sh:class d:Task ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path d:execution ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_RUN" ] ;
+  sh:property [ sh:path d:expectation ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:negativeCase ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path [ sh:inversePath d:validatedBy ] ; sh:equals d:forTask ] .
+d:MilestoneShape a sh:NodeShape ; sh:targetClass d:Milestone ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path d:title ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:gate ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path d:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "PLANNED" ] ;
+  sh:property [ sh:path d:includes ; sh:minCount 1 ; sh:class d:Task ; sh:nodeKind sh:IRI ] .

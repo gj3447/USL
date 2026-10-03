@@ -1,0 +1,294 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:development-plan:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:development-plan:depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:requires_reconciliation",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:addresses",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Requirement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:builds_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "baseline",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Baseline"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:motivated_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Evidence"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:uses_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:validated_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "criterion",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Criterion"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:for_task",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "criterion",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Criterion"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:recorded_in",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Evidence"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:requirement_derived_from",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Requirement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:baseline_derived_from",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "baseline",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Baseline"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:interprets",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Requirement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "statement",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:UserStatement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-plan:includes",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "milestone",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Milestone"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-plan:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}
