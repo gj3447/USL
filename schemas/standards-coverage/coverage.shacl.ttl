@@ -1,0 +1,52 @@
+@prefix s: <urn:usl:standards-coverage:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s:SourceShape a sh:NodeShape ; sh:targetClass s:Source ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:url ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path s:publicationStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:checkedOn ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:fact ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:limit ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:access ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+s:LocalSourceShape a sh:NodeShape ; sh:targetClass s:LocalSource ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:path ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path s:sourceCommit ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+s:AssessmentShape a sh:NodeShape ; sh:targetClass s:Assessment ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
+  sh:property [ sh:path s:coverage ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:limitation ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:supportedBy ; sh:minCount 1 ; sh:class s:Source ] ;
+  sh:property [ sh:path s:inspects ; sh:minCount 1 ; sh:class s:LocalSource ] ;
+  sh:property [ sh:path s:observedBy ; sh:class s:Observation ] ;
+  sh:property [ sh:path s:requiresCheck ; sh:minCount 1 ; sh:class s:AcceptanceCheck ] ;
+  sh:property [ sh:path s:plannedIn ; sh:minCount 1 ; sh:maxCount 1 ; sh:class s:Step ] .
+s:ObservationShape a sh:NodeShape ; sh:targetClass s:Observation ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "OBSERVED" ] ;
+  sh:property [ sh:path s:method ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "PURE_RUNTIME_PROBE" "STATIC_CODE_INSPECTION" ) ] ;
+  sh:property [ sh:path s:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:result ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:inspects ; sh:minCount 1 ; sh:class s:LocalSource ] .
+s:AcceptanceCheckShape a sh:NodeShape ; sh:targetClass s:AcceptanceCheck ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:execution ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_RUN" ] ;
+  sh:property [ sh:path s:expectation ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:negativeCase ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+s:GateShape a sh:NodeShape ; sh:targetClass s:Gate ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:evaluates ; sh:minCount 1 ; sh:class s:Assessment ] ;
+  sh:property [ sh:path s:observedBy ; sh:class s:Observation ] .
+s:StepShape a sh:NodeShape ; sh:targetClass s:Step ; sh:nodeKind sh:IRI ; sh:property [ sh:path s:dependsOn ; sh:class s:Step ] .
+s:InheritedTechnologyShape a sh:NodeShape ; sh:targetClass s:InheritedTechnology ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:upstreamExecution ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_TESTED" ] ;
+  sh:property [ sh:path s:coveredBy ; sh:minCount 1 ; sh:class s:InheritedControl ] ;
+  sh:property [ sh:path s:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+s:InheritedControlShape a sh:NodeShape ; sh:targetClass s:InheritedControl ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path s:residual ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+s:AuditShape a sh:NodeShape ; sh:targetClass s:Audit ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path s:overallVerdict ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_A_STANDARDS_SUPERSET" ] ;
+  sh:property [ sh:path s:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
+  sh:property [ sh:path s:researchedOn ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .

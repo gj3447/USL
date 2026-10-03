@@ -1,0 +1,228 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:standards-coverage:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:standards-coverage:supported_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Assessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:inspects",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Assessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:LocalSource"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:observed_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Assessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "observation",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Observation"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:requires_check",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Assessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "check",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:AcceptanceCheck"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:planned_in",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Assessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "step",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Step"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:gate_evaluates",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "gate",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Gate"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Assessment"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:gate_observed_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "gate",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Gate"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "observation",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Observation"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:observation_inspects",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "observation",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Observation"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:LocalSource"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "step",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Step"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:Step"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:standards-coverage:covered_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "technology",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:InheritedTechnology"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "control",
+          "required": true,
+          "types": [
+            "urn:usl:standards-coverage:InheritedControl"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

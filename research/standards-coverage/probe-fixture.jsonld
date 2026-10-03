@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "usl": "urn:usl:vocab:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:source:44438caafb2c75c8e0be3a9c2add26bdf7f6edc82292f4d199cb0ec30fdb3cc5",
+      "@type": "prov:Entity",
+      "usl:sourceDigest": "sha256:44438caafb2c75c8e0be3a9c2add26bdf7f6edc82292f4d199cb0ec30fdb3cc5"
+    },
+    {
+      "@id": "urn:usl:standards.probe:resource:https%3A%2F%2Fexample.test%2Falice",
+      "@type": [
+        "usl:Resource",
+        "urn:example:Person"
+      ],
+      "usl:nativeId": "https://example.test/alice",
+      "usl:locator": "https://example.test/alice",
+      "usl:metadata": {
+        "@value": {
+          "label": "Alice"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:standards.probe:resource:https%3A%2F%2Fexample.test%2Fbob",
+      "@type": [
+        "usl:Resource",
+        "urn:example:Person"
+      ],
+      "usl:nativeId": "https://example.test/bob",
+      "usl:locator": "https://example.test/bob",
+      "usl:metadata": {
+        "@value": {
+          "label": "Bob"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:standards.probe:resource:urn%3Aexample%3Aevidence",
+      "@type": [
+        "usl:Resource",
+        "urn:example:Evidence"
+      ],
+      "usl:nativeId": "urn:example:evidence",
+      "usl:locator": "https://example.test/evidence",
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:standards.probe:meaning:urn%3Aexample%3Aknows",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:example:knows",
+      "usl:description": "A declared source predicate represented as a USL Meaning."
+    },
+    {
+      "@id": "urn:usl:standards.probe:link:urn%3Aexample%3Aedge%3Aknows-1",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:44438caafb2c75c8e0be3a9c2add26bdf7f6edc82292f4d199cb0ec30fdb3cc5"
+        }
+      ],
+      "usl:nativeId": "urn:example:edge:knows-1",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:standards.probe:meaning:urn%3Aexample%3Aknows"
+      },
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "subject",
+          "usl:resource": {
+            "@id": "urn:usl:standards.probe:resource:https%3A%2F%2Fexample.test%2Falice"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "object",
+          "usl:resource": {
+            "@id": "urn:usl:standards.probe:resource:https%3A%2F%2Fexample.test%2Fbob"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:standards.probe:resource:urn%3Aexample%3Aevidence"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "confidence": 0.7
+        },
+        "@type": "@json"
+      }
+    }
+  ]
+}
