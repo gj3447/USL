@@ -160,3 +160,6 @@ SPARQL 질의는 규칙의 강제성·가중치, 대상·소비자를 확인하�
 [바인딩 history](../research/architecture/history/binding-delivery-before-rule-policy.receipt.json),
 [CLI history](../research/architecture/history/core-cli-c01-before-rule-policy.receipt.json)에
 원래 바이트 그대로 보존한다.
+
+규칙 웨이트를 맥락·역할·독립 작업 결과에 결속하고 계수 변경을 제안하는
+선택형 확장은 [W 연결 근거 계약](RULE_WEIGHT_EVIDENCE.md)을 따른다.

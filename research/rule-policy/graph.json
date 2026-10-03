@@ -312,7 +312,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_POLICY.md",
       "metadata": {
         "path": "docs/RULE_POLICY.md",
-        "sourceDigest": "sha256:a97bb69161c7d0009f7431dfbe960eed8c36ac713ce3d28ecb915dc6c6cb590a",
+        "sourceDigest": "sha256:6302edb9518d49e94944670acc1efaa06117c64314b17727db2e67efb9870f26",
         "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
       }
     },

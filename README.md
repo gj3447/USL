@@ -16,6 +16,7 @@ Copyright © 2026 **Ra Gyeongjun (라경준)**. **AGPL-3.0-or-later 또는 별�
 - [단순 바인딩 문법과 선택형 애드온의 경계](docs/SYNTAX_CLI_GRAPH_ARCHITECTURE.md) · [최소 작업 계획](docs/HSWM_LIKE_EXECUTION_PLAN.md) · [요구사항·구현 근거·작업 그래프](research/architecture/syntax-cli.graph.json)
 - [바인딩 조회·경로 이동·중복 실행 차단·복구 조회](docs/BINDING_OPERATIONS.md)
 - [선택형 규칙 강제 수준·가중치·평가 계약과 표준 그래프](docs/RULE_POLICY.md)
+- [규칙 웨이트·맥락·작업 결과·HSWM W 연결 근거와 변경 제안](docs/RULE_WEIGHT_EVIDENCE.md)
 - [실제 연결: gj3447/HSWM 연구 자료·로컬 경로·GitHub](docs/HSWM_CONNECTION.md)
 - [CHU · HSWM · USL 생태계 연결: 하이퍼그래프 OS·LLM AI·n항 연결 문법](docs/CHU_CONNECTION.md)
 - [HSWM 필수 작업환경 연결·접근 확인·전체 저장소 agent 규칙](docs/WORKSPACE_LINKING.md)

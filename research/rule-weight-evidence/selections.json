@@ -1,0 +1,138 @@
+[
+  {
+    "resource": "urn:example:rule:references",
+    "representation": "local-0"
+  },
+  {
+    "resource": "urn:example:rule:sources",
+    "representation": "local-1"
+  },
+  {
+    "resource": "urn:example:rule:tags",
+    "representation": "local-2"
+  },
+  {
+    "resource": "trace:policy:urn:example:dashboard:memory-policy:v1",
+    "representation": "local-3"
+  },
+  {
+    "resource": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed",
+    "representation": "local-4"
+  },
+  {
+    "resource": "example:dashboard-rule-configuration:baseline",
+    "representation": "local-5"
+  },
+  {
+    "resource": "example:dashboard-rule-configuration:candidate",
+    "representation": "local-6"
+  },
+  {
+    "resource": "example:dashboard-memory",
+    "representation": "local-7"
+  },
+  {
+    "resource": "example:dashboard-consumer",
+    "representation": "local-8"
+  },
+  {
+    "resource": "urn:example:context:dashboard-review",
+    "representation": "local-9"
+  },
+  {
+    "resource": "urn:example:action:dashboard-curation",
+    "representation": "local-10"
+  },
+  {
+    "resource": "trace:evaluation:edd322e39432",
+    "representation": "local-11"
+  },
+  {
+    "resource": "urn:example:rule-weight-evidence:dashboard-outcome",
+    "representation": "local-12"
+  },
+  {
+    "resource": "urn:example:rule-weight-evidence:dashboard-outcome:outcome",
+    "representation": "local-13"
+  },
+  {
+    "resource": "trace:weight:0:baseline",
+    "representation": "local-14"
+  },
+  {
+    "resource": "trace:weight:0:candidate",
+    "representation": "local-15"
+  },
+  {
+    "resource": "trace:weight:1:baseline",
+    "representation": "local-16"
+  },
+  {
+    "resource": "trace:weight:1:candidate",
+    "representation": "local-17"
+  },
+  {
+    "resource": "urn:example:rule-weight-proposal:dashboard-soft-weights",
+    "representation": "local-18"
+  },
+  {
+    "resource": "urn:usl:hswm:w-concept",
+    "representation": "local-19"
+  },
+  {
+    "resource": "trace:request",
+    "representation": "local-20"
+  },
+  {
+    "resource": "trace:references",
+    "representation": "local-21"
+  },
+  {
+    "resource": "trace:generator",
+    "representation": "local-22"
+  },
+  {
+    "resource": "trace:agent",
+    "representation": "local-23"
+  },
+  {
+    "resource": "artifact:src/addons/rule-weight-evidence.ts",
+    "representation": "local-24"
+  },
+  {
+    "resource": "artifact:examples/rule-weight-evidence-fixture.ts",
+    "representation": "local-25"
+  },
+  {
+    "resource": "artifact:examples/rule-weight-evidence-workflow.ts",
+    "representation": "local-26"
+  },
+  {
+    "resource": "artifact:schemas/rule-weight-evidence/trace.shacl.ttl",
+    "representation": "local-27"
+  },
+  {
+    "resource": "artifact:schemas/rule-weight-evidence/evidence.schema.json",
+    "representation": "local-28"
+  },
+  {
+    "resource": "artifact:schemas/rule-weight-evidence/host.schema.json",
+    "representation": "local-29"
+  },
+  {
+    "resource": "artifact:schemas/rule-weight-evidence/proposal.schema.json",
+    "representation": "local-30"
+  },
+  {
+    "resource": "artifact:docs/RULE_WEIGHT_EVIDENCE.md",
+    "representation": "local-31"
+  },
+  {
+    "resource": "test:test/rule-weight-evidence.test.ts",
+    "representation": "local-32"
+  },
+  {
+    "resource": "test:scripts/validate-rule-weight-evidence.py",
+    "representation": "local-33"
+  }
+]

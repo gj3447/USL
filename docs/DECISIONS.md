@@ -1,5 +1,17 @@
 # USL 결정 기록
 
+## 규칙 웨이트와 HSWM W의 연결 근거 — 2026-10-03
+
+사용자는 규칙 웨이트가 HSWM W의 역할도 하는지 물은 뒤, 그 통찰을 표준 그래프
+엔지니어링으로 구축하라고 요청했다. [원문](../research/rule-weight-evidence/request.json)을
+그대로 보존한다.
+
+**AI 구현 선택:** 정책 감점 계수·필수 조건·별도 작업 결과·Semantic Weight를
+서로 다른 개념으로 유지한다. 선택형 순수 계약에서 맥락·역할·내용 pin을 확인하고,
+기존 권고 계수만 변경하는 `OWNER_PROPOSED` 후보를 생성한다. HSWM 연결은
+`CANDIDATE_INPUT_ONLY`이며 새 학습기, 효과 입증, 실제 HSWM 연동·수정은 주장하지
+않는다. [계약과 표준 그래프](RULE_WEIGHT_EVIDENCE.md).
+
 ## 규칙 강제 수준과 가중치의 선택형 계약 — 2026-10-02
 
 사용자는 `metahumotonic_dashboard`에서 받은 피드백으로 최신 표준 그래프 표현과

@@ -1,0 +1,1184 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "urn:example:rule:references",
+      "types": [
+        "urn:usl:addon:BindingRule",
+        "urn:usl:rule-weight-evidence:Rule"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-policy/policy.json",
+      "metadata": {
+        "version": "1",
+        "requirement": "REQUIRED",
+        "onViolation": "BLOCK",
+        "gate": "HARD",
+        "coefficientRole": "NONE"
+      }
+    },
+    {
+      "id": "urn:example:rule:sources",
+      "types": [
+        "urn:usl:addon:BindingRule",
+        "urn:usl:rule-weight-evidence:Rule"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-policy/policy.json",
+      "metadata": {
+        "version": "1",
+        "requirement": "RECOMMENDED",
+        "onViolation": "PENALIZE",
+        "gate": "NOT_HARD",
+        "coefficientRole": "SOFT_WEIGHT_ELIGIBLE"
+      }
+    },
+    {
+      "id": "urn:example:rule:tags",
+      "types": [
+        "urn:usl:addon:BindingRule",
+        "urn:usl:rule-weight-evidence:Rule"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-policy/policy.json",
+      "metadata": {
+        "version": "1",
+        "requirement": "RECOMMENDED",
+        "onViolation": "PENALIZE",
+        "gate": "NOT_HARD",
+        "coefficientRole": "SOFT_WEIGHT_ELIGIBLE"
+      }
+    },
+    {
+      "id": "trace:policy:urn:example:dashboard:memory-policy:v1",
+      "types": [
+        "urn:usl:rule-weight-evidence:PolicySnapshot"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "policyId": "urn:example:dashboard:memory-policy",
+        "policyVersion": "1",
+        "digest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+        "snapshotState": "BASELINE"
+      }
+    },
+    {
+      "id": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed",
+      "types": [
+        "urn:usl:rule-weight-evidence:PolicySnapshot"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "policyId": "urn:example:dashboard:memory-policy",
+        "policyVersion": "2-proposed",
+        "digest": "sha256:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073",
+        "snapshotState": "PROPOSED_NOT_APPLIED"
+      }
+    },
+    {
+      "id": "example:dashboard-rule-configuration:baseline",
+      "types": [
+        "urn:usl:addon:BindingConfiguration"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v1",
+        "policyId": "urn:example:dashboard:memory-policy",
+        "policyVersion": "1",
+        "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+      }
+    },
+    {
+      "id": "example:dashboard-rule-configuration:candidate",
+      "types": [
+        "urn:usl:addon:BindingConfiguration"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed",
+        "policyId": "urn:example:dashboard:memory-policy",
+        "policyVersion": "2-proposed",
+        "policyDigest": "sha256:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073",
+        "snapshotState": "PROPOSED_NOT_APPLIED"
+      }
+    },
+    {
+      "id": "example:dashboard-memory",
+      "types": [
+        "urn:usl:addon:BindingTarget"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-policy/target.json",
+      "metadata": {
+        "targetDigest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+      }
+    },
+    {
+      "id": "example:dashboard-consumer",
+      "types": [
+        "urn:usl:addon:Program"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/rule-weight-evidence-fixture.ts",
+      "metadata": {
+        "role": "SYNTHETIC_REFERENCE_CONSUMER"
+      }
+    },
+    {
+      "id": "urn:example:context:dashboard-review",
+      "types": [
+        "urn:usl:rule-weight-evidence:Context"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "version": "1",
+        "digest": "sha256:66305a95a8948701feb0e80a73a805d4f258049770b3b0851cc4ef7568966849",
+        "identityKind": "CONTEXT_SNAPSHOT"
+      }
+    },
+    {
+      "id": "urn:example:action:dashboard-curation",
+      "types": [
+        "urn:usl:rule-weight-evidence:Action"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "version": "1",
+        "digest": "sha256:6781886a499c2d591409bd4bf3e502d2c3af6a83d7bb2df68356b8644feb481f",
+        "participants": [
+          {
+            "role": "rule",
+            "ordinal": 0,
+            "source": {
+              "id": "urn:example:rule:references",
+              "version": "1",
+              "digest": "sha256:67382e30ceed9e38695d936542aaec3c882f8abd647a8ab36d1a4f1e4f8d15cd"
+            }
+          },
+          {
+            "role": "rule",
+            "ordinal": 1,
+            "source": {
+              "id": "urn:example:rule:sources",
+              "version": "1",
+              "digest": "sha256:cc660f1faa63ed46aeb34fe4d9d0bf919c8f9b1b0b3c12a01988c34bf24dda30"
+            }
+          },
+          {
+            "role": "rule",
+            "ordinal": 2,
+            "source": {
+              "id": "urn:example:rule:tags",
+              "version": "1",
+              "digest": "sha256:e93d3c9a0b72ba06234302417376a786884f9a8bc6dd41f80aba60ea7094fcb1"
+            }
+          }
+        ],
+        "identityKind": "ACTION_SNAPSHOT"
+      }
+    },
+    {
+      "id": "trace:evaluation:edd322e39432",
+      "types": [
+        "urn:usl:rule-weight-evidence:Evaluation",
+        "urn:usl:rule-policy:Evaluation"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "evaluationDigest": "sha256:edd322e39432505226e9c723527957dc799a3c71f199b83b09273360aa9cc21d",
+        "forPolicy": "trace:policy:urn:example:dashboard:memory-policy:v1",
+        "target": "example:dashboard-memory",
+        "consumer": "example:dashboard-consumer",
+        "decision": "ELIGIBLE",
+        "coverage": "COMPLETE",
+        "observedAt": "2026-10-03T00:00:00Z",
+        "resultKind": "SYNTHETIC_RULE_EVALUATION"
+      }
+    },
+    {
+      "id": "urn:example:rule-weight-evidence:dashboard-outcome",
+      "types": [
+        "urn:usl:rule-weight-evidence:Evidence"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "version": "1",
+        "digest": "sha256:2ca6259770687e6415eebab6d1b5ce37e16e7f5f5d9d412827dc49834a7ba543",
+        "context": "urn:example:context:dashboard-review",
+        "action": "urn:example:action:dashboard-curation",
+        "evaluationDigest": "sha256:edd322e39432505226e9c723527957dc799a3c71f199b83b09273360aa9cc21d",
+        "evidenceClass": "SYNTHETIC"
+      }
+    },
+    {
+      "id": "urn:example:rule-weight-evidence:dashboard-outcome:outcome",
+      "types": [
+        "urn:usl:rule-weight-evidence:Outcome"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "metric": {
+          "id": "urn:example:metric:answer-correctness",
+          "version": "1",
+          "direction": "MAXIMIZE"
+        },
+        "value": 0.5,
+        "sourceResource": "urn:example:outcome-source:answer-review",
+        "sourceDigest": "sha256:c92bdeb6c666d5b05336d236fb2b5fac30085d19ce30ad25b626f68700e7e2e4",
+        "evaluator": {
+          "id": "urn:example:evaluator:answer-review",
+          "version": "1"
+        },
+        "basis": "EXTERNAL_TASK_MEASUREMENT",
+        "evidenceClass": "SYNTHETIC",
+        "observedAt": "2026-10-03T00:01:00Z",
+        "independentUnit": "urn:example:unit:review-batch-1",
+        "selectionProbability": null,
+        "costs": [
+          {
+            "kind": "review",
+            "amount": 2,
+            "unit": "synthetic-case"
+          }
+        ],
+        "outcomeTruth": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "trace:weight:0:baseline",
+      "types": [
+        "urn:usl:rule-weight-evidence:WeightAssignment"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "forRule": "urn:example:rule:sources",
+        "forConfiguration": "example:dashboard-rule-configuration:baseline",
+        "forPolicy": "trace:policy:urn:example:dashboard:memory-policy:v1",
+        "inContext": "urn:example:context:dashboard-review",
+        "weight": 0.8,
+        "ruleVersion": "1",
+        "policyVersion": "1",
+        "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+        "assignmentState": "BASELINE_POLICY_VALUE"
+      }
+    },
+    {
+      "id": "trace:weight:0:candidate",
+      "types": [
+        "urn:usl:rule-weight-evidence:WeightAssignment"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "forRule": "urn:example:rule:sources",
+        "forConfiguration": "example:dashboard-rule-configuration:candidate",
+        "forPolicy": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed",
+        "inContext": "urn:example:context:dashboard-review",
+        "weight": 0.9,
+        "ruleVersion": "1",
+        "policyVersion": "2-proposed",
+        "policyDigest": "sha256:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073",
+        "assignmentState": "PROPOSED_NOT_APPLIED"
+      }
+    },
+    {
+      "id": "trace:weight:1:baseline",
+      "types": [
+        "urn:usl:rule-weight-evidence:WeightAssignment"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "forRule": "urn:example:rule:tags",
+        "forConfiguration": "example:dashboard-rule-configuration:baseline",
+        "forPolicy": "trace:policy:urn:example:dashboard:memory-policy:v1",
+        "inContext": "urn:example:context:dashboard-review",
+        "weight": 0.2,
+        "ruleVersion": "1",
+        "policyVersion": "1",
+        "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+        "assignmentState": "BASELINE_POLICY_VALUE"
+      }
+    },
+    {
+      "id": "trace:weight:1:candidate",
+      "types": [
+        "urn:usl:rule-weight-evidence:WeightAssignment"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "forRule": "urn:example:rule:tags",
+        "forConfiguration": "example:dashboard-rule-configuration:candidate",
+        "forPolicy": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed",
+        "inContext": "urn:example:context:dashboard-review",
+        "weight": 0.1,
+        "ruleVersion": "1",
+        "policyVersion": "2-proposed",
+        "policyDigest": "sha256:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073",
+        "assignmentState": "PROPOSED_NOT_APPLIED"
+      }
+    },
+    {
+      "id": "urn:example:rule-weight-proposal:dashboard-soft-weights",
+      "types": [
+        "urn:usl:rule-weight-evidence:WeightRevisionProposal"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-evidence/fixture.json",
+      "metadata": {
+        "version": "1",
+        "digest": "sha256:d58d0412b768cf74c901cc59363629274fc5700d8a25185c3fdc9f1cc16d7da7",
+        "basePolicyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+        "evidenceDigest": "sha256:2ca6259770687e6415eebab6d1b5ce37e16e7f5f5d9d412827dc49834a7ba543",
+        "method": "OWNER_PROPOSED",
+        "disposition": "PROPOSED_NOT_APPLIED",
+        "effectiveness": "NOT_ESTABLISHED",
+        "authority": "NOT_GRANTED",
+        "execution": "NOT_REQUESTED"
+      }
+    },
+    {
+      "id": "urn:usl:hswm:w-concept",
+      "types": [
+        "urn:usl:rule-weight-evidence:HSWM_W_Concept"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_EVIDENCE.md",
+      "metadata": {
+        "canonicalMapping": "NOT_CONNECTED",
+        "relation": "CANDIDATE_INPUT_ONLY",
+        "canonicalW": "NOT_CLAIMED",
+        "interpretation": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "trace:request",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/rule-weight-evidence/request.json",
+      "metadata": {
+        "path": "research/rule-weight-evidence/request.json",
+        "sourceDigest": "sha256:2da900865b63b64f3987a2af36259a688d6559dbbe73071776e0d5a26f2df8a0",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "authority": "USER_PRIMARY"
+      }
+    },
+    {
+      "id": "trace:references",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/rule-weight-evidence/references.json",
+      "metadata": {
+        "path": "research/rule-weight-evidence/references.json",
+        "sourceDigest": "sha256:aa193b67f91d6c1fe79925fb03a91824d6e4da064fd57d7600e1a1ce561f95b6",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "authority": "SECONDARY_AI_SOURCE_REVIEW",
+        "sourceScope": "READ_ONLY_LOCAL_SOURCE_INSPECTION"
+      }
+    },
+    {
+      "id": "trace:generator",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-rule-weight-evidence.ts",
+      "metadata": {
+        "path": "scripts/build-rule-weight-evidence.ts",
+        "sourceDigest": "sha256:48d4053b070a1d50b15639606bef52d019d730cb1c756a1b7281901f3653b480",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "trace:agent",
+      "types": [
+        "urn:usl:status:Agent",
+        "http://www.w3.org/ns/prov#Agent"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/rule-weight-evidence/request.json",
+      "metadata": {
+        "path": "research/rule-weight-evidence/request.json",
+        "sourceDigest": "sha256:2da900865b63b64f3987a2af36259a688d6559dbbe73071776e0d5a26f2df8a0",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "authority": "SECONDARY_AI",
+        "ratification": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:activity",
+      "types": [
+        "http://www.w3.org/ns/prov#Activity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-rule-weight-evidence.ts",
+      "metadata": {
+        "scope": "DETERMINISTIC_SOURCE_TRACEABILITY",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:task",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_EVIDENCE.md",
+      "metadata": {
+        "scope": "OPTIONAL_OWNER_PROPOSED_WEIGHT_EVIDENCE",
+        "interpretation": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "standard:shacl-2017",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+      "metadata": {
+        "checkedOn": "2026-10-03",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "application": "Typed RDF shape validation."
+      }
+    },
+    {
+      "id": "standard:prov-o",
+      "types": [
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/prov-o/",
+      "metadata": {
+        "checkedOn": "2026-10-03",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "application": "Entity/activity/agent provenance vocabulary."
+      }
+    },
+    {
+      "id": "feature:rule-weight-evidence",
+      "types": [
+        "urn:usl:status:Feature"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_EVIDENCE.md",
+      "metadata": {
+        "scope": "EVIDENCE_AND_OWNER_REVIEW_ONLY",
+        "hswmIntegration": "NOT_CONNECTED"
+      }
+    },
+    {
+      "id": "artifact:src/addons/rule-weight-evidence.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/src/addons/rule-weight-evidence.ts",
+      "metadata": {
+        "path": "src/addons/rule-weight-evidence.ts",
+        "sourceDigest": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:examples/rule-weight-evidence-fixture.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/rule-weight-evidence-fixture.ts",
+      "metadata": {
+        "path": "examples/rule-weight-evidence-fixture.ts",
+        "sourceDigest": "sha256:be85f7a9b2a961a23ba49e82d3055e71dfdbd6bf311f3571e8adf87b490edd0f",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:examples/rule-weight-evidence-workflow.ts",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/examples/rule-weight-evidence-workflow.ts",
+      "metadata": {
+        "path": "examples/rule-weight-evidence-workflow.ts",
+        "sourceDigest": "sha256:4b61265c5767ebad87bdfd518de540db42233e05827f0017ed79d10dd1814d31",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/trace.shacl.ttl",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-weight-evidence/trace.shacl.ttl",
+      "metadata": {
+        "path": "schemas/rule-weight-evidence/trace.shacl.ttl",
+        "sourceDigest": "sha256:cfc2b209aa0e6e76c22ffe0e4238a849051cd444b8a14f18dbac019f615803f2",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/evidence.schema.json",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-weight-evidence/evidence.schema.json",
+      "metadata": {
+        "path": "schemas/rule-weight-evidence/evidence.schema.json",
+        "sourceDigest": "sha256:aca1f7cd1b827866fc229a5e84b2712f162238e3e79542805aef0f5abefbbc35",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/host.schema.json",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-weight-evidence/host.schema.json",
+      "metadata": {
+        "path": "schemas/rule-weight-evidence/host.schema.json",
+        "sourceDigest": "sha256:24ac5d781d0df86ba0afcaf72769ce85ecd0344131c59dc803ba4a02a1d0c6a4",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/proposal.schema.json",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-weight-evidence/proposal.schema.json",
+      "metadata": {
+        "path": "schemas/rule-weight-evidence/proposal.schema.json",
+        "sourceDigest": "sha256:5c1e020e5b75577d4798a0541ec3b7f71c4eeaf7bd40e179970ea9b193b3cd12",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "artifact:docs/RULE_WEIGHT_EVIDENCE.md",
+      "types": [
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_EVIDENCE.md",
+      "metadata": {
+        "path": "docs/RULE_WEIGHT_EVIDENCE.md",
+        "sourceDigest": "sha256:381918677a7319dc133223df94d88561631f5031e828602c971b5bfa851aa82d",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "test:test/rule-weight-evidence.test.ts",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/test/rule-weight-evidence.test.ts",
+      "metadata": {
+        "path": "test/rule-weight-evidence.test.ts",
+        "sourceDigest": "sha256:1f7be5bd2e32be3f3192a3165a61f7d587d18b7d3a049f3c18c1712b859266ac",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "evidenceKind": "TEST_OR_VALIDATOR_DEFINITION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "test:scripts/validate-rule-weight-evidence.py",
+      "types": [
+        "urn:usl:status:TestEvidence"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/validate-rule-weight-evidence.py",
+      "metadata": {
+        "path": "scripts/validate-rule-weight-evidence.py",
+        "sourceDigest": "sha256:3db1b3537e1c45ad99f324b847b8e42f7940c8cda1a37f8faa644e4d2a73d704",
+        "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+        "evidenceKind": "TEST_OR_VALIDATOR_DEFINITION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "limitation:weight-evidence",
+      "types": [
+        "urn:usl:status:Limitation"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_EVIDENCE.md",
+      "metadata": {
+        "detail": "Synthetic evidence only. No learned estimate, holdout claim, live application, HSWM W mapping, HSWM state change, canonical promotion, or authority grant."
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:addon:applies_binding_rule",
+      "description": "Declared role contract urn:usl:addon:applies_binding_rule; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:rule-weight-evidence:contextual_weight",
+      "description": "Declared role contract urn:usl:rule-weight-evidence:contextual_weight; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:rule-policy:evaluated_policy",
+      "description": "Declared role contract urn:usl:rule-policy:evaluated_policy; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:rule-weight-evidence:records_evidence",
+      "description": "Declared role contract urn:usl:rule-weight-evidence:records_evidence; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:rule-weight-evidence:proposed_revision",
+      "description": "Declared role contract urn:usl:rule-weight-evidence:proposed_revision; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:rule-weight-evidence:candidate_input_to",
+      "description": "Declared role contract urn:usl:rule-weight-evidence:candidate_input_to; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:rule-policy:realized_by",
+      "description": "Declared role contract urn:usl:rule-policy:realized_by; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:status:informed_by",
+      "description": "Declared role contract urn:usl:status:informed_by; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:status:implemented_by",
+      "description": "Declared role contract urn:usl:status:implemented_by; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:status:tested_by",
+      "description": "Declared role contract urn:usl:status:tested_by; graph relationships are declared, not semantic entailments."
+    },
+    {
+      "id": "urn:usl:status:bounded_by",
+      "description": "Declared role contract urn:usl:status:bounded_by; graph relationships are declared, not semantic entailments."
+    }
+  ],
+  "links": [
+    {
+      "id": "trace:0",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:references"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:baseline"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ],
+      "metadata": {
+        "scope": "SYNTHETIC_FIXTURE",
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      }
+    },
+    {
+      "id": "trace:1",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:sources"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:baseline"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ],
+      "metadata": {
+        "scope": "SYNTHETIC_FIXTURE",
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      }
+    },
+    {
+      "id": "trace:2",
+      "meaning": "urn:usl:addon:applies_binding_rule",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:tags"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:baseline"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        }
+      ],
+      "metadata": {
+        "scope": "SYNTHETIC_FIXTURE",
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      }
+    },
+    {
+      "id": "trace:3",
+      "meaning": "urn:usl:rule-weight-evidence:contextual_weight",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:sources"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:baseline"
+        },
+        {
+          "role": "context",
+          "resource": "urn:example:context:dashboard-review"
+        },
+        {
+          "role": "weight",
+          "resource": "trace:weight:0:baseline"
+        }
+      ],
+      "metadata": {
+        "weightKind": "SOFT_COEFFICIENT",
+        "requirementGateSeparate": true,
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      }
+    },
+    {
+      "id": "trace:4",
+      "meaning": "urn:usl:rule-weight-evidence:contextual_weight",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:sources"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:candidate"
+        },
+        {
+          "role": "context",
+          "resource": "urn:example:context:dashboard-review"
+        },
+        {
+          "role": "weight",
+          "resource": "trace:weight:0:candidate"
+        }
+      ],
+      "metadata": {
+        "weightKind": "SOFT_COEFFICIENT",
+        "proposalState": "PROPOSED_NOT_APPLIED",
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed"
+      }
+    },
+    {
+      "id": "trace:5",
+      "meaning": "urn:usl:rule-weight-evidence:contextual_weight",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:tags"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:baseline"
+        },
+        {
+          "role": "context",
+          "resource": "urn:example:context:dashboard-review"
+        },
+        {
+          "role": "weight",
+          "resource": "trace:weight:1:baseline"
+        }
+      ],
+      "metadata": {
+        "weightKind": "SOFT_COEFFICIENT",
+        "requirementGateSeparate": true,
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      }
+    },
+    {
+      "id": "trace:6",
+      "meaning": "urn:usl:rule-weight-evidence:contextual_weight",
+      "participants": [
+        {
+          "role": "rule",
+          "resource": "urn:example:rule:tags"
+        },
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:candidate"
+        },
+        {
+          "role": "context",
+          "resource": "urn:example:context:dashboard-review"
+        },
+        {
+          "role": "weight",
+          "resource": "trace:weight:1:candidate"
+        }
+      ],
+      "metadata": {
+        "weightKind": "SOFT_COEFFICIENT",
+        "proposalState": "PROPOSED_NOT_APPLIED",
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed"
+      }
+    },
+    {
+      "id": "trace:7",
+      "meaning": "urn:usl:rule-policy:evaluated_policy",
+      "participants": [
+        {
+          "role": "configuration",
+          "resource": "example:dashboard-rule-configuration:baseline"
+        },
+        {
+          "role": "target",
+          "resource": "example:dashboard-memory"
+        },
+        {
+          "role": "consumer",
+          "resource": "example:dashboard-consumer"
+        },
+        {
+          "role": "result",
+          "resource": "trace:evaluation:edd322e39432"
+        }
+      ],
+      "metadata": {
+        "policySnapshot": "trace:policy:urn:example:dashboard:memory-policy:v1",
+        "scope": "SYNTHETIC_FIXTURE"
+      }
+    },
+    {
+      "id": "trace:8",
+      "meaning": "urn:usl:rule-weight-evidence:records_evidence",
+      "participants": [
+        {
+          "role": "evidence",
+          "resource": "urn:example:rule-weight-evidence:dashboard-outcome"
+        },
+        {
+          "role": "evaluation",
+          "resource": "trace:evaluation:edd322e39432"
+        },
+        {
+          "role": "context",
+          "resource": "urn:example:context:dashboard-review"
+        },
+        {
+          "role": "action",
+          "resource": "urn:example:action:dashboard-curation"
+        },
+        {
+          "role": "outcome",
+          "resource": "urn:example:rule-weight-evidence:dashboard-outcome:outcome"
+        }
+      ],
+      "metadata": {
+        "evidenceClass": "SYNTHETIC",
+        "outcomeTruth": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "trace:9",
+      "meaning": "urn:usl:rule-weight-evidence:proposed_revision",
+      "participants": [
+        {
+          "role": "baseline",
+          "resource": "trace:policy:urn:example:dashboard:memory-policy:v1"
+        },
+        {
+          "role": "candidate",
+          "resource": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed"
+        },
+        {
+          "role": "context",
+          "resource": "urn:example:context:dashboard-review"
+        },
+        {
+          "role": "evidence",
+          "resource": "urn:example:rule-weight-evidence:dashboard-outcome"
+        },
+        {
+          "role": "proposal",
+          "resource": "urn:example:rule-weight-proposal:dashboard-soft-weights"
+        }
+      ],
+      "metadata": {
+        "status": "OWNER_REVIEW_REQUIRED",
+        "effectiveness": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "trace:10",
+      "meaning": "urn:usl:rule-weight-evidence:candidate_input_to",
+      "participants": [
+        {
+          "role": "signal",
+          "resource": "urn:example:rule-weight-evidence:dashboard-outcome"
+        },
+        {
+          "role": "wConcept",
+          "resource": "urn:usl:hswm:w-concept"
+        }
+      ],
+      "metadata": {
+        "status": "PROPOSED",
+        "canonicalMapping": "NOT_CONNECTED",
+        "relationship": "CANDIDATE_INPUT_ONLY",
+        "authority": "NOT_GRANTED"
+      }
+    },
+    {
+      "id": "trace:11",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "trace:request"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:12",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "trace:references"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:13",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "standard:shacl-2017"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:14",
+      "meaning": "urn:usl:status:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "source",
+          "resource": "standard:prov-o"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:15",
+      "meaning": "urn:usl:rule-policy:realized_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "trace:task"
+        },
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:16",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:src/addons/rule-weight-evidence.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:17",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:examples/rule-weight-evidence-fixture.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:18",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:examples/rule-weight-evidence-workflow.ts"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:19",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:schemas/rule-weight-evidence/trace.shacl.ttl"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:20",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:schemas/rule-weight-evidence/evidence.schema.json"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:21",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:schemas/rule-weight-evidence/host.schema.json"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:22",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:schemas/rule-weight-evidence/proposal.schema.json"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:23",
+      "meaning": "urn:usl:status:implemented_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "artifact",
+          "resource": "artifact:docs/RULE_WEIGHT_EVIDENCE.md"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "trace:24",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "evidence",
+          "resource": "test:test/rule-weight-evidence.test.ts"
+        }
+      ],
+      "metadata": {
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:25",
+      "meaning": "urn:usl:status:tested_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "evidence",
+          "resource": "test:scripts/validate-rule-weight-evidence.py"
+        }
+      ],
+      "metadata": {
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "trace:26",
+      "meaning": "urn:usl:status:bounded_by",
+      "participants": [
+        {
+          "role": "feature",
+          "resource": "feature:rule-weight-evidence"
+        },
+        {
+          "role": "limitation",
+          "resource": "limitation:weight-evidence"
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "trace:request",
+      "trace:generator"
+    ],
+    "activity": "trace:activity",
+    "agent": "trace:agent"
+  }
+}

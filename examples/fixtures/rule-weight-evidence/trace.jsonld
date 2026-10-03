@@ -1,0 +1,271 @@
+{
+  "@context": {
+    "rw": "urn:usl:rule-weight-evidence:",
+    "rp": "urn:usl:rule-policy:",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:example:rule:references",
+      "@type": "rw:Rule",
+      "rw:version": "1",
+      "rw:requirement": "REQUIRED",
+      "rw:onViolation": "BLOCK"
+    },
+    {
+      "@id": "urn:example:rule:sources",
+      "@type": "rw:Rule",
+      "rw:version": "1",
+      "rw:requirement": "RECOMMENDED",
+      "rw:onViolation": "PENALIZE"
+    },
+    {
+      "@id": "urn:example:rule:tags",
+      "@type": "rw:Rule",
+      "rw:version": "1",
+      "rw:requirement": "RECOMMENDED",
+      "rw:onViolation": "PENALIZE"
+    },
+    {
+      "@id": "trace:policy:urn:example:dashboard:memory-policy:v1",
+      "@type": "rw:PolicySnapshot",
+      "rw:policyId": {
+        "@id": "urn:example:dashboard:memory-policy"
+      },
+      "rw:policyVersion": "1",
+      "rw:digest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+    },
+    {
+      "@id": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed",
+      "@type": "rw:PolicySnapshot",
+      "rw:policyId": {
+        "@id": "urn:example:dashboard:memory-policy"
+      },
+      "rw:policyVersion": "2-proposed",
+      "rw:digest": "sha256:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073"
+    },
+    {
+      "@id": "urn:example:context:dashboard-review",
+      "@type": "rw:Context",
+      "rw:version": "1",
+      "rw:digest": "sha256:66305a95a8948701feb0e80a73a805d4f258049770b3b0851cc4ef7568966849"
+    },
+    {
+      "@id": "urn:example:action:dashboard-curation",
+      "@type": "rw:Action",
+      "rw:version": "1",
+      "rw:digest": "sha256:6781886a499c2d591409bd4bf3e502d2c3af6a83d7bb2df68356b8644feb481f",
+      "rw:participant": [
+        {
+          "@type": "rw:ActionParticipant",
+          "rw:role": "rule",
+          "rw:ordinal": {
+            "@value": 0,
+            "@type": "xsd:integer"
+          },
+          "rw:source": {
+            "@id": "urn:example:rule:references"
+          },
+          "rw:sourceVersion": "1",
+          "rw:sourceDigest": "sha256:67382e30ceed9e38695d936542aaec3c882f8abd647a8ab36d1a4f1e4f8d15cd"
+        },
+        {
+          "@type": "rw:ActionParticipant",
+          "rw:role": "rule",
+          "rw:ordinal": {
+            "@value": 1,
+            "@type": "xsd:integer"
+          },
+          "rw:source": {
+            "@id": "urn:example:rule:sources"
+          },
+          "rw:sourceVersion": "1",
+          "rw:sourceDigest": "sha256:cc660f1faa63ed46aeb34fe4d9d0bf919c8f9b1b0b3c12a01988c34bf24dda30"
+        },
+        {
+          "@type": "rw:ActionParticipant",
+          "rw:role": "rule",
+          "rw:ordinal": {
+            "@value": 2,
+            "@type": "xsd:integer"
+          },
+          "rw:source": {
+            "@id": "urn:example:rule:tags"
+          },
+          "rw:sourceVersion": "1",
+          "rw:sourceDigest": "sha256:e93d3c9a0b72ba06234302417376a786884f9a8bc6dd41f80aba60ea7094fcb1"
+        }
+      ]
+    },
+    {
+      "@id": "trace:evaluation:edd322e39432",
+      "@type": [
+        "rw:Evaluation",
+        "rp:Evaluation"
+      ],
+      "rw:evaluationDigest": "sha256:edd322e39432505226e9c723527957dc799a3c71f199b83b09273360aa9cc21d",
+      "rw:forPolicy": {
+        "@id": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      },
+      "rw:target": {
+        "@id": "urn:usl:target:example%3Adashboard-memory"
+      },
+      "rw:consumer": {
+        "@id": "urn:usl:consumer:example%3Adashboard-consumer"
+      }
+    },
+    {
+      "@id": "urn:example:rule-weight-evidence:dashboard-outcome",
+      "@type": "rw:Evidence",
+      "rw:version": "1",
+      "rw:digest": "sha256:2ca6259770687e6415eebab6d1b5ce37e16e7f5f5d9d412827dc49834a7ba543",
+      "rw:recordsEvaluation": {
+        "@id": "trace:evaluation:edd322e39432"
+      },
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:recordsAction": {
+        "@id": "urn:example:action:dashboard-curation"
+      },
+      "rw:recordsOutcome": {
+        "@id": "urn:example:rule-weight-evidence:dashboard-outcome:outcome"
+      }
+    },
+    {
+      "@id": "urn:example:rule-weight-evidence:dashboard-outcome:outcome",
+      "@type": "rw:Outcome",
+      "rw:metric": {
+        "@id": "urn:example:metric:answer-correctness"
+      },
+      "rw:value": {
+        "@value": 0.5,
+        "@type": "xsd:double"
+      },
+      "rw:sourceResource": {
+        "@id": "urn:usl:external:urn%3Aexample%3Aoutcome-source%3Aanswer-review"
+      },
+      "rw:sourceDigest": "sha256:c92bdeb6c666d5b05336d236fb2b5fac30085d19ce30ad25b626f68700e7e2e4",
+      "rw:evidenceClass": "SYNTHETIC",
+      "rw:observedAt": {
+        "@value": "2026-10-03T00:01:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "trace:weight:0:baseline",
+      "@type": "rw:WeightAssignment",
+      "rw:forRule": {
+        "@id": "urn:example:rule:sources"
+      },
+      "rw:forConfiguration": {
+        "@id": "urn:usl:configuration:example%3Adashboard-rule-configuration%3Abaseline"
+      },
+      "rw:forPolicy": {
+        "@id": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      },
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:weight": {
+        "@value": 0.8,
+        "@type": "xsd:double"
+      },
+      "rw:ruleVersion": "1",
+      "rw:policyVersion": "1",
+      "rw:policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+    },
+    {
+      "@id": "trace:weight:0:candidate",
+      "@type": "rw:WeightAssignment",
+      "rw:forRule": {
+        "@id": "urn:example:rule:sources"
+      },
+      "rw:forConfiguration": {
+        "@id": "urn:usl:configuration:example%3Adashboard-rule-configuration%3Acandidate"
+      },
+      "rw:forPolicy": {
+        "@id": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed"
+      },
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:weight": {
+        "@value": 0.9,
+        "@type": "xsd:double"
+      },
+      "rw:ruleVersion": "1",
+      "rw:policyVersion": "2-proposed",
+      "rw:policyDigest": "sha256:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073"
+    },
+    {
+      "@id": "trace:weight:1:baseline",
+      "@type": "rw:WeightAssignment",
+      "rw:forRule": {
+        "@id": "urn:example:rule:tags"
+      },
+      "rw:forConfiguration": {
+        "@id": "urn:usl:configuration:example%3Adashboard-rule-configuration%3Abaseline"
+      },
+      "rw:forPolicy": {
+        "@id": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      },
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:weight": {
+        "@value": 0.2,
+        "@type": "xsd:double"
+      },
+      "rw:ruleVersion": "1",
+      "rw:policyVersion": "1",
+      "rw:policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+    },
+    {
+      "@id": "trace:weight:1:candidate",
+      "@type": "rw:WeightAssignment",
+      "rw:forRule": {
+        "@id": "urn:example:rule:tags"
+      },
+      "rw:forConfiguration": {
+        "@id": "urn:usl:configuration:example%3Adashboard-rule-configuration%3Acandidate"
+      },
+      "rw:forPolicy": {
+        "@id": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed"
+      },
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:weight": {
+        "@value": 0.1,
+        "@type": "xsd:double"
+      },
+      "rw:ruleVersion": "1",
+      "rw:policyVersion": "2-proposed",
+      "rw:policyDigest": "sha256:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073"
+    },
+    {
+      "@id": "urn:example:rule-weight-proposal:dashboard-soft-weights",
+      "@type": "rw:WeightRevisionProposal",
+      "rw:baseline": {
+        "@id": "trace:policy:urn:example:dashboard:memory-policy:v1"
+      },
+      "rw:candidate": {
+        "@id": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed"
+      },
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:evidence": {
+        "@id": "urn:example:rule-weight-evidence:dashboard-outcome"
+      },
+      "rw:proposalState": "OWNER_REVIEW_REQUIRED",
+      "rw:effectiveness": "NOT_ESTABLISHED"
+    },
+    {
+      "@id": "urn:usl:hswm:w-concept",
+      "@type": "rw:HSWM_W_Concept",
+      "rw:canonicalMapping": "NOT_CONNECTED"
+    }
+  ]
+}

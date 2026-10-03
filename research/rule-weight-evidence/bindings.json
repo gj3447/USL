@@ -1,0 +1,413 @@
+{
+  "schema": "usl-resource-bindings/v1",
+  "resources": [
+    {
+      "id": "urn:example:rule:references",
+      "representations": [
+        {
+          "id": "local-0",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/policy.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:rule:sources",
+      "representations": [
+        {
+          "id": "local-1",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/policy.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:rule:tags",
+      "representations": [
+        {
+          "id": "local-2",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/policy.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:policy:urn:example:dashboard:memory-policy:v1",
+      "representations": [
+        {
+          "id": "local-3",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:policy:urn:example:dashboard:memory-policy:v2-proposed",
+      "representations": [
+        {
+          "id": "local-4",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "example:dashboard-rule-configuration:baseline",
+      "representations": [
+        {
+          "id": "local-5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "example:dashboard-rule-configuration:candidate",
+      "representations": [
+        {
+          "id": "local-6",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "example:dashboard-memory",
+      "representations": [
+        {
+          "id": "local-7",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-policy/target.json"
+        }
+      ]
+    },
+    {
+      "id": "example:dashboard-consumer",
+      "representations": [
+        {
+          "id": "local-8",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/rule-weight-evidence-fixture.ts"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:context:dashboard-review",
+      "representations": [
+        {
+          "id": "local-9",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:action:dashboard-curation",
+      "representations": [
+        {
+          "id": "local-10",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:evaluation:edd322e39432",
+      "representations": [
+        {
+          "id": "local-11",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:rule-weight-evidence:dashboard-outcome",
+      "representations": [
+        {
+          "id": "local-12",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:rule-weight-evidence:dashboard-outcome:outcome",
+      "representations": [
+        {
+          "id": "local-13",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:weight:0:baseline",
+      "representations": [
+        {
+          "id": "local-14",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:weight:0:candidate",
+      "representations": [
+        {
+          "id": "local-15",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:weight:1:baseline",
+      "representations": [
+        {
+          "id": "local-16",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:weight:1:candidate",
+      "representations": [
+        {
+          "id": "local-17",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:example:rule-weight-proposal:dashboard-soft-weights",
+      "representations": [
+        {
+          "id": "local-18",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-evidence/fixture.json"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:hswm:w-concept",
+      "representations": [
+        {
+          "id": "local-19",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "docs/RULE_WEIGHT_EVIDENCE.md"
+        }
+      ]
+    },
+    {
+      "id": "trace:request",
+      "representations": [
+        {
+          "id": "local-20",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/rule-weight-evidence/request.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:references",
+      "representations": [
+        {
+          "id": "local-21",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/rule-weight-evidence/references.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:generator",
+      "representations": [
+        {
+          "id": "local-22",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "scripts/build-rule-weight-evidence.ts"
+        }
+      ]
+    },
+    {
+      "id": "trace:agent",
+      "representations": [
+        {
+          "id": "local-23",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/rule-weight-evidence/request.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:src/addons/rule-weight-evidence.ts",
+      "representations": [
+        {
+          "id": "local-24",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "src/addons/rule-weight-evidence.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:examples/rule-weight-evidence-fixture.ts",
+      "representations": [
+        {
+          "id": "local-25",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/rule-weight-evidence-fixture.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:examples/rule-weight-evidence-workflow.ts",
+      "representations": [
+        {
+          "id": "local-26",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/rule-weight-evidence-workflow.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/trace.shacl.ttl",
+      "representations": [
+        {
+          "id": "local-27",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-weight-evidence/trace.shacl.ttl"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/evidence.schema.json",
+      "representations": [
+        {
+          "id": "local-28",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-weight-evidence/evidence.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/host.schema.json",
+      "representations": [
+        {
+          "id": "local-29",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-weight-evidence/host.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/proposal.schema.json",
+      "representations": [
+        {
+          "id": "local-30",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-weight-evidence/proposal.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:docs/RULE_WEIGHT_EVIDENCE.md",
+      "representations": [
+        {
+          "id": "local-31",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "docs/RULE_WEIGHT_EVIDENCE.md"
+        }
+      ]
+    },
+    {
+      "id": "test:test/rule-weight-evidence.test.ts",
+      "representations": [
+        {
+          "id": "local-32",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "test/rule-weight-evidence.test.ts"
+        }
+      ]
+    },
+    {
+      "id": "test:scripts/validate-rule-weight-evidence.py",
+      "representations": [
+        {
+          "id": "local-33",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "scripts/validate-rule-weight-evidence.py"
+        }
+      ]
+    }
+  ]
+}

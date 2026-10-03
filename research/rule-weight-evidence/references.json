@@ -1,0 +1,48 @@
+{
+  "schema": "usl-hswm-evidence-references/v1",
+  "observedOn": "2026-10-03",
+  "authority": "SECONDARY_AI_SOURCE_REVIEW",
+  "references": [
+    {
+      "repository": "HSWM",
+      "observedRepositoryHead": "58f1d4f08352c33c8481f7bf2553d95e6896a091",
+      "path": "docs/canon/USER_PRIMARY_HSWM_HYPERGRAPH_NEURAL_AI_2026-09-14.md",
+      "sourceDigest": "sha256:007344028c946737fa53033cdaf43e14a2850c5d4c4e2ac4e72c940c0c487ce6",
+      "revisionMatch": true,
+      "sourceClassification": "USER_PRIMARY_IDENTITY_WITH_SECONDARY_AI_SEMANTIC_EXPLANATION",
+      "paraphraseAuthority": "SECONDARY_AI",
+      "paraphrase": "HSWM identity refers to hypergraph Semantic Weight and LLM computation; its detailed role/context transition-disposition explanation is labeled SECONDARY_AI."
+    },
+    {
+      "repository": "HSWM",
+      "observedRepositoryHead": "58f1d4f08352c33c8481f7bf2553d95e6896a091",
+      "path": "docs/canon/HSWM_CONSTITUTION_2026-08-20.md",
+      "sourceDigest": "sha256:cf43bc034a64d8db54b3444b7eba9ea02c8c5d9e252e14f157637401c68c3373",
+      "revisionMatch": true,
+      "sourceClassification": "CONSTITUTION_WITH_LINKED_PRIMARY_SOURCES",
+      "paraphraseAuthority": "SECONDARY_AI",
+      "paraphrase": "A token or observation alone is not a weight or learning event; external outcome and owner-valid revision are distinct stages."
+    },
+    {
+      "repository": "HSWM",
+      "observedRepositoryHead": "58f1d4f08352c33c8481f7bf2553d95e6896a091",
+      "path": "docs/canon/USER_PRIMARY_HSWM_SCHEMA_RELATIVE_SINGLE_OWNER_2026-08-26.md",
+      "sourceDigest": "sha256:7c343645b31b7f7ab47d6c937de2e0354f199a8eeab47cfce0ee1ac6243c36e9",
+      "revisionMatch": true,
+      "sourceClassification": "USER_PRIMARY_SOURCE_WITH_DOCUMENT_INTERPRETATION",
+      "paraphraseAuthority": "SECONDARY_AI",
+      "paraphrase": "Semantic Weight is schema-relative transition disposition, and causal efficacy requires separate controlled external evidence."
+    },
+    {
+      "repository": "HSWM_LIKENESS",
+      "observedRepositoryHead": "723d1baf66e3119419936c53c51abfb666a19096",
+      "path": "docs/W_LEARNING.md",
+      "sourceDigest": "sha256:4de0202cab125b67d639e81b669c872e081bc082d4ee87808e2027d620c18042",
+      "revisionMatch": false,
+      "sourceClassification": "LOCAL_IMPLEMENTATION_GUIDE_NOT_HSWM_CANON",
+      "paraphraseAuthority": "SECONDARY_AI",
+      "paraphrase": "Local v1 estimates finite context by role-preserving coalition utility; it is not canonical W or a live USL/KG apply adapter. This source was untracked, so repository HEAD does not contain these bytes."
+    }
+  ],
+  "boundary": "READ_ONLY_LOCAL_SOURCE_INSPECTION; NO_HSWM_EXECUTION; NO_SHARED_KG_PUBLICATION"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "usl-rule-weight-evidence-request/v1",
+  "source": "USER_MESSAGES_IN_CURRENT_CONVERSATION",
+  "recordedOn": "2026-10-03",
+  "authority": "USER_PRIMARY",
+  "utterances": [
+    "그게 웨이트인거야 ㅇㅇ HSWM 의 W 역할도 해주는거지 ㅇㅇ",
+    "해당 통찰을 표준 그래프 엔지니어링으로 구축해줘봐봐 ㅇㅇ"
+  ],
+  "implementationInterpretation": {
+    "authority": "SECONDARY_AI",
+    "text": "규칙 감점 계수는 HSWM W 자체와 동일하지 않다. 맥락·역할·독립 작업 결과·변경 제안의 출처를 선택형 USL 계약과 표준 RDF 검증 그래프로 연결한다. 가중치는 명시적 제안으로만 변경하고 필수 규칙을 보존한다. 새 W 학습기, 효과 입증, 실제 HSWM 연동 또는 사용자 정전 승인으로 표시하지 않는다."
+  }
+}

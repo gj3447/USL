@@ -1,0 +1,46 @@
+@prefix rw: <urn:usl:rule-weight-evidence:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+rw:DigestShape a sh:NodeShape ; sh:property [ sh:path rw:digest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] .
+rw:RuleShape a sh:NodeShape ; sh:targetClass rw:Rule ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rw:version ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rw:requirement ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "REQUIRED" "RECOMMENDED" "INFORMATIONAL" ) ] ;
+  sh:property [ sh:path rw:onViolation ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "BLOCK" "WARN" "PENALIZE" "RECORD" ) ] .
+rw:SoftPenaltyRuleShape a sh:NodeShape ; sh:property [ sh:path rw:requirement ; sh:hasValue "RECOMMENDED" ] ; sh:property [ sh:path rw:onViolation ; sh:hasValue "PENALIZE" ] .
+rw:PolicySnapshotShape a sh:NodeShape ; sh:targetClass rw:PolicySnapshot ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rw:policyId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:policyVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ; sh:node rw:DigestShape .
+rw:WeightAssignmentShape a sh:NodeShape ; sh:targetClass rw:WeightAssignment ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rw:forRule ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Rule ; sh:node rw:SoftPenaltyRuleShape ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:forConfiguration ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:forPolicy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:PolicySnapshot ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:inContext ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Context ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:weight ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:double ; sh:minExclusive 0 ; sh:maxInclusive 1 ] ;
+  sh:property [ sh:path rw:ruleVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rw:policyVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rw:policyDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] .
+rw:ContextShape a sh:NodeShape ; sh:targetClass rw:Context ; sh:nodeKind sh:IRI ; sh:property [ sh:path rw:version ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ; sh:node rw:DigestShape .
+rw:ActionParticipantShape a sh:NodeShape ;
+  sh:property [ sh:path rw:role ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rw:ordinal ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 0 ] ;
+  sh:property [ sh:path rw:source ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:sourceVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path rw:sourceDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] .
+rw:ActionShape a sh:NodeShape ; sh:targetClass rw:Action ; sh:nodeKind sh:IRI ; sh:property [ sh:path rw:version ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ; sh:property [ sh:path rw:participant ; sh:minCount 1 ; sh:node rw:ActionParticipantShape ] ; sh:node rw:DigestShape .
+rw:EvaluationShape a sh:NodeShape ; sh:targetClass rw:Evaluation ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rw:evaluationDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path rw:forPolicy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:PolicySnapshot ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:target ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ; sh:property [ sh:path rw:consumer ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] .
+rw:EvidenceShape a sh:NodeShape ; sh:targetClass rw:Evidence ; sh:nodeKind sh:IRI ; sh:property [ sh:path rw:version ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ; sh:node rw:DigestShape .
+rw:OutcomeShape a sh:NodeShape ; sh:targetClass rw:Outcome ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rw:metric ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ; sh:property [ sh:path rw:value ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:double ] ;
+  sh:property [ sh:path rw:sourceResource ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ; sh:property [ sh:path rw:sourceDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path rw:evidenceClass ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SYNTHETIC" ] ; sh:property [ sh:path rw:observedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .
+rw:WeightRevisionProposalShape a sh:NodeShape ; sh:targetClass rw:WeightRevisionProposal ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path rw:baseline ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:PolicySnapshot ; sh:nodeKind sh:IRI ] ; sh:property [ sh:path rw:candidate ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:PolicySnapshot ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:inContext ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Context ; sh:nodeKind sh:IRI ] ; sh:property [ sh:path rw:evidence ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Evidence ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rw:proposalState ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "OWNER_REVIEW_REQUIRED" ] ; sh:property [ sh:path rw:effectiveness ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_ESTABLISHED" ] .
+rw:HSWM_W_ConceptShape a sh:NodeShape ; sh:targetClass rw:HSWM_W_Concept ; sh:nodeKind sh:IRI ; sh:property [ sh:path rw:canonicalMapping ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_CONNECTED" ] .
+rw:NoEquivalenceShape a sh:NodeShape ; sh:targetSubjectsOf owl:sameAs ; sh:property [ sh:path owl:sameAs ; sh:maxCount 0 ] .

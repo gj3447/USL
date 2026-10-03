@@ -95,6 +95,10 @@
     "./cli-recovery": {
       "types": "./dist/src/cli-recovery.d.ts",
       "import": "./dist/src/cli-recovery.js"
+    },
+    "./rule-weight-evidence": {
+      "types": "./dist/src/addons/rule-weight-evidence.d.ts",
+      "import": "./dist/src/addons/rule-weight-evidence.js"
     }
   },
   "engines": {
@@ -125,7 +129,11 @@
     "example:capability": "tsx examples/capability-workflow.ts",
     "example:cli": "tsx examples/cli-workflow.ts",
     "example:hswm": "tsx examples/hswm-connection.ts",
-    "example:chu": "tsx examples/chu-connection.ts"
+    "example:chu": "tsx examples/chu-connection.ts",
+    "example:rule-weight-evidence": "tsx examples/rule-weight-evidence-workflow.ts",
+    "rule-weight-evidence:build": "tsx scripts/build-rule-weight-evidence.ts",
+    "rule-weight-evidence:check": "tsx scripts/build-rule-weight-evidence.ts --check",
+    "rule-weight-evidence:standards": "python3 scripts/validate-rule-weight-evidence.py"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",
