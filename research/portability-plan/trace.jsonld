@@ -1,0 +1,741 @@
+{
+  "@context": {
+    "p": "urn:usl:portability-plan:"
+  },
+  "@graph": [
+    {
+      "@id": "requirement:R01",
+      "@type": "p:Requirement",
+      "p:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "requirement:R02",
+      "@type": "p:Requirement",
+      "p:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "requirement:R03",
+      "@type": "p:Requirement",
+      "p:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "requirement:R04",
+      "@type": "p:Requirement",
+      "p:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "requirement:R05",
+      "@type": "p:Requirement",
+      "p:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "requirement:R06",
+      "@type": "p:Requirement",
+      "p:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "requirement:R07",
+      "@type": "p:Requirement",
+      "p:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "milestone:MVP",
+      "@type": "p:Milestone",
+      "p:status": "PLANNED"
+    },
+    {
+      "@id": "milestone:FOLLOW_UP",
+      "@type": "p:Milestone",
+      "p:status": "PLANNED"
+    },
+    {
+      "@id": "planned:schemas/portable-transfer/manifest.schema.json",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:src/addons/portable-transfer.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:scripts/usl-transfer-export.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:test/portable-transfer-export.test.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:scripts/usl-transfer-import.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:test/portable-transfer-restore.test.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:test/portable-transfer-portability.test.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:.github/workflows/portable-transfer.yml",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:docs/PORTABLE_TRANSFER.md",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:src/addons/portable-anchors.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:src/addons/rdf-snapshot-digest.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:test/portable-anchors.test.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:src/addons/portable-revisions.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:test/portable-revisions.test.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:src/addons/portable-operation-review.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "planned:test/portable-operation-review.test.ts",
+      "@type": "p:PlannedArtifact",
+      "p:implementation": "NOT_STARTED"
+    },
+    {
+      "@id": "task:PT01",
+      "@type": "p:Task",
+      "p:status": "PLANNED",
+      "p:implementation": "NOT_STARTED",
+      "p:proofStatus": "NOT_PROVEN",
+      "p:dependsOn": [],
+      "p:addresses": [
+        {
+          "@id": "requirement:R01"
+        },
+        {
+          "@id": "requirement:R05"
+        },
+        {
+          "@id": "requirement:R06"
+        }
+      ],
+      "p:acceptance": [
+        {
+          "@id": "criterion:PT01-C1"
+        },
+        {
+          "@id": "criterion:PT01-C2"
+        },
+        {
+          "@id": "criterion:PT01-C3"
+        }
+      ],
+      "p:plannedOutput": [
+        {
+          "@id": "planned:schemas/portable-transfer/manifest.schema.json"
+        },
+        {
+          "@id": "planned:src/addons/portable-transfer.ts"
+        }
+      ],
+      "p:milestone": {
+        "@id": "milestone:MVP"
+      }
+    },
+    {
+      "@id": "criterion:PT01-C1",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT01"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R01"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "기존 owner namespace와 native ID를 보존하고 Resource, Revision, Representation, Location을 구별한다. 이동·복원은 같은 ID, 의도적 fork는 새 ID와 derivedFrom으로 표현한다.",
+      "p:negativeCase": "같은 bytes를 가진 서로 다른 owner의 자원을 해시만으로 합치거나 같은 ID의 다른 정의를 자동 채택하면 실패."
+    },
+    {
+      "@id": "criterion:PT01-C2",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT01"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R05"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "revision ID·parent revision·발행 주체 참조·삭제/철회 표시를 표현하고 처음부터 분기를 나타낼 수 있게 한다. manifest schema와 hash algorithm/canonicalization version을 고정한다.",
+      "p:negativeCase": "시계가 빠른 기기의 수정본 또는 옛 live backup을 최신으로 간주하거나 모르는 schema/hash를 허용하면 실패."
+    },
+    {
+      "@id": "criterion:PT01-C3",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT01"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R06"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "원문 해시, 자원 정체성, 권한, 관측 시각을 별도 필드로 두고 이동만으로 host action/credential을 복원하지 않는다.",
+      "p:negativeCase": "복사된 등록·영수증을 현 기기의 실행 승인으로 읽으면 실패."
+    },
+    {
+      "@id": "task:PT02",
+      "@type": "p:Task",
+      "p:status": "PLANNED",
+      "p:implementation": "NOT_STARTED",
+      "p:proofStatus": "NOT_PROVEN",
+      "p:dependsOn": [
+        {
+          "@id": "task:PT01"
+        }
+      ],
+      "p:addresses": [
+        {
+          "@id": "requirement:R02"
+        },
+        {
+          "@id": "requirement:R06"
+        }
+      ],
+      "p:acceptance": [
+        {
+          "@id": "criterion:PT02-C1"
+        },
+        {
+          "@id": "criterion:PT02-C2"
+        },
+        {
+          "@id": "criterion:PT02-C3"
+        }
+      ],
+      "p:plannedOutput": [
+        {
+          "@id": "planned:scripts/usl-transfer-export.ts"
+        },
+        {
+          "@id": "planned:test/portable-transfer-export.test.ts"
+        }
+      ],
+      "p:milestone": {
+        "@id": "milestone:MVP"
+      }
+    },
+    {
+      "@id": "criterion:PT02-C1",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT02"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R02"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "소유자가 지정한 범위에서 snapshot/session ID를 발급하고 실제 복사한 바이트의 hash·size를 기록한다. 일관된 owner export/잠금/snapshot이 불가능하면 export를 중단한다.",
+      "p:negativeCase": "스캔과 복사 사이 파일 변경, live DB 단순 복사, 중간 실패에서 완성 bundle을 공개하면 실패."
+    },
+    {
+      "@id": "criterion:PT02-C2",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT02"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R02"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "필수 artifact와 dependency를 PACKAGED, EXTERNAL_REQUIRED, OPTIONAL로 분류한다. selfContained=true는 모든 필수 의존성이 포함되고 검증된 경우에만 허용한다. Git objects/dirty/untracked/submodule/LFS를 각각 명시한다.",
+      "p:negativeCase": "필수 원문·고정 Git object 누락, manifest에 없는 payload, size/hash 불일치를 정상으로 기록하면 실패."
+    },
+    {
+      "@id": "criterion:PT02-C3",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT02"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R06"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "manifest body digest를 분리된 envelope에 넣어 자기 해시 순환을 피하고 스키마·정책·필요한 alias dictionary를 동봉한다. 기기 절대 root·credential·private action 등록은 기본 제외한다.",
+      "p:negativeCase": "검증되지 않은 manifest로 host pin을 자동 등록하거나 비밀값·기기 root를 내보내면 실패."
+    },
+    {
+      "@id": "task:PT03",
+      "@type": "p:Task",
+      "p:status": "PLANNED",
+      "p:implementation": "NOT_STARTED",
+      "p:proofStatus": "NOT_PROVEN",
+      "p:dependsOn": [
+        {
+          "@id": "task:PT01"
+        },
+        {
+          "@id": "task:PT02"
+        }
+      ],
+      "p:addresses": [
+        {
+          "@id": "requirement:R01"
+        },
+        {
+          "@id": "requirement:R03"
+        },
+        {
+          "@id": "requirement:R05"
+        },
+        {
+          "@id": "requirement:R06"
+        }
+      ],
+      "p:acceptance": [
+        {
+          "@id": "criterion:PT03-C1"
+        },
+        {
+          "@id": "criterion:PT03-C2"
+        },
+        {
+          "@id": "criterion:PT03-C3"
+        },
+        {
+          "@id": "criterion:PT03-C4"
+        }
+      ],
+      "p:plannedOutput": [
+        {
+          "@id": "planned:scripts/usl-transfer-import.ts"
+        },
+        {
+          "@id": "planned:test/portable-transfer-restore.test.ts"
+        }
+      ],
+      "p:milestone": {
+        "@id": "milestone:MVP"
+      }
+    },
+    {
+      "@id": "criterion:PT03-C1",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT03"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R01"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "임포터 소유의 새 staging 디렉터리에서 전 항목을 검증하고 대상 owner namespace를 확인한 뒤 사용자가 지정한 workspace root로 재바인딩한다. 캐시 없이 원본 ID·역할을 복구한다.",
+      "p:negativeCase": "이름/mtime/내용 유사성만으로 후보를 채택하거나 기존 resource ID·role을 바꾸면 실패."
+    },
+    {
+      "@id": "criterion:PT03-C2",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT03"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R03"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "같은 파일시스템의 새 목적지만 원자적 publish하고 검증 실패·용량 초과·중단은 미완성 상태로 남긴다. 기존 환경은 보존하고 재import는 동일 bundle digest의 기존 결과를 확인한다.",
+      "p:negativeCase": "경로 탈출·심볼릭 링크·대소문자/Unicode 충돌·동시 목적지 생성·타 파일시스템 rename을 성공처럼 처리하면 실패."
+    },
+    {
+      "@id": "criterion:PT03-C3",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT03"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R05"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "MVP는 기존 상태와의 자동 merge를 하지 않는다. owner의 알려진 head/철회 정보와 충돌하면 DIVERGED/WITHDRAWN, 기준이 없으면 FRESHNESS_UNKNOWN으로 보존하고 최신 상태 활성화를 보류한다. 명시적 과거 snapshot 읽기는 허용한다. 명시적으로 선택한 복원 revision에서 새 로컬 작업 분기를 만들 수 있으며 전역 최신성은 미확정으로 유지한다.",
+      "p:negativeCase": "옛 backup의 삭제 전 자원을 현재 head로 부활시키거나 누락을 삭제로 추론하면 실패."
+    },
+    {
+      "@id": "criterion:PT03-C4",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT03"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R06"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "과거 operation/receipt를 역사 자료로 분류하고 외부 효과는 UNRECONCILED로 둔다. 복원 자체의 실행 호출은 0회이며 새 host 등록과 현재 상태 확인 전 자동 재시도/예약 해제를 금지한다.",
+      "p:negativeCase": "복원한 로컬 reservation을 분산 exactly-once 근거로 사용하거나 unknown 효과를 재실행하면 실패."
+    },
+    {
+      "@id": "task:PT04",
+      "@type": "p:Task",
+      "p:status": "PLANNED",
+      "p:implementation": "NOT_STARTED",
+      "p:proofStatus": "NOT_PROVEN",
+      "p:dependsOn": [
+        {
+          "@id": "task:PT01"
+        },
+        {
+          "@id": "task:PT02"
+        },
+        {
+          "@id": "task:PT03"
+        }
+      ],
+      "p:addresses": [
+        {
+          "@id": "requirement:R07"
+        }
+      ],
+      "p:acceptance": [
+        {
+          "@id": "criterion:PT04-C1"
+        },
+        {
+          "@id": "criterion:PT04-C2"
+        },
+        {
+          "@id": "criterion:PT04-C3"
+        }
+      ],
+      "p:plannedOutput": [
+        {
+          "@id": "planned:test/portable-transfer-portability.test.ts"
+        },
+        {
+          "@id": "planned:.github/workflows/portable-transfer.yml"
+        },
+        {
+          "@id": "planned:docs/PORTABLE_TRANSFER.md"
+        }
+      ],
+      "p:milestone": {
+        "@id": "milestone:MVP"
+      }
+    },
+    {
+      "@id": "criterion:PT04-C1",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT04"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R07"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "Linux/macOS/Windows에서 서로 다른 root·사용자 홈·cache 없음·원본 장치 없음 조건으로 self-contained bundle을 복원한다. 기대하는 정확한 resource/revision/role 집합과 bytes를 비교한다.",
+      "p:negativeCase": "원래 절대 경로 또는 캐시가 있어야만 통과하거나 개수만 같아도 성공으로 판정하면 실패."
+    },
+    {
+      "@id": "criterion:PT04-C2",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT04"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R07"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "부분 복사·1 byte 손상·알고리즘 변경·의존성 누락·중복 import·중간 종료·대소문자/Unicode 충돌·삭제 전 backup·기준 미확인·복제된 실행 기록 반례를 자동 검사한다.",
+      "p:negativeCase": "누락/손상/분기/권한 없음이 VERIFIED 또는 현재 ACTIVE로 승격되면 실패."
+    },
+    {
+      "@id": "criterion:PT04-C3",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT04"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R07"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "OS별 실제 실행 결과와 미실행 플랫폼을 따로 기록하고 기존 core binding/CLI 호환 검사를 유지한다. 전송 bytes·해시 시간·peak memory를 예산별 측정한다.",
+      "p:negativeCase": "한 OS의 PASS를 전 플랫폼 보장, benchmark를 운영 효과나 Lean 증명으로 기록하면 실패."
+    },
+    {
+      "@id": "task:PT05",
+      "@type": "p:Task",
+      "p:status": "PLANNED",
+      "p:implementation": "NOT_STARTED",
+      "p:proofStatus": "NOT_PROVEN",
+      "p:dependsOn": [
+        {
+          "@id": "task:PT01"
+        },
+        {
+          "@id": "task:PT03"
+        },
+        {
+          "@id": "task:PT04"
+        }
+      ],
+      "p:addresses": [
+        {
+          "@id": "requirement:R04"
+        }
+      ],
+      "p:acceptance": [
+        {
+          "@id": "criterion:PT05-C1"
+        },
+        {
+          "@id": "criterion:PT05-C2"
+        },
+        {
+          "@id": "criterion:PT05-C3"
+        }
+      ],
+      "p:plannedOutput": [
+        {
+          "@id": "planned:src/addons/portable-anchors.ts"
+        },
+        {
+          "@id": "planned:src/addons/rdf-snapshot-digest.ts"
+        },
+        {
+          "@id": "planned:test/portable-anchors.test.ts"
+        }
+      ],
+      "p:milestone": {
+        "@id": "milestone:FOLLOW_UP"
+      }
+    },
+    {
+      "@id": "criterion:PT05-C1",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT05"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R04"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "문서와 조각의 stable ID, 고정 source revision, exact/prefix/suffix selector를 보존한다. 등록 범위 내 재탐색 결과가 다수면 AMBIGUOUS, 0개면 MISSING으로 반환한다.",
+      "p:negativeCase": "줄 번호만으로 새 문단을 확정하거나 같은 인용문 여러 개 중 첫 항목을 자동 바인딩하면 실패."
+    },
+    {
+      "@id": "criterion:PT05-C2",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT05"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R04"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "원문 byte digest와 RDFC-1.0 dataset digest를 별도 필드로 둔다. 기존 contractDigest는 변경하지 않고 알고리즘 version·허용 quad/시간/메모리 한도를 명시한다.",
+      "p:negativeCase": "blank-node 라벨/직렬화 순서 차이를 내용 변경으로 오인하거나 semantic equivalence로 과대 주장하면 실패."
+    },
+    {
+      "@id": "criterion:PT05-C3",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT05"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R04"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "JSON-LD 외부 context는 고정·동봉된 자료만 사용하고 정규화 예산 초과는 미확정으로 반환한다. 관계의 역할과 ID가 바뀐 그래프는 달라야 한다.",
+      "p:negativeCase": "원격 context의 조용한 변경 또는 바뀐 role을 같은 그래프로 인정하면 실패."
+    },
+    {
+      "@id": "task:PT06",
+      "@type": "p:Task",
+      "p:status": "PLANNED",
+      "p:implementation": "NOT_STARTED",
+      "p:proofStatus": "NOT_PROVEN",
+      "p:dependsOn": [
+        {
+          "@id": "task:PT01"
+        },
+        {
+          "@id": "task:PT02"
+        },
+        {
+          "@id": "task:PT03"
+        },
+        {
+          "@id": "task:PT04"
+        }
+      ],
+      "p:addresses": [
+        {
+          "@id": "requirement:R05"
+        }
+      ],
+      "p:acceptance": [
+        {
+          "@id": "criterion:PT06-C1"
+        },
+        {
+          "@id": "criterion:PT06-C2"
+        },
+        {
+          "@id": "criterion:PT06-C3"
+        }
+      ],
+      "p:plannedOutput": [
+        {
+          "@id": "planned:src/addons/portable-revisions.ts"
+        },
+        {
+          "@id": "planned:test/portable-revisions.test.ts"
+        }
+      ],
+      "p:milestone": {
+        "@id": "milestone:FOLLOW_UP"
+      }
+    },
+    {
+      "@id": "criterion:PT06-C1",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT06"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R05"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "revision parent DAG와 actor/operation identity로 후속·동시 변경을 구별한다. 복제된 장치 이미지의 actor counter 재사용을 막고 동일 operation import는 멱등 처리한다.",
+      "p:negativeCase": "기기 시계/mtime으로 승자를 고르거나 두 기기가 같은 actor-counter로 다른 변경을 쓰면 실패."
+    },
+    {
+      "@id": "criterion:PT06-C2",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT06"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R05"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "동시 변경의 양쪽 원문과 provenance를 보존하고 owner가 선택한 merge 정책을 기록한다. CRDT는 필요가 입증된 선택형 소비자 구현으로만 평가한다.",
+      "p:negativeCase": "자동 수렴을 owner 권위·정책·의미적 정당성으로 간주하면 실패."
+    },
+    {
+      "@id": "criterion:PT06-C3",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT06"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R05"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "명시적 tombstone을 revision으로 유지한다. peer 확인/retention 정책 없이 삭제하지 않고 오래된 backup 및 offline peer 재등장에서 비의도적 부활을 차단한다.",
+      "p:negativeCase": "tombstone을 지워 old live revision을 새 현재 상태로 채택하거나 parent 누락을 숨기면 실패."
+    },
+    {
+      "@id": "task:PT07",
+      "@type": "p:Task",
+      "p:status": "PLANNED",
+      "p:implementation": "NOT_STARTED",
+      "p:proofStatus": "NOT_PROVEN",
+      "p:dependsOn": [
+        {
+          "@id": "task:PT03"
+        },
+        {
+          "@id": "task:PT06"
+        }
+      ],
+      "p:addresses": [
+        {
+          "@id": "requirement:R06"
+        }
+      ],
+      "p:acceptance": [
+        {
+          "@id": "criterion:PT07-C1"
+        },
+        {
+          "@id": "criterion:PT07-C2"
+        },
+        {
+          "@id": "criterion:PT07-C3"
+        }
+      ],
+      "p:plannedOutput": [
+        {
+          "@id": "planned:src/addons/portable-operation-review.ts"
+        },
+        {
+          "@id": "planned:test/portable-operation-review.test.ts"
+        }
+      ],
+      "p:milestone": {
+        "@id": "milestone:FOLLOW_UP"
+      }
+    },
+    {
+      "@id": "criterion:PT07-C1",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT07"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R06"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "historical receipt와 현재 owner 상태를 분리하고 owner의 idempotency key/status API가 있을 때만 명시적으로 대조한다. 외부 조회에는 기존 scoped host authorization을 적용한다.",
+      "p:negativeCase": "복원된 host/credential/예약 또는 artifact graph만으로 원격 접근·실행 권한을 얻으면 실패."
+    },
+    {
+      "@id": "criterion:PT07-C2",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT07"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R06"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "현재 상태 digest와 operation ID를 고정하고 owner가 제공하는 조건부 갱신/중복 방지 범위를 문서화한다. 지원하지 않는 owner는 UNKNOWN/HOLD와 실행 0회를 유지한다.",
+      "p:negativeCase": "offline 두 컴퓨터가 각자 unknown을 성공/미실행으로 추정해 같은 외부 효과를 실행하면 실패."
+    },
+    {
+      "@id": "criterion:PT07-C3",
+      "@type": "p:AcceptanceCriterion",
+      "p:forTask": {
+        "@id": "task:PT07"
+      },
+      "p:forRequirement": {
+        "@id": "requirement:R06"
+      },
+      "p:execution": "NOT_RUN",
+      "p:expectation": "대조 결과는 별도 관측으로 기록하고 기존 receipt/intent를 수정하지 않는다. 테스트는 fake owner의 명시적 보장 범위와 실제 연결 관측을 구분한다.",
+      "p:negativeCase": "로컬 모의 테스트로 실제 분산 exactly-once 또는 HSWM 연결 완료를 선언하면 실패."
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:portability-plan:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:portability-plan:depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-plan:addresses",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:status:Requirement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-plan:planned_output",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:status:PlannedArtifact"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-plan:acceptance_for",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:status:Requirement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "criterion",
+          "required": true,
+          "types": [
+            "urn:usl:status:AcceptanceCriterion"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-plan:reuses",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:status:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-plan:informed_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:status:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-plan:scheduled_in",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:status:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "milestone",
+          "required": true,
+          "types": [
+            "urn:usl:status:Milestone"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

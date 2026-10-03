@@ -1,0 +1,3341 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "source:portability-plan",
+      "types": [
+        "urn:usl:status:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "sourceDigest": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
+        "authority": "SECONDARY_AI",
+        "status": "PLANNED",
+        "locatorStatus": "DECLARED_PUBLIC_LOCATION_NOT_FETCHED"
+      }
+    },
+    {
+      "id": "source:portability-generator",
+      "types": [
+        "urn:usl:status:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-portability-plan.ts",
+      "metadata": {
+        "sourceDigest": "sha256:7f56c83c61f7e23bda6daa6bead71a742553ac1dc17e261c5b34307e21c94204",
+        "scope": "PLAN_ARTIFACT_GENERATION_ONLY"
+      }
+    },
+    {
+      "id": "user:portability-plan",
+      "types": [
+        "urn:usl:status:Source"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "user:portability-plan",
+        "authority": "USER_PRIMARY",
+        "text": "ㅇㅇ 해당 내용 표준그래프 엔지니어링으로 작업 계획좀 세워줘봐봐 ㅇㅇ",
+        "motivation": {
+          "authority": "USER_PRIMARY",
+          "text": "ㅇㅇ 그 다른 컴퓨터 왓다갓다 해도 그 백업 메모리 작업환경 마구 옮기더라도 USL 은 강건해야하거든 어떡하면 그렇게 할수 있을지 인터넷 검색좀해줘봐봐 ㅇㅇ"
+        },
+        "scope": "REQUEST_FOR_WORK_PLAN"
+      }
+    },
+    {
+      "id": "activity:portability-planning",
+      "types": [
+        "http://www.w3.org/ns/prov#Activity",
+        "urn:usl:status:PlanningActivity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "runtimeImplementation": "NOT_STARTED",
+        "scope": "SOURCE_PINS_TASK_DAG_TYPED_GRAPH_ROLES_AND_EXACT_COMPETENCY_RESULTS_ONLY"
+      }
+    },
+    {
+      "id": "agent:portability-planner",
+      "types": [
+        "http://www.w3.org/ns/prov#Agent",
+        "urn:usl:status:Agent"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "ratification": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "requirement:R01",
+      "types": [
+        "urn:usl:status:Requirement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "requirement:R01",
+        "text": "컴퓨터와 경로가 바뀌어도 자원 ID와 선택한 버전 및 역할을 보존한다.",
+        "authority": "SECONDARY_AI",
+        "derivedFrom": "user:portability-plan"
+      }
+    },
+    {
+      "id": "requirement:R02",
+      "types": [
+        "urn:usl:status:Requirement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "requirement:R02",
+        "text": "선택한 복원 범위의 파일과 의존성 누락·손상·혼합 snapshot을 판별한다.",
+        "authority": "SECONDARY_AI",
+        "derivedFrom": "user:portability-plan"
+      }
+    },
+    {
+      "id": "requirement:R03",
+      "types": [
+        "urn:usl:status:Requirement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "requirement:R03",
+        "text": "기존 작업환경을 덮어쓰지 않고 검증된 묶음만 새 로컬 바인딩으로 활성화한다.",
+        "authority": "SECONDARY_AI",
+        "derivedFrom": "user:portability-plan"
+      }
+    },
+    {
+      "id": "requirement:R04",
+      "types": [
+        "urn:usl:status:Requirement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "requirement:R04",
+        "text": "파일과 메모리 조각의 위치 변경, 그래프 직렬화 차이를 자원 정체성과 구분한다.",
+        "authority": "SECONDARY_AI",
+        "derivedFrom": "user:portability-plan"
+      }
+    },
+    {
+      "id": "requirement:R05",
+      "types": [
+        "urn:usl:status:Requirement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "requirement:R05",
+        "text": "서로 다른 기기의 수정·삭제·옛 백업을 구분하며 충돌과 이력을 보존한다.",
+        "authority": "SECONDARY_AI",
+        "derivedFrom": "user:portability-plan"
+      }
+    },
+    {
+      "id": "requirement:R06",
+      "types": [
+        "urn:usl:status:Requirement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "requirement:R06",
+        "text": "이동한 링크와 과거 실행 기록을 접근 권한 또는 현재 외부 효과로 승격하지 않는다.",
+        "authority": "SECONDARY_AI",
+        "derivedFrom": "user:portability-plan"
+      }
+    },
+    {
+      "id": "requirement:R07",
+      "types": [
+        "urn:usl:status:Requirement"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "requirement:R07",
+        "text": "다른 OS와 복원 실패 상황에서 불변식과 실패 상태를 실제로 검증한다.",
+        "authority": "SECONDARY_AI",
+        "derivedFrom": "user:portability-plan"
+      }
+    },
+    {
+      "id": "reference:uuid",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.rfc-editor.org/rfc/rfc9562.html",
+      "metadata": {
+        "id": "reference:uuid",
+        "title": "UUID RFC 9562",
+        "url": "https://www.rfc-editor.org/rfc/rfc9562.html",
+        "publicationStatus": "IETF_STANDARDS_TRACK",
+        "checkedOn": "2026-10-03",
+        "application": "새 자원의 식별자 발급 참고. 기존 owner-native ID는 유지한다.",
+        "limit": "UUID는 내용·소유권·최신 상태·인과 순서를 인증하지 않는다."
+      }
+    },
+    {
+      "id": "reference:hash-name",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.rfc-editor.org/info/rfc6920/",
+      "metadata": {
+        "id": "reference:hash-name",
+        "title": "Naming Things with Hashes RFC 6920",
+        "url": "https://www.rfc-editor.org/info/rfc6920/",
+        "publicationStatus": "IETF_STANDARDS_TRACK",
+        "checkedOn": "2026-10-03",
+        "application": "버전 원문에 대한 알고리즘 명시 해시 식별 참고.",
+        "limit": "내용 일치가 자원 정체성이나 권한 일치를 뜻하지 않는다."
+      }
+    },
+    {
+      "id": "reference:bagit",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.rfc-editor.org/info/rfc8493/",
+      "metadata": {
+        "id": "reference:bagit",
+        "title": "BagIt RFC 8493",
+        "url": "https://www.rfc-editor.org/info/rfc8493/",
+        "publicationStatus": "RFC_INFORMATIONAL",
+        "checkedOn": "2026-10-03",
+        "application": "파일 목록과 checksum으로 complete/valid를 구별하는 전송 모델.",
+        "limit": "BagIt 준수를 선언하려면 별도 완전한 형식 검증이 필요하다."
+      }
+    },
+    {
+      "id": "reference:ocfl",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://ocfl.io/1.1/spec/",
+      "metadata": {
+        "id": "reference:ocfl",
+        "title": "Oxford Common File Layout 1.1",
+        "url": "https://ocfl.io/1.1/spec/",
+        "publicationStatus": "COMMUNITY_SPECIFICATION",
+        "checkedOn": "2026-10-03",
+        "application": "객체 ID·버전·logical/content path 분리, inventory와 복원 가능성.",
+        "limit": "OCFL 저장소를 구현하거나 원격 가용성을 보장한다는 뜻이 아니다."
+      }
+    },
+    {
+      "id": "reference:annotation",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/annotation-model/",
+      "metadata": {
+        "id": "reference:annotation",
+        "title": "Web Annotation Data Model",
+        "url": "https://www.w3.org/TR/annotation-model/",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "checkedOn": "2026-10-03",
+        "application": "fragment selector, 인용문과 앞뒤 문맥 및 source state 참고.",
+        "limit": "동일 문구가 여러 곳에 있으면 하나를 자동 확정하지 않는다."
+      }
+    },
+    {
+      "id": "reference:rdf-canon",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/rdf-canon/",
+      "metadata": {
+        "id": "reference:rdf-canon",
+        "title": "RDF Dataset Canonicalization 1.0",
+        "url": "https://www.w3.org/TR/rdf-canon/",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "checkedOn": "2026-10-03",
+        "application": "선택적 RDF dataset 정규화와 그래프 digest.",
+        "limit": "RDF 동형성 범위이며 의미 동치나 revision 간 blank-node identity 보장이 아니다."
+      }
+    },
+    {
+      "id": "reference:syncthing",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://docs.syncthing.net/specs/bep-v1.html",
+      "metadata": {
+        "id": "reference:syncthing",
+        "title": "Syncthing Block Exchange Protocol",
+        "url": "https://docs.syncthing.net/specs/bep-v1.html",
+        "publicationStatus": "IMPLEMENTATION_PROTOCOL",
+        "checkedOn": "2026-10-03",
+        "application": "버전 벡터·삭제 표시·portable filename 계약 참고.",
+        "limit": "파일 동기화 프로토콜은 USL 의미 병합 또는 백업 보장이 아니다."
+      }
+    },
+    {
+      "id": "reference:automerge",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://automerge.org/docs/reference/documents/conflicts/",
+      "metadata": {
+        "id": "reference:automerge",
+        "title": "Automerge conflict handling",
+        "url": "https://automerge.org/docs/reference/documents/conflicts/",
+        "publicationStatus": "IMPLEMENTATION_DOCUMENTATION",
+        "checkedOn": "2026-10-03",
+        "application": "actor/counter 변경 식별과 동시 충돌 보존 참고.",
+        "limit": "CRDT 수렴이 owner 권위·정책·링크 대상의 올바른 선택을 뜻하지 않는다."
+      }
+    },
+    {
+      "id": "reference:git-bundle",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://git-scm.com/docs/git-bundle",
+      "metadata": {
+        "id": "reference:git-bundle",
+        "title": "Git bundle",
+        "url": "https://git-scm.com/docs/git-bundle",
+        "publicationStatus": "IMPLEMENTATION_DOCUMENTATION",
+        "checkedOn": "2026-10-03",
+        "application": "고정 Git revision의 오프라인 전송과 prerequisite 검증.",
+        "limit": "untracked/dirty 파일, submodule, LFS 원문은 별도 항목으로 다룬다."
+      }
+    },
+    {
+      "id": "reference:sqlite-backup",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.sqlite.org/backup.html",
+      "metadata": {
+        "id": "reference:sqlite-backup",
+        "title": "SQLite Online Backup API",
+        "url": "https://www.sqlite.org/backup.html",
+        "publicationStatus": "IMPLEMENTATION_DOCUMENTATION",
+        "checkedOn": "2026-10-03",
+        "application": "DB owner의 일관된 snapshot export 예시.",
+        "limit": "USL이 임의 DB를 열거나 live DB 파일을 단순 복사하도록 허용하지 않는다."
+      }
+    },
+    {
+      "id": "reference:shacl",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+      "metadata": {
+        "id": "reference:shacl",
+        "title": "Shapes Constraint Language 2017",
+        "url": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "checkedOn": "2026-10-03",
+        "application": "현재 계획 그래프의 타입·역할·cardinality와 상태 검사.",
+        "limit": "계획 구조의 적합성이 미구현 복원 기능의 성공을 증명하지 않는다."
+      }
+    },
+    {
+      "id": "reference:prov",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:ExternalSource"
+      ],
+      "locator": "https://www.w3.org/TR/prov-o/",
+      "metadata": {
+        "id": "reference:prov",
+        "title": "PROV-O",
+        "url": "https://www.w3.org/TR/prov-o/",
+        "publicationStatus": "W3C_RECOMMENDATION",
+        "checkedOn": "2026-10-03",
+        "application": "계획 입력·생성 활동·작성 주체 출처 표기.",
+        "limit": "출처 관계는 사용자 ratification이나 실행 권한을 부여하지 않는다."
+      }
+    },
+    {
+      "id": "source:src/resource-bindings.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:src/resource-bindings.ts",
+      "metadata": {
+        "id": "source:src/resource-bindings.ts",
+        "path": "src/resource-bindings.ts",
+        "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:src/integrations/resource-bindings.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:src/integrations/resource-bindings.ts",
+      "metadata": {
+        "id": "source:src/integrations/resource-bindings.ts",
+        "path": "src/integrations/resource-bindings.ts",
+        "sha256": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:src/binding-inspection.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:src/binding-inspection.ts",
+      "metadata": {
+        "id": "source:src/binding-inspection.ts",
+        "path": "src/binding-inspection.ts",
+        "sha256": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:src/cli-operation.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:src/cli-operation.ts",
+      "metadata": {
+        "id": "source:src/cli-operation.ts",
+        "path": "src/cli-operation.ts",
+        "sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:src/cli-recovery.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:src/cli-recovery.ts",
+      "metadata": {
+        "id": "source:src/cli-recovery.ts",
+        "path": "src/cli-recovery.ts",
+        "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:src/contract-core.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:src/contract-core.ts",
+      "metadata": {
+        "id": "source:src/contract-core.ts",
+        "path": "src/contract-core.ts",
+        "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:docs/RESOURCE_BINDINGS.md",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:docs/RESOURCE_BINDINGS.md",
+      "metadata": {
+        "id": "source:docs/RESOURCE_BINDINGS.md",
+        "path": "docs/RESOURCE_BINDINGS.md",
+        "sha256": "sha256:474a509a98f8d8b2b5dc75afd4525ec8220d4f3048d6afaf4b41dfe364fbbaa1",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:docs/BINDING_OPERATIONS.md",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:docs/BINDING_OPERATIONS.md",
+      "metadata": {
+        "id": "source:docs/BINDING_OPERATIONS.md",
+        "path": "docs/BINDING_OPERATIONS.md",
+        "sha256": "sha256:a93839db57c94625b76f8e15824e70eff0259c45012a3cb35ed44dc9bb0fca5c",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:test/resource-bindings.test.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:test/resource-bindings.test.ts",
+      "metadata": {
+        "id": "source:test/resource-bindings.test.ts",
+        "path": "test/resource-bindings.test.ts",
+        "sha256": "sha256:0436c0523a7abaf4d7c35facd821007f9b45a6dfda03c6d0da6e6ff588f58cd8",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:test/cli-operation.test.ts",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:test/cli-operation.test.ts",
+      "metadata": {
+        "id": "source:test/cli-operation.test.ts",
+        "path": "test/cli-operation.test.ts",
+        "sha256": "sha256:3ad6ba12db67f3449ee44e53b9eedcd0a9eaadc8ce2e76179ff3bacf1027a736",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "source:research/architecture/hswm-like.plan.json",
+      "types": [
+        "urn:usl:status:Source",
+        "urn:usl:status:Artifact"
+      ],
+      "locator": "git://github.com/gj3447/USL@b869c517ea6c58c24583f473fd049d1d2adac176:research/architecture/hswm-like.plan.json",
+      "metadata": {
+        "id": "source:research/architecture/hswm-like.plan.json",
+        "path": "research/architecture/hswm-like.plan.json",
+        "sha256": "sha256:ed6e2eed6282f3fa0b167b8444b2588edea9a28d374005583689a97b537d3c26",
+        "sourceCommit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+        "evidenceKind": "SOURCE_DEFINITION",
+        "execution": "NOT_CLAIMED",
+        "remoteObservation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "id": "milestone:MVP",
+      "types": [
+        "urn:usl:status:Milestone"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "milestone:MVP",
+        "title": "명시한 범위를 새 기기에서 검증하고 재바인딩",
+        "tasks": [
+          "task:PT01",
+          "task:PT02",
+          "task:PT03",
+          "task:PT04"
+        ],
+        "status": "PLANNED",
+        "releaseGate": "PT04의 실제 플랫폼별 acceptance 결과가 있어야 해당 플랫폼 지원을 선언한다."
+      }
+    },
+    {
+      "id": "milestone:FOLLOW_UP",
+      "types": [
+        "urn:usl:status:Milestone"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "milestone:FOLLOW_UP",
+        "title": "세부 메모리 이동과 다중 기기 수정 및 실행 상태 대조",
+        "tasks": [
+          "task:PT05",
+          "task:PT06",
+          "task:PT07"
+        ],
+        "status": "PLANNED",
+        "releaseGate": "각 작업의 독립 acceptance와 owner 범위를 충족한 기능만 선택적으로 활성화한다."
+      }
+    },
+    {
+      "id": "planned:schemas/portable-transfer/manifest.schema.json",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-schemas%2Fportable-transfer%2Fmanifest.schema.json",
+      "metadata": {
+        "proposedPath": "schemas/portable-transfer/manifest.schema.json",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:src/addons/portable-transfer.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-src%2Faddons%2Fportable-transfer.ts",
+      "metadata": {
+        "proposedPath": "src/addons/portable-transfer.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:scripts/usl-transfer-export.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-scripts%2Fusl-transfer-export.ts",
+      "metadata": {
+        "proposedPath": "scripts/usl-transfer-export.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:test/portable-transfer-export.test.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-test%2Fportable-transfer-export.test.ts",
+      "metadata": {
+        "proposedPath": "test/portable-transfer-export.test.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:scripts/usl-transfer-import.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-scripts%2Fusl-transfer-import.ts",
+      "metadata": {
+        "proposedPath": "scripts/usl-transfer-import.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:test/portable-transfer-restore.test.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-test%2Fportable-transfer-restore.test.ts",
+      "metadata": {
+        "proposedPath": "test/portable-transfer-restore.test.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:test/portable-transfer-portability.test.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-test%2Fportable-transfer-portability.test.ts",
+      "metadata": {
+        "proposedPath": "test/portable-transfer-portability.test.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:.github/workflows/portable-transfer.yml",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-.github%2Fworkflows%2Fportable-transfer.yml",
+      "metadata": {
+        "proposedPath": ".github/workflows/portable-transfer.yml",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:docs/PORTABLE_TRANSFER.md",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-docs%2FPORTABLE_TRANSFER.md",
+      "metadata": {
+        "proposedPath": "docs/PORTABLE_TRANSFER.md",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:src/addons/portable-anchors.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-src%2Faddons%2Fportable-anchors.ts",
+      "metadata": {
+        "proposedPath": "src/addons/portable-anchors.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:src/addons/rdf-snapshot-digest.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-src%2Faddons%2Frdf-snapshot-digest.ts",
+      "metadata": {
+        "proposedPath": "src/addons/rdf-snapshot-digest.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:test/portable-anchors.test.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-test%2Fportable-anchors.test.ts",
+      "metadata": {
+        "proposedPath": "test/portable-anchors.test.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:src/addons/portable-revisions.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-src%2Faddons%2Fportable-revisions.ts",
+      "metadata": {
+        "proposedPath": "src/addons/portable-revisions.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:test/portable-revisions.test.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-test%2Fportable-revisions.test.ts",
+      "metadata": {
+        "proposedPath": "test/portable-revisions.test.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:src/addons/portable-operation-review.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-src%2Faddons%2Fportable-operation-review.ts",
+      "metadata": {
+        "proposedPath": "src/addons/portable-operation-review.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "planned:test/portable-operation-review.test.ts",
+      "types": [
+        "urn:usl:status:PlannedArtifact"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json#planned-test%2Fportable-operation-review.test.ts",
+      "metadata": {
+        "proposedPath": "test/portable-operation-review.test.ts",
+        "implementation": "NOT_STARTED",
+        "existence": "NOT_CLAIMED",
+        "locatorRole": "PROPOSAL_DESCRIPTION_ONLY"
+      }
+    },
+    {
+      "id": "task:PT01",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "title": "고정 ID와 버전 및 복원 계약 정의",
+        "phase": "MVP",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "currentGap": "현재 binding v1은 문서 내부 ID 중복을 검사하지만 문서 간 namespace·revision lineage·복원 상태는 정의하지 않는다."
+      }
+    },
+    {
+      "id": "criterion:PT01-C1",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT01-C1",
+        "requirement": "requirement:R01",
+        "expectation": "기존 owner namespace와 native ID를 보존하고 Resource, Revision, Representation, Location을 구별한다. 이동·복원은 같은 ID, 의도적 fork는 새 ID와 derivedFrom으로 표현한다.",
+        "negativeCase": "같은 bytes를 가진 서로 다른 owner의 자원을 해시만으로 합치거나 같은 ID의 다른 정의를 자동 채택하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT01-C2",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT01-C2",
+        "requirement": "requirement:R05",
+        "expectation": "revision ID·parent revision·발행 주체 참조·삭제/철회 표시를 표현하고 처음부터 분기를 나타낼 수 있게 한다. manifest schema와 hash algorithm/canonicalization version을 고정한다.",
+        "negativeCase": "시계가 빠른 기기의 수정본 또는 옛 live backup을 최신으로 간주하거나 모르는 schema/hash를 허용하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT01-C3",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT01-C3",
+        "requirement": "requirement:R06",
+        "expectation": "원문 해시, 자원 정체성, 권한, 관측 시각을 별도 필드로 두고 이동만으로 host action/credential을 복원하지 않는다.",
+        "negativeCase": "복사된 등록·영수증을 현 기기의 실행 승인으로 읽으면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:PT02",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "title": "일관된 백업 snapshot과 전송 명세 생성",
+        "phase": "MVP",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "currentGap": "현재 디렉터리 전체 원문·필수 의존성·혼합 시점 파일에 대한 복원 manifest가 없다."
+      }
+    },
+    {
+      "id": "criterion:PT02-C1",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT02-C1",
+        "requirement": "requirement:R02",
+        "expectation": "소유자가 지정한 범위에서 snapshot/session ID를 발급하고 실제 복사한 바이트의 hash·size를 기록한다. 일관된 owner export/잠금/snapshot이 불가능하면 export를 중단한다.",
+        "negativeCase": "스캔과 복사 사이 파일 변경, live DB 단순 복사, 중간 실패에서 완성 bundle을 공개하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT02-C2",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT02-C2",
+        "requirement": "requirement:R02",
+        "expectation": "필수 artifact와 dependency를 PACKAGED, EXTERNAL_REQUIRED, OPTIONAL로 분류한다. selfContained=true는 모든 필수 의존성이 포함되고 검증된 경우에만 허용한다. Git objects/dirty/untracked/submodule/LFS를 각각 명시한다.",
+        "negativeCase": "필수 원문·고정 Git object 누락, manifest에 없는 payload, size/hash 불일치를 정상으로 기록하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT02-C3",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT02-C3",
+        "requirement": "requirement:R06",
+        "expectation": "manifest body digest를 분리된 envelope에 넣어 자기 해시 순환을 피하고 스키마·정책·필요한 alias dictionary를 동봉한다. 기기 절대 root·credential·private action 등록은 기본 제외한다.",
+        "negativeCase": "검증되지 않은 manifest로 host pin을 자동 등록하거나 비밀값·기기 root를 내보내면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:PT03",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "title": "검사 후 새 작업환경으로 복원하고 재바인딩",
+        "phase": "MVP",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "currentGap": "root 변경은 지원하지만 bundle staging·완결성 검사·중복 import·복원 경합과 effect 재개 경계는 없다."
+      }
+    },
+    {
+      "id": "criterion:PT03-C1",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT03-C1",
+        "requirement": "requirement:R01",
+        "expectation": "임포터 소유의 새 staging 디렉터리에서 전 항목을 검증하고 대상 owner namespace를 확인한 뒤 사용자가 지정한 workspace root로 재바인딩한다. 캐시 없이 원본 ID·역할을 복구한다.",
+        "negativeCase": "이름/mtime/내용 유사성만으로 후보를 채택하거나 기존 resource ID·role을 바꾸면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT03-C2",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT03-C2",
+        "requirement": "requirement:R03",
+        "expectation": "같은 파일시스템의 새 목적지만 원자적 publish하고 검증 실패·용량 초과·중단은 미완성 상태로 남긴다. 기존 환경은 보존하고 재import는 동일 bundle digest의 기존 결과를 확인한다.",
+        "negativeCase": "경로 탈출·심볼릭 링크·대소문자/Unicode 충돌·동시 목적지 생성·타 파일시스템 rename을 성공처럼 처리하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT03-C3",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT03-C3",
+        "requirement": "requirement:R05",
+        "expectation": "MVP는 기존 상태와의 자동 merge를 하지 않는다. owner의 알려진 head/철회 정보와 충돌하면 DIVERGED/WITHDRAWN, 기준이 없으면 FRESHNESS_UNKNOWN으로 보존하고 최신 상태 활성화를 보류한다. 명시적 과거 snapshot 읽기는 허용한다. 명시적으로 선택한 복원 revision에서 새 로컬 작업 분기를 만들 수 있으며 전역 최신성은 미확정으로 유지한다.",
+        "negativeCase": "옛 backup의 삭제 전 자원을 현재 head로 부활시키거나 누락을 삭제로 추론하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT03-C4",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT03-C4",
+        "requirement": "requirement:R06",
+        "expectation": "과거 operation/receipt를 역사 자료로 분류하고 외부 효과는 UNRECONCILED로 둔다. 복원 자체의 실행 호출은 0회이며 새 host 등록과 현재 상태 확인 전 자동 재시도/예약 해제를 금지한다.",
+        "negativeCase": "복원한 로컬 reservation을 분산 exactly-once 근거로 사용하거나 unknown 효과를 재실행하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:PT04",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "title": "기기 이동과 장애 복원 인수검사",
+        "phase": "MVP",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "currentGap": "기존 테스트는 같은 호스트에서 root 이동을 다루며 다른 OS의 복원·누락·충돌 전반을 실행한 증거는 아니다."
+      }
+    },
+    {
+      "id": "criterion:PT04-C1",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT04-C1",
+        "requirement": "requirement:R07",
+        "expectation": "Linux/macOS/Windows에서 서로 다른 root·사용자 홈·cache 없음·원본 장치 없음 조건으로 self-contained bundle을 복원한다. 기대하는 정확한 resource/revision/role 집합과 bytes를 비교한다.",
+        "negativeCase": "원래 절대 경로 또는 캐시가 있어야만 통과하거나 개수만 같아도 성공으로 판정하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT04-C2",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT04-C2",
+        "requirement": "requirement:R07",
+        "expectation": "부분 복사·1 byte 손상·알고리즘 변경·의존성 누락·중복 import·중간 종료·대소문자/Unicode 충돌·삭제 전 backup·기준 미확인·복제된 실행 기록 반례를 자동 검사한다.",
+        "negativeCase": "누락/손상/분기/권한 없음이 VERIFIED 또는 현재 ACTIVE로 승격되면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT04-C3",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT04-C3",
+        "requirement": "requirement:R07",
+        "expectation": "OS별 실제 실행 결과와 미실행 플랫폼을 따로 기록하고 기존 core binding/CLI 호환 검사를 유지한다. 전송 bytes·해시 시간·peak memory를 예산별 측정한다.",
+        "negativeCase": "한 OS의 PASS를 전 플랫폼 보장, benchmark를 운영 효과나 Lean 증명으로 기록하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:PT05",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "title": "메모리 조각 재탐색과 선택적 그래프 정규화",
+        "phase": "FOLLOW_UP",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "currentGap": "파일 이동과 문단 이동은 다르며 원문 바이트 digest만으로 RDF 직렬화 차이와 문맥 이동을 구별하지 못한다."
+      }
+    },
+    {
+      "id": "criterion:PT05-C1",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT05-C1",
+        "requirement": "requirement:R04",
+        "expectation": "문서와 조각의 stable ID, 고정 source revision, exact/prefix/suffix selector를 보존한다. 등록 범위 내 재탐색 결과가 다수면 AMBIGUOUS, 0개면 MISSING으로 반환한다.",
+        "negativeCase": "줄 번호만으로 새 문단을 확정하거나 같은 인용문 여러 개 중 첫 항목을 자동 바인딩하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT05-C2",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT05-C2",
+        "requirement": "requirement:R04",
+        "expectation": "원문 byte digest와 RDFC-1.0 dataset digest를 별도 필드로 둔다. 기존 contractDigest는 변경하지 않고 알고리즘 version·허용 quad/시간/메모리 한도를 명시한다.",
+        "negativeCase": "blank-node 라벨/직렬화 순서 차이를 내용 변경으로 오인하거나 semantic equivalence로 과대 주장하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT05-C3",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT05-C3",
+        "requirement": "requirement:R04",
+        "expectation": "JSON-LD 외부 context는 고정·동봉된 자료만 사용하고 정규화 예산 초과는 미확정으로 반환한다. 관계의 역할과 ID가 바뀐 그래프는 달라야 한다.",
+        "negativeCase": "원격 context의 조용한 변경 또는 바뀐 role을 같은 그래프로 인정하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:PT06",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "title": "다중 기기 revision 병합과 삭제 이력",
+        "phase": "FOLLOW_UP",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "currentGap": "현재 USL에는 기기 간 causal history와 충돌 처리 및 tombstone 교환 규약이 없다."
+      }
+    },
+    {
+      "id": "criterion:PT06-C1",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT06-C1",
+        "requirement": "requirement:R05",
+        "expectation": "revision parent DAG와 actor/operation identity로 후속·동시 변경을 구별한다. 복제된 장치 이미지의 actor counter 재사용을 막고 동일 operation import는 멱등 처리한다.",
+        "negativeCase": "기기 시계/mtime으로 승자를 고르거나 두 기기가 같은 actor-counter로 다른 변경을 쓰면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT06-C2",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT06-C2",
+        "requirement": "requirement:R05",
+        "expectation": "동시 변경의 양쪽 원문과 provenance를 보존하고 owner가 선택한 merge 정책을 기록한다. CRDT는 필요가 입증된 선택형 소비자 구현으로만 평가한다.",
+        "negativeCase": "자동 수렴을 owner 권위·정책·의미적 정당성으로 간주하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT06-C3",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT06-C3",
+        "requirement": "requirement:R05",
+        "expectation": "명시적 tombstone을 revision으로 유지한다. peer 확인/retention 정책 없이 삭제하지 않고 오래된 backup 및 offline peer 재등장에서 비의도적 부활을 차단한다.",
+        "negativeCase": "tombstone을 지워 old live revision을 새 현재 상태로 채택하거나 parent 누락을 숨기면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:PT07",
+      "types": [
+        "urn:usl:status:Task"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "title": "복원된 작업 기록과 소유 시스템 상태 대조",
+        "phase": "FOLLOW_UP",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "implementation": "NOT_STARTED",
+        "proofStatus": "NOT_PROVEN",
+        "currentGap": "로컬 예약 저장소 복제는 기기 간 중복 외부 효과를 차단하지 못한다."
+      }
+    },
+    {
+      "id": "criterion:PT07-C1",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT07-C1",
+        "requirement": "requirement:R06",
+        "expectation": "historical receipt와 현재 owner 상태를 분리하고 owner의 idempotency key/status API가 있을 때만 명시적으로 대조한다. 외부 조회에는 기존 scoped host authorization을 적용한다.",
+        "negativeCase": "복원된 host/credential/예약 또는 artifact graph만으로 원격 접근·실행 권한을 얻으면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT07-C2",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT07-C2",
+        "requirement": "requirement:R06",
+        "expectation": "현재 상태 digest와 operation ID를 고정하고 owner가 제공하는 조건부 갱신/중복 방지 범위를 문서화한다. 지원하지 않는 owner는 UNKNOWN/HOLD와 실행 0회를 유지한다.",
+        "negativeCase": "offline 두 컴퓨터가 각자 unknown을 성공/미실행으로 추정해 같은 외부 효과를 실행하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "criterion:PT07-C3",
+      "types": [
+        "urn:usl:status:AcceptanceCriterion"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-plan/plan.json",
+      "metadata": {
+        "id": "criterion:PT07-C3",
+        "requirement": "requirement:R06",
+        "expectation": "대조 결과는 별도 관측으로 기록하고 기존 receipt/intent를 수정하지 않는다. 테스트는 fake owner의 명시적 보장 범위와 실제 연결 관측을 구분한다.",
+        "negativeCase": "로컬 모의 테스트로 실제 분산 exactly-once 또는 HSWM 연결 완료를 선언하면 실패.",
+        "execution": "NOT_RUN"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:portability-plan:depends_on",
+      "description": "task requires prerequisite; directed task DAG only"
+    },
+    {
+      "id": "urn:usl:portability-plan:addresses",
+      "description": "planned task addresses an interpreted requirement"
+    },
+    {
+      "id": "urn:usl:portability-plan:planned_output",
+      "description": "intended future output, not an implemented artifact"
+    },
+    {
+      "id": "urn:usl:portability-plan:acceptance_for",
+      "description": "unexecuted acceptance criterion for this exact task and requirement"
+    },
+    {
+      "id": "urn:usl:portability-plan:reuses",
+      "description": "source definition used for implementation planning, not a test result"
+    },
+    {
+      "id": "urn:usl:portability-plan:informed_by",
+      "description": "source informs a design choice without granting authority or conformance"
+    },
+    {
+      "id": "urn:usl:portability-plan:scheduled_in",
+      "description": "planned milestone membership"
+    }
+  ],
+  "links": [
+    {
+      "id": "portability-link:0",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:1",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:2",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:3",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:schemas/portable-transfer/manifest.schema.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:4",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:src/addons/portable-transfer.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:5",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/resource-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:6",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/contract-core.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:7",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "source",
+          "resource": "source:docs/RESOURCE_BINDINGS.md"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:8",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "source",
+          "resource": "reference:uuid"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:9",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "source",
+          "resource": "reference:hash-name"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:10",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "source",
+          "resource": "reference:ocfl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:11",
+      "meaning": "urn:usl:portability-plan:scheduled_in",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "milestone",
+          "resource": "milestone:MVP"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:12",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R01"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT01-C1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:13",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT01-C2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:14",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT01-C3"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:15",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:16",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:17",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:18",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:scripts/usl-transfer-export.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:19",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:test/portable-transfer-export.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:20",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/binding-inspection.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:21",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/resource-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:22",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "source",
+          "resource": "reference:bagit"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:23",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "source",
+          "resource": "reference:ocfl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:24",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "source",
+          "resource": "reference:git-bundle"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:25",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "source",
+          "resource": "reference:sqlite-backup"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:26",
+      "meaning": "urn:usl:portability-plan:scheduled_in",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "milestone",
+          "resource": "milestone:MVP"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:27",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R02"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT02-C1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:28",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R02"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT02-C2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:29",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT02"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT02-C3"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:30",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:31",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:32",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:33",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:34",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:35",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:36",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:scripts/usl-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:37",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:test/portable-transfer-restore.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:38",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/resource-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:39",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/integrations/resource-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:40",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/cli-operation.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:41",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/cli-recovery.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:42",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "source",
+          "resource": "reference:ocfl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:43",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "source",
+          "resource": "reference:bagit"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:44",
+      "meaning": "urn:usl:portability-plan:scheduled_in",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "milestone",
+          "resource": "milestone:MVP"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:45",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R01"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT03-C1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:46",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R03"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT03-C2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:47",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT03-C3"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:48",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT03"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT03-C4"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:49",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:50",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:51",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:52",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:53",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:test/portable-transfer-portability.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:54",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:.github/workflows/portable-transfer.yml"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:55",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:docs/PORTABLE_TRANSFER.md"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:56",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/resource-bindings.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:57",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/cli-operation.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:58",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "source",
+          "resource": "reference:ocfl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:59",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "source",
+          "resource": "reference:bagit"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:60",
+      "meaning": "urn:usl:portability-plan:scheduled_in",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "milestone",
+          "resource": "milestone:MVP"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:61",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R07"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT04-C1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:62",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R07"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT04-C2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:63",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R07"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT04-C3"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:64",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:65",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:66",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:67",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:68",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:src/addons/portable-anchors.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:69",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:src/addons/rdf-snapshot-digest.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:70",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:test/portable-anchors.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:71",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/resource-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:72",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/contract-core.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:73",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "source",
+          "resource": "reference:annotation"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:74",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "source",
+          "resource": "reference:rdf-canon"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:75",
+      "meaning": "urn:usl:portability-plan:scheduled_in",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "milestone",
+          "resource": "milestone:FOLLOW_UP"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:76",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R04"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT05-C1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:77",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R04"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT05-C2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:78",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R04"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT05-C3"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:79",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:80",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:81",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:82",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:83",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:84",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:src/addons/portable-revisions.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:85",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:test/portable-revisions.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:86",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/resource-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:87",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "source",
+          "resource": "reference:syncthing"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:88",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "source",
+          "resource": "reference:automerge"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:89",
+      "meaning": "urn:usl:portability-plan:scheduled_in",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "milestone",
+          "resource": "milestone:FOLLOW_UP"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:90",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT06-C1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:91",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT06-C2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:92",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT06"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R05"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT06-C3"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:93",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:94",
+      "meaning": "urn:usl:portability-plan:depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:PT06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:95",
+      "meaning": "urn:usl:portability-plan:addresses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:96",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:src/addons/portable-operation-review.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:97",
+      "meaning": "urn:usl:portability-plan:planned_output",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "artifact",
+          "resource": "planned:test/portable-operation-review.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:98",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/cli-operation.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:99",
+      "meaning": "urn:usl:portability-plan:reuses",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/cli-recovery.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:100",
+      "meaning": "urn:usl:portability-plan:informed_by",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "source",
+          "resource": "reference:syncthing"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:101",
+      "meaning": "urn:usl:portability-plan:scheduled_in",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "milestone",
+          "resource": "milestone:FOLLOW_UP"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:102",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT07-C1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:103",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT07-C2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "portability-link:104",
+      "meaning": "urn:usl:portability-plan:acceptance_for",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        },
+        {
+          "role": "criterion",
+          "resource": "criterion:PT07-C3"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "planningState": "PROPOSED",
+        "execution": "NOT_CLAIMED"
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "source:portability-plan",
+      "source:portability-generator",
+      "user:portability-plan"
+    ],
+    "activity": "activity:portability-planning",
+    "agent": "agent:portability-planner"
+  }
+}

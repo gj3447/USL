@@ -1,0 +1,46 @@
+@prefix p: <urn:usl:portability-plan:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+p:TaskShape a sh:NodeShape ;
+  sh:targetClass p:Task ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path p:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "PLANNED" ] ;
+  sh:property [ sh:path p:implementation ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_STARTED" ] ;
+  sh:property [ sh:path p:proofStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_PROVEN" ] ;
+  sh:property [ sh:path p:dependsOn ; sh:class p:Task ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path p:addresses ; sh:minCount 1 ; sh:class p:Requirement ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path p:acceptance ; sh:minCount 1 ; sh:class p:AcceptanceCriterion ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path p:plannedOutput ; sh:minCount 1 ; sh:class p:PlannedArtifact ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path p:milestone ; sh:minCount 1 ; sh:maxCount 1 ; sh:class p:Milestone ; sh:nodeKind sh:IRI ] ;
+  sh:sparql [
+    sh:message "A task's addressed requirements must equal its acceptance requirements." ;
+    sh:select """
+      PREFIX p: <urn:usl:portability-plan:>
+      SELECT $this WHERE {
+        { $this p:addresses ?requirement . FILTER NOT EXISTS { $this p:acceptance/p:forRequirement ?requirement } }
+        UNION
+        { $this p:acceptance/p:forRequirement ?requirement . FILTER NOT EXISTS { $this p:addresses ?requirement } }
+      }
+    """
+  ] .
+
+p:AcceptanceCriterionShape a sh:NodeShape ;
+  sh:targetClass p:AcceptanceCriterion ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path p:forTask ; sh:minCount 1 ; sh:maxCount 1 ; sh:class p:Task ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path p:forRequirement ; sh:minCount 1 ; sh:maxCount 1 ; sh:class p:Requirement ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path p:execution ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_RUN" ] ;
+  sh:property [ sh:path p:expectation ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path p:negativeCase ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path [ sh:inversePath p:acceptance ] ; sh:equals p:forTask ] .
+
+p:RequirementShape a sh:NodeShape ;
+  sh:targetClass p:Requirement ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path p:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] .
+
+p:MilestoneShape a sh:NodeShape ;
+  sh:targetClass p:Milestone ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path p:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "PLANNED" ] .
+
+p:PlannedArtifactShape a sh:NodeShape ;
+  sh:targetClass p:PlannedArtifact ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path p:implementation ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_STARTED" ] .
