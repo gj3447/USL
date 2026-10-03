@@ -3,17 +3,18 @@
   "authority": "SECONDARY_AI",
   "status": "PASS",
   "generatedAt": "2026-10-03",
-  "sourceCommit": "05d4c68de0f4a417bb7290a136b7d977a586711b",
+  "sourceCommit": "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38",
   "scope": "C01_HELP_AND_EXISTING_CLI_REGRESSION_CONTRACTS",
-  "recording": "Fresh local command replay after optional rule-policy integration; prior receipt bytes are retained in research/architecture/history/.",
+  "recording": "Fresh local verification after optional offline learner-review integration; prior receipt bytes remain reachable at previousReceipt.gitRevision/path.",
   "proofStatus": "NO_NEW_LEAN_PROOF",
   "sourcePins": {
     "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:c54c23c8bae90cff86e70e1b8664e5fbb177dc2caa54d33ae04bc916282134c3",
+    "package.json": "sha256:755f48d689e870f016cf5e747b089e902ae2cdab8305b1b5ce85de01dc94d711",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
+    "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
     "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
     "src/attempt-state.ts": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
     "src/binding-inspection.ts": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
@@ -126,9 +127,11 @@
     "test/resource-graph.test.ts": "sha256:783eb30001029d60d68c5d366e198af4ef8fa8688f281f2e0fd7b40e0a5b6295",
     "test/rule-policy.test.ts": "sha256:e2efe34ed79ca85022c7fd8b942b0e67d534da2d3cdcf3608a481a914aa01c0a",
     "test/rule-weight-evidence.test.ts": "sha256:1f7be5bd2e32be3f3192a3165a61f7d587d18b7d3a049f3c18c1712b859266ac",
+    "test/rule-weight-review-cli.test.ts": "sha256:7cd8bedd984239ec54a369aad12a4e1270c5bdff26f0d5073b0c8a63f4e6096d",
+    "test/rule-weight-review.test.ts": "sha256:0987adac389bb171e34304e53e90959806c64ba8a4d70efa9a77964ebca021fd",
     "test/semantic-projection-validation.test.ts": "sha256:e9ec995d425513b9844699a5410ac5dd1186f86373ef80b47363fa492476e2c8",
     "test/storage.test.ts": "sha256:22df92e8a30ec11d3afd41cbcff312ffe9afe8e92f1775d761caa7f0e0c6cc53",
-    "tsconfig.json": "sha256:70909037dbe29d542724454387cd1b42ad22d190513330ed24981d1bdeaafcc7"
+    "tsconfig.json": "sha256:290103982e2112b8c2f2a5fb18fff73e711331bad9d6e2d42c1e9e6a211b7c54"
   },
   "tasks": [
     {
@@ -145,19 +148,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "331 tests passed, 0 failed, 0 skipped, including 7 optional rule-weight-evidence tests and 12 rule-policy tests."
+          "observed": "342 tests passed, 0 failed, 0 skipped, including 6 rule-weight-review runtime tests and 5 companion CLI tests."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional evidence contract and graph builder."
+          "observed": "TypeScript check passed, including the optional offline learner-review contract, CLI, fixture and graph builders."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/rule-weight-evidence package export resolved. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/rule-weight-review package export resolved separately. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -207,9 +210,9 @@
       ]
     }
   ],
-  "supersedesReceiptDigest": "sha256:74acd208687062ee97ac75e96eb0452f7f548dfe67e777f358eb1e6ad383ad07",
+  "supersedesReceiptDigest": "sha256:b754154886ba44cae673653f74598b3a1437d6262f3d5a09f8a76f4d13b18ba3",
   "previousReceipt": {
-    "gitRevision": "947b4dbf52278d998be31f936d4cf3384e3acd89",
+    "gitRevision": "bfbf110ddc8c9092b480ebe6948cb1681863bd81",
     "path": "research/architecture/core-cli-c01.receipt.json"
   }
 }

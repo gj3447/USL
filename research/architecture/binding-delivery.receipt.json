@@ -4,7 +4,7 @@
   "status": "PASS",
   "generatedAt": "2026-10-03",
   "scope": "LOCAL_BINDING_FIXTURES_AND_CLI_CONTRACTS",
-  "recording": "Fresh local command replay after optional rule-policy integration; prior receipt bytes are retained in research/architecture/history/.",
+  "recording": "Fresh local verification after optional offline learner-review integration; prior receipt bytes remain reachable at previousReceipt.gitRevision/path.",
   "proofStatus": "NO_NEW_LEAN_PROOF",
   "sourcePins": {
     "docs/ADDON_BINDING.md": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de",
@@ -16,10 +16,11 @@
     "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
     "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:c54c23c8bae90cff86e70e1b8664e5fbb177dc2caa54d33ae04bc916282134c3",
+    "package.json": "sha256:755f48d689e870f016cf5e747b089e902ae2cdab8305b1b5ce85de01dc94d711",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
+    "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
     "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
     "src/attempt-state.ts": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
     "src/binding-inspection.ts": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
@@ -71,19 +72,72 @@
     "src/resource-bindings.ts": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
     "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
     "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
+    "test/adapter-boundaries.test.ts": "sha256:56d6f42e37f8cee2dfcdc1fdc8f011ea7ddb01355f543b0a6b56d44e1e6a0d29",
+    "test/adapters.test.ts": "sha256:7b38ae2fbe0c75899dc6704e8e097a0adf667d23810ef7b1bfcb6022ee9d0f62",
     "test/addon-binding-cli.test.ts": "sha256:f22869c2ffb29b6ee7e52a26879dbccde78deef37bb1aac6ef02fc87d0d91fcf",
+    "test/application.test.ts": "sha256:2a99b4f54cd2411b120db9f03ba1398d3f8a6e57dfab48ba41c16fd1148e9f3e",
+    "test/attempt-state.test.ts": "sha256:5d7de5365f5000e0647001f7e48cf7d4250702e0a04dbc2e0670265f0d9dd648",
     "test/binding-graph.test.ts": "sha256:cdc1b9aa5eac4c2646d0bd7302b7f4c3943a019a82a601c3f8e54aa23fca67bb",
+    "test/binding-inspection.test.ts": "sha256:78a3b1a44ff4a03813af44ccd0ebb529011cee7de0ff7e0a8e846b999db59dcd",
+    "test/bounded-read.test.ts": "sha256:4e9a33b5056e94b52dd2bd6f4c392aeb907a9a9979ed9b291e352eb4d69b1b9e",
+    "test/capability-catalog.test.ts": "sha256:52c9f7f825ce8759c6c764010b181e14ad4a75be5897d058fc56fd0183e0adbd",
+    "test/capability-inventory-boundaries.test.ts": "sha256:07f8613c1f488ad65d210f1841afc1121c69be622229ad766d12ac9badfc16f7",
+    "test/capability-platform.test.ts": "sha256:76c5a1b242d567e816295ca9bcc68639ff5f6bb5d1113b3b7948de7c24588162",
+    "test/cli-graph-fixture.test.ts": "sha256:082cd32807d738ad1cb6f3a39944d713f47a7efbb1d0a2e842e8de829fffe24c",
+    "test/cli-help.test.ts": "sha256:e41656fcaf71135a375f7fd8f82dbeda0e921a2d7117647767656aca40a4347c",
+    "test/cli-host-boundaries.test.ts": "sha256:e663439aab9cd1c95b2a341a5c6a0823154711fc285806a120d8a16adcd9a6ad",
+    "test/cli-host.test.ts": "sha256:d384ea041e287b90e756354103b8f32bded899960c333b901a3ef91d9a4ccb2f",
+    "test/cli-operation.test.ts": "sha256:3ad6ba12db67f3449ee44e53b9eedcd0a9eaadc8ce2e76179ff3bacf1027a736",
+    "test/cli-platform.test.ts": "sha256:f022f89d08e52ae17255d3c3d2282cb2a112a56dd641acad75e3390a3d21e53b",
+    "test/cli-process.test.ts": "sha256:084e646510c40cb2b4d47ee5e1c8305887198b7af70740aa6333a00519af028e",
+    "test/cli-project-inputs.test.ts": "sha256:e2a1163cb037da5e65599d86e4b0ce0d96d00d68fbddd8f842d9bebd016ef6fc",
+    "test/cli-recovery.test.ts": "sha256:c8f869a178c735d68c0a50634f871599bbcf521597c9cd6f6a76f5260e5e44a5",
     "test/cli.test.ts": "sha256:0fa8d1841a065051f755070164bd2c8b6dee35140e4abec377ac5250e432ad6c",
+    "test/code-types.ts": "sha256:b5e91274e6962d9ad29472dab10806819b6b8b9ef2170ebb54ce88e2872ad823",
+    "test/code.test.ts": "sha256:dfc5a116cbaaedf4e0f3c3aa39b04ae3c0d81ebe8db72a1211c85da84cff1dfa",
     "test/compact-counter.test.ts": "sha256:c94b3639cd0924f4c5b7c4106021d31e86389b842a07d63d7f739e74986bf252",
     "test/compact.test.ts": "sha256:e66330a98884a2db2f4fa4cf67a67332c46f1572c8c10e11d1c6818a65e9f1ae",
+    "test/contracts.test.ts": "sha256:d0442a3b4e9c04fe0dfa462152df5ab51c021f94d66774bb96a096a6da576b7d",
+    "test/domain-profile-platform.test.ts": "sha256:77db1fe7e0f12127e8c3b28d1ee60faabc6381cd8dc057fcb73942293fe879f6",
+    "test/engineering-adversarial-cases.ts": "sha256:3c9220c56b0c7b4c4ea30884488bc51635a1e01c820bf6d3d419a3913b8e2c94",
+    "test/engineering-contracts.test.ts": "sha256:e2d07a6da332b4bef7b2244557612c8f0cc9f6c1b741bcd780cb474bdd415e91",
+    "test/engineering-workflow.test.ts": "sha256:1cd45c9ed50b724c015478ab55f5b3d26a69bb01cbcfb5b200f715804acd6d2d",
     "test/fixtures.ts": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7",
+    "test/game-workflow.test.ts": "sha256:b1502b1b4086467df95b6d05731a05c8266d8aa3e7fa35cfffa17604f4e83ede",
+    "test/graph-engineering.test.ts": "sha256:919c33ad58a22f2c8a21e6eb5552f0b6318e05a1acb9b43069170eb87fb102f4",
+    "test/hswm-integration.test.ts": "sha256:d7809f666015d00f13b64f374af8b19348eb1a707a12fc90088e9d2893e5d8bb",
     "test/language.test.ts": "sha256:beab4a369b8da4936ff6fecb8f33150bc9a74b0921c4d50bf4abe4a0b8a6b450",
+    "test/lean4.integration.ts": "sha256:1557280af3e56994aa70195b161cd35142d00a8403a49f04e11b5207e1acb66a",
+    "test/lean4.test.ts": "sha256:79fcbc15d4f90ca7414f005261b930d49a3e2390527b0aa50b1934345ca1a9a1",
+    "test/locator.test.ts": "sha256:19374e0ded39c15e91f710a76a2ecebf4c57bb67326a719f46ba5854bc3741d5",
+    "test/mcp-config.test.ts": "sha256:6d1f45913b449ef2276471b52b17f6064730efd0687e41f761eb76e2aedd458f",
+    "test/mcp-connection-server.ts": "sha256:19280fa68090f2a5faf53355702be1a6bb855d1255148c926801f2c65aa3486c",
+    "test/mcp-program-server.ts": "sha256:cd0349b70470a07f33071b46400923893a438236e36813cebbab433f8abe6355",
+    "test/mcp.test.ts": "sha256:80352d281a6cff72d44368b1d6a77183efaa8fe940788fb6ab7dbba944510d65",
     "test/navigation.test.ts": "sha256:a7a9a2a5125151e20516a9e964c667176f1cedf76d068d0f794f05709d2d2118",
+    "test/observation-boundaries.test.ts": "sha256:690aabbc715b96d1bbdc4b9d7ff27329b8982ce3c85318285cd88f2a86897225",
+    "test/observation-envelope.test.ts": "sha256:e2cef42be28c3afe784afbd30ce29512d20b68ed4165c24852ecb608757332e2",
+    "test/observation-options-errors.test.ts": "sha256:73eb201daae761d7da34def8e42fd3cf491494c119f2bf4291d9186604f37b0b",
+    "test/observation-url-aliases.test.ts": "sha256:3e911a9f846a34b549697f7456051fde0f398d6a088d6f95693841370e9b0b56",
+    "test/observation-validation.test.ts": "sha256:7270c941eae55c9985771a7fcc0e9ab990238adcf17358fecfa9342d7333330e",
+    "test/observation.test.ts": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73",
+    "test/permissions.test.ts": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db",
+    "test/pierce.test.ts": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40",
+    "test/program-store.test.ts": "sha256:e664fd9bd08ad302e126ea650419fca1cd33abf98cae562e24fe6820c8c14c19",
+    "test/project.test.ts": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e",
+    "test/property-graph.test.ts": "sha256:1b0708cb890158f480e8b1f78fe16f40e943ee3af6ec5d2d425fa249c40f4d2a",
+    "test/record-validation.test.ts": "sha256:57663b7b3017da196a3dd9e1c1b21b5745f0c0d95520b08775e68c33c1618dea",
+    "test/resolve.test.ts": "sha256:836ab9a7610bb99a5a5740a752ccd076c20ae95e8d697d5f063eec7700185f26",
     "test/resource-bindings.test.ts": "sha256:0436c0523a7abaf4d7c35facd821007f9b45a6dfda03c6d0da6e6ff588f58cd8",
     "test/resource-graph-platform.test.ts": "sha256:dbd22b77cbb2152a8f26cc5767d0c2f354a19f2171c19c1a8ad58ff2d76c7959",
+    "test/resource-graph.test.ts": "sha256:783eb30001029d60d68c5d366e198af4ef8fa8688f281f2e0fd7b40e0a5b6295",
     "test/rule-policy.test.ts": "sha256:e2efe34ed79ca85022c7fd8b942b0e67d534da2d3cdcf3608a481a914aa01c0a",
     "test/rule-weight-evidence.test.ts": "sha256:1f7be5bd2e32be3f3192a3165a61f7d587d18b7d3a049f3c18c1712b859266ac",
-    "tsconfig.json": "sha256:70909037dbe29d542724454387cd1b42ad22d190513330ed24981d1bdeaafcc7"
+    "test/rule-weight-review-cli.test.ts": "sha256:7cd8bedd984239ec54a369aad12a4e1270c5bdff26f0d5073b0c8a63f4e6096d",
+    "test/rule-weight-review.test.ts": "sha256:0987adac389bb171e34304e53e90959806c64ba8a4d70efa9a77964ebca021fd",
+    "test/semantic-projection-validation.test.ts": "sha256:e9ec995d425513b9844699a5410ac5dd1186f86373ef80b47363fa492476e2c8",
+    "test/storage.test.ts": "sha256:22df92e8a30ec11d3afd41cbcff312ffe9afe8e92f1775d761caa7f0e0c6cc53",
+    "tsconfig.json": "sha256:290103982e2112b8c2f2a5fb18fff73e711331bad9d6e2d42c1e9e6a211b7c54"
   },
   "tasks": [
     {
@@ -100,19 +154,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "331 tests passed, 0 failed, 0 skipped, including 7 optional rule-weight-evidence tests and 12 rule-policy tests."
+          "observed": "342 tests passed, 0 failed, 0 skipped, including 6 rule-weight-review runtime tests and 5 companion CLI tests."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional evidence contract and graph builder."
+          "observed": "TypeScript check passed, including the optional offline learner-review contract, CLI, fixture and graph builders."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/rule-weight-evidence package export resolved. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/rule-weight-review package export resolved separately. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -185,19 +239,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "331 tests passed, 0 failed, 0 skipped, including 7 optional rule-weight-evidence tests and 12 rule-policy tests."
+          "observed": "342 tests passed, 0 failed, 0 skipped, including 6 rule-weight-review runtime tests and 5 companion CLI tests."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional evidence contract and graph builder."
+          "observed": "TypeScript check passed, including the optional offline learner-review contract, CLI, fixture and graph builders."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/rule-weight-evidence package export resolved. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/rule-weight-review package export resolved separately. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -275,19 +329,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "331 tests passed, 0 failed, 0 skipped, including 7 optional rule-weight-evidence tests and 12 rule-policy tests."
+          "observed": "342 tests passed, 0 failed, 0 skipped, including 6 rule-weight-review runtime tests and 5 companion CLI tests."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional evidence contract and graph builder."
+          "observed": "TypeScript check passed, including the optional offline learner-review contract, CLI, fixture and graph builders."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/rule-weight-evidence package export resolved. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/rule-weight-review package export resolved separately. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -352,10 +406,10 @@
       ]
     }
   ],
-  "supersedesReceiptDigest": "sha256:43e62ad1335f9769d239b8ab2c4d80a45c5135282ad88d80a362938fe2b62174",
-  "sourceCommit": "05d4c68de0f4a417bb7290a136b7d977a586711b",
+  "supersedesReceiptDigest": "sha256:1be0ebb394c43f45e01b95098c6429830a4d1877aeaf51782cbfc43b648c3dfe",
+  "sourceCommit": "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38",
   "previousReceipt": {
-    "gitRevision": "947b4dbf52278d998be31f936d4cf3384e3acd89",
+    "gitRevision": "bfbf110ddc8c9092b480ebe6948cb1681863bd81",
     "path": "research/architecture/binding-delivery.receipt.json"
   }
 }
