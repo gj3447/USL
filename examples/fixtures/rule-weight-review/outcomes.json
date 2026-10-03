@@ -1,0 +1,5809 @@
+{
+  "schema": "usl-synthetic-policy-outcomes/v1",
+  "experiment": {
+    "schema": "usl-synthetic-policy-experiment/v1",
+    "dataKind": "SYNTHETIC",
+    "seed": 20261003,
+    "trainUnits": 128,
+    "holdoutUnits": 512,
+    "choices": [
+      "urn:example:w:baseline-action",
+      "urn:example:w:candidate-action"
+    ],
+    "loggingProbabilities": [
+      0.5,
+      0.5
+    ],
+    "task": "Choose an answer from two memory bundles using the policy penalty; compare its ID to a separately specified gold answer.",
+    "scenarios": [
+      "source-sensitive: answer A has one missing source among five records; gold answer B has sources but no tags",
+      "neutral: gold answer A satisfies both rules; answer B violates both"
+    ],
+    "scope": "AUTHORED_SYNTHETIC_TASKS_ONLY",
+    "independence": "DECLARED_SYNTHETIC_UNITS_NOT_AUTHENTICATED_OPERATIONAL_INDEPENDENCE"
+  },
+  "scores": [
+    [
+      [
+        0.16000000000000003,
+        0.2
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        0.18000000000000002,
+        0.1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  ],
+  "outcomes": [
+    {
+      "unitUid": "urn:example:w:unit:0",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:1",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:2",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:3",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:4",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:5",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:6",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:7",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:8",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:9",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:10",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:11",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:12",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:13",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:14",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:15",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:16",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:17",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:18",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:19",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:20",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:21",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:22",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:23",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:24",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:25",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:26",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:27",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:28",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:29",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:30",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:31",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:32",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:33",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:34",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:35",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:36",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:37",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:38",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:39",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:40",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:41",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:42",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:43",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:44",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:45",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:46",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:47",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:48",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:49",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:50",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:51",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:52",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:53",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:54",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:55",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:56",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:57",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:58",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:59",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:60",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:61",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:62",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:63",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:64",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:65",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:66",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:67",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:68",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:69",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:70",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:71",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:72",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:73",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:74",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:75",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:76",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:77",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:78",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:79",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:80",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:81",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:82",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:83",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:84",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:85",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:86",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:87",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:88",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:89",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:90",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:91",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:92",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:93",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:94",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:95",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:96",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:97",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:98",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:99",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:100",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:101",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:102",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:103",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:104",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:105",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:106",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:107",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:108",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:109",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:110",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:111",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:112",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:113",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:114",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:115",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:116",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:117",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:118",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:119",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:120",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:121",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:122",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:123",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:124",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:125",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:126",
+      "split": "train",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:127",
+      "split": "train",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:128",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:129",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:130",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:131",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:132",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:133",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:134",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:135",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:136",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:137",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:138",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:139",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:140",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:141",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:142",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:143",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:144",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:145",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:146",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:147",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:148",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:149",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:150",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:151",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:152",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:153",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:154",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:155",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:156",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:157",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:158",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:159",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:160",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:161",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:162",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:163",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:164",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:165",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:166",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:167",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:168",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:169",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:170",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:171",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:172",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:173",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:174",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:175",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:176",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:177",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:178",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:179",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:180",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:181",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:182",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:183",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:184",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:185",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:186",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:187",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:188",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:189",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:190",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:191",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:192",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:193",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:194",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:195",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:196",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:197",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:198",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:199",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:200",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:201",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:202",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:203",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:204",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:205",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:206",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:207",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:208",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:209",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:210",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:211",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:212",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:213",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:214",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:215",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:216",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:217",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:218",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:219",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:220",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:221",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:222",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:223",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:224",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:225",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:226",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:227",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:228",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:229",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:230",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:231",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:232",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:233",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:234",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:235",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:236",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:237",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:238",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:239",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:240",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:241",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:242",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:243",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:244",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:245",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:246",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:247",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:248",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:249",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:250",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:251",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:252",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:253",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:254",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:255",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:256",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:257",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:258",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:259",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:260",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:261",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:262",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:263",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:264",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:265",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:266",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:267",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:268",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:269",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:270",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:271",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:272",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:273",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:274",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:275",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:276",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:277",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:278",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:279",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:280",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:281",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:282",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:283",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:284",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:285",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:286",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:287",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:288",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:289",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:290",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:291",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:292",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:293",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:294",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:295",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:296",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:297",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:298",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:299",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:300",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:301",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:302",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:303",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:304",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:305",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:306",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:307",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:308",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:309",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:310",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:311",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:312",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:313",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:314",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:315",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:316",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:317",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:318",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:319",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:320",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:321",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:322",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:323",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:324",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:325",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:326",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:327",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:328",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:329",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:330",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:331",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:332",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:333",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:334",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:335",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:336",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:337",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:338",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:339",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:340",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:341",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:342",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:343",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:344",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:345",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:346",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:347",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:348",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:349",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:350",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:351",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:352",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:353",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:354",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:355",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:356",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:357",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:358",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:359",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:360",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:361",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:362",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:363",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:364",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:365",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:366",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:367",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:368",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:369",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:370",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:371",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:372",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:373",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:374",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:375",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:376",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:377",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:378",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:379",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:380",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:381",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:382",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:383",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:384",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:385",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:386",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:387",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:388",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:389",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:390",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:391",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:392",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:393",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:394",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:395",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:396",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:397",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:398",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:399",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:400",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:401",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:402",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:403",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:404",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:405",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:406",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:407",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:408",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:409",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:410",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:411",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:412",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:413",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:414",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:415",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:416",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:417",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:418",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:419",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:420",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:421",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:422",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:423",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:424",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:425",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:426",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:427",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:428",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:429",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:430",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:431",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:432",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:433",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:434",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:435",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:436",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:437",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:438",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:439",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:440",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:441",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:442",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:443",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:444",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:445",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:446",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:447",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:448",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:449",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:450",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:451",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:452",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:453",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:454",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:455",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:456",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:457",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:458",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:459",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:460",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:461",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:462",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:463",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:464",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:465",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:466",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:467",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:468",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:469",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:470",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:471",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:472",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:473",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:474",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:475",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:476",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:477",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:478",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:479",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:480",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:481",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:482",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:483",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:484",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:485",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:486",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:487",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:488",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:489",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:490",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:491",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:492",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:493",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:494",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:495",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:496",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:497",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:498",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:499",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:500",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:501",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:502",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:503",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:504",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:505",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:506",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:507",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:508",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:509",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:510",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:511",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:512",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:513",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:514",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:515",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:516",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:517",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:518",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:519",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:520",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:521",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:522",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:523",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:524",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:525",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:526",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:527",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:528",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:529",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:530",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:531",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:532",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:533",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:534",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:535",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:536",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:537",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:538",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:539",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:540",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:541",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:542",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:543",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:544",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:545",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:546",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:547",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:548",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:549",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:550",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:551",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:552",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:553",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:554",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:555",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:556",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:557",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:558",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:559",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:560",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:561",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:562",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:563",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:564",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:565",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:566",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:567",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:568",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:569",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:570",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:571",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:572",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:573",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:574",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:575",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:576",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:577",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:578",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:579",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:580",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:581",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:582",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:583",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:584",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:585",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:586",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:587",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:588",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:589",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:590",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:591",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:592",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:593",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:594",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:595",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:596",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:597",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:598",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:599",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:600",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:601",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:602",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:603",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:604",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:605",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:606",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:607",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:608",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:609",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:610",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:611",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:612",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:613",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:614",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:615",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:616",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:617",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:618",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:619",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:620",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:621",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:622",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:623",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:624",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:625",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:626",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:627",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:628",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:629",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:630",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:631",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:632",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:633",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:634",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:635",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:636",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:B",
+      "correct": false
+    },
+    {
+      "unitUid": "urn:example:w:unit:637",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:638",
+      "split": "holdout",
+      "scenario": 0,
+      "actionUid": "urn:example:w:candidate-action",
+      "selectedAnswer": "answer:B",
+      "expectedAnswer": "answer:B",
+      "correct": true
+    },
+    {
+      "unitUid": "urn:example:w:unit:639",
+      "split": "holdout",
+      "scenario": 1,
+      "actionUid": "urn:example:w:baseline-action",
+      "selectedAnswer": "answer:A",
+      "expectedAnswer": "answer:A",
+      "correct": true
+    }
+  ]
+}

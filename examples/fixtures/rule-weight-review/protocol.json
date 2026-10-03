@@ -1,0 +1,22 @@
+{
+  "schema": "usl-synthetic-policy-experiment/v1",
+  "dataKind": "SYNTHETIC",
+  "seed": 20261003,
+  "trainUnits": 128,
+  "holdoutUnits": 512,
+  "choices": [
+    "urn:example:w:baseline-action",
+    "urn:example:w:candidate-action"
+  ],
+  "loggingProbabilities": [
+    0.5,
+    0.5
+  ],
+  "task": "Choose an answer from two memory bundles using the policy penalty; compare its ID to a separately specified gold answer.",
+  "scenarios": [
+    "source-sensitive: answer A has one missing source among five records; gold answer B has sources but no tags",
+    "neutral: gold answer A satisfies both rules; answer B violates both"
+  ],
+  "scope": "AUTHORED_SYNTHETIC_TASKS_ONLY",
+  "independence": "DECLARED_SYNTHETIC_UNITS_NOT_AUTHENTICATED_OPERATIONAL_INDEPENDENCE"
+}

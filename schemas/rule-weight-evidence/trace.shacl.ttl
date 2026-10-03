@@ -43,4 +43,31 @@ rw:WeightRevisionProposalShape a sh:NodeShape ; sh:targetClass rw:WeightRevision
   sh:property [ sh:path rw:inContext ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Context ; sh:nodeKind sh:IRI ] ; sh:property [ sh:path rw:evidence ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Evidence ; sh:nodeKind sh:IRI ] ;
   sh:property [ sh:path rw:proposalState ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "OWNER_REVIEW_REQUIRED" ] ; sh:property [ sh:path rw:effectiveness ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_ESTABLISHED" ] .
 rw:HSWM_W_ConceptShape a sh:NodeShape ; sh:targetClass rw:HSWM_W_Concept ; sh:nodeKind sh:IRI ; sh:property [ sh:path rw:canonicalMapping ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_CONNECTED" ] .
+rw:LearningDatasetShape a sh:NodeShape ; sh:targetClass rw:LearningDataset ; sh:nodeKind sh:IRI ; sh:node rw:DigestShape ;
+  sh:property [ sh:path rw:inContext ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Context ] ;
+  sh:property [ sh:path rw:inputDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path rw:dataKind ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SYNTHETIC" ] .
+rw:LearnerReportShape a sh:NodeShape ; sh:targetClass rw:LearnerReport ; sh:nodeKind sh:IRI ; sh:node rw:DigestShape ;
+  sh:property [ sh:path rw:derivedFrom ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:LearningDataset ] ;
+  sh:property [ sh:path rw:inputDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path ( rw:derivedFrom rw:inputDigest ) ; sh:equals rw:inputDigest ] .
+rw:ReplayObservationShape a sh:NodeShape ; sh:targetClass rw:ReplayObservation ; sh:nodeKind sh:IRI ; sh:node rw:DigestShape ;
+  sh:property [ sh:path rw:verifiedReport ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:LearnerReport ] ;
+  sh:property [ sh:path rw:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "INDEPENDENT_LOCAL_COPIES" ] .
+rw:LearnerReviewShape a sh:NodeShape ; sh:targetClass rw:LearnerReview ; sh:nodeKind sh:IRI ; sh:node rw:DigestShape ;
+  sh:property [ sh:path rw:reviewsProposal ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:WeightRevisionProposal ] ;
+  sh:property [ sh:path rw:inContext ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:Context ] ;
+  sh:property [ sh:path ( rw:reviewsProposal rw:inContext ) ; sh:equals rw:inContext ] ;
+  sh:property [ sh:path rw:usesDataset ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:LearningDataset ] ;
+  sh:property [ sh:path ( rw:usesDataset rw:inContext ) ; sh:equals rw:inContext ] ;
+  sh:property [ sh:path rw:usesReport ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:LearnerReport ] ;
+  sh:property [ sh:path ( rw:usesReport rw:derivedFrom ) ; sh:equals rw:usesDataset ] ;
+  sh:property [ sh:path rw:usesReplay ; sh:minCount 1 ; sh:maxCount 1 ; sh:class rw:ReplayObservation ] ;
+  sh:property [ sh:path ( rw:usesReplay rw:verifiedReport ) ; sh:equals rw:usesReport ] ;
+  sh:property [ sh:path rw:reportDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path ( rw:usesReport rw:digest ) ; sh:equals rw:reportDigest ] ;
+  sh:property [ sh:path rw:reviewStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "REVIEW_READY" "KEEP_BASELINE" "HOLD" ) ] ;
+  sh:property [ sh:path rw:disposition ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "REVIEW_ONLY_NOT_APPLIED" ] ;
+  sh:property [ sh:path rw:dataKind ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SYNTHETIC" ] ;
+  sh:property [ sh:path rw:effectiveness ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_ESTABLISHED" ] .
 rw:NoEquivalenceShape a sh:NodeShape ; sh:targetSubjectsOf owl:sameAs ; sh:property [ sh:path owl:sameAs ; sh:maxCount 0 ] .

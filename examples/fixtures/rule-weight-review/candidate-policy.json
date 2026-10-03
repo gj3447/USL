@@ -1,0 +1,51 @@
+{
+  "schema": "usl-rule-policy/v1",
+  "id": "urn:example:dashboard:memory-policy",
+  "version": "2-proposed",
+  "target": "example:dashboard-memory",
+  "consumer": "example:dashboard-consumer",
+  "scope": "example-memory-quality",
+  "conflictPolicy": "REJECT",
+  "scoring": "WEIGHTED_MEAN_VIOLATION_V1",
+  "rules": [
+    {
+      "id": "urn:example:rule:references",
+      "version": "1",
+      "description": "Every memory reference names an existing record",
+      "requirement": "REQUIRED",
+      "severity": "VIOLATION",
+      "onViolation": "BLOCK",
+      "weight": 0,
+      "evaluator": {
+        "id": "urn:example:dashboard:references-exist",
+        "version": "1"
+      }
+    },
+    {
+      "id": "urn:example:rule:sources",
+      "version": "1",
+      "description": "Prefer a declared original source for every record; does not verify the source",
+      "requirement": "RECOMMENDED",
+      "severity": "WARNING",
+      "onViolation": "PENALIZE",
+      "weight": 0.9,
+      "evaluator": {
+        "id": "urn:example:dashboard:sources-present",
+        "version": "1"
+      }
+    },
+    {
+      "id": "urn:example:rule:tags",
+      "version": "1",
+      "description": "Prefer at least one tag for every record",
+      "requirement": "RECOMMENDED",
+      "severity": "INFO",
+      "onViolation": "PENALIZE",
+      "weight": 0.1,
+      "evaluator": {
+        "id": "urn:example:dashboard:tags-present",
+        "version": "1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "expectedHandoffDigest": "sha256:e6c547ec050dd4766ef0eebeffbaabefa977288236eb97d68f34c2560329931e",
+  "artifactSha256": {
+    "dataset": "sha256:c1253d58ceb79a7b063b28e53a19cd1c1b3a6269b9076f040b946baf36af1786",
+    "report": "sha256:b842b9f6876c431fad8d5da811745824641acc4536795a996e606ccfa41789cb",
+    "baselineSource": "sha256:07306e87dd0d2e71e3e9008d6910dc9073b91d3a80a10510ab6551ca8f004ae9",
+    "candidateSource": "sha256:a46617b9b6dd84e5460253b0bfb4815c6dfdabfd36ec54dd4b36e9a4b5949678"
+  },
+  "evaluationContext": {
+    "expectedPolicyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+    "consumer": "example:dashboard-consumer",
+    "target": "example:dashboard-memory",
+    "targetDigest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841",
+    "scope": "example-memory-quality",
+    "supportedEvaluators": [
+      {
+        "id": "urn:example:dashboard:references-exist",
+        "version": "1"
+      },
+      {
+        "id": "urn:example:dashboard:sources-present",
+        "version": "1"
+      },
+      {
+        "id": "urn:example:dashboard:tags-present",
+        "version": "1"
+      }
+    ]
+  },
+  "evidenceHost": {
+    "expectedEvidenceDigest": "sha256:2ca6259770687e6415eebab6d1b5ce37e16e7f5f5d9d412827dc49834a7ba543",
+    "expectedContext": {
+      "id": "urn:example:context:dashboard-review",
+      "version": "1",
+      "digest": "sha256:66305a95a8948701feb0e80a73a805d4f258049770b3b0851cc4ef7568966849"
+    },
+    "expectedAction": {
+      "id": "urn:example:action:dashboard-curation",
+      "version": "1",
+      "digest": "sha256:6781886a499c2d591409bd4bf3e502d2c3af6a83d7bb2df68356b8644feb481f",
+      "participants": [
+        {
+          "role": "rule",
+          "ordinal": 0,
+          "source": {
+            "id": "urn:example:rule:references",
+            "version": "1",
+            "digest": "sha256:67382e30ceed9e38695d936542aaec3c882f8abd647a8ab36d1a4f1e4f8d15cd"
+          }
+        },
+        {
+          "role": "rule",
+          "ordinal": 1,
+          "source": {
+            "id": "urn:example:rule:sources",
+            "version": "1",
+            "digest": "sha256:cc660f1faa63ed46aeb34fe4d9d0bf919c8f9b1b0b3c12a01988c34bf24dda30"
+          }
+        },
+        {
+          "role": "rule",
+          "ordinal": 2,
+          "source": {
+            "id": "urn:example:rule:tags",
+            "version": "1",
+            "digest": "sha256:e93d3c9a0b72ba06234302417376a786884f9a8bc6dd41f80aba60ea7094fcb1"
+          }
+        }
+      ]
+    },
+    "registeredOutcomeMetric": {
+      "id": "urn:example:metric:answer-correctness",
+      "version": "1",
+      "direction": "MAXIMIZE"
+    },
+    "registeredOutcomeEvaluator": {
+      "id": "urn:example:evaluator:answer-review",
+      "version": "1"
+    }
+  }
+}

@@ -134,5 +134,61 @@
   {
     "resource": "test:scripts/validate-rule-weight-evidence.py",
     "representation": "local-33"
+  },
+  {
+    "resource": "trace:learner:dataset",
+    "representation": "local-34"
+  },
+  {
+    "resource": "trace:learner:report",
+    "representation": "local-35"
+  },
+  {
+    "resource": "trace:learner:replay",
+    "representation": "local-36"
+  },
+  {
+    "resource": "trace:learner:review",
+    "representation": "local-37"
+  },
+  {
+    "resource": "artifact:src/addons/rule-weight-review.ts",
+    "representation": "local-38"
+  },
+  {
+    "resource": "artifact:scripts/rule-weight-review.ts",
+    "representation": "local-39"
+  },
+  {
+    "resource": "artifact:scripts/build-rule-weight-review.ts",
+    "representation": "local-40"
+  },
+  {
+    "resource": "artifact:examples/rule-weight-review-fixture.ts",
+    "representation": "local-41"
+  },
+  {
+    "resource": "artifact:schemas/rule-weight-evidence/review.schema.json",
+    "representation": "local-42"
+  },
+  {
+    "resource": "artifact:schemas/rule-weight-evidence/review-host.schema.json",
+    "representation": "local-43"
+  },
+  {
+    "resource": "artifact:docs/RULE_WEIGHT_REVIEW.md",
+    "representation": "local-44"
+  },
+  {
+    "resource": "test:test/rule-weight-review.test.ts",
+    "representation": "local-45"
+  },
+  {
+    "resource": "test:test/rule-weight-review-cli.test.ts",
+    "representation": "local-46"
+  },
+  {
+    "resource": "trace:learner:execution",
+    "representation": "local-47"
   }
 ]

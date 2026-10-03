@@ -51,6 +51,7 @@ jobs:
       - run: npm run test:standards
       - run: npm run rule-policy:check
       - run: npm run rule-policy:standards
+      - run: npm run rule-weight-review:check
       - run: npm run rule-weight-evidence:check
       - run: npm run rule-weight-evidence:standards
       - run: npm run engineering:check

@@ -233,6 +233,60 @@
       ]
     },
     {
+      "id": "urn:usl:rule-weight-evidence:reviewed_with_learner",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "proposal",
+          "required": true,
+          "types": [
+            "urn:usl:rule-weight-evidence:WeightRevisionProposal"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "context",
+          "required": true,
+          "types": [
+            "urn:usl:rule-weight-evidence:Context"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "dataset",
+          "required": true,
+          "types": [
+            "urn:usl:rule-weight-evidence:LearningDataset"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "report",
+          "required": true,
+          "types": [
+            "urn:usl:rule-weight-evidence:LearnerReport"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "replay",
+          "required": true,
+          "types": [
+            "urn:usl:rule-weight-evidence:ReplayObservation"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "review",
+          "required": true,
+          "types": [
+            "urn:usl:rule-weight-evidence:LearnerReview"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
       "id": "urn:usl:rule-policy:realized_by",
       "allowExtraRoles": false,
       "roles": [

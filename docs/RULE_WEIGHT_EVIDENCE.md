@@ -34,8 +34,10 @@ flowchart LR
   B -. 향후 연결 후보 .-> W[HSWM W 평가 과정]
 ```
 
-마지막 점선은 연결 가능성에 대한 선언이다. HSWM RuleUnit 매핑, W 학습 결과
-import, 활성화·배치 제어 또는 실제 HSWM 변경은 구현하지 않았다.
+마지막 점선은 HSWM W로의 연결 가능성에 대한 선언이다. 기존 HSWM_LIKENESS의
+오프라인 결과를 가져오고 재계산하는 [선택형 검토 어댑터](RULE_WEIGHT_REVIEW.md)를
+추가했다. 정책 전체 snapshot의 명시적 매핑을 사용하며, HSWM 본체의
+활성화·배치 제어 또는 실제 변경은 수행하지 않는다.
 
 ## 계약과 변경 제안
 
@@ -95,6 +97,7 @@ fixture clock이다. 실제 대시보드 사용자 성과나 실행 시각을 �
 | `records_evidence` | evidence: Evidence, evaluation: Evaluation, context: Context, action: Action, outcome: Outcome |
 | `proposed_revision` | baseline: PolicySnapshot, candidate: PolicySnapshot, context: Context, evidence: Evidence, proposal: WeightRevisionProposal |
 | `candidate_input_to` | signal: Evidence, wConcept: HSWM_W_Concept |
+| `reviewed_with_learner` | proposal: WeightRevisionProposal, context: Context, dataset: LearningDataset, report: LearnerReport, replay: ReplayObservation, review: LearnerReview |
 
 정확한 타입 IRI는 profile에 등록한다. 기존 `rule-policy:evaluated_policy`로
 설정·대상·소비자·평가 결과를 연결하고 요청·구현·테스트·한계 관계도 재사용한다.
@@ -105,7 +108,7 @@ fixture clock이다. 실제 대시보드 사용자 성과나 실행 시각을 �
 
 2026-10-03 확인한 [SHACL 2017](https://www.w3.org/TR/2017/REC-shacl-20170720/)로
 타입·역할·cardinality·값의 제약을 검사하고, [PROV-O](https://www.w3.org/TR/prov-o/)로
-출처·활동·주체를 표현한다. SPARQL 질의는 규칙에서 맥락·결과·제안까지 경로를
+출처·활동·주체를 표현한다. SPARQL 질의는 규칙에서 맥락·결과·제안과 오프라인 검토까지 경로를
 확인한다. 잘못된 역할, 누락된 pin, W와의 동치 선언, 제안의 적용 상태 승격 등을
 반례로 검사한다. 전체 RDF/SHACL 구현 인증이나 효과·인과관계의 증명은 아니다.
 

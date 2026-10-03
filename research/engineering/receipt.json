@@ -1,18 +1,19 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:1bd7d999-d6db-443d-becd-c8dc7ae04fe7",
-  "startedAt": "2026-10-03T02:00:16.564Z",
-  "finishedAt": "2026-10-03T02:00:17.266Z",
+  "runId": "urn:uuid:75744a72-f5bf-40ea-bcf2-b74fe7421b9b",
+  "startedAt": "2026-10-03T03:26:30.568Z",
+  "finishedAt": "2026-10-03T03:26:31.262Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:c54c23c8bae90cff86e70e1b8664e5fbb177dc2caa54d33ae04bc916282134c3",
+    "package.json": "sha256:755f48d689e870f016cf5e747b089e902ae2cdab8305b1b5ce85de01dc94d711",
     "schemas/resource-graph.shacl.ttl": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
     "scripts/build-engineering-review.ts": "sha256:30cf09fd7c52bade45a9eecacc9f8fa2c0490b7a4a54df011be176064736c650",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
+    "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
     "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
     "src/attempt-state.ts": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
     "src/binding-inspection.ts": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
@@ -65,7 +66,7 @@
     "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
     "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
     "test/engineering-adversarial-cases.ts": "sha256:3c9220c56b0c7b4c4ea30884488bc51635a1e01c820bf6d3d419a3913b8e2c94",
-    "tsconfig.json": "sha256:70909037dbe29d542724454387cd1b42ad22d190513330ed24981d1bdeaafcc7"
+    "tsconfig.json": "sha256:290103982e2112b8c2f2a5fb18fff73e711331bad9d6e2d42c1e9e6a211b7c54"
   },
   "checks": [
     {
@@ -221,5 +222,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:fb8ff266dcda494e323c6e95657447a15d3fb59263ff7e03180791ab204eb5b6"
+  "receiptDigest": "sha256:381a185129b5f08f3409da36e2d17804fd3a89fdab2ceed0645974f8b9b6120a"
 }

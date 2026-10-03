@@ -1,0 +1,107 @@
+{
+  "schema": "usl-rule-weight-review-receipt/v1",
+  "preparedDigest": "sha256:5ad3faf17963e9ae48e5ea49611c124f5926db25d1c3baee9e49e4d4beabe9a5",
+  "handoffId": "urn:example:usl-rule-weight-review",
+  "handoffVersion": "1",
+  "reviewedAt": "2026-10-03T00:40:00Z",
+  "timeSource": "CALLER_DECLARED",
+  "reviewStatus": "REVIEW_READY",
+  "selected": {
+    "policyUid": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+    "evaluationUid": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80",
+    "proposalUid": "urn:hswm:proposal:894fcbb90c36661a37672a6f",
+    "placementUid": "urn:example:w:policy-placement",
+    "status": "READY_FOR_OWNER_REVIEW",
+    "reviewStatus": "REVIEW_READY",
+    "before": {
+      "uid": "urn:example:w:policy-placement",
+      "revision": "1",
+      "contextUid": "urn:example:context:dashboard-review",
+      "actionUid": "urn:example:w:baseline-action"
+    },
+    "after": {
+      "uid": "urn:example:w:policy-placement",
+      "revision": "candidate-894fcbb90c36661a",
+      "contextUid": "urn:example:context:dashboard-review",
+      "actionUid": "urn:example:w:candidate-action"
+    },
+    "rollback": {
+      "uid": "urn:example:w:policy-placement",
+      "revision": "1",
+      "contextUid": "urn:example:context:dashboard-review",
+      "actionUid": "urn:example:w:baseline-action"
+    }
+  },
+  "coefficientChanges": [
+    {
+      "rule": "urn:example:rule:sources",
+      "ruleVersion": "1",
+      "fromWeight": 0.8,
+      "toWeight": 0.9
+    },
+    {
+      "rule": "urn:example:rule:tags",
+      "ruleVersion": "1",
+      "fromWeight": 0.2,
+      "toWeight": 0.1
+    }
+  ],
+  "learnerEstimates": {
+    "utilityDelta": {
+      "value": 0.54296875,
+      "interval": [
+        0.2813026150746349,
+        0.8046348849253651
+      ],
+      "n": 512,
+      "effectiveSampleSize": 512,
+      "maxImportanceWeight": 2,
+      "reason": null
+    },
+    "successDelta": {
+      "value": 0.5139442231075697,
+      "interval": [
+        0.3147931666274043,
+        0.6144922613702517
+      ],
+      "n": 512,
+      "effectiveSampleSize": null,
+      "maxImportanceWeight": null,
+      "reason": null
+    },
+    "tokenEstimate": {
+      "value": 0,
+      "interval": [
+        -0.13083306746268256,
+        0.13083306746268256
+      ],
+      "n": 512,
+      "effectiveSampleSize": 261,
+      "maxImportanceWeight": 2,
+      "reason": null
+    },
+    "baselineTokenEstimate": {
+      "value": 0,
+      "interval": [
+        -0.13083306746268256,
+        0.13083306746268256
+      ],
+      "n": 512,
+      "effectiveSampleSize": 251,
+      "maxImportanceWeight": 2,
+      "reason": null
+    }
+  },
+  "learnedEstimate": "NOT_COPIED_TO_COEFFICIENTS",
+  "dataKind": "SYNTHETIC",
+  "reportedOperationalEfficacy": null,
+  "replay": {
+    "source": "HOST_REPORTED",
+    "digest": "sha256:4e4b2b3b40702cbb58af7dd7d756f97f8db3cd7212902d1cdf564b73cb1900b9",
+    "scope": "INDEPENDENT_LOCAL_COPIES"
+  },
+  "disposition": "REVIEW_ONLY_NOT_APPLIED",
+  "execution": "NOT_REQUESTED",
+  "authority": "NOT_GRANTED",
+  "digest": "sha256:cf6ab235935893eecc4cc951b1a3e888f71014e79fb59335d135b5b211819784"
+}

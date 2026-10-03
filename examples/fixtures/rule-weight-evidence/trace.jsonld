@@ -266,6 +266,59 @@
       "@id": "urn:usl:hswm:w-concept",
       "@type": "rw:HSWM_W_Concept",
       "rw:canonicalMapping": "NOT_CONNECTED"
+    },
+    {
+      "@id": "trace:learner:dataset",
+      "@type": "rw:LearningDataset",
+      "rw:digest": "sha256:c1253d58ceb79a7b063b28e53a19cd1c1b3a6269b9076f040b946baf36af1786",
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:inputDigest": "sha256:6f96206c4adb7c77c8846e63b9c1f5d0b5867aa83612a4154047600a0ceecd8f",
+      "rw:dataKind": "SYNTHETIC"
+    },
+    {
+      "@id": "trace:learner:report",
+      "@type": "rw:LearnerReport",
+      "rw:digest": "sha256:b842b9f6876c431fad8d5da811745824641acc4536795a996e606ccfa41789cb",
+      "rw:derivedFrom": {
+        "@id": "trace:learner:dataset"
+      },
+      "rw:inputDigest": "sha256:6f96206c4adb7c77c8846e63b9c1f5d0b5867aa83612a4154047600a0ceecd8f"
+    },
+    {
+      "@id": "trace:learner:replay",
+      "@type": "rw:ReplayObservation",
+      "rw:digest": "sha256:438fd8a775960169316e4c06e24b7f97d3a654f2966c9e8420b045feb225df92",
+      "rw:verifiedReport": {
+        "@id": "trace:learner:report"
+      },
+      "rw:scope": "INDEPENDENT_LOCAL_COPIES"
+    },
+    {
+      "@id": "trace:learner:review",
+      "@type": "rw:LearnerReview",
+      "rw:digest": "sha256:e5fd0e6e298cfaab896a9ae2bdf183836f56cfce84e74e13488d4e227a6db66b",
+      "rw:reviewsProposal": {
+        "@id": "urn:example:rule-weight-proposal:dashboard-soft-weights"
+      },
+      "rw:inContext": {
+        "@id": "urn:example:context:dashboard-review"
+      },
+      "rw:usesDataset": {
+        "@id": "trace:learner:dataset"
+      },
+      "rw:usesReport": {
+        "@id": "trace:learner:report"
+      },
+      "rw:usesReplay": {
+        "@id": "trace:learner:replay"
+      },
+      "rw:reportDigest": "sha256:b842b9f6876c431fad8d5da811745824641acc4536795a996e606ccfa41789cb",
+      "rw:reviewStatus": "REVIEW_READY",
+      "rw:disposition": "REVIEW_ONLY_NOT_APPLIED",
+      "rw:dataKind": "SYNTHETIC",
+      "rw:effectiveness": "NOT_ESTABLISHED"
     }
   ]
 }

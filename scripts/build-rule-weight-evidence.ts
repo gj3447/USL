@@ -1,4 +1,4 @@
-/** Deterministic synthetic trace; it records an owner-review candidate, never a learned or applied W. */
+/** Deterministic trace of a synthetic proposal and archived offline learner review; no live apply. */
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
@@ -17,6 +17,10 @@ const json = (value: unknown) => JSON.stringify(value, null, 2) + "\n"
 const status = "urn:usl:status:", addon = "urn:usl:addon:", rp = "urn:usl:rule-policy:", rw = "urn:usl:rule-weight-evidence:"
 const fixture = ruleWeightEvidenceFixture()
 const { policy, observations, evaluationContext, evaluation, evidence, host, proposalInput, proposal } = fixture
+const reviewFolder = "examples/fixtures/rule-weight-review"
+const reviewFiles = Object.fromEntries(await Promise.all(["dataset", "report", "replay", "review"].map(async name => [name, await readFile(resolve(root, reviewFolder, `${name}.json`), "utf8")])) )
+const learnerDataset = JSON.parse(reviewFiles.dataset!), learnerReport = JSON.parse(reviewFiles.report!), learnerReview = JSON.parse(reviewFiles.review!)
+const learnerIds = { dataset: "trace:learner:dataset", report: "trace:learner:report", replay: "trace:learner:replay", review: "trace:learner:review" }
 const output: Record<string, string> = {}
 const graph = { schema: "usl-resource-graph/v1" as const, resources: [] as { id: string; types: string[]; locator: string; metadata?: Record<string, unknown> }[], meanings: [] as { id: string; description: string }[], links: [] as { id: string; meaning: string; participants: { role: string; resource: string }[]; metadata?: Record<string, unknown> }[], provenance: { sources: ["trace:request", "trace:generator"], activity: "trace:activity", agent: "trace:agent" } }
 const roles = (entries: Record<string, string>) => Object.entries(entries).map(([role, type]) => ({ role, required: true, types: [type], metadata: [] }))
@@ -28,6 +32,7 @@ const profile = parseDomainProfile({ schema: "usl-domain-profile/v1", id: rw + "
   meaning(rw + "records_evidence", { evidence: rw + "Evidence", evaluation: rw + "Evaluation", context: rw + "Context", action: rw + "Action", outcome: rw + "Outcome" }),
   meaning(rw + "proposed_revision", { baseline: rw + "PolicySnapshot", candidate: rw + "PolicySnapshot", context: rw + "Context", evidence: rw + "Evidence", proposal: rw + "WeightRevisionProposal" }),
   meaning(rw + "candidate_input_to", { signal: rw + "Evidence", wConcept: rw + "HSWM_W_Concept" }),
+  meaning(rw + "reviewed_with_learner", { proposal: rw + "WeightRevisionProposal", context: rw + "Context", dataset: rw + "LearningDataset", report: rw + "LearnerReport", replay: rw + "ReplayObservation", review: rw + "LearnerReview" }),
   meaning(rp + "realized_by", { task: status + "Task", feature: status + "Feature" }),
   meaning(status + "informed_by", { task: status + "Task", source: status + "ExternalSource" }),
   meaning(status + "implemented_by", { feature: status + "Feature", artifact: status + "Artifact" }),
@@ -102,6 +107,19 @@ for (const path of ["src/addons/rule-weight-evidence.ts", "examples/rule-weight-
 for (const path of ["test/rule-weight-evidence.test.ts", "scripts/validate-rule-weight-evidence.py"]) { await local(`test:${path}`, [status + "TestEvidence"], path, { evidenceKind: "TEST_OR_VALIDATOR_DEFINITION", execution: "NOT_CLAIMED" }); link(status + "tested_by", { feature: "feature:rule-weight-evidence", evidence: `test:${path}` }, { execution: "NOT_CLAIMED" }) }
 add("limitation:weight-evidence", [status + "Limitation"], repo("docs/RULE_WEIGHT_EVIDENCE.md"), { detail: "Synthetic evidence only. No learned estimate, holdout claim, live application, HSWM W mapping, HSWM state change, canonical promotion, or authority grant." })
 link(status + "bounded_by", { feature: "feature:rule-weight-evidence", limitation: "limitation:weight-evidence" })
+// The original proposal remains unapplied. This separate extension records an actual local learner's synthetic review.
+for (const [name, type] of [["dataset", "LearningDataset"], ["report", "LearnerReport"], ["replay", "ReplayObservation"], ["review", "LearnerReview"]] as const) {
+  await local(learnerIds[name], [rw + type], `${reviewFolder}/${name}.json`, { dataKind: "SYNTHETIC", executionScope: "OFFLINE_LOCAL_COPY_ONLY" })
+}
+link(rw + "reviewed_with_learner", { proposal: proposalId, context: contextId, ...learnerIds }, { reviewStatus: learnerReview.reviewStatus, disposition: learnerReview.disposition, operationalEfficacy: "NOT_ESTABLISHED", authority: "NOT_GRANTED" })
+add("feature:rule-weight-review", [status + "Feature"], repo("docs/RULE_WEIGHT_REVIEW.md"), { scope: "OPTIONAL_OFFLINE_LEARNER_REVIEW", liveHSWM: "NOT_CONNECTED" })
+link(rp + "realized_by", { task: "trace:task", feature: "feature:rule-weight-review" })
+for (const path of ["src/addons/rule-weight-review.ts", "scripts/rule-weight-review.ts", "scripts/build-rule-weight-review.ts", "examples/rule-weight-review-fixture.ts", "schemas/rule-weight-evidence/review.schema.json", "schemas/rule-weight-evidence/review-host.schema.json", "docs/RULE_WEIGHT_REVIEW.md"]) { await local(`artifact:${path}`, [status + "Artifact"], path); link(status + "implemented_by", { feature: "feature:rule-weight-review", artifact: `artifact:${path}` }) }
+for (const path of ["test/rule-weight-review.test.ts", "test/rule-weight-review-cli.test.ts"]) { await local(`test:${path}`, [status + "TestEvidence"], path, { evidenceKind: "TEST_OR_VALIDATOR_DEFINITION", execution: "NOT_CLAIMED" }); link(status + "tested_by", { feature: "feature:rule-weight-review", evidence: `test:${path}` }) }
+await local("trace:learner:execution", [status + "TestEvidence", status + "ExecutionReceipt"], "research/rule-weight-evidence/learner-execution.json", { evidenceKind: "OBSERVED_COMMAND_RECEIPT", execution: "OBSERVED_LOCAL_SYNTHETIC", scope: "SYNTHETIC_OFFLINE_LEARNER" })
+link(status + "tested_by", { feature: "feature:rule-weight-review", evidence: "trace:learner:execution" }, { execution: "OBSERVED_LOCAL_SYNTHETIC" })
+add("limitation:weight-review", [status + "Limitation"], repo("docs/RULE_WEIGHT_REVIEW.md"), { detail: "Synthetic held-out evaluation only. Utility estimates are not rule coefficients or canonical W. No operational efficacy, evaluator authentication, live policy/HSWM apply, or access grant." })
+link(status + "bounded_by", { feature: "feature:rule-weight-review", limitation: "limitation:weight-review" })
 graph.meanings = profile.meanings.map(item => ({ id: item.id, description: `Declared role contract ${item.id}; graph relationships are declared, not semantic entailments.` }))
 const rawGraph = json(graph)
 Either.getOrThrow(adaptResourceGraph(rawGraph, { namespace: "usl.rule-weight-evidence", profile }))
@@ -127,6 +145,10 @@ output["examples/fixtures/rule-weight-evidence/trace.jsonld"] = json({ "@context
   ]),
   { "@id": proposalId, "@type": "rw:WeightRevisionProposal", "rw:baseline": { "@id": policyBaselineId }, "rw:candidate": { "@id": policyCandidateId }, "rw:inContext": { "@id": contextId }, "rw:evidence": { "@id": evidenceId }, "rw:proposalState": "OWNER_REVIEW_REQUIRED", "rw:effectiveness": "NOT_ESTABLISHED" },
   { "@id": wId, "@type": "rw:HSWM_W_Concept", "rw:canonicalMapping": "NOT_CONNECTED" },
+  { "@id": learnerIds.dataset, "@type": "rw:LearningDataset", "rw:digest": digestSource(reviewFiles.dataset!), "rw:inContext": { "@id": contextId }, "rw:inputDigest": `sha256:${learnerReport.inputDigest}`, "rw:dataKind": learnerDataset.dataKind },
+  { "@id": learnerIds.report, "@type": "rw:LearnerReport", "rw:digest": digestSource(reviewFiles.report!), "rw:derivedFrom": { "@id": learnerIds.dataset }, "rw:inputDigest": `sha256:${learnerReport.inputDigest}` },
+  { "@id": learnerIds.replay, "@type": "rw:ReplayObservation", "rw:digest": digestSource(reviewFiles.replay!), "rw:verifiedReport": { "@id": learnerIds.report }, "rw:scope": "INDEPENDENT_LOCAL_COPIES" },
+  { "@id": learnerIds.review, "@type": "rw:LearnerReview", "rw:digest": digestSource(reviewFiles.review!), "rw:reviewsProposal": { "@id": proposalId }, "rw:inContext": { "@id": contextId }, "rw:usesDataset": { "@id": learnerIds.dataset }, "rw:usesReport": { "@id": learnerIds.report }, "rw:usesReplay": { "@id": learnerIds.replay }, "rw:reportDigest": digestSource(reviewFiles.report!), "rw:reviewStatus": learnerReview.reviewStatus, "rw:disposition": learnerReview.disposition, "rw:dataKind": learnerReview.dataKind, "rw:effectiveness": "NOT_ESTABLISHED" },
 ] })
 for (const [path, content] of Object.entries(output)) { const absolute = resolve(root, path); if (check) { if (await readFile(absolute, "utf8") !== content) throw new Error(`rule weight evidence artifact differs: ${path}`) } else { await mkdir(dirname(absolute), { recursive: true }); await writeFile(absolute, content) } }
 console.log(json({ mode: check ? "ARTIFACTS_CHECKED" : "ARTIFACTS_BUILT", resources: graph.resources.length, links: graph.links.length, proposal: proposal.disposition, hswm: proposal.hswmIntegration.status, historicalTestsClaimed: false }))

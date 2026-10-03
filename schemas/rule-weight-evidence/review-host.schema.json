@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "expectedHandoffDigest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "artifactSha256": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "report": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "baselineSource": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "candidateSource": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "dataset",
+        "report",
+        "baselineSource",
+        "candidateSource"
+      ],
+      "additionalProperties": false
+    },
+    "evaluationContext": {},
+    "evidenceHost": {}
+  },
+  "required": [
+    "expectedHandoffDigest",
+    "artifactSha256",
+    "evaluationContext",
+    "evidenceHost"
+  ],
+  "additionalProperties": false
+}

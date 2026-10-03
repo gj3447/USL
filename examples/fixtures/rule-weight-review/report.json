@@ -1,0 +1,539 @@
+{
+  "schema": "hswm-w-report/v1",
+  "inputUid": "urn:example:usl-policy-learning",
+  "inputRevision": "1",
+  "inputDigest": "6f96206c4adb7c77c8846e63b9c1f5d0b5867aa83612a4154047600a0ceecd8f",
+  "provenance": {
+    "actor": "urn:example:usl-fixture-generator",
+    "recordedAt": "2026-10-03T00:30:00Z",
+    "dataKind": "SYNTHETIC",
+    "protocol": {
+      "uid": "urn:example:w:protocol",
+      "revision": "1",
+      "evidenceId": "protocol",
+      "fixedBeforeOutcomes": true,
+      "independentUnits": true,
+      "randomizedLogging": true,
+      "selector": "urn:example:selector:policy-minimum-penalty",
+      "outcomeEvaluator": "urn:example:evaluator:gold-answer-equality",
+      "environmentRevision": "synthetic-memory-choice-v1",
+      "tokenizerRevision": "NO_LLM_TOKENS"
+    },
+    "sourceRefs": [
+      {
+        "id": "baseline-policy",
+        "path": "baseline-policy.json",
+        "sha256": "07306e87dd0d2e71e3e9008d6910dc9073b91d3a80a10510ab6551ca8f004ae9",
+        "method": "STRUCTURAL_CHECK",
+        "observedAt": "2026-10-03T00:30:00Z",
+        "description": "Exact USL baseline policy source snapshot"
+      },
+      {
+        "id": "candidate-policy",
+        "path": "candidate-policy.json",
+        "sha256": "a46617b9b6dd84e5460253b0bfb4815c6dfdabfd36ec54dd4b36e9a4b5949678",
+        "method": "STRUCTURAL_CHECK",
+        "observedAt": "2026-10-03T00:30:00Z",
+        "description": "Exact USL proposed policy source snapshot"
+      },
+      {
+        "id": "protocol",
+        "path": "protocol.json",
+        "sha256": "534f416595f491733c8d0b1cf6a983a6bed8c7be51b33985ef5708e7e910807b",
+        "method": "STRUCTURAL_CHECK",
+        "observedAt": "2026-10-03T00:30:00Z",
+        "description": "Predeclared synthetic task generator configuration; not authenticated operational protocol"
+      },
+      {
+        "id": "outcomes",
+        "path": "outcomes.json",
+        "sha256": "c070d8b7e5c07d4049dbf2094a87a9d8f17fdaac21ecfb3cee6439bd51ff32be",
+        "method": "STRUCTURAL_CHECK",
+        "observedAt": "2026-10-03T00:30:00Z",
+        "description": "Synthetic answer selection and independent gold-ID comparison; never penalty relabelled as reward"
+      }
+    ],
+    "observedOperationalEfficacy": null,
+    "status": "SECONDARY_AI_IMPLEMENTATION; no canonical HSWM formula asserted"
+  },
+  "policy": {
+    "schema": "hswm-w-policy/v1",
+    "trainDigest": "be941ccfbca5640ca6d3275258802d20c60b7c9fc31ccb478d8706b368e2367b",
+    "method": "context-coalition-tabular-IPS/v1",
+    "featureDefinition": "one categorical feature per typed context/revision × role-preserving coalition/revision; no embedding generalization",
+    "contexts": [
+      {
+        "contextUid": "urn:example:context:dashboard-review",
+        "contextRevision": "1",
+        "baselineActionUid": "urn:example:w:baseline-action",
+        "chosenActionUid": "urn:example:w:candidate-action",
+        "status": "LEARNED_CANDIDATE",
+        "weights": [
+          {
+            "actionUid": "urn:example:w:baseline-action",
+            "semanticAffinity": null,
+            "authorityWeight": null,
+            "problems": [],
+            "expectedUtility": {
+              "value": 0.4375,
+              "interval": [
+                0.1758338650746349,
+                0.6991661349253651
+              ],
+              "n": 128,
+              "effectiveSampleSize": 63,
+              "maxImportanceWeight": 2,
+              "reason": null
+            }
+          },
+          {
+            "actionUid": "urn:example:w:candidate-action",
+            "semanticAffinity": null,
+            "authorityWeight": null,
+            "problems": [],
+            "expectedUtility": {
+              "value": 1.015625,
+              "interval": [
+                0.7539588650746349,
+                1.277291134925365
+              ],
+              "n": 128,
+              "effectiveSampleSize": 65,
+              "maxImportanceWeight": 2,
+              "reason": null
+            }
+          }
+        ],
+        "uid": "urn:hswm:policy:94b48942492caa4d6baf6f92"
+      }
+    ],
+    "interactions": []
+  },
+  "evaluations": [
+    {
+      "uid": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80",
+      "contextUid": "urn:example:context:dashboard-review",
+      "policyUid": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+      "status": "READY_FOR_OWNER_REVIEW",
+      "utilityDelta": {
+        "value": 0.54296875,
+        "interval": [
+          0.2813026150746349,
+          0.8046348849253651
+        ],
+        "n": 512,
+        "effectiveSampleSize": 512,
+        "maxImportanceWeight": 2,
+        "reason": null
+      },
+      "successDelta": {
+        "value": 0.5139442231075697,
+        "interval": [
+          0.3147931666274043,
+          0.6144922613702517
+        ],
+        "n": 512,
+        "effectiveSampleSize": null,
+        "maxImportanceWeight": null,
+        "reason": null
+      },
+      "tokenEstimate": {
+        "value": 0,
+        "interval": [
+          -0.13083306746268256,
+          0.13083306746268256
+        ],
+        "n": 512,
+        "effectiveSampleSize": 261,
+        "maxImportanceWeight": 2,
+        "reason": null
+      },
+      "baselineTokenEstimate": {
+        "value": 0,
+        "interval": [
+          -0.13083306746268256,
+          0.13083306746268256
+        ],
+        "n": 512,
+        "effectiveSampleSize": 251,
+        "maxImportanceWeight": 2,
+        "reason": null
+      },
+      "observedHoldoutEpisodes": 512,
+      "requiredCoverageViolations": 0,
+      "baselineActivation": {
+        "actionUid": "urn:example:w:baseline-action",
+        "ruleUids": [
+          "urn:example:policy-snapshot:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+        ],
+        "activeRuleCount": 1,
+        "roleParticipationCount": 1,
+        "fullSourceBytes": 1445,
+        "observedConditionalP95LatencyMs": 0,
+        "latencySampleCount": 251,
+        "latencyMeaning": "descriptive chosen-arm latency, no causal interval"
+      },
+      "candidateActivation": {
+        "actionUid": "urn:example:w:candidate-action",
+        "ruleUids": [
+          "urn:example:policy-snapshot:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073"
+        ],
+        "activeRuleCount": 1,
+        "roleParticipationCount": 1,
+        "fullSourceBytes": 1454,
+        "observedConditionalP95LatencyMs": 0,
+        "latencySampleCount": 261,
+        "latencyMeaning": "descriptive chosen-arm latency, no causal interval"
+      },
+      "scopedDeactivationCandidates": [
+        "urn:example:policy-snapshot:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+      ],
+      "deactivationMeaning": "Only this context's proposal; not proof of global redundancy, irrelevance or retirement",
+      "intervalMethod": "utility: IPS fixed-horizon Hoeffding; success: randomized conditional arm means, bounded Bernoulli Hoeffding; Bonferroni across contexts × gates and within success arms; not an anytime confidence sequence",
+      "recommendation": "Review this context's placement change; retain original rules and other contexts.",
+      "revisit": "New independent predeclared holdout, changed source/context/environment revision, or changed utility contract"
+    }
+  ],
+  "proposals": [
+    {
+      "uid": "urn:hswm:proposal:894fcbb90c36661a37672a6f",
+      "type": "PlacementProposal",
+      "status": "READY_FOR_OWNER_REVIEW",
+      "contextUid": "urn:example:context:dashboard-review",
+      "expectedGraphRevision": "1",
+      "expectedGraphDigest": "ea38b1ea4323ce6d8bdc067961b10aeeed100a660c17a52de6adfa384eea05e1",
+      "readSet": {
+        "graphUid": "urn:example:w:policy-placement-graph",
+        "contextRevision": "1",
+        "policyUid": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+        "evaluationUid": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80"
+      },
+      "writeSet": [
+        "urn:example:w:policy-placement"
+      ],
+      "before": {
+        "uid": "urn:example:w:policy-placement",
+        "revision": "1",
+        "contextUid": "urn:example:context:dashboard-review",
+        "actionUid": "urn:example:w:baseline-action"
+      },
+      "after": {
+        "uid": "urn:example:w:policy-placement",
+        "revision": "candidate-894fcbb90c36661a",
+        "contextUid": "urn:example:context:dashboard-review",
+        "actionUid": "urn:example:w:candidate-action"
+      },
+      "rollback": {
+        "uid": "urn:example:w:policy-placement",
+        "revision": "1",
+        "contextUid": "urn:example:context:dashboard-review",
+        "actionUid": "urn:example:w:baseline-action"
+      },
+      "authority": "LOCAL_COPY_ONLY; owner admission required for live CHU, USL or KG mutation",
+      "retirement": "NONE; excluded members remain available in original rules and other placements"
+    }
+  ],
+  "graph": {
+    "schema": "hswm-w-evidence-graph/v1",
+    "predicateContracts": {
+      "ASSESSES": {
+        "domain": "WeightAssessment",
+        "range": "Context",
+        "cardinality": "exactly 1 per source",
+        "meaning": "Conditional utility estimate, not authority or similarity"
+      },
+      "LEARNED_FROM": {
+        "domain": "ActivationPolicy",
+        "range": "WeightAssessment",
+        "cardinality": "exactly 1 per source",
+        "meaning": "Uses training split only"
+      },
+      "EVALUATES": {
+        "domain": "PolicyEvaluation",
+        "range": "ActivationPolicy",
+        "cardinality": "exactly 1 per source",
+        "meaning": "Separate held-out observations"
+      },
+      "JUSTIFIED_BY": {
+        "domain": "PlacementProposal",
+        "range": "PolicyEvaluation",
+        "cardinality": "exactly 1 per source",
+        "meaning": "Proposal evidence, not permission or actual application"
+      }
+    },
+    "nodes": [
+      {
+        "uid": "urn:example:context:dashboard-review",
+        "type": "Context",
+        "payload": {
+          "uid": "urn:example:context:dashboard-review",
+          "revision": "1",
+          "allowedActions": [
+            "urn:example:w:baseline-action",
+            "urn:example:w:candidate-action"
+          ],
+          "requiredRules": [],
+          "requiredRoles": [
+            "policy_snapshot"
+          ],
+          "maxActiveRules": 1,
+          "maxBytes": 8192
+        }
+      },
+      {
+        "uid": "urn:hswm:assessment:4038f1e3856714c84f47ae6f",
+        "type": "WeightAssessment",
+        "payload": {
+          "weights": [
+            {
+              "actionUid": "urn:example:w:baseline-action",
+              "semanticAffinity": null,
+              "authorityWeight": null,
+              "problems": [],
+              "expectedUtility": {
+                "value": 0.4375,
+                "interval": [
+                  0.1758338650746349,
+                  0.6991661349253651
+                ],
+                "n": 128,
+                "effectiveSampleSize": 63,
+                "maxImportanceWeight": 2,
+                "reason": null
+              }
+            },
+            {
+              "actionUid": "urn:example:w:candidate-action",
+              "semanticAffinity": null,
+              "authorityWeight": null,
+              "problems": [],
+              "expectedUtility": {
+                "value": 1.015625,
+                "interval": [
+                  0.7539588650746349,
+                  1.277291134925365
+                ],
+                "n": 128,
+                "effectiveSampleSize": 65,
+                "maxImportanceWeight": 2,
+                "reason": null
+              }
+            }
+          ],
+          "trainDigest": "be941ccfbca5640ca6d3275258802d20c60b7c9fc31ccb478d8706b368e2367b",
+          "datasetUid": "urn:example:usl-policy-learning",
+          "datasetRevision": "1"
+        }
+      },
+      {
+        "uid": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+        "type": "ActivationPolicy",
+        "payload": {
+          "contextUid": "urn:example:context:dashboard-review",
+          "contextRevision": "1",
+          "baselineActionUid": "urn:example:w:baseline-action",
+          "chosenActionUid": "urn:example:w:candidate-action",
+          "status": "LEARNED_CANDIDATE",
+          "weights": [
+            {
+              "actionUid": "urn:example:w:baseline-action",
+              "semanticAffinity": null,
+              "authorityWeight": null,
+              "problems": [],
+              "expectedUtility": {
+                "value": 0.4375,
+                "interval": [
+                  0.1758338650746349,
+                  0.6991661349253651
+                ],
+                "n": 128,
+                "effectiveSampleSize": 63,
+                "maxImportanceWeight": 2,
+                "reason": null
+              }
+            },
+            {
+              "actionUid": "urn:example:w:candidate-action",
+              "semanticAffinity": null,
+              "authorityWeight": null,
+              "problems": [],
+              "expectedUtility": {
+                "value": 1.015625,
+                "interval": [
+                  0.7539588650746349,
+                  1.277291134925365
+                ],
+                "n": 128,
+                "effectiveSampleSize": 65,
+                "maxImportanceWeight": 2,
+                "reason": null
+              }
+            }
+          ],
+          "uid": "urn:hswm:policy:94b48942492caa4d6baf6f92"
+        }
+      },
+      {
+        "uid": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80",
+        "type": "PolicyEvaluation",
+        "payload": {
+          "uid": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80",
+          "contextUid": "urn:example:context:dashboard-review",
+          "policyUid": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+          "status": "READY_FOR_OWNER_REVIEW",
+          "utilityDelta": {
+            "value": 0.54296875,
+            "interval": [
+              0.2813026150746349,
+              0.8046348849253651
+            ],
+            "n": 512,
+            "effectiveSampleSize": 512,
+            "maxImportanceWeight": 2,
+            "reason": null
+          },
+          "successDelta": {
+            "value": 0.5139442231075697,
+            "interval": [
+              0.3147931666274043,
+              0.6144922613702517
+            ],
+            "n": 512,
+            "effectiveSampleSize": null,
+            "maxImportanceWeight": null,
+            "reason": null
+          },
+          "tokenEstimate": {
+            "value": 0,
+            "interval": [
+              -0.13083306746268256,
+              0.13083306746268256
+            ],
+            "n": 512,
+            "effectiveSampleSize": 261,
+            "maxImportanceWeight": 2,
+            "reason": null
+          },
+          "baselineTokenEstimate": {
+            "value": 0,
+            "interval": [
+              -0.13083306746268256,
+              0.13083306746268256
+            ],
+            "n": 512,
+            "effectiveSampleSize": 251,
+            "maxImportanceWeight": 2,
+            "reason": null
+          },
+          "observedHoldoutEpisodes": 512,
+          "requiredCoverageViolations": 0,
+          "baselineActivation": {
+            "actionUid": "urn:example:w:baseline-action",
+            "ruleUids": [
+              "urn:example:policy-snapshot:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+            ],
+            "activeRuleCount": 1,
+            "roleParticipationCount": 1,
+            "fullSourceBytes": 1445,
+            "observedConditionalP95LatencyMs": 0,
+            "latencySampleCount": 251,
+            "latencyMeaning": "descriptive chosen-arm latency, no causal interval"
+          },
+          "candidateActivation": {
+            "actionUid": "urn:example:w:candidate-action",
+            "ruleUids": [
+              "urn:example:policy-snapshot:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073"
+            ],
+            "activeRuleCount": 1,
+            "roleParticipationCount": 1,
+            "fullSourceBytes": 1454,
+            "observedConditionalP95LatencyMs": 0,
+            "latencySampleCount": 261,
+            "latencyMeaning": "descriptive chosen-arm latency, no causal interval"
+          },
+          "scopedDeactivationCandidates": [
+            "urn:example:policy-snapshot:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d"
+          ],
+          "deactivationMeaning": "Only this context's proposal; not proof of global redundancy, irrelevance or retirement",
+          "intervalMethod": "utility: IPS fixed-horizon Hoeffding; success: randomized conditional arm means, bounded Bernoulli Hoeffding; Bonferroni across contexts × gates and within success arms; not an anytime confidence sequence",
+          "recommendation": "Review this context's placement change; retain original rules and other contexts.",
+          "revisit": "New independent predeclared holdout, changed source/context/environment revision, or changed utility contract"
+        }
+      },
+      {
+        "uid": "urn:hswm:proposal:894fcbb90c36661a37672a6f",
+        "type": "PlacementProposal",
+        "payload": {
+          "uid": "urn:hswm:proposal:894fcbb90c36661a37672a6f",
+          "type": "PlacementProposal",
+          "status": "READY_FOR_OWNER_REVIEW",
+          "contextUid": "urn:example:context:dashboard-review",
+          "expectedGraphRevision": "1",
+          "expectedGraphDigest": "ea38b1ea4323ce6d8bdc067961b10aeeed100a660c17a52de6adfa384eea05e1",
+          "readSet": {
+            "graphUid": "urn:example:w:policy-placement-graph",
+            "contextRevision": "1",
+            "policyUid": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+            "evaluationUid": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80"
+          },
+          "writeSet": [
+            "urn:example:w:policy-placement"
+          ],
+          "before": {
+            "uid": "urn:example:w:policy-placement",
+            "revision": "1",
+            "contextUid": "urn:example:context:dashboard-review",
+            "actionUid": "urn:example:w:baseline-action"
+          },
+          "after": {
+            "uid": "urn:example:w:policy-placement",
+            "revision": "candidate-894fcbb90c36661a",
+            "contextUid": "urn:example:context:dashboard-review",
+            "actionUid": "urn:example:w:candidate-action"
+          },
+          "rollback": {
+            "uid": "urn:example:w:policy-placement",
+            "revision": "1",
+            "contextUid": "urn:example:context:dashboard-review",
+            "actionUid": "urn:example:w:baseline-action"
+          },
+          "authority": "LOCAL_COPY_ONLY; owner admission required for live CHU, USL or KG mutation",
+          "retirement": "NONE; excluded members remain available in original rules and other placements"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "uid": "urn:hswm:edge:3ef4d32d983f0d4e90efa84d",
+        "from": "urn:hswm:assessment:4038f1e3856714c84f47ae6f",
+        "to": "urn:example:context:dashboard-review",
+        "predicate": "ASSESSES"
+      },
+      {
+        "uid": "urn:hswm:edge:d91c86b91090d6a16ba41def",
+        "from": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+        "to": "urn:hswm:assessment:4038f1e3856714c84f47ae6f",
+        "predicate": "LEARNED_FROM"
+      },
+      {
+        "uid": "urn:hswm:edge:486f47a9fe50291573df6e1c",
+        "from": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80",
+        "to": "urn:hswm:policy:94b48942492caa4d6baf6f92",
+        "predicate": "EVALUATES"
+      },
+      {
+        "uid": "urn:hswm:edge:6b92fbe2bb18f130ef314883",
+        "from": "urn:hswm:proposal:894fcbb90c36661a37672a6f",
+        "to": "urn:hswm:evaluation:7e81c7389d03fd6eada05c80",
+        "predicate": "JUSTIFIED_BY"
+      }
+    ]
+  },
+  "limitations": [
+    "Finite context-coalition table; no semantic embedding or unseen-context generalization",
+    "Declared randomization/independence/evaluator separation are not authenticated by JSON validation",
+    "Fixed horizon; do not reuse a holdout after modifying candidates, contexts, utility, or thresholds",
+    "Intervals exclude distribution shift, hidden confounding and measurement bias",
+    "No automatic live CHU placement, USL M-index update, KG canon change, or rule retirement"
+  ]
+}

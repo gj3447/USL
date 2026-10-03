@@ -1,0 +1,83 @@
+{
+  "scope": "INDEPENDENT_LOCAL_COPIES",
+  "replays": [
+    {
+      "schema": "hswm-placement-replay/v1",
+      "scope": "LOCAL_COPY_ONLY",
+      "proposalUid": "urn:hswm:proposal:894fcbb90c36661a37672a6f",
+      "beforeDigest": "ea38b1ea4323ce6d8bdc067961b10aeeed100a660c17a52de6adfa384eea05e1",
+      "afterDigest": "e8d45dedc16ef15b0945f5b3e4f4423bd3933378adf148d64144bf536f2c3f71",
+      "restoredDigest": "ea38b1ea4323ce6d8bdc067961b10aeeed100a660c17a52de6adfa384eea05e1",
+      "unchangedOtherPlacements": true,
+      "originalRulesUnchanged": true,
+      "rollbackVerified": true,
+      "graph": {
+        "uid": "urn:example:w:policy-placement-graph",
+        "revision": "replay-ca2f1a839cf611c4",
+        "rules": [
+          {
+            "uid": "urn:example:policy-snapshot:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+            "revision": "1",
+            "evidenceId": "baseline-policy",
+            "bytes": 1445
+          },
+          {
+            "uid": "urn:example:policy-snapshot:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073",
+            "revision": "2-proposed",
+            "evidenceId": "candidate-policy",
+            "bytes": 1454
+          }
+        ],
+        "actions": [
+          {
+            "uid": "urn:example:w:baseline-action",
+            "revision": "1",
+            "members": [
+              {
+                "ruleUid": "urn:example:policy-snapshot:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+                "role": "policy_snapshot",
+                "ordinal": 0
+              }
+            ]
+          },
+          {
+            "uid": "urn:example:w:candidate-action",
+            "revision": "1",
+            "members": [
+              {
+                "ruleUid": "urn:example:policy-snapshot:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073",
+                "role": "policy_snapshot",
+                "ordinal": 0
+              }
+            ]
+          }
+        ],
+        "contexts": [
+          {
+            "uid": "urn:example:context:dashboard-review",
+            "revision": "1",
+            "allowedActions": [
+              "urn:example:w:baseline-action",
+              "urn:example:w:candidate-action"
+            ],
+            "requiredRules": [],
+            "requiredRoles": [
+              "policy_snapshot"
+            ],
+            "maxActiveRules": 1,
+            "maxBytes": 8192
+          }
+        ],
+        "placements": [
+          {
+            "uid": "urn:example:w:policy-placement",
+            "revision": "candidate-894fcbb90c36661a",
+            "contextUid": "urn:example:context:dashboard-review",
+            "actionUid": "urn:example:w:candidate-action"
+          }
+        ]
+      }
+    }
+  ],
+  "held": []
+}

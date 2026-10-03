@@ -408,6 +408,174 @@
           "path": "scripts/validate-rule-weight-evidence.py"
         }
       ]
+    },
+    {
+      "id": "trace:learner:dataset",
+      "representations": [
+        {
+          "id": "local-34",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-review/dataset.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:learner:report",
+      "representations": [
+        {
+          "id": "local-35",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-review/report.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:learner:replay",
+      "representations": [
+        {
+          "id": "local-36",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-review/replay.json"
+        }
+      ]
+    },
+    {
+      "id": "trace:learner:review",
+      "representations": [
+        {
+          "id": "local-37",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/fixtures/rule-weight-review/review.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:src/addons/rule-weight-review.ts",
+      "representations": [
+        {
+          "id": "local-38",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "src/addons/rule-weight-review.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:scripts/rule-weight-review.ts",
+      "representations": [
+        {
+          "id": "local-39",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "scripts/rule-weight-review.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:scripts/build-rule-weight-review.ts",
+      "representations": [
+        {
+          "id": "local-40",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "scripts/build-rule-weight-review.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:examples/rule-weight-review-fixture.ts",
+      "representations": [
+        {
+          "id": "local-41",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "examples/rule-weight-review-fixture.ts"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/review.schema.json",
+      "representations": [
+        {
+          "id": "local-42",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-weight-evidence/review.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:schemas/rule-weight-evidence/review-host.schema.json",
+      "representations": [
+        {
+          "id": "local-43",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "schemas/rule-weight-evidence/review-host.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "artifact:docs/RULE_WEIGHT_REVIEW.md",
+      "representations": [
+        {
+          "id": "local-44",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "docs/RULE_WEIGHT_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "test:test/rule-weight-review.test.ts",
+      "representations": [
+        {
+          "id": "local-45",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "test/rule-weight-review.test.ts"
+        }
+      ]
+    },
+    {
+      "id": "test:test/rule-weight-review-cli.test.ts",
+      "representations": [
+        {
+          "id": "local-46",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "test/rule-weight-review-cli.test.ts"
+        }
+      ]
+    },
+    {
+      "id": "trace:learner:execution",
+      "representations": [
+        {
+          "id": "local-47",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/rule-weight-evidence/learner-execution.json"
+        }
+      ]
     }
   ]
 }

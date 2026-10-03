@@ -10,5 +10,13 @@
   "implementationInterpretation": {
     "authority": "SECONDARY_AI",
     "text": "규칙 감점 계수는 HSWM W 자체와 동일하지 않다. 맥락·역할·독립 작업 결과·변경 제안의 출처를 선택형 USL 계약과 표준 RDF 검증 그래프로 연결한다. 가중치는 명시적 제안으로만 변경하고 필수 규칙을 보존한다. 새 W 학습기, 효과 입증, 실제 HSWM 연동 또는 사용자 정전 승인으로 표시하지 않는다."
+  },
+  "continuation": {
+    "utterance": "다시 쭉쭉 작업해줘봐 ㅇㅇ",
+    "authority": "USER_PRIMARY",
+    "implementationInterpretation": {
+      "authority": "SECONDARY_AI",
+      "text": "기존 HSWM_LIKENESS의 오프라인 학습 결과를 원문·맥락·정책 후보에 결속하고 로컬 replay로 검토한다. 합성 실험 결과를 운영 성과나 HSWM 본체 적용으로 승격하지 않는다."
+    }
   }
 }

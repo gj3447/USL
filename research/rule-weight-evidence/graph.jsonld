@@ -5,14 +5,14 @@
   },
   "@graph": [
     {
-      "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288",
+      "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15",
       "@type": "prov:Entity",
-      "usl:sourceDigest": "sha256:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+      "usl:sourceDigest": "sha256:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
     },
     {
-      "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d",
+      "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416",
       "@type": "usl:DomainProfile",
-      "usl:profileDigest": "sha256:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d",
+      "usl:profileDigest": "sha256:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416",
       "usl:profile": {
         "@value": {
           "schema": "usl-domain-profile/v1",
@@ -243,6 +243,60 @@
                   "required": true,
                   "types": [
                     "urn:usl:rule-weight-evidence:HSWM_W_Concept"
+                  ],
+                  "metadata": []
+                }
+              ]
+            },
+            {
+              "id": "urn:usl:rule-weight-evidence:reviewed_with_learner",
+              "allowExtraRoles": false,
+              "roles": [
+                {
+                  "role": "proposal",
+                  "required": true,
+                  "types": [
+                    "urn:usl:rule-weight-evidence:WeightRevisionProposal"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "context",
+                  "required": true,
+                  "types": [
+                    "urn:usl:rule-weight-evidence:Context"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "dataset",
+                  "required": true,
+                  "types": [
+                    "urn:usl:rule-weight-evidence:LearningDataset"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "report",
+                  "required": true,
+                  "types": [
+                    "urn:usl:rule-weight-evidence:LearnerReport"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "replay",
+                  "required": true,
+                  "types": [
+                    "urn:usl:rule-weight-evidence:ReplayObservation"
+                  ],
+                  "metadata": []
+                },
+                {
+                  "role": "review",
+                  "required": true,
+                  "types": [
+                    "urn:usl:rule-weight-evidence:LearnerReview"
                   ],
                   "metadata": []
                 }
@@ -815,7 +869,7 @@
       "usl:metadata": {
         "@value": {
           "path": "research/rule-weight-evidence/request.json",
-          "sourceDigest": "sha256:2da900865b63b64f3987a2af36259a688d6559dbbe73071776e0d5a26f2df8a0",
+          "sourceDigest": "sha256:a9923d2ca9b3311ea06dce5634aefca55b8acd008e66bc025bcb01b86bd758ed",
           "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
           "authority": "USER_PRIMARY"
         },
@@ -852,7 +906,7 @@
       "usl:metadata": {
         "@value": {
           "path": "scripts/build-rule-weight-evidence.ts",
-          "sourceDigest": "sha256:48d4053b070a1d50b15639606bef52d019d730cb1c756a1b7281901f3653b480",
+          "sourceDigest": "sha256:b3c4ce97bad00ac03bec7ca5a546a637e36da9a55b894e3f37a9988a4a4093d5",
           "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
           "authority": "SECONDARY_AI"
         },
@@ -871,7 +925,7 @@
       "usl:metadata": {
         "@value": {
           "path": "research/rule-weight-evidence/request.json",
-          "sourceDigest": "sha256:2da900865b63b64f3987a2af36259a688d6559dbbe73071776e0d5a26f2df8a0",
+          "sourceDigest": "sha256:a9923d2ca9b3311ea06dce5634aefca55b8acd008e66bc025bcb01b86bd758ed",
           "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
           "authority": "SECONDARY_AI",
           "ratification": "NOT_CLAIMED"
@@ -1023,7 +1077,7 @@
       "usl:metadata": {
         "@value": {
           "path": "schemas/rule-weight-evidence/trace.shacl.ttl",
-          "sourceDigest": "sha256:cfc2b209aa0e6e76c22ffe0e4238a849051cd444b8a14f18dbac019f615803f2",
+          "sourceDigest": "sha256:0bb543d8835259f5ca3586bb1f8ecfe3c3b3748d74aa6e67a5efbd8a34a4b145",
           "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
         },
         "@type": "@json"
@@ -1091,7 +1145,7 @@
       "usl:metadata": {
         "@value": {
           "path": "docs/RULE_WEIGHT_EVIDENCE.md",
-          "sourceDigest": "sha256:381918677a7319dc133223df94d88561631f5031e828602c971b5bfa851aa82d",
+          "sourceDigest": "sha256:c9cf0606eaa752e0b7078efd2b0735c89e163ba74d2a22b0a3344725ac7fae91",
           "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
         },
         "@type": "@json"
@@ -1127,7 +1181,7 @@
       "usl:metadata": {
         "@value": {
           "path": "scripts/validate-rule-weight-evidence.py",
-          "sourceDigest": "sha256:3db1b3537e1c45ad99f324b847b8e42f7940c8cda1a37f8faa644e4d2a73d704",
+          "sourceDigest": "sha256:9ad0622c273c7ce1f57f2ff297c374a8da744e8de2a3687c459dd54c855cf1b1",
           "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
           "evidenceKind": "TEST_OR_VALIDATOR_DEFINITION",
           "execution": "NOT_CLAIMED"
@@ -1146,6 +1200,291 @@
       "usl:metadata": {
         "@value": {
           "detail": "Synthetic evidence only. No learned estimate, holdout claim, live application, HSWM W mapping, HSWM state change, canonical promotion, or authority grant."
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Adataset",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:rule-weight-evidence:LearningDataset"
+      ],
+      "usl:nativeId": "trace:learner:dataset",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-review/dataset.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "examples/fixtures/rule-weight-review/dataset.json",
+          "sourceDigest": "sha256:c1253d58ceb79a7b063b28e53a19cd1c1b3a6269b9076f040b946baf36af1786",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+          "dataKind": "SYNTHETIC",
+          "executionScope": "OFFLINE_LOCAL_COPY_ONLY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Areport",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:rule-weight-evidence:LearnerReport"
+      ],
+      "usl:nativeId": "trace:learner:report",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-review/report.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "examples/fixtures/rule-weight-review/report.json",
+          "sourceDigest": "sha256:b842b9f6876c431fad8d5da811745824641acc4536795a996e606ccfa41789cb",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+          "dataKind": "SYNTHETIC",
+          "executionScope": "OFFLINE_LOCAL_COPY_ONLY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Areplay",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:rule-weight-evidence:ReplayObservation"
+      ],
+      "usl:nativeId": "trace:learner:replay",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-review/replay.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "examples/fixtures/rule-weight-review/replay.json",
+          "sourceDigest": "sha256:438fd8a775960169316e4c06e24b7f97d3a654f2966c9e8420b045feb225df92",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+          "dataKind": "SYNTHETIC",
+          "executionScope": "OFFLINE_LOCAL_COPY_ONLY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Areview",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:rule-weight-evidence:LearnerReview"
+      ],
+      "usl:nativeId": "trace:learner:review",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/examples/fixtures/rule-weight-review/review.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "examples/fixtures/rule-weight-review/review.json",
+          "sourceDigest": "sha256:e5fd0e6e298cfaab896a9ae2bdf183836f56cfce84e74e13488d4e227a6db66b",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+          "dataKind": "SYNTHETIC",
+          "executionScope": "OFFLINE_LOCAL_COPY_ONLY"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Feature"
+      ],
+      "usl:nativeId": "feature:rule-weight-review",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_REVIEW.md",
+      "usl:metadata": {
+        "@value": {
+          "scope": "OPTIONAL_OFFLINE_LEARNER_REVIEW",
+          "liveHSWM": "NOT_CONNECTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Asrc%2Faddons%2Frule-weight-review.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:src/addons/rule-weight-review.ts",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/src/addons/rule-weight-review.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "src/addons/rule-weight-review.ts",
+          "sourceDigest": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Ascripts%2Frule-weight-review.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:scripts/rule-weight-review.ts",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/scripts/rule-weight-review.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "scripts/rule-weight-review.ts",
+          "sourceDigest": "sha256:a27f898224c98b19d0d54fd3a621de5d71f8ea668dd99703168dbb0ae4c2a8cd",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Ascripts%2Fbuild-rule-weight-review.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:scripts/build-rule-weight-review.ts",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/scripts/build-rule-weight-review.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "scripts/build-rule-weight-review.ts",
+          "sourceDigest": "sha256:8530f3d8d1a083d43bf14270356069d3f61e40876469c76380f96064cda2a976",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Aexamples%2Frule-weight-review-fixture.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:examples/rule-weight-review-fixture.ts",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/examples/rule-weight-review-fixture.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "examples/rule-weight-review-fixture.ts",
+          "sourceDigest": "sha256:ffb8affb25d560d7b0eaf09ee9b69629c2756e0a0698c2cd9ee3da0a901e0e8c",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Aschemas%2Frule-weight-evidence%2Freview.schema.json",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:schemas/rule-weight-evidence/review.schema.json",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-weight-evidence/review.schema.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "schemas/rule-weight-evidence/review.schema.json",
+          "sourceDigest": "sha256:c7776aaf377a89ea8780d5a90b44278c60bd916280d9aab73738baf56ef2f6e6",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Aschemas%2Frule-weight-evidence%2Freview-host.schema.json",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:schemas/rule-weight-evidence/review-host.schema.json",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/schemas/rule-weight-evidence/review-host.schema.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "schemas/rule-weight-evidence/review-host.schema.json",
+          "sourceDigest": "sha256:2d9cfcea518a0f875bfeddfc37a8b77a61fdc8b52dc46ccc24742f7a88aac684",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Adocs%2FRULE_WEIGHT_REVIEW.md",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Artifact"
+      ],
+      "usl:nativeId": "artifact:docs/RULE_WEIGHT_REVIEW.md",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_REVIEW.md",
+      "usl:metadata": {
+        "@value": {
+          "path": "docs/RULE_WEIGHT_REVIEW.md",
+          "sourceDigest": "sha256:4fd9716a318eb02e77a960394d81735f9b7553d0118b1e00569e2657e1b9c789",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:test%3Atest%2Frule-weight-review.test.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "test:test/rule-weight-review.test.ts",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/test/rule-weight-review.test.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/rule-weight-review.test.ts",
+          "sourceDigest": "sha256:0987adac389bb171e34304e53e90959806c64ba8a4d70efa9a77964ebca021fd",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+          "evidenceKind": "TEST_OR_VALIDATOR_DEFINITION",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:test%3Atest%2Frule-weight-review-cli.test.ts",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence"
+      ],
+      "usl:nativeId": "test:test/rule-weight-review-cli.test.ts",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/test/rule-weight-review-cli.test.ts",
+      "usl:metadata": {
+        "@value": {
+          "path": "test/rule-weight-review-cli.test.ts",
+          "sourceDigest": "sha256:7cd8bedd984239ec54a369aad12a4e1270c5bdff26f0d5073b0c8a63f4e6096d",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+          "evidenceKind": "TEST_OR_VALIDATOR_DEFINITION",
+          "execution": "NOT_CLAIMED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Aexecution",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:TestEvidence",
+        "urn:usl:status:ExecutionReceipt"
+      ],
+      "usl:nativeId": "trace:learner:execution",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/research/rule-weight-evidence/learner-execution.json",
+      "usl:metadata": {
+        "@value": {
+          "path": "research/rule-weight-evidence/learner-execution.json",
+          "sourceDigest": "sha256:42c4b25334c7958ecb77d0e556833671356f60eed8b147dd0a304adf0daff1d6",
+          "locatorStatus": "MUTABLE_REPOSITORY_ADDRESS_NOT_FETCHED",
+          "evidenceKind": "OBSERVED_COMMAND_RECEIPT",
+          "execution": "OBSERVED_LOCAL_SYNTHETIC",
+          "scope": "SYNTHETIC_OFFLINE_LEARNER"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:resource:limitation%3Aweight-review",
+      "@type": [
+        "usl:Resource",
+        "urn:usl:status:Limitation"
+      ],
+      "usl:nativeId": "limitation:weight-review",
+      "usl:locator": "https://github.com/gj3447/USL/blob/master/docs/RULE_WEIGHT_REVIEW.md",
+      "usl:metadata": {
+        "@value": {
+          "detail": "Synthetic held-out evaluation only. Utility estimates are not rule coefficients or canonical W. No operational efficacy, evaluator authentication, live policy/HSWM apply, or access grant."
         },
         "@type": "@json"
       }
@@ -1187,6 +1526,12 @@
       "usl:description": "Declared role contract urn:usl:rule-weight-evidence:candidate_input_to; graph relationships are declared, not semantic entailments."
     },
     {
+      "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Areviewed_with_learner",
+      "@type": "usl:Meaning",
+      "usl:nativeId": "urn:usl:rule-weight-evidence:reviewed_with_learner",
+      "usl:description": "Declared role contract urn:usl:rule-weight-evidence:reviewed_with_learner; graph relationships are declared, not semantic entailments."
+    },
+    {
       "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-policy%3Arealized_by",
       "@type": "usl:Meaning",
       "usl:nativeId": "urn:usl:rule-policy:realized_by",
@@ -1224,7 +1569,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1245,7 +1590,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Aaddon%3Aapplies_binding_rule"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1294,7 +1639,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1315,7 +1660,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Aaddon%3Aapplies_binding_rule"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1364,7 +1709,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1385,7 +1730,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Aaddon%3Aapplies_binding_rule"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1434,7 +1779,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1455,7 +1800,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Acontextual_weight"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1505,7 +1850,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1526,7 +1871,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Acontextual_weight"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1576,7 +1921,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1597,7 +1942,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Acontextual_weight"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1647,7 +1992,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1668,7 +2013,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Acontextual_weight"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1718,7 +2063,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1739,7 +2084,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-policy%3Aevaluated_policy"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1788,7 +2133,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1809,7 +2154,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Arecords_evidence"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1865,7 +2210,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1886,7 +2231,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Aproposed_revision"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -1942,7 +2287,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -1963,7 +2308,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Acandidate_input_to"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2000,7 +2345,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2021,7 +2366,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2053,7 +2398,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2074,7 +2419,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2106,7 +2451,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2127,7 +2472,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2159,7 +2504,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2180,7 +2525,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Ainformed_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2212,7 +2557,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2233,7 +2578,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-policy%3Arealized_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2265,7 +2610,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2286,7 +2631,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2318,7 +2663,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2339,7 +2684,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2371,7 +2716,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2392,7 +2737,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2424,7 +2769,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2445,7 +2790,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2477,7 +2822,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2498,7 +2843,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2530,7 +2875,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2551,7 +2896,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2583,7 +2928,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2604,7 +2949,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2636,7 +2981,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2657,7 +3002,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2689,7 +3034,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2710,7 +3055,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Atested_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2744,7 +3089,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2765,7 +3110,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Atested_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2799,7 +3144,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:1262ee6b5bbe0c7f58c7a9124395be49747f55a6e09127504514d7d739014288"
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
         },
         {
           "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
@@ -2820,7 +3165,7 @@
         "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Abounded_by"
       },
       "usl:checkedAgainst": {
-        "@id": "urn:usl:profile:77af31ed8cd0f907593d401c1d85e56a9c2acce262cea5b068f6ac431a3ed23d"
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
       },
       "usl:validationScope": "ROLE_TYPES_AND_METADATA",
       "usl:participant": [
@@ -2836,6 +3181,730 @@
           "usl:role": "limitation",
           "usl:resource": {
             "@id": "urn:usl:usl.rule-weight-evidence:resource:limitation%3Aweight-evidence"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A27",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:27",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-weight-evidence%3Areviewed_with_learner"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "proposal",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:urn%3Aexample%3Arule-weight-proposal%3Adashboard-soft-weights"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "context",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:urn%3Aexample%3Acontext%3Adashboard-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "dataset",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Adataset"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "report",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Areport"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "replay",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Areplay"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "review",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Areview"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "reviewStatus": "REVIEW_READY",
+          "disposition": "REVIEW_ONLY_NOT_APPLIED",
+          "operationalEfficacy": "NOT_ESTABLISHED",
+          "authority": "NOT_GRANTED"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A28",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:28",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Arule-policy%3Arealized_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "task",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Atask"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A29",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:29",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Asrc%2Faddons%2Frule-weight-review.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A30",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:30",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Ascripts%2Frule-weight-review.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A31",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:31",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Ascripts%2Fbuild-rule-weight-review.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A32",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:32",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Aexamples%2Frule-weight-review-fixture.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A33",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:33",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Aschemas%2Frule-weight-evidence%2Freview.schema.json"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A34",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:34",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Aschemas%2Frule-weight-evidence%2Freview-host.schema.json"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A35",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:35",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Aimplemented_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "artifact",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:artifact%3Adocs%2FRULE_WEIGHT_REVIEW.md"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A36",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:36",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:test%3Atest%2Frule-weight-review.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A37",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:37",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:test%3Atest%2Frule-weight-review-cli.test.ts"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {},
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A38",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:38",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Atested_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "evidence",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Alearner%3Aexecution"
+          }
+        }
+      ],
+      "usl:metadata": {
+        "@value": {
+          "execution": "OBSERVED_LOCAL_SYNTHETIC"
+        },
+        "@type": "@json"
+      }
+    },
+    {
+      "@id": "urn:usl:usl.rule-weight-evidence:link:trace%3A39",
+      "@type": [
+        "usl:Link",
+        "prov:Entity"
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:source:e556ea5ec733399eec5e20699c41d16bec754ef7be955837bde8bced843c7f15"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Arequest"
+        },
+        {
+          "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Agenerator"
+        }
+      ],
+      "prov:wasGeneratedBy": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aactivity"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "urn:usl:usl.rule-weight-evidence:resource:trace%3Aagent"
+      },
+      "usl:nativeId": "trace:39",
+      "usl:status": "DECLARED",
+      "usl:meaning": {
+        "@id": "urn:usl:usl.rule-weight-evidence:meaning:urn%3Ausl%3Astatus%3Abounded_by"
+      },
+      "usl:checkedAgainst": {
+        "@id": "urn:usl:profile:1c410fe44cbdaba537aeff69bebd1a76c0cfcc7dd2fab1c8f3672f7563946416"
+      },
+      "usl:validationScope": "ROLE_TYPES_AND_METADATA",
+      "usl:participant": [
+        {
+          "@type": "usl:Participant",
+          "usl:role": "feature",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:feature%3Arule-weight-review"
+          }
+        },
+        {
+          "@type": "usl:Participant",
+          "usl:role": "limitation",
+          "usl:resource": {
+            "@id": "urn:usl:usl.rule-weight-evidence:resource:limitation%3Aweight-review"
           }
         }
       ],

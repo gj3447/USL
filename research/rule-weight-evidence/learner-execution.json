@@ -1,0 +1,150 @@
+{
+  "schema": "usl-offline-learner-execution/v1",
+  "authority": "SECONDARY_AI",
+  "recordedAt": "2026-10-03T03:25:02.929356+00:00",
+  "scope": "SYNTHETIC_OFFLINE_LEARNER_NO_LIVE_HSWM",
+  "dataKind": "SYNTHETIC",
+  "learner": {
+    "resource": "workspace:HSWM_LIKENESS",
+    "sourceCommit": "723d1baf66e3119419936c53c51abfb666a19096",
+    "runtimeTrust": "CALLER_SELECTED_EXECUTABLE_NOT_ATTESTED",
+    "nodeVersion": "v24.20.0",
+    "runtimeFilePins": {
+      "hswm-likeness": "sha256:ac6b7a5b96ec194cbdead57fc6245b06b40345a9593e47a45fda3c615739e285",
+      "package.json": "sha256:fd00c8993b5bc4b8411a076452977c395943ec1866e2d61c5be1b2c5473c2cf9",
+      "package-lock.json": "sha256:d38a2df22b0a897ff5b0422655f0c9a96aecd4151c50e08f6bcaae8e6fec5f58",
+      "dist/benchmark.js": "sha256:580ba5235e84377b83910b3a556b7d8c447f247c553b0e060c7448f12fbe3019",
+      "dist/cli.js": "sha256:ebc89748bbeb7bc1d5560abb9f4c695542a0c95d6dd3939a0b08c68935093f8e",
+      "dist/diagnostics.js": "sha256:aec4941c4d453e79310f440839ea8e483ee66ed4275b3cc1a42d154756d28c00",
+      "dist/domain.js": "sha256:28223d50369e9c554c9e91e6fde1636b02168a4badc2844c7710bbeeeae093dd",
+      "dist/index.js": "sha256:3e289bb7b1f83283a85ec454df4c6bcc1519d5ca5e478d44d8e283fd53a13eac",
+      "dist/jev/contract.js": "sha256:b241fc74fc74d63718625c654868e832b61798513d3d40f5bd5ecb1fa82be30b",
+      "dist/jev-cli.js": "sha256:8cd46adf92203d3b1024f1f46f8870dcb5a422691f8687701c22bc1d0dd643ea",
+      "dist/knowledge.js": "sha256:f47f0d47d72cf10cdf29c7794591dfacad65a4e474d8701cef0863560cd7a702",
+      "dist/model.js": "sha256:a0d60a940821afa135911e77c23b59fbcf43e9c5fe6014dd66f6ffb21fdd9e28",
+      "dist/profiles.js": "sha256:31f731d62af0c7bdafaf2e0f3b1c0375762372746d0357758115ebd5c8b73694",
+      "dist/quality.js": "sha256:b1ff08ace277a1fd97c50b600895cec4119d7630fe9e492d1fc4873ae8c641ef",
+      "dist/report.js": "sha256:baa3017dc35086baa3c52b59a82876b5f41895871d4160139bf58e36326e675a",
+      "dist/routing-measurement.js": "sha256:7b1ae814612c1b57559de930d4ef75ad9eee4568b83e64d69f72f813a2ae319f",
+      "dist/rule-profile.js": "sha256:ef0977ee236fc1806cc639ccf93fd96dc44a3c1adcdb9da17cb641d152296931",
+      "dist/services.js": "sha256:02c8fbe54e875836d01c6b244a72086a0bad71c4ac182cdfe4674347a2df2dba",
+      "dist/w-contract.js": "sha256:7bc21c2063def2fa498a4eb405d2966c6e3754ecbe6bec570ad6bd9352fb3a99",
+      "dist/w-learning.js": "sha256:938e98d21a67d38c3c51be2902dc7ff948ba00fd05908d764da1bc26c6c37842",
+      "dist/w-outcomes.js": "sha256:49e61961da8375e84368a7e632ffb84f554d100a2727941cd2ecea6545993b2a",
+      "dist/w-placement.js": "sha256:a8c07cc6e44751c8dc89f1c247c841133349c4261ddbaae6835ad32c9d3a1a9c",
+      "dist/w-producer-services.js": "sha256:8502c878d786418fc107d51f5e1c591ad411b20c9438a890fec4afbb8f126601",
+      "dist/w-producer.js": "sha256:5db15b5e9baf992f3c2b0113404f787a656cff50bd6fdcedfa96a60e9a698188",
+      "dist/w-provenance.js": "sha256:9c8e93377e5c411eab8066f0b2caae4e7370752f95a4cb9aef5286d9799b249d",
+      "dist/w-services.js": "sha256:f350545184e25191ce177ec9eaf3d0d744a740b47f8e6578f0f49f75069d06d6",
+      "dist/w-telemetry.js": "sha256:486eaab629604147397ac7cf3175d0021877b51394427efe86c7a18e0ed8d61a"
+    },
+    "sourceCommitRole": "HEAD_REFERENCE_ONLY; EXECUTED_RUNTIME_BYTES_PINNED_SEPARATELY",
+    "sourceToBuildCorrespondence": "NOT_ATTESTED"
+  },
+  "commands": [
+    {
+      "program": "HSWM_LIKENESS/hswm-likeness",
+      "args": [
+        "w",
+        "validate",
+        "examples/fixtures/rule-weight-review/dataset.json"
+      ],
+      "startedAt": "2026-10-03T03:25:02.938928+00:00",
+      "durationMs": 451,
+      "exitCode": 0,
+      "stdoutDigest": "sha256:0931a63aa129a2062f8541a72cf9d25bee5a8f368880e375bf9f79e57f361eaf",
+      "stderrDigest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "program": "HSWM_LIKENESS/hswm-likeness",
+      "args": [
+        "w",
+        "run",
+        "examples/fixtures/rule-weight-review/dataset.json",
+        "--out",
+        "<fresh-temp>/report.json"
+      ],
+      "startedAt": "2026-10-03T03:25:03.390203+00:00",
+      "durationMs": 440,
+      "exitCode": 0,
+      "stdoutDigest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrDigest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "program": "HSWM_LIKENESS/hswm-likeness",
+      "args": [
+        "w",
+        "replay",
+        "examples/fixtures/rule-weight-review/dataset.json",
+        "<fresh-temp>/report.json",
+        "--out",
+        "<fresh-temp>/replay.json"
+      ],
+      "startedAt": "2026-10-03T03:25:03.830243+00:00",
+      "durationMs": 468,
+      "exitCode": 0,
+      "stdoutDigest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrDigest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "program": "node",
+      "args": [
+        "--import",
+        "tsx",
+        "scripts/rule-weight-review.ts",
+        "--handoff",
+        "examples/fixtures/rule-weight-review/handoff.json",
+        "--host",
+        "examples/fixtures/rule-weight-review/host.json",
+        "--learner",
+        "<caller-selected>/hswm-likeness",
+        "--out",
+        "<fresh-temp>/review.json"
+      ],
+      "startedAt": "2026-10-03T03:25:16.461679+00:00",
+      "durationMs": 1610,
+      "exitCode": 0,
+      "observation": {
+        "reviewStatus": "REVIEW_READY",
+        "disposition": "REVIEW_ONLY_NOT_APPLIED",
+        "runtimeTrust": "CALLER_SELECTED_EXECUTABLE_NOT_ATTESTED",
+        "validationExitCode": 0,
+        "replayExitCode": 0,
+        "matchesArchivedSDKReview": true
+      }
+    }
+  ],
+  "artifactPins": {
+    "examples/fixtures/rule-weight-review/baseline-policy.json": "sha256:07306e87dd0d2e71e3e9008d6910dc9073b91d3a80a10510ab6551ca8f004ae9",
+    "examples/fixtures/rule-weight-review/candidate-policy.json": "sha256:a46617b9b6dd84e5460253b0bfb4815c6dfdabfd36ec54dd4b36e9a4b5949678",
+    "examples/fixtures/rule-weight-review/dataset.json": "sha256:c1253d58ceb79a7b063b28e53a19cd1c1b3a6269b9076f040b946baf36af1786",
+    "examples/fixtures/rule-weight-review/handoff.json": "sha256:e504ce4e77f7b5bcac98bde8bdd5d2711bfd1974ca572ff3ef014f5d43f0f245",
+    "examples/fixtures/rule-weight-review/host.json": "sha256:705a6d99e72f9c80070f0ea26b7d3367a078926283061322967f6d97a52b79a3",
+    "examples/fixtures/rule-weight-review/outcomes.json": "sha256:c070d8b7e5c07d4049dbf2094a87a9d8f17fdaac21ecfb3cee6439bd51ff32be",
+    "examples/fixtures/rule-weight-review/protocol.json": "sha256:534f416595f491733c8d0b1cf6a983a6bed8c7be51b33985ef5708e7e910807b",
+    "examples/fixtures/rule-weight-review/replay.json": "sha256:438fd8a775960169316e4c06e24b7f97d3a654f2966c9e8420b045feb225df92",
+    "examples/fixtures/rule-weight-review/report.json": "sha256:b842b9f6876c431fad8d5da811745824641acc4536795a996e606ccfa41789cb",
+    "examples/fixtures/rule-weight-review/review.json": "sha256:e5fd0e6e298cfaab896a9ae2bdf183836f56cfce84e74e13488d4e227a6db66b"
+  },
+  "liveApply": "NOT_PERFORMED",
+  "operationalEfficacy": "NOT_ESTABLISHED",
+  "canonicalW": "NOT_CLAIMED",
+  "validation": {
+    "schema": "hswm-w-learning/v1",
+    "status": "VALID",
+    "inputDigest": "6f96206c4adb7c77c8846e63b9c1f5d0b5867aa83612a4154047600a0ceecd8f",
+    "sourceBytesVerified": true,
+    "observationsAuthenticated": false,
+    "episodes": 640,
+    "contexts": 1
+  },
+  "archivedOutputsReproduced": [
+    "report.json",
+    "replay.json"
+  ],
+  "consumerSourcePins": {
+    "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
+    "scripts/rule-weight-review.ts": "sha256:a27f898224c98b19d0d54fd3a621de5d71f8ea668dd99703168dbb0ae4c2a8cd",
+    "examples/rule-weight-review-fixture.ts": "sha256:ffb8affb25d560d7b0eaf09ee9b69629c2756e0a0698c2cd9ee3da0a901e0e8c"
+  }
+}

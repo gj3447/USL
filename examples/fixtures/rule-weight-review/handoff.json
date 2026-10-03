@@ -1,0 +1,241 @@
+{
+  "schema": "usl-rule-weight-review/v1",
+  "id": "urn:example:usl-rule-weight-review",
+  "version": "1",
+  "reviewedAt": "2026-10-03T00:40:00Z",
+  "recipe": {
+    "policy": {
+      "schema": "usl-rule-policy/v1",
+      "id": "urn:example:dashboard:memory-policy",
+      "version": "1",
+      "target": "example:dashboard-memory",
+      "consumer": "example:dashboard-consumer",
+      "scope": "example-memory-quality",
+      "conflictPolicy": "REJECT",
+      "scoring": "WEIGHTED_MEAN_VIOLATION_V1",
+      "rules": [
+        {
+          "id": "urn:example:rule:references",
+          "version": "1",
+          "description": "Every memory reference names an existing record",
+          "requirement": "REQUIRED",
+          "severity": "VIOLATION",
+          "onViolation": "BLOCK",
+          "weight": 0,
+          "evaluator": {
+            "id": "urn:example:dashboard:references-exist",
+            "version": "1"
+          }
+        },
+        {
+          "id": "urn:example:rule:sources",
+          "version": "1",
+          "description": "Prefer a declared original source for every record; does not verify the source",
+          "requirement": "RECOMMENDED",
+          "severity": "WARNING",
+          "onViolation": "PENALIZE",
+          "weight": 0.8,
+          "evaluator": {
+            "id": "urn:example:dashboard:sources-present",
+            "version": "1"
+          }
+        },
+        {
+          "id": "urn:example:rule:tags",
+          "version": "1",
+          "description": "Prefer at least one tag for every record",
+          "requirement": "RECOMMENDED",
+          "severity": "INFO",
+          "onViolation": "PENALIZE",
+          "weight": 0.2,
+          "evaluator": {
+            "id": "urn:example:dashboard:tags-present",
+            "version": "1"
+          }
+        }
+      ]
+    },
+    "observations": {
+      "schema": "usl-rule-observations/v1",
+      "policyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+      "target": "example:dashboard-memory",
+      "targetDigest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841",
+      "scope": "example-memory-quality",
+      "observedAt": "2026-10-03T00:00:00Z",
+      "conflicts": [],
+      "observations": [
+        {
+          "rule": "urn:example:rule:references",
+          "ruleVersion": "1",
+          "evaluator": {
+            "id": "urn:example:dashboard:references-exist",
+            "version": "1"
+          },
+          "status": "PASS",
+          "violation": 0,
+          "evidence": [
+            {
+              "resource": "example:dashboard-memory",
+              "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+            }
+          ],
+          "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+        },
+        {
+          "rule": "urn:example:rule:sources",
+          "ruleVersion": "1",
+          "evaluator": {
+            "id": "urn:example:dashboard:sources-present",
+            "version": "1"
+          },
+          "status": "FAIL",
+          "violation": 0.5,
+          "evidence": [
+            {
+              "resource": "example:dashboard-memory",
+              "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+            }
+          ],
+          "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+        },
+        {
+          "rule": "urn:example:rule:tags",
+          "ruleVersion": "1",
+          "evaluator": {
+            "id": "urn:example:dashboard:tags-present",
+            "version": "1"
+          },
+          "status": "FAIL",
+          "violation": 1,
+          "evidence": [
+            {
+              "resource": "example:dashboard-memory",
+              "digest": "sha256:fc168cd11df9f74e008315573a22e953e0c74e1972cde346aa4116d2fbede841"
+            }
+          ],
+          "detail": "Fraction of records violating this example predicate; source URLs were not fetched"
+        }
+      ]
+    },
+    "evidence": {
+      "schema": "usl-rule-weight-evidence/v1",
+      "id": "urn:example:rule-weight-evidence:dashboard-outcome",
+      "version": "1",
+      "context": {
+        "id": "urn:example:context:dashboard-review",
+        "version": "1",
+        "digest": "sha256:66305a95a8948701feb0e80a73a805d4f258049770b3b0851cc4ef7568966849"
+      },
+      "action": {
+        "id": "urn:example:action:dashboard-curation",
+        "version": "1",
+        "digest": "sha256:6781886a499c2d591409bd4bf3e502d2c3af6a83d7bb2df68356b8644feb481f",
+        "participants": [
+          {
+            "role": "rule",
+            "ordinal": 0,
+            "source": {
+              "id": "urn:example:rule:references",
+              "version": "1",
+              "digest": "sha256:67382e30ceed9e38695d936542aaec3c882f8abd647a8ab36d1a4f1e4f8d15cd"
+            }
+          },
+          {
+            "role": "rule",
+            "ordinal": 1,
+            "source": {
+              "id": "urn:example:rule:sources",
+              "version": "1",
+              "digest": "sha256:cc660f1faa63ed46aeb34fe4d9d0bf919c8f9b1b0b3c12a01988c34bf24dda30"
+            }
+          },
+          {
+            "role": "rule",
+            "ordinal": 2,
+            "source": {
+              "id": "urn:example:rule:tags",
+              "version": "1",
+              "digest": "sha256:e93d3c9a0b72ba06234302417376a786884f9a8bc6dd41f80aba60ea7094fcb1"
+            }
+          }
+        ]
+      },
+      "independentUnit": "urn:example:unit:review-batch-1",
+      "selectionProbability": null,
+      "observedAt": "2026-10-03T00:01:00Z",
+      "evaluationDigest": "sha256:edd322e39432505226e9c723527957dc799a3c71f199b83b09273360aa9cc21d",
+      "outcome": {
+        "metric": {
+          "id": "urn:example:metric:answer-correctness",
+          "version": "1",
+          "direction": "MAXIMIZE"
+        },
+        "value": 0.5,
+        "source": {
+          "resource": "urn:example:outcome-source:answer-review",
+          "digest": "sha256:c92bdeb6c666d5b05336d236fb2b5fac30085d19ce30ad25b626f68700e7e2e4"
+        },
+        "evaluator": {
+          "id": "urn:example:evaluator:answer-review",
+          "version": "1"
+        },
+        "basis": "EXTERNAL_TASK_MEASUREMENT"
+      },
+      "costs": [
+        {
+          "kind": "review",
+          "amount": 2,
+          "unit": "synthetic-case"
+        }
+      ],
+      "evidenceClass": "SYNTHETIC"
+    },
+    "proposalInput": {
+      "schema": "usl-rule-weight-proposal/v1",
+      "id": "urn:example:rule-weight-proposal:dashboard-soft-weights",
+      "version": "1",
+      "createdAt": "2026-10-03T00:02:00Z",
+      "basePolicyDigest": "sha256:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+      "evidenceDigest": "sha256:2ca6259770687e6415eebab6d1b5ce37e16e7f5f5d9d412827dc49834a7ba543",
+      "nextPolicyVersion": "2-proposed",
+      "scope": "example-memory-quality",
+      "context": {
+        "id": "urn:example:context:dashboard-review",
+        "version": "1",
+        "digest": "sha256:66305a95a8948701feb0e80a73a805d4f258049770b3b0851cc4ef7568966849"
+      },
+      "method": "OWNER_PROPOSED",
+      "rationale": "Synthetic reviewer asks to emphasize source presence; this single outcome does not establish that the proposed weights improve results.",
+      "changes": [
+        {
+          "rule": "urn:example:rule:sources",
+          "ruleVersion": "1",
+          "fromWeight": 0.8,
+          "toWeight": 0.9
+        },
+        {
+          "rule": "urn:example:rule:tags",
+          "ruleVersion": "1",
+          "fromWeight": 0.2,
+          "toWeight": 0.1
+        }
+      ]
+    }
+  },
+  "artifacts": {
+    "dataset": "dataset.json",
+    "report": "report.json",
+    "baselineSource": "baseline-policy.json",
+    "candidateSource": "candidate-policy.json"
+  },
+  "mapping": {
+    "contextUid": "urn:example:context:dashboard-review",
+    "contextRevision": "1",
+    "baselineActionUid": "urn:example:w:baseline-action",
+    "candidateActionUid": "urn:example:w:candidate-action",
+    "baselineRuleUid": "urn:example:policy-snapshot:c46289dcacab901dddf20d271b33ecb02e289a46bf3c9cf07938ab5b38307f8d",
+    "candidateRuleUid": "urn:example:policy-snapshot:520c9d5cd98a75795c76ce960e590c3b88893a5eb7aa204e1b3fa8bf56f97073",
+    "role": "policy_snapshot",
+    "ordinal": 0
+  }
+}

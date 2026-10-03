@@ -1,5 +1,5 @@
 """Independent SHACL and connected-SPARQL checks for the synthetic owner-review trace."""
-import json, pathlib
+import hashlib, json, pathlib
 from rdflib import BNode, Graph, Literal, Namespace, RDF, URIRef
 from rdflib.collection import Collection
 from pyshacl import validate
@@ -59,6 +59,36 @@ def candidate_contract(payload):
     return len(rows) == 1 and rows[0]["metadata"] == {"authority":"NOT_GRANTED","canonicalMapping":"NOT_CONNECTED","relationship":"CANDIDATE_INPUT_ONLY","status":"PROPOSED"}
 assert candidate_contract(raw)
 
+# 5. The same proposal/context has one connected offline review/report/dataset/replay path.
+reviews = list(typed.query("""PREFIX rw:<urn:usl:rule-weight-evidence:>
+ SELECT ?proposal ?context ?review ?dataset ?report ?replay WHERE {
+ ?proposal a rw:WeightRevisionProposal;rw:inContext ?context.
+ ?review a rw:LearnerReview;rw:reviewsProposal ?proposal;rw:inContext ?context;
+   rw:usesDataset ?dataset;rw:usesReport ?report;rw:usesReplay ?replay;
+   rw:reviewStatus "REVIEW_READY";rw:disposition "REVIEW_ONLY_NOT_APPLIED";rw:dataKind "SYNTHETIC".
+ ?dataset rw:inContext ?context. ?report rw:derivedFrom ?dataset. ?replay rw:verifiedReport ?report.
+ }"""))
+assert {tuple(map(str, row)) for row in reviews} == {(fixture["proposalInput"]["id"], fixture["evidence"]["context"]["id"], "trace:learner:review", "trace:learner:dataset", "trace:learner:report", "trace:learner:replay")}
+# Raw-file pins are recomputed independently, not inferred from RDF labels.
+for name in ["dataset", "report", "replay", "review"]:
+    source = root / f"examples/fixtures/rule-weight-review/{name}.json"
+    digest = "sha256:" + hashlib.sha256(source.read_bytes()).hexdigest()
+    assert str(typed.value(URIRef(f"trace:learner:{name}"), RW.digest)) == digest
+    resource = next(item for item in raw["resources"] if item["id"] == f"trace:learner:{name}")
+    assert resource["metadata"]["sourceDigest"] == digest
+review_links = [item for item in raw["links"] if item["meaning"] == str(RW.reviewed_with_learner)]
+assert len(review_links) == 1
+assert {item["role"]: item["resource"] for item in review_links[0]["participants"]} == {
+    "proposal": fixture["proposalInput"]["id"], "context": fixture["evidence"]["context"]["id"],
+    **{name: f"trace:learner:{name}" for name in ["dataset", "report", "replay", "review"]},
+}
+assert review_links[0]["metadata"] == {"reviewStatus": "REVIEW_READY", "disposition": "REVIEW_ONLY_NOT_APPLIED", "operationalEfficacy": "NOT_ESTABLISHED", "authority": "NOT_GRANTED"}
+execution = json.loads((root / "research/rule-weight-evidence/learner-execution.json").read_text())
+for section in ["artifactPins", "consumerSourcePins"]:
+    for path, digest in execution[section].items():
+        assert digest == "sha256:" + hashlib.sha256((root / path).read_bytes()).hexdigest(), path
+assert execution["validation"]["inputDigest"] == str(typed.value(URIRef("trace:learner:dataset"), RW.inputDigest)).removeprefix("sha256:")
+
 # Independently translate exact role cardinality/domain/range from the published profile.
 shapes = Graph().parse(root / "schemas/resource-graph.shacl.ttl", format="turtle")
 profile = json.loads((root / "research/rule-weight-evidence/profile.json").read_text()); choices = []
@@ -82,6 +112,14 @@ evaluation = next(typed.subjects(RDF.type, RW.Evaluation)); target = next(typed.
 participant = next(typed.objects(next(typed.subjects(RDF.type, RW.Action)), RW.participant)); bad = clone(typed); bad.remove((participant, RW.sourceDigest, None)); assert not conforms(bad, typed_shapes)[0]
 role=next(graph_data.subjects(USL.role,Literal("wConcept"))); bad=clone(graph_data); bad.set((role,USL.role,Literal("wrongRole"))); assert not conforms(bad,shapes)[0]
 changed=json.loads(json.dumps(raw)); next(row for row in changed["links"] if row["meaning"]==str(RW.candidate_input_to))["metadata"]["status"]="APPLIED"; assert not candidate_contract(changed)
+review_node = URIRef("trace:learner:review")
+bad = clone(typed); bad.set((review_node, RW.inContext, URIRef("urn:wrong:context"))); assert not conforms(bad, typed_shapes)[0]
+bad = clone(typed); bad.set((review_node, RW.reportDigest, Literal("sha256:" + "0" * 64))); assert not conforms(bad, typed_shapes)[0]
+bad = clone(typed); bad.set((review_node, RW.disposition, Literal("APPLIED"))); assert not conforms(bad, typed_shapes)[0]
+bad = clone(typed); bad.set((URIRef("trace:learner:report"), RW.inputDigest, Literal("sha256:" + "0" * 64))); assert not conforms(bad, typed_shapes)[0]
 assert any(resource["id"]=="standard:shacl-2017" and resource["metadata"]["checkedOn"]=="2026-10-03" for resource in raw["resources"])
-assert all(resource["metadata"].get("execution")=="NOT_CLAIMED" for resource in raw["resources"] if str(STATUS.TestEvidence) in resource["types"])
-print(json.dumps({"rdf":"PARSED","shacl":"CONFORMS","competencyQueries":4,"negativeCases":8,"scope":"SYNTHETIC_OWNER_REVIEW_EVIDENCE_NOT_LEARNED_OR_APPLIED_HSWM_W"}))
+for resource in raw["resources"]:
+    if str(STATUS.TestEvidence) not in resource["types"]: continue
+    expected_execution = "OBSERVED_LOCAL_SYNTHETIC" if resource["id"] == "trace:learner:execution" else "NOT_CLAIMED"
+    assert resource["metadata"].get("execution") == expected_execution
+print(json.dumps({"rdf":"PARSED","shacl":"CONFORMS","competencyQueries":5,"negativeCases":12,"scope":"SYNTHETIC_PROPOSAL_AND_OFFLINE_LEARNER_REVIEW_NO_LIVE_APPLY_OR_CANONICAL_W"}))
