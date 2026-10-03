@@ -103,6 +103,10 @@
     "./rule-weight-review": {
       "types": "./dist/src/addons/rule-weight-review.d.ts",
       "import": "./dist/src/addons/rule-weight-review.js"
+    },
+    "./portable-transfer": {
+      "types": "./dist/src/addons/portable-transfer.d.ts",
+      "import": "./dist/src/addons/portable-transfer.js"
     }
   },
   "engines": {
@@ -141,7 +145,11 @@
     "rule-weight-review": "tsx scripts/rule-weight-review.ts",
     "rule-weight-review:build": "tsx scripts/build-rule-weight-review.ts",
     "rule-weight-review:check": "tsx scripts/build-rule-weight-review.ts --check",
-    "rule-weight-review:prepare-fixture": "tsx scripts/prepare-rule-weight-review-fixture.ts"
+    "rule-weight-review:prepare-fixture": "tsx scripts/prepare-rule-weight-review-fixture.ts",
+    "portable-transfer:build": "tsx scripts/build-portable-transfer.ts",
+    "portable-transfer:record": "tsx scripts/build-portable-transfer.ts --record",
+    "portable-transfer:check": "tsx scripts/build-portable-transfer.ts --check",
+    "portable-transfer:standards": "python3 scripts/validate-portable-transfer.py"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",

@@ -1,0 +1,48 @@
+{
+  "schema": "usl-portable-transfer-contract-receipt/v1",
+  "authority": "SECONDARY_AI",
+  "task": "task:PT01",
+  "implementation": "CONTRACT_IMPLEMENTED",
+  "status": "LOCAL_CONTRACT_TESTS_PASS",
+  "command": "node --import tsx --test --test-reporter=tap test/portable-transfer.test.ts",
+  "exitCode": 0,
+  "criteria": [
+    "criterion:PT01-C1",
+    "criterion:PT01-C2",
+    "criterion:PT01-C3"
+  ],
+  "evidenceScope": "BOUNDED_PURE_MANIFEST_CONTRACT_ONLY",
+  "transfer": "NOT_IMPLEMENTED",
+  "restore": "NOT_IMPLEMENTED",
+  "crossDeviceAcceptance": "NOT_RUN",
+  "proofStatus": "NOT_PROVEN",
+  "payload": "NOT_CHECKED",
+  "freshness": "UNKNOWN",
+  "execution": "NOT_REQUESTED",
+  "recordedAt": "2026-10-03T11:40:37.147Z",
+  "sourcePins": {
+    "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
+    "src/contract-core.ts": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
+    "src/json-data.ts": "sha256:bfd430f5dde0b1d1917acda4d54a80f833989e765e4329ecffe48a5072a2ad8a",
+    "test/portable-transfer.test.ts": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
+    "scripts/build-portable-transfer.ts": "sha256:b648a5c10c92b24050c8afcb6f32d16275dd315c2fc6a2399954c28fc808abc7",
+    "scripts/validate-portable-transfer.py": "sha256:77f39a2fa4153b90fc046a35e87265b2b124cf666244d1e8488cd52931188aee",
+    "schemas/portable-transfer/manifest.shacl.ttl": "sha256:3561f5cebbcc406263a93c10bc58789aae5513b1d82169e0b72aff7e87256d20",
+    "research/portability-plan/plan.json": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
+    "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
+    "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
+    "tsconfig.json": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3",
+    "schemas/portable-transfer/manifest.schema.json": "sha256:d50e395623a4f0f2cc9c9cd82f1bc6e40e2a78a50f4647081ea896820b51d50e",
+    "schemas/portable-transfer/envelope.schema.json": "sha256:5fd2c9fb99f8698a8582dffd87a360ea5c57ab80883053307e2f5bc47c499aea",
+    "research/portable-transfer/envelope.json": "sha256:23da5cada4d261dc733654e2c040acc737dec6482cf801e87c9b14843fcf412d",
+    "research/portable-transfer/graph.jsonld": "sha256:49b16b11d5d6b3c5b13cbe00e9df57c94d134a827149a37d29140129119dd457"
+  },
+  "totals": {
+    "tests": 12,
+    "pass": 12,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  }
+}

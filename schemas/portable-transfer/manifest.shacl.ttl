@@ -1,0 +1,82 @@
+@prefix pt: <urn:usl:portable-transfer:> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# These shapes describe the local PT01 manifest RDF fixture.  They neither
+# validate payload bytes nor establish that a transfer or a restore occurred.
+
+pt:ResourceShape a sh:NodeShape ;
+  sh:targetClass pt:Resource ;
+  sh:class prov:Entity ;
+  sh:nodeKind sh:IRI ;
+  sh:property [ sh:path pt:ownerNamespace ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path pt:nativeId ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path pt:derivedFrom ; sh:maxCount 1 ; sh:class pt:Resource ; sh:nodeKind sh:IRI ] .
+
+pt:RevisionShape a sh:NodeShape ;
+  sh:targetClass pt:Revision ;
+  sh:class prov:Entity ;
+  sh:nodeKind sh:IRI ;
+  sh:property [ sh:path pt:revisionOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:class pt:Resource ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path pt:kind ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "CONTENT" "TOMBSTONE" ) ] ;
+  sh:property [ sh:path pt:parentRevision ; sh:class pt:Revision ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path prov:wasAttributedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class prov:Agent ; sh:nodeKind sh:IRI ] ;
+  sh:sparql [
+    sh:message "A tombstone has at least one same-resource parent and no representation." ;
+    sh:select """
+      PREFIX pt: <urn:usl:portable-transfer:>
+      SELECT $this WHERE {
+        $this pt:kind "TOMBSTONE" .
+        { FILTER NOT EXISTS { $this pt:parentRevision ?parent } }
+        UNION { $this pt:parentRevision ?parent . ?parent pt:revisionOf ?other . $this pt:revisionOf ?resource . FILTER (?other != ?resource) }
+        UNION { ?representation a pt:Representation ; pt:representsRevision $this }
+      }
+    """
+  ] ;
+  sh:sparql [
+    sh:message "Revision parent links must be acyclic." ;
+    sh:select """
+      PREFIX pt: <urn:usl:portable-transfer:>
+      SELECT $this WHERE { $this pt:parentRevision+ $this }
+    """
+  ] .
+
+pt:TombstoneShape a sh:NodeShape ;
+  sh:targetClass pt:Tombstone ;
+  sh:class pt:Revision ;
+  sh:property [ sh:path pt:kind ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "TOMBSTONE" ] .
+
+pt:RepresentationShape a sh:NodeShape ;
+  sh:targetClass pt:Representation ;
+  sh:class prov:Entity ;
+  sh:nodeKind sh:IRI ;
+  sh:property [ sh:path pt:representsRevision ; sh:minCount 1 ; sh:maxCount 1 ; sh:class pt:Revision ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path pt:payloadPath ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path pt:byteDigestAlgorithm ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SHA256_RAW_BYTES_V1" ] ;
+  sh:property [ sh:path pt:byteDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[0-9a-f]{64}$" ] ;
+  sh:property [ sh:path pt:byteLength ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 0 ] ;
+  sh:sparql [
+    sh:message "A representation can only represent a CONTENT revision." ;
+    sh:select """
+      PREFIX pt: <urn:usl:portable-transfer:>
+      SELECT $this WHERE { $this pt:representsRevision ?revision . ?revision pt:kind ?kind . FILTER (?kind != "CONTENT") }
+    """
+  ] .
+
+pt:ManifestShape a sh:NodeShape ;
+  sh:targetClass pt:Manifest ;
+  sh:class prov:Entity ;
+  sh:nodeKind sh:IRI ;
+  sh:property [ sh:path pt:revision ; sh:minCount 1 ; sh:class pt:Revision ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path pt:representation ; sh:class pt:Representation ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path pt:observedAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+  sh:property [ sh:path pt:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_GRANTED" ] ;
+  sh:property [ sh:path pt:freshness ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "UNKNOWN" ] ;
+  sh:property [ sh:path pt:payload ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_CHECKED" ] ;
+  sh:property [ sh:path prov:wasAttributedTo ; sh:minCount 1 ; sh:maxCount 1 ; sh:class prov:Agent ; sh:nodeKind sh:IRI ] .
+
+pt:IssuerShape a sh:NodeShape ;
+  sh:targetClass prov:Agent ;
+  sh:nodeKind sh:IRI .

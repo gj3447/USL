@@ -1,16 +1,17 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:75744a72-f5bf-40ea-bcf2-b74fe7421b9b",
-  "startedAt": "2026-10-03T03:26:30.568Z",
-  "finishedAt": "2026-10-03T03:26:31.262Z",
+  "runId": "urn:uuid:f0a20d5a-bea8-4665-9382-61d294c3a261",
+  "startedAt": "2026-10-03T11:39:30.935Z",
+  "finishedAt": "2026-10-03T11:39:31.674Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:755f48d689e870f016cf5e747b089e902ae2cdab8305b1b5ce85de01dc94d711",
+    "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
     "schemas/resource-graph.shacl.ttl": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
     "scripts/build-engineering-review.ts": "sha256:30cf09fd7c52bade45a9eecacc9f8fa2c0490b7a4a54df011be176064736c650",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+    "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
     "src/addons/rule-weight-review.ts": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
@@ -66,7 +67,7 @@
     "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
     "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
     "test/engineering-adversarial-cases.ts": "sha256:3c9220c56b0c7b4c4ea30884488bc51635a1e01c820bf6d3d419a3913b8e2c94",
-    "tsconfig.json": "sha256:290103982e2112b8c2f2a5fb18fff73e711331bad9d6e2d42c1e9e6a211b7c54"
+    "tsconfig.json": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
   },
   "checks": [
     {
@@ -222,5 +223,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:381a185129b5f08f3409da36e2d17804fd3a89fdab2ceed0645974f8b9b6120a"
+  "receiptDigest": "sha256:22a388236728138164fefceacf5810af2c6aa33bc0c8c1bfe1b37ba64c1bec31"
 }

@@ -60,5 +60,7 @@ jobs:
       - run: npm run binding-progress:standards
       - run: node --import tsx scripts/build-portability-plan.ts --check
       - run: python3 scripts/validate-portability-plan.py
+      - run: npm run portable-transfer:check
+      - run: npm run portable-transfer:standards
       - run: node --import tsx scripts/build-syntax-cli-architecture.ts --check
       - run: python3 scripts/validate-syntax-cli-architecture.py

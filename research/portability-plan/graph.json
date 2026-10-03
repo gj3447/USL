@@ -21,7 +21,7 @@
       ],
       "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-portability-plan.ts",
       "metadata": {
-        "sourceDigest": "sha256:7f56c83c61f7e23bda6daa6bead71a742553ac1dc17e261c5b34307e21c94204",
+        "sourceDigest": "sha256:0d0f98e58d4ecaa9eb6062373b5e85b60cd4617f180b041cafc02fa1c599a2a2",
         "scope": "PLAN_ARTIFACT_GENERATION_ONLY"
       }
     },

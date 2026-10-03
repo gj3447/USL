@@ -1,0 +1,77 @@
+{
+  "schema": "usl-portable-transfer-envelope/v1",
+  "bodyDigestAlgorithm": "USL_CONTRACT_SHA256_V1",
+  "manifestDigest": "sha256:01d912e3ad7b96fccfb89da0223f2858f11026e8a9952f50dc0615de269c9ff0",
+  "manifest": {
+    "schema": "usl-portable-transfer/v1",
+    "ownerNamespace": "urn:example:owner:portable",
+    "issuer": "urn:example:issuer:fixture",
+    "observedAt": "2026-10-03T00:00:00Z",
+    "resources": [
+      {
+        "ownerNamespace": "urn:example:owner:portable",
+        "nativeId": "memory:alpha"
+      },
+      {
+        "ownerNamespace": "urn:example:owner:portable",
+        "nativeId": "memory:beta"
+      }
+    ],
+    "revisions": [
+      {
+        "id": "urn:example:revision:alpha:1",
+        "resource": {
+          "ownerNamespace": "urn:example:owner:portable",
+          "nativeId": "memory:alpha"
+        },
+        "kind": "CONTENT",
+        "parents": [],
+        "issuer": "urn:example:issuer:fixture"
+      },
+      {
+        "id": "urn:example:revision:beta:1",
+        "resource": {
+          "ownerNamespace": "urn:example:owner:portable",
+          "nativeId": "memory:beta"
+        },
+        "kind": "CONTENT",
+        "parents": [],
+        "issuer": "urn:example:issuer:fixture"
+      },
+      {
+        "id": "urn:example:revision:alpha:2",
+        "resource": {
+          "ownerNamespace": "urn:example:owner:portable",
+          "nativeId": "memory:alpha"
+        },
+        "kind": "TOMBSTONE",
+        "parents": [
+          "urn:example:revision:alpha:1"
+        ],
+        "issuer": "urn:example:issuer:fixture"
+      }
+    ],
+    "representations": [
+      {
+        "id": "urn:example:representation:alpha:1",
+        "revision": "urn:example:revision:alpha:1",
+        "payloadPath": "payload/alpha.txt",
+        "byteDigestAlgorithm": "SHA256_RAW_BYTES_V1",
+        "byteDigest": "sha256:146f8aa88613d5b3c16605fb0ae4f209e064b63ca99d9c0a44265edf6f8cf096",
+        "byteLength": 25
+      },
+      {
+        "id": "urn:example:representation:beta:1",
+        "revision": "urn:example:revision:beta:1",
+        "payloadPath": "payload/beta.txt",
+        "byteDigestAlgorithm": "SHA256_RAW_BYTES_V1",
+        "byteDigest": "sha256:146f8aa88613d5b3c16605fb0ae4f209e064b63ca99d9c0a44265edf6f8cf096",
+        "byteLength": 25
+      }
+    ],
+    "historyBoundary": {
+      "mode": "CLOSED_V1",
+      "externalParents": []
+    }
+  }
+}

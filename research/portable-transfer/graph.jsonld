@@ -1,0 +1,149 @@
+{
+  "@context": {
+    "pt": "urn:usl:portable-transfer:",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:portable-transfer:fixture:manifest",
+      "@type": [
+        "pt:Manifest",
+        "prov:Entity"
+      ],
+      "pt:revision": [
+        {
+          "@id": "urn:example:revision:alpha:1"
+        },
+        {
+          "@id": "urn:example:revision:beta:1"
+        },
+        {
+          "@id": "urn:example:revision:alpha:2"
+        }
+      ],
+      "pt:representation": [
+        {
+          "@id": "urn:example:representation:alpha:1"
+        },
+        {
+          "@id": "urn:example:representation:beta:1"
+        }
+      ],
+      "pt:observedAt": {
+        "@value": "2026-10-03T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "pt:authority": "NOT_GRANTED",
+      "pt:freshness": "UNKNOWN",
+      "pt:payload": "NOT_CHECKED",
+      "prov:wasAttributedTo": {
+        "@id": "urn:example:issuer:fixture"
+      }
+    },
+    {
+      "@id": "urn:usl:portable-resource:fade50cac50d0119be3dac0eaf0fe173a309d2ab646f4731146f835c23d8010a",
+      "@type": [
+        "pt:Resource",
+        "prov:Entity"
+      ],
+      "pt:ownerNamespace": {
+        "@id": "urn:example:owner:portable"
+      },
+      "pt:nativeId": "memory:alpha"
+    },
+    {
+      "@id": "urn:usl:portable-resource:585a9f9858a61d6bb63b0e4ac5fba3487382e305cb734706100426fc950bf48f",
+      "@type": [
+        "pt:Resource",
+        "prov:Entity"
+      ],
+      "pt:ownerNamespace": {
+        "@id": "urn:example:owner:portable"
+      },
+      "pt:nativeId": "memory:beta"
+    },
+    {
+      "@id": "urn:example:revision:alpha:1",
+      "@type": [
+        "pt:Revision",
+        "prov:Entity"
+      ],
+      "pt:revisionOf": {
+        "@id": "urn:usl:portable-resource:fade50cac50d0119be3dac0eaf0fe173a309d2ab646f4731146f835c23d8010a"
+      },
+      "pt:kind": "CONTENT",
+      "pt:parentRevision": [],
+      "prov:wasAttributedTo": {
+        "@id": "urn:example:issuer:fixture"
+      }
+    },
+    {
+      "@id": "urn:example:revision:beta:1",
+      "@type": [
+        "pt:Revision",
+        "prov:Entity"
+      ],
+      "pt:revisionOf": {
+        "@id": "urn:usl:portable-resource:585a9f9858a61d6bb63b0e4ac5fba3487382e305cb734706100426fc950bf48f"
+      },
+      "pt:kind": "CONTENT",
+      "pt:parentRevision": [],
+      "prov:wasAttributedTo": {
+        "@id": "urn:example:issuer:fixture"
+      }
+    },
+    {
+      "@id": "urn:example:revision:alpha:2",
+      "@type": [
+        "pt:Revision",
+        "prov:Entity",
+        "pt:Tombstone"
+      ],
+      "pt:revisionOf": {
+        "@id": "urn:usl:portable-resource:fade50cac50d0119be3dac0eaf0fe173a309d2ab646f4731146f835c23d8010a"
+      },
+      "pt:kind": "TOMBSTONE",
+      "pt:parentRevision": [
+        {
+          "@id": "urn:example:revision:alpha:1"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "urn:example:issuer:fixture"
+      }
+    },
+    {
+      "@id": "urn:example:representation:alpha:1",
+      "@type": [
+        "pt:Representation",
+        "prov:Entity"
+      ],
+      "pt:representsRevision": {
+        "@id": "urn:example:revision:alpha:1"
+      },
+      "pt:payloadPath": "payload/alpha.txt",
+      "pt:byteDigestAlgorithm": "SHA256_RAW_BYTES_V1",
+      "pt:byteDigest": "sha256:146f8aa88613d5b3c16605fb0ae4f209e064b63ca99d9c0a44265edf6f8cf096",
+      "pt:byteLength": 25
+    },
+    {
+      "@id": "urn:example:representation:beta:1",
+      "@type": [
+        "pt:Representation",
+        "prov:Entity"
+      ],
+      "pt:representsRevision": {
+        "@id": "urn:example:revision:beta:1"
+      },
+      "pt:payloadPath": "payload/beta.txt",
+      "pt:byteDigestAlgorithm": "SHA256_RAW_BYTES_V1",
+      "pt:byteDigest": "sha256:146f8aa88613d5b3c16605fb0ae4f209e064b63ca99d9c0a44265edf6f8cf096",
+      "pt:byteLength": 25
+    },
+    {
+      "@id": "urn:example:issuer:fixture",
+      "@type": "prov:Agent"
+    }
+  ]
+}
