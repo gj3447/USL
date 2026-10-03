@@ -1,0 +1,1953 @@
+{
+  "@context": {
+    "r": "urn:usl:portability-research:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "reference:uuid",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.rfc-editor.org/rfc/rfc9562.html"
+      },
+      "r:publicationStatus": "IETF_STANDARDS_TRACK",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "UUID는 중앙 등록 없이 생성할 수 있지만 충돌 위험과 생성기 상태를 고려해야 한다.",
+      "r:limit": "UUID나 시간 정렬은 소유권·접근 권한·분산 인과관계의 증명이 아니다."
+    },
+    {
+      "@id": "reference:bagit",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.rfc-editor.org/rfc/rfc8493.html"
+      },
+      "r:publicationStatus": "IETF_INFORMATIONAL",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Complete는 필요한 파일의 존재를, valid는 여기에 checksum 검증 성공을 요구한다.",
+      "r:limit": "USL 정체성·일관된 DB snapshot·복원 활성화·권한은 정의하지 않는다."
+    },
+    {
+      "@id": "reference:ocfl",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://ocfl.io/1.1/spec/"
+      },
+      "r:publicationStatus": "COMMUNITY_SPECIFICATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Inventory는 content digest와 파일 경로 및 버전 상태를 연결하고 경로 성분과 prefix 충돌을 제한한다.",
+      "r:limit": "OCFL의 선형 버전 번호를 분산 기기의 인과 이력으로 그대로 사용하면 안 된다."
+    },
+    {
+      "@id": "reference:sqlite-backup",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.sqlite.org/backup.html"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "완료된 backup API는 일관된 DB snapshot을 만든다. 동시 쓰기로 재시작될 수 있으며 VACUUM INTO도 별도 파일 snapshot 수단이다.",
+      "r:limit": "여러 DB·파일의 공통 시점을 보장하지 않으며 동시 쓰기가 잦으면 완료 시간이 제한되지 않을 수 있다."
+    },
+    {
+      "@id": "reference:sqlite-wal",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.sqlite.org/wal.html"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Commit된 변경이 checkpoint 전 WAL에 남을 수 있어 main DB 파일만으로 전체 상태를 나타내지 못한다.",
+      "r:limit": "임의 시점에 DB와 WAL을 따로 복사하는 절차의 일관성을 보증하지 않는다."
+    },
+    {
+      "@id": "reference:git-bundle",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://git-scm.com/docs/git-bundle"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Bundle은 선택한 refs와 Git objects를 전송하며 incremental bundle은 prerequisite objects를 요구한다.",
+      "r:limit": "Git object 집합만으로 dirty·untracked 파일과 별도 저장소의 payload가 포함됐다고 할 수 없다."
+    },
+    {
+      "@id": "reference:git-submodule",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://git-scm.com/docs/git-submodule"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Submodule은 superproject에 연결되는 별도 Git 저장소다.",
+      "r:limit": "상위 저장소의 bundle은 하위 저장소 object와 작업 상태의 보존 증명이 아니다."
+    },
+    {
+      "@id": "reference:git-lfs",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://git-lfs.com/"
+      },
+      "r:publicationStatus": "OFFICIAL_PROJECT_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Git LFS는 Git에 pointer를 두고 큰 파일 내용은 별도 서버에 보관한다.",
+      "r:limit": "Pointer가 있다는 사실은 복원할 payload bytes가 번들 안에 있다는 뜻이 아니다."
+    },
+    {
+      "@id": "reference:rename",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://man7.org/linux/man-pages/man2/rename.2.html"
+      },
+      "r:publicationStatus": "LINUX_INTERFACE_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "지원되는 rename은 이름 변경을 원자적으로 수행하지만 다른 mount 사이에서는 EXDEV가 발생한다.",
+      "r:limit": "기존 목적지 덮어쓰기 금지와 crash durability는 단순 rename 호출만으로 얻지 못한다."
+    },
+    {
+      "@id": "reference:fsync",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://man7.org/linux/man-pages/man2/fsync.2.html"
+      },
+      "r:publicationStatus": "LINUX_INTERFACE_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "파일 fsync만으로 부모 directory entry의 저장까지 보장하지 않아 directory에 별도 fsync가 필요하다.",
+      "r:limit": "이 인터페이스의 지원·오류·저장장치 보장은 플랫폼과 파일시스템별로 확인해야 한다."
+    },
+    {
+      "@id": "reference:node-fs",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://nodejs.org/docs/latest-v22.x/api/fs.html"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "copyFile은 atomic copy를 보장하지 않고 기본적으로 기존 목적지를 덮어쓴다.",
+      "r:limit": "복사 성공을 복원 트랜잭션이나 crash 후 복구 보장으로 해석할 수 없다."
+    },
+    {
+      "@id": "reference:win-names",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Windows의 예약명·금지 문자·대소문자 처리와 끝점·공백 규칙을 고려해야 한다.",
+      "r:limit": "ASCII만 사용해도 모든 filesystem 제약을 충족하는 것은 아니다."
+    },
+    {
+      "@id": "reference:win-length",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "전체 경로와 개별 성분의 제한은 API·설정·볼륨에 달려 있으며 성분 최대치는 흔히 255자다.",
+      "r:limit": "고정된 하나의 경로 길이 값으로 모든 OS와 복원 root를 지원한다고 주장할 수 없다."
+    },
+    {
+      "@id": "reference:lamport",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://lamport.org/pubs/time-clocks.pdf"
+      },
+      "r:publicationStatus": "PEER_REVIEWED_AUTHOR_COPY",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "사건의 happened-before 관계는 부분 순서이며 물리 시각만으로 분산 인과관계를 결정할 수 없다.",
+      "r:limit": "USL의 actor·삭제 보존·충돌 해결 정책을 직접 정의하지 않는다."
+    },
+    {
+      "@id": "reference:syncthing",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://docs.syncthing.net/specs/bep-v1.html"
+      },
+      "r:publicationStatus": "IMPLEMENTATION_PROTOCOL",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "FileInfo는 삭제 표시와 device counter 기반 version vector를 분리해 표현한다.",
+      "r:limit": "파일 동기화 프로토콜이며 별도 보존 백업이나 의미적 병합의 보증은 아니다."
+    },
+    {
+      "@id": "reference:automerge-conflicts",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://automerge.org/docs/reference/documents/conflicts/"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "동시 property 변경은 결정적인 표시값을 선택하면서 다른 충돌값을 보존한다.",
+      "r:limit": "결정적 수렴은 owner 의도·권한·의미상 올바른 병합을 보장하지 않는다."
+    },
+    {
+      "@id": "reference:automerge-format",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://automerge.org/automerge-binary-format-spec/"
+      },
+      "r:publicationStatus": "OFFICIAL_FORMAT_SPECIFICATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Operation ID는 actor ID와 actor별 증가 counter로 구성된다.",
+      "r:limit": "이미 저장된 actor state를 복제한 두 기기의 충돌을 저절로 방지하지 않는다."
+    },
+    {
+      "@id": "reference:http",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.rfc-editor.org/rfc/rfc9110.html"
+      },
+      "r:publicationStatus": "IETF_INTERNET_STANDARD",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Origin은 현재 validator와 If-Match 전제조건을 비교해 실패하면 해당 변경을 수행하지 않는다.",
+      "r:limit": "Owner가 이 조건부 인터페이스를 제공해야 하며 exactly-once 보장은 아니다."
+    },
+    {
+      "@id": "reference:idempotency",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.ietf.org/archive/id/draft-ietf-httpapi-idempotency-key-header-07.html"
+      },
+      "r:publicationStatus": "IETF_EXPIRED_INTERNET_DRAFT",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "초안은 key 재사용과 payload 일치·만료·서버 지원 확인을 구분한다. Datatracker에서 만료·보관 상태를 확인했다.",
+      "r:limit": "2025-10-15 revision, 2026-04-18 만료 상태다. RFC 또는 채택 완료 표준으로 취급하지 않는다.",
+      "r:statusUrl": {
+        "@id": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/"
+      }
+    },
+    {
+      "@id": "reference:shacl2017",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.w3.org/TR/2017/REC-shacl-20170720/"
+      },
+      "r:publicationStatus": "W3C_RECOMMENDATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Severity와 validation result를 표현한다. Recommendation의 conforms는 결과가 없을 때 true다.",
+      "r:limit": "Warning 자체가 숫자 웨이트나 응용 프로그램의 차단 정책을 정의하지 않는다."
+    },
+    {
+      "@id": "reference:shacl12",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.w3.org/TR/2026/WD-shacl12-core-20260918/"
+      },
+      "r:publicationStatus": "W3C_WORKING_DRAFT",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "2026-09-18 문서는 Working Draft이며 severity 기반 conformance 설정을 제안한다.",
+      "r:limit": "채택 완료 Recommendation이 아니며 이 저장소의 검증 기준을 자동 대체하지 않는다."
+    },
+    {
+      "@id": "reference:prov",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.w3.org/TR/prov-o/"
+      },
+      "r:publicationStatus": "W3C_RECOMMENDATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "Entity·Activity·Agent와 귀속·파생 관계로 출처를 기술한다.",
+      "r:limit": "귀속과 파생은 사실의 진실성·신뢰도·접근 권한의 검증이 아니다."
+    },
+    {
+      "@id": "reference:rdfc",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.w3.org/TR/rdf-canon/"
+      },
+      "r:publicationStatus": "W3C_RECOMMENDATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "RDF dataset의 동형성에 대해 안정된 canonical 표현을 만드는 알고리즘을 정의한다.",
+      "r:limit": "임의의 의미 동등성·owner 자원 정체성·권한을 판정하지 않는다."
+    },
+    {
+      "@id": "reference:jcs",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.rfc-editor.org/rfc/rfc8785.html"
+      },
+      "r:publicationStatus": "IETF_INFORMATIONAL",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "I-JSON 조건과 primitive 직렬화·정렬 규칙을 포함한 JSON canonicalization을 정의한다.",
+      "r:limit": "USL의 기존 정렬된 객체 digest가 이 명세와 완전히 호환된다고 아직 검증하지 않았다."
+    },
+    {
+      "@id": "reference:annotation",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://www.w3.org/TR/annotation-model/"
+      },
+      "r:publicationStatus": "W3C_RECOMMENDATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "TextQuoteSelector의 exact·prefix·suffix와 위치 selector 및 representation State를 정의한다.",
+      "r:limit": "같은 인용문이 여러 번 나오거나 내용이 바뀌면 selector만으로 정체성이 확정되지 않는다."
+    },
+    {
+      "@id": "reference:npm-ci",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://docs.npmjs.com/cli/v11/commands/npm-ci/"
+      },
+      "r:publicationStatus": "OFFICIAL_DOCUMENTATION",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "lockfile 불일치면 종료하며 lockfile을 수정하지 않는 설치 방식이다. 설치 구성에 영향을 준 옵션도 맞아야 한다.",
+      "r:limit": "모든 플랫폼에서 같은 실행 결과 또는 오프라인 의존성 가용성을 보증하지 않는다."
+    },
+    {
+      "@id": "reference:reproducible",
+      "@type": [
+        "r:Source",
+        "prov:Entity"
+      ],
+      "r:url": {
+        "@id": "https://reproducible-builds.org/docs/definition/"
+      },
+      "r:publicationStatus": "PROJECT_ENGINEERING_GUIDANCE",
+      "r:checkedOn": "2026-10-03",
+      "r:fact": "같은 source·build environment·instructions에서 명시한 산출물을 byte 단위로 재현하는 것을 기준으로 삼는다.",
+      "r:limit": "작업환경을 복사했다는 사실만으로 재현성이나 다른 플랫폼의 실행 가능성이 성립하지 않는다."
+    },
+    {
+      "@id": "source:src/addons/portable-transfer.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/addons/portable-transfer.ts",
+      "r:sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:src/resource-bindings.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/resource-bindings.ts",
+      "r:sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:src/contract-core.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/contract-core.ts",
+      "r:sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:src/addons/rule-policy.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/addons/rule-policy.ts",
+      "r:sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:src/addons/rule-weight-evidence.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/addons/rule-weight-evidence.ts",
+      "r:sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:src/addons/rule-weight-review.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/addons/rule-weight-review.ts",
+      "r:sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:src/cli-operation.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/cli-operation.ts",
+      "r:sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:src/cli-recovery.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "src/cli-recovery.ts",
+      "r:sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:test/portable-transfer.test.ts",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "test/portable-transfer.test.ts",
+      "r:sha256": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:research/portable-transfer/contract.receipt.json",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "research/portable-transfer/contract.receipt.json",
+      "r:sha256": "sha256:b7a92a99d060ce940ac6ba50f5627c7a015d85909a9ab598d8e0a7879f02c0c3",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:research/portability-plan/plan.json",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "research/portability-plan/plan.json",
+      "r:sha256": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "source:docs/PORTABLE_TRANSFER.md",
+      "@type": [
+        "r:LocalSource",
+        "prov:Entity"
+      ],
+      "r:path": "docs/PORTABLE_TRANSFER.md",
+      "r:sha256": "sha256:77d7b0f0ad3d9cf21ffe9c6a353f56f71039e69570185153b5d789054ddbecdc",
+      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+    },
+    {
+      "@id": "task:PT01",
+      "@type": "r:Task"
+    },
+    {
+      "@id": "task:PT02",
+      "@type": "r:Task"
+    },
+    {
+      "@id": "task:PT03",
+      "@type": "r:Task"
+    },
+    {
+      "@id": "task:PT04",
+      "@type": "r:Task"
+    },
+    {
+      "@id": "task:PT05",
+      "@type": "r:Task"
+    },
+    {
+      "@id": "task:PT06",
+      "@type": "r:Task"
+    },
+    {
+      "@id": "task:PT07",
+      "@type": "r:Task"
+    },
+    {
+      "@id": "requirement:R01",
+      "@type": "r:Requirement"
+    },
+    {
+      "@id": "requirement:R02",
+      "@type": "r:Requirement"
+    },
+    {
+      "@id": "requirement:R03",
+      "@type": "r:Requirement"
+    },
+    {
+      "@id": "requirement:R04",
+      "@type": "r:Requirement"
+    },
+    {
+      "@id": "requirement:R05",
+      "@type": "r:Requirement"
+    },
+    {
+      "@id": "requirement:R06",
+      "@type": "r:Requirement"
+    },
+    {
+      "@id": "requirement:R07",
+      "@type": "r:Requirement"
+    },
+    {
+      "@id": "decision:PR01",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "기존 owner/native ID를 보존한다. 새 revision·bundle에는 충돌 검사 가능한 전역 ID를 발급하고 경로·내용 해시로 기존 자원 ID를 바꾸지 않는다. 같은 revision ID의 다른 정의를 만나면 HOLD하고 명시적 fork만 새 자원이 된다.",
+      "r:currentCoverage": "PT01에 owner/native ID 분리·문서 내부 중복·parent DAG·tombstone·digest pin 검사가 구현되어 있다. 문서 간 충돌 대조와 긴 ID 호환성은 후속이다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:uuid"
+        },
+        {
+          "@id": "reference:ocfl"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT01"
+        },
+        {
+          "@id": "task:PT03"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R01"
+        },
+        {
+          "@id": "requirement:R05"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR01-1"
+        },
+        {
+          "@id": "check:PR01-2"
+        }
+      ],
+      "r:dependsOn": [],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:uuid"
+        },
+        {
+          "@id": "reference:ocfl"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR02",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "Owner snapshot 또는 쓰기를 멈춘 범위에서 capture한다. 일반 파일을 순차 복사한 결과는 혼합 시점일 수 있으므로 BEST_EFFORT_CAPTURE와 CONSISTENT_SNAPSHOT을 구별한다. SQLite는 Backup API 등 owner 수단을 사용하고 재시도·시간 예산을 둔다.",
+      "r:currentCoverage": "PT01은 순수 manifest parser이며 파일이나 DB snapshot을 생성하지 않는다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:sqlite-backup"
+        },
+        {
+          "@id": "reference:sqlite-wal"
+        },
+        {
+          "@id": "reference:bagit"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT02"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R02"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR02-1"
+        },
+        {
+          "@id": "check:PR02-2"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR01"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:sqlite-backup"
+        },
+        {
+          "@id": "reference:sqlite-wal"
+        },
+        {
+          "@id": "reference:bagit"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR03",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "별도 버전의 export inventory에 INCLUDED·REQUIRED_EXTERNAL·EXCLUDED와 이유, 원래 이름→ASCII payload 위치, hash·size·owner snapshot 참조를 기록한다. 선택한 복원 프로필에 필요한 항목이 모두 포함되어야 SELF_CONTAINED로 표시한다.",
+      "r:currentCoverage": "표현별 payload 경로·해시·크기 선언은 있다. 파일 존재·bytes·복원 범위의 검증은 없다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:bagit"
+        },
+        {
+          "@id": "reference:ocfl"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT02"
+        },
+        {
+          "@id": "task:PT03"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R02"
+        },
+        {
+          "@id": "requirement:R04"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR03-1"
+        },
+        {
+          "@id": "check:PR03-2"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR02"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:bagit"
+        },
+        {
+          "@id": "reference:ocfl"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR04",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "Git refs/objects, dirty patch·untracked, submodule, LFS bytes를 각각 inventory에 담는다. 환경 recipe에는 toolchain·lockfile·설치 옵션·OS/architecture 요구를 pin하고 기기별 root와 비밀정보는 로컬 참조로 남긴다.",
+      "r:currentCoverage": "기존 bindings의 local root 매핑은 있다. Git 전체 작업상태와 환경 recipe exporter는 없다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:git-bundle"
+        },
+        {
+          "@id": "reference:git-submodule"
+        },
+        {
+          "@id": "reference:git-lfs"
+        },
+        {
+          "@id": "reference:npm-ci"
+        },
+        {
+          "@id": "reference:reproducible"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT02"
+        },
+        {
+          "@id": "task:PT04"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R02"
+        },
+        {
+          "@id": "requirement:R07"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR04-1"
+        },
+        {
+          "@id": "check:PR04-2"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR03"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:git-bundle"
+        },
+        {
+          "@id": "reference:git-submodule"
+        },
+        {
+          "@id": "reference:git-lfs"
+        },
+        {
+          "@id": "reference:npm-ci"
+        },
+        {
+          "@id": "reference:reproducible"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR05",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "새 목적지와 같은 filesystem의 private staging에 복원한다. 바이트·scope·경로를 검사하고 동기화한 뒤 no-replace publication을 수행한다. VISIBILITY_COMMITTED와 DURABILITY_CONFIRMED를 구분하며 binding을 마지막에 연결한다.",
+      "r:currentCoverage": "PT01은 파일을 생성하거나 복원·활성화하지 않는다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:rename"
+        },
+        {
+          "@id": "reference:fsync"
+        },
+        {
+          "@id": "reference:node-fs"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT03"
+        },
+        {
+          "@id": "task:PT04"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R03"
+        },
+        {
+          "@id": "requirement:R07"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR05-1"
+        },
+        {
+          "@id": "check:PR05-2"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR03"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:rename"
+        },
+        {
+          "@id": "reference:fsync"
+        },
+        {
+          "@id": "reference:node-fs"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR06",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "번들 경로의 안전한 문자 규칙과 실제 목적지의 성분 길이·전체 길이·대소문자·Unicode·symlink/reparse point 정책을 별도로 검사한다. MVP는 regular file/directory만 지원하고 나머지는 명시적으로 거부한다.",
+      "r:currentCoverage": "ASCII 상대 경로·예약명·대소문자·파일/폴더 prefix 충돌 검사는 있다. 실제 filesystem 한계 검사는 없다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:win-names"
+        },
+        {
+          "@id": "reference:win-length"
+        },
+        {
+          "@id": "reference:ocfl"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT02"
+        },
+        {
+          "@id": "task:PT03"
+        },
+        {
+          "@id": "task:PT04"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R03"
+        },
+        {
+          "@id": "requirement:R07"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR06-1"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR03"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:win-names"
+        },
+        {
+          "@id": "reference:win-length"
+        },
+        {
+          "@id": "reference:ocfl"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR07",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P1",
+      "r:claim": "복원 후 쓰기 가능한 clone에는 새 actor incarnation을 배정한다. actor/counter와 operation digest를 함께 비교하고 동일 ID의 다른 작업은 충돌로 보존한다. 부모 DAG에서 incomparable heads를 유지하며 시각으로 winner를 고르지 않는다.",
+      "r:currentCoverage": "현재 revision parent DAG와 cycle 거부는 있다. actor와 operation frontier 및 다기기 merge는 없다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:lamport"
+        },
+        {
+          "@id": "reference:automerge-format"
+        },
+        {
+          "@id": "reference:automerge-conflicts"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT06"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R05"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR07-1"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR01"
+        },
+        {
+          "@id": "decision:PR05"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:lamport"
+        },
+        {
+          "@id": "reference:automerge-format"
+        },
+        {
+          "@id": "reference:automerge-conflicts"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR08",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P1",
+      "r:claim": "Tombstone과 인과 이력을 유지해 옛 live backup 도착이 삭제를 취소하지 못하게 한다. 삭제 기록 정리는 명시한 안정성·보존 정책과 복원 가능성 판단이 있을 때만 수행한다.",
+      "r:currentCoverage": "같은 자원의 부모를 갖는 tombstone과 live representation 금지는 있다. 분산 삭제 보존·정리는 없다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:syncthing"
+        },
+        {
+          "@id": "reference:lamport"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT03"
+        },
+        {
+          "@id": "task:PT06"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R05"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR08-1"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR07"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:syncthing"
+        },
+        {
+          "@id": "reference:lamport"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR09",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P1",
+      "r:claim": "오프라인 역사 자료는 읽거나 새 로컬 분기로 쓸 수 있다. 전역 최신성은 owner의 현재 validator 조회 없이는 UNKNOWN이다. 외부 작업은 endpoint·request fingerprint·key 보존 기간·status 조회·조건부 버전·권한을 명시한 capability가 있어야 대조할 수 있다.",
+      "r:currentCoverage": "현재 host 검사 결과는 UNKNOWN/NOT_GRANTED이며 로컬 실행 recovery 계약도 있다. owner의 분산 효과 대조는 미구현이다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:http"
+        },
+        {
+          "@id": "reference:idempotency"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/cli-operation.ts"
+        },
+        {
+          "@id": "source:src/cli-recovery.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT03"
+        },
+        {
+          "@id": "task:PT07"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R06"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR09-1"
+        },
+        {
+          "@id": "check:PR09-2"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR05"
+        },
+        {
+          "@id": "decision:PR07"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:http"
+        },
+        {
+          "@id": "reference:idempotency"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/cli-operation.ts"
+        },
+        {
+          "@id": "source:src/cli-recovery.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR10",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P1",
+      "r:claim": "자원 ID·revision digest에 원문 quote/context·position·State를 붙여 조각 이동 후보를 찾는다. 후보가 여러 개면 AMBIGUOUS다. raw bytes, 기존 USL contract digest, 선택적 JCS/RDFC digest는 알고리즘별로 별도 기록한다.",
+      "r:currentCoverage": "기존 USL contract digest가 있다. 이 프로젝트에서 JCS/RDFC 호환성과 메모리 조각 재탐색은 구현 완료로 주장하지 않는다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:annotation"
+        },
+        {
+          "@id": "reference:rdfc"
+        },
+        {
+          "@id": "reference:jcs"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/contract-core.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT05"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R04"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR10-1"
+        },
+        {
+          "@id": "check:PR10-2"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR01"
+        },
+        {
+          "@id": "decision:PR03"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:annotation"
+        },
+        {
+          "@id": "reference:rdfc"
+        },
+        {
+          "@id": "reference:jcs"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/contract-core.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR11",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "SHACL 2017 구조 검증과 USL REQUIRED/BLOCK 정책을 분리해 기록한다. RECOMMENDED/PENALIZE 계수는 완전한 평가에만 적용하며 hard failure와 UNKNOWN을 상쇄하지 않는다. HSWM W 추정치를 쓸 때도 model·context·evidence·mapping version을 명시한 제안으로 연결한다. HSWM 연결 방식은 인용한 표준의 규정이 아니라 현재 로컬 evidence/review 코드에 근거한 AI 설계 제안이며 live 상태는 NOT_CONNECTED다.",
+      "r:currentCoverage": "REQUIRED 차단과 RECOMMENDED 감점은 rule-policy에 구현되어 있고 evidence/review 제안 경계가 있다. Live HSWM은 NOT_CONNECTED다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:shacl2017"
+        },
+        {
+          "@id": "reference:shacl12"
+        },
+        {
+          "@id": "reference:prov"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:src/addons/rule-policy.ts"
+        },
+        {
+          "@id": "source:src/addons/rule-weight-evidence.ts"
+        },
+        {
+          "@id": "source:src/addons/rule-weight-review.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT01"
+        },
+        {
+          "@id": "task:PT04"
+        },
+        {
+          "@id": "task:PT07"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R06"
+        },
+        {
+          "@id": "requirement:R07"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR11-1"
+        }
+      ],
+      "r:dependsOn": [],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:shacl2017"
+        },
+        {
+          "@id": "reference:shacl12"
+        },
+        {
+          "@id": "reference:prov"
+        },
+        {
+          "@id": "source:src/addons/rule-policy.ts"
+        },
+        {
+          "@id": "source:src/addons/rule-weight-evidence.ts"
+        },
+        {
+          "@id": "source:src/addons/rule-weight-review.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "decision:PR12",
+      "@type": [
+        "r:Decision",
+        "prov:Entity"
+      ],
+      "r:authority": "SECONDARY_AI",
+      "r:status": "PROPOSED",
+      "r:derivation": "INFERENCE",
+      "r:priority": "P0",
+      "r:claim": "요구사항→설계판단→근거→코드→인수기준을 추적하고 실행한 검사와 미실행 기준을 구분한다. Source status·revision·bytes pin·관측 시각을 보존하고 domain/range·cardinality·DAG 및 정확한 query endpoint를 검사한다.",
+      "r:currentCoverage": "기존 PT01 receipt는 당시 12개 로컬 계약 테스트의 통과를 기록한다. 이번 연구에서는 4개 순수 probe와 연구 그래프를 별도로 검증한다.",
+      "r:supportedBy": [
+        {
+          "@id": "reference:prov"
+        },
+        {
+          "@id": "reference:shacl2017"
+        },
+        {
+          "@id": "reference:bagit"
+        }
+      ],
+      "r:inspects": [
+        {
+          "@id": "source:research/portability-plan/plan.json"
+        },
+        {
+          "@id": "source:research/portable-transfer/contract.receipt.json"
+        },
+        {
+          "@id": "source:test/portable-transfer.test.ts"
+        }
+      ],
+      "r:implementsTask": [
+        {
+          "@id": "task:PT04"
+        }
+      ],
+      "r:addresses": [
+        {
+          "@id": "requirement:R01"
+        },
+        {
+          "@id": "requirement:R02"
+        },
+        {
+          "@id": "requirement:R03"
+        },
+        {
+          "@id": "requirement:R04"
+        },
+        {
+          "@id": "requirement:R05"
+        },
+        {
+          "@id": "requirement:R06"
+        },
+        {
+          "@id": "requirement:R07"
+        }
+      ],
+      "r:validatedBy": [
+        {
+          "@id": "check:PR12-1"
+        }
+      ],
+      "r:dependsOn": [
+        {
+          "@id": "decision:PR01"
+        },
+        {
+          "@id": "decision:PR02"
+        },
+        {
+          "@id": "decision:PR03"
+        },
+        {
+          "@id": "decision:PR04"
+        },
+        {
+          "@id": "decision:PR05"
+        },
+        {
+          "@id": "decision:PR06"
+        },
+        {
+          "@id": "decision:PR11"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "reference:prov"
+        },
+        {
+          "@id": "reference:shacl2017"
+        },
+        {
+          "@id": "reference:bagit"
+        },
+        {
+          "@id": "source:research/portability-plan/plan.json"
+        },
+        {
+          "@id": "source:research/portable-transfer/contract.receipt.json"
+        },
+        {
+          "@id": "source:test/portable-transfer.test.ts"
+        }
+      ],
+      "prov:wasAttributedTo": {
+        "@id": "agent:portability-researcher"
+      },
+      "prov:wasGeneratedBy": {
+        "@id": "activity:portability-research"
+      }
+    },
+    {
+      "@id": "check:PR01-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR01"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "이동·복원·재수입은 ID 보존, 명시한 fork만 새 ID와 derivedFrom을 갖는다.",
+      "r:negativeCase": "같은 bytes의 별개 owner 자원 병합 또는 긴 기존 ID 자동 절단이면 실패."
+    },
+    {
+      "@id": "check:PR01-2",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR01"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "동일 revision ID+동일 정의는 멱등 수입, 다른 정의는 충돌로 남긴다.",
+      "r:negativeCase": "두 번들의 같은 ID와 다른 payload를 최신 시각으로 자동 선택하면 실패."
+    },
+    {
+      "@id": "check:PR02-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR02"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "DB 동시 쓰기 fixture에서 owner snapshot 완료 여부·시점 범위와 오류를 기록한다.",
+      "r:negativeCase": "main DB만 복사하거나 여러 DB의 각각 다른 시점을 원자적 snapshot이라고 선언하면 실패."
+    },
+    {
+      "@id": "check:PR02-2",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR02"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "Export 제한 시간·bytes·파일 수 초과와 원본 변경을 명시적으로 종료한다.",
+      "r:negativeCase": "변경 중인 일반 파일의 부분 복사를 일관된 백업으로 seal하면 실패."
+    },
+    {
+      "@id": "check:PR03-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR03"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "Manifest와 실제 payload inventory를 양방향 대조하고 모든 크기·해시를 확인한다.",
+      "r:negativeCase": "누락·추가 파일·알 수 없는 알고리즘·외부 의존성 미확보 상태를 SELF_CONTAINED로 처리하면 실패."
+    },
+    {
+      "@id": "check:PR03-2",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR03"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "한글 원래 이름과 ASCII 번들 경로의 일대일 매핑 및 directory 구조를 복원한다.",
+      "r:negativeCase": "동일 내용이라는 이유로 별개 file entry나 원래 이름을 잃으면 실패."
+    },
+    {
+      "@id": "check:PR04-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR04"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "Dirty/untracked/submodule/LFS와 오프라인 dependency 누락 fixture별 export 상태를 정확히 기록한다.",
+      "r:negativeCase": "Git bundle만 존재하는데 전체 작업환경 복원이 가능하다고 선언하면 실패."
+    },
+    {
+      "@id": "check:PR04-2",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR04"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "다른 플랫폼에서 pin된 recipe의 지원 여부를 확인하고 불일치를 보고한다.",
+      "r:negativeCase": "node_modules나 절대경로 설정을 복사한 것만으로 실행 가능 상태로 승격하면 실패."
+    },
+    {
+      "@id": "check:PR05-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR05"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "복사·sync·publish·binding 단계마다 중단시켜 기존 환경이 유지되고 재시작 시 완성된 snapshot만 보이게 한다.",
+      "r:negativeCase": "목적지 race로 기존 파일을 덮어쓰거나 sync 실패 뒤 durable 성공을 반환하면 실패."
+    },
+    {
+      "@id": "check:PR05-2",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR05"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "부분 실패와 재실행에서 동일 bundle을 중복 활성화하지 않고 staging 상태를 대조한다.",
+      "r:negativeCase": "누락된 complete marker·손상 bytes·경로 탈출이 있는 staged bundle을 활성화하면 실패."
+    },
+    {
+      "@id": "check:PR06-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR06"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "Linux/macOS/Windows 지원 프로필에서 긴 성분·case 충돌·한글 이름 매핑·symlink 탈출을 검사한다.",
+      "r:negativeCase": "한 OS의 parser 검사만 통과하고 모든 OS에서 복원 가능하다고 선언하면 실패."
+    },
+    {
+      "@id": "check:PR07-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR07"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "동일 backup에서 갈라진 두 기기가 시계가 달라도 충돌 작업과 두 heads를 보존한다.",
+      "r:negativeCase": "복제된 actor counter로 서로 다른 작업을 같은 것으로 수입하거나 한 branch를 버리면 실패."
+    },
+    {
+      "@id": "check:PR08-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR08"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "삭제 뒤 옛 live backup이 재등장해도 자동으로 현재 버전이 되지 않는다.",
+      "r:negativeCase": "오프라인 peer의 미확인 상태에서 tombstone을 지워 삭제한 자료가 되살아나면 실패."
+    },
+    {
+      "@id": "check:PR09-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR09"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "동일 key+fingerprint 재전송, 다른 payload 재사용, 만료와 응답 유실을 fake owner에서 분리한다.",
+      "r:negativeCase": "과거 영수증만으로 현재 권한·효과 완료를 주장하거나 unknown 작업을 새 key로 재시도하면 실패."
+    },
+    {
+      "@id": "check:PR09-2",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR09"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "오프라인 역사 읽기와 로컬 branch는 가능하되 최신 상태·외부 쓰기 승인을 얻지 않는다.",
+      "r:negativeCase": "현재성 미확인을 이유로 모든 역사 읽기를 막거나 반대로 CURRENT로 표시하면 실패."
+    },
+    {
+      "@id": "check:PR10-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR10"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "중복 quote는 선택을 요구하고 다른 revision의 같은 문장은 원래 앵커로 자동 채택하지 않는다.",
+      "r:negativeCase": "위치나 텍스트 유사도만으로 원본과 동일하다고 재바인딩하면 실패."
+    },
+    {
+      "@id": "check:PR10-2",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR10"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "표준 fixture로 RDF 동형성 digest와 raw serialization digest를 구별한다.",
+      "r:negativeCase": "RDFC 일치가 의미·자원 정체성·권한 동일성을 증명한다고 처리하면 실패."
+    },
+    {
+      "@id": "check:PR11-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR11"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "필수 제약 실패와 UNKNOWN은 soft weight 변경으로 PASS가 되지 않으며 penalty와 authority가 분리된다.",
+      "r:negativeCase": "Warning을 숫자 W로 간주하거나 미평가 항목을 감점 0으로 처리하면 실패."
+    },
+    {
+      "@id": "check:PR12-1",
+      "@type": "r:AcceptanceCheck",
+      "r:forDecision": {
+        "@id": "decision:PR12"
+      },
+      "r:execution": "NOT_RUN",
+      "r:expectation": "OS별 crash·디스크 부족·부분 복사·오래된 backup·알 수 없는 schema를 실제 fault matrix로 검사한다.",
+      "r:negativeCase": "노드 수만 맞추거나 문헌 조사만으로 인수기준을 PASS로 승격하면 실패."
+    },
+    {
+      "@id": "observation:path-budget",
+      "@type": [
+        "r:Observation",
+        "prov:Entity"
+      ],
+      "r:method": "PURE_RUNTIME_PROBE",
+      "r:status": "OBSERVED",
+      "r:about": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:result": "ACCEPTS_300_CHARACTER_COMPONENT",
+      "r:scope": "Manifest parser only; no OS path creation or portability claim."
+    },
+    {
+      "@id": "observation:native-id-compatibility",
+      "@type": [
+        "r:Observation",
+        "prov:Entity"
+      ],
+      "r:method": "PURE_RUNTIME_PROBE",
+      "r:status": "OBSERVED",
+      "r:about": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        }
+      ],
+      "r:result": "LEGACY_300_CHARACTER_ID_ACCEPTED_PORTABLE_V1_REJECTED",
+      "r:scope": "Current parser compatibility boundary; no truncation or migration is performed."
+    },
+    {
+      "@id": "observation:cross-manifest",
+      "@type": [
+        "r:Observation",
+        "prov:Entity"
+      ],
+      "r:method": "PURE_RUNTIME_PROBE",
+      "r:status": "OBSERVED",
+      "r:about": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:result": "CROSS_MANIFEST_REVISION_CONTENT_CONFLICT_NOT_RECONCILED",
+      "r:scope": "Independent manifests parse separately; this records an import/merge gap, not a parser defect."
+    },
+    {
+      "@id": "observation:state-separation",
+      "@type": [
+        "r:Observation",
+        "prov:Entity"
+      ],
+      "r:method": "PURE_RUNTIME_PROBE",
+      "r:status": "OBSERVED",
+      "r:about": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "r:result": "FUTURE_TIME_DOES_NOT_GRANT_FRESHNESS_OR_AUTHORITY",
+      "r:scope": "Manifest-only host check; payload remains unchecked and no execution or authority is requested."
+    },
+    {
+      "@id": "observation:current-pt01",
+      "@type": [
+        "r:Observation",
+        "prov:Entity"
+      ],
+      "r:method": "STATIC_CODE_REVIEW",
+      "r:status": "OBSERVED",
+      "r:about": [
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:research/portable-transfer/contract.receipt.json"
+        }
+      ],
+      "r:result": "PT01_CONTRACT_IMPLEMENTED_HISTORICAL_12_TEST_RECEIPT",
+      "r:scope": "Pinned code and existing receipt review only; previous tests are not claimed rerun. Transfer, restore, payload verification remain unimplemented."
+    },
+    {
+      "@id": "agent:portability-researcher",
+      "@type": "prov:Agent"
+    },
+    {
+      "@id": "activity:portability-research",
+      "@type": "prov:Activity",
+      "prov:used": [
+        {
+          "@id": "reference:uuid"
+        },
+        {
+          "@id": "reference:bagit"
+        },
+        {
+          "@id": "reference:ocfl"
+        },
+        {
+          "@id": "reference:sqlite-backup"
+        },
+        {
+          "@id": "reference:sqlite-wal"
+        },
+        {
+          "@id": "reference:git-bundle"
+        },
+        {
+          "@id": "reference:git-submodule"
+        },
+        {
+          "@id": "reference:git-lfs"
+        },
+        {
+          "@id": "reference:rename"
+        },
+        {
+          "@id": "reference:fsync"
+        },
+        {
+          "@id": "reference:node-fs"
+        },
+        {
+          "@id": "reference:win-names"
+        },
+        {
+          "@id": "reference:win-length"
+        },
+        {
+          "@id": "reference:lamport"
+        },
+        {
+          "@id": "reference:syncthing"
+        },
+        {
+          "@id": "reference:automerge-conflicts"
+        },
+        {
+          "@id": "reference:automerge-format"
+        },
+        {
+          "@id": "reference:http"
+        },
+        {
+          "@id": "reference:idempotency"
+        },
+        {
+          "@id": "reference:shacl2017"
+        },
+        {
+          "@id": "reference:shacl12"
+        },
+        {
+          "@id": "reference:prov"
+        },
+        {
+          "@id": "reference:rdfc"
+        },
+        {
+          "@id": "reference:jcs"
+        },
+        {
+          "@id": "reference:annotation"
+        },
+        {
+          "@id": "reference:npm-ci"
+        },
+        {
+          "@id": "reference:reproducible"
+        },
+        {
+          "@id": "source:src/addons/portable-transfer.ts"
+        },
+        {
+          "@id": "source:src/resource-bindings.ts"
+        },
+        {
+          "@id": "source:src/contract-core.ts"
+        },
+        {
+          "@id": "source:src/addons/rule-policy.ts"
+        },
+        {
+          "@id": "source:src/addons/rule-weight-evidence.ts"
+        },
+        {
+          "@id": "source:src/addons/rule-weight-review.ts"
+        },
+        {
+          "@id": "source:src/cli-operation.ts"
+        },
+        {
+          "@id": "source:src/cli-recovery.ts"
+        },
+        {
+          "@id": "source:test/portable-transfer.test.ts"
+        },
+        {
+          "@id": "source:research/portable-transfer/contract.receipt.json"
+        },
+        {
+          "@id": "source:research/portability-plan/plan.json"
+        },
+        {
+          "@id": "source:docs/PORTABLE_TRANSFER.md"
+        }
+      ],
+      "prov:wasAssociatedWith": {
+        "@id": "agent:portability-researcher"
+      }
+    }
+  ]
+}

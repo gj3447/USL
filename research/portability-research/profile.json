@@ -1,0 +1,162 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:portability-research:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:portability-research:supported_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "decision",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Decision"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-research:inspects",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "decision",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Decision"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:LocalSource"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-research:implements_task",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "decision",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Decision"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-research:addresses",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "decision",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Decision"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Requirement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-research:validated_by",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "decision",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Decision"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "check",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:AcceptanceCheck"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-research:depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "decision",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Decision"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Decision"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:portability-research:observes",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "observation",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:Observation"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:portability-research:LocalSource"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

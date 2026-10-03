@@ -62,5 +62,8 @@ jobs:
       - run: python3 scripts/validate-portability-plan.py
       - run: npm run portable-transfer:check
       - run: npm run portable-transfer:standards
+      - run: npx tsc --noEmit --target ES2022 --module NodeNext --strict --exactOptionalPropertyTypes --noUncheckedIndexedAccess --skipLibCheck scripts/build-portability-research.ts
+      - run: node --import tsx scripts/build-portability-research.ts --check
+      - run: python3 scripts/validate-portability-research.py
       - run: node --import tsx scripts/build-syntax-cli-architecture.ts --check
       - run: python3 scripts/validate-syntax-cli-architecture.py

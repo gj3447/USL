@@ -1,0 +1,70 @@
+@prefix r: <urn:usl:portability-research:> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Shapes describe the bounded research trace.  Passing them does not claim
+# external conformance, a fresh remote observation, or a runtime effect.
+
+r:SourceShape a sh:NodeShape ;
+  sh:targetClass r:Source ; sh:class prov:Entity ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path r:url ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:publicationStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:checkedOn ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:fact ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:limit ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:statusUrl ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] .
+
+r:LocalSourceShape a sh:NodeShape ;
+  sh:targetClass r:LocalSource ; sh:class prov:Entity ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path r:path ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[0-9a-f]{64}$" ] ;
+  sh:property [ sh:path r:sourceCommit ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 7 ] .
+
+r:DecisionShape a sh:NodeShape ;
+  sh:targetClass r:Decision ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path r:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
+  sh:property [ sh:path r:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "PROPOSED" ] ;
+  sh:property [ sh:path r:derivation ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "INFERENCE" ] ;
+  sh:property [ sh:path r:priority ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "P0" "P1" "P2" ) ] ;
+  sh:property [ sh:path r:claim ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:currentCoverage ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:supportedBy ; sh:minCount 1 ; sh:class r:Source ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:inspects ; sh:minCount 1 ; sh:class r:LocalSource ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:implementsTask ; sh:minCount 1 ; sh:class r:Task ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:addresses ; sh:minCount 1 ; sh:class r:Requirement ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:validatedBy ; sh:minCount 1 ; sh:class r:AcceptanceCheck ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:dependsOn ; sh:class r:Decision ; sh:nodeKind sh:IRI ] ;
+  sh:sparql [
+    sh:message "Decision dependency edges must be acyclic." ;
+    sh:select """ PREFIX r: <urn:usl:portability-research:> SELECT $this WHERE { $this r:dependsOn+ $this } """
+  ] .
+
+r:AcceptanceCheckShape a sh:NodeShape ;
+  sh:targetClass r:AcceptanceCheck ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path r:forDecision ; sh:minCount 1 ; sh:maxCount 1 ; sh:class r:Decision ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:execution ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_RUN" ] ;
+  sh:property [ sh:path r:expectation ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:negativeCase ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path [ sh:inversePath r:validatedBy ] ; sh:equals r:forDecision ] .
+
+r:ObservationShape a sh:NodeShape ;
+  sh:targetClass r:Observation ; sh:nodeKind sh:IRI ;
+  sh:property [ sh:path r:method ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "PURE_RUNTIME_PROBE" "STATIC_CODE_REVIEW" ) ] ;
+  sh:property [ sh:path r:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "OBSERVED" ] ;
+  sh:property [ sh:path r:about ; sh:minCount 1 ; sh:class r:LocalSource ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path r:result ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
+  sh:property [ sh:path r:scope ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] .
+
+r:TaskShape a sh:NodeShape ; sh:targetClass r:Task ; sh:nodeKind sh:IRI .
+r:RequirementShape a sh:NodeShape ; sh:targetClass r:Requirement ; sh:nodeKind sh:IRI .
+
+<reference:idempotency> a sh:NodeShape ;
+  sh:targetNode <reference:idempotency> ;
+  sh:property [ sh:path r:publicationStatus ; sh:hasValue "IETF_EXPIRED_INTERNET_DRAFT" ] .
+<reference:shacl12> a sh:NodeShape ;
+  sh:targetNode <reference:shacl12> ;
+  sh:property [ sh:path r:publicationStatus ; sh:hasValue "W3C_WORKING_DRAFT" ] .
+<reference:shacl2017> a sh:NodeShape ;
+  sh:targetNode <reference:shacl2017> ;
+  sh:property [ sh:path r:publicationStatus ; sh:hasValue "W3C_RECOMMENDATION" ] .
