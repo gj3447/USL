@@ -2,7 +2,7 @@
   "schema": "usl-binding-delivery-receipt/v1",
   "authority": "SECONDARY_AI",
   "status": "PASS",
-  "generatedAt": "2026-10-02",
+  "generatedAt": "2026-10-03",
   "scope": "LOCAL_BINDING_FIXTURES_AND_CLI_CONTRACTS",
   "recording": "Fresh local command replay after optional rule-policy integration; prior receipt bytes are retained in research/architecture/history/.",
   "proofStatus": "NO_NEW_LEAN_PROOF",
@@ -16,9 +16,10 @@
     "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
     "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:459215c61b9163fec7ce7b434d8363f89f44056279332fac827c170bdad3ee4f",
+    "package.json": "sha256:c54c23c8bae90cff86e70e1b8664e5fbb177dc2caa54d33ae04bc916282134c3",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
+    "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
     "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
     "src/attempt-state.ts": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
     "src/binding-inspection.ts": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
@@ -81,7 +82,8 @@
     "test/resource-bindings.test.ts": "sha256:0436c0523a7abaf4d7c35facd821007f9b45a6dfda03c6d0da6e6ff588f58cd8",
     "test/resource-graph-platform.test.ts": "sha256:dbd22b77cbb2152a8f26cc5767d0c2f354a19f2171c19c1a8ad58ff2d76c7959",
     "test/rule-policy.test.ts": "sha256:e2efe34ed79ca85022c7fd8b942b0e67d534da2d3cdcf3608a481a914aa01c0a",
-    "tsconfig.json": "sha256:913490b2e7ec60b3cd5b1eff16798103beccc47d1e81a45e30af2395f87a8b2a"
+    "test/rule-weight-evidence.test.ts": "sha256:1f7be5bd2e32be3f3192a3165a61f7d587d18b7d3a049f3c18c1712b859266ac",
+    "tsconfig.json": "sha256:70909037dbe29d542724454387cd1b42ad22d190513330ed24981d1bdeaafcc7"
   },
   "tasks": [
     {
@@ -92,25 +94,25 @@
           "kind": "command",
           "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts test/cli-help.test.ts",
           "exitCode": 0,
-          "observed": "Replayed 2026-10-02 against the rule-policy source snapshot: 63 tests passed, 0 failed, 0 skipped; binding/CLI/compact relocation and help compatibility."
+          "observed": "2026-10-03: 63 existing binding/CLI/compact relocation and help compatibility tests passed, 0 failed, 0 skipped."
         },
         {
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "324 tests passed, 0 failed, 0 skipped, including 12 optional rule-policy tests."
+          "observed": "331 tests passed, 0 failed, 0 skipped, including 7 optional rule-weight-evidence tests and 12 rule-policy tests."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed."
+          "observed": "TypeScript check passed, including the optional evidence contract and graph builder."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed. Existing C04 work remains separate."
+          "observed": "Build passed; optional usl/rule-weight-evidence package export resolved. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -177,25 +179,25 @@
           "kind": "command",
           "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts test/cli-help.test.ts",
           "exitCode": 0,
-          "observed": "Replayed 2026-10-02 against the rule-policy source snapshot: 63 tests passed, 0 failed, 0 skipped; binding/CLI/compact relocation and help compatibility."
+          "observed": "2026-10-03: 63 existing binding/CLI/compact relocation and help compatibility tests passed, 0 failed, 0 skipped."
         },
         {
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "324 tests passed, 0 failed, 0 skipped, including 12 optional rule-policy tests."
+          "observed": "331 tests passed, 0 failed, 0 skipped, including 7 optional rule-weight-evidence tests and 12 rule-policy tests."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed."
+          "observed": "TypeScript check passed, including the optional evidence contract and graph builder."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed. Existing C04 work remains separate."
+          "observed": "Build passed; optional usl/rule-weight-evidence package export resolved. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -267,25 +269,25 @@
           "kind": "command",
           "command": "node --import tsx --test test/language.test.ts test/resource-graph-platform.test.ts test/resource-bindings.test.ts test/binding-graph.test.ts test/navigation.test.ts test/addon-binding-cli.test.ts test/cli.test.ts test/compact.test.ts test/compact-counter.test.ts test/cli-help.test.ts",
           "exitCode": 0,
-          "observed": "Replayed 2026-10-02 against the rule-policy source snapshot: 63 tests passed, 0 failed, 0 skipped; binding/CLI/compact relocation and help compatibility."
+          "observed": "2026-10-03: 63 existing binding/CLI/compact relocation and help compatibility tests passed, 0 failed, 0 skipped."
         },
         {
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "324 tests passed, 0 failed, 0 skipped, including 12 optional rule-policy tests."
+          "observed": "331 tests passed, 0 failed, 0 skipped, including 7 optional rule-weight-evidence tests and 12 rule-policy tests."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed."
+          "observed": "TypeScript check passed, including the optional evidence contract and graph builder."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed. Existing C04 work remains separate."
+          "observed": "Build passed; optional usl/rule-weight-evidence package export resolved. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -350,6 +352,10 @@
       ]
     }
   ],
-  "supersedesReceiptDigest": "sha256:da9ce37b2b98320dd9a308087460527414e7b67e3b2eb5f6677f157d48b20947",
-  "sourceCommit": "bb3f58e2490834d38f837b61e03069bdc640e099"
+  "supersedesReceiptDigest": "sha256:43e62ad1335f9769d239b8ab2c4d80a45c5135282ad88d80a362938fe2b62174",
+  "sourceCommit": "05d4c68de0f4a417bb7290a136b7d977a586711b",
+  "previousReceipt": {
+    "gitRevision": "947b4dbf52278d998be31f936d4cf3384e3acd89",
+    "path": "research/architecture/binding-delivery.receipt.json"
+  }
 }
