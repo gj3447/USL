@@ -1,0 +1,617 @@
+{
+  "schema": "usl-worktree-audit-receipt/v1",
+  "status": "ASSERTIONS_PASS",
+  "recordedAt": "2026-10-03T13:17:13.509845+00:00",
+  "sourceCommit": "32a20fcf1336f7c955abb5cd43d1ae495b048e0f",
+  "environment": {
+    "node": "v24.20.0",
+    "git": "git version 2.47.3",
+    "platform": "Linux",
+    "architecture": "x86_64"
+  },
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "--test",
+    "--test-reporter=tap",
+    "test/worktree-lifecycle.test.ts",
+    "test/worktree-execution.test.ts",
+    "test/worktree-graph-cli.test.ts",
+    "test/resource-bindings.test.ts",
+    "test/binding-inspection.test.ts",
+    "test/binding-graph.test.ts",
+    "test/cli-operation.test.ts",
+    "test/portable-transfer.test.ts"
+  ],
+  "pins": [
+    {
+      "path": "examples/fixtures/cli/graphspec.json",
+      "sha256": "sha256:90c60f522a72e4eeaac7c16986e7450a2ee2715a0c922e1d25e8ef5af8589778"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6"
+    },
+    {
+      "path": "research/worktree-audit/catalog.json",
+      "sha256": "sha256:ad8f4eb72248bc30b5d5fd36489b0fb2fb153bc8d056a6f5cb534738e1cb7c7d"
+    },
+    {
+      "path": "scripts/audit-worktrees.py",
+      "sha256": "sha256:784b043d0ec7a8f50268f32d35ca2b9306c4c5a9e8b14832bf70fab47cb240a5"
+    },
+    {
+      "path": "src/adapters.ts",
+      "sha256": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79"
+    },
+    {
+      "path": "src/addons/portable-transfer.ts",
+      "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad"
+    },
+    {
+      "path": "src/addons/rule-policy.ts",
+      "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c"
+    },
+    {
+      "path": "src/addons/rule-weight-evidence.ts",
+      "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463"
+    },
+    {
+      "path": "src/addons/rule-weight-review.ts",
+      "sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d"
+    },
+    {
+      "path": "src/application.ts",
+      "sha256": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f"
+    },
+    {
+      "path": "src/attempt-state.ts",
+      "sha256": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e"
+    },
+    {
+      "path": "src/binding-inspection.ts",
+      "sha256": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8"
+    },
+    {
+      "path": "src/bounded-read.ts",
+      "sha256": "sha256:e016f04530b8046daccc274269412cfccee5607ba661fd718730ee15c0a7e7c7"
+    },
+    {
+      "path": "src/capabilities.ts",
+      "sha256": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018"
+    },
+    {
+      "path": "src/capability-catalog.ts",
+      "sha256": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc"
+    },
+    {
+      "path": "src/cli-adapter.ts",
+      "sha256": "sha256:4d2f6a159b40bbeb5b437cd9a600210453cafa598997b82246ba910b996349b4"
+    },
+    {
+      "path": "src/cli-capabilities.ts",
+      "sha256": "sha256:48cee118eeccaaea3e2a0aefa3bdd292382a91a51e33a6895e4d7bd810ee1c70"
+    },
+    {
+      "path": "src/cli-help.ts",
+      "sha256": "sha256:4df34b8da44cfa1dfbcd316610b6d44df11ff13e9209e21fdbb7167d5887c5dc"
+    },
+    {
+      "path": "src/cli-host-command.ts",
+      "sha256": "sha256:f328f49fdd91046d1216f307e23e91cc06481e08af0f180609b8b3f07fd95f77"
+    },
+    {
+      "path": "src/cli-host.ts",
+      "sha256": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692"
+    },
+    {
+      "path": "src/cli-operation.ts",
+      "sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b"
+    },
+    {
+      "path": "src/cli-platform.ts",
+      "sha256": "sha256:289c4a3a8bcd6c26811924bb703a0038894c7b64207964142ce25ae588c0771a"
+    },
+    {
+      "path": "src/cli-process.ts",
+      "sha256": "sha256:c9d20c5af3b9a8aeb81c42a5ded7b4706d59dee08ac2d15d101de34b11d3fa29"
+    },
+    {
+      "path": "src/cli-recovery.ts",
+      "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "sha256:5843b269a772cabcf62c700448af6fc331d97553c51d365f7b75657bd71abaa7"
+    },
+    {
+      "path": "src/contract-core.ts",
+      "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322"
+    },
+    {
+      "path": "src/domain-profile.ts",
+      "sha256": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6"
+    },
+    {
+      "path": "src/domain.ts",
+      "sha256": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d"
+    },
+    {
+      "path": "src/engineering-review.ts",
+      "sha256": "sha256:9c5eed58e088fcec45350f2516d41dad5b5add3bb5fb3e004ca94e8db0daf577"
+    },
+    {
+      "path": "src/index.ts",
+      "sha256": "sha256:f32c1c08aa8a23e5b8d0e15463ede1a9c24c5a4b5c9506bbbdda89a997c6aa36"
+    },
+    {
+      "path": "src/integrations/capability-inventory.ts",
+      "sha256": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c"
+    },
+    {
+      "path": "src/integrations/graph-engineering.ts",
+      "sha256": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6"
+    },
+    {
+      "path": "src/integrations/hswm.ts",
+      "sha256": "sha256:bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30"
+    },
+    {
+      "path": "src/integrations/lean4.ts",
+      "sha256": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7"
+    },
+    {
+      "path": "src/integrations/property-graph.ts",
+      "sha256": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5"
+    },
+    {
+      "path": "src/integrations/resource-bindings.ts",
+      "sha256": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902"
+    },
+    {
+      "path": "src/integrations/resource-graph.ts",
+      "sha256": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b"
+    },
+    {
+      "path": "src/json-data.ts",
+      "sha256": "sha256:bfd430f5dde0b1d1917acda4d54a80f833989e765e4329ecffe48a5072a2ad8a"
+    },
+    {
+      "path": "src/language/code.ts",
+      "sha256": "sha256:76b97d1dc700cc58bc82d5b9ff66fe8809f642c191c90297acd8d4662bd99a27"
+    },
+    {
+      "path": "src/language/compact.ts",
+      "sha256": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416"
+    },
+    {
+      "path": "src/language/comparison.ts",
+      "sha256": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862"
+    },
+    {
+      "path": "src/language/compiler.ts",
+      "sha256": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f"
+    },
+    {
+      "path": "src/language/digest.ts",
+      "sha256": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1"
+    },
+    {
+      "path": "src/language/index.ts",
+      "sha256": "sha256:d86e7908c37388c8cf7a1538d7674033ab604f238bcb3c2f4c80a1dbf4c2f369"
+    },
+    {
+      "path": "src/language/model.ts",
+      "sha256": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493"
+    },
+    {
+      "path": "src/language/navigation.ts",
+      "sha256": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e"
+    },
+    {
+      "path": "src/language/observation-schema.ts",
+      "sha256": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5"
+    },
+    {
+      "path": "src/language/parser.ts",
+      "sha256": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed"
+    },
+    {
+      "path": "src/language/project.ts",
+      "sha256": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c"
+    },
+    {
+      "path": "src/language/runtime.ts",
+      "sha256": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8"
+    },
+    {
+      "path": "src/locator.ts",
+      "sha256": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3"
+    },
+    {
+      "path": "src/mcp-config.ts",
+      "sha256": "sha256:d2e77e10dec777daaa9d777c9a14c6a10e3a0a2ec4776f655e2651eadeef9776"
+    },
+    {
+      "path": "src/mcp.ts",
+      "sha256": "sha256:a4e9832cbf87934751ff3ac0d849ec32b25a46842c2f662b445f667914d77f2f"
+    },
+    {
+      "path": "src/pierce.ts",
+      "sha256": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e"
+    },
+    {
+      "path": "src/program-store.ts",
+      "sha256": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca"
+    },
+    {
+      "path": "src/project.ts",
+      "sha256": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de"
+    },
+    {
+      "path": "src/resolve.ts",
+      "sha256": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78"
+    },
+    {
+      "path": "src/resource-bindings.ts",
+      "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef"
+    },
+    {
+      "path": "src/storage.ts",
+      "sha256": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1"
+    },
+    {
+      "path": "src/validation.ts",
+      "sha256": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30"
+    },
+    {
+      "path": "test/binding-graph.test.ts",
+      "sha256": "sha256:cdc1b9aa5eac4c2646d0bd7302b7f4c3943a019a82a601c3f8e54aa23fca67bb"
+    },
+    {
+      "path": "test/binding-inspection.test.ts",
+      "sha256": "sha256:78a3b1a44ff4a03813af44ccd0ebb529011cee7de0ff7e0a8e846b999db59dcd"
+    },
+    {
+      "path": "test/cli-operation.test.ts",
+      "sha256": "sha256:3ad6ba12db67f3449ee44e53b9eedcd0a9eaadc8ce2e76179ff3bacf1027a736"
+    },
+    {
+      "path": "test/fixtures.ts",
+      "sha256": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7"
+    },
+    {
+      "path": "test/portable-transfer.test.ts",
+      "sha256": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f"
+    },
+    {
+      "path": "test/resource-bindings.test.ts",
+      "sha256": "sha256:0436c0523a7abaf4d7c35facd821007f9b45a6dfda03c6d0da6e6ff588f58cd8"
+    },
+    {
+      "path": "test/worktree-execution.test.ts",
+      "sha256": "sha256:2b8831031cd6c35f126773da16edddedfcc87bb11dca5eeb2963b6d48ba20e30"
+    },
+    {
+      "path": "test/worktree-graph-cli.test.ts",
+      "sha256": "sha256:649d646e1275a424e64c87221d88379bf141b1e58f42356a5c7e29055d878728"
+    },
+    {
+      "path": "test/worktree-lifecycle.test.ts",
+      "sha256": "sha256:c79c7af26a814a7d5de0b1f6d4d81bab08744c94a6469c4586a183ad3cdd1066"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
+    }
+  ],
+  "tapDigest": "sha256:4e9fea8c941e96fde9fe9e623f9887d8d16ecebaeb317901cf771907d58e63fc",
+  "tests": [
+    {
+      "id": "test:c2c297e89fceaa6e35c638f696ac372507c4284861c20885a33f6f5e9cb42bc1",
+      "name": "selected local and Git representations preserve graph identities while relocated addresses change",
+      "path": "test/binding-graph.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:d43acd8317195bf1216d0ce948b4aca30a466adf98d312a555484ee2d276cef5",
+      "name": "binding requires explicit, known, unique graph resource selections",
+      "path": "test/binding-graph.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:06d4c3dd70f5645f630c2c80d52912787f4a65236e2d2bd6c1d2895260d15cdd",
+      "name": "binding snapshots mutable callers before workspace resolution",
+      "path": "test/binding-graph.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
+      "name": "explicit workspace inspection hashes files and emits a redacted Git candidate",
+      "path": "test/binding-inspection.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:c73650c20ba3c9f04c5e49d0864c444b71049f88e31541b7c66f2ab5e8c053d5",
+      "name": "worktree facts survive a moved registered root and report a common Git directory",
+      "path": "test/binding-inspection.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:7ac52417f3255df407c477b7d31d46229f4df08f3bd305ddadb387d313b10ec8",
+      "name": "a linked worktree uses the main checkout common Git directory",
+      "path": "test/binding-inspection.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:a548d16fbf086d67637e6276af79244d19a28444a305081841d5a35d21197d05",
+      "name": "ordinary directories and unborn repositories are distinguished without origin",
+      "path": "test/binding-inspection.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:669501a24954f6f549fff0c22a173365f5711989d37ed24f5a3ff31807ffc3ce",
+      "name": "limits and input contracts fail before filesystem resolution",
+      "path": "test/binding-inspection.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:f34bb2ca177fe053f2a27beb6048f84b87cf60920c7754160c1eef76261189a9",
+      "name": "operation keys block duplicate and conflicting effects, including concurrent requests",
+      "path": "test/cli-operation.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:6e74e06c72c7438ad5efdbd9efa07d0548446584ea941500c31628a9bc4a4213",
+      "name": "moving a workspace changes the plan while retaining logical operation identity",
+      "path": "test/cli-operation.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:ca58c8286b6b0e6a27fccc34309d4d89acda598ad6a69c02eec2929b3d93104f",
+      "name": "an incomplete reservation left by interruption remains blocked",
+      "path": "test/cli-operation.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:e0e48865bbedaffa5f9d116a1156a78139301485c1506bf9272a81e61146004c",
+      "name": "CLI exposes binding inspection, operation keys and historical receipt inspection",
+      "path": "test/cli-operation.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:514c213485269fd03af2fd8cc455cd1ade0b8905df14bedc95a3281ca7820c42",
+      "name": "manifest preserves owner-scoped identities despite equal raw-byte hashes",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:5aa3475daaba25ef15e7ca33b346dad28c074dd475b0d014d516f8284533075c",
+      "name": "explicit fork alone permits a cross-resource parent and boundary pins close omitted history",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:7f9f95737d6279c14d832acfa469586066332df3dfcb9753c7a7d99d8ef6c838",
+      "name": "identity, revision DAG, tombstone, and closed-boundary violations are refused",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:34e1730c05c33034f56999791ebce04074cc0fd386c6e650d137e6195459982c",
+      "name": "portable ASCII paths reject traversal, Windows aliases, collisions, and unknown fields",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:38071d98745566d878a76a1a82aa412387d9a229c5c89bf9683c4e50010b675f",
+      "name": "unknown dialects, duplicate IDs, invalid declared time, and boundary identity mismatch are refused",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:0a93a6b1ab6003a14bac19f189b50fd6ccb29882c601d9a9f5bb525d32edebd0",
+      "name": "a declared bundle-relative location can relocate without changing identity or content pin",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:66bcf74c60d5291b05b47d479705bcedf8033778262c72266c9041336ba99142",
+      "name": "a valid revision diamond is accepted and declared observation time never selects a latest revision",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:ccc08a5292c375fb7c540da7345c4350504b8eb670a502ef287b9697555a34e7",
+      "name": "host check is manifest-only and rejects mismatched policy pins",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:2847c9c977ea124a28548042bdbaae8a9a474f44a397a14a9d789e31b1a2a2ff",
+      "name": "manifest input is bounded and envelope digests cannot be reconstructed after tampering",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:7cb38b8e0ef7dc5a62d0eacab6f5430ccb2cf9b7d589482d766467ff0bf7c27c",
+      "name": "a lexically intervening filename cannot conceal a file/directory collision",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:26a001bb296b3d88b089d58e61625d4c03c63eb5c711a28cbb3ea6d6ee1d9196",
+      "name": "parsing snapshots source data before later source mutation",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:1b677c7f876cd63206d7d981b1468e7e75075c900957dcc299343d92c2a7f2d5",
+      "name": "a manifest at its byte limit still round-trips inside its envelope",
+      "path": "test/portable-transfer.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:d46714e042b82a28532e636818b866fd59400f285b05e1e8b59c783595e9005c",
+      "name": "stable resource IDs allow root relocation while representations remain explicit",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:2b60e1eb136d52ecd4529dccbc81aeac8f77caa2eb00dd6c2ab724534cdf8ed5",
+      "name": "locator selection is explicit and carries no local workspace requirement",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:717b73129ac9333747a7d1fd0ff357b7b35157eb6b70538ca6a8cddd20a9e9d1",
+      "name": "parser rejects mutable, credentialed and nonportable representations",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:c0409c447c6dfc0436c86c3f9b252568b805454e7dd8f6f93b2d2607e2435a6a",
+      "name": "public boundaries capture immutable data and reject inherited/getter fields",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:4946d7ab79d47165e2a24a59029d8a1c95ac2defc3c0c7a4ef7828b49397b253",
+      "name": "workspace resolution rejects a symlink that leaves its registered root",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:f7cc0136012c4d62b16f5c3abfb4e6cb68da174880db7d7a51f86ac971dac787",
+      "name": "native IDs and a filesystem-root workspace remain representable",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:7ddbfb8ce9df64fb3061889ce14362911a05530dd4ea4d16d736d20b5db3ae0b",
+      "name": "literal filenames cannot turn into a different file's line selector",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:2cb7af2e2cde44d0e08a2db8e471f1c03cb183d4407aed5f22b2ad175b894487",
+      "name": "remapping a real linked worktree rejects a stale main-worktree plan before an attempt",
+      "path": "test/worktree-execution.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:9af42f1d26174503f9c2ef899d2f37bdab33142d11ea6bb0aca7bd4a3e514d5d",
+      "name": "a shared operation store prevents re-execution after remapping between real worktrees",
+      "path": "test/worktree-execution.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:8958cf4aec00f9a66dfc3576249ad1d148145a938fcf3b6f9cf0b4c2e97a28ca",
+      "name": "separate operation stores are an explicit cross-worktree duplicate-execution limitation",
+      "path": "test/worktree-execution.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:dc761a0843a98d3eedddb0a44ea30e6d745e5202e06f55b356c96d8ab5ee76f1",
+      "name": "a Git branch HEAD change is not attested when the declared pinned files are unchanged",
+      "path": "test/worktree-execution.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:a99a4f5c426271d52a8f1aad201064bedb366f7459b62e013fc35c1229be480c",
+      "name": "a changed pinned runner in a sibling worktree blocks before the external effect",
+      "path": "test/worktree-execution.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:50a71d08467faaf0d29870dae883596e78e5259b80590c70fb9a0009e722b262",
+      "name": "worktree graph rebinding preserves complete logical links while selecting divergent content",
+      "path": "test/worktree-graph-cli.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:ea00c252bb8f9b1403f6a0e801f7351014d267c51864e889275c5eee1e94d5a5",
+      "name": "CLI inspection selects the linked worktree through host-relative workspace configuration",
+      "path": "test/worktree-graph-cli.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:6858033ababd53342caeaf6eaf84badb2f4df581c25b46188bc7804b8b8a421f",
+      "name": "a subdirectory workspace observes its enclosing Git root without asserting checkout identity",
+      "path": "test/worktree-graph-cli.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:38940c59d5494317414792a73e14052fb67ab56e26210c4e8bb59e0fbafea283",
+      "name": "a worktree directory digest declaration remains unchecked rather than proving a tree snapshot",
+      "path": "test/worktree-graph-cli.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:f1ad1f53d69a9b7c28898367c9f3237af542c5ccd1f289d5a37945c863e7d386",
+      "name": "inspects explicit main and linked-worktree representations as one logical resource",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:1c8856238d80a7a271322e1fe1644e7c7d5ba5334e6376d0103c2eaf217f7614",
+      "name": "observes dirty working tree and index state independently per worktree",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:a59d13f618d4dbe25a5fed8dace1f94dd1adb0dec70e11a5bae0326eb87023b1",
+      "name": "observes detached HEAD at the same commit without merging distinct representations",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:bf5b2cd0ec536eb41edc1ca9dbc72ea5b57fd2a63e45b97300fa6a6a6a3f2af3",
+      "name": "git worktree move plus host remapping preserves selected resource and representation IDs",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:8953c2e35a7d0e54a90b616d00aaf6f24cbae71563c9a48a75a6820a0611da93",
+      "name": "manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:1b013ece0e03a42a6f7807639b64f7757173a5cfd3df8db4bdda959d92599f4e",
+      "name": "observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:ec196d1753adf5d31f001dfa21793cf78b2f5c225a15ff97d3a9c79bd221c059",
+      "name": "observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:8a376503b53a180269544873e5fbaf33d0ba1b6f1471d43deeda8d158b5487c5",
+      "name": "observes limitation: sparse checkout omission has no representation fallback",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:7c2f22df00c4c3cd13a75c1007772a8984f281a2a247809475341e5e5cb31cc4",
+      "name": "rejects a symlink from one worktree into another registered worktree",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:c66415185356eafd1c33974a2e5d3524335a6c677f0697bd8357e7b0464b8a7b",
+      "name": "observes limitation: a wrong workspace alias can match bytes while its Git head differs",
+      "path": "test/worktree-lifecycle.test.ts",
+      "assertion": "PASS"
+    }
+  ],
+  "interpretation": "PASS means the named assertion held, including assertions reproducing missing protection; not complete portability or a signed attestation."
+}

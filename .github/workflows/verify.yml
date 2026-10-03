@@ -68,5 +68,6 @@ jobs:
       - run: npx tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --exactOptionalPropertyTypes --noUncheckedIndexedAccess --skipLibCheck --types node scripts/build-standards-coverage.ts
       - run: node --import tsx scripts/build-standards-coverage.ts --check
       - run: python3 scripts/validate-standards-coverage.py
+      - run: python3 scripts/audit-worktrees.py --check
       - run: node --import tsx scripts/build-syntax-cli-architecture.ts --check
       - run: python3 scripts/validate-syntax-cli-architecture.py
