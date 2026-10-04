@@ -393,7 +393,7 @@
       ],
       "r:path": "src/addons/portable-transfer.ts",
       "r:sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:src/resource-bindings.ts",
@@ -403,7 +403,7 @@
       ],
       "r:path": "src/resource-bindings.ts",
       "r:sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:src/contract-core.ts",
@@ -413,7 +413,7 @@
       ],
       "r:path": "src/contract-core.ts",
       "r:sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:src/addons/rule-policy.ts",
@@ -423,7 +423,7 @@
       ],
       "r:path": "src/addons/rule-policy.ts",
       "r:sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:src/addons/rule-weight-evidence.ts",
@@ -433,7 +433,7 @@
       ],
       "r:path": "src/addons/rule-weight-evidence.ts",
       "r:sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:src/addons/rule-weight-review.ts",
@@ -443,7 +443,7 @@
       ],
       "r:path": "src/addons/rule-weight-review.ts",
       "r:sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:src/cli-operation.ts",
@@ -453,7 +453,7 @@
       ],
       "r:path": "src/cli-operation.ts",
       "r:sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:src/cli-recovery.ts",
@@ -463,7 +463,7 @@
       ],
       "r:path": "src/cli-recovery.ts",
       "r:sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:test/portable-transfer.test.ts",
@@ -473,7 +473,7 @@
       ],
       "r:path": "test/portable-transfer.test.ts",
       "r:sha256": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:research/portable-transfer/contract.receipt.json",
@@ -482,8 +482,8 @@
         "prov:Entity"
       ],
       "r:path": "research/portable-transfer/contract.receipt.json",
-      "r:sha256": "sha256:b7a92a99d060ce940ac6ba50f5627c7a015d85909a9ab598d8e0a7879f02c0c3",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sha256": "sha256:8b399fd3573b7bd88a22f5a1adc552d0cbe5814e5b38f4cac8ad6998ad741eb4",
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:research/portability-plan/plan.json",
@@ -493,7 +493,7 @@
       ],
       "r:path": "research/portability-plan/plan.json",
       "r:sha256": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "source:docs/PORTABLE_TRANSFER.md",
@@ -503,7 +503,7 @@
       ],
       "r:path": "docs/PORTABLE_TRANSFER.md",
       "r:sha256": "sha256:77d7b0f0ad3d9cf21ffe9c6a353f56f71039e69570185153b5d789054ddbecdc",
-      "r:sourceCommit": "25cb824d383f125d8326c8123ad82a919073d60b"
+      "r:sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
     },
     {
       "@id": "task:PT01",
