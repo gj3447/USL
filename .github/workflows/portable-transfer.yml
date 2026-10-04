@@ -1,0 +1,70 @@
+name: Portable transfer
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  producer:
+    name: Linux producer / Node 22
+    runs-on: ubuntu-latest
+    outputs:
+      receipt-digest: ${{ steps.produce.outputs.receipt-digest }}
+      bundle-name: ${{ steps.produce.outputs.bundle-name }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm ci
+      - id: produce
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/pt04-transport"
+          result="$(node --import tsx scripts/portable-transfer-acceptance.ts produce --bundle-parent "$RUNNER_TEMP/pt04-transport")"
+          node --input-type=module -e 'const value=JSON.parse(process.argv[1]); console.log(`receipt-digest=${value.receiptDigest}`); console.log(`bundle-name=${value.bundleName}`)' "$result" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portable-transfer-bundle
+          path: ${{ runner.temp }}/pt04-transport/${{ steps.produce.outputs.bundle-name }}
+          if-no-files-found: error
+          retention-days: 1
+
+  consumer:
+    needs: producer
+    name: ${{ matrix.os }} consumer / Node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        # Intended coverage only. Execution records supply the OS-specific proof.
+        node: [22]
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: node --import tsx --test test/portable-transfer-portability.test.ts
+      - uses: actions/download-artifact@v4
+        with:
+          name: portable-transfer-bundle
+          path: ${{ runner.temp }}/pt04-transport/${{ needs.producer.outputs.bundle-name }}
+      - shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/pt04-destination"
+          node --import tsx scripts/portable-transfer-acceptance.ts consume --bundle "$RUNNER_TEMP/pt04-transport/${{ needs.producer.outputs.bundle-name }}" --receipt-digest "${{ needs.producer.outputs.receipt-digest }}" --destination-parent "$RUNNER_TEMP/pt04-destination" > "$RUNNER_TEMP/pt04-consumer-report.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portable-transfer-report-${{ matrix.os }}-node-${{ matrix.node }}
+          path: ${{ runner.temp }}/pt04-consumer-report.json
+          if-no-files-found: error
+          retention-days: 1

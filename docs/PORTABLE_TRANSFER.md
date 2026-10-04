@@ -1,6 +1,6 @@
 # USL 이동 계약 — PT01 진행 기록
 
-다른 기기와 디렉터리에서도 같은 자원을 가리키기 위한 첫 단계다. 선택형 `usl/portable-transfer` 모듈에 **고정 자원 정체성·버전 이력·payload 상대 위치를 분리하는 순수 계약**을 구현했다. 이후 [PT02 exporter](PORTABLE_TRANSFER_EXPORT.md)에 명시적으로 고정한 파일 집합의 복사·백업 생성을 추가했다. 실제 복원은 후속 PT03이며, 최신 실행 상태는 [개발 진행](DEVELOPMENT_PROGRESS.md)에서 확인한다.
+다른 기기와 디렉터리에서도 같은 자원을 가리키기 위한 첫 단계다. 선택형 `usl/portable-transfer` 모듈에 **고정 자원 정체성·버전 이력·payload 상대 위치를 분리하는 순수 계약**을 구현했다. 이후 [PT02 exporter](PORTABLE_TRANSFER_EXPORT.md)에 명시적으로 고정한 파일 집합의 복사·백업 생성을, [PT03 importer·rebinding](PORTABLE_TRANSFER_IMPORT.md)에 새 root의 검사·복원과 선택한 로컬 표현의 재연결을 추가했다. 최신 실행 상태는 [개발 진행](DEVELOPMENT_PROGRESS.md)에서 확인한다.
 
 [최초 작업 계획](PORTABILITY_PLAN.md)은 계획 당시의 상태를 보존한다. 이 문서와 [로컬 계약 검사 영수증](../research/portable-transfer/contract.receipt.json)이 그 이후의 PT01 진행을 기록한다. 영수증은 실행한 테스트와 파일별 해시를 연결하며, 기기 간 복원 인수검사나 형식 증명을 뜻하지 않는다.
 
@@ -68,4 +68,4 @@ npm run portable-transfer:standards
 
 `build`는 합성 그래프와 schema를 생성한다. `record`는 로컬 계약 테스트를 실제 실행해 영수증을 갱신한다. `check`는 생성물과 기록된 source pin을 대조하며 과거 테스트를 다시 실행했다고 주장하지 않는다. Python 의존성은 `scripts/requirements-standards.txt`에 고정되어 있다.
 
-후속 [PT02 exporter](PORTABLE_TRANSFER_EXPORT.md)는 실제로 복사한 bytes의 해시·크기를 검사하고, Git 복구 정보 등 내보내지 않은 필수 의존성을 명시한다. PT01의 순수 계약 검사와 PT02의 파일 I/O 검사는 별도 실행 근거이며, 다음 순차 작업은 PT03의 새 목적지 복원이다.
+후속 [PT02 exporter](PORTABLE_TRANSFER_EXPORT.md)는 실제로 복사한 bytes의 해시·크기를 검사하고, Git 복구 정보 등 내보내지 않은 필수 의존성을 명시한다. [PT03 importer·rebinding](PORTABLE_TRANSFER_IMPORT.md)은 self-contained `PINNED_FILES` 묶음을 새 목적지로 복원하고 선택한 로컬 표현만 다시 연결한다. Git closure 재구성/repair는 아직 지원하지 않는다. PT01의 순수 계약 검사와 PT02·PT03의 파일 I/O 검사는 별도 실행 근거다.

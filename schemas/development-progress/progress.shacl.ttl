@@ -4,25 +4,48 @@
 
 d:ObservationShape a sh:NodeShape ; sh:targetClass d:ProgressObservation ;
   sh:or (
-    [ sh:property [ sh:path d:task ; sh:hasValue <task:DG01> ] ;
+    [ sh:property [ sh:path d:task ; sh:hasValue <task:DG01> ] ; sh:property [ sh:path d:implementation ; sh:hasValue "IMPLEMENTED_LOCAL_SCOPE" ] ;
       sh:property [ sh:path d:criterion ; sh:minCount 3 ; sh:maxCount 3 ;
         sh:in ( <criterion:DG01-C1> <criterion:DG01-C2> <criterion:DG01-C3> ) ] ]
-    [ sh:property [ sh:path d:task ; sh:hasValue <task:PT02> ] ;
+    [ sh:property [ sh:path d:task ; sh:hasValue <task:PT02> ] ; sh:property [ sh:path d:implementation ; sh:hasValue "IMPLEMENTED_LOCAL_SCOPE" ] ;
       sh:property [ sh:path d:criterion ; sh:minCount 4 ; sh:maxCount 4 ;
         sh:in ( <criterion:PT02-C1> <criterion:PT02-C2> <criterion:PT02-C3> <criterion:PT02-C4> ) ] ]
+    [ sh:property [ sh:path d:task ; sh:hasValue <task:PT03> ] ;
+      sh:property [ sh:path d:criterion ; sh:minCount 5 ; sh:maxCount 5 ;
+        sh:in ( <criterion:PT03-C1> <criterion:PT03-C2> <criterion:PT03-C3> <criterion:PT03-C4> <criterion:PT03-C5> ) ] ;
+      sh:property [ sh:path d:implementation ; sh:hasValue "IMPLEMENTED_FILE_PROFILE_GIT_PENDING" ] ;
+      sh:property [ sh:path d:scope ; sh:hasValue "PINNED_FILE_RESTORE_REBINDING_REJECTION_ONLY_GIT_RESTORE_PENDING" ] ]
+    [ sh:property [ sh:path d:task ; sh:hasValue <task:PT04> ] ;
+      sh:property [ sh:path d:criterion ; sh:minCount 3 ; sh:maxCount 3 ;
+        sh:in ( <criterion:PT04-C1> <criterion:PT04-C2> <criterion:PT04-C3> ) ] ;
+      sh:property [ sh:path d:implementation ; sh:hasValue "LOCAL_ACCEPTANCE_AND_CI_MATRIX" ] ;
+      sh:property [ sh:path d:scope ; sh:hasValue "LINUX_LOCAL_ONLY; PT04-C3_LINUX_MEASURED_OTHER_PLATFORMS_NOT_RUN" ] ]
   ) ;
   sh:property [ sh:path d:task ; sh:minCount 1 ; sh:maxCount 1 ; sh:class d:Task ] ;
   sh:property [ sh:path d:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "LOCAL_CASES_PASS" ] ;
-  sh:property [ sh:path d:implementation ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "IMPLEMENTED_LOCAL_SCOPE" ] ;
+  sh:property [ sh:path d:implementation ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path d:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
-  sh:property [ sh:path d:criterion ; sh:minCount 3 ; sh:maxCount 4 ; sh:class d:Criterion ] ;
+  sh:property [ sh:path d:criterion ; sh:minCount 3 ; sh:maxCount 5 ; sh:class d:Criterion ] ;
   sh:property [ sh:path d:evidence ; sh:minCount 1 ; sh:class d:TestResult ] ;
   sh:property [ sh:path d:sourceCommit ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[a-f0-9]{40}$" ] .
 d:CriterionShape a sh:NodeShape ; sh:targetClass d:Criterion ;
-  sh:property [ sh:path d:checkedBy ; sh:minCount 1 ; sh:class d:TestResult ] .
+  sh:property [ sh:path d:checkedBy ; sh:minCount 1 ; sh:class d:TestResult ] ;
+  sh:property [ sh:path d:coverage ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "LOCAL_CASES_PASS" "REJECTION_ONLY_GIT_RESTORE_PENDING" "LINUX_LOCAL_ONLY" "LINUX_MEASURED_OTHER_PLATFORMS_NOT_RUN" ) ] .
+d:PT03C5Coverage a sh:NodeShape ; sh:targetNode <criterion:PT03-C5> ; sh:property [ sh:path d:coverage ; sh:hasValue "REJECTION_ONLY_GIT_RESTORE_PENDING" ] .
+d:PT04C1Coverage a sh:NodeShape ; sh:targetNode <criterion:PT04-C1> ; sh:property [ sh:path d:coverage ; sh:hasValue "LINUX_LOCAL_ONLY" ] .
+d:PT04C3Coverage a sh:NodeShape ; sh:targetNode <criterion:PT04-C3> ; sh:property [ sh:path d:coverage ; sh:hasValue "LINUX_MEASURED_OTHER_PLATFORMS_NOT_RUN" ] .
 d:TestShape a sh:NodeShape ; sh:targetClass d:TestResult ;
   sh:property [ sh:path d:name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ] ;
   sh:property [ sh:path d:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "PASS" ] .
 d:ReceiptShape a sh:NodeShape ; sh:targetClass d:Receipt ;
   sh:property [ sh:path d:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
-  sh:property [ sh:path d:tapDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] .
+  sh:property [ sh:path d:tapDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path d:acceptanceDigest ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path d:acceptance ; sh:minCount 1 ; sh:maxCount 1 ; sh:class d:AcceptanceObservation ] .
+d:AcceptanceShape a sh:NodeShape ; sh:targetClass d:AcceptanceObservation ;
+  sh:property [ sh:path d:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path d:sourceCommit ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[a-f0-9]{40}$" ] ;
+  sh:property [ sh:path d:task ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue <task:PT04> ] ;
+  sh:property [ sh:path d:linux ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "LOCAL_PASS" ] ;
+  sh:property [ sh:path d:macos ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_RUN" ] ;
+  sh:property [ sh:path d:windows ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_RUN" ] .

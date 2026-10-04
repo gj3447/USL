@@ -2,7 +2,7 @@
 
 선택형 `usl/portable-transfer-export`는 owner가 선택하고 해시·크기를 미리 고정한 파일들을 새 백업 묶음으로 복사한다. 원래 owner namespace, native ID, revision ID, representation ID와 상대 복원 경로를 보존한다. 파일 복사와 메타데이터 검증이 끝난 묶음에만 완료 receipt를 게시한다.
 
-[PT01 이동 계약](PORTABLE_TRANSFER.md)을 사용하며, 이 단계의 지원 범위는 **명시적인 파일 집합의 로컬 export**다. 실제 import·기기 간 복원·재바인딩은 PT03 이후의 작업이다. [개발 진행과 실행 근거](DEVELOPMENT_PROGRESS.md)는 최초 계획과 별도로 관리한다.
+[PT01 이동 계약](PORTABLE_TRANSFER.md)을 사용하며, 이 단계의 지원 범위는 **명시적인 파일 집합의 로컬 export**다. `PINNED_FILES` 묶음의 검사·새 root 복원·선택한 바인딩/그래프 재연결은 [PT03 import·rebinding 안내](PORTABLE_TRANSFER_IMPORT.md)에 있다. [개발 진행과 실행 근거](DEVELOPMENT_PROGRESS.md)는 최초 계획과 별도로 관리한다.
 
 ## 일관성 조건
 
@@ -47,7 +47,7 @@ npm run portable-transfer:export -- --spec /path/to/local-export-spec.json --des
 
 `PINNED_FILES`는 선택한 파일들과 명시적으로 선언한 필수 의존성만 다룬다. `PACKAGED`는 실제 복사·검증한 representation ID들을 가리켜야 한다. 호출자가 `verified: true`를 넣어 완료 상태를 만들 수 없다. `EXTERNAL_REQUIRED`가 남으면 `selfContained`는 false다. `OPTIONAL`은 선택 범위의 복원에 필수가 아닌 의존성이다.
 
-`GIT_WORKTREE`를 선택하면 Git 객체·ref·공통 관리 정보, worktree별 HEAD·index·설정, dirty/untracked, submodule, LFS, alternates를 외부 필수 의존성으로 기록한다. 이 exporter는 해당 Git 복구 정보를 자동 묶지 않으므로 **`selfContained: false`**다. linked worktree 폴더만 복사한 결과를 독립적인 Git 백업으로 판정하지 않는다. Git 호스트 설정·자격증명도 자동 수집하지 않는다.
+`GIT_WORKTREE`를 선택하면 Git 객체·ref·공통 관리 정보, worktree별 HEAD·index·설정, dirty/untracked, submodule, LFS, alternates를 외부 필수 의존성으로 기록한다. 이 exporter는 해당 Git 복구 정보를 자동 묶지 않으므로 **`selfContained: false`**다. Git closure의 재구성/repair도 아직 지원하지 않는다. linked worktree 폴더만 복사한 결과를 독립적인 Git 백업으로 판정하지 않는다. Git 호스트 설정·자격증명도 자동 수집하지 않는다.
 
 파일 profile의 `selfContained: true`는 선언한 파일 집합을 충족했다는 뜻이다. 임의의 프로그램·DB·Git 저장소 전체를 복구할 수 있다는 뜻은 아니다. 실행 비트·소유권·ACL·원래 시각·하드링크 관계는 보존하지 않는다. 선언한 의존성 이름과 실제 애플리케이션 의미의 대응은 owner 책임이다.
 

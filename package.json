@@ -115,6 +115,14 @@
     "./portable-transfer-export": {
       "types": "./dist/src/addons/portable-transfer-export.d.ts",
       "import": "./dist/src/addons/portable-transfer-export.js"
+    },
+    "./portable-transfer-import": {
+      "types": "./dist/src/addons/portable-transfer-import.d.ts",
+      "import": "./dist/src/addons/portable-transfer-import.js"
+    },
+    "./portable-transfer-bindings": {
+      "types": "./dist/src/addons/portable-transfer-bindings.d.ts",
+      "import": "./dist/src/addons/portable-transfer-bindings.js"
     }
   },
   "engines": {
@@ -158,7 +166,8 @@
     "portable-transfer:record": "tsx scripts/build-portable-transfer.ts --record",
     "portable-transfer:check": "tsx scripts/build-portable-transfer.ts --check",
     "portable-transfer:standards": "python3 scripts/validate-portable-transfer.py",
-    "portable-transfer:export": "tsx scripts/usl-transfer-export.ts"
+    "portable-transfer:export": "tsx scripts/usl-transfer-export.ts",
+    "portable-transfer:import": "tsx scripts/usl-transfer-import.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",
