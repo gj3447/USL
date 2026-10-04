@@ -80,8 +80,33 @@ async function repinSidecars(bundlePath: string, replacements: Record<string, un
 }
 
 async function sidecars(bundlePath: string) {
-  const names = ["inventory.json", "policy.json", "schema.json"]
+  const names = ["dictionary.json", "inventory.json", "policy.json", "schema.json"]
   return Object.fromEntries(await Promise.all(names.map(async name => [name, JSON.parse(await readFile(join(bundlePath, "payload-bundle", name), "utf8"))]))) as Record<string, any>
+}
+
+const closureFiles = (inventory: any) => inventory.files.map((file: any) => ({
+  sourcePath: file.restorePath,
+  payloadPath: file.payloadPath,
+  nativeId: file.nativeId,
+  revisionId: file.revisionId,
+  representationId: file.representationId,
+  expectedByteDigest: file.byteDigest,
+  expectedByteLength: file.byteLength,
+  ...(file.required === undefined ? {} : { required: file.required }),
+  ...(file.parents === undefined ? {} : { parents: file.parents }),
+}))
+
+async function repinInventoryClosure(bundlePath: string, data: Record<string, any>) {
+  data["policy.json"].closureDigest = portableTransferClosureDigest(
+    "PINNED_FILES",
+    closureFiles(data["inventory.json"]),
+    data["inventory.json"].dependencies,
+  )
+  data["policy.json"].expectedClosureDigest = data["policy.json"].closureDigest
+  return repinSidecars(bundlePath, {
+    "inventory.json": data["inventory.json"],
+    "policy.json": data["policy.json"],
+  })
 }
 
 test("PT03-C1: verifies a real PT02 bundle before rebinding exact IDs at a different root", async (t) => {
@@ -254,6 +279,58 @@ test("PT03-C2: authenticated non-exportable registration and credential paths ca
     )
     assert.deepEqual(await readdir(fx.restores), [])
   }
+})
+
+test("PT03-C2: authenticated metadata outside the exporter bounds cannot reserve a destination", async (t) => {
+  const dependencyCases = [
+    Array.from({ length: 1025 }, (_, index) => ({ id: `optional-${index}`, class: "OPTIONAL", required: false, reason: "bound" })),
+    [
+      { id: "duplicate", class: "OPTIONAL", required: false, reason: "first" },
+      { id: "duplicate", class: "OPTIONAL", required: false, reason: "second" },
+    ],
+  ]
+  for (const dependencies of dependencyCases) {
+    const { fx, bundle } = await exported(t)
+    const data = await sidecars(bundle.bundlePath)
+    data["inventory.json"].dependencies = dependencies
+    const receiptDigest = await repinInventoryClosure(bundle.bundlePath, data)
+    await assert.rejects(
+      importPortableTransfer(request(bundle.bundlePath, fx.restores, receiptDigest)),
+      /invalid (inventory|dependency inventory)/i,
+    )
+    assert.deepEqual(await readdir(fx.restores), [])
+  }
+
+  for (const dictionary of [
+    Object.fromEntries(Array.from({ length: 1025 }, (_, index) => [`alias-${index}`, "records/item.bin"])),
+    { bearer: "records/item.bin" },
+  ]) {
+    const { fx, bundle } = await exported(t)
+    const data = await sidecars(bundle.bundlePath)
+    data["dictionary.json"] = dictionary
+    const receiptDigest = await repinSidecars(bundle.bundlePath, {
+      "dictionary.json": data["dictionary.json"],
+    })
+    await assert.rejects(
+      importPortableTransfer(request(bundle.bundlePath, fx.restores, receiptDigest)),
+      /invalid alias dictionary/i,
+    )
+    assert.deepEqual(await readdir(fx.restores), [])
+  }
+
+  const { fx, bundle } = await exported(t)
+  const data = await sidecars(bundle.bundlePath)
+  data["inventory.json"].files[0].required = "false"
+  const receiptDigest = await repinSidecar(
+    bundle.bundlePath,
+    "inventory.json",
+    data["inventory.json"],
+  )
+  await assert.rejects(
+    importPortableTransfer(request(bundle.bundlePath, fx.restores, receiptDigest)),
+    /invalid inventory restore path or file/i,
+  )
+  assert.deepEqual(await readdir(fx.restores), [])
 })
 
 test("PT03-C3: preserves unknown, diverged, and withdrawn history without automatic activation or merge", async (t) => {

@@ -12,6 +12,8 @@
 
 receipt와 policy의 snapshot ID는 일치해야 하며 owner 일관성 선언도 해당 snapshot profile의 허용값이어야 한다. 복원 경로에는 exporter와 같은 보호 정책을 적용해 `.git`, `.ssh`, `.aws`, `.npmrc`, `.gitconfig`, `.netrc`, `.env`, `.env.*` 구성요소를 거부한다. 해시를 다시 고정해도 이 의미·경로 검사를 생략하지 않는다.
 
+의존성과 alias 목록은 각각 최대 1,024개이며 의존성 ID는 중복될 수 없다. 식별자·설명·파일 길이의 상한도 exporter와 맞춰 검사한다. 잘못된 `required` 타입을 생략해서 처리하거나 비밀값을 뜻하는 alias 이름을 수용하지 않는다. 이 검사는 새 목적지를 예약하기 전에 끝난다.
+
 `OWNER_FROZEN`은 원래 exporter의 owner assertion 선언이며 importer가 당시 잠금의 정당성을 새로 인증하는 것은 아니다. `PINNED_BYTE_SET`도 원자적인 전체 파일시스템 snapshot을 뜻하지 않는다. 둘 다 복원 시에는 실제 전달받은 bytes를 검사한다.
 
 ## 새 목적지와 반복 실행

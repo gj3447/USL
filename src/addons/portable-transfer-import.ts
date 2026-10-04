@@ -631,7 +631,8 @@ export async function importPortableTransfer(
     !Array.isArray(inventory.files) ||
     !Array.isArray(inventory.dependencies) ||
     inventory.files.length < 1 ||
-    inventory.files.length > MAX_FILES
+    inventory.files.length > MAX_FILES ||
+    inventory.dependencies.length > MAX_FILES
   )
     throw new Error("invalid inventory");
   // inventory has an additional restorePath presentation field; construct the exact
@@ -655,15 +656,28 @@ export async function importPortableTransfer(
       byteLength = f.byteLength;
     if (
       typeof sourcePath !== "string" ||
+      sourcePath.length < 1 ||
+      sourcePath.length > 1024 ||
       f.restorePath !== sourcePath ||
       typeof f.payloadPath !== "string" ||
+      f.payloadPath.length < 1 ||
+      f.payloadPath.length > 1024 ||
       typeof f.nativeId !== "string" ||
+      f.nativeId.length < 1 ||
+      f.nativeId.length > 256 ||
       typeof f.revisionId !== "string" ||
+      f.revisionId.length < 1 ||
+      f.revisionId.length > 512 ||
       typeof f.representationId !== "string" ||
+      f.representationId.length < 1 ||
+      f.representationId.length > 512 ||
       typeof byteDigest !== "string" ||
+      !/^sha256:[0-9a-f]{64}$/u.test(byteDigest) ||
       typeof byteLength !== "number" ||
       !Number.isSafeInteger(byteLength) ||
-      byteLength < 0
+      byteLength < 0 ||
+      byteLength > MAX_BYTES ||
+      (f.required !== undefined && typeof f.required !== "boolean")
     )
       throw new Error("invalid inventory restore path or file");
     const parents = f.parents;
@@ -698,9 +712,13 @@ export async function importPortableTransfer(
       ]);
       if (
         typeof d.id !== "string" ||
+        d.id.length < 1 ||
+        d.id.length > 256 ||
         typeof d.class !== "string" ||
         typeof d.required !== "boolean" ||
         typeof d.reason !== "string" ||
+        d.reason.length < 1 ||
+        d.reason.length > 1024 ||
         !["PACKAGED", "EXTERNAL_REQUIRED", "OPTIONAL"].includes(d.class) ||
         (d.class === "OPTIONAL" && d.required) ||
         (d.class === "EXTERNAL_REQUIRED" && d.required)
@@ -710,7 +728,11 @@ export async function importPortableTransfer(
       if (
         packagedRepresentationIds !== undefined &&
         (!Array.isArray(packagedRepresentationIds) ||
-          packagedRepresentationIds.some((x) => typeof x !== "string") ||
+          packagedRepresentationIds.length > MAX_FILES ||
+          packagedRepresentationIds.some(
+            (x) =>
+              typeof x !== "string" || x.length < 1 || x.length > 512,
+          ) ||
           new Set(packagedRepresentationIds).size !==
             packagedRepresentationIds.length)
       )
@@ -733,6 +755,8 @@ export async function importPortableTransfer(
       });
     },
   );
+  if (deps.length > MAX_FILES || new Set(deps.map((d) => d.id)).size !== deps.length)
+    throw new Error("invalid dependency inventory");
   if (
     portableTransferClosureDigest("PINNED_FILES", files, deps) !==
       policy.closureDigest ||
@@ -814,12 +838,19 @@ export async function importPortableTransfer(
   if (total !== receiptBytesTotal)
     throw new Error("receipt byte count mismatch");
   collision(restores);
-  for (const value of Object.values(dictionary)) {
+  const aliases = Object.entries(dictionary);
+  if (aliases.length > MAX_FILES) throw new Error("invalid alias dictionary");
+  for (const [key, value] of aliases) {
     if (
+      !key ||
+      key.length > 256 ||
+      /(?:password|secret|token|credential|bearer)/iu.test(key) ||
       typeof value !== "string" ||
+      !value ||
+      value.length > 1024 ||
       !files.some((f) => f.payloadPath === value)
     )
-      throw new Error("dictionary does not refer to bundled payload");
+      throw new Error("invalid alias dictionary");
   }
   const wanted = [
     "receipt.json",
