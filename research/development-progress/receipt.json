@@ -1,10 +1,10 @@
 {
-  "schema": "usl-development-progress/v2",
+  "schema": "usl-development-progress/v3",
   "authority": "SECONDARY_AI",
   "atomicSnapshot": "NOT_CLAIMED",
   "crossPlatformAcceptance": "NOT_RUN",
   "transfer": "PINNED_FILES_LOCAL_SCOPE",
-  "restore": "NOT_IMPLEMENTED",
+  "restore": "PT03_FILE_PROFILE_IMPLEMENTED_GIT_PENDING",
   "executionAuthority": "NOT_GRANTED",
   "observations": [
     {
@@ -29,10 +29,34 @@
         "criterion:PT02-C3",
         "criterion:PT02-C4"
       ]
+    },
+    {
+      "task": "task:PT03",
+      "implementation": "IMPLEMENTED_FILE_PROFILE_GIT_PENDING",
+      "status": "LOCAL_CASES_PASS",
+      "scope": "PINNED_FILE_RESTORE_REBINDING_REJECTION_ONLY_GIT_RESTORE_PENDING",
+      "criteria": [
+        "criterion:PT03-C1",
+        "criterion:PT03-C2",
+        "criterion:PT03-C3",
+        "criterion:PT03-C4",
+        "criterion:PT03-C5"
+      ]
+    },
+    {
+      "task": "task:PT04",
+      "implementation": "LOCAL_ACCEPTANCE_AND_CI_MATRIX",
+      "status": "LOCAL_CASES_PASS",
+      "scope": "LINUX_LOCAL_ONLY; PT04-C3_LINUX_MEASURED_OTHER_PLATFORMS_NOT_RUN",
+      "criteria": [
+        "criterion:PT04-C1",
+        "criterion:PT04-C2",
+        "criterion:PT04-C3"
+      ]
     }
   ],
-  "recordedAt": "2026-10-04T00:25:25.137172+00:00",
-  "sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
+  "recordedAt": "2026-10-04T01:24:51.533883+00:00",
+  "sourceCommit": "7576cf9bccea1a068f2a84f69bace3f3eb419b72",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -50,16 +74,27 @@
     "test/worktree-lifecycle.test.ts",
     "test/worktree-execution.test.ts",
     "test/worktree-graph-cli.test.ts",
-    "test/portable-transfer-export.test.ts"
+    "test/portable-transfer-export.test.ts",
+    "test/portable-transfer-restore.test.ts",
+    "test/portable-transfer-bindings.test.ts",
+    "test/portable-transfer-portability.test.ts"
   ],
   "pins": [
+    {
+      "path": ".github/workflows/portable-transfer.yml",
+      "sha256": "sha256:d9dcd9a94a6452da5c1b3a430c6440be77a493519829cf4f66e7dd7afd377615"
+    },
     {
       "path": "docs/CHECKOUT_GUARD.md",
       "sha256": "sha256:9c668db86982beb843af19723ec5e089797b440518629263d66d358a5a1086a9"
     },
     {
       "path": "docs/PORTABLE_TRANSFER_EXPORT.md",
-      "sha256": "sha256:c0751c30b9dec4ea973a1cb8d54add50c95310842dbc66d9c63a31f128b1f771"
+      "sha256": "sha256:e76f84fab8631db1c69a3e31e0410db24f1c2aa2b03ef4686dbfebf6bc53997d"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_IMPORT.md",
+      "sha256": "sha256:979615720847ce33181b141cdbe0762745fbf30011e04bb254d3463bbbdd007d"
     },
     {
       "path": "package-lock.json",
@@ -67,7 +102,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802"
+      "sha256": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823"
     },
     {
       "path": "research/development-plan/plan.json",
@@ -75,15 +110,27 @@
     },
     {
       "path": "schemas/development-progress/progress.shacl.ttl",
-      "sha256": "sha256:b024ea050ba3408371fb3d0c95f49c8af02f29e976ed6066262bc55d0455763d"
+      "sha256": "sha256:b42a31b74b19088d1ffc38e58cd0ddefe9ec8cef3e1cca091e381a554795d2ea"
+    },
+    {
+      "path": "scripts/measure-portable-transfer.ts",
+      "sha256": "sha256:941de7ffbc51d4d3873346db346ad0ba143da04f0ac5abd0728bed22e4440674"
+    },
+    {
+      "path": "scripts/portable-transfer-acceptance.ts",
+      "sha256": "sha256:27cb30b3bc2b5c163c26861ec52f424dd64bb3626e088ff325ececb8ed85eb86"
     },
     {
       "path": "scripts/record-development-progress.py",
-      "sha256": "sha256:8a072b8cfdae603f36fa90dbcd61413783e6a600c9bd67fa649632730248f391"
+      "sha256": "sha256:033502f793d79aba7d251d0befb8bd93f8b7cf27a0cd38eddecd40915924970f"
     },
     {
       "path": "scripts/usl-transfer-export.ts",
       "sha256": "sha256:8e22f38fc040ee8b4b4f43de245802e4bcc110e29e5dc3d60398aba0d48ce4f9"
+    },
+    {
+      "path": "scripts/usl-transfer-import.ts",
+      "sha256": "sha256:6673c43c7aa22d0604d7406de148d3f7ca251f684efaf6bae6250cfe44238417"
     },
     {
       "path": "src/adapters.ts",
@@ -94,8 +141,16 @@
       "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
     },
     {
+      "path": "src/addons/portable-transfer-bindings.ts",
+      "sha256": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05"
+    },
+    {
       "path": "src/addons/portable-transfer-export.ts",
       "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
+    },
+    {
+      "path": "src/addons/portable-transfer-import.ts",
+      "sha256": "sha256:ff458b024061a4231285118db274c63278a2e60319c08accf20167215c5d29c0"
     },
     {
       "path": "src/addons/portable-transfer.ts",
@@ -330,8 +385,20 @@
       "sha256": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7"
     },
     {
+      "path": "test/portable-transfer-bindings.test.ts",
+      "sha256": "sha256:e35dadd1c79c55d8f34725ff251c7478a76f91331dee3addb6453df7f7da6bbb"
+    },
+    {
       "path": "test/portable-transfer-export.test.ts",
       "sha256": "sha256:ae39ab2e87c5acddfd9a1d2ad4574b5aac90f7049236b122e016b2caf053960e"
+    },
+    {
+      "path": "test/portable-transfer-portability.test.ts",
+      "sha256": "sha256:6380efc4d5f4868035225d20c6dfd35e21b082ea04bd5d44e08302d3d5acda0d"
+    },
+    {
+      "path": "test/portable-transfer-restore.test.ts",
+      "sha256": "sha256:aa8454bf58437121e26ccb6236e8350f493ee306fdc53af0faa0eafa55db0cb0"
     },
     {
       "path": "test/worktree-execution.test.ts",
@@ -350,7 +417,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:b37eec5f06f1b793baaf88e8f8da9679ec80e43b8e2e919c7758c3b82c61b3da",
+  "tapDigest": "sha256:e64a050e6afa2a1ba19ea4f2a555b2723bc43e215add9b801aab5fc39e58f185",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -435,6 +502,26 @@
     {
       "id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf",
       "name": "DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test:dee86b63a33f9cefbcfc3ebc293273b0988a6b490ee4b42ade580039ba37efec",
+      "name": "PT03-C1: verified restore rebinds only selected locators and preserves graph identities and ordered roles without the original source",
+      "status": "PASS"
+    },
+    {
+      "id": "test:87a9f5653cab66a18fa2ae15b7e02e5609964314d5b7e8ddac83539cc0d63290",
+      "name": "PT03-C1: rebinding rejects forged handles, changed restored bytes and mismatched explicit identities",
+      "status": "PASS"
+    },
+    {
+      "id": "test:638fafa232dac0a8d88cd7aebb63b98a71529bba4a2b852fd30594216c30ce27",
+      "name": "PT03-C1: rebinding captures mutable selections and refuses implicit remapping of unselected workspaces",
+      "status": "PASS"
+    },
+    {
+      "id": "test:174ffbe52532df929f69bc0e63243d5e2367614641570ddf7ffaf9462b6c120b",
+      "name": "PT03-C3: historical snapshots cannot be implicitly rebound as working copies; explicit local branches retain their original revisions",
       "status": "PASS"
     },
     {
@@ -553,6 +640,91 @@
       "status": "PASS"
     },
     {
+      "id": "test:ec6cf31eb41d525179a8786a9da1d006612caa7279de744716e4029d24d5a48c",
+      "name": "PT04-C1: a copied self-contained bundle restores without source, cache, or original bundle",
+      "status": "PASS"
+    },
+    {
+      "id": "test:cb41416e1f1ee00d2e4002f1624f2c18a708a8892716fe8e94d2c771146e74b7",
+      "name": "PT04-C2: missing required dependencies and a one-byte payload change never publish a restored workspace",
+      "status": "PASS"
+    },
+    {
+      "id": "test:26dc1f062f2c618936fbc1890a357c7cf9fa34fd313a40cb276fcc80861c5c38",
+      "name": "PT04-C2: a budget-interrupted import leaves no completion marker and does not retry effects",
+      "status": "PASS"
+    },
+    {
+      "id": "test:e91ab81488a32a28dd2ff02167e28a9abdb4ac0781351f33a54a3456bbab3cb4",
+      "name": "PT04-C3: a separate producer and cache-free consumer report exact transport metrics",
+      "status": "PASS"
+    },
+    {
+      "id": "test:fa697cf20c36a9d80f8f33a93183ef0c59be3be84ec1aded622ccf0156c8f662",
+      "name": "PT03-C1: verifies a real PT02 bundle before rebinding exact IDs at a different root",
+      "status": "PASS"
+    },
+    {
+      "id": "test:d2df214fec835156fd8514ec568ce7df71cc26ec2f2d3d0e6e3e35672e5bf221",
+      "name": "PT03-C2: rejects receipt-pinned metadata and payload attacks without publishing a workspace",
+      "status": "PASS"
+    },
+    {
+      "id": "test:b543bdde0e2ff3a7b5b27be8eeaed84d7180aedfc328a5585e8a74b4cf1dce5d",
+      "name": "PT03-C2: refuses extra entries, symlinks, FIFOs, and does not overwrite an incomplete reservation",
+      "status": "PASS"
+    },
+    {
+      "id": "test:44b72774455083b9328b3a76ace2e18844883822eab84537ae449b4cbcc7c888",
+      "name": "PT03-C2: rechecks an existing same-digest result and only one concurrent reservation publishes",
+      "status": "PASS"
+    },
+    {
+      "id": "test:1352feaf5a55118e9b5b1b653cea40f726ec36856d27cf8b46349fe34dc4bf82",
+      "name": "PT03-C2: authenticated malformed dependency and inventory metadata cannot change the restore closure",
+      "status": "PASS"
+    },
+    {
+      "id": "test:9bf064b3cdaa2ae1bc3ee24c85dc1d680fb1f30e8320de95da4740cb96c9a372",
+      "name": "PT03-C2: authenticated policy/schema substitutions and duplicate representations are rejected semantically",
+      "status": "PASS"
+    },
+    {
+      "id": "test:b270c213c1889bc3c4b78a52abab4674ef7232a5dca0f1d208dfef93b7d26d66",
+      "name": "PT03-C2: receipt-repinned case-folded restore paths cannot publish on a case-sensitive host",
+      "status": "PASS"
+    },
+    {
+      "id": "test:e519c07a53f1f46f6db5d4323fb3d6533af5d2c31fb6c34d006168649d403f38",
+      "name": "PT03-C3: preserves unknown, diverged, and withdrawn history without automatic activation or merge",
+      "status": "PASS"
+    },
+    {
+      "id": "test:8db046a117afb6570be80b3c34db263ffab11cf7f5895cb94f67f8828fb0b5e9",
+      "name": "PT03-C3: owner-state duplicate keys are rejected and __proto__ remains an ordinary withdrawn native ID",
+      "status": "PASS"
+    },
+    {
+      "id": "test:0995a274b65d2fed84aa560a8aae988d1e065be16ee9e617193ecd2a90b1fbb5",
+      "name": "PT03-C4: only an immutable in-process result can be rechecked; marker and workspace replacement are detected",
+      "status": "PASS"
+    },
+    {
+      "id": "test:c7817b2a29ca0e23c35f789bf7625aaddec0ca9d404e775e0a8546e09613aef5",
+      "name": "PT03-C4: rejects unsupported Git closure and keeps operations as historical data",
+      "status": "PASS"
+    },
+    {
+      "id": "test:36f8683b9fe2281d7b270af5529d123524698f30e46db38e09ab8466801373f1",
+      "name": "PT03-C5: rejects conflicting owner registry definitions without truncating native IDs",
+      "status": "PASS"
+    },
+    {
+      "id": "test:ac39ebb1eecfcdbd19afc9ed83673d0e581f447f97eb4669754d5726d6589bc4",
+      "name": "PT03-C4: CLI accepts help but rejects bad arguments and a FIFO spec promptly",
+      "status": "PASS"
+    },
+    {
       "id": "test:2cb7af2e2cde44d0e08a2db8e471f1c03cb183d4407aed5f22b2ad175b894487",
       "name": "remapping a real linked worktree rejects a stale main-worktree plan before an attempt",
       "status": "PASS"
@@ -649,8 +821,8 @@
     }
   ],
   "totals": {
-    "tests": 59,
-    "pass": 59,
+    "tests": 80,
+    "pass": 80,
     "fail": 0,
     "cancelled": 0,
     "skipped": 0,
@@ -663,7 +835,16 @@
     "criterion:PT02-C1",
     "criterion:PT02-C2",
     "criterion:PT02-C3",
-    "criterion:PT02-C4"
+    "criterion:PT02-C4",
+    "criterion:PT03-C1",
+    "criterion:PT03-C2",
+    "criterion:PT03-C3",
+    "criterion:PT03-C4",
+    "criterion:PT03-C5",
+    "criterion:PT04-C1",
+    "criterion:PT04-C2",
+    "criterion:PT04-C3"
   ],
+  "acceptanceDigest": "sha256:be3f529e8c8ef09009b455cfff9c8995e6a5092593c5bff2065217078b119dfd",
   "nextTask": "task:PT03"
 }

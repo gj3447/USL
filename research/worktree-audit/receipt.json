@@ -1,8 +1,8 @@
 {
   "schema": "usl-worktree-audit-receipt/v1",
   "status": "ASSERTIONS_PASS",
-  "recordedAt": "2026-10-04T00:24:53.631277+00:00",
-  "sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
+  "recordedAt": "2026-10-04T01:21:37.569478+00:00",
+  "sourceCommit": "8845156644b9a5d439d72a0b4cfc371f0afd861c",
   "environment": {
     "node": "v24.20.0",
     "git": "git version 2.47.3",
@@ -35,7 +35,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802"
+      "sha256": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823"
     },
     {
       "path": "research/worktree-audit/catalog.json",
@@ -54,8 +54,16 @@
       "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
     },
     {
+      "path": "src/addons/portable-transfer-bindings.ts",
+      "sha256": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05"
+    },
+    {
       "path": "src/addons/portable-transfer-export.ts",
       "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
+    },
+    {
+      "path": "src/addons/portable-transfer-import.ts",
+      "sha256": "sha256:ff458b024061a4231285118db274c63278a2e60319c08accf20167215c5d29c0"
     },
     {
       "path": "src/addons/portable-transfer.ts",
@@ -318,7 +326,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:cdf3e38bce3aa6ab8c72aff344fa6803b5c4d770d7631c835b2e7eef770b5b0e",
+  "tapDigest": "sha256:68a4dc32456b0a3c4a2c0e3de6338caa4460e577619ff225d0417838cf0e008f",
   "tests": [
     {
       "id": "test:c2c297e89fceaa6e35c638f696ac372507c4284861c20885a33f6f5e9cb42bc1",

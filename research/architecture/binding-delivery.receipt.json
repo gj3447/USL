@@ -4,23 +4,26 @@
   "status": "PASS",
   "generatedAt": "2026-10-04",
   "scope": "LOCAL_BINDING_FIXTURES_AND_CLI_CONTRACTS",
-  "recording": "Fresh local compatibility verification after PT02 optional portable transfer exporter integration; previous receipt bytes remain reachable at previousReceipt.gitRevision/path. Actual restore and cross-device acceptance remain unimplemented.",
+  "recording": "Fresh local compatibility verification after PT03 verified file restore, local graph rebinding, and PT04 acceptance integration; previous receipt bytes remain reachable at previousReceipt.gitRevision/path. Cross-device acceptance remains unimplemented.",
   "proofStatus": "NO_NEW_LEAN_PROOF",
   "sourcePins": {
     "docs/ADDON_BINDING.md": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de",
     "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
     "docs/LANGUAGE.md": "sha256:15a34082fdc9c8a1f561119a5be556680615112250bc8838ad6fd1d7868a3556",
-    "docs/PORTABLE_TRANSFER_EXPORT.md": "sha256:c0751c30b9dec4ea973a1cb8d54add50c95310842dbc66d9c63a31f128b1f771",
+    "docs/PORTABLE_TRANSFER_EXPORT.md": "sha256:e76f84fab8631db1c69a3e31e0410db24f1c2aa2b03ef4686dbfebf6bc53997d",
+    "docs/PORTABLE_TRANSFER_IMPORT.md": "sha256:979615720847ce33181b141cdbe0762745fbf30011e04bb254d3463bbbdd007d",
     "docs/RESOURCE_BINDINGS.md": "sha256:474a509a98f8d8b2b5dc75afd4525ec8220d4f3048d6afaf4b41dfe364fbbaa1",
     "examples/agent-navigation.usl": "sha256:3d9b200e76105cfa07ca642a3274bf4cdce17e136f313fd5586a19c779b207cf",
     "examples/fixtures/addon-binding.json": "sha256:fe46aa7eea43bdb3afe764003a2726a24677574ae5ced58d26de25980bf7197c",
     "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
     "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802",
+    "package.json": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
     "src/addons/checkout-guard.ts": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
+    "src/addons/portable-transfer-bindings.ts": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05",
     "src/addons/portable-transfer-export.ts": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a",
+    "src/addons/portable-transfer-import.ts": "sha256:ff458b024061a4231285118db274c63278a2e60319c08accf20167215c5d29c0",
     "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
@@ -128,7 +131,10 @@
     "test/observation.test.ts": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73",
     "test/permissions.test.ts": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db",
     "test/pierce.test.ts": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40",
+    "test/portable-transfer-bindings.test.ts": "sha256:e35dadd1c79c55d8f34725ff251c7478a76f91331dee3addb6453df7f7da6bbb",
     "test/portable-transfer-export.test.ts": "sha256:ae39ab2e87c5acddfd9a1d2ad4574b5aac90f7049236b122e016b2caf053960e",
+    "test/portable-transfer-portability.test.ts": "sha256:6380efc4d5f4868035225d20c6dfd35e21b082ea04bd5d44e08302d3d5acda0d",
+    "test/portable-transfer-restore.test.ts": "sha256:aa8454bf58437121e26ccb6236e8350f493ee306fdc53af0faa0eafa55db0cb0",
     "test/portable-transfer.test.ts": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
     "test/program-store.test.ts": "sha256:e664fd9bd08ad302e126ea650419fca1cd33abf98cae562e24fe6820c8c14c19",
     "test/project.test.ts": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e",
@@ -161,19 +167,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "2026-10-04: 408 tests passed, 0 failed, 0 skipped, including 23 PT02 portable-transfer-export tests. No restore or cross-device acceptance is claimed."
+          "observed": "2026-10-04: 429 tests passed, 0 failed, 0 skipped, including PT03 verified restore, local graph rebinding, and PT04 acceptance coverage. Cross-device acceptance is not claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional portable-transfer-export contract and package export."
+          "observed": "TypeScript check passed, including optional portable-transfer import and binding contracts."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/portable-transfer-export package import resolved. No new Lean proof is claimed."
+          "observed": "Build passed; optional portable-transfer importer addon smoke test passed. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -246,19 +252,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "2026-10-04: 408 tests passed, 0 failed, 0 skipped, including 23 PT02 portable-transfer-export tests. No restore or cross-device acceptance is claimed."
+          "observed": "2026-10-04: 429 tests passed, 0 failed, 0 skipped, including PT03 verified restore, local graph rebinding, and PT04 acceptance coverage. Cross-device acceptance is not claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional portable-transfer-export contract and package export."
+          "observed": "TypeScript check passed, including optional portable-transfer import and binding contracts."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/portable-transfer-export package import resolved. No new Lean proof is claimed."
+          "observed": "Build passed; optional portable-transfer importer addon smoke test passed. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -336,19 +342,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "2026-10-04: 408 tests passed, 0 failed, 0 skipped, including 23 PT02 portable-transfer-export tests. No restore or cross-device acceptance is claimed."
+          "observed": "2026-10-04: 429 tests passed, 0 failed, 0 skipped, including PT03 verified restore, local graph rebinding, and PT04 acceptance coverage. Cross-device acceptance is not claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional portable-transfer-export contract and package export."
+          "observed": "TypeScript check passed, including optional portable-transfer import and binding contracts."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/portable-transfer-export package import resolved. No new Lean proof is claimed."
+          "observed": "Build passed; optional portable-transfer importer addon smoke test passed. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -413,10 +419,10 @@
       ]
     }
   ],
-  "supersedesReceiptDigest": "sha256:01116f8f37fe65390d56f8491d2143261ba41d6bdb1de6da03ee263e8dd9006d",
-  "sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
+  "supersedesReceiptDigest": "sha256:c511f372aa69917efb1e75eba3c6f2282edb6de8ef3fcedcce4ae4f42dfd6eb2",
+  "sourceCommit": "7576cf9bccea1a068f2a84f69bace3f3eb419b72",
   "previousReceipt": {
-    "gitRevision": "4103a9526e0cefaf2bbbee4964a841fe5254b29f",
+    "gitRevision": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
     "path": "research/architecture/binding-delivery.receipt.json"
   }
 }
