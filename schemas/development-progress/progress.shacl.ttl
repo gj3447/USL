@@ -3,11 +3,19 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 d:ObservationShape a sh:NodeShape ; sh:targetClass d:ProgressObservation ;
+  sh:or (
+    [ sh:property [ sh:path d:task ; sh:hasValue <task:DG01> ] ;
+      sh:property [ sh:path d:criterion ; sh:minCount 3 ; sh:maxCount 3 ;
+        sh:in ( <criterion:DG01-C1> <criterion:DG01-C2> <criterion:DG01-C3> ) ] ]
+    [ sh:property [ sh:path d:task ; sh:hasValue <task:PT02> ] ;
+      sh:property [ sh:path d:criterion ; sh:minCount 4 ; sh:maxCount 4 ;
+        sh:in ( <criterion:PT02-C1> <criterion:PT02-C2> <criterion:PT02-C3> <criterion:PT02-C4> ) ] ]
+  ) ;
   sh:property [ sh:path d:task ; sh:minCount 1 ; sh:maxCount 1 ; sh:class d:Task ] ;
   sh:property [ sh:path d:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "LOCAL_CASES_PASS" ] ;
   sh:property [ sh:path d:implementation ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "IMPLEMENTED_LOCAL_SCOPE" ] ;
   sh:property [ sh:path d:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
-  sh:property [ sh:path d:criterion ; sh:minCount 3 ; sh:maxCount 3 ; sh:class d:Criterion ] ;
+  sh:property [ sh:path d:criterion ; sh:minCount 3 ; sh:maxCount 4 ; sh:class d:Criterion ] ;
   sh:property [ sh:path d:evidence ; sh:minCount 1 ; sh:class d:TestResult ] ;
   sh:property [ sh:path d:sourceCommit ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[a-f0-9]{40}$" ] .
 d:CriterionShape a sh:NodeShape ; sh:targetClass d:Criterion ;

@@ -111,6 +111,10 @@
     "./checkout-guard": {
       "types": "./dist/src/addons/checkout-guard.d.ts",
       "import": "./dist/src/addons/checkout-guard.js"
+    },
+    "./portable-transfer-export": {
+      "types": "./dist/src/addons/portable-transfer-export.d.ts",
+      "import": "./dist/src/addons/portable-transfer-export.js"
     }
   },
   "engines": {
@@ -153,7 +157,8 @@
     "portable-transfer:build": "tsx scripts/build-portable-transfer.ts",
     "portable-transfer:record": "tsx scripts/build-portable-transfer.ts --record",
     "portable-transfer:check": "tsx scripts/build-portable-transfer.ts --check",
-    "portable-transfer:standards": "python3 scripts/validate-portable-transfer.py"
+    "portable-transfer:standards": "python3 scripts/validate-portable-transfer.py",
+    "portable-transfer:export": "tsx scripts/usl-transfer-export.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",
