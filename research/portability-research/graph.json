@@ -9,7 +9,7 @@
       ],
       "locator": "https://github.com/gj3447/USL/blob/master/research/portability-research/research.json",
       "metadata": {
-        "digest": "sha256:1c69a99e0743736e89910072fd767192ed70222ce6bed4fc6b6abb0218cdc83c",
+        "digest": "sha256:416cf52ca024e5fd06b61d623a7c7997b4bab5473239a0bda8c2923a82e3bfdb",
         "scope": {
           "persistence": "LOCAL_REPOSITORY",
           "sharedKgWrite": "NOT_PERFORMED",
@@ -29,7 +29,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-portability-research.ts",
       "metadata": {
         "path": "scripts/build-portability-research.ts",
-        "digest": "sha256:22bdfec8cf8ac7946b6b458d6504553d79091008c6a0c2e531f70f91fbcb593c"
+        "digest": "sha256:45a192f0aaa11feaa4c9e396e5213755043da27030f484fb204ac054332ac073"
       }
     },
     {
@@ -626,12 +626,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/addons/portable-transfer.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/addons/portable-transfer.ts",
       "metadata": {
         "id": "source:src/addons/portable-transfer.ts",
         "path": "src/addons/portable-transfer.ts",
         "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -640,12 +640,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/resource-bindings.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/resource-bindings.ts",
       "metadata": {
         "id": "source:src/resource-bindings.ts",
         "path": "src/resource-bindings.ts",
         "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -654,12 +654,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/contract-core.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/contract-core.ts",
       "metadata": {
         "id": "source:src/contract-core.ts",
         "path": "src/contract-core.ts",
         "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -668,12 +668,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/addons/rule-policy.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/addons/rule-policy.ts",
       "metadata": {
         "id": "source:src/addons/rule-policy.ts",
         "path": "src/addons/rule-policy.ts",
         "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -682,12 +682,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/addons/rule-weight-evidence.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/addons/rule-weight-evidence.ts",
       "metadata": {
         "id": "source:src/addons/rule-weight-evidence.ts",
         "path": "src/addons/rule-weight-evidence.ts",
         "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -696,12 +696,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/addons/rule-weight-review.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/addons/rule-weight-review.ts",
       "metadata": {
         "id": "source:src/addons/rule-weight-review.ts",
         "path": "src/addons/rule-weight-review.ts",
         "sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -710,12 +710,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/cli-operation.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/cli-operation.ts",
       "metadata": {
         "id": "source:src/cli-operation.ts",
         "path": "src/cli-operation.ts",
         "sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -724,12 +724,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/cli-recovery.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/cli-recovery.ts",
       "metadata": {
         "id": "source:src/cli-recovery.ts",
         "path": "src/cli-recovery.ts",
         "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -738,12 +738,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:test/portable-transfer.test.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:test/portable-transfer.test.ts",
       "metadata": {
         "id": "source:test/portable-transfer.test.ts",
         "path": "test/portable-transfer.test.ts",
         "sha256": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -752,12 +752,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:research/portable-transfer/contract.receipt.json",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:research/portable-transfer/contract.receipt.json",
       "metadata": {
         "id": "source:research/portable-transfer/contract.receipt.json",
         "path": "research/portable-transfer/contract.receipt.json",
-        "sha256": "sha256:4e787742a5b92dfe40c81f2cb6d6585cc2fe8c69e26ba6290986ac1de47504e9",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sha256": "sha256:e637f995e1da934ef7d349da4302ddd1eef0ee348fbc4eb10542f8bdb83cd8c7",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -766,12 +766,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:research/portability-plan/plan.json",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:research/portability-plan/plan.json",
       "metadata": {
         "id": "source:research/portability-plan/plan.json",
         "path": "research/portability-plan/plan.json",
         "sha256": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -780,12 +780,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:docs/PORTABLE_TRANSFER.md",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:docs/PORTABLE_TRANSFER.md",
       "metadata": {
         "id": "source:docs/PORTABLE_TRANSFER.md",
         "path": "docs/PORTABLE_TRANSFER.md",
-        "sha256": "sha256:b5654c53d515df833ee8439d339acea6809da508f7118ce57271acdf628a14e9",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+        "sha256": "sha256:2b3e6ae75f387d4d43f05785b6fd644205e35a8cf2e2baed6202c13c155d4b64",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
       }
     },
     {
@@ -794,11 +794,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:src/addons/portable-transfer-export.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/addons/portable-transfer-export.ts",
       "metadata": {
         "id": "source:src/addons/portable-transfer-export.ts",
         "path": "src/addons/portable-transfer-export.ts",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
         "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
       }
     },
@@ -808,11 +808,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:scripts/usl-transfer-export.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:scripts/usl-transfer-export.ts",
       "metadata": {
         "id": "source:scripts/usl-transfer-export.ts",
         "path": "scripts/usl-transfer-export.ts",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
         "sha256": "sha256:8e22f38fc040ee8b4b4f43de245802e4bcc110e29e5dc3d60398aba0d48ce4f9"
       }
     },
@@ -822,11 +822,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:test/portable-transfer-export.test.ts",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:test/portable-transfer-export.test.ts",
       "metadata": {
         "id": "source:test/portable-transfer-export.test.ts",
         "path": "test/portable-transfer-export.test.ts",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
         "sha256": "sha256:ae39ab2e87c5acddfd9a1d2ad4574b5aac90f7049236b122e016b2caf053960e"
       }
     },
@@ -836,12 +836,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:docs/PORTABLE_TRANSFER_EXPORT.md",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:docs/PORTABLE_TRANSFER_EXPORT.md",
       "metadata": {
         "id": "source:docs/PORTABLE_TRANSFER_EXPORT.md",
         "path": "docs/PORTABLE_TRANSFER_EXPORT.md",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
-        "sha256": "sha256:c0751c30b9dec4ea973a1cb8d54add50c95310842dbc66d9c63a31f128b1f771"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:e76f84fab8631db1c69a3e31e0410db24f1c2aa2b03ef4686dbfebf6bc53997d"
       }
     },
     {
@@ -850,12 +850,152 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670:research/development-progress/receipt.json",
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:research/development-progress/receipt.json",
       "metadata": {
         "id": "source:research/development-progress/receipt.json",
         "path": "research/development-progress/receipt.json",
-        "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
-        "sha256": "sha256:da5c59ffc60f4e2f484fd9fe8dce65464c123d7a37e7ba08fe4b358a64f51072"
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:d1dc5d259065c3a3975eb86574da07fab5f63474d75a5094e2835f055f8ba854"
+      }
+    },
+    {
+      "id": "source:src/addons/portable-transfer-import.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/addons/portable-transfer-import.ts",
+      "metadata": {
+        "id": "source:src/addons/portable-transfer-import.ts",
+        "path": "src/addons/portable-transfer-import.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:ff458b024061a4231285118db274c63278a2e60319c08accf20167215c5d29c0"
+      }
+    },
+    {
+      "id": "source:src/addons/portable-transfer-bindings.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:src/addons/portable-transfer-bindings.ts",
+      "metadata": {
+        "id": "source:src/addons/portable-transfer-bindings.ts",
+        "path": "src/addons/portable-transfer-bindings.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05"
+      }
+    },
+    {
+      "id": "source:test/portable-transfer-restore.test.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:test/portable-transfer-restore.test.ts",
+      "metadata": {
+        "id": "source:test/portable-transfer-restore.test.ts",
+        "path": "test/portable-transfer-restore.test.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:aa8454bf58437121e26ccb6236e8350f493ee306fdc53af0faa0eafa55db0cb0"
+      }
+    },
+    {
+      "id": "source:test/portable-transfer-bindings.test.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:test/portable-transfer-bindings.test.ts",
+      "metadata": {
+        "id": "source:test/portable-transfer-bindings.test.ts",
+        "path": "test/portable-transfer-bindings.test.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:e35dadd1c79c55d8f34725ff251c7478a76f91331dee3addb6453df7f7da6bbb"
+      }
+    },
+    {
+      "id": "source:test/portable-transfer-portability.test.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:test/portable-transfer-portability.test.ts",
+      "metadata": {
+        "id": "source:test/portable-transfer-portability.test.ts",
+        "path": "test/portable-transfer-portability.test.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:6380efc4d5f4868035225d20c6dfd35e21b082ea04bd5d44e08302d3d5acda0d"
+      }
+    },
+    {
+      "id": "source:scripts/usl-transfer-import.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:scripts/usl-transfer-import.ts",
+      "metadata": {
+        "id": "source:scripts/usl-transfer-import.ts",
+        "path": "scripts/usl-transfer-import.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:6673c43c7aa22d0604d7406de148d3f7ca251f684efaf6bae6250cfe44238417"
+      }
+    },
+    {
+      "id": "source:scripts/portable-transfer-acceptance.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:scripts/portable-transfer-acceptance.ts",
+      "metadata": {
+        "id": "source:scripts/portable-transfer-acceptance.ts",
+        "path": "scripts/portable-transfer-acceptance.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:27cb30b3bc2b5c163c26861ec52f424dd64bb3626e088ff325ececb8ed85eb86"
+      }
+    },
+    {
+      "id": "source:scripts/measure-portable-transfer.ts",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:scripts/measure-portable-transfer.ts",
+      "metadata": {
+        "id": "source:scripts/measure-portable-transfer.ts",
+        "path": "scripts/measure-portable-transfer.ts",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:941de7ffbc51d4d3873346db346ad0ba143da04f0ac5abd0728bed22e4440674"
+      }
+    },
+    {
+      "id": "source:docs/PORTABLE_TRANSFER_IMPORT.md",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:docs/PORTABLE_TRANSFER_IMPORT.md",
+      "metadata": {
+        "id": "source:docs/PORTABLE_TRANSFER_IMPORT.md",
+        "path": "docs/PORTABLE_TRANSFER_IMPORT.md",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:979615720847ce33181b141cdbe0762745fbf30011e04bb254d3463bbbdd007d"
+      }
+    },
+    {
+      "id": "source:research/development-progress/acceptance.json",
+      "types": [
+        "urn:usl:portability-research:LocalSource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@b9957f5f40fd12fab21cde4c8f0f3d62c455e038:research/development-progress/acceptance.json",
+      "metadata": {
+        "id": "source:research/development-progress/acceptance.json",
+        "path": "research/development-progress/acceptance.json",
+        "sourceCommit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+        "sha256": "sha256:be3f529e8c8ef09009b455cfff9c8995e6a5092593c5bff2065217078b119dfd"
       }
     },
     {
@@ -1054,7 +1194,12 @@
         ],
         "localSourceIds": [
           "source:src/addons/portable-transfer.ts",
-          "source:src/resource-bindings.ts"
+          "source:src/resource-bindings.ts",
+          "source:src/addons/portable-transfer-import.ts",
+          "source:src/addons/portable-transfer-bindings.ts",
+          "source:test/portable-transfer-restore.test.ts",
+          "source:test/portable-transfer-bindings.test.ts",
+          "source:research/development-progress/receipt.json"
         ],
         "taskIds": [
           "task:PT01",
@@ -1070,7 +1215,7 @@
         ],
         "dependsOn": [],
         "remaining": "v1의 native ID 256자 제한과 기존 bindings 4096자 범위를 비교해 지원 범위를 명시하거나 별도 버전으로 확장해야 한다. 자동 절단·정규화는 금지한다.",
-        "currentCoverage": "PT01에 owner/native ID 분리·문서 내부 중복·parent DAG·tombstone·digest pin 검사가 구현되어 있다. 문서 간 충돌 대조와 긴 ID 호환성은 후속이다."
+        "currentCoverage": "PT01의 owner/native ID·문서 내부 중복·parent DAG 검사를 유지한다. PT03 importer는 owner가 별도로 제공한 registry descriptor와 resource/revision/representation 정의의 충돌을 거부하며 재바인딩은 명시적 ID 대응을 요구한다. 전역 registry 조회·다기기 병합과 256자를 넘는 native ID 호환성은 후속이다."
       }
     },
     {
@@ -1143,7 +1288,9 @@
           "source:scripts/usl-transfer-export.ts",
           "source:test/portable-transfer-export.test.ts",
           "source:docs/PORTABLE_TRANSFER_EXPORT.md",
-          "source:research/development-progress/receipt.json"
+          "source:research/development-progress/receipt.json",
+          "source:src/addons/portable-transfer-import.ts",
+          "source:test/portable-transfer-restore.test.ts"
         ],
         "taskIds": [
           "task:PT02",
@@ -1161,7 +1308,7 @@
           "decision:PR02"
         ],
         "remaining": "선택한 PINNED_FILES 범위 밖의 숨은 의존성과 전체 역사 보존은 증명하지 않는다. import의 namespace/native ID 충돌·무결성·복원 검사는 PT03이며 다기기 인수검사는 PT04다.",
-        "currentCoverage": "2026-10-04 로컬 구현: PT02가 실제 복사 bytes·원본 상대 복원 경로·ASCII payload 매핑·메타데이터 digest를 검사한다. PACKAGED는 실제 representation을 참조해야 하며 EXTERNAL_REQUIRED가 남으면 selfContained는 false다. 순수 PT01 manifest 의미는 유지한다."
+        "currentCoverage": "PT02 export와 PT03 PINNED_FILES import가 실제 bytes·크기·원본 상대 복원 경로·ASCII payload 매핑·여섯 sidecar·inventory와 dependency 대응을 양방향 검사한다. 외부 필수 의존성이 남으면 import를 거부한다. 완전성은 owner가 명시한 파일 집합에 한정된다."
       }
     },
     {
@@ -1193,7 +1340,8 @@
           "source:scripts/usl-transfer-export.ts",
           "source:test/portable-transfer-export.test.ts",
           "source:docs/PORTABLE_TRANSFER_EXPORT.md",
-          "source:research/development-progress/receipt.json"
+          "source:research/development-progress/receipt.json",
+          "source:src/addons/portable-transfer-import.ts"
         ],
         "taskIds": [
           "task:PT02",
@@ -1211,7 +1359,7 @@
           "decision:PR03"
         ],
         "remaining": "환경 recipe의 저장은 설치·실행 승인이 아니다. 오프라인 복원에 필요한 dependency payload와 목표 플랫폼 지원을 별도 확인한다.",
-        "currentCoverage": "기존 bindings의 local root 매핑에 더해 PT02 GIT_WORKTREE profile이 objects/refs/admin, worktree HEAD/index/config, dirty/untracked, submodule, LFS, alternates를 여섯 EXTERNAL_REQUIRED 항목으로 명시한다. Git closure나 환경 recipe의 실제 수집·재구성은 미구현이며 selfContained는 false다."
+        "currentCoverage": "PT02 GIT_WORKTREE profile은 Git object/ref/admin, worktree HEAD/index/config, dirty/untracked, submodule, LFS, alternates를 EXTERNAL_REQUIRED로 남긴다. PT03 importer는 이를 거부하며 Git closure 재구성·repair·환경 recipe 설치는 아직 없다. 일반 파일 복원과 Git 저장소 전체 복구를 구분한다."
       }
     },
     {
@@ -1236,7 +1384,13 @@
         ],
         "localSourceIds": [
           "source:src/addons/portable-transfer.ts",
-          "source:src/resource-bindings.ts"
+          "source:src/resource-bindings.ts",
+          "source:src/addons/portable-transfer-import.ts",
+          "source:src/addons/portable-transfer-bindings.ts",
+          "source:test/portable-transfer-restore.test.ts",
+          "source:test/portable-transfer-bindings.test.ts",
+          "source:docs/PORTABLE_TRANSFER_IMPORT.md",
+          "source:research/development-progress/receipt.json"
         ],
         "taskIds": [
           "task:PT03",
@@ -1254,7 +1408,7 @@
           "decision:PR03"
         ],
         "remaining": "Node rename만으로 no-replace를 보장하지 않는다. 플랫폼 adapter 또는 배타적 destination 관리가 필요하며 cross-filesystem copy를 atomic publish라고 부르지 않는다.",
-        "currentCoverage": "PT01은 파일을 생성하거나 복원·활성화하지 않는다."
+        "currentCoverage": "PT03는 새 목적지를 배타적으로 예약하고 같은 파일시스템의 staging을 검증한 뒤 workspace와 완료 표시를 순서대로 게시한다. 재수입은 같은 digest·모드와 실제 파일을 재검사하며 불완전한 예약은 인계받지 않는다. 로컬 binding/graph proposal은 명시적으로 선택한 locator만 바꾸며 권한을 부여하지 않는다. crash durability 전체 보장은 없다."
       }
     },
     {
@@ -1278,7 +1432,12 @@
           "reference:ocfl"
         ],
         "localSourceIds": [
-          "source:src/addons/portable-transfer.ts"
+          "source:src/addons/portable-transfer.ts",
+          "source:src/addons/portable-transfer-import.ts",
+          "source:test/portable-transfer-portability.test.ts",
+          "source:scripts/portable-transfer-acceptance.ts",
+          "source:research/development-progress/acceptance.json",
+          "source:research/development-progress/receipt.json"
         ],
         "taskIds": [
           "task:PT02",
@@ -1296,7 +1455,7 @@
           "decision:PR03"
         ],
         "remaining": "현재 300자 ASCII 성분은 v1 parser가 허용한다. 이는 실제 filesystem 생성 성공의 증거가 아니며 native OS 인수검사가 필요하다.",
-        "currentCoverage": "ASCII 상대 경로·예약명·대소문자·파일/폴더 prefix 충돌 검사는 있다. 실제 filesystem 한계 검사는 없다."
+        "currentCoverage": "PT03는 경로 이탈·case/NFC 충돌·예약명·심볼릭 링크·특수 파일을 거부한다. Linux에서 실제 다른 root로 파일 묶음을 복사하고 원본을 없앤 뒤 복원·재바인딩했다. macOS/Windows 전달 CI는 작성되었으나 아직 NOT_RUN이며 모든 filesystem 지원을 뜻하지 않는다."
       }
     },
     {
@@ -1359,7 +1518,10 @@
           "reference:lamport"
         ],
         "localSourceIds": [
-          "source:src/addons/portable-transfer.ts"
+          "source:src/addons/portable-transfer.ts",
+          "source:src/addons/portable-transfer-import.ts",
+          "source:test/portable-transfer-restore.test.ts",
+          "source:research/development-progress/receipt.json"
         ],
         "taskIds": [
           "task:PT03",
@@ -1375,7 +1537,7 @@
           "decision:PR07"
         ],
         "remaining": "인과관계가 모자란 복원은 WITHDRAWN을 추정 확정하지 않고 CONFLICT 또는 UNKNOWN으로 남긴다. 단순 시간 만료만으로 tombstone을 지우지 않는다.",
-        "currentCoverage": "같은 자원의 부모를 갖는 tombstone과 live representation 금지는 있다. 분산 삭제 보존·정리는 없다."
+        "currentCoverage": "기존 parent/tombstone 계약에 더해 importer가 owner의 별도 head/withdrawn 기준을 받으면 DIVERGED/WITHDRAWN을 표시하고 기준이 없으면 FRESHNESS_UNKNOWN을 유지한다. 과거 백업을 자동 현재 상태로 활성화하지 않는다. 분산 tombstone 보존·정리는 여전히 후속이다."
       }
     },
     {
@@ -1400,7 +1562,10 @@
         "localSourceIds": [
           "source:src/addons/portable-transfer.ts",
           "source:src/cli-operation.ts",
-          "source:src/cli-recovery.ts"
+          "source:src/cli-recovery.ts",
+          "source:src/addons/portable-transfer-import.ts",
+          "source:test/portable-transfer-bindings.test.ts",
+          "source:research/development-progress/receipt.json"
         ],
         "taskIds": [
           "task:PT03",
@@ -1418,7 +1583,7 @@
           "decision:PR07"
         ],
         "remaining": "Idempotency-Key 초안은 만료 상태이고 보편적 서버 지원을 가정할 수 없다. 응답 유실·만료·효과 불명이면 UNRECONCILED를 유지하며 자동 재실행하지 않는다.",
-        "currentCoverage": "현재 host 검사 결과는 UNKNOWN/NOT_GRANTED이며 로컬 실행 recovery 계약도 있다. owner의 분산 효과 대조는 미구현이다."
+        "currentCoverage": "PT03 역사 snapshot과 명시적 LOCAL_BRANCH 복원은 파일 조회/로컬 분기만 허용한다. 과거 작업 기록은 HISTORICAL_UNRECONCILED, 외부 실행은 0회이며 전역 최신성·권한·분산 exactly-once를 부여하지 않는다. owner의 실제 효과 대조는 PT07 후속이다."
       }
     },
     {
@@ -1528,7 +1693,12 @@
         "localSourceIds": [
           "source:research/portability-plan/plan.json",
           "source:research/portable-transfer/contract.receipt.json",
-          "source:test/portable-transfer.test.ts"
+          "source:test/portable-transfer.test.ts",
+          "source:research/development-progress/receipt.json",
+          "source:research/development-progress/acceptance.json",
+          "source:test/portable-transfer-portability.test.ts",
+          "source:scripts/portable-transfer-acceptance.ts",
+          "source:scripts/measure-portable-transfer.ts"
         ],
         "taskIds": [
           "task:PT04"
@@ -1555,7 +1725,7 @@
           "decision:PR11"
         ],
         "remaining": "이번 연구 그래프 검증은 export/import·다기기 내구성·외부 owner 연동의 실행 성공을 증명하지 않는다.",
-        "currentCoverage": "기존 PT01 receipt는 당시 12개 로컬 계약 테스트의 통과를 기록한다. 이번 연구에서는 4개 순수 probe와 연구 그래프를 별도로 검증한다."
+        "currentCoverage": "별도 개발 진행 v3 receipt에 DG01/PT02/PT03/PT04 관련 실제 로컬 검사 80개와 Linux producer→bundle 복사→원본 삭제→consumer·재바인딩, 별도 bytes/해시 시간/peak RSS 관측을 기록했다. 그 기록과 소스 commit/bytes를 이 연구 그래프에 연결한다. 이 연구 빌더 자체는 4개 순수 probe만 실행하며 Git 전체 복원과 다른 OS 인수검사를 PASS로 승격하지 않는다."
       }
     },
     {
@@ -1913,7 +2083,28 @@
           "source:research/portable-transfer/contract.receipt.json"
         ],
         "result": "PT01_CONTRACT_IMPLEMENTED_HISTORICAL_12_TEST_RECEIPT",
-        "scope": "Pinned code and existing receipt review only; previous tests are not claimed rerun. Transfer, restore, payload verification remain unimplemented."
+        "scope": "Pure PT01 contract and its recorded 12-test receipt only. Separate PT02/PT03 modules implement pinned file transfer/restore; their execution evidence is recorded in development-progress, not by these parser probes."
+      }
+    },
+    {
+      "id": "observation:file-restore-evidence",
+      "types": [
+        "urn:usl:portability-research:Observation",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/portability-research/research.json",
+      "metadata": {
+        "id": "observation:file-restore-evidence",
+        "method": "STATIC_CODE_REVIEW",
+        "status": "OBSERVED",
+        "localSourceIds": [
+          "source:src/addons/portable-transfer-import.ts",
+          "source:src/addons/portable-transfer-bindings.ts",
+          "source:research/development-progress/receipt.json",
+          "source:research/development-progress/acceptance.json"
+        ],
+        "result": "PINNED_FILE_RESTORE_AND_LOCAL_REBINDING_RECORDED_LINUX_ONLY",
+        "scope": "Review of source-pinned actual execution receipts. Git closure reconstruction remains pending; macOS and Windows NOT_RUN. The research builder does not rerun the acceptance pipeline."
       }
     }
   ],
@@ -2026,6 +2217,101 @@
     },
     {
       "id": "research-link:4",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR01"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:5",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR01"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:6",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR01"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-restore.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:7",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR01"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-bindings.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:8",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR01"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:9",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -2044,7 +2330,7 @@
       }
     },
     {
-      "id": "research-link:5",
+      "id": "research-link:10",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -2063,7 +2349,7 @@
       }
     },
     {
-      "id": "research-link:6",
+      "id": "research-link:11",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -2082,7 +2368,7 @@
       }
     },
     {
-      "id": "research-link:7",
+      "id": "research-link:12",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -2101,7 +2387,7 @@
       }
     },
     {
-      "id": "research-link:8",
+      "id": "research-link:13",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -2120,7 +2406,7 @@
       }
     },
     {
-      "id": "research-link:9",
+      "id": "research-link:14",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -2139,7 +2425,7 @@
       }
     },
     {
-      "id": "research-link:10",
+      "id": "research-link:15",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2158,7 +2444,7 @@
       }
     },
     {
-      "id": "research-link:11",
+      "id": "research-link:16",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2177,7 +2463,7 @@
       }
     },
     {
-      "id": "research-link:12",
+      "id": "research-link:17",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2187,101 +2473,6 @@
         {
           "role": "source",
           "resource": "reference:bagit"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:13",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR02"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/portable-transfer.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:14",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR02"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/portable-transfer-export.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:15",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR02"
-        },
-        {
-          "role": "source",
-          "resource": "source:scripts/usl-transfer-export.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:16",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR02"
-        },
-        {
-          "role": "source",
-          "resource": "source:test/portable-transfer-export.test.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:17",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR02"
-        },
-        {
-          "role": "source",
-          "resource": "source:docs/PORTABLE_TRANSFER_EXPORT.md"
         }
       ],
       "metadata": {
@@ -2300,7 +2491,7 @@
         },
         {
           "role": "source",
-          "resource": "source:research/development-progress/receipt.json"
+          "resource": "source:src/addons/portable-transfer.ts"
         }
       ],
       "metadata": {
@@ -2311,6 +2502,101 @@
     },
     {
       "id": "research-link:19",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR02"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-export.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:20",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR02"
+        },
+        {
+          "role": "source",
+          "resource": "source:scripts/usl-transfer-export.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:21",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR02"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-export.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:22",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR02"
+        },
+        {
+          "role": "source",
+          "resource": "source:docs/PORTABLE_TRANSFER_EXPORT.md"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:23",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR02"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:24",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -2329,7 +2615,7 @@
       }
     },
     {
-      "id": "research-link:20",
+      "id": "research-link:25",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -2348,7 +2634,7 @@
       }
     },
     {
-      "id": "research-link:21",
+      "id": "research-link:26",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -2367,7 +2653,7 @@
       }
     },
     {
-      "id": "research-link:22",
+      "id": "research-link:27",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -2386,7 +2672,7 @@
       }
     },
     {
-      "id": "research-link:23",
+      "id": "research-link:28",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -2405,7 +2691,7 @@
       }
     },
     {
-      "id": "research-link:24",
+      "id": "research-link:29",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2424,7 +2710,7 @@
       }
     },
     {
-      "id": "research-link:25",
+      "id": "research-link:30",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2434,101 +2720,6 @@
         {
           "role": "source",
           "resource": "reference:ocfl"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:26",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR03"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/portable-transfer.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:27",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR03"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/portable-transfer-export.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:28",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR03"
-        },
-        {
-          "role": "source",
-          "resource": "source:scripts/usl-transfer-export.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:29",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR03"
-        },
-        {
-          "role": "source",
-          "resource": "source:test/portable-transfer-export.test.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:30",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR03"
-        },
-        {
-          "role": "source",
-          "resource": "source:docs/PORTABLE_TRANSFER_EXPORT.md"
         }
       ],
       "metadata": {
@@ -2547,7 +2738,7 @@
         },
         {
           "role": "source",
-          "resource": "source:research/development-progress/receipt.json"
+          "resource": "source:src/addons/portable-transfer.ts"
         }
       ],
       "metadata": {
@@ -2558,6 +2749,139 @@
     },
     {
       "id": "research-link:32",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR03"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-export.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:33",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR03"
+        },
+        {
+          "role": "source",
+          "resource": "source:scripts/usl-transfer-export.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:34",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR03"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-export.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:35",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR03"
+        },
+        {
+          "role": "source",
+          "resource": "source:docs/PORTABLE_TRANSFER_EXPORT.md"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:36",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR03"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:37",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR03"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:38",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR03"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-restore.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:39",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -2576,7 +2900,7 @@
       }
     },
     {
-      "id": "research-link:33",
+      "id": "research-link:40",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -2595,7 +2919,7 @@
       }
     },
     {
-      "id": "research-link:34",
+      "id": "research-link:41",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -2614,7 +2938,7 @@
       }
     },
     {
-      "id": "research-link:35",
+      "id": "research-link:42",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -2633,7 +2957,7 @@
       }
     },
     {
-      "id": "research-link:36",
+      "id": "research-link:43",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -2652,7 +2976,7 @@
       }
     },
     {
-      "id": "research-link:37",
+      "id": "research-link:44",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -2671,7 +2995,7 @@
       }
     },
     {
-      "id": "research-link:38",
+      "id": "research-link:45",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -2690,7 +3014,7 @@
       }
     },
     {
-      "id": "research-link:39",
+      "id": "research-link:46",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2709,7 +3033,7 @@
       }
     },
     {
-      "id": "research-link:40",
+      "id": "research-link:47",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2728,7 +3052,7 @@
       }
     },
     {
-      "id": "research-link:41",
+      "id": "research-link:48",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2747,7 +3071,7 @@
       }
     },
     {
-      "id": "research-link:42",
+      "id": "research-link:49",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2766,7 +3090,7 @@
       }
     },
     {
-      "id": "research-link:43",
+      "id": "research-link:50",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -2785,7 +3109,7 @@
       }
     },
     {
-      "id": "research-link:44",
+      "id": "research-link:51",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -2804,7 +3128,7 @@
       }
     },
     {
-      "id": "research-link:45",
+      "id": "research-link:52",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -2823,7 +3147,7 @@
       }
     },
     {
-      "id": "research-link:46",
+      "id": "research-link:53",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -2842,7 +3166,7 @@
       }
     },
     {
-      "id": "research-link:47",
+      "id": "research-link:54",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -2861,7 +3185,7 @@
       }
     },
     {
-      "id": "research-link:48",
+      "id": "research-link:55",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -2880,7 +3204,7 @@
       }
     },
     {
-      "id": "research-link:49",
+      "id": "research-link:56",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -2899,7 +3223,7 @@
       }
     },
     {
-      "id": "research-link:50",
+      "id": "research-link:57",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -2918,7 +3242,26 @@
       }
     },
     {
-      "id": "research-link:51",
+      "id": "research-link:58",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR04"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:59",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -2937,7 +3280,7 @@
       }
     },
     {
-      "id": "research-link:52",
+      "id": "research-link:60",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -2956,7 +3299,7 @@
       }
     },
     {
-      "id": "research-link:53",
+      "id": "research-link:61",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -2975,7 +3318,7 @@
       }
     },
     {
-      "id": "research-link:54",
+      "id": "research-link:62",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -2994,7 +3337,7 @@
       }
     },
     {
-      "id": "research-link:55",
+      "id": "research-link:63",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -3013,7 +3356,7 @@
       }
     },
     {
-      "id": "research-link:56",
+      "id": "research-link:64",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -3032,7 +3375,7 @@
       }
     },
     {
-      "id": "research-link:57",
+      "id": "research-link:65",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -3051,7 +3394,7 @@
       }
     },
     {
-      "id": "research-link:58",
+      "id": "research-link:66",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3070,7 +3413,7 @@
       }
     },
     {
-      "id": "research-link:59",
+      "id": "research-link:67",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3089,7 +3432,7 @@
       }
     },
     {
-      "id": "research-link:60",
+      "id": "research-link:68",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3108,7 +3451,7 @@
       }
     },
     {
-      "id": "research-link:61",
+      "id": "research-link:69",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3127,7 +3470,7 @@
       }
     },
     {
-      "id": "research-link:62",
+      "id": "research-link:70",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3146,7 +3489,121 @@
       }
     },
     {
-      "id": "research-link:63",
+      "id": "research-link:71",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR05"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:72",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR05"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:73",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR05"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-restore.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:74",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR05"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-bindings.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:75",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR05"
+        },
+        {
+          "role": "source",
+          "resource": "source:docs/PORTABLE_TRANSFER_IMPORT.md"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:76",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR05"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:77",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3165,7 +3622,7 @@
       }
     },
     {
-      "id": "research-link:64",
+      "id": "research-link:78",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3184,7 +3641,7 @@
       }
     },
     {
-      "id": "research-link:65",
+      "id": "research-link:79",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -3203,7 +3660,7 @@
       }
     },
     {
-      "id": "research-link:66",
+      "id": "research-link:80",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -3222,7 +3679,7 @@
       }
     },
     {
-      "id": "research-link:67",
+      "id": "research-link:81",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -3241,7 +3698,7 @@
       }
     },
     {
-      "id": "research-link:68",
+      "id": "research-link:82",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -3260,7 +3717,7 @@
       }
     },
     {
-      "id": "research-link:69",
+      "id": "research-link:83",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -3279,7 +3736,7 @@
       }
     },
     {
-      "id": "research-link:70",
+      "id": "research-link:84",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3298,7 +3755,7 @@
       }
     },
     {
-      "id": "research-link:71",
+      "id": "research-link:85",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3317,7 +3774,7 @@
       }
     },
     {
-      "id": "research-link:72",
+      "id": "research-link:86",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3336,7 +3793,7 @@
       }
     },
     {
-      "id": "research-link:73",
+      "id": "research-link:87",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3355,7 +3812,102 @@
       }
     },
     {
-      "id": "research-link:74",
+      "id": "research-link:88",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR06"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:89",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR06"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-portability.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:90",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR06"
+        },
+        {
+          "role": "source",
+          "resource": "source:scripts/portable-transfer-acceptance.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:91",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR06"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/acceptance.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:92",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR06"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:93",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3374,7 +3926,7 @@
       }
     },
     {
-      "id": "research-link:75",
+      "id": "research-link:94",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3393,7 +3945,7 @@
       }
     },
     {
-      "id": "research-link:76",
+      "id": "research-link:95",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3412,7 +3964,7 @@
       }
     },
     {
-      "id": "research-link:77",
+      "id": "research-link:96",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -3431,7 +3983,7 @@
       }
     },
     {
-      "id": "research-link:78",
+      "id": "research-link:97",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -3450,7 +4002,7 @@
       }
     },
     {
-      "id": "research-link:79",
+      "id": "research-link:98",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -3469,7 +4021,7 @@
       }
     },
     {
-      "id": "research-link:80",
+      "id": "research-link:99",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -3488,7 +4040,7 @@
       }
     },
     {
-      "id": "research-link:81",
+      "id": "research-link:100",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3507,7 +4059,7 @@
       }
     },
     {
-      "id": "research-link:82",
+      "id": "research-link:101",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3526,7 +4078,7 @@
       }
     },
     {
-      "id": "research-link:83",
+      "id": "research-link:102",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3545,7 +4097,7 @@
       }
     },
     {
-      "id": "research-link:84",
+      "id": "research-link:103",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3564,7 +4116,7 @@
       }
     },
     {
-      "id": "research-link:85",
+      "id": "research-link:104",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3583,7 +4135,7 @@
       }
     },
     {
-      "id": "research-link:86",
+      "id": "research-link:105",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -3602,7 +4154,7 @@
       }
     },
     {
-      "id": "research-link:87",
+      "id": "research-link:106",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -3621,7 +4173,7 @@
       }
     },
     {
-      "id": "research-link:88",
+      "id": "research-link:107",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -3640,7 +4192,7 @@
       }
     },
     {
-      "id": "research-link:89",
+      "id": "research-link:108",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -3659,7 +4211,7 @@
       }
     },
     {
-      "id": "research-link:90",
+      "id": "research-link:109",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3678,7 +4230,7 @@
       }
     },
     {
-      "id": "research-link:91",
+      "id": "research-link:110",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3697,7 +4249,7 @@
       }
     },
     {
-      "id": "research-link:92",
+      "id": "research-link:111",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3716,7 +4268,64 @@
       }
     },
     {
-      "id": "research-link:93",
+      "id": "research-link:112",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR08"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:113",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR08"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-restore.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:114",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR08"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:115",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3735,7 +4344,7 @@
       }
     },
     {
-      "id": "research-link:94",
+      "id": "research-link:116",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3754,7 +4363,7 @@
       }
     },
     {
-      "id": "research-link:95",
+      "id": "research-link:117",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -3773,7 +4382,7 @@
       }
     },
     {
-      "id": "research-link:96",
+      "id": "research-link:118",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -3792,7 +4401,7 @@
       }
     },
     {
-      "id": "research-link:97",
+      "id": "research-link:119",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -3811,7 +4420,7 @@
       }
     },
     {
-      "id": "research-link:98",
+      "id": "research-link:120",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3830,7 +4439,7 @@
       }
     },
     {
-      "id": "research-link:99",
+      "id": "research-link:121",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -3849,7 +4458,7 @@
       }
     },
     {
-      "id": "research-link:100",
+      "id": "research-link:122",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3868,7 +4477,7 @@
       }
     },
     {
-      "id": "research-link:101",
+      "id": "research-link:123",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3887,7 +4496,7 @@
       }
     },
     {
-      "id": "research-link:102",
+      "id": "research-link:124",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -3906,7 +4515,64 @@
       }
     },
     {
-      "id": "research-link:103",
+      "id": "research-link:125",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR09"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:126",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR09"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-bindings.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:127",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR09"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:128",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -3925,487 +4591,12 @@
       }
     },
     {
-      "id": "research-link:104",
-      "meaning": "urn:usl:portability-research:implements_task",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR09"
-        },
-        {
-          "role": "task",
-          "resource": "task:PT07"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:105",
-      "meaning": "urn:usl:portability-research:addresses",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR09"
-        },
-        {
-          "role": "requirement",
-          "resource": "requirement:R06"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:106",
-      "meaning": "urn:usl:portability-research:validated_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR09"
-        },
-        {
-          "role": "check",
-          "resource": "check:PR09-1"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:107",
-      "meaning": "urn:usl:portability-research:validated_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR09"
-        },
-        {
-          "role": "check",
-          "resource": "check:PR09-2"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:108",
-      "meaning": "urn:usl:portability-research:depends_on",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR09"
-        },
-        {
-          "role": "prerequisite",
-          "resource": "decision:PR05"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:109",
-      "meaning": "urn:usl:portability-research:depends_on",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR09"
-        },
-        {
-          "role": "prerequisite",
-          "resource": "decision:PR07"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:110",
-      "meaning": "urn:usl:portability-research:supported_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "source",
-          "resource": "reference:annotation"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:111",
-      "meaning": "urn:usl:portability-research:supported_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "source",
-          "resource": "reference:rdfc"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:112",
-      "meaning": "urn:usl:portability-research:supported_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "source",
-          "resource": "reference:jcs"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:113",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/portable-transfer.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:114",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/contract-core.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:115",
-      "meaning": "urn:usl:portability-research:implements_task",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "task",
-          "resource": "task:PT05"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:116",
-      "meaning": "urn:usl:portability-research:addresses",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "requirement",
-          "resource": "requirement:R04"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:117",
-      "meaning": "urn:usl:portability-research:validated_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "check",
-          "resource": "check:PR10-1"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:118",
-      "meaning": "urn:usl:portability-research:validated_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "check",
-          "resource": "check:PR10-2"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:119",
-      "meaning": "urn:usl:portability-research:depends_on",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "prerequisite",
-          "resource": "decision:PR01"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:120",
-      "meaning": "urn:usl:portability-research:depends_on",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR10"
-        },
-        {
-          "role": "prerequisite",
-          "resource": "decision:PR03"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:121",
-      "meaning": "urn:usl:portability-research:supported_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "source",
-          "resource": "reference:shacl2017"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:122",
-      "meaning": "urn:usl:portability-research:supported_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "source",
-          "resource": "reference:shacl12"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:123",
-      "meaning": "urn:usl:portability-research:supported_by",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "source",
-          "resource": "reference:prov"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:124",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/rule-policy.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:125",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/rule-weight-evidence.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:126",
-      "meaning": "urn:usl:portability-research:inspects",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "source",
-          "resource": "source:src/addons/rule-weight-review.ts"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:127",
-      "meaning": "urn:usl:portability-research:implements_task",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "task",
-          "resource": "task:PT01"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
-      "id": "research-link:128",
-      "meaning": "urn:usl:portability-research:implements_task",
-      "participants": [
-        {
-          "role": "decision",
-          "resource": "decision:PR11"
-        },
-        {
-          "role": "task",
-          "resource": "task:PT04"
-        }
-      ],
-      "metadata": {
-        "authority": "SECONDARY_AI",
-        "status": "RESEARCH_RELATION",
-        "execution": "NOT_CLAIMED"
-      }
-    },
-    {
       "id": "research-link:129",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
           "role": "decision",
-          "resource": "decision:PR11"
+          "resource": "decision:PR09"
         },
         {
           "role": "task",
@@ -4424,7 +4615,7 @@
       "participants": [
         {
           "role": "decision",
-          "resource": "decision:PR11"
+          "resource": "decision:PR09"
         },
         {
           "role": "requirement",
@@ -4439,6 +4630,481 @@
     },
     {
       "id": "research-link:131",
+      "meaning": "urn:usl:portability-research:validated_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR09"
+        },
+        {
+          "role": "check",
+          "resource": "check:PR09-1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:132",
+      "meaning": "urn:usl:portability-research:validated_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR09"
+        },
+        {
+          "role": "check",
+          "resource": "check:PR09-2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:133",
+      "meaning": "urn:usl:portability-research:depends_on",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR09"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "decision:PR05"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:134",
+      "meaning": "urn:usl:portability-research:depends_on",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR09"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "decision:PR07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:135",
+      "meaning": "urn:usl:portability-research:supported_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "source",
+          "resource": "reference:annotation"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:136",
+      "meaning": "urn:usl:portability-research:supported_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "source",
+          "resource": "reference:rdfc"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:137",
+      "meaning": "urn:usl:portability-research:supported_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "source",
+          "resource": "reference:jcs"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:138",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:139",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/contract-core.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:140",
+      "meaning": "urn:usl:portability-research:implements_task",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "task",
+          "resource": "task:PT05"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:141",
+      "meaning": "urn:usl:portability-research:addresses",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:142",
+      "meaning": "urn:usl:portability-research:validated_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "check",
+          "resource": "check:PR10-1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:143",
+      "meaning": "urn:usl:portability-research:validated_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "check",
+          "resource": "check:PR10-2"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:144",
+      "meaning": "urn:usl:portability-research:depends_on",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "decision:PR01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:145",
+      "meaning": "urn:usl:portability-research:depends_on",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR10"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "decision:PR03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:146",
+      "meaning": "urn:usl:portability-research:supported_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "source",
+          "resource": "reference:shacl2017"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:147",
+      "meaning": "urn:usl:portability-research:supported_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "source",
+          "resource": "reference:shacl12"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:148",
+      "meaning": "urn:usl:portability-research:supported_by",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "source",
+          "resource": "reference:prov"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:149",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/rule-policy.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:150",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/rule-weight-evidence.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:151",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/rule-weight-review.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:152",
+      "meaning": "urn:usl:portability-research:implements_task",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "task",
+          "resource": "task:PT01"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:153",
+      "meaning": "urn:usl:portability-research:implements_task",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "task",
+          "resource": "task:PT04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:154",
+      "meaning": "urn:usl:portability-research:implements_task",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "task",
+          "resource": "task:PT07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:155",
+      "meaning": "urn:usl:portability-research:addresses",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR11"
+        },
+        {
+          "role": "requirement",
+          "resource": "requirement:R06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:156",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4457,7 +5123,7 @@
       }
     },
     {
-      "id": "research-link:132",
+      "id": "research-link:157",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -4476,7 +5142,7 @@
       }
     },
     {
-      "id": "research-link:133",
+      "id": "research-link:158",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -4495,7 +5161,7 @@
       }
     },
     {
-      "id": "research-link:134",
+      "id": "research-link:159",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -4514,7 +5180,7 @@
       }
     },
     {
-      "id": "research-link:135",
+      "id": "research-link:160",
       "meaning": "urn:usl:portability-research:supported_by",
       "participants": [
         {
@@ -4533,7 +5199,7 @@
       }
     },
     {
-      "id": "research-link:136",
+      "id": "research-link:161",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -4552,7 +5218,7 @@
       }
     },
     {
-      "id": "research-link:137",
+      "id": "research-link:162",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -4571,7 +5237,7 @@
       }
     },
     {
-      "id": "research-link:138",
+      "id": "research-link:163",
       "meaning": "urn:usl:portability-research:inspects",
       "participants": [
         {
@@ -4590,7 +5256,102 @@
       }
     },
     {
-      "id": "research-link:139",
+      "id": "research-link:164",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR12"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:165",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR12"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/acceptance.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:166",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR12"
+        },
+        {
+          "role": "source",
+          "resource": "source:test/portable-transfer-portability.test.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:167",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR12"
+        },
+        {
+          "role": "source",
+          "resource": "source:scripts/portable-transfer-acceptance.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:168",
+      "meaning": "urn:usl:portability-research:inspects",
+      "participants": [
+        {
+          "role": "decision",
+          "resource": "decision:PR12"
+        },
+        {
+          "role": "source",
+          "resource": "source:scripts/measure-portable-transfer.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:169",
       "meaning": "urn:usl:portability-research:implements_task",
       "participants": [
         {
@@ -4609,7 +5370,7 @@
       }
     },
     {
-      "id": "research-link:140",
+      "id": "research-link:170",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4628,7 +5389,7 @@
       }
     },
     {
-      "id": "research-link:141",
+      "id": "research-link:171",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4647,7 +5408,7 @@
       }
     },
     {
-      "id": "research-link:142",
+      "id": "research-link:172",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4666,7 +5427,7 @@
       }
     },
     {
-      "id": "research-link:143",
+      "id": "research-link:173",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4685,7 +5446,7 @@
       }
     },
     {
-      "id": "research-link:144",
+      "id": "research-link:174",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4704,7 +5465,7 @@
       }
     },
     {
-      "id": "research-link:145",
+      "id": "research-link:175",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4723,7 +5484,7 @@
       }
     },
     {
-      "id": "research-link:146",
+      "id": "research-link:176",
       "meaning": "urn:usl:portability-research:addresses",
       "participants": [
         {
@@ -4742,7 +5503,7 @@
       }
     },
     {
-      "id": "research-link:147",
+      "id": "research-link:177",
       "meaning": "urn:usl:portability-research:validated_by",
       "participants": [
         {
@@ -4761,7 +5522,7 @@
       }
     },
     {
-      "id": "research-link:148",
+      "id": "research-link:178",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -4780,7 +5541,7 @@
       }
     },
     {
-      "id": "research-link:149",
+      "id": "research-link:179",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -4799,7 +5560,7 @@
       }
     },
     {
-      "id": "research-link:150",
+      "id": "research-link:180",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -4818,7 +5579,7 @@
       }
     },
     {
-      "id": "research-link:151",
+      "id": "research-link:181",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -4837,7 +5598,7 @@
       }
     },
     {
-      "id": "research-link:152",
+      "id": "research-link:182",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -4856,7 +5617,7 @@
       }
     },
     {
-      "id": "research-link:153",
+      "id": "research-link:183",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -4875,7 +5636,7 @@
       }
     },
     {
-      "id": "research-link:154",
+      "id": "research-link:184",
       "meaning": "urn:usl:portability-research:depends_on",
       "participants": [
         {
@@ -4894,7 +5655,7 @@
       }
     },
     {
-      "id": "research-link:155",
+      "id": "research-link:185",
       "meaning": "urn:usl:portability-research:observes",
       "participants": [
         {
@@ -4913,7 +5674,7 @@
       }
     },
     {
-      "id": "research-link:156",
+      "id": "research-link:186",
       "meaning": "urn:usl:portability-research:observes",
       "participants": [
         {
@@ -4932,7 +5693,7 @@
       }
     },
     {
-      "id": "research-link:157",
+      "id": "research-link:187",
       "meaning": "urn:usl:portability-research:observes",
       "participants": [
         {
@@ -4951,7 +5712,7 @@
       }
     },
     {
-      "id": "research-link:158",
+      "id": "research-link:188",
       "meaning": "urn:usl:portability-research:observes",
       "participants": [
         {
@@ -4970,7 +5731,7 @@
       }
     },
     {
-      "id": "research-link:159",
+      "id": "research-link:189",
       "meaning": "urn:usl:portability-research:observes",
       "participants": [
         {
@@ -4989,7 +5750,7 @@
       }
     },
     {
-      "id": "research-link:160",
+      "id": "research-link:190",
       "meaning": "urn:usl:portability-research:observes",
       "participants": [
         {
@@ -5008,7 +5769,7 @@
       }
     },
     {
-      "id": "research-link:161",
+      "id": "research-link:191",
       "meaning": "urn:usl:portability-research:observes",
       "participants": [
         {
@@ -5018,6 +5779,82 @@
         {
           "role": "source",
           "resource": "source:research/portable-transfer/contract.receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:192",
+      "meaning": "urn:usl:portability-research:observes",
+      "participants": [
+        {
+          "role": "observation",
+          "resource": "observation:file-restore-evidence"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-import.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:193",
+      "meaning": "urn:usl:portability-research:observes",
+      "participants": [
+        {
+          "role": "observation",
+          "resource": "observation:file-restore-evidence"
+        },
+        {
+          "role": "source",
+          "resource": "source:src/addons/portable-transfer-bindings.ts"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:194",
+      "meaning": "urn:usl:portability-research:observes",
+      "participants": [
+        {
+          "role": "observation",
+          "resource": "observation:file-restore-evidence"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/receipt.json"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RESEARCH_RELATION",
+        "execution": "NOT_CLAIMED"
+      }
+    },
+    {
+      "id": "research-link:195",
+      "meaning": "urn:usl:portability-research:observes",
+      "participants": [
+        {
+          "role": "observation",
+          "resource": "observation:file-restore-evidence"
+        },
+        {
+          "role": "source",
+          "resource": "source:research/development-progress/acceptance.json"
         }
       ],
       "metadata": {

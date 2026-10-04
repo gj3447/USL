@@ -2,21 +2,21 @@
 
 USL이 컴퓨터·메모리 저장소·작업경로 이동을 견디려면 고정 ID에 더해 일관된 snapshot, 닫힌 복원 범위, 검증 후 활성화, 인과 이력과 명시적인 owner 계약이 필요하다. 조사 결과를 현재 코드와 대조해 다음 구현의 선택과 반례를 정리했다.
 
-조사 기준일은 2026-10-03, 코드 기준은 `7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670`이다. 외부 1차 자료 27개를 조사했으며 원문이 정하는 사실과 USL에 대한 AI 구현 제안을 구분한다. 현재 PT01은 순수 manifest 계약까지 구현되어 있다. 이번 작업은 조사 그래프와 제한된 코드 관측이며 export/import 런타임을 추가한 것은 아니다.
+조사 기준일은 2026-10-03, 코드·실행 기록 기준은 `b9957f5f40fd12fab21cde4c8f0f3d62c455e038`이다. 외부 1차 자료 27개의 사실과 USL에 대한 AI 구현 제안을 구분한다. PT01은 순수 manifest 계약이며, PT02·PT03의 파일 export/import·재바인딩은 별도 모듈에 있다. 이 연구 빌더는 제한된 parser probe와 기록된 실행 근거를 대조한다.
 
 ## 구현 판단
 
 ID를 보존한 이동·검증 가능한 백업 복원·오프라인 작업 분기는 구현 가능하다. 모든 사본 소실 뒤 복구, 통신이 끊긴 다른 기기의 전역 최신성, 임의의 외부 시스템에 대한 exactly-once는 조건 없이 보장할 수 없다. 누락·충돌·미확정 상태를 유지하고 명확한 범위에서만 성공으로 판단하는 것이 설계 기준이다.
 
-현재 구조에서 계속 사용할 것은 owner/native ID, revision parent DAG, tombstone, 명시적 digest 알고리즘, host가 제공하는 pin이다. 다음에는 schema를 크게 늘리기보다 PT02 export inventory와 PT03 restore 상태 전이를 먼저 완성하는 것을 제안한다.
+owner/native ID, revision parent DAG, tombstone, 명시적 digest 알고리즘과 host pin을 유지한다. 파일 profile의 구현과 실제 로컬 검사는 [개발 진행](DEVELOPMENT_PROGRESS.md)에 기록한다. 다음 보완 대상은 Git closure 재구성과 아직 실행하지 않은 OS의 복원 검사다.
 
 | 순서 | 제안 | 이유 |
 |---|---|---|
-| 1 | PT01 호환성·경로 capability gap을 명시하고 export inventory 설계를 먼저 고정 | 기존 ID·파일 이름을 잃지 않는 계약을 먼저 고정 |
-| 2 | PT02 고정 파일 집합 export의 로컬 실행 근거를 유지하고 PT03 새 목적지 검증·복원을 구현 | 읽을 수 있는 파일과 일관된 snapshot은 다름 |
-| 3 | PT03 같은 filesystem staging·검증·no-replace publication·로컬 binding | 복원 도중 기존 환경 손상과 부분 활성화를 차단 |
-| 4 | PT04 Linux/macOS/Windows와 장애 주입 인수검사 | 문서·parser 검사를 실제 복원 성공과 구별 |
-| 5 | PT05 메모리 조각, PT06 인과 충돌, PT07 owner 조건부 효과 대조 순으로 확장 | 일반 파일 복원 위에 도메인 기능을 추가 |
+| 1 | PT01 계약·PT02 고정 파일 export 및 PT03 PINNED_FILES 복원·재바인딩의 실행 근거 유지 | 이미 실행한 범위를 소스와 함께 보존 |
+| 2 | PT03-C5 Git closure의 실제 수집·재구성 및 원본 commonGitDir 부재 복구 | 파일 묶음만으로 Git 전체를 복구할 수 없음 |
+| 3 | PT04 작성된 OS 전달 CI를 실제 실행하고 macOS/Windows 및 장애 내구성 검증 보완 | CI 정의와 실제 OS 실행을 구분 |
+| 4 | PT05 메모리 조각 재탐색·선택적 그래프 정규화 | 파일 복원 위에 메모리 조각 식별을 추가 |
+| 5 | PT06 다기기 인과 충돌·삭제 보존, PT07 owner 조건부 효과 대조 | 인과 이력과 외부 owner 효과를 별도로 검증 |
 
 ## 현재 코드에서 확인한 경계
 
@@ -24,10 +24,10 @@ ID를 보존한 이동·검증 가능한 백업 복원·오프라인 작업 분�
 
 - 300자 ASCII 파일명 성분은 manifest가 허용한다. 목표 filesystem의 성분 길이·전체 경로 길이는 별도 검사해야 한다.
 - 300자 native ID는 기존 resource bindings가 허용하지만 portable v1은 거부한다. 기존 ID를 줄이거나 새 ID로 바꾸는 자동 migration은 부적절하다.
-- 같은 revision ID에 서로 다른 digest를 넣은 두 manifest는 각각 parse된다. 문서 간 충돌 대조는 importer가 추가해야 한다.
+- 같은 revision ID에 서로 다른 digest를 넣은 두 manifest는 각각 parse된다. 별도 PT03 importer는 owner가 제공한 registry descriptor와 충돌을 대조하지만 전역 registry를 자동 조회하지 않는다.
 - 미래 관측 시각을 넣어도 host 검사 결과는 freshness UNKNOWN, payload NOT_CHECKED, authority NOT_GRANTED를 유지한다.
 
-이 중 앞의 세 항목은 지원 범위와 후속 구현 공백이다. 마지막 항목은 이미 지켜지는 상태 분리다. [Probe 코드](../scripts/probe-portability-research.ts)와 [관측 데이터](../research/portability-research/research.json)에 기준을 남겼다.
+이 관측은 순수 PT01 parser의 경계다. PT03 파일 I/O와 registry 대조의 실행 근거는 [개발 진행](DEVELOPMENT_PROGRESS.md)에 별도로 연결한다. [Probe 코드](../scripts/probe-portability-research.ts)와 [관측 데이터](../research/portability-research/research.json)에 각각의 기준을 남겼다.
 
 ## 제안한 export와 restore 절차
 
@@ -55,7 +55,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT01, PT03**. 기존 owner/native ID를 보존한다. 새 revision·bundle에는 충돌 검사 가능한 전역 ID를 발급하고 경로·내용 해시로 기존 자원 ID를 바꾸지 않는다. 같은 revision ID의 다른 정의를 만나면 HOLD하고 명시적 fork만 새 자원이 된다.
 
-현재: PT01에 owner/native ID 분리·문서 내부 중복·parent DAG·tombstone·digest pin 검사가 구현되어 있다. 문서 간 충돌 대조와 긴 ID 호환성은 후속이다.
+현재: PT01의 owner/native ID·문서 내부 중복·parent DAG 검사를 유지한다. PT03 importer는 owner가 별도로 제공한 registry descriptor와 resource/revision/representation 정의의 충돌을 거부하며 재바인딩은 명시적 ID 대응을 요구한다. 전역 registry 조회·다기기 병합과 256자를 넘는 native ID 호환성은 후속이다.
 
 남은 범위: v1의 native ID 256자 제한과 기존 bindings 4096자 범위를 비교해 지원 범위를 명시하거나 별도 버전으로 확장해야 한다. 자동 절단·정규화는 금지한다.
 
@@ -81,7 +81,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02, PT03**. 별도 버전의 export inventory에 INCLUDED·REQUIRED_EXTERNAL·EXCLUDED와 이유, 원래 이름→ASCII payload 위치, hash·size·owner snapshot 참조를 기록한다. 선택한 복원 프로필에 필요한 항목이 모두 포함되어야 SELF_CONTAINED로 표시한다.
 
-현재: 2026-10-04 로컬 구현: PT02가 실제 복사 bytes·원본 상대 복원 경로·ASCII payload 매핑·메타데이터 digest를 검사한다. PACKAGED는 실제 representation을 참조해야 하며 EXTERNAL_REQUIRED가 남으면 selfContained는 false다. 순수 PT01 manifest 의미는 유지한다.
+현재: PT02 export와 PT03 PINNED_FILES import가 실제 bytes·크기·원본 상대 복원 경로·ASCII payload 매핑·여섯 sidecar·inventory와 dependency 대응을 양방향 검사한다. 외부 필수 의존성이 남으면 import를 거부한다. 완전성은 owner가 명시한 파일 집합에 한정된다.
 
 남은 범위: 선택한 PINNED_FILES 범위 밖의 숨은 의존성과 전체 역사 보존은 증명하지 않는다. import의 namespace/native ID 충돌·무결성·복원 검사는 PT03이며 다기기 인수검사는 PT04다.
 
@@ -94,7 +94,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02, PT04**. Git refs/objects, dirty patch·untracked, submodule, LFS bytes를 각각 inventory에 담는다. 환경 recipe에는 toolchain·lockfile·설치 옵션·OS/architecture 요구를 pin하고 기기별 root와 비밀정보는 로컬 참조로 남긴다.
 
-현재: 기존 bindings의 local root 매핑에 더해 PT02 GIT_WORKTREE profile이 objects/refs/admin, worktree HEAD/index/config, dirty/untracked, submodule, LFS, alternates를 여섯 EXTERNAL_REQUIRED 항목으로 명시한다. Git closure나 환경 recipe의 실제 수집·재구성은 미구현이며 selfContained는 false다.
+현재: PT02 GIT_WORKTREE profile은 Git object/ref/admin, worktree HEAD/index/config, dirty/untracked, submodule, LFS, alternates를 EXTERNAL_REQUIRED로 남긴다. PT03 importer는 이를 거부하며 Git closure 재구성·repair·환경 recipe 설치는 아직 없다. 일반 파일 복원과 Git 저장소 전체 복구를 구분한다.
 
 남은 범위: 환경 recipe의 저장은 설치·실행 승인이 아니다. 오프라인 복원에 필요한 dependency payload와 목표 플랫폼 지원을 별도 확인한다.
 
@@ -107,7 +107,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT03, PT04**. 새 목적지와 같은 filesystem의 private staging에 복원한다. 바이트·scope·경로를 검사하고 동기화한 뒤 no-replace publication을 수행한다. VISIBILITY_COMMITTED와 DURABILITY_CONFIRMED를 구분하며 binding을 마지막에 연결한다.
 
-현재: PT01은 파일을 생성하거나 복원·활성화하지 않는다.
+현재: PT03는 새 목적지를 배타적으로 예약하고 같은 파일시스템의 staging을 검증한 뒤 workspace와 완료 표시를 순서대로 게시한다. 재수입은 같은 digest·모드와 실제 파일을 재검사하며 불완전한 예약은 인계받지 않는다. 로컬 binding/graph proposal은 명시적으로 선택한 locator만 바꾸며 권한을 부여하지 않는다. crash durability 전체 보장은 없다.
 
 남은 범위: Node rename만으로 no-replace를 보장하지 않는다. 플랫폼 adapter 또는 배타적 destination 관리가 필요하며 cross-filesystem copy를 atomic publish라고 부르지 않는다.
 
@@ -120,7 +120,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02, PT03, PT04**. 번들 경로의 안전한 문자 규칙과 실제 목적지의 성분 길이·전체 길이·대소문자·Unicode·symlink/reparse point 정책을 별도로 검사한다. MVP는 regular file/directory만 지원하고 나머지는 명시적으로 거부한다.
 
-현재: ASCII 상대 경로·예약명·대소문자·파일/폴더 prefix 충돌 검사는 있다. 실제 filesystem 한계 검사는 없다.
+현재: PT03는 경로 이탈·case/NFC 충돌·예약명·심볼릭 링크·특수 파일을 거부한다. Linux에서 실제 다른 root로 파일 묶음을 복사하고 원본을 없앤 뒤 복원·재바인딩했다. macOS/Windows 전달 CI는 작성되었으나 아직 NOT_RUN이며 모든 filesystem 지원을 뜻하지 않는다.
 
 남은 범위: 현재 300자 ASCII 성분은 v1 parser가 허용한다. 이는 실제 filesystem 생성 성공의 증거가 아니며 native OS 인수검사가 필요하다.
 
@@ -144,7 +144,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P1 · PT03, PT06**. Tombstone과 인과 이력을 유지해 옛 live backup 도착이 삭제를 취소하지 못하게 한다. 삭제 기록 정리는 명시한 안정성·보존 정책과 복원 가능성 판단이 있을 때만 수행한다.
 
-현재: 같은 자원의 부모를 갖는 tombstone과 live representation 금지는 있다. 분산 삭제 보존·정리는 없다.
+현재: 기존 parent/tombstone 계약에 더해 importer가 owner의 별도 head/withdrawn 기준을 받으면 DIVERGED/WITHDRAWN을 표시하고 기준이 없으면 FRESHNESS_UNKNOWN을 유지한다. 과거 백업을 자동 현재 상태로 활성화하지 않는다. 분산 tombstone 보존·정리는 여전히 후속이다.
 
 남은 범위: 인과관계가 모자란 복원은 WITHDRAWN을 추정 확정하지 않고 CONFLICT 또는 UNKNOWN으로 남긴다. 단순 시간 만료만으로 tombstone을 지우지 않는다.
 
@@ -156,7 +156,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P1 · PT03, PT07**. 오프라인 역사 자료는 읽거나 새 로컬 분기로 쓸 수 있다. 전역 최신성은 owner의 현재 validator 조회 없이는 UNKNOWN이다. 외부 작업은 endpoint·request fingerprint·key 보존 기간·status 조회·조건부 버전·권한을 명시한 capability가 있어야 대조할 수 있다.
 
-현재: 현재 host 검사 결과는 UNKNOWN/NOT_GRANTED이며 로컬 실행 recovery 계약도 있다. owner의 분산 효과 대조는 미구현이다.
+현재: PT03 역사 snapshot과 명시적 LOCAL_BRANCH 복원은 파일 조회/로컬 분기만 허용한다. 과거 작업 기록은 HISTORICAL_UNRECONCILED, 외부 실행은 0회이며 전역 최신성·권한·분산 exactly-once를 부여하지 않는다. owner의 실제 효과 대조는 PT07 후속이다.
 
 남은 범위: Idempotency-Key 초안은 만료 상태이고 보편적 서버 지원을 가정할 수 없다. 응답 유실·만료·효과 불명이면 UNRECONCILED를 유지하며 자동 재실행하지 않는다.
 
@@ -194,7 +194,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT04**. 요구사항→설계판단→근거→코드→인수기준을 추적하고 실행한 검사와 미실행 기준을 구분한다. Source status·revision·bytes pin·관측 시각을 보존하고 domain/range·cardinality·DAG 및 정확한 query endpoint를 검사한다.
 
-현재: 기존 PT01 receipt는 당시 12개 로컬 계약 테스트의 통과를 기록한다. 이번 연구에서는 4개 순수 probe와 연구 그래프를 별도로 검증한다.
+현재: 별도 개발 진행 v3 receipt에 DG01/PT02/PT03/PT04 관련 실제 로컬 검사 80개와 Linux producer→bundle 복사→원본 삭제→consumer·재바인딩, 별도 bytes/해시 시간/peak RSS 관측을 기록했다. 그 기록과 소스 commit/bytes를 이 연구 그래프에 연결한다. 이 연구 빌더 자체는 4개 순수 probe만 실행하며 Git 전체 복원과 다른 OS 인수검사를 PASS로 승격하지 않는다.
 
 남은 범위: 이번 연구 그래프 검증은 export/import·다기기 내구성·외부 owner 연동의 실행 성공을 증명하지 않는다.
 
