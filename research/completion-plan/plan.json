@@ -1,0 +1,3239 @@
+{
+  "schema": "usl-completion-plan/v1",
+  "id": "plan:usl-completion-2026-10-04",
+  "authority": "SECONDARY_AI",
+  "status": "PLANNED",
+  "recordedOn": "2026-10-04",
+  "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d",
+  "firstPackage": "package:CP01",
+  "userRequest": {
+    "authority": "USER_PRIMARY",
+    "text": "미완료 된것들 싹다 완료되도록 어케해야할지 표준그래프 엔지니어링으로 작업 계획좀 세워줘봐봐 ㅇㅇ"
+  },
+  "sources": [
+    {
+      "id": "source:completion:plan",
+      "path": "research/development-plan/plan.json",
+      "sha256": "sha256:d1dbe46a4246da80386525962b8b6f58f6badb406222a79e032ec1b156aecdc9",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:progress",
+      "path": "research/development-progress/receipt.json",
+      "sha256": "sha256:788811c0726326480ef4e136c7d5529b8d3ac967d9fd70297701ed55a514cd83",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:acceptance",
+      "path": "research/development-progress/acceptance.json",
+      "sha256": "sha256:3615dc797b9873a74b33b1b32caeba095637cddf56ff17bf15883383218b9776",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:runtime",
+      "path": "research/architecture/core-cli-c01.receipt.json",
+      "sha256": "sha256:f4ecc67fc05e5a7e5d869e4d3b75e8b8738768a2c64a63bf22c05dd524512cfc",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:standards",
+      "path": "research/standards-coverage/coverage.json",
+      "sha256": "sha256:ae16473f590aaf4c70402fba2c21ef23d67aa66734247b2cfeac6e8c569a7f19",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:catalog",
+      "path": "research/engineering/catalog.json",
+      "sha256": "sha256:537b2b8d8cfd843fbbf7d2ea2b245873c73c5854f2faaef7e5aef71193e6cc2e",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:engineering",
+      "path": "research/engineering/receipt.json",
+      "sha256": "sha256:a6f38cfa2ae579d616b76f585b584e0bf72d064769f0312d78d4c774190071c6",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:worktree",
+      "path": "research/worktree-audit/catalog.json",
+      "sha256": "sha256:ad8f4eb72248bc30b5d5fd36489b0fb2fb153bc8d056a6f5cb534738e1cb7c7d",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:worktree-receipt",
+      "path": "research/worktree-audit/receipt.json",
+      "sha256": "sha256:89e19633a867c9e00d890e5bb71afbf6586c44ec53f5492c4ec767c76d686220",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:research",
+      "path": "research/portability-research/research.json",
+      "sha256": "sha256:eb25a81da71f12dd84ec0e95d765a0fb0da24b1c23627a11a0a92c8bcf57cdcd",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:cli",
+      "path": "research/architecture/core-cli.plan.json",
+      "sha256": "sha256:f2e63859905bf13e94201ae3f1fcbcdd68aca2a82702cb6b431244d257cf0f4d",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:rule-policy",
+      "path": "docs/RULE_POLICY.md",
+      "sha256": "sha256:6302edb9518d49e94944670acc1efaa06117c64314b17727db2e67efb9870f26",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:weight-evidence",
+      "path": "docs/RULE_WEIGHT_EVIDENCE.md",
+      "sha256": "sha256:c9cf0606eaa752e0b7078efd2b0735c89e163ba74d2a22b0a3344725ac7fae91",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:weight-review",
+      "path": "docs/RULE_WEIGHT_REVIEW.md",
+      "sha256": "sha256:4fd9716a318eb02e77a960394d81735f9b7553d0118b1e00569e2657e1b9c789",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:learner",
+      "path": "research/rule-weight-evidence/learner-execution.json",
+      "sha256": "sha256:42c4b25334c7958ecb77d0e556833671356f60eed8b147dd0a304adf0daff1d6",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:guard",
+      "path": "src/addons/checkout-guard.ts",
+      "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:export",
+      "path": "src/addons/portable-transfer-export.ts",
+      "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:import",
+      "path": "src/addons/portable-transfer-import.ts",
+      "sha256": "sha256:e1f6a36c6bc8a16160a3c0b432b165ce91520f84cb1f77a8c728a93d2c314180",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:bindings",
+      "path": "src/addons/portable-transfer-bindings.ts",
+      "sha256": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:workflow",
+      "path": ".github/workflows/portable-transfer.yml",
+      "sha256": "sha256:d9dcd9a94a6452da5c1b3a430c6440be77a493519829cf4f66e7dd7afd377615",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:recovery",
+      "path": "src/cli-recovery.ts",
+      "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:adapter",
+      "path": "src/cli-adapter.ts",
+      "sha256": "sha256:4d2f6a159b40bbeb5b437cd9a600210453cafa598997b82246ba910b996349b4",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:cli-source",
+      "path": "src/cli.ts",
+      "sha256": "sha256:5843b269a772cabcf62c700448af6fc331d97553c51d365f7b75657bd71abaa7",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    },
+    {
+      "id": "source:completion:package",
+      "path": "package.json",
+      "sha256": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823",
+      "sourceCommit": "250bfffb0463aa94feea5619691a7fb3ed68630d"
+    }
+  ],
+  "baselines": [
+    {
+      "id": "baseline:completion:DG01",
+      "taskId": "task:DG01",
+      "title": "선택형 checkout·worktree·revision guard",
+      "status": "IMPLEMENTED_LOCAL_SCOPE",
+      "scope": "독립 owner pin·checkout/HEAD/dirty guard와 작업 직전 재검사가 로컬에서 구현·검증됨.",
+      "remaining": "Git 확대 profile과 OS/실기기에서 기존 거부·stale-plan 동작 회귀 검증.",
+      "sourceIds": [
+        "source:completion:guard",
+        "source:completion:progress"
+      ]
+    },
+    {
+      "id": "baseline:completion:PT02",
+      "taskId": "task:PT02",
+      "title": "일관된 백업 snapshot과 전송 명세 생성",
+      "status": "IMPLEMENTED_PINNED_FILES",
+      "scope": "고정 파일 집합의 export·metadata 예산·의존성 분류·staged publish가 구현됨.",
+      "remaining": "Git object/ref/admin/index·실제 owner snapshot·submodule/LFS/alternates 수집.",
+      "sourceIds": [
+        "source:completion:export",
+        "source:completion:progress"
+      ]
+    },
+    {
+      "id": "baseline:completion:PT03",
+      "taskId": "task:PT03",
+      "title": "검사 후 새 작업환경으로 복원하고 재바인딩",
+      "status": "IMPLEMENTED_FILE_PROFILE_GIT_PENDING",
+      "scope": "PINNED_FILES restore·정확한 선택 재바인딩과 손상/중복/보호경로 거부가 구현됨.",
+      "remaining": "Git 독립 복구는 미구현. C5는 거부 검사만 통과했으며 원문 acceptance를 충족하지 않음.",
+      "sourceIds": [
+        "source:completion:import",
+        "source:completion:bindings",
+        "source:completion:progress"
+      ]
+    },
+    {
+      "id": "baseline:completion:PT04",
+      "taskId": "task:PT04",
+      "title": "기기 이동과 장애 복원 인수검사",
+      "status": "LINUX_ONLY_OTHER_PLATFORMS_NOT_RUN",
+      "scope": "Linux에서 원본 삭제 후 producer/consumer 복원과 별도 측정을 실행함. Node 22.23.3·24.20.0 전체 테스트 각432 통과는 저장된 이전 실행 근거임.",
+      "remaining": "macOS/Windows 실제 실행, 서로 다른 실기기/파일시스템, Git 확대 profile·큰 데이터 예산.",
+      "sourceIds": [
+        "source:completion:acceptance",
+        "source:completion:runtime",
+        "source:completion:workflow"
+      ]
+    },
+    {
+      "id": "baseline:completion:PT05",
+      "taskId": "task:PT05",
+      "title": "메모리 조각 재탐색과 선택적 그래프 정규화",
+      "status": "PLANNED_NOT_STARTED",
+      "scope": "기존 파일 pin·binding은 재사용 가능.",
+      "remaining": "문서 조각 선택자 재탐색·RDFC dataset digest는 후속 구현.",
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:research"
+      ]
+    },
+    {
+      "id": "baseline:completion:PT06",
+      "taskId": "task:PT06",
+      "title": "다중 기기 revision 병합과 삭제 이력",
+      "status": "PLANNED_NOT_STARTED",
+      "scope": "기존 importer는 분기·미확인/철회 이력을 보존하고 자동 병합하지 않음.",
+      "remaining": "인과 revision DAG·actor/op 충돌·merge/tombstone 동기화.",
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:import"
+      ]
+    },
+    {
+      "id": "baseline:completion:PT07",
+      "taskId": "task:PT07",
+      "title": "복원된 작업 기록과 소유 시스템 상태 대조",
+      "status": "PRIMITIVE_EXISTS_OWNER_PROFILE_PENDING",
+      "scope": "등록 recovery callback과 historical receipt의 경계가 존재함.",
+      "remaining": "owner별 현재 상태 조회·멱등/조건부 갱신 계약 및 실제 authorized 대조.",
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:recovery"
+      ]
+    },
+    {
+      "id": "baseline:completion:DG02",
+      "taskId": "task:DG02",
+      "title": "표준 profile·무손실 교환·손실 보고 계약",
+      "status": "PARTIAL_WRAPPER_EXPORT_ONLY",
+      "scope": "USL resource graph/고정 JSON-LD 출력·일부 LPG 투영·local shape가 존재함.",
+      "remaining": "원래 domain data의 무손실/손실 명시 교환, versioned support profile.",
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:catalog"
+      ]
+    },
+    {
+      "id": "baseline:completion:DG03",
+      "taskId": "task:DG03",
+      "title": "선택한 표준 엔진 위임과 적합성 검증",
+      "status": "LOCAL_VALIDATORS_EXIST_ENGINE_PROFILES_PENDING",
+      "scope": "local RDF parser/SHACL/SPARQL 검사는 실행 기록이 있음.",
+      "remaining": "선택 engine 버전·추론/질의/변경 capability·공식 suite·직접 결과 대조.",
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:engineering"
+      ]
+    },
+    {
+      "id": "baseline:completion:DG04",
+      "taskId": "task:DG04",
+      "title": "운영 결과 기반 W 후보 평가와 owner 검토 연결",
+      "status": "SYNTHETIC_REVIEW_ONLY",
+      "scope": "640개 합성 episode의 learner validate/run/replay와 offline review bridge가 있음. 운영 효과·canonical W 동등성은 입증하지 않음.",
+      "remaining": "실제 owner outcome 수집·독립 holdout·불확실성 평가; 적용은 별도 owner 절차.",
+      "sourceIds": [
+        "source:completion:weight-review",
+        "source:completion:learner",
+        "source:completion:weight-evidence"
+      ]
+    },
+    {
+      "id": "baseline:completion:C02",
+      "taskId": "task:C02",
+      "title": "Adapted context traversal and compact-delivery parity",
+      "status": "PLANNED_NOT_STARTED",
+      "scope": "source context 기능과 adapt의 일부 옵션은 존재함.",
+      "remaining": "adapt context 전체 traversal·compact delivery 옵션 동등성.",
+      "sourceIds": [
+        "source:completion:cli",
+        "source:completion:adapter"
+      ]
+    },
+    {
+      "id": "baseline:completion:C03",
+      "taskId": "task:C03",
+      "title": "Bounded pure-core stdin/file pipeline",
+      "status": "PLANNED_NOT_STARTED",
+      "scope": "core 파일 입력은 존재함.",
+      "remaining": "순수 check/compile/context에만 bounded stdin.",
+      "sourceIds": [
+        "source:completion:cli",
+        "source:completion:cli-source"
+      ]
+    },
+    {
+      "id": "baseline:completion:C04",
+      "taskId": "task:C04",
+      "title": "Built package-bin compatibility gate",
+      "status": "PLANNED_NOT_STARTED",
+      "scope": "build·dist addon import 검증 근거는 존재함.",
+      "remaining": "실제 package bin/symlink·shebang·exit post-build gate.",
+      "sourceIds": [
+        "source:completion:cli",
+        "source:completion:runtime",
+        "source:completion:package"
+      ]
+    },
+    {
+      "id": "baseline:completion:DG05",
+      "taskId": "task:DG05",
+      "title": "통합 인수검사와 지원 profile 출시 판정",
+      "status": "PLANNED_NOT_STARTED",
+      "scope": "요구사항13·원래 criteria47·표준 assessment22·기술40/control12의 근거가 있음.",
+      "remaining": "모든 선택 profile을 연결한 release 판정과 장기 호환/복구 증거.",
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:standards",
+        "source:completion:catalog"
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "id": "package:CP01",
+      "title": "Git 복구 profile 계약과 clean snapshot export",
+      "phase": "01_GIT_CLOSURE",
+      "priority": "P0",
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "scope": "PINNED_FILES를 유지하면서 CLEAN_GIT_WORKTREE_V1을 별도 정의한다. 논리 repo/worktree ID·선택 ref/HEAD·Git object format·bundle prerequisites·도구 버전·파일/객체/시간 예산을 고정한다. clean 범위부터 구현하되 dirty·submodule 등은 CP03/04의 명시적 후속 범위로 남긴다.",
+      "dependsOn": [],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT02",
+        "task:PT03"
+      ],
+      "criterionIds": [
+        "criterion:PT02-C1",
+        "criterion:PT02-C2",
+        "criterion:PT02-C3",
+        "criterion:PT02-C4",
+        "criterion:PT03-C5"
+      ],
+      "sourceIds": [
+        "source:completion:export",
+        "source:completion:import",
+        "source:completion:worktree",
+        "source:completion:research"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:git-tools"
+      ],
+      "plannedOutputs": [
+        "src/addons/portable-transfer-git.ts",
+        "test/portable-transfer-git.test.ts",
+        "docs/PORTABLE_TRANSFER_GIT.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP01-1",
+          "expectation": "선택 refs/HEAD의 도달 가능한 objects를 독립 bundle로 만들고 전후 source state/pin을 검증한다. 빈 저장소/unborn·shallow/promisor·필터·지원하지 않는 object format은 지원 계약에 따라 명시적으로 분기한다.",
+          "negativeCase": "thin prerequisites 누락·관측된 HEAD를 기대 pin으로 자동 채움·ref가 바뀐 혼합 묶음을 완성으로 공개하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP01-2",
+          "expectation": "Git bundle은 objects/refs 전송이며 index/worktree 설정과 dirty 파일은 별도라는 계약을 명시한다. config/hooks/credentials는 데이터와 분리하고 실행하지 않는다.",
+          "negativeCase": "bundle 하나로 전체 작업환경 복구 완료라고 하거나 global config/filter/hook/네트워크를 묵시 실행하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP02",
+      "title": "clean Git·여러 worktree 독립 복원과 재바인딩",
+      "phase": "01_GIT_CLOSURE",
+      "priority": "P0",
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "scope": "빈 격리 staging에 objects/refs를 검증 수입하고 owner가 지정한 worktree topology를 재구축한다. 옛 gitfile/commonGitDir 절대경로를 복사하지 않는다. 새 경로에서 native resource/representation/role과 고정 revision을 보존한다.",
+      "dependsOn": [
+        "package:CP01"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT03",
+        "task:DG01"
+      ],
+      "criterionIds": [
+        "criterion:PT03-C1",
+        "criterion:PT03-C2",
+        "criterion:PT03-C3",
+        "criterion:PT03-C4",
+        "criterion:PT03-C5",
+        "criterion:DG01-C1",
+        "criterion:DG01-C2",
+        "criterion:DG01-C3"
+      ],
+      "sourceIds": [
+        "source:completion:import",
+        "source:completion:bindings",
+        "source:completion:guard",
+        "source:completion:worktree"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:git-tools"
+      ],
+      "plannedOutputs": [
+        "src/addons/portable-transfer-git.ts",
+        "test/portable-transfer-git.test.ts"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP02-1",
+          "expectation": "원본 main/linked checkout·commonGitDir·원본 bundle·cache가 모두 없는 새 root에서 복원하고 refs/HEAD/object/file pin 및 gitfile 연결의 새 root 내부성을 확인한다.",
+          "negativeCase": "원본 object store·alternates·commonGitDir에 의존하거나 같은 bytes의 잘못된 checkout/HEAD를 통과시키면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP02-2",
+          "expectation": "복수 branch·detached HEAD·중복 native ID·경로 충돌·기존 목적지·동시 import·부분 실패를 검사한다. 실패는 새 staging만 정리하고 기존 작업환경/registry를 보존한다.",
+          "negativeCase": "수동 git repair를 성공 전제에서 숨기거나 소유자가 선택하지 않은 바인딩을 변경하거나 stale guard로 실행하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP03",
+      "title": "dirty/index/untracked와 작업 중 상태 보존",
+      "phase": "02_FULL_WORKSPACE",
+      "priority": "P0",
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "scope": "Git clean MVP를 실제 작업환경 profile로 확장한다. stage와 working tree를 분리하고 선택 untracked·실행 비트·symlink·rename/delete·merge conflict stage·stash/reflog 보존 범위를 계약한다. rebase/merge 진행 상태는 owner opt-in 재현 profile 또는 명시적 HOLD로 구분하며 제외 항목이 있는 상태를 전체 복원으로 부르지 않는다.",
+      "dependsOn": [
+        "package:CP02"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT02",
+        "task:PT03"
+      ],
+      "criterionIds": [
+        "criterion:PT02-C2",
+        "criterion:PT02-C4",
+        "criterion:PT03-C3",
+        "criterion:PT03-C5"
+      ],
+      "sourceIds": [
+        "source:completion:export",
+        "source:completion:import",
+        "source:completion:worktree",
+        "source:completion:plan"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:git-tools"
+      ],
+      "plannedOutputs": [
+        "src/addons/portable-transfer-git-state.ts",
+        "test/portable-transfer-git-state.test.ts",
+        "docs/PORTABLE_TRANSFER_GIT.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP03-1",
+          "expectation": "복원 전후 index stage·mode·blob OID, HEAD, 선택 dirty/untracked bytes를 각각 비교한다. 파일 목록만 비교하지 않는다.",
+          "negativeCase": "staged A/working B를 하나로 합치거나 conflict stage를 없애거나 미선택 untracked/private 설정을 자동 수집하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP03-2",
+          "expectation": "portable permission/symlink/sparse 정책과 in-progress state별 지원·HOLD를 표시한다. 전체 profile gate는 계약한 모든 상태의 성공·반례 실행 근거를 요구한다.",
+          "negativeCase": "미지원 상태를 조용히 drop하거나 clean fallback을 FULL_WORKSPACE PASS로 기록하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP04",
+      "title": "submodule·LFS·alternates·partial/sparse 의존성 폐쇄",
+      "phase": "02_FULL_WORKSPACE",
+      "priority": "P0",
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "scope": "Git 고급 profile은 recursive submodule의 고정 commit·선택 dirty state, LFS pointer가 가리키는 실제 object, alternates와 shallow/partial clone prerequisites를 전이적으로 수집한다. sparse 원문/인덱스 의미와 hash algorithm을 명시한다. 필요한 외부 bytes 미확보는 EXTERNAL_REQUIRED/HOLD다.",
+      "dependsOn": [
+        "package:CP01",
+        "package:CP02"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT02",
+        "task:PT03"
+      ],
+      "criterionIds": [
+        "criterion:PT02-C2",
+        "criterion:PT02-C4",
+        "criterion:PT03-C5"
+      ],
+      "sourceIds": [
+        "source:completion:worktree",
+        "source:completion:research",
+        "source:completion:export",
+        "source:completion:import"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:git-tools"
+      ],
+      "plannedOutputs": [
+        "src/addons/portable-transfer-git-dependencies.ts",
+        "test/portable-transfer-git-dependencies.test.ts"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP04-1",
+          "expectation": "네트워크 차단·원본 삭제·객체 cache 부재 상태에서 submodule/LFS/alternates fixture를 복원한다. recursion/cycle·object/bytes/time budget·path isolation을 검사한다.",
+          "negativeCase": "LFS pointer만 보관하거나 submodule URL 존재를 object 보유로 간주하거나 original alternates를 읽으면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP04-2",
+          "expectation": "부분/얕은 저장소는 profile에 필요한 object closure를 확장한 경우만 독립 복원으로 표시한다. 필터·원격 URL·credential helper는 자동 실행/등록하지 않는다.",
+          "negativeCase": "알 수 없는 prerequisite를 OPTIONAL로 낮추거나 원격 fetch 성공 없이 selfContained=true로 선언하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP05",
+      "title": "일관된 owner snapshot과 장애 중단 복구",
+      "phase": "02_FULL_WORKSPACE",
+      "priority": "P0",
+      "owner": "OWNER_SNAPSHOT_ADAPTER",
+      "scope": "PINNED_BYTE_SET의 정직한 한계를 유지하고 owner export/lock/FS snapshot adapter를 별도로 구현한다. live DB/메모리 저장소는 소유 도구의 export·transaction boundary를 사용하며 바이트 스캔만으로 원자성을 주장하지 않는다.",
+      "dependsOn": [
+        "package:CP01"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT02",
+        "task:DG01"
+      ],
+      "criterionIds": [
+        "criterion:PT02-C1",
+        "criterion:PT02-C3",
+        "criterion:PT02-C4",
+        "criterion:DG01-C3"
+      ],
+      "sourceIds": [
+        "source:completion:export",
+        "source:completion:guard",
+        "source:completion:research"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:snapshot-owner"
+      ],
+      "plannedOutputs": [
+        "src/addons/portable-snapshot-owner.ts",
+        "test/portable-snapshot-owner.test.ts",
+        "docs/PORTABLE_SNAPSHOT_OWNER.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP05-1",
+          "expectation": "snapshot token·revision·owner export 결과를 전후 검증하고 일관성 상실·lock 만료·budget 초과·강제 종료 시 완성 marker가 생기지 않음을 검사한다.",
+          "negativeCase": "읽는 동안 source가 변경되는데 파일별 hash만 맞았다고 원자 snapshot으로 승격하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP05-2",
+          "expectation": "원본 보존, 부분 staging 재검사/폐기, 동일 request 재시도와 overwrite 거부를 fault-injection으로 증명한다. fake owner와 실제 snapshot owner 실행 근거를 분리한다.",
+          "negativeCase": "전원/프로세스 중단 후 오래된 marker를 재사용하거나 live DB 파일 단순 복사를 정상 backup으로 공개하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP06",
+      "title": "Linux·macOS·Windows 실제 이식성 matrix",
+      "phase": "03_ENVIRONMENT_ACCEPTANCE",
+      "priority": "P0",
+      "owner": "CI_AND_PLATFORM_OWNERS",
+      "scope": "기존 workflow를 기반으로 각 OS와 지원 Node/Git/파일시스템에서 실제 producer→artifact→consumer를 실행한다. 현재 Linux PINNED_FILES 기록은 기준선으로만 재사용하고 추가 Git profile을 별도 행으로 검사한다.",
+      "dependsOn": [
+        "package:CP02"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT04",
+        "task:DG01"
+      ],
+      "criterionIds": [
+        "criterion:PT04-C1",
+        "criterion:PT04-C2",
+        "criterion:PT04-C3",
+        "criterion:DG01-C1",
+        "criterion:DG01-C2",
+        "criterion:DG01-C3"
+      ],
+      "sourceIds": [
+        "source:completion:workflow",
+        "source:completion:acceptance",
+        "source:completion:runtime",
+        "source:completion:progress"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:os-runners"
+      ],
+      "plannedOutputs": [
+        ".github/workflows/portable-transfer.yml",
+        "scripts/portable-transfer-acceptance.ts",
+        "research/completion-execution/platforms.json"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP06-1",
+          "expectation": "세 OS 모두 사용자명/root/cache가 다른 환경에서 exact ID/revision/representation/ordered roles/metadata/provenance/payload를 비교한다. Node 22/24 지원 조합을 명시하고 각 row의 실제 명령·환경·exit/log digest를 기록한다.",
+          "negativeCase": "workflow 파일·한 OS PASS·동일 호스트 임시 폴더만으로 다기기/모든 OS PASS를 선언하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP06-2",
+          "expectation": "case/NFC/NFD/reserved path·symlink/junction·permission·부분복사·1byte 변조·중단·중복 import·알고리즘/스키마 mismatch를 실제 해당 OS에서 거부한다.",
+          "negativeCase": "skip·미실행 row를 PASS로 합치거나 실패를 빈 성공으로 바꾸면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP07",
+      "title": "실기기 왕복 이동·백업 복구·규모 예산",
+      "phase": "03_ENVIRONMENT_ACCEPTANCE",
+      "priority": "P1",
+      "owner": "DEVICE_AND_RELEASE_OWNERS",
+      "scope": "서로 독립된 두 기기의 새 사용자/오프라인 복구로 FILES·CLEAN_GIT·FULL_WORKSPACE·owner snapshot 지원 profile을 각각 실검증한다. OS matrix와 물리 장치 결과는 분리한다. 작고 큰 fixture별 파일/객체/bytes/time/peak RSS 예산을 사전에 정한다.",
+      "dependsOn": [
+        "package:CP03",
+        "package:CP04",
+        "package:CP05",
+        "package:CP06"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT04",
+        "task:DG05"
+      ],
+      "criterionIds": [
+        "criterion:PT04-C1",
+        "criterion:PT04-C2",
+        "criterion:PT04-C3",
+        "criterion:DG05-C2",
+        "criterion:DG05-C3"
+      ],
+      "sourceIds": [
+        "source:completion:acceptance",
+        "source:completion:runtime",
+        "source:completion:worktree-receipt"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:physical-devices"
+      ],
+      "plannedOutputs": [
+        "scripts/measure-portable-transfer.ts",
+        "research/completion-execution/devices.json",
+        "docs/PORTABLE_TRANSFER_IMPORT.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP07-1",
+          "expectation": "A→B→A 이동 후 original/cache/network를 끊고 복원·재바인딩한다. offline 수정/old backup/연속 이동도 CP12/13과 통합해 원본과 conflict 기록을 보존한다.",
+          "negativeCase": "컨테이너/WSL/emulator를 별도 실기기로 표시하거나 실제 장치 없는 결과를 완료로 채우면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP07-2",
+          "expectation": "숫자 예산·fixture 크기·장치 사양·반복 횟수·측정 단위를 기록하고 예산 초과는 HOLD한다. 원본 장애/중단 시나리오와 rollback drill을 실행한다.",
+          "negativeCase": "22-byte fixture 측정으로 대형 저장소 성능을 일반화하거나 payload 절약을 비용/품질/Lean 증명으로 주장하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP08",
+      "title": "문서·메모리 조각의 stable anchor 재탐색",
+      "phase": "04_PORTABLE_MEMORY",
+      "priority": "P1",
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "scope": "Web Annotation식 exact/prefix/suffix와 고정 source revision을 사용하는 bounded fragment profile을 구현한다. 위치 검색은 owner 등록 범위 안에서 수행하고 원문 없는 alias는 확정하지 않는다.",
+      "dependsOn": [
+        "package:CP09"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT05"
+      ],
+      "criterionIds": [
+        "criterion:PT05-C1",
+        "criterion:PT05-C3"
+      ],
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:research",
+        "source:completion:standards",
+        "source:completion:bindings"
+      ],
+      "prerequisiteIds": [],
+      "plannedOutputs": [
+        "src/addons/fragment-bindings.ts",
+        "test/fragment-bindings.test.ts",
+        "docs/FRAGMENT_BINDINGS.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP08-1",
+          "expectation": "삽입/삭제/파일 이동 후 같은 fragment ID와 출처를 유지하고 일치 0개는 MISSING, 여러 개는 AMBIGUOUS로 반환한다. 새 후보는 별도 관측으로 남긴다.",
+          "negativeCase": "줄 번호·첫 유사 결과·embedding 유사성만으로 다른 원문을 자동 확정하거나 owner 범위를 넘어 검색하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP08-2",
+          "expectation": "원문 bytes/revision·선택자·후보 범위·예산을 고정하고 대형 문서/중복 인용/Unicode 변경·source 부재 반례를 검사한다.",
+          "negativeCase": "정확한 source revision 불명인데 VERIFIED 또는 동일 엔티티로 승격하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP09",
+      "title": "지원 표준·용어·교환 profile registry",
+      "phase": "05_STANDARD_INTEROP",
+      "priority": "P1",
+      "owner": "USL_PROFILE_OWNER",
+      "scope": "22 assessments·40 technologies·12 controls 각각에 구현/위임/미지원/조사필요와 edition/범위/손실/engine/suite를 기록하는 versioned registry를 만든다. 좁은 MVP와 전체 요구 범위를 분리하며 제외로 원래 기능 완료를 대신하지 않는다.",
+      "dependsOn": [],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:DG02",
+        "task:DG03",
+        "task:DG05"
+      ],
+      "criterionIds": [
+        "criterion:DG02-C1",
+        "criterion:DG02-C2",
+        "criterion:DG02-C3",
+        "criterion:DG03-C1",
+        "criterion:DG03-C2",
+        "criterion:DG05-C1"
+      ],
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:catalog",
+        "source:completion:research"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:standard-corpora"
+      ],
+      "plannedOutputs": [
+        "src/addons/standard-profiles.ts",
+        "research/standard-profiles/registry.json",
+        "docs/STANDARD_PROFILES.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP09-1",
+          "expectation": "각 profile에 지원 term/syntax/operation/entailment·context 정책·loss report·resource budget·version migration을 명시하고 모든 기존74 항목을 정확한 ID로 연결한다.",
+          "negativeCase": "40개 기술 목록이나 wrapper shape 통과를 40개 제품 구현/전체 표준 상위호환이라고 표현하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP09-2",
+          "expectation": "Recommendation/Note/Draft와 normative 접근 여부를 분리하고 미지원 항목은 거부/위임 계획·후속 책임을 남긴다. full-superset 판정은 현재 NOT_A_STANDARDS_SUPERSET으로 유지한다.",
+          "negativeCase": "draft 이름만으로 최신 표준 완료를 선언하거나 원문 미확인 ISO 항목을 적합으로 기록하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP10",
+      "title": "RDF·JSON-LD·property graph 실제 domain data 교환",
+      "phase": "05_STANDARD_INTEROP",
+      "priority": "P1",
+      "owner": "USL_OPTIONAL_ADAPTER",
+      "scope": "RDF terms/datasets와 LPG label/property의 지원 profile을 roundtrip한다. USL declaration wrapper 출력과 원래 domain graph 보존을 별도로 검사한다. JSON-LD 처리기는 고정 context loader와 제한된 입출력 계약을 사용한다.",
+      "dependsOn": [
+        "package:CP09"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:DG02"
+      ],
+      "criterionIds": [
+        "criterion:DG02-C1",
+        "criterion:DG02-C2",
+        "criterion:DG02-C3"
+      ],
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:catalog",
+        "source:completion:plan"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:standard-corpora"
+      ],
+      "plannedOutputs": [
+        "src/addons/standard-interchange.ts",
+        "test/standard-interchange.test.ts",
+        "docs/STANDARD_INTERCHANGE.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP10-1",
+          "expectation": "IRI·typed/language literal·blank-node scope·default/named/empty graph 한계·n-ary named roles/ordinal·LPG node/edge metadata/provenance를 왕복하거나 항목별 loss/rejection을 반환한다.",
+          "negativeCase": "도메인 triple/property를 버린 USL wrapper만으로 무손실을 주장하거나 role/ID를 바꾸면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP10-2",
+          "expectation": "선택 syntax의 정상/비정상 입력과 JSON-LD expansion/compaction/flattening/RDF 변환 지원 범위를 suite로 고정한다. 외부 context network 접근은 고정 자료 범위로 제한한다.",
+          "negativeCase": "미지원 keyword·namespace/blank scope 충돌·동일 URL context 변경을 조용히 무시하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP11",
+      "title": "RDFC canonical dataset digest와 자원 예산",
+      "phase": "05_STANDARD_INTEROP",
+      "priority": "P1",
+      "owner": "USL_OPTIONAL_CANONICALIZER",
+      "scope": "raw byte digest·USL contractDigest·RDFC dataset digest를 다른 필드/algorithm version으로 유지한다. RDFC는 RDF dataset 정규화이고 OWL 의미 동등성이나 resource 정체성의 증명이 아니다.",
+      "dependsOn": [
+        "package:CP09",
+        "package:CP10"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT05",
+        "task:DG02"
+      ],
+      "criterionIds": [
+        "criterion:PT05-C2",
+        "criterion:PT05-C3",
+        "criterion:DG02-C3"
+      ],
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:research"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:standard-corpora"
+      ],
+      "plannedOutputs": [
+        "src/addons/rdf-canonical-digest.ts",
+        "test/rdf-canonical-digest.test.ts"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP11-1",
+          "expectation": "공식 RDFC fixture를 고정해 blank label/직렬화 순서만 다른 dataset digest가 같고 role/IRI/literal/named graph가 달라지면 달라짐을 확인한다.",
+          "negativeCase": "기존 contractDigest를 바꾸거나 의미 유사성을 동일 dataset hash로 승격하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP11-2",
+          "expectation": "quad/blank node/time/memory 한도와 고정 context loader를 검사하고 최악 대칭 blank-node 입력은 budget 초과 상태로 종료한다.",
+          "negativeCase": "timeout/부재 데이터를 빈 canonical dataset 성공으로 처리하거나 원격 context를 자동 갱신하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP12",
+      "title": "다기기 revision DAG·actor/operation·충돌 보존",
+      "phase": "04_PORTABLE_MEMORY",
+      "priority": "P1",
+      "owner": "USL_OPTIONAL_REVISION_CONSUMER",
+      "scope": "resource identity와 revision/representation을 분리하고 parent DAG·actor incarnation·operation ID로 인과 순서와 동시 수정을 구분한다. 기본 merge는 충돌 보존이며 자동 병합은 owner가 선택한 자료형별 profile에만 적용한다.",
+      "dependsOn": [
+        "package:CP02"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT06",
+        "task:PT03"
+      ],
+      "criterionIds": [
+        "criterion:PT06-C1",
+        "criterion:PT06-C2",
+        "criterion:PT03-C3"
+      ],
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:import",
+        "source:completion:research"
+      ],
+      "prerequisiteIds": [],
+      "plannedOutputs": [
+        "src/addons/revision-merge.ts",
+        "test/revision-merge.test.ts",
+        "docs/REVISION_MERGE.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP12-1",
+          "expectation": "두 offline branch·복제 장치의 actor counter 재사용·동일 operation 재수입·parent 부재·DAG cycle을 구분하고 충돌 양쪽 원문/출처를 보존한다.",
+          "negativeCase": "mtime/clock/LWW만으로 승자를 고르거나 같은 actor/op의 다른 payload를 멱등으로 무시하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP12-2",
+          "expectation": "merge policy/version·선택자·입력 parents·새 revision을 기록하고 순서/중복/재시도 변화에 정책상 일관된 결과를 검증한다.",
+          "negativeCase": "CRDT 수렴을 사용자 의미/권한의 정당성으로 취급하거나 conflict 원문을 덮어쓰면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP13",
+      "title": "tombstone·옛 백업·장기 offline peer 복귀",
+      "phase": "04_PORTABLE_MEMORY",
+      "priority": "P1",
+      "owner": "USL_OPTIONAL_REVISION_CONSUMER",
+      "scope": "삭제를 명시적 revision/tombstone으로 보존한다. retention·peer acknowledgement·epoch 재가입 계약을 먼저 정하고 안전한 압축 조건이 없으면 삭제 이력을 유지한다.",
+      "dependsOn": [
+        "package:CP12"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT06",
+        "task:PT03"
+      ],
+      "criterionIds": [
+        "criterion:PT06-C3",
+        "criterion:PT03-C3"
+      ],
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:import",
+        "source:completion:research"
+      ],
+      "prerequisiteIds": [],
+      "plannedOutputs": [
+        "src/addons/revision-merge.ts",
+        "test/revision-tombstone.test.ts"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP13-1",
+          "expectation": "삭제 전 backup·오래 끊긴 peer·delete-vs-update 동시 변경에서 자동 부활을 차단하고 필요한 owner 선택/재가입 상태를 반환한다.",
+          "negativeCase": "새 경로에서 발견했다는 이유로 withdrawn native ID를 ACTIVE로 바꾸면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP13-2",
+          "expectation": "peer 누락/ack 위조/retention 경계·GC 전후 replay를 검증한다. 명시적 restore-as-new는 새 revision/lineage로만 표현한다.",
+          "negativeCase": "관측되지 않은 peer가 있을 때 tombstone을 지우거나 과거 live record를 최신으로 승격하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP14",
+      "title": "복원된 실행 이력과 실제 owner 상태 대조",
+      "phase": "06_OWNER_AND_W",
+      "priority": "P1",
+      "owner": "OWNER_RECONCILIATION_ADAPTER",
+      "scope": "기존 등록 recovery primitive 위에 owner별 status/idempotency/conditional update capability profile을 만든다. historical intent/receipt는 불변으로 남기고 현재 상태는 시각·digest·scope 있는 별도 observation이다.",
+      "dependsOn": [
+        "package:CP02",
+        "package:CP12",
+        "package:CP13"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:PT07",
+        "task:PT03"
+      ],
+      "criterionIds": [
+        "criterion:PT07-C1",
+        "criterion:PT07-C2",
+        "criterion:PT07-C3",
+        "criterion:PT03-C4"
+      ],
+      "sourceIds": [
+        "source:completion:recovery",
+        "source:completion:plan",
+        "source:completion:import"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:owner-api"
+      ],
+      "plannedOutputs": [
+        "src/addons/owner-reconciliation.ts",
+        "test/owner-reconciliation.test.ts",
+        "docs/OWNER_RECONCILIATION.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP14-1",
+          "expectation": "fake owner의 duplicate/timeout/status drift/unsupported 조건과 authorized 실제 owner 조회를 분리 기록한다. unknown·expired scope는 HOLD와 effect count0을 유지한다.",
+          "negativeCase": "복사한 등록/credential/receipt/USL 링크로 접근을 얻거나 offline unknown을 미실행으로 추정해 재실행하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP14-2",
+          "expectation": "정확한 operation ID와 현재 state digest를 비교하고 대조 결과를 append한다. owner가 보장한 멱등 범위 밖 exactly-once는 주장하지 않는다.",
+          "negativeCase": "원래 intent/receipt 수정 또는 fake-owner 검사만으로 실제 분산 중복 방지 완료를 선언하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP15",
+      "title": "C02 adapt context 옵션·압축 전달 동등성",
+      "phase": "07_CLI_COMPATIBILITY",
+      "priority": "P1",
+      "owner": "USL_CLI",
+      "scope": "adapt --operation context에 source context와 같은 hop/resource/link/visit/via/bytes/known-context/stats 계약을 전달한다. 기본 core와 기존 max-resources 정책 한도를 유지한다.",
+      "dependsOn": [],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:C02"
+      ],
+      "criterionIds": [
+        "criterion:C02-C1",
+        "criterion:C02-C2",
+        "criterion:C02-C3",
+        "criterion:C02-C4"
+      ],
+      "sourceIds": [
+        "source:completion:cli",
+        "source:completion:adapter"
+      ],
+      "prerequisiteIds": [],
+      "plannedOutputs": [
+        "src/cli-adapter.ts",
+        "src/adapters.ts",
+        "test/adapter-boundaries.test.ts",
+        "docs/CLI.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP15-1",
+          "expectation": "동일 그래프의 source/adapt 결과를 옵션별·조합별 비교하고 native ID/named role/ordinal/선택 profile을 보존한다. max-bytes 실패/compact fallback/stats도 동등해야 한다.",
+          "negativeCase": "정책 cap 우회·known-context 오류 숨김·미선택 profile 적용·ID 단축 충돌이면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP16",
+      "title": "C03 순수 core bounded stdin",
+      "phase": "07_CLI_COMPATIBILITY",
+      "priority": "P1",
+      "owner": "USL_CLI",
+      "scope": "check/compile/context만 --source -를 지원하고 parse 이전 byte 제한·UTF-8 오류·stdin source label·출력 충돌을 명시한다.",
+      "dependsOn": [],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:C03"
+      ],
+      "criterionIds": [
+        "criterion:C03-C1",
+        "criterion:C03-C2",
+        "criterion:C03-C3"
+      ],
+      "sourceIds": [
+        "source:completion:cli",
+        "source:completion:cli-source"
+      ],
+      "prerequisiteIds": [],
+      "plannedOutputs": [
+        "src/cli-io.ts",
+        "src/cli.ts",
+        "test/cli-project-inputs.test.ts",
+        "docs/CLI.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP16-1",
+          "expectation": "정상/과대/빈/깨진 UTF-8/chunked stdin과 --out 충돌·JSON stdout/stderr/exit를 검사하고 label/provenance를 유지한다.",
+          "negativeCase": "unbounded read·observe/host/file-changing 명령으로 stdin 범위를 넓히거나 오류를 성공으로 출력하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP17",
+      "title": "C04 배포 package bin 실제 실행 gate",
+      "phase": "07_CLI_COMPATIBILITY",
+      "priority": "P1",
+      "owner": "USL_PACKAGE_MAINTAINER",
+      "scope": "기존 pre-build npm test를 유지하며 build 이후 설치된 package bin/symlink를 실제로 호출하는 별도 검사를 추가한다.",
+      "dependsOn": [],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:C04"
+      ],
+      "criterionIds": [
+        "criterion:C04-C1",
+        "criterion:C04-C2",
+        "criterion:C04-C3",
+        "criterion:C04-C4"
+      ],
+      "sourceIds": [
+        "source:completion:cli",
+        "source:completion:package",
+        "source:completion:runtime"
+      ],
+      "prerequisiteIds": [],
+      "plannedOutputs": [
+        "test/cli-package-bin.test.ts",
+        "package.json",
+        "docs/GETTING_STARTED.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP17-1",
+          "expectation": "설치 sandbox에서 bin --help와 순수 check를 실행해 dist import/shebang/exit/JSON 출력을 확인한다. 이동 workspace 및 cli-list→inspect 회귀 gate를 유지한다.",
+          "negativeCase": "tsx/direct source 호출만 검사하거나 build 전 test에 dist 존재를 강제하거나 shell quoting이 있는 경로를 깨면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP18",
+      "title": "질의·검증·추론·변경의 owner engine adapter",
+      "phase": "05_STANDARD_INTEROP",
+      "priority": "P1",
+      "owner": "OWNER_ENGINE_ADAPTER",
+      "scope": "SPARQL Query/Update/results, RDFS/OWL 선택 regime, SHACL 및 LPG/GQL 기능을 선언적 capability로 위임한다. 엔진·version·profile·operation·dataset/result term contract와 읽기/쓰기 scope를 분리한다.",
+      "dependsOn": [
+        "package:CP09",
+        "package:CP10"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:DG03"
+      ],
+      "criterionIds": [
+        "criterion:DG03-C1",
+        "criterion:DG03-C2",
+        "criterion:DG03-C3"
+      ],
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:catalog",
+        "source:completion:plan"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:standard-corpora",
+        "prerequisite:owner-api"
+      ],
+      "plannedOutputs": [
+        "src/addons/graph-engine-adapter.ts",
+        "test/graph-engine-adapter.test.ts",
+        "docs/GRAPH_ENGINE_ADAPTER.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP18-1",
+          "expectation": "engine direct 실행과 USL 경유 ASK/SELECT/CONSTRUCT/validation/inference 결과·term identity·severity·error를 동일 fixture로 대조한다. Update는 별도 capability/precondition/effect test를 둔다.",
+          "negativeCase": "query 권한을 update 권한으로 확대하거나 engine version/profile이 다른 cache를 재사용하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP18-2",
+          "expectation": "timeout/output/bytes/CPU 예산·cancel·unsupported op를 명시적 오류로 끝내고 live endpoint 접근은 기존 등록 scope만 사용한다.",
+          "negativeCase": "미지원 GQL/OWL 전체를 지원으로 표시하거나 오류를 empty result 성공으로 바꾸면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP19",
+      "title": "어휘·수입·HTTP와 기존 기술별 연동 profile",
+      "phase": "05_STANDARD_INTEROP",
+      "priority": "P2",
+      "owner": "OWNER_INTEGRATION_ADAPTERS",
+      "scope": "SKOS/PROV/DCAT/DQV/VoID·Web Annotation·CSVW/R2RML/RML·LDP와 기존40 기술의 실제 요구 기능을 versioned profile로 분해한다. 재사용 엔진/소유 connector에 위임하고 어댑터로 보존할 ID/단위/revision/n-ary role/권한/손실을 명시한다.",
+      "dependsOn": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP18"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:DG02",
+        "task:DG03",
+        "task:DG05"
+      ],
+      "criterionIds": [
+        "criterion:DG02-C1",
+        "criterion:DG02-C2",
+        "criterion:DG02-C3",
+        "criterion:DG03-C1",
+        "criterion:DG03-C2",
+        "criterion:DG03-C3",
+        "criterion:DG05-C1"
+      ],
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:catalog",
+        "source:completion:engineering"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:standard-corpora",
+        "prerequisite:owner-api"
+      ],
+      "plannedOutputs": [
+        "research/standard-profiles/registry.json",
+        "src/addons/standard-profile-adapters.ts",
+        "test/standard-profile-adapters.test.ts"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP19-1",
+          "expectation": "각 catalog item을 실제 requirement/use-case→지원/위임 profile→owner engine/version→fixture/suite→실행 receipt로 연결한다. 단순 참고 기술은 이유와 사용자 요구와의 차이를 남긴다.",
+          "negativeCase": "40개 별도 제품을 전부 재구현해야 한다고 추정하거나 제외 사유만으로 미구현 기능을 완료로 표시하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP19-2",
+          "expectation": "선택 어휘의 의미/제약·tabular mapping·HTTP status/ETag/conditional behavior·lineage를 원문과 대조한다. proprietary 규범/엔진 접근이 없으면 NOT_ESTABLISHED로 유지한다.",
+          "negativeCase": "용어를 문자열로 담거나 URL을 연결했다는 사실을 프로토콜/엔진 상위호환으로 바꾸면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP20",
+      "title": "공식·독립 suite와74개 범위의 완료 증거",
+      "phase": "05_STANDARD_INTEROP",
+      "priority": "P1",
+      "owner": "CONFORMANCE_AND_PROFILE_OWNERS",
+      "scope": "지원하겠다고 선언한 모든 profile에 독립 fixture/official suite revision과 실행 환경을 고정한다. 현재22 평가·40 기술·12 control을 빠짐없이 재감사하고 전체 지원/부분/위임/미지원/미확립을 항목별로 분리한다.",
+      "dependsOn": [
+        "package:CP11",
+        "package:CP18",
+        "package:CP19"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:DG03",
+        "task:DG05"
+      ],
+      "criterionIds": [
+        "criterion:DG03-C2",
+        "criterion:DG03-C3",
+        "criterion:DG05-C1",
+        "criterion:DG05-C3"
+      ],
+      "sourceIds": [
+        "source:completion:standards",
+        "source:completion:catalog",
+        "source:completion:engineering"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:standard-corpora"
+      ],
+      "plannedOutputs": [
+        "scripts/validate-standard-profiles.ts",
+        "research/completion-execution/standard-profiles.json",
+        "docs/STANDARDS_COVERAGE.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP20-1",
+          "expectation": "74개 record ID를 그대로 추적하며 suite case별 PASS/FAIL/SKIP/NOT_RUN과 loss/지원 제외 사유를 공개한다. 새 edition/draft 변경은 원문 재검토 task로 연결한다.",
+          "negativeCase": "wrapper SHACL 통과나 전체 수량 일치만으로 domain conformance 또는 standards superset을 주장하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP20-2",
+          "expectation": "known-wrong fixture와 engine 직접/adapter 결과 차이를 탐지한다. 기능 완료에 필요한 profile은 근거 미확보 시 HOLD이며 제외로 완료 수를 올리지 않는다.",
+          "negativeCase": "suite/license/규범 전문 접근이 없는데 PASS 또는 FULL_SUPPORT로 기록하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP21",
+      "title": "실제 운영 outcome으로 W 후보 평가",
+      "phase": "06_OWNER_AND_W",
+      "priority": "P1",
+      "owner": "OUTCOME_OWNER_AND_W_REVIEWER",
+      "scope": "기존 hard/soft penalty·learned W estimate·confidence·authority를 유지하며 실제 owner 데이터로 학습/평가한다. 복원된 outcome이 입력되면 CP14 선행이 필수이고 새 owner 원자료의 offline 평가 준비는 독립 진행 가능하다.",
+      "dependsOn": [],
+      "conditionalDependsOn": [
+        "package:CP14"
+      ],
+      "canonicalTaskIds": [
+        "task:DG04"
+      ],
+      "criterionIds": [
+        "criterion:DG04-C1",
+        "criterion:DG04-C2",
+        "criterion:DG04-C3"
+      ],
+      "sourceIds": [
+        "source:completion:weight-review",
+        "source:completion:weight-evidence",
+        "source:completion:learner",
+        "source:completion:rule-policy"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:operational-data"
+      ],
+      "plannedOutputs": [
+        "research/operational-weight-review/dataset-contract.json",
+        "scripts/evaluate-operational-rule-weight.ts",
+        "docs/OPERATIONAL_WEIGHT_REVIEW.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP21-1",
+          "expectation": "rule/revision/context/action/outcome/단위/owner state/원자료 digest를 고정하고 synthetic/missing/observed 표본을 분리한다. provenance가 없는 복원 표본은 HOLD한다.",
+          "negativeCase": "640개 합성 episode를 실운영 표본으로 재명명하거나 copied receipt를 현재 owner 승인으로 간주하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP21-2",
+          "expectation": "사전 정의한 baseline/train/holdout·누출 차단·맥락별 표본 수·효과/불확실성·replay를 보고한다. 근거 부족/열화는 KEEP_BASELINE/HOLD라는 유효한 평가 결과다.",
+          "negativeCase": "learned estimate를 penalty에 자동 복사하거나 hard constraint를 weight로 상쇄하거나 개선이 없는데 성공을 꾸미면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP22",
+      "title": "owner 검토·적용·rollback의 별도 운영 단계",
+      "phase": "06_OWNER_AND_W",
+      "priority": "P2",
+      "owner": "POLICY_AND_DASHBOARD_OWNER",
+      "scope": "review-ready 후보와 실제 적용은 다른 profile이다. metahumotonic_dashboard/HSWM 등 실제 owner connector·현재 state/revision·기존 scoped authorization을 확인하고 owner가 허용한 조건부 적용/관측/rollback을 연결한다. REVIEW_ONLY는 평가 완료 상태이고 APPLY 완료 상태가 아니다.",
+      "dependsOn": [
+        "package:CP14",
+        "package:CP21"
+      ],
+      "conditionalDependsOn": [],
+      "canonicalTaskIds": [
+        "task:DG04",
+        "task:PT07"
+      ],
+      "criterionIds": [
+        "criterion:DG04-C3",
+        "criterion:PT07-C1",
+        "criterion:PT07-C2",
+        "criterion:PT07-C3"
+      ],
+      "sourceIds": [
+        "source:completion:weight-review",
+        "source:completion:recovery",
+        "source:completion:learner"
+      ],
+      "prerequisiteIds": [
+        "prerequisite:owner-api",
+        "prerequisite:rollout-scope"
+      ],
+      "plannedOutputs": [
+        "docs/OPERATIONAL_WEIGHT_REVIEW.md",
+        "research/completion-execution/owner-rollout.json",
+        "test/owner-policy-rollout.test.ts"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP22-1",
+          "expectation": "검토 profile은 적용0을 확인한다. 별도 적용 profile은 정확한 후보 digest·현재 state·owner 승인 범위·조건부 update 결과와 rollback을 실측한다.",
+          "negativeCase": "link/plan/review-ready만으로 live HSWM·CHU·KG를 수정하거나 owner 상태가 바뀌었는데 적용하면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP22-2",
+          "expectation": "승인/connector/rollback 없는 적용 요청은 구체 prerequisite와 HOLD로 남긴다. 실제 서비스명·소유자를 추정으로 연결하지 않는다.",
+          "negativeCase": "REVIEW_ONLY/HOLD를 실제 배포 완료나 canonical W 구현 완료라고 보고하면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "package:CP23",
+      "title": "전체 요구사항 통합 인수검사와 release 판정",
+      "phase": "08_RELEASE",
+      "priority": "P1",
+      "owner": "USL_RELEASE_OWNER",
+      "scope": "원래13 요구사항→14 과제→47 criterion→이번 work package→실행 receipt→지원 profile을 연결한다. baseline 코드·CLI 호환을 유지하고 이동·분기·표준교환·W검토의 결합 반례를 실행한다. 모든 약속 기능 완료와 좁은 profile 출시를 다른 판정으로 둔다.",
+      "dependsOn": [
+        "package:CP07",
+        "package:CP08",
+        "package:CP11",
+        "package:CP13",
+        "package:CP14",
+        "package:CP15",
+        "package:CP16",
+        "package:CP17",
+        "package:CP20",
+        "package:CP21"
+      ],
+      "conditionalDependsOn": [
+        "package:CP22"
+      ],
+      "canonicalTaskIds": [
+        "task:DG05",
+        "task:DG01"
+      ],
+      "criterionIds": [
+        "criterion:DG05-C1",
+        "criterion:DG05-C2",
+        "criterion:DG05-C3",
+        "criterion:DG01-C1",
+        "criterion:DG01-C2",
+        "criterion:DG01-C3"
+      ],
+      "sourceIds": [
+        "source:completion:plan",
+        "source:completion:progress",
+        "source:completion:runtime",
+        "source:completion:standards",
+        "source:completion:catalog"
+      ],
+      "prerequisiteIds": [],
+      "plannedOutputs": [
+        "scripts/validate-completion-release.ts",
+        "research/completion-execution/release.json",
+        "docs/DEVELOPMENT_PROGRESS.md",
+        "docs/STANDARDS_COVERAGE.md"
+      ],
+      "acceptance": [
+        {
+          "id": "acceptance:CP23-1",
+          "expectation": "선언한 지원 profile별 필수 criteria 전부 실제 fresh receipt로 충족하고 commit/bytes/OS/engine/source·실행일을 고정한다. 47 원래 criteria와 이번 세부 acceptance 모두 누락 없이 연결한다.",
+          "negativeCase": "과거 PASS·새 파일 생성·그래프 검증·테스트 숫자만으로 기능 완료를 판정하거나 NOT_RUN을 숨기면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP23-2",
+          "expectation": "source/device 없는 복구→revision conflict/tombstone→owner reconciliation→표준 roundtrip→W review 통합 경로에서 ID/role/provenance/권한/effect 상태를 검증한다. full profile은 미실행 OS/owner 항목이 있으면 HOLD다.",
+          "negativeCase": "미지원 항목을 자동 제외해 전부 완료 또는 무조건적 상위호환으로 이름만 바꾸면 실패.",
+          "execution": "NOT_RUN"
+        },
+        {
+          "id": "acceptance:CP23-3",
+          "expectation": "apply profile을 선택하면 CP22 실제 owner 적용 근거를 요구하고 review-only release는 적용 미포함을 명시한다. backward compatibility·스키마 migration·rollback·지원범위를 문서화한다.",
+          "negativeCase": "계획 승인을 배포 권한으로 쓰거나 optional W/engine을 기본 binding 필수 의존성으로 만들면 실패.",
+          "execution": "NOT_RUN"
+        }
+      ],
+      "status": "PLANNED"
+    }
+  ],
+  "coverage": [
+    {
+      "id": "coverage:criterion:DG01-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG01-C1",
+      "packageIds": [
+        "package:CP02",
+        "package:CP06",
+        "package:CP23"
+      ],
+      "disposition": "REVERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG01-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG01-C2",
+      "packageIds": [
+        "package:CP02",
+        "package:CP06",
+        "package:CP23"
+      ],
+      "disposition": "REVERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG01-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG01-C3",
+      "packageIds": [
+        "package:CP02",
+        "package:CP05",
+        "package:CP06",
+        "package:CP23"
+      ],
+      "disposition": "REVERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT02-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT02-C1",
+      "packageIds": [
+        "package:CP01",
+        "package:CP05"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT02-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT02-C2",
+      "packageIds": [
+        "package:CP01",
+        "package:CP03",
+        "package:CP04"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT02-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT02-C3",
+      "packageIds": [
+        "package:CP01",
+        "package:CP05"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT02-C4",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT02-C4",
+      "packageIds": [
+        "package:CP01",
+        "package:CP03",
+        "package:CP04",
+        "package:CP05"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT03-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT03-C1",
+      "packageIds": [
+        "package:CP02"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT03-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT03-C2",
+      "packageIds": [
+        "package:CP02"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT03-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT03-C3",
+      "packageIds": [
+        "package:CP02",
+        "package:CP03",
+        "package:CP12",
+        "package:CP13"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT03-C4",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT03-C4",
+      "packageIds": [
+        "package:CP02",
+        "package:CP14"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT03-C5",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT03-C5",
+      "packageIds": [
+        "package:CP01",
+        "package:CP02",
+        "package:CP03",
+        "package:CP04"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT04-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT04-C1",
+      "packageIds": [
+        "package:CP06",
+        "package:CP07"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT04-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT04-C2",
+      "packageIds": [
+        "package:CP06",
+        "package:CP07"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT04-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT04-C3",
+      "packageIds": [
+        "package:CP06",
+        "package:CP07"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT05-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT05-C1",
+      "packageIds": [
+        "package:CP08"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT05-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT05-C2",
+      "packageIds": [
+        "package:CP11"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT05-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT05-C3",
+      "packageIds": [
+        "package:CP08",
+        "package:CP11"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT06-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT06-C1",
+      "packageIds": [
+        "package:CP12"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT06-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT06-C2",
+      "packageIds": [
+        "package:CP12"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT06-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT06-C3",
+      "packageIds": [
+        "package:CP13"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT07-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT07-C1",
+      "packageIds": [
+        "package:CP14",
+        "package:CP22"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT07-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT07-C2",
+      "packageIds": [
+        "package:CP14",
+        "package:CP22"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:PT07-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:PT07-C3",
+      "packageIds": [
+        "package:CP14",
+        "package:CP22"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG02-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG02-C1",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP19"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG02-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG02-C2",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP19"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG02-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG02-C3",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP11",
+        "package:CP19"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG03-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG03-C1",
+      "packageIds": [
+        "package:CP09",
+        "package:CP18",
+        "package:CP19"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG03-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG03-C2",
+      "packageIds": [
+        "package:CP09",
+        "package:CP18",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG03-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG03-C3",
+      "packageIds": [
+        "package:CP18",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG04-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG04-C1",
+      "packageIds": [
+        "package:CP21"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG04-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG04-C2",
+      "packageIds": [
+        "package:CP21"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG04-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG04-C3",
+      "packageIds": [
+        "package:CP21",
+        "package:CP22"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C02-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C02-C1",
+      "packageIds": [
+        "package:CP15"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C02-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C02-C2",
+      "packageIds": [
+        "package:CP15"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C02-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C02-C3",
+      "packageIds": [
+        "package:CP15"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C02-C4",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C02-C4",
+      "packageIds": [
+        "package:CP15"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C03-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C03-C1",
+      "packageIds": [
+        "package:CP16"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C03-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C03-C2",
+      "packageIds": [
+        "package:CP16"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C03-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C03-C3",
+      "packageIds": [
+        "package:CP16"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C04-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C04-C1",
+      "packageIds": [
+        "package:CP17"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C04-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C04-C2",
+      "packageIds": [
+        "package:CP17"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C04-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C04-C3",
+      "packageIds": [
+        "package:CP17"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:C04-C4",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:C04-C4",
+      "packageIds": [
+        "package:CP17"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG05-C1",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG05-C1",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG05-C2",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG05-C2",
+      "packageIds": [
+        "package:CP07",
+        "package:CP23"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:criterion:DG05-C3",
+      "kind": "CRITERION",
+      "sourceId": "source:completion:plan",
+      "sourceRecordId": "criterion:DG05-C3",
+      "packageIds": [
+        "package:CP07",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "IMPLEMENT_AND_VERIFY",
+      "rationale": "원래 acceptance를 보존한다. 현재 부분 구현은 baseline이며 해당 확장 profile 및 실제 환경에서 재검증해야 완료다."
+    },
+    {
+      "id": "coverage:assessment:rdf-model",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:rdf-model",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "RDF 1.1 graph / dataset / term model — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:rdf-syntax",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:rdf-syntax",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Turtle / N-Triples / N-Quads / TriG / RDF/XML — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:jsonld-export",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:jsonld-export",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "JSON-LD 1.1 선언 export — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:jsonld-processing",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:jsonld-processing",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "JSON-LD expansion / compaction / flattening / RDF conversion / framing — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:rdfc",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:rdfc",
+      "packageIds": [
+        "package:CP11",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "RDFC-1.0 canonicalization — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:rdfs",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:rdfs",
+      "packageIds": [
+        "package:CP18",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "RDF/RDFS semantics / subclass / domain / range — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:owl",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:owl",
+      "packageIds": [
+        "package:CP18",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "OWL 2 profiles / reasoning — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:shacl",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:shacl",
+      "packageIds": [
+        "package:CP18",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SHACL shape validation — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:sparql-query",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:sparql-query",
+      "packageIds": [
+        "package:CP18",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SPARQL 1.1 Query — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:sparql-update",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:sparql-update",
+      "packageIds": [
+        "package:CP18",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SPARQL Update / Protocol / Graph Store — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:sparql-results",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:sparql-results",
+      "packageIds": [
+        "package:CP18",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SPARQL JSON/XML/CSV/TSV results / entailment regimes — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:lpg",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:lpg",
+      "packageIds": [
+        "package:CP10",
+        "package:CP18",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Property graph data projection — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:gql",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:gql",
+      "packageIds": [
+        "package:CP18",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "ISO GQL / SQL PGQ language processing — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:prov",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:prov",
+      "packageIds": [
+        "package:CP10",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "PROV-O provenance — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:skos",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:skos",
+      "packageIds": [
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SKOS concepts / schemes / mapping — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:catalog",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:catalog",
+      "packageIds": [
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "DCAT / DQV / VoID — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:tabular",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:tabular",
+      "packageIds": [
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "R2RML / CSVW ingestion — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:annotation",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:annotation",
+      "packageIds": [
+        "package:CP08",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Web Annotation selectors / state — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:ldp",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:ldp",
+      "packageIds": [
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Linked Data Platform HTTP behavior — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:practice",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:practice",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "그래프 공학 실무: ID·출처·역할·검증·상태 — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:nary",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:nary",
+      "packageIds": [
+        "package:CP10",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "n-ary role 모델링 — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:assessment:drafts",
+      "kind": "ASSESSMENT",
+      "sourceId": "source:completion:standards",
+      "sourceRecordId": "assessment:drafts",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "RDF 1.2 / SHACL 1.2 / SPARQL 1.2 추적 — 지원 edition/profile별 구현 또는 owner engine 위임과 독립 suite 근거를 확보한다. 미확립/제외는 full support 완료가 아니다."
+    },
+    {
+      "id": "coverage:technology:S01",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S01",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "OSLC Core 3.0 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S02",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S02",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "WoT TD 1.1 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S03",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S03",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "MCP 2025-11-25, tools — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S04",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S04",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "A2A v0.3.0 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S05",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S05",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "LinkML, slots — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S06",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S06",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Palantir Ontology — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S07",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S07",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Composio, 인증 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S08",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S08",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Airbyte Agents, 기존 커넥터 모델 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S09",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S09",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "RDF 1.1, JSON-LD 1.1 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S10",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S10",
+      "packageIds": [
+        "package:CP09",
+        "package:CP18",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SHACL — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S11",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S11",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "PROV-O — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S12",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S12",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SKOS, SSSOM — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S13",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S13",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "RML — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S14",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S14",
+      "packageIds": [
+        "package:CP09",
+        "package:CP18",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Ontop — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S15",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S15",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "CQL, 연구 목록 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S16",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S16",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "MMT, 언어·theory morphism — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S17",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S17",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "OpenAPI 3.1.1 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S18",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S18",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "AsyncAPI 3.0.0 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S19",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S19",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "CloudEvents — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S20",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S20",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Apache Camel — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S21",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S21",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "n8n integrations — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S22",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S22",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Apollo Federation — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S23",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S23",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "WebAssembly Component Model / WIT — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S24",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S24",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "DataHub lineage — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S25",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S25",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Egeria integration connectors — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S26",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S26",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Microsoft GraphRAG — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S27",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S27",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Cube, dbt Semantic Layer — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S28",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S28",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "OpenLineage object model, facets — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S29",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S29",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "OpenTelemetry traces — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S30",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S30",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SysML v2, Systems Modeling API 1.0 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S31",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S31",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "AAS Metamodel v3.2, API v3.2 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S32",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S32",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "OPC UA Address Space, Information Model — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S33",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S33",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "FMI 3.0.2 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S34",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S34",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "QUDT — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S35",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S35",
+      "packageIds": [
+        "package:CP08",
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SCIP, LSP 3.17 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S36",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S36",
+      "packageIds": [
+        "package:CP09",
+        "package:CP12",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "SWHID 1.1, Package URL / ECMA-427 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S37",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S37",
+      "packageIds": [
+        "package:CP08",
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "Web Annotation Data Model — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S38",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S38",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "CycloneDX BOM-Link, SLSA v1.1 provenance — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S39",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S39",
+      "packageIds": [
+        "package:CP09",
+        "package:CP11",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "RDF Dataset Canonicalization — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:technology:S40",
+      "kind": "TECHNOLOGY",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "S40",
+      "packageIds": [
+        "package:CP09",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "OWL-S, SAWSDL — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C01",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C01",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "역할 도메인 타입과 필수 역할 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C02",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C02",
+      "packageIds": [
+        "package:CP09",
+        "package:CP12",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "단위·revision 맥락 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C03",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C03",
+      "packageIds": [
+        "package:CP09",
+        "package:CP14",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "호스트 권한과 효과 경계 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C04",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C04",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "JSON Schema와 입력 예산 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C05",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C05",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "계약과 근거 pin — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C06",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C06",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "변환 손실과 지원 범위 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C07",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C07",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "예산 있는 기능 발견 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C08",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C08",
+      "packageIds": [
+        "package:CP09",
+        "package:CP14",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "실행 시도와 불명확한 결과 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C09",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C09",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "명세 수입과 비신뢰 설명 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C10",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C10",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "선언·검사·의미의 참 구분 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C11",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C11",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "native ID와 역할 보존 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    },
+    {
+      "id": "coverage:control:C12",
+      "kind": "CONTROL",
+      "sourceId": "source:completion:catalog",
+      "sourceRecordId": "C12",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP20",
+        "package:CP23"
+      ],
+      "disposition": "PROFILE_ASSESSMENT",
+      "rationale": "다자 관계의 표준 교환 — 참조/방어 계약과 실제 제품·표준 기능 구현을 분리하고 요구한 use-case 및 독립 검증에 연결한다."
+    }
+  ],
+  "prerequisites": [
+    {
+      "id": "prerequisite:git-tools",
+      "title": "Git 및 LFS profile 도구·fixture",
+      "status": "NEEDED",
+      "owner": "LOCAL_DEVELOPMENT",
+      "neededFor": [
+        "package:CP01",
+        "package:CP02",
+        "package:CP03",
+        "package:CP04"
+      ],
+      "resolution": "지원 Git/object format·LFS/submodule 도구 버전과 필요한 로컬 fixture를 고정한다. 런타임 availability를 확인하고 미지원은 명시한다.",
+      "completionEvidence": "버전·실행경로·fixture revision·오프라인 closure 검사 결과"
+    },
+    {
+      "id": "prerequisite:snapshot-owner",
+      "title": "일관된 snapshot을 제공할 소유 저장소 adapter",
+      "status": "NEEDED",
+      "owner": "SOURCE_DATA_OWNER",
+      "neededFor": [
+        "package:CP05"
+      ],
+      "resolution": "실제 memory/DB/filesystem owner가 제공하는 export/lock/snapshot 계약을 사용한다. 권한이 없는 live store를 복사하지 않는다.",
+      "completionEvidence": "snapshot token/revision·일관성 범위·실제 export/복구/장애 결과"
+    },
+    {
+      "id": "prerequisite:os-runners",
+      "title": "macOS·Windows·Linux 실행 환경",
+      "status": "NEEDED",
+      "owner": "CI_PLATFORM_OWNER",
+      "neededFor": [
+        "package:CP06"
+      ],
+      "resolution": "기존 사용 가능한 로컬/CI runner를 확인하고 필요한 실행 범위를 확보한다. 기존 권한을 재질문하지 않으며 계획 작성으로 원격 실행을 시작하지 않는다.",
+      "completionEvidence": "OS별 실제 command/commit/environment/exit/log digest와 artifacts"
+    },
+    {
+      "id": "prerequisite:physical-devices",
+      "title": "서로 독립된 기기와 현실적인 복구 데이터",
+      "status": "NEEDED",
+      "owner": "DEVICE_DATA_OWNER",
+      "neededFor": [
+        "package:CP07"
+      ],
+      "resolution": "독립 A/B 장치·서로 다른 root/user/cache 및 공개 가능한 고정 fixture를 준비한다. 서비스/원본은 테스트용 범위만 제거한다.",
+      "completionEvidence": "기기별 transport/restore/hash/ID 대조·실패주입·측정 기록"
+    },
+    {
+      "id": "prerequisite:owner-api",
+      "title": "소유 시스템 상태 API·버전·기존 접근 범위",
+      "status": "NEEDED",
+      "owner": "OWNER_SERVICE",
+      "neededFor": [
+        "package:CP14",
+        "package:CP18",
+        "package:CP19",
+        "package:CP22"
+      ],
+      "resolution": "owner가 제공하는 status/idempotency/조건부 갱신·엔진 adapter를 식별한다. 이미 주어진 권한을 재사용하며 없는 접근만 필요한 시점에 구체적으로 해결한다.",
+      "completionEvidence": "실제 API capability·scoped registration·상태 관측·한계 문서"
+    },
+    {
+      "id": "prerequisite:standard-corpora",
+      "title": "표준 edition·공식 suite·engine/규범 접근",
+      "status": "NEEDED",
+      "owner": "STANDARD_PROFILE_OWNER",
+      "neededFor": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP11",
+        "package:CP18",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "resolution": "원문·독립 suite·engine 버전·사용 조건을 확인한다. 비공개/유료 규범에 접근하지 못한 항목은 미확립으로 남기고 확보 경로를 기록한다.",
+      "completionEvidence": "규범 URI/revision/digest·suite cases·실행환경·판정/제외 근거"
+    },
+    {
+      "id": "prerequisite:operational-data",
+      "title": "실제 outcome 원자료와 평가 조건",
+      "status": "NEEDED",
+      "owner": "OUTCOME_DATA_OWNER",
+      "neededFor": [
+        "package:CP21"
+      ],
+      "resolution": "owner가 제공한 원자료 범위·단위·익명화 필요·baseline/holdout·통계적 최소근거를 정한다. 합성 데이터를 실측으로 대체 표시하지 않는다.",
+      "completionEvidence": "versioned dataset·source digest·누출 검사·사전 평가 조건·replay report"
+    },
+    {
+      "id": "prerequisite:rollout-scope",
+      "title": "적용 대상의 owner 권한·rollback 경로",
+      "status": "NEEDED",
+      "owner": "POLICY_DASHBOARD_OWNER",
+      "neededFor": [
+        "package:CP22"
+      ],
+      "resolution": "실제 HSWM/dashboard connector와 현재 상태를 확인한다. 이미 허용된 범위면 진행하고 새 적용 권한이 필요한 경우 검토 가능한 후보/변경안을 먼저 준비한다.",
+      "completionEvidence": "후보 digest·scoped owner 결정·조건부 적용/rollback/사후 관측"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "milestone:completion:GIT",
+      "title": "원본 없는 Git·전체 선택 작업환경 복구",
+      "packageIds": [
+        "package:CP01",
+        "package:CP02",
+        "package:CP03",
+        "package:CP04",
+        "package:CP05"
+      ],
+      "gate": "clean MVP와 전체 workspace gate를 구분한다. 전체 완료에는 CP03/04/05의 필수 profile 근거가 필요하다.",
+      "status": "PLANNED"
+    },
+    {
+      "id": "milestone:completion:ENV",
+      "title": "실제 OS·장치 이동",
+      "packageIds": [
+        "package:CP06",
+        "package:CP07"
+      ],
+      "gate": "세 OS 실제 결과와 독립 기기 왕복 결과, 예산/장애 검증을 모두 확보한다.",
+      "status": "PLANNED"
+    },
+    {
+      "id": "milestone:completion:MEMORY",
+      "title": "조각·분기·삭제 이력",
+      "packageIds": [
+        "package:CP08",
+        "package:CP12",
+        "package:CP13"
+      ],
+      "gate": "정확 anchor·인과/충돌·삭제 전 백업 반례와 변경 이력을 보존한다.",
+      "status": "PLANNED"
+    },
+    {
+      "id": "milestone:completion:STANDARDS",
+      "title": "명시한 표준 profile 상호운용",
+      "packageIds": [
+        "package:CP09",
+        "package:CP10",
+        "package:CP11",
+        "package:CP18",
+        "package:CP19",
+        "package:CP20"
+      ],
+      "gate": "74개 범위 항목 전부의 판정과 필수 지원 profile 실행 근거. 미확립이 있으면 전표준 상위호환 완료는 아니다.",
+      "status": "PLANNED"
+    },
+    {
+      "id": "milestone:completion:OWNER",
+      "title": "소유 시스템 대조와 운영 W",
+      "packageIds": [
+        "package:CP14",
+        "package:CP21",
+        "package:CP22"
+      ],
+      "gate": "평가 완료·owner 현재 상태 대조·실제 적용 완료를 각각 판정한다. 미승인 적용은 HOLD/REVIEW_ONLY.",
+      "status": "PLANNED"
+    },
+    {
+      "id": "milestone:completion:CLI",
+      "title": "기존 core·CLI 호환",
+      "packageIds": [
+        "package:CP15",
+        "package:CP16",
+        "package:CP17"
+      ],
+      "gate": "기존 CLI 회귀와 새 옵션/stdin/package bin 계약을 통과한다.",
+      "status": "PLANNED"
+    },
+    {
+      "id": "milestone:completion:RELEASE",
+      "title": "통합 인수와 지원 범위 공개",
+      "packageIds": [
+        "package:CP23"
+      ],
+      "gate": "모든 약속 기능은 필수 gate의 실제 근거가 있을 때만 완료. 제한 profile 출시는 별도 명시한다.",
+      "status": "PLANNED"
+    }
+  ],
+  "competencyQuestions": [
+    {
+      "id": "question:completion:1",
+      "question": "지금 구현된 scope와 Git/OS 등 미완료 경계의 근거 source는 무엇인가?"
+    },
+    {
+      "id": "question:completion:2",
+      "question": "첫 작업 CP01과 병렬 착수 가능한 package는 무엇이며 의존 관계에 순환이 없는가?"
+    },
+    {
+      "id": "question:completion:3",
+      "question": "원래47 criteria 각각을 어느 package와 새 acceptance가 완수하는가?"
+    },
+    {
+      "id": "question:completion:4",
+      "question": "22 assessments·40 technologies·12 controls 모두 구현/위임/검증 계획에 연결되는가?"
+    },
+    {
+      "id": "question:completion:5",
+      "question": "Git clean MVP 이후 dirty/index/untracked/submodule/LFS/alternates 전체 범위의 책임은 어디인가?"
+    },
+    {
+      "id": "question:completion:6",
+      "question": "어떤 package가 실제 OS/장치·owner 접근·운영 데이터·규범 원문을 필요로 하는가?"
+    },
+    {
+      "id": "question:completion:7",
+      "question": "복원 outcome 기반 W 평가와 실제 적용의 조건부 선행·권한 경계는 무엇인가?"
+    },
+    {
+      "id": "question:completion:8",
+      "question": "기존 baseline PASS를 미래 acceptance PASS로 승격하거나 user와 AI 권위를 혼동하지 않았는가?"
+    }
+  ],
+  "decisions": [
+    "완료의 범위는 원래13 요구사항·14 task·47 criterion 및22/40/12 지원 범위 장부다. 모든 표준·제품의 무한한 미래 기능을 무조건 상위호환한다는 약속으로 확대하지 않는다.",
+    "기존 development-plan snapshot과 canonical task/criterion ID를 유지한다. 이번 package 의존성은 구체 구현 단위의 후속 계획이며 이미 완료된 DG01/파일 profile을 처음부터 재구현하지 않는다.",
+    "CP01→CP02를 첫 실행 경로로 삼는다. CP09와 CLI CP15/16/17, 새 운영 데이터에 대한 CP21 준비를 병렬로 진행할 수 있다. CP08·12는 필요한 profile 경계가 마련되면 전체 OS 작업을 기다리지 않고 구현할 수 있다.",
+    "CP21→CP14 조건은 복원 outcome/receipt를 소비할 때만 적용한다. CP23→CP22 조건은 live apply profile을 출시할 때만 적용한다. 조건을 선택한 경우 필수 의존이며 단순 참고가 아니다.",
+    "CLEAN_GIT_WORKTREE MVP 후 dirty/index/untracked·submodule/LFS/alternates·원자 snapshot을 끝까지 구현/검증하는 별도 과제가 남는다. 거부 기능만 구현해 전체 복구 완료라고 표시하지 않는다.",
+    "새 acceptance 전부 NOT_RUN이며 계획 builder/SHACL/CQ 통과는 계획 구조의 검증이다. 기존 Linux Node22/24 각432 및 이동83 검사는 저장된 과거 근거이며 이번 계획에서 재실행한 결과가 아니다.",
+    "NOT_A_STANDARDS_SUPERSET을 유지한다. 선택 profile의 구현/위임/공식 suite 완료를 순차로 얻고 실제 원문 접근이 없는 표준은 NOT_ESTABLISHED로 표시한다. 제외를 미완료 기능 완료로 집계하지 않는다.",
+    "외부 runner·장치·owner API·원자료는 코드 작성만으로 만들 수 없다. 각각 필요한 산출물과 책임을 계획에 연결한다. 현재 계획은 외부 실행·배포·KG 쓰기·권한 부여를 하지 않는다.",
+    "W 평가는 개선 없음/근거 부족도 유효한 결론이다. REVIEW_ONLY를 평가 완료로 구분하고 실제 HSWM/dashboard 적용 완료는 별도 근거가 있어야 한다.",
+    "KG sym:Concept:usl의 사용자 정전은 연결 개념의 출처다. 조회 시점에 남은 오래된 개발예정 설명은 현재 구현 상태를 덮어쓰지 않는다. 본 구현 배치는 SECONDARY_AI이며 canon을 수정하지 않는다.",
+    "2026-10-04 공식 Git bundle/worktree 및 W3C RDFC/SHACL 원문을 확인했다: https://git-scm.com/docs/git-bundle ; https://git-scm.com/docs/git-worktree ; https://www.w3.org/TR/rdf-canon/ ; https://www.w3.org/TR/shacl/ . 도구 매뉴얼 검토는 실행 인수검사나 USL 전체 적합성 인증이 아니다."
+  ]
+}

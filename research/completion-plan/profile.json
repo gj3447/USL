@@ -1,0 +1,360 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:completion-plan:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:completion-plan:original_task_addresses",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "originalTask",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:OriginalTask"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:OriginalRequirement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:original_criterion_for",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "originalCriterion",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:OriginalCriterion"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "originalTask",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:OriginalTask"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:requirement_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:OriginalRequirement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:conditionally_depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:uses_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:has_acceptance",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "acceptance",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Acceptance"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:maps_original_task",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "originalTask",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:OriginalTask"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:maps_original_criterion",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "originalCriterion",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:OriginalCriterion"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:covers",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "coverage",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Coverage"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:covers_source_record",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "coverage",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Coverage"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:requires",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Prerequisite"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:needed_for",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Prerequisite"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:includes",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "milestone",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Milestone"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:builds_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "baseline",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Baseline"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:completion-plan:derived_from",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "baseline",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Baseline"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:completion-plan:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

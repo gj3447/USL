@@ -1,0 +1,51 @@
+@prefix c: <urn:usl:completion-plan:> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+c:PlanShape a sh:NodeShape ;
+  sh:targetClass c:Plan ;
+  sh:property [ sh:path c:status ; sh:hasValue "PLANNED" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path c:authority ; sh:hasValue "SECONDARY_AI" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path c:sourceCommit ; sh:pattern "^[a-f0-9]{40}$" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path c:firstPackage ; sh:class c:Package ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path prov:wasGeneratedBy ; sh:class prov:Activity ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+c:SourceShape a sh:NodeShape ;
+  sh:targetClass c:Source ;
+  sh:property [ sh:path c:path ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path c:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^sha256:[a-f0-9]{64}$" ] ;
+  sh:property [ sh:path c:sourceCommit ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[a-f0-9]{40}$" ] .
+
+c:PackageShape a sh:NodeShape ;
+  sh:targetClass c:Package ;
+  sh:property [ sh:path c:status ; sh:hasValue "PLANNED" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path c:uses_source ; sh:minCount 1 ; sh:class c:Source ] ;
+  sh:property [ sh:path c:has_acceptance ; sh:minCount 1 ; sh:class c:Acceptance ] .
+
+c:AcceptanceShape a sh:NodeShape ;
+  sh:targetClass c:Acceptance ;
+  sh:property [ sh:path c:execution ; sh:hasValue "NOT_RUN" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path c:expectation ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path c:negativeCase ; sh:minCount 1 ; sh:datatype xsd:string ] .
+
+c:CoverageShape a sh:NodeShape ;
+  sh:targetClass c:Coverage ;
+  sh:property [ sh:path c:kind ; sh:in ( "CRITERION" "ASSESSMENT" "TECHNOLOGY" "CONTROL" ) ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path c:covers ; sh:minCount 1 ; sh:class c:Package ] ;
+  sh:property [ sh:path c:covers_source_record ; sh:minCount 1 ; sh:maxCount 1 ; sh:class c:Source ] .
+
+c:PrerequisiteShape a sh:NodeShape ;
+  sh:targetClass c:Prerequisite ;
+  sh:property [ sh:path c:status ; sh:hasValue "NEEDED" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path c:needed_for ; sh:minCount 1 ; sh:class c:Package ] .
+
+c:OriginalRequirementShape a sh:NodeShape ;
+  sh:targetClass c:OriginalRequirement ;
+  sh:property [ sh:path c:authority ; sh:hasValue "SECONDARY_AI" ; sh:minCount 1 ] ;
+  sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class c:Source ] .
+
+c:PlanActivityShape a sh:NodeShape ;
+  sh:targetClass prov:Activity ;
+  sh:property [ sh:path prov:wasAssociatedWith ; sh:minCount 1 ; sh:class prov:Agent ] ;
+  sh:property [ sh:path prov:used ; sh:minCount 1 ] .
