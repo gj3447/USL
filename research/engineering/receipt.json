@@ -1,8 +1,8 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:34b70a0b-0ac8-4f7b-bd00-433059cf51e9",
-  "startedAt": "2026-10-04T01:21:05.391Z",
-  "finishedAt": "2026-10-04T01:21:06.124Z",
+  "runId": "urn:uuid:907106b4-9065-4056-94dc-34ef3506bc75",
+  "startedAt": "2026-10-04T06:01:05.958Z",
+  "finishedAt": "2026-10-04T06:01:06.734Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
@@ -14,7 +14,7 @@
     "src/addons/checkout-guard.ts": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
     "src/addons/portable-transfer-bindings.ts": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05",
     "src/addons/portable-transfer-export.ts": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a",
-    "src/addons/portable-transfer-import.ts": "sha256:ff458b024061a4231285118db274c63278a2e60319c08accf20167215c5d29c0",
+    "src/addons/portable-transfer-import.ts": "sha256:5f15404d7a51bcc2ef117102f4dcfc0cd81628b91fdffd51a7bf454ab95cfb9a",
     "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
@@ -227,5 +227,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:a52b2d4dc0aedc94c553753098cb50a88e6cfcd3ee034f2d49744129bb5f733e"
+  "receiptDigest": "sha256:6f601552e1635ccefa984f4b481b17237409155dccebc9b2fa348b6285c6b19d"
 }

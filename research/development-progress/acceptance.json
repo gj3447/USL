@@ -1,6 +1,6 @@
 {
   "schema": "usl-development-progress-acceptance/v1",
-  "sourceCommit": "7576cf9bccea1a068f2a84f69bace3f3eb419b72",
+  "sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
   "platforms": {
     "linux": "LOCAL_PASS",
     "macos": "NOT_RUN",
@@ -16,7 +16,7 @@
   },
   "consumer": {
     "schema": "usl-portable-transfer-consumer-report/v1",
-    "observedAt": "2026-10-04T01:24:51.283Z",
+    "observedAt": "2026-10-04T06:01:51.901Z",
     "platform": "linux",
     "node": "v24.20.0",
     "sourceBundleReceiptDigest": "sha256:4b3aa4c4906d7d1cac4c790b6becb8e0801416ff9214f625038c316c7bc76753",
@@ -50,26 +50,26 @@
       }
     ],
     "roleVerification": "PASS",
-    "importAndRebindWallMs": 46.714494,
-    "peakRssKiB": 137408,
+    "importAndRebindWallMs": 53.516687,
+    "peakRssKiB": 133140,
     "operations": "HISTORICAL_UNRECONCILED",
     "executionCalls": 0
   },
   "measurement": {
     "schema": "usl-portable-transfer-measurement/v1",
     "scope": "one local import process; benchmark only, not an operation-effect or Lean-proof claim",
-    "pid": 437938,
+    "pid": 492261,
     "platform": "linux",
     "node": "v24.20.0",
     "importedBytes": 22,
     "restoredFiles": 2,
-    "importWallMs": 33.080351,
-    "postRestoreHashWallMs": 0.504699,
+    "importWallMs": 36.727239,
+    "postRestoreHashWallMs": 0.51913,
     "postRestoreDigests": [
       "sha256:4ce74248227e9e9e86d4c8906c7ec8a985df17cec0febc32c3db59fc238fda41",
       "sha256:16d4dd4e9a3e0f620a0dffd15a5104283c6fc8d2849fc4fa0622c25bbf7d4d71"
     ],
-    "peakRssKiB": 80688,
+    "peakRssKiB": 80764,
     "executionCalls": 0,
     "operations": "HISTORICAL_UNRECONCILED"
   }

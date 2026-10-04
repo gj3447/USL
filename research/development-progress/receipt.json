@@ -55,8 +55,8 @@
       ]
     }
   ],
-  "recordedAt": "2026-10-04T01:24:51.533883+00:00",
-  "sourceCommit": "7576cf9bccea1a068f2a84f69bace3f3eb419b72",
+  "recordedAt": "2026-10-04T06:01:52.183817+00:00",
+  "sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -94,7 +94,7 @@
     },
     {
       "path": "docs/PORTABLE_TRANSFER_IMPORT.md",
-      "sha256": "sha256:979615720847ce33181b141cdbe0762745fbf30011e04bb254d3463bbbdd007d"
+      "sha256": "sha256:5a1c35ee5aff728e86cef9fa4bd191698a49819e8b22ed84bb04b3cc55894685"
     },
     {
       "path": "package-lock.json",
@@ -118,7 +118,7 @@
     },
     {
       "path": "scripts/portable-transfer-acceptance.ts",
-      "sha256": "sha256:27cb30b3bc2b5c163c26861ec52f424dd64bb3626e088ff325ececb8ed85eb86"
+      "sha256": "sha256:64794dfb9272375e23cbe9e78a7b25992282417db484d18145f9b684fe83dc66"
     },
     {
       "path": "scripts/record-development-progress.py",
@@ -150,7 +150,7 @@
     },
     {
       "path": "src/addons/portable-transfer-import.ts",
-      "sha256": "sha256:ff458b024061a4231285118db274c63278a2e60319c08accf20167215c5d29c0"
+      "sha256": "sha256:5f15404d7a51bcc2ef117102f4dcfc0cd81628b91fdffd51a7bf454ab95cfb9a"
     },
     {
       "path": "src/addons/portable-transfer.ts",
@@ -394,11 +394,11 @@
     },
     {
       "path": "test/portable-transfer-portability.test.ts",
-      "sha256": "sha256:6380efc4d5f4868035225d20c6dfd35e21b082ea04bd5d44e08302d3d5acda0d"
+      "sha256": "sha256:882c34dcabbe14ddfa44045e5e64f794cbaf48beb8742e4952c75b6b912c038b"
     },
     {
       "path": "test/portable-transfer-restore.test.ts",
-      "sha256": "sha256:aa8454bf58437121e26ccb6236e8350f493ee306fdc53af0faa0eafa55db0cb0"
+      "sha256": "sha256:9564e1062adaa699a4e8441f16ac23dc64db8cad760760bf34bec023aa25e962"
     },
     {
       "path": "test/worktree-execution.test.ts",
@@ -417,7 +417,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:e64a050e6afa2a1ba19ea4f2a555b2723bc43e215add9b801aab5fc39e58f185",
+  "tapDigest": "sha256:1c4a445e7163ec028241264bcdea8b599f0fca93230504becd37bdac242ce3cc",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -660,6 +660,11 @@
       "status": "PASS"
     },
     {
+      "id": "test:3b21db46fe6428d5ea0b6a98b668f71d2adccb135fae1da925ca070c99b9f62d",
+      "name": "PT04-C1: owned transport fixtures resolve temporary-directory aliases before strict filesystem checks",
+      "status": "PASS"
+    },
+    {
       "id": "test:fa697cf20c36a9d80f8f33a93183ef0c59be3be84ec1aded622ccf0156c8f662",
       "name": "PT03-C1: verifies a real PT02 bundle before rebinding exact IDs at a different root",
       "status": "PASS"
@@ -692,6 +697,11 @@
     {
       "id": "test:b270c213c1889bc3c4b78a52abab4674ef7232a5dca0f1d208dfef93b7d26d66",
       "name": "PT03-C2: receipt-repinned case-folded restore paths cannot publish on a case-sensitive host",
+      "status": "PASS"
+    },
+    {
+      "id": "test:98287f98151a2a52c00e79474f419e48324888f09414ce51d65df972bdd4b995",
+      "name": "PT03-C2: authenticated non-exportable registration and credential paths cannot reserve a destination",
       "status": "PASS"
     },
     {
@@ -821,8 +831,8 @@
     }
   ],
   "totals": {
-    "tests": 80,
-    "pass": 80,
+    "tests": 82,
+    "pass": 82,
     "fail": 0,
     "cancelled": 0,
     "skipped": 0,
@@ -845,6 +855,6 @@
     "criterion:PT04-C2",
     "criterion:PT04-C3"
   ],
-  "acceptanceDigest": "sha256:be3f529e8c8ef09009b455cfff9c8995e6a5092593c5bff2065217078b119dfd",
+  "acceptanceDigest": "sha256:171c991d31dea07a1042df23a961dbf9c1ec90d53e9b3ae71eeb09d90e1c680d",
   "nextTask": "task:PT03"
 }
