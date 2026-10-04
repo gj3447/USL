@@ -1,16 +1,17 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:f0a20d5a-bea8-4665-9382-61d294c3a261",
-  "startedAt": "2026-10-03T11:39:30.935Z",
-  "finishedAt": "2026-10-03T11:39:31.674Z",
+  "runId": "urn:uuid:62ac50cc-71c2-4ee3-a6c2-070d8e07f85c",
+  "startedAt": "2026-10-04T00:00:05.564Z",
+  "finishedAt": "2026-10-04T00:00:06.293Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
+    "package.json": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a",
     "schemas/resource-graph.shacl.ttl": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
     "scripts/build-engineering-review.ts": "sha256:30cf09fd7c52bade45a9eecacc9f8fa2c0490b7a4a54df011be176064736c650",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+    "src/addons/checkout-guard.ts": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
     "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
@@ -223,5 +224,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:22a388236728138164fefceacf5810af2c6aa33bc0c8c1bfe1b37ba64c1bec31"
+  "receiptDigest": "sha256:bd31ae7e10c0b49cf7c7626b9142fec896e81779c7540bac546bfa46121a8bed"
 }

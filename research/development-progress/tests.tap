@@ -1,0 +1,226 @@
+TAP version 13
+# Subtest: explicit workspace inspection hashes files and emits a redacted Git candidate
+ok 1 - explicit workspace inspection hashes files and emits a redacted Git candidate
+  ---
+  duration_ms: 58.267623
+  type: 'test'
+  ...
+# Subtest: worktree facts survive a moved registered root and report a common Git directory
+ok 2 - worktree facts survive a moved registered root and report a common Git directory
+  ---
+  duration_ms: 39.193412
+  type: 'test'
+  ...
+# Subtest: a linked worktree uses the main checkout common Git directory
+ok 3 - a linked worktree uses the main checkout common Git directory
+  ---
+  duration_ms: 46.769799
+  type: 'test'
+  ...
+# Subtest: ordinary directories and unborn repositories are distinguished without origin
+ok 4 - ordinary directories and unborn repositories are distinguished without origin
+  ---
+  duration_ms: 30.973246
+  type: 'test'
+  ...
+# Subtest: limits and input contracts fail before filesystem resolution
+ok 5 - limits and input contracts fail before filesystem resolution
+  ---
+  duration_ms: 4.273606
+  type: 'test'
+  ...
+# Subtest: DG01-C1: equal bytes with a different HEAD or owner checkout identity hold
+ok 6 - DG01-C1: equal bytes with a different HEAD or owner checkout identity hold
+  ---
+  duration_ms: 113.076706
+  type: 'test'
+  ...
+# Subtest: DG01-C1: an explicit Git worktree move and owner remap retain the selected logical binding
+ok 7 - DG01-C1: an explicit Git worktree move and owner remap retain the selected logical binding
+  ---
+  duration_ms: 78.703883
+  type: 'test'
+  ...
+# Subtest: DG01-C2: dirty, detached, sparse, subdirectory and broken-gitfile states are held by policy
+ok 8 - DG01-C2: dirty, detached, sparse, subdirectory and broken-gitfile states are held by policy
+  ---
+  duration_ms: 159.411498
+  type: 'test'
+  ...
+# Subtest: DG01-C2: an owner may explicitly allow a dirty checkout and an unborn checkout is distinguished
+ok 9 - DG01-C2: an owner may explicitly allow a dirty checkout and an unborn checkout is distinguished
+  ---
+  duration_ms: 131.533477
+  type: 'test'
+  ...
+# Subtest: DG01-C3: a prepared guard holds after HEAD, index or runner changes and a caller action stays at zero
+ok 10 - DG01-C3: a prepared guard holds after HEAD, index or runner changes and a caller action stays at zero
+  ---
+  duration_ms: 352.534086
+  type: 'test'
+  ...
+# Subtest: DG01-C2: a nested submodule is held unless a future profile closes its scope
+ok 11 - DG01-C2: a nested submodule is held unless a future profile closes its scope
+  ---
+  duration_ms: 135.535987
+  type: 'test'
+  ...
+# Subtest: DG01-C3: a prepared guard is process-local, an initial HOLD cannot become PASS, and a remap is stale
+ok 12 - DG01-C3: a prepared guard is process-local, an initial HOLD cannot become PASS, and a remap is stale
+  ---
+  duration_ms: 142.703517
+  type: 'test'
+  ...
+# Subtest: DG01-C2: malformed sparse configuration and unborn index changes fail closed
+ok 13 - DG01-C2: malformed sparse configuration and unborn index changes fail closed
+  ---
+  duration_ms: 111.099306
+  type: 'test'
+  ...
+# Subtest: DG01-C2: FIFO, untracked nested repository and symlink inputs fail closed without traversal
+ok 14 - DG01-C2: FIFO, untracked nested repository and symlink inputs fail closed without traversal
+  ---
+  duration_ms: 176.81187
+  type: 'test'
+  ...
+# Subtest: DG01-C2: configured Git clean filters hold before a selected-file observation can invoke them
+ok 15 - DG01-C2: configured Git clean filters hold before a selected-file observation can invoke them
+  ---
+  duration_ms: 56.283202
+  type: 'test'
+  ...
+# Subtest: DG01-C1: a selected content pin reports exact MATCH then MISMATCH
+ok 16 - DG01-C1: a selected content pin reports exact MATCH then MISMATCH
+  ---
+  duration_ms: 102.117311
+  type: 'test'
+  ...
+# Subtest: DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed
+ok 17 - DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed
+  ---
+  duration_ms: 96.717335
+  type: 'test'
+  ...
+# Subtest: remapping a real linked worktree rejects a stale main-worktree plan before an attempt
+ok 18 - remapping a real linked worktree rejects a stale main-worktree plan before an attempt
+  ---
+  duration_ms: 1259.125199
+  type: 'test'
+  ...
+# Subtest: a shared operation store prevents re-execution after remapping between real worktrees
+ok 19 - a shared operation store prevents re-execution after remapping between real worktrees
+  ---
+  duration_ms: 2182.816818
+  type: 'test'
+  ...
+# Subtest: separate operation stores are an explicit cross-worktree duplicate-execution limitation
+ok 20 - separate operation stores are an explicit cross-worktree duplicate-execution limitation
+  ---
+  duration_ms: 2893.951229
+  type: 'test'
+  ...
+# Subtest: a Git branch HEAD change is not attested when the declared pinned files are unchanged
+ok 21 - a Git branch HEAD change is not attested when the declared pinned files are unchanged
+  ---
+  duration_ms: 1101.286869
+  type: 'test'
+  ...
+# Subtest: a changed pinned runner in a sibling worktree blocks before the external effect
+ok 22 - a changed pinned runner in a sibling worktree blocks before the external effect
+  ---
+  duration_ms: 711.840906
+  type: 'test'
+  ...
+# Subtest: worktree graph rebinding preserves complete logical links while selecting divergent content
+ok 23 - worktree graph rebinding preserves complete logical links while selecting divergent content
+  ---
+  duration_ms: 58.429831
+  type: 'test'
+  ...
+# Subtest: CLI inspection selects the linked worktree through host-relative workspace configuration
+ok 24 - CLI inspection selects the linked worktree through host-relative workspace configuration
+  ---
+  duration_ms: 878.609372
+  type: 'test'
+  ...
+# Subtest: a subdirectory workspace observes its enclosing Git root without asserting checkout identity
+ok 25 - a subdirectory workspace observes its enclosing Git root without asserting checkout identity
+  ---
+  duration_ms: 50.115878
+  type: 'test'
+  ...
+# Subtest: a worktree directory digest declaration remains unchecked rather than proving a tree snapshot
+ok 26 - a worktree directory digest declaration remains unchecked rather than proving a tree snapshot
+  ---
+  duration_ms: 50.481636
+  type: 'test'
+  ...
+# Subtest: inspects explicit main and linked-worktree representations as one logical resource
+ok 27 - inspects explicit main and linked-worktree representations as one logical resource
+  ---
+  duration_ms: 91.042723
+  type: 'test'
+  ...
+# Subtest: observes dirty working tree and index state independently per worktree
+ok 28 - observes dirty working tree and index state independently per worktree
+  ---
+  duration_ms: 116.955444
+  type: 'test'
+  ...
+# Subtest: observes detached HEAD at the same commit without merging distinct representations
+ok 29 - observes detached HEAD at the same commit without merging distinct representations
+  ---
+  duration_ms: 74.276351
+  type: 'test'
+  ...
+# Subtest: git worktree move plus host remapping preserves selected resource and representation IDs
+ok 30 - git worktree move plus host remapping preserves selected resource and representation IDs
+  ---
+  duration_ms: 48.625593
+  type: 'test'
+  ...
+# Subtest: manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair
+ok 31 - manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair
+  ---
+  duration_ms: 60.273436
+  type: 'test'
+  ...
+# Subtest: observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory
+ok 32 - observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory
+  ---
+  duration_ms: 55.115654
+  type: 'test'
+  ...
+# Subtest: observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity
+ok 33 - observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity
+  ---
+  duration_ms: 36.642867
+  type: 'test'
+  ...
+# Subtest: observes limitation: sparse checkout omission has no representation fallback
+ok 34 - observes limitation: sparse checkout omission has no representation fallback
+  ---
+  duration_ms: 37.350358
+  type: 'test'
+  ...
+# Subtest: rejects a symlink from one worktree into another registered worktree
+ok 35 - rejects a symlink from one worktree into another registered worktree
+  ---
+  duration_ms: 28.364466
+  type: 'test'
+  ...
+# Subtest: observes limitation: a wrong workspace alias can match bytes while its Git head differs
+ok 36 - observes limitation: a wrong workspace alias can match bytes while its Git head differs
+  ---
+  duration_ms: 89.085007
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9055.965086

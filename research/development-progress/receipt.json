@@ -1,0 +1,512 @@
+{
+  "schema": "usl-development-progress/v1",
+  "authority": "SECONDARY_AI",
+  "task": "task:DG01",
+  "implementation": "IMPLEMENTED_LOCAL_SCOPE",
+  "status": "LOCAL_CASES_PASS",
+  "recordedAt": "2026-10-04T00:01:16.254194+00:00",
+  "sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+  "environment": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "node": "v24.20.0",
+    "git": "git version 2.47.3"
+  },
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "--test",
+    "--test-reporter=tap",
+    "test/checkout-guard.test.ts",
+    "test/binding-inspection.test.ts",
+    "test/worktree-lifecycle.test.ts",
+    "test/worktree-execution.test.ts",
+    "test/worktree-graph-cli.test.ts"
+  ],
+  "pins": [
+    {
+      "path": "docs/CHECKOUT_GUARD.md",
+      "sha256": "sha256:9c668db86982beb843af19723ec5e089797b440518629263d66d358a5a1086a9"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a"
+    },
+    {
+      "path": "research/development-plan/plan.json",
+      "sha256": "sha256:d1dbe46a4246da80386525962b8b6f58f6badb406222a79e032ec1b156aecdc9"
+    },
+    {
+      "path": "schemas/development-progress/progress.shacl.ttl",
+      "sha256": "sha256:3fe3e3f0dffe15b09dd080e51d336e77cce02b79891a1c6c4b2e84b35e440863"
+    },
+    {
+      "path": "scripts/record-development-progress.py",
+      "sha256": "sha256:6afff0e3908f987055a2c44a77e5816d8e30cf079a94ecde7a211917ced01c7f"
+    },
+    {
+      "path": "src/adapters.ts",
+      "sha256": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79"
+    },
+    {
+      "path": "src/addons/checkout-guard.ts",
+      "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
+    },
+    {
+      "path": "src/addons/portable-transfer.ts",
+      "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad"
+    },
+    {
+      "path": "src/addons/rule-policy.ts",
+      "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c"
+    },
+    {
+      "path": "src/addons/rule-weight-evidence.ts",
+      "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463"
+    },
+    {
+      "path": "src/addons/rule-weight-review.ts",
+      "sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d"
+    },
+    {
+      "path": "src/application.ts",
+      "sha256": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f"
+    },
+    {
+      "path": "src/attempt-state.ts",
+      "sha256": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e"
+    },
+    {
+      "path": "src/binding-inspection.ts",
+      "sha256": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8"
+    },
+    {
+      "path": "src/bounded-read.ts",
+      "sha256": "sha256:e016f04530b8046daccc274269412cfccee5607ba661fd718730ee15c0a7e7c7"
+    },
+    {
+      "path": "src/capabilities.ts",
+      "sha256": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018"
+    },
+    {
+      "path": "src/capability-catalog.ts",
+      "sha256": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc"
+    },
+    {
+      "path": "src/cli-adapter.ts",
+      "sha256": "sha256:4d2f6a159b40bbeb5b437cd9a600210453cafa598997b82246ba910b996349b4"
+    },
+    {
+      "path": "src/cli-capabilities.ts",
+      "sha256": "sha256:48cee118eeccaaea3e2a0aefa3bdd292382a91a51e33a6895e4d7bd810ee1c70"
+    },
+    {
+      "path": "src/cli-help.ts",
+      "sha256": "sha256:4df34b8da44cfa1dfbcd316610b6d44df11ff13e9209e21fdbb7167d5887c5dc"
+    },
+    {
+      "path": "src/cli-host-command.ts",
+      "sha256": "sha256:f328f49fdd91046d1216f307e23e91cc06481e08af0f180609b8b3f07fd95f77"
+    },
+    {
+      "path": "src/cli-host.ts",
+      "sha256": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692"
+    },
+    {
+      "path": "src/cli-operation.ts",
+      "sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b"
+    },
+    {
+      "path": "src/cli-platform.ts",
+      "sha256": "sha256:289c4a3a8bcd6c26811924bb703a0038894c7b64207964142ce25ae588c0771a"
+    },
+    {
+      "path": "src/cli-process.ts",
+      "sha256": "sha256:c9d20c5af3b9a8aeb81c42a5ded7b4706d59dee08ac2d15d101de34b11d3fa29"
+    },
+    {
+      "path": "src/cli-recovery.ts",
+      "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "sha256:5843b269a772cabcf62c700448af6fc331d97553c51d365f7b75657bd71abaa7"
+    },
+    {
+      "path": "src/contract-core.ts",
+      "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322"
+    },
+    {
+      "path": "src/domain-profile.ts",
+      "sha256": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6"
+    },
+    {
+      "path": "src/domain.ts",
+      "sha256": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d"
+    },
+    {
+      "path": "src/engineering-review.ts",
+      "sha256": "sha256:9c5eed58e088fcec45350f2516d41dad5b5add3bb5fb3e004ca94e8db0daf577"
+    },
+    {
+      "path": "src/index.ts",
+      "sha256": "sha256:f32c1c08aa8a23e5b8d0e15463ede1a9c24c5a4b5c9506bbbdda89a997c6aa36"
+    },
+    {
+      "path": "src/integrations/capability-inventory.ts",
+      "sha256": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c"
+    },
+    {
+      "path": "src/integrations/graph-engineering.ts",
+      "sha256": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6"
+    },
+    {
+      "path": "src/integrations/hswm.ts",
+      "sha256": "sha256:bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30"
+    },
+    {
+      "path": "src/integrations/lean4.ts",
+      "sha256": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7"
+    },
+    {
+      "path": "src/integrations/property-graph.ts",
+      "sha256": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5"
+    },
+    {
+      "path": "src/integrations/resource-bindings.ts",
+      "sha256": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902"
+    },
+    {
+      "path": "src/integrations/resource-graph.ts",
+      "sha256": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b"
+    },
+    {
+      "path": "src/json-data.ts",
+      "sha256": "sha256:bfd430f5dde0b1d1917acda4d54a80f833989e765e4329ecffe48a5072a2ad8a"
+    },
+    {
+      "path": "src/language/code.ts",
+      "sha256": "sha256:76b97d1dc700cc58bc82d5b9ff66fe8809f642c191c90297acd8d4662bd99a27"
+    },
+    {
+      "path": "src/language/compact.ts",
+      "sha256": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416"
+    },
+    {
+      "path": "src/language/comparison.ts",
+      "sha256": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862"
+    },
+    {
+      "path": "src/language/compiler.ts",
+      "sha256": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f"
+    },
+    {
+      "path": "src/language/digest.ts",
+      "sha256": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1"
+    },
+    {
+      "path": "src/language/index.ts",
+      "sha256": "sha256:d86e7908c37388c8cf7a1538d7674033ab604f238bcb3c2f4c80a1dbf4c2f369"
+    },
+    {
+      "path": "src/language/model.ts",
+      "sha256": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493"
+    },
+    {
+      "path": "src/language/navigation.ts",
+      "sha256": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e"
+    },
+    {
+      "path": "src/language/observation-schema.ts",
+      "sha256": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5"
+    },
+    {
+      "path": "src/language/parser.ts",
+      "sha256": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed"
+    },
+    {
+      "path": "src/language/project.ts",
+      "sha256": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c"
+    },
+    {
+      "path": "src/language/runtime.ts",
+      "sha256": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8"
+    },
+    {
+      "path": "src/locator.ts",
+      "sha256": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3"
+    },
+    {
+      "path": "src/mcp-config.ts",
+      "sha256": "sha256:d2e77e10dec777daaa9d777c9a14c6a10e3a0a2ec4776f655e2651eadeef9776"
+    },
+    {
+      "path": "src/mcp.ts",
+      "sha256": "sha256:a4e9832cbf87934751ff3ac0d849ec32b25a46842c2f662b445f667914d77f2f"
+    },
+    {
+      "path": "src/pierce.ts",
+      "sha256": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e"
+    },
+    {
+      "path": "src/program-store.ts",
+      "sha256": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca"
+    },
+    {
+      "path": "src/project.ts",
+      "sha256": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de"
+    },
+    {
+      "path": "src/resolve.ts",
+      "sha256": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78"
+    },
+    {
+      "path": "src/resource-bindings.ts",
+      "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef"
+    },
+    {
+      "path": "src/storage.ts",
+      "sha256": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1"
+    },
+    {
+      "path": "src/validation.ts",
+      "sha256": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30"
+    },
+    {
+      "path": "test/binding-inspection.test.ts",
+      "sha256": "sha256:78a3b1a44ff4a03813af44ccd0ebb529011cee7de0ff7e0a8e846b999db59dcd"
+    },
+    {
+      "path": "test/checkout-guard.test.ts",
+      "sha256": "sha256:14fc1955bda4b6ae6d4f907d5526e051a20498f53063dce704bbdb9a11adc44c"
+    },
+    {
+      "path": "test/fixtures.ts",
+      "sha256": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7"
+    },
+    {
+      "path": "test/worktree-execution.test.ts",
+      "sha256": "sha256:2b8831031cd6c35f126773da16edddedfcc87bb11dca5eeb2963b6d48ba20e30"
+    },
+    {
+      "path": "test/worktree-graph-cli.test.ts",
+      "sha256": "sha256:649d646e1275a424e64c87221d88379bf141b1e58f42356a5c7e29055d878728"
+    },
+    {
+      "path": "test/worktree-lifecycle.test.ts",
+      "sha256": "sha256:c79c7af26a814a7d5de0b1f6d4d81bab08744c94a6469c4586a183ad3cdd1066"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
+    }
+  ],
+  "tapDigest": "sha256:e6eda992ed7c52487f9d5af5bc16853bda105dae5fbfe538fe063df7479fcfae",
+  "tests": [
+    {
+      "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
+      "name": "explicit workspace inspection hashes files and emits a redacted Git candidate",
+      "status": "PASS"
+    },
+    {
+      "id": "test:c73650c20ba3c9f04c5e49d0864c444b71049f88e31541b7c66f2ab5e8c053d5",
+      "name": "worktree facts survive a moved registered root and report a common Git directory",
+      "status": "PASS"
+    },
+    {
+      "id": "test:7ac52417f3255df407c477b7d31d46229f4df08f3bd305ddadb387d313b10ec8",
+      "name": "a linked worktree uses the main checkout common Git directory",
+      "status": "PASS"
+    },
+    {
+      "id": "test:a548d16fbf086d67637e6276af79244d19a28444a305081841d5a35d21197d05",
+      "name": "ordinary directories and unborn repositories are distinguished without origin",
+      "status": "PASS"
+    },
+    {
+      "id": "test:669501a24954f6f549fff0c22a173365f5711989d37ed24f5a3ff31807ffc3ce",
+      "name": "limits and input contracts fail before filesystem resolution",
+      "status": "PASS"
+    },
+    {
+      "id": "test:675c38c7bf9507ef1a5d8e34f71073fcbb17c3681c5bb3e7f2f6763ea278b37f",
+      "name": "DG01-C1: equal bytes with a different HEAD or owner checkout identity hold",
+      "status": "PASS"
+    },
+    {
+      "id": "test:3a518fcf19ed11bf47eed734f115885834e5e4956fc382b07a9ef4db3e030d22",
+      "name": "DG01-C1: an explicit Git worktree move and owner remap retain the selected logical binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test:b8711b5087b3e56c5e96cca4ba68c06486dc2395afa08dcea5980b17c0167273",
+      "name": "DG01-C2: dirty, detached, sparse, subdirectory and broken-gitfile states are held by policy",
+      "status": "PASS"
+    },
+    {
+      "id": "test:6d88e42c7692d7a48a11838dad81a5cde98f8a539b56f15a89715e826790a01a",
+      "name": "DG01-C2: an owner may explicitly allow a dirty checkout and an unborn checkout is distinguished",
+      "status": "PASS"
+    },
+    {
+      "id": "test:bc0ecfdebc4720dc9dee5c4e54fb77b4c017160890cf5278adf0a6c54efb93cc",
+      "name": "DG01-C3: a prepared guard holds after HEAD, index or runner changes and a caller action stays at zero",
+      "status": "PASS"
+    },
+    {
+      "id": "test:deaadbb3e4f7bedcce45138df178e7fd94e0497b096370bbff83ebc8f5c20482",
+      "name": "DG01-C2: a nested submodule is held unless a future profile closes its scope",
+      "status": "PASS"
+    },
+    {
+      "id": "test:a794687a47634d65109d091f68187a95b2432c19981b4d8cbc529b608202fbc7",
+      "name": "DG01-C3: a prepared guard is process-local, an initial HOLD cannot become PASS, and a remap is stale",
+      "status": "PASS"
+    },
+    {
+      "id": "test:817e536e554f271f346a3960cd2b06ffb3014f7ab809f05d74c99df2a83f2916",
+      "name": "DG01-C2: malformed sparse configuration and unborn index changes fail closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test:92e53917c997fcc2552b8095cd04f3ba14968fea5fcbf3b8d56bd061c2ed76e4",
+      "name": "DG01-C2: FIFO, untracked nested repository and symlink inputs fail closed without traversal",
+      "status": "PASS"
+    },
+    {
+      "id": "test:12a5080f15de1a119288ef45d643b5f6521a27c3ae86f3c56024423a5f8fd9be",
+      "name": "DG01-C2: configured Git clean filters hold before a selected-file observation can invoke them",
+      "status": "PASS"
+    },
+    {
+      "id": "test:9211687f9ba95bf68262c2513214beae931348d6ac646d435300a67659984947",
+      "name": "DG01-C1: a selected content pin reports exact MATCH then MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf",
+      "name": "DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test:2cb7af2e2cde44d0e08a2db8e471f1c03cb183d4407aed5f22b2ad175b894487",
+      "name": "remapping a real linked worktree rejects a stale main-worktree plan before an attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test:9af42f1d26174503f9c2ef899d2f37bdab33142d11ea6bb0aca7bd4a3e514d5d",
+      "name": "a shared operation store prevents re-execution after remapping between real worktrees",
+      "status": "PASS"
+    },
+    {
+      "id": "test:8958cf4aec00f9a66dfc3576249ad1d148145a938fcf3b6f9cf0b4c2e97a28ca",
+      "name": "separate operation stores are an explicit cross-worktree duplicate-execution limitation",
+      "status": "PASS"
+    },
+    {
+      "id": "test:dc761a0843a98d3eedddb0a44ea30e6d745e5202e06f55b356c96d8ab5ee76f1",
+      "name": "a Git branch HEAD change is not attested when the declared pinned files are unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "test:a99a4f5c426271d52a8f1aad201064bedb366f7459b62e013fc35c1229be480c",
+      "name": "a changed pinned runner in a sibling worktree blocks before the external effect",
+      "status": "PASS"
+    },
+    {
+      "id": "test:50a71d08467faaf0d29870dae883596e78e5259b80590c70fb9a0009e722b262",
+      "name": "worktree graph rebinding preserves complete logical links while selecting divergent content",
+      "status": "PASS"
+    },
+    {
+      "id": "test:ea00c252bb8f9b1403f6a0e801f7351014d267c51864e889275c5eee1e94d5a5",
+      "name": "CLI inspection selects the linked worktree through host-relative workspace configuration",
+      "status": "PASS"
+    },
+    {
+      "id": "test:6858033ababd53342caeaf6eaf84badb2f4df581c25b46188bc7804b8b8a421f",
+      "name": "a subdirectory workspace observes its enclosing Git root without asserting checkout identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test:38940c59d5494317414792a73e14052fb67ab56e26210c4e8bb59e0fbafea283",
+      "name": "a worktree directory digest declaration remains unchecked rather than proving a tree snapshot",
+      "status": "PASS"
+    },
+    {
+      "id": "test:f1ad1f53d69a9b7c28898367c9f3237af542c5ccd1f289d5a37945c863e7d386",
+      "name": "inspects explicit main and linked-worktree representations as one logical resource",
+      "status": "PASS"
+    },
+    {
+      "id": "test:1c8856238d80a7a271322e1fe1644e7c7d5ba5334e6376d0103c2eaf217f7614",
+      "name": "observes dirty working tree and index state independently per worktree",
+      "status": "PASS"
+    },
+    {
+      "id": "test:a59d13f618d4dbe25a5fed8dace1f94dd1adb0dec70e11a5bae0326eb87023b1",
+      "name": "observes detached HEAD at the same commit without merging distinct representations",
+      "status": "PASS"
+    },
+    {
+      "id": "test:bf5b2cd0ec536eb41edc1ca9dbc72ea5b57fd2a63e45b97300fa6a6a6a3f2af3",
+      "name": "git worktree move plus host remapping preserves selected resource and representation IDs",
+      "status": "PASS"
+    },
+    {
+      "id": "test:8953c2e35a7d0e54a90b616d00aaf6f24cbae71563c9a48a75a6820a0611da93",
+      "name": "manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair",
+      "status": "PASS"
+    },
+    {
+      "id": "test:1b013ece0e03a42a6f7807639b64f7757173a5cfd3df8db4bdda959d92599f4e",
+      "name": "observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory",
+      "status": "PASS"
+    },
+    {
+      "id": "test:ec196d1753adf5d31f001dfa21793cf78b2f5c225a15ff97d3a9c79bd221c059",
+      "name": "observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test:8a376503b53a180269544873e5fbaf33d0ba1b6f1471d43deeda8d158b5487c5",
+      "name": "observes limitation: sparse checkout omission has no representation fallback",
+      "status": "PASS"
+    },
+    {
+      "id": "test:7c2f22df00c4c3cd13a75c1007772a8984f281a2a247809475341e5e5cb31cc4",
+      "name": "rejects a symlink from one worktree into another registered worktree",
+      "status": "PASS"
+    },
+    {
+      "id": "test:c66415185356eafd1c33974a2e5d3524335a6c677f0697bd8357e7b0464b8a7b",
+      "name": "observes limitation: a wrong workspace alias can match bytes while its Git head differs",
+      "status": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 36,
+    "pass": 36,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "criteria": [
+    "criterion:DG01-C1",
+    "criterion:DG01-C2",
+    "criterion:DG01-C3"
+  ],
+  "nextTask": "task:PT02",
+  "scope": "OWNER_OPT_IN_CHECKOUT_GUARD_AND_LOCAL_COMPATIBILITY",
+  "atomicSnapshot": "NOT_CLAIMED",
+  "crossPlatformAcceptance": "NOT_RUN",
+  "transfer": "NOT_IMPLEMENTED",
+  "restore": "NOT_IMPLEMENTED",
+  "executionAuthority": "NOT_GRANTED"
+}

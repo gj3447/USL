@@ -1,0 +1,540 @@
+{
+  "@context": {
+    "d": "urn:usl:development-progress:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:development-progress:DG01",
+      "@type": [
+        "d:ProgressObservation",
+        "prov:Entity"
+      ],
+      "d:task": {
+        "@id": "task:DG01"
+      },
+      "d:status": "LOCAL_CASES_PASS",
+      "d:implementation": "IMPLEMENTED_LOCAL_SCOPE",
+      "d:scope": "OWNER_OPT_IN_CHECKOUT_GUARD_AND_LOCAL_COMPATIBILITY",
+      "d:recordedAt": "2026-10-04T00:01:16.254194+00:00",
+      "d:authority": "SECONDARY_AI",
+      "d:sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+      "d:criterion": [
+        {
+          "@id": "criterion:DG01-C1"
+        },
+        {
+          "@id": "criterion:DG01-C2"
+        },
+        {
+          "@id": "criterion:DG01-C3"
+        }
+      ],
+      "d:evidence": [
+        {
+          "@id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732"
+        },
+        {
+          "@id": "test:c73650c20ba3c9f04c5e49d0864c444b71049f88e31541b7c66f2ab5e8c053d5"
+        },
+        {
+          "@id": "test:7ac52417f3255df407c477b7d31d46229f4df08f3bd305ddadb387d313b10ec8"
+        },
+        {
+          "@id": "test:a548d16fbf086d67637e6276af79244d19a28444a305081841d5a35d21197d05"
+        },
+        {
+          "@id": "test:669501a24954f6f549fff0c22a173365f5711989d37ed24f5a3ff31807ffc3ce"
+        },
+        {
+          "@id": "test:675c38c7bf9507ef1a5d8e34f71073fcbb17c3681c5bb3e7f2f6763ea278b37f"
+        },
+        {
+          "@id": "test:3a518fcf19ed11bf47eed734f115885834e5e4956fc382b07a9ef4db3e030d22"
+        },
+        {
+          "@id": "test:b8711b5087b3e56c5e96cca4ba68c06486dc2395afa08dcea5980b17c0167273"
+        },
+        {
+          "@id": "test:6d88e42c7692d7a48a11838dad81a5cde98f8a539b56f15a89715e826790a01a"
+        },
+        {
+          "@id": "test:bc0ecfdebc4720dc9dee5c4e54fb77b4c017160890cf5278adf0a6c54efb93cc"
+        },
+        {
+          "@id": "test:deaadbb3e4f7bedcce45138df178e7fd94e0497b096370bbff83ebc8f5c20482"
+        },
+        {
+          "@id": "test:a794687a47634d65109d091f68187a95b2432c19981b4d8cbc529b608202fbc7"
+        },
+        {
+          "@id": "test:817e536e554f271f346a3960cd2b06ffb3014f7ab809f05d74c99df2a83f2916"
+        },
+        {
+          "@id": "test:92e53917c997fcc2552b8095cd04f3ba14968fea5fcbf3b8d56bd061c2ed76e4"
+        },
+        {
+          "@id": "test:12a5080f15de1a119288ef45d643b5f6521a27c3ae86f3c56024423a5f8fd9be"
+        },
+        {
+          "@id": "test:9211687f9ba95bf68262c2513214beae931348d6ac646d435300a67659984947"
+        },
+        {
+          "@id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf"
+        },
+        {
+          "@id": "test:2cb7af2e2cde44d0e08a2db8e471f1c03cb183d4407aed5f22b2ad175b894487"
+        },
+        {
+          "@id": "test:9af42f1d26174503f9c2ef899d2f37bdab33142d11ea6bb0aca7bd4a3e514d5d"
+        },
+        {
+          "@id": "test:8958cf4aec00f9a66dfc3576249ad1d148145a938fcf3b6f9cf0b4c2e97a28ca"
+        },
+        {
+          "@id": "test:dc761a0843a98d3eedddb0a44ea30e6d745e5202e06f55b356c96d8ab5ee76f1"
+        },
+        {
+          "@id": "test:a99a4f5c426271d52a8f1aad201064bedb366f7459b62e013fc35c1229be480c"
+        },
+        {
+          "@id": "test:50a71d08467faaf0d29870dae883596e78e5259b80590c70fb9a0009e722b262"
+        },
+        {
+          "@id": "test:ea00c252bb8f9b1403f6a0e801f7351014d267c51864e889275c5eee1e94d5a5"
+        },
+        {
+          "@id": "test:6858033ababd53342caeaf6eaf84badb2f4df581c25b46188bc7804b8b8a421f"
+        },
+        {
+          "@id": "test:38940c59d5494317414792a73e14052fb67ab56e26210c4e8bb59e0fbafea283"
+        },
+        {
+          "@id": "test:f1ad1f53d69a9b7c28898367c9f3237af542c5ccd1f289d5a37945c863e7d386"
+        },
+        {
+          "@id": "test:1c8856238d80a7a271322e1fe1644e7c7d5ba5334e6376d0103c2eaf217f7614"
+        },
+        {
+          "@id": "test:a59d13f618d4dbe25a5fed8dace1f94dd1adb0dec70e11a5bae0326eb87023b1"
+        },
+        {
+          "@id": "test:bf5b2cd0ec536eb41edc1ca9dbc72ea5b57fd2a63e45b97300fa6a6a6a3f2af3"
+        },
+        {
+          "@id": "test:8953c2e35a7d0e54a90b616d00aaf6f24cbae71563c9a48a75a6820a0611da93"
+        },
+        {
+          "@id": "test:1b013ece0e03a42a6f7807639b64f7757173a5cfd3df8db4bdda959d92599f4e"
+        },
+        {
+          "@id": "test:ec196d1753adf5d31f001dfa21793cf78b2f5c225a15ff97d3a9c79bd221c059"
+        },
+        {
+          "@id": "test:8a376503b53a180269544873e5fbaf33d0ba1b6f1471d43deeda8d158b5487c5"
+        },
+        {
+          "@id": "test:7c2f22df00c4c3cd13a75c1007772a8984f281a2a247809475341e5e5cb31cc4"
+        },
+        {
+          "@id": "test:c66415185356eafd1c33974a2e5d3524335a6c677f0697bd8357e7b0464b8a7b"
+        }
+      ],
+      "prov:wasDerivedFrom": {
+        "@id": "urn:usl:development-progress:receipt"
+      }
+    },
+    {
+      "@id": "task:DG01",
+      "@type": "d:Task"
+    },
+    {
+      "@id": "urn:usl:development-progress:receipt",
+      "@type": [
+        "d:Receipt",
+        "prov:Entity"
+      ],
+      "d:path": "research/development-progress/receipt.json",
+      "d:sha256": "sha256:f4bbd4ff463f150ca5fa547cce883d538defcde47df99c2aa52b16c887c8c647",
+      "d:tapDigest": "sha256:e6eda992ed7c52487f9d5af5bc16853bda105dae5fbfe538fe063df7479fcfae"
+    },
+    {
+      "@id": "criterion:DG01-C1",
+      "@type": "d:Criterion",
+      "d:checkedBy": [
+        {
+          "@id": "test:675c38c7bf9507ef1a5d8e34f71073fcbb17c3681c5bb3e7f2f6763ea278b37f"
+        },
+        {
+          "@id": "test:3a518fcf19ed11bf47eed734f115885834e5e4956fc382b07a9ef4db3e030d22"
+        },
+        {
+          "@id": "test:9211687f9ba95bf68262c2513214beae931348d6ac646d435300a67659984947"
+        }
+      ]
+    },
+    {
+      "@id": "criterion:DG01-C2",
+      "@type": "d:Criterion",
+      "d:checkedBy": [
+        {
+          "@id": "test:b8711b5087b3e56c5e96cca4ba68c06486dc2395afa08dcea5980b17c0167273"
+        },
+        {
+          "@id": "test:6d88e42c7692d7a48a11838dad81a5cde98f8a539b56f15a89715e826790a01a"
+        },
+        {
+          "@id": "test:deaadbb3e4f7bedcce45138df178e7fd94e0497b096370bbff83ebc8f5c20482"
+        },
+        {
+          "@id": "test:817e536e554f271f346a3960cd2b06ffb3014f7ab809f05d74c99df2a83f2916"
+        },
+        {
+          "@id": "test:92e53917c997fcc2552b8095cd04f3ba14968fea5fcbf3b8d56bd061c2ed76e4"
+        },
+        {
+          "@id": "test:12a5080f15de1a119288ef45d643b5f6521a27c3ae86f3c56024423a5f8fd9be"
+        }
+      ]
+    },
+    {
+      "@id": "criterion:DG01-C3",
+      "@type": "d:Criterion",
+      "d:checkedBy": [
+        {
+          "@id": "test:bc0ecfdebc4720dc9dee5c4e54fb77b4c017160890cf5278adf0a6c54efb93cc"
+        },
+        {
+          "@id": "test:a794687a47634d65109d091f68187a95b2432c19981b4d8cbc529b608202fbc7"
+        },
+        {
+          "@id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf"
+        }
+      ]
+    },
+    {
+      "@id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "explicit workspace inspection hashes files and emits a redacted Git candidate",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:c73650c20ba3c9f04c5e49d0864c444b71049f88e31541b7c66f2ab5e8c053d5",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "worktree facts survive a moved registered root and report a common Git directory",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:7ac52417f3255df407c477b7d31d46229f4df08f3bd305ddadb387d313b10ec8",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "a linked worktree uses the main checkout common Git directory",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:a548d16fbf086d67637e6276af79244d19a28444a305081841d5a35d21197d05",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "ordinary directories and unborn repositories are distinguished without origin",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:669501a24954f6f549fff0c22a173365f5711989d37ed24f5a3ff31807ffc3ce",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "limits and input contracts fail before filesystem resolution",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:675c38c7bf9507ef1a5d8e34f71073fcbb17c3681c5bb3e7f2f6763ea278b37f",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C1: equal bytes with a different HEAD or owner checkout identity hold",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:3a518fcf19ed11bf47eed734f115885834e5e4956fc382b07a9ef4db3e030d22",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C1: an explicit Git worktree move and owner remap retain the selected logical binding",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:b8711b5087b3e56c5e96cca4ba68c06486dc2395afa08dcea5980b17c0167273",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C2: dirty, detached, sparse, subdirectory and broken-gitfile states are held by policy",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:6d88e42c7692d7a48a11838dad81a5cde98f8a539b56f15a89715e826790a01a",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C2: an owner may explicitly allow a dirty checkout and an unborn checkout is distinguished",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:bc0ecfdebc4720dc9dee5c4e54fb77b4c017160890cf5278adf0a6c54efb93cc",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C3: a prepared guard holds after HEAD, index or runner changes and a caller action stays at zero",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:deaadbb3e4f7bedcce45138df178e7fd94e0497b096370bbff83ebc8f5c20482",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C2: a nested submodule is held unless a future profile closes its scope",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:a794687a47634d65109d091f68187a95b2432c19981b4d8cbc529b608202fbc7",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C3: a prepared guard is process-local, an initial HOLD cannot become PASS, and a remap is stale",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:817e536e554f271f346a3960cd2b06ffb3014f7ab809f05d74c99df2a83f2916",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C2: malformed sparse configuration and unborn index changes fail closed",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:92e53917c997fcc2552b8095cd04f3ba14968fea5fcbf3b8d56bd061c2ed76e4",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C2: FIFO, untracked nested repository and symlink inputs fail closed without traversal",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:12a5080f15de1a119288ef45d643b5f6521a27c3ae86f3c56024423a5f8fd9be",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C2: configured Git clean filters hold before a selected-file observation can invoke them",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:9211687f9ba95bf68262c2513214beae931348d6ac646d435300a67659984947",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C1: a selected content pin reports exact MATCH then MISMATCH",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:2cb7af2e2cde44d0e08a2db8e471f1c03cb183d4407aed5f22b2ad175b894487",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "remapping a real linked worktree rejects a stale main-worktree plan before an attempt",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:9af42f1d26174503f9c2ef899d2f37bdab33142d11ea6bb0aca7bd4a3e514d5d",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "a shared operation store prevents re-execution after remapping between real worktrees",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:8958cf4aec00f9a66dfc3576249ad1d148145a938fcf3b6f9cf0b4c2e97a28ca",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "separate operation stores are an explicit cross-worktree duplicate-execution limitation",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:dc761a0843a98d3eedddb0a44ea30e6d745e5202e06f55b356c96d8ab5ee76f1",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "a Git branch HEAD change is not attested when the declared pinned files are unchanged",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:a99a4f5c426271d52a8f1aad201064bedb366f7459b62e013fc35c1229be480c",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "a changed pinned runner in a sibling worktree blocks before the external effect",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:50a71d08467faaf0d29870dae883596e78e5259b80590c70fb9a0009e722b262",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "worktree graph rebinding preserves complete logical links while selecting divergent content",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:ea00c252bb8f9b1403f6a0e801f7351014d267c51864e889275c5eee1e94d5a5",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "CLI inspection selects the linked worktree through host-relative workspace configuration",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:6858033ababd53342caeaf6eaf84badb2f4df581c25b46188bc7804b8b8a421f",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "a subdirectory workspace observes its enclosing Git root without asserting checkout identity",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:38940c59d5494317414792a73e14052fb67ab56e26210c4e8bb59e0fbafea283",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "a worktree directory digest declaration remains unchecked rather than proving a tree snapshot",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:f1ad1f53d69a9b7c28898367c9f3237af542c5ccd1f289d5a37945c863e7d386",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "inspects explicit main and linked-worktree representations as one logical resource",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:1c8856238d80a7a271322e1fe1644e7c7d5ba5334e6376d0103c2eaf217f7614",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "observes dirty working tree and index state independently per worktree",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:a59d13f618d4dbe25a5fed8dace1f94dd1adb0dec70e11a5bae0326eb87023b1",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "observes detached HEAD at the same commit without merging distinct representations",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:bf5b2cd0ec536eb41edc1ca9dbc72ea5b57fd2a63e45b97300fa6a6a6a3f2af3",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "git worktree move plus host remapping preserves selected resource and representation IDs",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:8953c2e35a7d0e54a90b616d00aaf6f24cbae71563c9a48a75a6820a0611da93",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:1b013ece0e03a42a6f7807639b64f7757173a5cfd3df8db4bdda959d92599f4e",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:ec196d1753adf5d31f001dfa21793cf78b2f5c225a15ff97d3a9c79bd221c059",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:8a376503b53a180269544873e5fbaf33d0ba1b6f1471d43deeda8d158b5487c5",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "observes limitation: sparse checkout omission has no representation fallback",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:7c2f22df00c4c3cd13a75c1007772a8984f281a2a247809475341e5e5cb31cc4",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "rejects a symlink from one worktree into another registered worktree",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:c66415185356eafd1c33974a2e5d3524335a6c677f0697bd8357e7b0464b8a7b",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "observes limitation: a wrong workspace alias can match bytes while its Git head differs",
+      "d:status": "PASS"
+    }
+  ]
+}

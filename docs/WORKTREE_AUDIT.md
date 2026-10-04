@@ -2,7 +2,7 @@
 
 **판정: 기본 worktree 사용은 지원하지만, 임의 분기·복사·백업·다른 머신 복원까지 모든 기능이 갖춰진 것은 아니다.** 실제 임시 저장소의 성공 경계와 누락된 보호를 함께 검증했다. 런타임 기능을 추가한 작업이 아니라 테스트·근거·후속 계약을 추가한 감사다.
 
-실행 시점 `2026-10-03T13:17:13.509845+00:00`, 코드 기준 `32a20fcf1336f7c955abb5cd43d1ae495b048e0f`. 환경: Linux / x86_64 / git version 2.47.3 / Node v24.20.0. 새 worktree 시험 **19개**, 관련 기존 회귀 시험 **31개**, 총 **50개 assertion PASS**. 한계가 재현된 테스트도 PASS이므로 이 숫자를 완전 지원의 증거로 읽지 않는다.
+실행 시점 `2026-10-04T00:00:54.759142+00:00`, 코드 기준 `4d9a175b994f847624f19ddb2cbc764f856130e1`. 환경: Linux / x86_64 / git version 2.47.3 / Node v24.20.0. 새 worktree 시험 **19개**, 관련 기존 회귀 시험 **31개**, 총 **50개 assertion PASS**. 한계가 재현된 테스트도 PASS이므로 이 숫자를 완전 지원의 증거로 읽지 않는다.
 
 실제 Git main/linked checkout을 만들고 서로 다른 commit, staged/unstaged 상태, detached HEAD, move, manual move+repair, copy, remove+prune, sparse checkout, symlink, graph 재바인딩, CLI 조회, 계획 재검사, 예약 저장소 공유/분리를 실행했다. 모든 파일·실행 marker는 disposable fixture 안에 있었으며 사용자 저장소를 이동하거나 원격에 접속하지 않았다.
 

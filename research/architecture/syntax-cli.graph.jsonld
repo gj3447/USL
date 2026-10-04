@@ -5,9 +5,9 @@
   },
   "@graph": [
     {
-      "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e",
+      "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155",
       "@type": "prov:Entity",
-      "usl:sourceDigest": "sha256:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+      "usl:sourceDigest": "sha256:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
     },
     {
       "@id": "urn:usl:profile:b6d0510e32f656c8d0ba9cf1ee94b2664bc0515000fee9cf186aa03848737e62",
@@ -564,10 +564,10 @@
       "usl:metadata": {
         "@value": {
           "path": "research/architecture/binding-delivery.receipt.json",
-          "sourceDigest": "sha256:f48151822a15ef09ba87289b4f146c1bf36709ce8d9a4386f846a07ea5ea5275",
+          "sourceDigest": "sha256:01116f8f37fe65390d56f8491d2143261ba41d6bdb1de6da03ee263e8dd9006d",
           "authority": "SECONDARY_AI",
           "status": "PASS",
-          "generatedAt": "2026-10-03",
+          "generatedAt": "2026-10-04",
           "sourcePins": {
             "docs/ADDON_BINDING.md": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de",
             "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
@@ -578,8 +578,9 @@
             "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
             "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
             "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-            "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
+            "package.json": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a",
             "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+            "src/addons/checkout-guard.ts": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
             "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
             "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
             "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
@@ -646,6 +647,7 @@
             "test/capability-catalog.test.ts": "sha256:52c9f7f825ce8759c6c764010b181e14ad4a75be5897d058fc56fd0183e0adbd",
             "test/capability-inventory-boundaries.test.ts": "sha256:07f8613c1f488ad65d210f1841afc1121c69be622229ad766d12ac9badfc16f7",
             "test/capability-platform.test.ts": "sha256:76c5a1b242d567e816295ca9bcc68639ff5f6bb5d1113b3b7948de7c24588162",
+            "test/checkout-guard.test.ts": "sha256:14fc1955bda4b6ae6d4f907d5526e051a20498f53063dce704bbdb9a11adc44c",
             "test/cli-graph-fixture.test.ts": "sha256:082cd32807d738ad1cb6f3a39944d713f47a7efbb1d0a2e842e8de829fffe24c",
             "test/cli-help.test.ts": "sha256:e41656fcaf71135a375f7fd8f82dbeda0e921a2d7117647767656aca40a4347c",
             "test/cli-host-boundaries.test.ts": "sha256:e663439aab9cd1c95b2a341a5c6a0823154711fc285806a120d8a16adcd9a6ad",
@@ -720,16 +722,17 @@
       "usl:metadata": {
         "@value": {
           "path": "research/architecture/core-cli-c01.receipt.json",
-          "sourceDigest": "sha256:06ea0e588aac95521d97aad8b2673350e525e9c696239c7cc1c83aba147c9e14",
+          "sourceDigest": "sha256:cc13b75d179a2421c3decafcf5e524f83df08753298cc1ec0159152120fbfc3f",
           "authority": "SECONDARY_AI",
           "status": "PASS",
-          "generatedAt": "2026-10-03",
-          "sourceCommit": "f7a93226f1ed4f71d578db0e318d5da35428fc3d",
+          "generatedAt": "2026-10-04",
+          "sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
           "sourcePins": {
             "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
             "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-            "package.json": "sha256:81c3f81ee637baa757f9cdc99ffb80942e649e999f69d03ff8f19c2f38767df6",
+            "package.json": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a",
             "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+            "src/addons/checkout-guard.ts": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
             "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
             "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
             "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
@@ -796,6 +799,7 @@
             "test/capability-catalog.test.ts": "sha256:52c9f7f825ce8759c6c764010b181e14ad4a75be5897d058fc56fd0183e0adbd",
             "test/capability-inventory-boundaries.test.ts": "sha256:07f8613c1f488ad65d210f1841afc1121c69be622229ad766d12ac9badfc16f7",
             "test/capability-platform.test.ts": "sha256:76c5a1b242d567e816295ca9bcc68639ff5f6bb5d1113b3b7948de7c24588162",
+            "test/checkout-guard.test.ts": "sha256:14fc1955bda4b6ae6d4f907d5526e051a20498f53063dce704bbdb9a11adc44c",
             "test/cli-graph-fixture.test.ts": "sha256:082cd32807d738ad1cb6f3a39944d713f47a7efbb1d0a2e842e8de829fffe24c",
             "test/cli-help.test.ts": "sha256:e41656fcaf71135a375f7fd8f82dbeda0e921a2d7117647767656aca40a4347c",
             "test/cli-host-boundaries.test.ts": "sha256:e663439aab9cd1c95b2a341a5c6a0823154711fc285806a120d8a16adcd9a6ad",
@@ -2841,7 +2845,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -2923,7 +2927,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3005,7 +3009,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3087,7 +3091,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3169,7 +3173,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3251,7 +3255,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3339,7 +3343,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3427,7 +3431,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3515,7 +3519,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3603,7 +3607,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3691,7 +3695,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3779,7 +3783,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3867,7 +3871,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -3955,7 +3959,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4043,7 +4047,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4131,7 +4135,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4219,7 +4223,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4307,7 +4311,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4384,7 +4388,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4461,7 +4465,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4541,7 +4545,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4618,7 +4622,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4695,7 +4699,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4775,7 +4779,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4852,7 +4856,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -4929,7 +4933,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5006,7 +5010,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5086,7 +5090,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5163,7 +5167,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5243,7 +5247,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5320,7 +5324,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5400,7 +5404,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5477,7 +5481,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5554,7 +5558,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5631,7 +5635,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5708,7 +5712,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5785,7 +5789,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5865,7 +5869,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -5942,7 +5946,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6019,7 +6023,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6099,7 +6103,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6176,7 +6180,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6253,7 +6257,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6333,7 +6337,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6410,7 +6414,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6487,7 +6491,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6567,7 +6571,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6644,7 +6648,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6721,7 +6725,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6798,7 +6802,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6875,7 +6879,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -6955,7 +6959,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7035,7 +7039,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7115,7 +7119,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7195,7 +7199,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7275,7 +7279,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7362,7 +7366,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7449,7 +7453,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7536,7 +7540,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7623,7 +7627,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7711,7 +7715,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7798,7 +7802,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7885,7 +7889,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -7972,7 +7976,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8060,7 +8064,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8140,7 +8144,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8227,7 +8231,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8314,7 +8318,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8401,7 +8405,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8488,7 +8492,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8575,7 +8579,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8663,7 +8667,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8743,7 +8747,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8823,7 +8827,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8910,7 +8914,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -8998,7 +9002,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9085,7 +9089,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9165,7 +9169,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9245,7 +9249,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9325,7 +9329,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9405,7 +9409,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9485,7 +9489,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9565,7 +9569,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9645,7 +9649,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9725,7 +9729,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9812,7 +9816,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9892,7 +9896,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -9972,7 +9976,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10052,7 +10056,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10132,7 +10136,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10212,7 +10216,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10292,7 +10296,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10372,7 +10376,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10452,7 +10456,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10539,7 +10543,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10619,7 +10623,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10699,7 +10703,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10779,7 +10783,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10859,7 +10863,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -10939,7 +10943,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11019,7 +11023,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11099,7 +11103,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11179,7 +11183,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11261,7 +11265,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11343,7 +11347,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11425,7 +11429,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11507,7 +11511,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11589,7 +11593,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11671,7 +11675,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
@@ -11753,7 +11757,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:a827eb2bfbb11c226ad6617a0c2ac284bdf120a3687b4832e982db2e9573d41e"
+          "@id": "urn:usl:source:c2842ad95e896fa437aeab6c8de71fb04501bf1cd815f05905d3168c78b38155"
         },
         {
           "@id": "urn:usl:usl.syntax.cli.architecture:resource:source%3Acatalog"
