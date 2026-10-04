@@ -55,8 +55,8 @@
       ]
     }
   ],
-  "recordedAt": "2026-10-04T06:01:52.183817+00:00",
-  "sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
+  "recordedAt": "2026-10-04T06:35:40.579267+00:00",
+  "sourceCommit": "17ad4031ad52b6c5e56352a121a7e3164290a434",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -94,7 +94,7 @@
     },
     {
       "path": "docs/PORTABLE_TRANSFER_IMPORT.md",
-      "sha256": "sha256:5a1c35ee5aff728e86cef9fa4bd191698a49819e8b22ed84bb04b3cc55894685"
+      "sha256": "sha256:37b7b4a4fcb25771443b78660bf43278fcf40b68f4eda7d1ce82aaf530c86fa4"
     },
     {
       "path": "package-lock.json",
@@ -150,7 +150,7 @@
     },
     {
       "path": "src/addons/portable-transfer-import.ts",
-      "sha256": "sha256:5f15404d7a51bcc2ef117102f4dcfc0cd81628b91fdffd51a7bf454ab95cfb9a"
+      "sha256": "sha256:e1f6a36c6bc8a16160a3c0b432b165ce91520f84cb1f77a8c728a93d2c314180"
     },
     {
       "path": "src/addons/portable-transfer.ts",
@@ -398,7 +398,7 @@
     },
     {
       "path": "test/portable-transfer-restore.test.ts",
-      "sha256": "sha256:9564e1062adaa699a4e8441f16ac23dc64db8cad760760bf34bec023aa25e962"
+      "sha256": "sha256:b794f041d65d36542302aa3bb7b43f2d1b89486c9109187346f7ad227770e341"
     },
     {
       "path": "test/worktree-execution.test.ts",
@@ -417,7 +417,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:1c4a445e7163ec028241264bcdea8b599f0fca93230504becd37bdac242ce3cc",
+  "tapDigest": "sha256:7aa49a1ee2533bcf555c4921d1dd42dc3143a5916c667fbae2550f09e9e8e728",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -705,6 +705,11 @@
       "status": "PASS"
     },
     {
+      "id": "test:2f94adbb017c3ea1e1e741924a3ae123de7dec1404cfc74bb7fe6b3b2663938f",
+      "name": "PT03-C2: authenticated metadata outside the exporter bounds cannot reserve a destination",
+      "status": "PASS"
+    },
+    {
       "id": "test:e519c07a53f1f46f6db5d4323fb3d6533af5d2c31fb6c34d006168649d403f38",
       "name": "PT03-C3: preserves unknown, diverged, and withdrawn history without automatic activation or merge",
       "status": "PASS"
@@ -831,8 +836,8 @@
     }
   ],
   "totals": {
-    "tests": 82,
-    "pass": 82,
+    "tests": 83,
+    "pass": 83,
     "fail": 0,
     "cancelled": 0,
     "skipped": 0,
@@ -855,6 +860,6 @@
     "criterion:PT04-C2",
     "criterion:PT04-C3"
   ],
-  "acceptanceDigest": "sha256:171c991d31dea07a1042df23a961dbf9c1ec90d53e9b3ae71eeb09d90e1c680d",
+  "acceptanceDigest": "sha256:3615dc797b9873a74b33b1b32caeba095637cddf56ff17bf15883383218b9776",
   "nextTask": "task:PT03"
 }

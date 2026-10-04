@@ -2,9 +2,9 @@
 
 [원래 개발 계획](DEVELOPMENT_PLAN.md)은 당시의 PLANNED/NOT_RUN 스냅샷으로 보존한다. 이 문서는 별도 실행 기록으로 구현 진행을 나타낸다.
 
-기록 2026-10-04T06:01:52.183817+00:00; 소스 `ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28`.
+기록 2026-10-04T06:35:40.579267+00:00; 소스 `17ad4031ad52b6c5e56352a121a7e3164290a434`.
 
-실제 로컬 검사 **82개 PASS**, 실패/건너뜀 0. 실행 환경: Linux / v24.20.0 / git version 2.47.3.
+실제 로컬 검사 **83개 PASS**, 실패/건너뜀 0. 실행 환경: Linux / v24.20.0 / git version 2.47.3.
 
 ## DG01 · 선택형 checkout guard
 
@@ -40,7 +40,7 @@
 | 계획 완료 조건 | 확인 범위 | 실행한 검사 |
 |---|---|---|
 | criterion:PT03-C1 | LOCAL_CASES_PASS | PT03-C1: verified restore rebinds only selected locators and preserves graph identities and ordered roles without the original source<br>PT03-C1: rebinding rejects forged handles, changed restored bytes and mismatched explicit identities<br>PT03-C1: rebinding captures mutable selections and refuses implicit remapping of unselected workspaces<br>PT03-C1: verifies a real PT02 bundle before rebinding exact IDs at a different root |
-| criterion:PT03-C2 | LOCAL_CASES_PASS | PT03-C2: rejects receipt-pinned metadata and payload attacks without publishing a workspace<br>PT03-C2: refuses extra entries, symlinks, FIFOs, and does not overwrite an incomplete reservation<br>PT03-C2: rechecks an existing same-digest result and only one concurrent reservation publishes<br>PT03-C2: authenticated malformed dependency and inventory metadata cannot change the restore closure<br>PT03-C2: authenticated policy/schema substitutions and duplicate representations are rejected semantically<br>PT03-C2: receipt-repinned case-folded restore paths cannot publish on a case-sensitive host<br>PT03-C2: authenticated non-exportable registration and credential paths cannot reserve a destination |
+| criterion:PT03-C2 | LOCAL_CASES_PASS | PT03-C2: rejects receipt-pinned metadata and payload attacks without publishing a workspace<br>PT03-C2: refuses extra entries, symlinks, FIFOs, and does not overwrite an incomplete reservation<br>PT03-C2: rechecks an existing same-digest result and only one concurrent reservation publishes<br>PT03-C2: authenticated malformed dependency and inventory metadata cannot change the restore closure<br>PT03-C2: authenticated policy/schema substitutions and duplicate representations are rejected semantically<br>PT03-C2: receipt-repinned case-folded restore paths cannot publish on a case-sensitive host<br>PT03-C2: authenticated non-exportable registration and credential paths cannot reserve a destination<br>PT03-C2: authenticated metadata outside the exporter bounds cannot reserve a destination |
 | criterion:PT03-C3 | LOCAL_CASES_PASS | PT03-C3: historical snapshots cannot be implicitly rebound as working copies; explicit local branches retain their original revisions<br>PT03-C3: preserves unknown, diverged, and withdrawn history without automatic activation or merge<br>PT03-C3: owner-state duplicate keys are rejected and __proto__ remains an ordinary withdrawn native ID |
 | criterion:PT03-C4 | LOCAL_CASES_PASS | PT03-C4: only an immutable in-process result can be rechecked; marker and workspace replacement are detected<br>PT03-C4: rejects unsupported Git closure and keeps operations as historical data<br>PT03-C4: CLI accepts help but rejects bad arguments and a FIFO spec promptly |
 | criterion:PT03-C5 | REJECTION_ONLY_GIT_RESTORE_PENDING | PT03-C5: rejects conflicting owner registry definitions without truncating native IDs |
@@ -64,9 +64,9 @@
 | 관측 | 값 |
 |---|---|
 | payload bytes / 파일 수 | 22 / 2 |
-| import·재바인딩 시간 | 53.517 ms |
-| 별도 import / 후속 해시 시간 | 36.727 / 0.519 ms |
-| 별도 측정 프로세스 peak RSS | 80764 KiB |
+| import·재바인딩 시간 | 47.804 ms |
+| 별도 import / 후속 해시 시간 | 34.097 / 0.630 ms |
+| 별도 측정 프로세스 peak RSS | 80404 KiB |
 | Linux / macOS / Windows | LOCAL_PASS / NOT_RUN / NOT_RUN |
 
 [실제 consumer·측정 출력](../research/development-progress/acceptance.json). OS 전달 CI는 작성되었으며 이 기록에서 원격 실행하지 않았다.

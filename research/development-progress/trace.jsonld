@@ -16,9 +16,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "IMPLEMENTED_LOCAL_SCOPE",
       "d:scope": "OWNER_OPT_IN_CHECKOUT_GUARD_AND_LOCAL_COMPATIBILITY",
-      "d:recordedAt": "2026-10-04T06:01:52.183817+00:00",
+      "d:recordedAt": "2026-10-04T06:35:40.579267+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
+      "d:sourceCommit": "17ad4031ad52b6c5e56352a121a7e3164290a434",
       "d:criterion": [
         {
           "@id": "criterion:DG01-C1"
@@ -84,9 +84,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "IMPLEMENTED_LOCAL_SCOPE",
       "d:scope": "PINNED_FILES_EXPORT_AND_EXPLICIT_EXTERNAL_DEPENDENCIES",
-      "d:recordedAt": "2026-10-04T06:01:52.183817+00:00",
+      "d:recordedAt": "2026-10-04T06:35:40.579267+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
+      "d:sourceCommit": "17ad4031ad52b6c5e56352a121a7e3164290a434",
       "d:criterion": [
         {
           "@id": "criterion:PT02-C1"
@@ -188,9 +188,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "IMPLEMENTED_FILE_PROFILE_GIT_PENDING",
       "d:scope": "PINNED_FILE_RESTORE_REBINDING_REJECTION_ONLY_GIT_RESTORE_PENDING",
-      "d:recordedAt": "2026-10-04T06:01:52.183817+00:00",
+      "d:recordedAt": "2026-10-04T06:35:40.579267+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
+      "d:sourceCommit": "17ad4031ad52b6c5e56352a121a7e3164290a434",
       "d:criterion": [
         {
           "@id": "criterion:PT03-C1"
@@ -246,6 +246,9 @@
           "@id": "test:98287f98151a2a52c00e79474f419e48324888f09414ce51d65df972bdd4b995"
         },
         {
+          "@id": "test:2f94adbb017c3ea1e1e741924a3ae123de7dec1404cfc74bb7fe6b3b2663938f"
+        },
+        {
           "@id": "test:e519c07a53f1f46f6db5d4323fb3d6533af5d2c31fb6c34d006168649d403f38"
         },
         {
@@ -280,9 +283,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "LOCAL_ACCEPTANCE_AND_CI_MATRIX",
       "d:scope": "LINUX_LOCAL_ONLY; PT04-C3_LINUX_MEASURED_OTHER_PLATFORMS_NOT_RUN",
-      "d:recordedAt": "2026-10-04T06:01:52.183817+00:00",
+      "d:recordedAt": "2026-10-04T06:35:40.579267+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
+      "d:sourceCommit": "17ad4031ad52b6c5e56352a121a7e3164290a434",
       "d:criterion": [
         {
           "@id": "criterion:PT04-C1"
@@ -338,9 +341,9 @@
         "prov:Entity"
       ],
       "d:path": "research/development-progress/receipt.json",
-      "d:sha256": "sha256:6ce5863b5bd28841864ce8fae786ac18580d8b51723eb34faf671a2b067bd178",
-      "d:tapDigest": "sha256:1c4a445e7163ec028241264bcdea8b599f0fca93230504becd37bdac242ce3cc",
-      "d:acceptanceDigest": "sha256:171c991d31dea07a1042df23a961dbf9c1ec90d53e9b3ae71eeb09d90e1c680d",
+      "d:sha256": "sha256:788811c0726326480ef4e136c7d5529b8d3ac967d9fd70297701ed55a514cd83",
+      "d:tapDigest": "sha256:7aa49a1ee2533bcf555c4921d1dd42dc3143a5916c667fbae2550f09e9e8e728",
+      "d:acceptanceDigest": "sha256:3615dc797b9873a74b33b1b32caeba095637cddf56ff17bf15883383218b9776",
       "d:acceptance": {
         "@id": "urn:usl:development-progress:acceptance"
       }
@@ -352,8 +355,8 @@
         "prov:Entity"
       ],
       "d:path": "research/development-progress/acceptance.json",
-      "d:sha256": "sha256:171c991d31dea07a1042df23a961dbf9c1ec90d53e9b3ae71eeb09d90e1c680d",
-      "d:sourceCommit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
+      "d:sha256": "sha256:3615dc797b9873a74b33b1b32caeba095637cddf56ff17bf15883383218b9776",
+      "d:sourceCommit": "17ad4031ad52b6c5e56352a121a7e3164290a434",
       "d:linux": "LOCAL_PASS",
       "d:macos": "NOT_RUN",
       "d:windows": "NOT_RUN",
@@ -562,6 +565,9 @@
         },
         {
           "@id": "test:98287f98151a2a52c00e79474f419e48324888f09414ce51d65df972bdd4b995"
+        },
+        {
+          "@id": "test:2f94adbb017c3ea1e1e741924a3ae123de7dec1404cfc74bb7fe6b3b2663938f"
         }
       ]
     },
@@ -1154,6 +1160,15 @@
         "prov:Entity"
       ],
       "d:name": "PT03-C2: authenticated non-exportable registration and credential paths cannot reserve a destination",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:2f94adbb017c3ea1e1e741924a3ae123de7dec1404cfc74bb7fe6b3b2663938f",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT03-C2: authenticated metadata outside the exporter bounds cannot reserve a destination",
       "d:status": "PASS"
     },
     {

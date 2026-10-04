@@ -19,7 +19,7 @@
   "payload": "NOT_CHECKED",
   "freshness": "UNKNOWN",
   "execution": "NOT_REQUESTED",
-  "recordedAt": "2026-10-04T06:01:38.503Z",
+  "recordedAt": "2026-10-04T06:35:26.209Z",
   "sourcePins": {
     "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/contract-core.ts": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
