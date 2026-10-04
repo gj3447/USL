@@ -3,7 +3,7 @@
   "id": "audit:standards-coverage-2026-10-03",
   "authority": "SECONDARY_AI",
   "researchedOn": "2026-10-03",
-  "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f",
+  "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
   "overallVerdict": "NOT_A_STANDARDS_SUPERSET",
   "userRequest": {
     "authority": "USER_PRIMARY",
@@ -425,109 +425,109 @@
       "id": "local:src/integrations/resource-graph.ts",
       "path": "src/integrations/resource-graph.ts",
       "sha256": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/domain-profile.ts",
       "path": "src/domain-profile.ts",
       "sha256": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/integrations/property-graph.ts",
       "path": "src/integrations/property-graph.ts",
       "sha256": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/integrations/graph-engineering.ts",
       "path": "src/integrations/graph-engineering.ts",
       "sha256": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/contract-core.ts",
       "path": "src/contract-core.ts",
       "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/addons/portable-transfer.ts",
       "path": "src/addons/portable-transfer.ts",
       "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/addons/rule-policy.ts",
       "path": "src/addons/rule-policy.ts",
       "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/addons/rule-weight-evidence.ts",
       "path": "src/addons/rule-weight-evidence.ts",
       "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/integrations/lean4.ts",
       "path": "src/integrations/lean4.ts",
       "sha256": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:package.json",
       "path": "package.json",
-      "sha256": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sha256": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:scripts/validate-rdf.py",
       "path": "scripts/validate-rdf.py",
       "sha256": "sha256:b4e55e1a783ca050deb106c25f778b11a6ed55ee2b6336041b130525f46862e3",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:schemas/resource-graph.shacl.ttl",
       "path": "schemas/resource-graph.shacl.ttl",
       "sha256": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:scripts/validate-engineering-rdf.py",
       "path": "scripts/validate-engineering-rdf.py",
       "sha256": "sha256:c36e8c6f0c76b1cf6cd9516e0f593353023076578dc41e1ad3b9698a05d79195",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:docs/GRAPH_ENGINEERING_STATUS.md",
       "path": "docs/GRAPH_ENGINEERING_STATUS.md",
-      "sha256": "sha256:bebb0742940cde388018a9d8f8e5d7fbfa2f957109568bcfdf7aebb5972ff4e1",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sha256": "sha256:e219c151a681b4ecd89b457d8a2b180952f88084be68b3acb7beca3cfe7f844d",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:docs/ENGINEERING_CONTRACTS.md",
       "path": "docs/ENGINEERING_CONTRACTS.md",
       "sha256": "sha256:b1f54e81a859fff521d4e66fde11479653dbf12b5dfa58bf355353276accdbed",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:research/engineering/catalog.json",
       "path": "research/engineering/catalog.json",
       "sha256": "sha256:537b2b8d8cfd843fbbf7d2ea2b245873c73c5854f2faaef7e5aef71193e6cc2e",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:scripts/build-portability-research.ts",
       "path": "scripts/build-portability-research.ts",
       "sha256": "sha256:22bdfec8cf8ac7946b6b458d6504553d79091008c6a0c2e531f70f91fbcb593c",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "local:src/capabilities.ts",
       "path": "src/capabilities.ts",
       "sha256": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     }
   ],
   "assessments": [

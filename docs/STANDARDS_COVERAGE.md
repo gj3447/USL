@@ -1,6 +1,6 @@
 # USL 표준 그래프 엔지니어링 지원 범위 감사
 
-**판정: 현재 USL은 표준 그래프 기술 전체의 상위호환이 아니다 — NOT_A_STANDARDS_SUPERSET.** 2026-10-03 조사, 코드 기준 `4103a9526e0cefaf2bbbee4964a841fe5254b29f`. 이 판정은 SECONDARY_AI의 근거 기반 평가이며 표준 기관의 인증이 아니다.
+**판정: 현재 USL은 표준 그래프 기술 전체의 상위호환이 아니다 — NOT_A_STANDARDS_SUPERSET.** 2026-10-03 조사, 코드 기준 `7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670`. 이 판정은 SECONDARY_AI의 근거 기반 평가이며 표준 기관의 인증이 아니다.
 
 USL은 출처·역할·바인딩·계획/관측 상태를 연결하는 공학 작업을 수행한다. 그러나 일반 RDF dataset의 무손실 교환, 표준 질의·추론·검증·protocol 동작을 모두 수행하지는 않는다. JSON-LD 출력, 자체 profile 검사, 일부 표준 어휘 사용을 범용 표준 processor 지원으로 확대 해석하면 안 된다.
 

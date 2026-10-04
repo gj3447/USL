@@ -2,7 +2,7 @@
 
 USL이 컴퓨터·메모리 저장소·작업경로 이동을 견디려면 고정 ID에 더해 일관된 snapshot, 닫힌 복원 범위, 검증 후 활성화, 인과 이력과 명시적인 owner 계약이 필요하다. 조사 결과를 현재 코드와 대조해 다음 구현의 선택과 반례를 정리했다.
 
-조사 기준일은 2026-10-03, 코드 기준은 `4103a9526e0cefaf2bbbee4964a841fe5254b29f`이다. 외부 1차 자료 27개를 조사했으며 원문이 정하는 사실과 USL에 대한 AI 구현 제안을 구분한다. 현재 PT01은 순수 manifest 계약까지 구현되어 있다. 이번 작업은 조사 그래프와 제한된 코드 관측이며 export/import 런타임을 추가한 것은 아니다.
+조사 기준일은 2026-10-03, 코드 기준은 `7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670`이다. 외부 1차 자료 27개를 조사했으며 원문이 정하는 사실과 USL에 대한 AI 구현 제안을 구분한다. 현재 PT01은 순수 manifest 계약까지 구현되어 있다. 이번 작업은 조사 그래프와 제한된 코드 관측이며 export/import 런타임을 추가한 것은 아니다.
 
 ## 구현 판단
 
@@ -13,7 +13,7 @@ ID를 보존한 이동·검증 가능한 백업 복원·오프라인 작업 분�
 | 순서 | 제안 | 이유 |
 |---|---|---|
 | 1 | PT01 호환성·경로 capability gap을 명시하고 export inventory 설계를 먼저 고정 | 기존 ID·파일 이름을 잃지 않는 계약을 먼저 고정 |
-| 2 | PT02 owner snapshot과 bounded export를 일반 파일 fixture부터 구현 | 읽을 수 있는 파일과 일관된 snapshot은 다름 |
+| 2 | PT02 고정 파일 집합 export의 로컬 실행 근거를 유지하고 PT03 새 목적지 검증·복원을 구현 | 읽을 수 있는 파일과 일관된 snapshot은 다름 |
 | 3 | PT03 같은 filesystem staging·검증·no-replace publication·로컬 binding | 복원 도중 기존 환경 손상과 부분 활성화를 차단 |
 | 4 | PT04 Linux/macOS/Windows와 장애 주입 인수검사 | 문서·parser 검사를 실제 복원 성공과 구별 |
 | 5 | PT05 메모리 조각, PT06 인과 충돌, PT07 owner 조건부 효과 대조 순으로 확장 | 일반 파일 복원 위에 도메인 기능을 추가 |
@@ -68,7 +68,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02**. Owner snapshot 또는 쓰기를 멈춘 범위에서 capture한다. 일반 파일을 순차 복사한 결과는 혼합 시점일 수 있으므로 BEST_EFFORT_CAPTURE와 CONSISTENT_SNAPSHOT을 구별한다. SQLite는 Backup API 등 owner 수단을 사용하고 재시도·시간 예산을 둔다.
 
-현재: PT01은 순수 manifest parser이며 파일이나 DB snapshot을 생성하지 않는다.
+현재: 2026-10-04 로컬 구현: PT02 exporter는 OWNER_FROZEN owner assertion과 PINNED_BYTE_SET을 구분하고 독립적인 파일 해시·길이·closure pin을 검사한다. 23개 exporter 테스트 실행은 별도 개발 진행 receipt에 기록한다. DB snapshot API 및 다중 시스템 원자성은 구현·검증하지 않았다.
 
 남은 범위: 여러 DB와 파일의 공통 시점은 별도 owner 조정이 필요하다. stat 전후 비교만으로 전체 작업환경의 snapshot을 증명하지 않는다.
 
@@ -81,9 +81,9 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02, PT03**. 별도 버전의 export inventory에 INCLUDED·REQUIRED_EXTERNAL·EXCLUDED와 이유, 원래 이름→ASCII payload 위치, hash·size·owner snapshot 참조를 기록한다. 선택한 복원 프로필에 필요한 항목이 모두 포함되어야 SELF_CONTAINED로 표시한다.
 
-현재: 표현별 payload 경로·해시·크기 선언은 있다. 파일 존재·bytes·복원 범위의 검증은 없다.
+현재: 2026-10-04 로컬 구현: PT02가 실제 복사 bytes·원본 상대 복원 경로·ASCII payload 매핑·메타데이터 digest를 검사한다. PACKAGED는 실제 representation을 참조해야 하며 EXTERNAL_REQUIRED가 남으면 selfContained는 false다. 순수 PT01 manifest 의미는 유지한다.
 
-남은 범위: 현재 manifest는 복사된 실제 bytes·원래 파일 이름·의존성 범위·전체 역사 보존을 검증하지 않는다. strict v1을 묵시적으로 확장하지 않는다.
+남은 범위: 선택한 PINNED_FILES 범위 밖의 숨은 의존성과 전체 역사 보존은 증명하지 않는다. import의 namespace/native ID 충돌·무결성·복원 검사는 PT03이며 다기기 인수검사는 PT04다.
 
 근거: [RFC 8493 BagIt](https://www.rfc-editor.org/rfc/rfc8493.html), [Oxford Common File Layout 1.1](https://ocfl.io/1.1/spec/).
 
@@ -94,7 +94,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02, PT04**. Git refs/objects, dirty patch·untracked, submodule, LFS bytes를 각각 inventory에 담는다. 환경 recipe에는 toolchain·lockfile·설치 옵션·OS/architecture 요구를 pin하고 기기별 root와 비밀정보는 로컬 참조로 남긴다.
 
-현재: 기존 bindings의 local root 매핑은 있다. Git 전체 작업상태와 환경 recipe exporter는 없다.
+현재: 기존 bindings의 local root 매핑에 더해 PT02 GIT_WORKTREE profile이 objects/refs/admin, worktree HEAD/index/config, dirty/untracked, submodule, LFS, alternates를 여섯 EXTERNAL_REQUIRED 항목으로 명시한다. Git closure나 환경 recipe의 실제 수집·재구성은 미구현이며 selfContained는 false다.
 
 남은 범위: 환경 recipe의 저장은 설치·실행 승인이 아니다. 오프라인 복원에 필요한 dependency payload와 목표 플랫폼 지원을 별도 확인한다.
 

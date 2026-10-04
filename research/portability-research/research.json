@@ -4,7 +4,7 @@
   "authority": "SECONDARY_AI",
   "status": "RESEARCHED_PROPOSAL",
   "researchedOn": "2026-10-03",
-  "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f",
+  "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
   "userRequest": {
     "authority": "USER_PRIMARY",
     "text": "해당 내용들 인터넷 검색해서 진짜 제대로 구현하려면 어케해야하는지 생각좀 자료 조사좀 해줘봐봐 그리고 그래프 엔지니어링으로 내용 구축좀 해줘 ㅇㅇ"
@@ -295,73 +295,103 @@
       "id": "source:src/addons/portable-transfer.ts",
       "path": "src/addons/portable-transfer.ts",
       "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:src/resource-bindings.ts",
       "path": "src/resource-bindings.ts",
       "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:src/contract-core.ts",
       "path": "src/contract-core.ts",
       "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:src/addons/rule-policy.ts",
       "path": "src/addons/rule-policy.ts",
       "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:src/addons/rule-weight-evidence.ts",
       "path": "src/addons/rule-weight-evidence.ts",
       "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:src/addons/rule-weight-review.ts",
       "path": "src/addons/rule-weight-review.ts",
       "sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:src/cli-operation.ts",
       "path": "src/cli-operation.ts",
       "sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:src/cli-recovery.ts",
       "path": "src/cli-recovery.ts",
       "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:test/portable-transfer.test.ts",
       "path": "test/portable-transfer.test.ts",
       "sha256": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:research/portable-transfer/contract.receipt.json",
       "path": "research/portable-transfer/contract.receipt.json",
-      "sha256": "sha256:8b399fd3573b7bd88a22f5a1adc552d0cbe5814e5b38f4cac8ad6998ad741eb4",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sha256": "sha256:4e787742a5b92dfe40c81f2cb6d6585cc2fe8c69e26ba6290986ac1de47504e9",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:research/portability-plan/plan.json",
       "path": "research/portability-plan/plan.json",
       "sha256": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
     },
     {
       "id": "source:docs/PORTABLE_TRANSFER.md",
       "path": "docs/PORTABLE_TRANSFER.md",
-      "sha256": "sha256:77d7b0f0ad3d9cf21ffe9c6a353f56f71039e69570185153b5d789054ddbecdc",
-      "sourceCommit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      "sha256": "sha256:b5654c53d515df833ee8439d339acea6809da508f7118ce57271acdf628a14e9",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+    },
+    {
+      "id": "source:src/addons/portable-transfer-export.ts",
+      "path": "src/addons/portable-transfer-export.ts",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+      "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
+    },
+    {
+      "id": "source:scripts/usl-transfer-export.ts",
+      "path": "scripts/usl-transfer-export.ts",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+      "sha256": "sha256:8e22f38fc040ee8b4b4f43de245802e4bcc110e29e5dc3d60398aba0d48ce4f9"
+    },
+    {
+      "id": "source:test/portable-transfer-export.test.ts",
+      "path": "test/portable-transfer-export.test.ts",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+      "sha256": "sha256:ae39ab2e87c5acddfd9a1d2ad4574b5aac90f7049236b122e016b2caf053960e"
+    },
+    {
+      "id": "source:docs/PORTABLE_TRANSFER_EXPORT.md",
+      "path": "docs/PORTABLE_TRANSFER_EXPORT.md",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+      "sha256": "sha256:c0751c30b9dec4ea973a1cb8d54add50c95310842dbc66d9c63a31f128b1f771"
+    },
+    {
+      "id": "source:research/development-progress/receipt.json",
+      "path": "research/development-progress/receipt.json",
+      "sourceCommit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+      "sha256": "sha256:da5c59ffc60f4e2f484fd9fe8dce65464c123d7a37e7ba08fe4b358a64f51072"
     }
   ],
   "decisions": [
@@ -411,7 +441,12 @@
         "reference:bagit"
       ],
       "localSourceIds": [
-        "source:src/addons/portable-transfer.ts"
+        "source:src/addons/portable-transfer.ts",
+        "source:src/addons/portable-transfer-export.ts",
+        "source:scripts/usl-transfer-export.ts",
+        "source:test/portable-transfer-export.test.ts",
+        "source:docs/PORTABLE_TRANSFER_EXPORT.md",
+        "source:research/development-progress/receipt.json"
       ],
       "taskIds": [
         "task:PT02"
@@ -427,7 +462,7 @@
         "decision:PR01"
       ],
       "remaining": "여러 DB와 파일의 공통 시점은 별도 owner 조정이 필요하다. stat 전후 비교만으로 전체 작업환경의 snapshot을 증명하지 않는다.",
-      "currentCoverage": "PT01은 순수 manifest parser이며 파일이나 DB snapshot을 생성하지 않는다."
+      "currentCoverage": "2026-10-04 로컬 구현: PT02 exporter는 OWNER_FROZEN owner assertion과 PINNED_BYTE_SET을 구분하고 독립적인 파일 해시·길이·closure pin을 검사한다. 23개 exporter 테스트 실행은 별도 개발 진행 receipt에 기록한다. DB snapshot API 및 다중 시스템 원자성은 구현·검증하지 않았다."
     },
     {
       "id": "decision:PR03",
@@ -442,7 +477,12 @@
         "reference:ocfl"
       ],
       "localSourceIds": [
-        "source:src/addons/portable-transfer.ts"
+        "source:src/addons/portable-transfer.ts",
+        "source:src/addons/portable-transfer-export.ts",
+        "source:scripts/usl-transfer-export.ts",
+        "source:test/portable-transfer-export.test.ts",
+        "source:docs/PORTABLE_TRANSFER_EXPORT.md",
+        "source:research/development-progress/receipt.json"
       ],
       "taskIds": [
         "task:PT02",
@@ -459,8 +499,8 @@
       "dependsOn": [
         "decision:PR02"
       ],
-      "remaining": "현재 manifest는 복사된 실제 bytes·원래 파일 이름·의존성 범위·전체 역사 보존을 검증하지 않는다. strict v1을 묵시적으로 확장하지 않는다.",
-      "currentCoverage": "표현별 payload 경로·해시·크기 선언은 있다. 파일 존재·bytes·복원 범위의 검증은 없다."
+      "remaining": "선택한 PINNED_FILES 범위 밖의 숨은 의존성과 전체 역사 보존은 증명하지 않는다. import의 namespace/native ID 충돌·무결성·복원 검사는 PT03이며 다기기 인수검사는 PT04다.",
+      "currentCoverage": "2026-10-04 로컬 구현: PT02가 실제 복사 bytes·원본 상대 복원 경로·ASCII payload 매핑·메타데이터 digest를 검사한다. PACKAGED는 실제 representation을 참조해야 하며 EXTERNAL_REQUIRED가 남으면 selfContained는 false다. 순수 PT01 manifest 의미는 유지한다."
     },
     {
       "id": "decision:PR04",
@@ -479,7 +519,12 @@
       ],
       "localSourceIds": [
         "source:src/addons/portable-transfer.ts",
-        "source:src/resource-bindings.ts"
+        "source:src/resource-bindings.ts",
+        "source:src/addons/portable-transfer-export.ts",
+        "source:scripts/usl-transfer-export.ts",
+        "source:test/portable-transfer-export.test.ts",
+        "source:docs/PORTABLE_TRANSFER_EXPORT.md",
+        "source:research/development-progress/receipt.json"
       ],
       "taskIds": [
         "task:PT02",
@@ -497,7 +542,7 @@
         "decision:PR03"
       ],
       "remaining": "환경 recipe의 저장은 설치·실행 승인이 아니다. 오프라인 복원에 필요한 dependency payload와 목표 플랫폼 지원을 별도 확인한다.",
-      "currentCoverage": "기존 bindings의 local root 매핑은 있다. Git 전체 작업상태와 환경 recipe exporter는 없다."
+      "currentCoverage": "기존 bindings의 local root 매핑에 더해 PT02 GIT_WORKTREE profile이 objects/refs/admin, worktree HEAD/index/config, dirty/untracked, submodule, LFS, alternates를 여섯 EXTERNAL_REQUIRED 항목으로 명시한다. Git closure나 환경 recipe의 실제 수집·재구성은 미구현이며 selfContained는 false다."
     },
     {
       "id": "decision:PR05",
@@ -1052,7 +1097,7 @@
   ],
   "implementationOrder": [
     "PT01 호환성·경로 capability gap을 명시하고 export inventory 설계를 먼저 고정",
-    "PT02 owner snapshot과 bounded export를 일반 파일 fixture부터 구현",
+    "PT02 고정 파일 집합 export의 로컬 실행 근거를 유지하고 PT03 새 목적지 검증·복원을 구현",
     "PT03 같은 filesystem staging·검증·no-replace publication·로컬 binding",
     "PT04 Linux/macOS/Windows와 장애 주입 인수검사",
     "PT05 메모리 조각, PT06 인과 충돌, PT07 owner 조건부 효과 대조 순으로 확장"
