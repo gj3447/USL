@@ -74,7 +74,7 @@ C02·C03·C04 사이의 추가 선행 관계는 선언되어 있지 않다. 실�
 ## 4. 근거와 검증 범위
 
 - P01~P03은 [검증 기록](../research/architecture/binding-delivery.receipt.json)의 2026-10-04 로컬 명령 PASS와 파일 digest로 연결되어 있다. 이 요약의 재생성은 그 테스트 명령을 재실행하지 않는다.
-- C01은 [검증 기록](../research/architecture/core-cli-c01.receipt.json)의 2026-10-04 로컬 명령 PASS, 파일 digest와 source commit `7576cf9bccea1a068f2a84f69bace3f3eb419b72`으로 연결되어 있다. 이 기록은 Lean 증명이 아니다.
+- C01은 [검증 기록](../research/architecture/core-cli-c01.receipt.json)의 2026-10-04 로컬 명령 PASS, 파일 digest와 source commit `ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28`으로 연결되어 있다. 이 기록은 Lean 증명이 아니다.
 - JSON-LD/RDF 교환 표현과 PROV-O 출처 관계, SHACL 역할·타입·카디널리티 검사를 사용한다. USL 어휘와 task 상태 규약은 프로젝트 소유다.
 - 별도 검증기가 현재 파일 digest, 완료 근거 연결, 작업 상태와 선행 관계의 순환 여부를 확인한다. 명령 기록은 서명된 실행 증명이나 원격 상태 관측이 아니다.
 - 완료된 작업은 해당 수용 기준의 로컬 검증 기록을 뜻한다. graph-cli 제안 전체나 남은 계획 작업의 완료를 뜻하지 않는다.
@@ -98,4 +98,4 @@ python3 scripts/validate-syntax-cli-architecture.py
 
 SHACL 검사는 scripts/requirements-standards.txt를 설치한 Python 환경을 사용한다. 원본 catalog/plan 수정 후 generator를 --check 없이 실행하면 그래프와 이 문서를 함께 갱신한다.
 
-그래프 digest: `sha256:c45a5825d822301789713fcbcfcf364c27d43d3429b85dec87aaabb3feaf6071`.
+그래프 digest: `sha256:55999b0bd2a1e841d6b51c7eb9d474f9de28b4e4330ba4c191219b4cebc8fc36`.
