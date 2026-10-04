@@ -253,11 +253,17 @@ test("PT03-C5: rejects conflicting owner registry definitions without truncating
 
 test("PT03-C4: CLI accepts help but rejects bad arguments and a FIFO spec promptly", async (t) => {
   const { fx, bundle } = await exported(t)
-  const help = await execFile("tsx", ["scripts/usl-transfer-import.ts", "--help"], { cwd: process.cwd() })
+  const cli = ["--import", "tsx", "scripts/usl-transfer-import.ts"]
+  const help = await execFile(process.execPath, [...cli, "--help"], { cwd: process.cwd() })
   assert.match(help.stdout, /--spec FILE --destination-parent DIRECTORY --destination-name NAME/)
-  await assert.rejects(execFile("tsx", ["scripts/usl-transfer-import.ts", "--bogus"], { cwd: process.cwd() }), /usage/i)
+  await assert.rejects(execFile(process.execPath, [...cli, "--bogus"], { cwd: process.cwd() }), /usage/i)
   const fifo = join(fx.root, "import-spec.fifo")
   await execFile("mkfifo", [fifo])
-  await assert.rejects(execFile("tsx", ["scripts/usl-transfer-import.ts", "--spec", fifo, "--destination-parent", fx.restores, "--destination-name", "cli"], { cwd: process.cwd(), timeout: 500 }), /timed out|regular|FIFO|Command failed/i)
+  await assert.rejects(execFile(process.execPath, [...cli, "--spec", fifo, "--destination-parent", fx.restores, "--destination-name", "cli"], { cwd: process.cwd(), timeout: 10_000 }), (error: unknown) => {
+    const failure = error as Error & { killed?: boolean; stderr?: string }
+    assert.notEqual(failure.killed, true, "FIFO rejection must finish before the subprocess timeout")
+    assert.match(failure.stderr ?? failure.message, /regular non-symlink file/i)
+    return true
+  })
   assert.ok(bundle.bundlePath)
 })
