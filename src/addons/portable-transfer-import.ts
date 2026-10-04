@@ -219,6 +219,9 @@ const safeRestore = (value: string) => {
         Buffer.byteLength(x) > 255 ||
         /[\u0000-\u001f\u007f<>:"|?*]/u.test(x) ||
         /[. ]$/u.test(x) ||
+        /^(?:\.git|\.ssh|\.aws|\.npmrc|\.gitconfig|\.netrc|\.env(?:\..*)?)$/iu.test(
+          x,
+        ) ||
         /^(con|prn|aux|nul|clock\$|com[1-9¹²³]|lpt[1-9¹²³])(?:\..*)?$/iu.test(
           x,
         ),
@@ -512,6 +515,7 @@ export async function importPortableTransfer(
     receipt.schema !== PORTABLE_TRANSFER_EXPORT_SCHEMA ||
     typeof receipt.manifestDigest !== "string" ||
     typeof receipt.snapshotId !== "string" ||
+    !/^[A-Za-z0-9._:-]{1,256}$/u.test(receipt.snapshotId) ||
     typeof receiptFiles !== "number" ||
     typeof receiptBytesTotal !== "number" ||
     !Number.isSafeInteger(receiptFiles) ||
@@ -589,12 +593,20 @@ export async function importPortableTransfer(
   if (
     policy.schema !== PORTABLE_TRANSFER_EXPORT_SCHEMA ||
     policy.version !== 1 ||
+    typeof policy.snapshotId !== "string" ||
+    policy.snapshotId !== receipt.snapshotId ||
     policy.restoreProfile !== "PINNED_FILES" ||
     policy.selfContained !== true ||
     !(
       policy.snapshotProfile === "PINNED_BYTE_SET" ||
       policy.snapshotProfile === "OWNER_FROZEN"
     ) ||
+    !(
+      policy.ownerConsistency === "NOT_ASSERTED_BY_CLI" ||
+      policy.ownerConsistency === "ASSERTED_BY_HOST_NOT_INDEPENDENTLY_VERIFIED"
+    ) ||
+    (policy.snapshotProfile === "OWNER_FROZEN" &&
+      policy.ownerConsistency !== "ASSERTED_BY_HOST_NOT_INDEPENDENTLY_VERIFIED") ||
     typeof policy.closureDigest !== "string" ||
     !(
       typeof policy.expectedClosureDigest === "string" ||

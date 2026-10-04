@@ -10,6 +10,8 @@
 
 완료 receipt의 실제 bytes, 여섯 sidecar의 해시·길이, PT01 manifest·envelope, inventory·policy·dictionary·schema의 대응, payload 전체의 해시·길이를 검사한다. 입력 schema가 맞아도 파일 누락·추가, ID 대응 오류, 가짜 PACKAGED 의존성, 복원 경로 충돌이 있으면 거부한다. 메타데이터의 해시가 맞는다는 이유로 그 안의 선언을 무조건 수용하지 않는다.
 
+receipt와 policy의 snapshot ID는 일치해야 하며 owner 일관성 선언도 해당 snapshot profile의 허용값이어야 한다. 복원 경로에는 exporter와 같은 보호 정책을 적용해 `.git`, `.ssh`, `.aws`, `.npmrc`, `.gitconfig`, `.netrc`, `.env`, `.env.*` 구성요소를 거부한다. 해시를 다시 고정해도 이 의미·경로 검사를 생략하지 않는다.
+
 `OWNER_FROZEN`은 원래 exporter의 owner assertion 선언이며 importer가 당시 잠금의 정당성을 새로 인증하는 것은 아니다. `PINNED_BYTE_SET`도 원자적인 전체 파일시스템 snapshot을 뜻하지 않는다. 둘 다 복원 시에는 실제 전달받은 bytes를 검사한다.
 
 ## 새 목적지와 반복 실행

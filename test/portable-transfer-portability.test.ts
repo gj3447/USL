@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import { createHash } from "node:crypto"
 import { execFile as execFileCallback } from "node:child_process"
-import { cp, mkdir, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises"
+import { cp, mkdir, mkdtemp, readFile, realpath, rm, stat, symlink, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { test } from "node:test"
@@ -13,9 +13,9 @@ const sha256 = (bytes: Uint8Array) => `sha256:${createHash("sha256").update(byte
 const execFile = promisify(execFileCallback)
 
 async function fixture(t: { after(callback: () => unknown): void }) {
-  // mkdtemp gives each side a separate, real filesystem root. Do not use a
-  // symlink here: macOS deliberately rejects such exporter inputs.
-  const root = await mkdtemp(join(tmpdir(), "usl-pt04-"))
+  // OS temporary-directory aliases must be resolved by the fixture owner.
+  // mkdtemp alone preserves symlink ancestors; the exporter rejects them.
+  const root = await mkdtemp(join(await realpath(tmpdir()), "usl-pt04-"))
   const sourceRoot = join(root, "source-device", "selection")
   const exportsRoot = join(root, "source-device", "exports")
   const transferredRoot = join(root, "transferred-device", "incoming")
@@ -107,7 +107,7 @@ test("PT04-C2: a budget-interrupted import leaves no completion marker and does 
 })
 
 test("PT04-C3: a separate producer and cache-free consumer report exact transport metrics", async (t) => {
-  const root = await mkdtemp(join(tmpdir(), "usl-pt04-c3-")), bundles = join(root, "producer-bundles"), copied = join(root, "consumer-download"), destination = join(root, "consumer-target")
+  const root = await mkdtemp(join(await realpath(tmpdir()), "usl-pt04-c3-")), bundles = join(root, "producer-bundles"), copied = join(root, "consumer-download"), destination = join(root, "consumer-target")
   await Promise.all([mkdir(bundles), mkdir(copied), mkdir(destination)])
   t.after(() => rm(root, { recursive: true, force: true }))
   const producer = JSON.parse((await execFile(process.execPath, ["--import", "tsx", "scripts/portable-transfer-acceptance.ts", "produce", "--bundle-parent", bundles])).stdout) as { bundlePath: string, receiptDigest: string }
@@ -123,4 +123,18 @@ test("PT04-C3: a separate producer and cache-free consumer report exact transpor
   assert.equal(report.executionCalls, 0)
   assert.ok(Number.isFinite(report.importAndRebindWallMs) && report.importAndRebindWallMs >= 0)
   assert.ok(Number.isFinite(report.peakRssKiB) && report.peakRssKiB > 0)
+})
+
+test("PT04-C1: owned transport fixtures resolve temporary-directory aliases before strict filesystem checks", async (t) => {
+  const root = await mkdtemp(join(await realpath(tmpdir()), "usl-pt04-alias-"))
+  t.after(() => rm(root, { recursive: true, force: true }))
+  const actual = join(root, "actual"), alias = join(root, "alias"), bundles = join(root, "bundles")
+  await Promise.all([mkdir(actual), mkdir(bundles)])
+  await symlink(actual, alias, process.platform === "win32" ? "junction" : "dir")
+  const env = { ...process.env, TMPDIR: alias, TEMP: alias, TMP: alias }
+  const producer = JSON.parse((await execFile(process.execPath, ["--import", "tsx", "scripts/portable-transfer-acceptance.ts", "produce", "--bundle-parent", bundles], { env })).stdout) as { bytes: number }
+  assert.equal(producer.bytes, 22)
+  // Run only the ordinary copied-bundle fixture, preventing recursive execution
+  // of this regression while exercising its temporary-root setup in a fresh process.
+  await execFile(process.execPath, ["--import", "tsx", "--test", "--test-name-pattern", "^PT04-C1: a copied", "test/portable-transfer-portability.test.ts"], { env })
 })

@@ -2,7 +2,7 @@
 /** PT04 cross-OS transport fixture. It has no network, host-registration, or execution callback. */
 import assert from "node:assert/strict"
 import { createHash } from "node:crypto"
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises"
+import { mkdir, mkdtemp, readFile, realpath, rm, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { basename, join, resolve } from "node:path"
 import { exportPortableTransfer, PORTABLE_TRANSFER_EXPORT_SCHEMA, portableTransferClosureDigest, type FrozenPortableTransferFile } from "../src/addons/portable-transfer-export.js"
@@ -29,7 +29,9 @@ const exactFlags = (flags: readonly string[]) => {
 
 async function produce() {
   exactFlags(["produce", "--bundle-parent"])
-  const bundleParent = resolve(value("--bundle-parent")!), sourceRoot = await mkdtemp(join(tmpdir(), "usl-pt04-producer-"))
+  // This fixture owns its temporary source. Resolve OS temporary-directory
+  // aliases before creation, retaining the exporter's no-symlink boundary.
+  const bundleParent = resolve(value("--bundle-parent")!), sourceRoot = await mkdtemp(join(await realpath(tmpdir()), "usl-pt04-producer-"))
   try {
     const files: FrozenPortableTransferFile[] = []
     for (const item of fixture) {

@@ -172,6 +172,15 @@ test("PT03-C2: authenticated malformed dependency and inventory metadata cannot 
 test("PT03-C2: authenticated policy/schema substitutions and duplicate representations are rejected semantically", async (t) => {
   for (const mutation of [
     (data: Record<string, any>) => { data["policy.json"].schema = "usl-portable-transfer-export/v0" },
+    // The receipt and policy jointly identify the exported owner snapshot.  A
+    // new receipt digest only authenticates these altered bytes; it cannot make
+    // contradictory provenance a valid PT02 bundle.
+    (data: Record<string, any>) => { data["policy.json"].snapshotId = "contradictory-snapshot" },
+    (data: Record<string, any>) => { data["policy.json"].snapshotId = 42 },
+    (data: Record<string, any>) => { data["policy.json"].ownerConsistency = "FORGED_ASSERTION" },
+    (data: Record<string, any>) => {
+      Object.assign(data["policy.json"], { snapshotProfile: "OWNER_FROZEN", expectedClosureDigest: null, ownerConsistency: "NOT_ASSERTED_BY_CLI" })
+    },
     (data: Record<string, any>) => { data["schema.json"].schema = "substituted-not-PT02" },
     (data: Record<string, any>) => { data["inventory.json"].files[0].representationId = "urn:pt03:representation:absent" },
   ]) {
@@ -180,6 +189,17 @@ test("PT03-C2: authenticated policy/schema substitutions and duplicate represent
     mutation(data)
     const digest = await repinSidecars(bundle.bundlePath, data)
     await assert.rejects(importPortableTransfer(request(bundle.bundlePath, fx.restores, digest)), /policy|schema|inventory|manifest|representation/i)
+  }
+  for (const invalidId of ["contains spaces", "x".repeat(257)]) {
+    const { fx, bundle } = await exported(t)
+    const data = await sidecars(bundle.bundlePath)
+    data["policy.json"].snapshotId = invalidId
+    const receiptPath = join(bundle.bundlePath, "receipt.json")
+    const receipt = JSON.parse(await readFile(receiptPath, "utf8"))
+    receipt.snapshotId = invalidId
+    await writeFile(receiptPath, JSON.stringify(receipt))
+    const digest = await repinSidecars(bundle.bundlePath, data)
+    await assert.rejects(importPortableTransfer(request(bundle.bundlePath, fx.restores, digest)), /invalid.*receipt/i)
   }
 })
 
@@ -193,6 +213,47 @@ test("PT03-C2: receipt-repinned case-folded restore paths cannot publish on a ca
   const digest = await repinSidecars(bundle.bundlePath, { "inventory.json": data["inventory.json"], "policy.json": data["policy.json"] })
   await assert.rejects(importPortableTransfer(request(bundle.bundlePath, fx.restores, digest)), /collision|restore|inventory/i)
   assert.equal(files.length, 2)
+})
+
+test("PT03-C2: authenticated non-exportable registration and credential paths cannot reserve a destination", async (t) => {
+  for (const protectedPath of [".git/config", ".env.private"]) {
+    const { fx, bundle } = await exported(t)
+    const data = await sidecars(bundle.bundlePath)
+    data["inventory.json"].files[0].sourcePath = protectedPath
+    data["inventory.json"].files[0].restorePath = protectedPath
+    const closureFiles = data["inventory.json"].files.map((file: any) => ({
+      sourcePath: file.restorePath,
+      payloadPath: file.payloadPath,
+      nativeId: file.nativeId,
+      revisionId: file.revisionId,
+      representationId: file.representationId,
+      expectedByteDigest: file.byteDigest,
+      expectedByteLength: file.byteLength,
+    }))
+    data["policy.json"].closureDigest = portableTransferClosureDigest(
+      "PINNED_FILES",
+      closureFiles,
+      [],
+    )
+    data["policy.json"].expectedClosureDigest =
+      data["policy.json"].closureDigest
+    const receiptDigest = await repinSidecars(bundle.bundlePath, {
+      "inventory.json": data["inventory.json"],
+      "policy.json": data["policy.json"],
+    })
+    await assert.rejects(
+      importPortableTransfer(
+        request(
+          bundle.bundlePath,
+          fx.restores,
+          receiptDigest,
+          `protected-${protectedPath.replace(/[^A-Za-z0-9]/g, "-")}`,
+        ),
+      ),
+      /unsafe portable restore path/i,
+    )
+    assert.deepEqual(await readdir(fx.restores), [])
+  }
 })
 
 test("PT03-C3: preserves unknown, diverged, and withdrawn history without automatic activation or merge", async (t) => {
