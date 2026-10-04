@@ -1,11 +1,38 @@
 {
-  "schema": "usl-development-progress/v1",
+  "schema": "usl-development-progress/v2",
   "authority": "SECONDARY_AI",
-  "task": "task:DG01",
-  "implementation": "IMPLEMENTED_LOCAL_SCOPE",
-  "status": "LOCAL_CASES_PASS",
-  "recordedAt": "2026-10-04T00:01:16.254194+00:00",
-  "sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+  "atomicSnapshot": "NOT_CLAIMED",
+  "crossPlatformAcceptance": "NOT_RUN",
+  "transfer": "PINNED_FILES_LOCAL_SCOPE",
+  "restore": "NOT_IMPLEMENTED",
+  "executionAuthority": "NOT_GRANTED",
+  "observations": [
+    {
+      "task": "task:DG01",
+      "implementation": "IMPLEMENTED_LOCAL_SCOPE",
+      "status": "LOCAL_CASES_PASS",
+      "scope": "OWNER_OPT_IN_CHECKOUT_GUARD_AND_LOCAL_COMPATIBILITY",
+      "criteria": [
+        "criterion:DG01-C1",
+        "criterion:DG01-C2",
+        "criterion:DG01-C3"
+      ]
+    },
+    {
+      "task": "task:PT02",
+      "implementation": "IMPLEMENTED_LOCAL_SCOPE",
+      "status": "LOCAL_CASES_PASS",
+      "scope": "PINNED_FILES_EXPORT_AND_EXPLICIT_EXTERNAL_DEPENDENCIES",
+      "criteria": [
+        "criterion:PT02-C1",
+        "criterion:PT02-C2",
+        "criterion:PT02-C3",
+        "criterion:PT02-C4"
+      ]
+    }
+  ],
+  "recordedAt": "2026-10-04T00:25:25.137172+00:00",
+  "sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -22,7 +49,8 @@
     "test/binding-inspection.test.ts",
     "test/worktree-lifecycle.test.ts",
     "test/worktree-execution.test.ts",
-    "test/worktree-graph-cli.test.ts"
+    "test/worktree-graph-cli.test.ts",
+    "test/portable-transfer-export.test.ts"
   ],
   "pins": [
     {
@@ -30,12 +58,16 @@
       "sha256": "sha256:9c668db86982beb843af19723ec5e089797b440518629263d66d358a5a1086a9"
     },
     {
+      "path": "docs/PORTABLE_TRANSFER_EXPORT.md",
+      "sha256": "sha256:c0751c30b9dec4ea973a1cb8d54add50c95310842dbc66d9c63a31f128b1f771"
+    },
+    {
       "path": "package-lock.json",
       "sha256": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c"
     },
     {
       "path": "package.json",
-      "sha256": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a"
+      "sha256": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802"
     },
     {
       "path": "research/development-plan/plan.json",
@@ -43,11 +75,15 @@
     },
     {
       "path": "schemas/development-progress/progress.shacl.ttl",
-      "sha256": "sha256:3fe3e3f0dffe15b09dd080e51d336e77cce02b79891a1c6c4b2e84b35e440863"
+      "sha256": "sha256:b024ea050ba3408371fb3d0c95f49c8af02f29e976ed6066262bc55d0455763d"
     },
     {
       "path": "scripts/record-development-progress.py",
-      "sha256": "sha256:6afff0e3908f987055a2c44a77e5816d8e30cf079a94ecde7a211917ced01c7f"
+      "sha256": "sha256:8a072b8cfdae603f36fa90dbcd61413783e6a600c9bd67fa649632730248f391"
+    },
+    {
+      "path": "scripts/usl-transfer-export.ts",
+      "sha256": "sha256:8e22f38fc040ee8b4b4f43de245802e4bcc110e29e5dc3d60398aba0d48ce4f9"
     },
     {
       "path": "src/adapters.ts",
@@ -56,6 +92,10 @@
     {
       "path": "src/addons/checkout-guard.ts",
       "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
+    },
+    {
+      "path": "src/addons/portable-transfer-export.ts",
+      "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
     },
     {
       "path": "src/addons/portable-transfer.ts",
@@ -290,6 +330,10 @@
       "sha256": "sha256:5a21be96f22208b91bf8af6063dd82630608d5ff6c91120478e0664593b8b7d7"
     },
     {
+      "path": "test/portable-transfer-export.test.ts",
+      "sha256": "sha256:ae39ab2e87c5acddfd9a1d2ad4574b5aac90f7049236b122e016b2caf053960e"
+    },
+    {
       "path": "test/worktree-execution.test.ts",
       "sha256": "sha256:2b8831031cd6c35f126773da16edddedfcc87bb11dca5eeb2963b6d48ba20e30"
     },
@@ -306,7 +350,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:e6eda992ed7c52487f9d5af5bc16853bda105dae5fbfe538fe063df7479fcfae",
+  "tapDigest": "sha256:b37eec5f06f1b793baaf88e8f8da9679ec80e43b8e2e919c7758c3b82c61b3da",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -391,6 +435,121 @@
     {
       "id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf",
       "name": "DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test:29b7c99a14bd56e280f3ebec9e2df73fcfd2ab37154c3493248f70427957ed75",
+      "name": "PT02-C1: records independent SHA-256 and length for the bytes actually published",
+      "status": "PASS"
+    },
+    {
+      "id": "test:6305978bcb58ad21e275c39378e1828a101423ca918351dba2d331a0a0b89889",
+      "name": "PT02-C1: unique staged publication never overwrites an existing export",
+      "status": "PASS"
+    },
+    {
+      "id": "test:0f6f9d933ea038f0756a6bd49355cbdbb9bd6fbaf59040ee4011f014963bf8e1",
+      "name": "PT02-C1: an owner snapshot mismatch before or after copying aborts and cleans up the bundle",
+      "status": "PASS"
+    },
+    {
+      "id": "test:809386a484e9d49d5abf1507a443cb18d68d8e4e584ee72ab016b303732b6b13",
+      "name": "PT02-C1: snapshots mutable request fields before awaiting the owner",
+      "status": "PASS"
+    },
+    {
+      "id": "test:18caeb21a4bd81ac88a593a44cdbffaafa15944f76c0892913b404195d711f7d",
+      "name": "PT02-C1: accessor-backed requests are refused before their values can vary across awaits",
+      "status": "PASS"
+    },
+    {
+      "id": "test:93fb59ca0e81d77605e859eee2a60d0015da78eae1066b3fe9a88b4dabe020a4",
+      "name": "PT02-C2: required dependencies are self-contained only when represented by packaged payload",
+      "status": "PASS"
+    },
+    {
+      "id": "test:707fcb5cd1befed9ba824ec429517d0ec962cd887d881ad0a81a3fdfd0e06dfa",
+      "name": "PT02-C2: a legacy caller-supplied verified flag cannot turn a dependency into a complete export",
+      "status": "PASS"
+    },
+    {
+      "id": "test:a91d45e8ca1515a4b2216c46ae5cccc57da09ebcc652880233d8479894abd051",
+      "name": "PT02-C3: unknown nested file fields cannot become inventory or restore metadata",
+      "status": "PASS"
+    },
+    {
+      "id": "test:f802bd009d249be598d3ec46727855a9bbb6e6e32dd4aef91b9ba184f21bff32",
+      "name": "PT02-C2: dependency closure inputs are bounded and nested package evidence is captured before the owner await",
+      "status": "PASS"
+    },
+    {
+      "id": "test:abfe156282861729e38a81d2f2e383a9439a74af0243a3bc9f0335b5c4f45b6f",
+      "name": "PT02-C2: rejects path escapes, special files, duplicate IDs, case collisions, excess entries, and byte budgets",
+      "status": "PASS"
+    },
+    {
+      "id": "test:44358be8249adcbb8c7c0a62d03de286263997f46fff315ef250bd3055b4aee4",
+      "name": "PT02-C2: restore paths preserve Unicode only when their NFC and case-folded forms are unambiguous",
+      "status": "PASS"
+    },
+    {
+      "id": "test:f0a46ed554c971a1ab2ec874ae06223b429210d7bf38fdac36f35782f08f60eb",
+      "name": "PT02-C2: a Git worktree restore profile is explicitly external without a Git closure adapter",
+      "status": "PASS"
+    },
+    {
+      "id": "test:5de0ff507dd6a3da689b433b90e0a82d5309efae9a56cb48b6d280a5b839c3f5",
+      "name": "PT02-C3: packages policy and dictionary pins without host registration or machine-local secret paths",
+      "status": "PASS"
+    },
+    {
+      "id": "test:27d12c2f6918de14bb6f58b8b1b007e9783961f9b85d2458ed06a9badc0ad7c4",
+      "name": "PT02-C1: duration budget expires before any complete bundle is published",
+      "status": "PASS"
+    },
+    {
+      "id": "test:a5ad3c91ff70ec5d04b46edfcca6c959b04bf213587f55663590ad4b112cae23",
+      "name": "PT02-C1: PINNED_BYTE_SET accepts an optional host assertion but never relabels itself as OWNER_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "id": "test:d9082c4088a2cdb11bfb724d574068e1c938824f0153679825cee75942d1589d",
+      "name": "PT02-C4: unsupported Git closure remains explicitly external and no arbitrary host program runs",
+      "status": "PASS"
+    },
+    {
+      "id": "test:fb5192560eb974e32d6704af9dec128dfe497a8afaced4b6119e13b03679fe65",
+      "name": "PT02-C3: the standalone CLI accepts only a bounded PINNED_BYTE_SET spec and exposes help",
+      "status": "PASS"
+    },
+    {
+      "id": "test:5601dfc98da7c8c839e2a049de3326cbcc029311d3fda7ce17ee478eb26a7a80",
+      "name": "PT02-C4: a PINNED_BYTE_SET Git-worktree closure digest is computed over exactly one normalized Git closure",
+      "status": "PASS"
+    },
+    {
+      "id": "test:03e721c22d25dfdef7515e5649146a6eec3ae6b520e43914eb874b694fdbc83f",
+      "name": "PT02-C1: any staged-payload tamper or extra staged entry after the final owner assertion aborts publication",
+      "status": "PASS"
+    },
+    {
+      "id": "test:963ccdf1ad6c01bde26c5b905728f96902dc77652b063b1b1dd0d4f08ebce8df",
+      "name": "PT02-C1: time spent in the final owner assertion counts against the export duration",
+      "status": "PASS"
+    },
+    {
+      "id": "test:4c14664f20b330b6271016d841d25bc1887ba8fddb86eb50ba96d890d35d30a7",
+      "name": "PT02-C3: CLI refuses a FIFO spec promptly instead of reading an unbounded stream",
+      "status": "PASS"
+    },
+    {
+      "id": "test:7535bce14624eed123237faf4b1cc03d77090636240714860e7a6974ca5aeb4c",
+      "name": "PT02-C2: dependency class and required semantics cannot be forged with JSON lookalikes",
+      "status": "PASS"
+    },
+    {
+      "id": "test:f9e58164c407dde665f7d49b8c9327193b18d1fdcb32bc4d91a36996ad48ca1f",
+      "name": "PT02-C2: restore paths reject Windows-reserved, colon/control, and file-directory ambiguities",
       "status": "PASS"
     },
     {
@@ -490,8 +649,8 @@
     }
   ],
   "totals": {
-    "tests": 36,
-    "pass": 36,
+    "tests": 59,
+    "pass": 59,
     "fail": 0,
     "cancelled": 0,
     "skipped": 0,
@@ -500,13 +659,11 @@
   "criteria": [
     "criterion:DG01-C1",
     "criterion:DG01-C2",
-    "criterion:DG01-C3"
+    "criterion:DG01-C3",
+    "criterion:PT02-C1",
+    "criterion:PT02-C2",
+    "criterion:PT02-C3",
+    "criterion:PT02-C4"
   ],
-  "nextTask": "task:PT02",
-  "scope": "OWNER_OPT_IN_CHECKOUT_GUARD_AND_LOCAL_COMPATIBILITY",
-  "atomicSnapshot": "NOT_CLAIMED",
-  "crossPlatformAcceptance": "NOT_RUN",
-  "transfer": "NOT_IMPLEMENTED",
-  "restore": "NOT_IMPLEMENTED",
-  "executionAuthority": "NOT_GRANTED"
+  "nextTask": "task:PT03"
 }

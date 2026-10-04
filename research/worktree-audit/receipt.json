@@ -1,8 +1,8 @@
 {
   "schema": "usl-worktree-audit-receipt/v1",
   "status": "ASSERTIONS_PASS",
-  "recordedAt": "2026-10-04T00:00:54.759142+00:00",
-  "sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+  "recordedAt": "2026-10-04T00:24:53.631277+00:00",
+  "sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
   "environment": {
     "node": "v24.20.0",
     "git": "git version 2.47.3",
@@ -35,7 +35,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a"
+      "sha256": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802"
     },
     {
       "path": "research/worktree-audit/catalog.json",
@@ -52,6 +52,10 @@
     {
       "path": "src/addons/checkout-guard.ts",
       "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
+    },
+    {
+      "path": "src/addons/portable-transfer-export.ts",
+      "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
     },
     {
       "path": "src/addons/portable-transfer.ts",
@@ -314,7 +318,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:8c7f6f2fe75d38a22d2889ec3529c32a7858ba34a719101feb6a6473d29687af",
+  "tapDigest": "sha256:cdf3e38bce3aa6ab8c72aff344fa6803b5c4d770d7631c835b2e7eef770b5b0e",
   "tests": [
     {
       "id": "test:c2c297e89fceaa6e35c638f696ac372507c4284861c20885a33f6f5e9cb42bc1",

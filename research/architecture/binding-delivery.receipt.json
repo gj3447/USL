@@ -4,21 +4,23 @@
   "status": "PASS",
   "generatedAt": "2026-10-04",
   "scope": "LOCAL_BINDING_FIXTURES_AND_CLI_CONTRACTS",
-  "recording": "Fresh local compatibility verification after DG01 opt-in checkout guard integration; previous receipt bytes remain reachable at previousReceipt.gitRevision/path. Actual export and restore remain unimplemented.",
+  "recording": "Fresh local compatibility verification after PT02 optional portable transfer exporter integration; previous receipt bytes remain reachable at previousReceipt.gitRevision/path. Actual restore and cross-device acceptance remain unimplemented.",
   "proofStatus": "NO_NEW_LEAN_PROOF",
   "sourcePins": {
     "docs/ADDON_BINDING.md": "sha256:e27ad0e81bcc5ad590a9cd71ce7095a8ba8b35f9990a7d0e40930ec8304c87de",
     "docs/CLI.md": "sha256:9fae783d1a5e7182afb2e232f8c99cf8c40aa27b3a89dabf59928b82a1a3d755",
     "docs/LANGUAGE.md": "sha256:15a34082fdc9c8a1f561119a5be556680615112250bc8838ad6fd1d7868a3556",
+    "docs/PORTABLE_TRANSFER_EXPORT.md": "sha256:c0751c30b9dec4ea973a1cb8d54add50c95310842dbc66d9c63a31f128b1f771",
     "docs/RESOURCE_BINDINGS.md": "sha256:474a509a98f8d8b2b5dc75afd4525ec8220d4f3048d6afaf4b41dfe364fbbaa1",
     "examples/agent-navigation.usl": "sha256:3d9b200e76105cfa07ca642a3274bf4cdce17e136f313fd5586a19c779b207cf",
     "examples/fixtures/addon-binding.json": "sha256:fe46aa7eea43bdb3afe764003a2726a24677574ae5ced58d26de25980bf7197c",
     "examples/fixtures/addon-binding.profile.json": "sha256:91d40eb485b493a0c3d7d2fc32b4aef92c83bdea01597c5a3e8a71a138cbe081",
     "examples/fixtures/resource-graph.json": "sha256:41964c13cf25b96994a36ab940755dd06adae0f6c433e815657003b383ae3e9c",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
-    "package.json": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a",
+    "package.json": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
     "src/addons/checkout-guard.ts": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
+    "src/addons/portable-transfer-export.ts": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a",
     "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
     "src/addons/rule-weight-evidence.ts": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
@@ -126,6 +128,7 @@
     "test/observation.test.ts": "sha256:c0cf317817d44d8a6b7bd5ad7d49aabd9a94a92566341bf2fc2ef95c3a494c73",
     "test/permissions.test.ts": "sha256:404494dbfe83212a50900eb72c45514d722b0d364eb3ae8206b1295d89fef3db",
     "test/pierce.test.ts": "sha256:f81ce61bff32492fcf68a436ad04e47e030940194b3b479e5e9efaada8c62d40",
+    "test/portable-transfer-export.test.ts": "sha256:ae39ab2e87c5acddfd9a1d2ad4574b5aac90f7049236b122e016b2caf053960e",
     "test/portable-transfer.test.ts": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
     "test/program-store.test.ts": "sha256:e664fd9bd08ad302e126ea650419fca1cd33abf98cae562e24fe6820c8c14c19",
     "test/project.test.ts": "sha256:8275d2b043970964657ccfa2b7a209592ad72edbd37078f01983f8ef4d090d4e",
@@ -158,19 +161,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "2026-10-04: 385 tests passed, 0 failed, 0 skipped. The fresh full local suite includes opt-in checkout-guard coverage; no export or restore is claimed."
+          "observed": "2026-10-04: 408 tests passed, 0 failed, 0 skipped, including 23 PT02 portable-transfer-export tests. No restore or cross-device acceptance is claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional checkout-guard contract and package export."
+          "observed": "TypeScript check passed, including the optional portable-transfer-export contract and package export."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/checkout-guard package export resolved separately. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/portable-transfer-export package import resolved. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -243,19 +246,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "2026-10-04: 385 tests passed, 0 failed, 0 skipped. The fresh full local suite includes opt-in checkout-guard coverage; no export or restore is claimed."
+          "observed": "2026-10-04: 408 tests passed, 0 failed, 0 skipped, including 23 PT02 portable-transfer-export tests. No restore or cross-device acceptance is claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional checkout-guard contract and package export."
+          "observed": "TypeScript check passed, including the optional portable-transfer-export contract and package export."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/checkout-guard package export resolved separately. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/portable-transfer-export package import resolved. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -333,19 +336,19 @@
           "kind": "command",
           "command": "npm test",
           "exitCode": 0,
-          "observed": "2026-10-04: 385 tests passed, 0 failed, 0 skipped. The fresh full local suite includes opt-in checkout-guard coverage; no export or restore is claimed."
+          "observed": "2026-10-04: 408 tests passed, 0 failed, 0 skipped, including 23 PT02 portable-transfer-export tests. No restore or cross-device acceptance is claimed."
         },
         {
           "kind": "command",
           "command": "npm run typecheck",
           "exitCode": 0,
-          "observed": "TypeScript check passed, including the optional checkout-guard contract and package export."
+          "observed": "TypeScript check passed, including the optional portable-transfer-export contract and package export."
         },
         {
           "kind": "command",
           "command": "npm run build",
           "exitCode": 0,
-          "observed": "Build passed; optional usl/checkout-guard package export resolved separately. No new Lean proof is claimed."
+          "observed": "Build passed; optional usl/portable-transfer-export package import resolved. No new Lean proof is claimed."
         },
         {
           "kind": "source",
@@ -410,10 +413,10 @@
       ]
     }
   ],
-  "supersedesReceiptDigest": "sha256:f48151822a15ef09ba87289b4f146c1bf36709ce8d9a4386f846a07ea5ea5275",
-  "sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+  "supersedesReceiptDigest": "sha256:01116f8f37fe65390d56f8491d2143261ba41d6bdb1de6da03ee263e8dd9006d",
+  "sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
   "previousReceipt": {
-    "gitRevision": "25cb824d383f125d8326c8123ad82a919073d60b",
+    "gitRevision": "4103a9526e0cefaf2bbbee4964a841fe5254b29f",
     "path": "research/architecture/binding-delivery.receipt.json"
   }
 }

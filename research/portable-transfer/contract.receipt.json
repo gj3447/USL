@@ -19,7 +19,7 @@
   "payload": "NOT_CHECKED",
   "freshness": "UNKNOWN",
   "execution": "NOT_REQUESTED",
-  "recordedAt": "2026-10-04T00:00:14.537Z",
+  "recordedAt": "2026-10-04T00:24:36.199Z",
   "sourcePins": {
     "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/contract-core.ts": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
@@ -29,7 +29,7 @@
     "scripts/validate-portable-transfer.py": "sha256:77f39a2fa4153b90fc046a35e87265b2b124cf666244d1e8488cd52931188aee",
     "schemas/portable-transfer/manifest.shacl.ttl": "sha256:3561f5cebbcc406263a93c10bc58789aae5513b1d82169e0b72aff7e87256d20",
     "research/portability-plan/plan.json": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
-    "package.json": "sha256:899022c18fa9090712350b525757462781e452d56419df707dfc1a7cd0cc373a",
+    "package.json": "sha256:1aa1a8491a668f88f86a034251845f4af0f23c656979ed8150afe816a1086802",
     "package-lock.json": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
     "tsconfig.json": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3",
     "schemas/portable-transfer/manifest.schema.json": "sha256:d50e395623a4f0f2cc9c9cd82f1bc6e40e2a78a50f4647081ea896820b51d50e",

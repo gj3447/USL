@@ -20,13 +20,13 @@
       ],
       "locator": "file://dev-01/home/lagyeongjun/CD/USL/research/engineering/receipt.json",
       "metadata": {
-        "runId": "urn:uuid:62ac50cc-71c2-4ee3-a6c2-070d8e07f85c",
+        "runId": "urn:uuid:794e1046-fc92-46ff-8bec-5247ac176e11",
         "scope": "LOCAL_USL_COUNTEREXAMPLES",
-        "receiptDigest": "sha256:bd31ae7e10c0b49cf7c7626b9142fec896e81779c7540bac546bfa46121a8bed",
+        "receiptDigest": "sha256:958f352edeefb12c009494332b2235ce347b3aab649fc0a3c656f0d99eca1ade",
         "verification": "HOST_REPORTED_LOCAL_TESTS",
         "upstreamExecution": "NOT_TESTED",
-        "startedAt": "2026-10-04T00:00:05.564Z",
-        "finishedAt": "2026-10-04T00:00:06.293Z"
+        "startedAt": "2026-10-04T00:24:27.218Z",
+        "finishedAt": "2026-10-04T00:24:27.919Z"
       }
     },
     {

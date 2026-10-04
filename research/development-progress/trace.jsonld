@@ -16,9 +16,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "IMPLEMENTED_LOCAL_SCOPE",
       "d:scope": "OWNER_OPT_IN_CHECKOUT_GUARD_AND_LOCAL_COMPATIBILITY",
-      "d:recordedAt": "2026-10-04T00:01:16.254194+00:00",
+      "d:recordedAt": "2026-10-04T00:25:25.137172+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+      "d:sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
       "d:criterion": [
         {
           "@id": "criterion:DG01-C1"
@@ -31,21 +31,6 @@
         }
       ],
       "d:evidence": [
-        {
-          "@id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732"
-        },
-        {
-          "@id": "test:c73650c20ba3c9f04c5e49d0864c444b71049f88e31541b7c66f2ab5e8c053d5"
-        },
-        {
-          "@id": "test:7ac52417f3255df407c477b7d31d46229f4df08f3bd305ddadb387d313b10ec8"
-        },
-        {
-          "@id": "test:a548d16fbf086d67637e6276af79244d19a28444a305081841d5a35d21197d05"
-        },
-        {
-          "@id": "test:669501a24954f6f549fff0c22a173365f5711989d37ed24f5a3ff31807ffc3ce"
-        },
         {
           "@id": "test:675c38c7bf9507ef1a5d8e34f71073fcbb17c3681c5bb3e7f2f6763ea278b37f"
         },
@@ -81,63 +66,110 @@
         },
         {
           "@id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf"
+        }
+      ],
+      "prov:wasDerivedFrom": {
+        "@id": "urn:usl:development-progress:receipt"
+      }
+    },
+    {
+      "@id": "urn:usl:development-progress:PT02",
+      "@type": [
+        "d:ProgressObservation",
+        "prov:Entity"
+      ],
+      "d:task": {
+        "@id": "task:PT02"
+      },
+      "d:status": "LOCAL_CASES_PASS",
+      "d:implementation": "IMPLEMENTED_LOCAL_SCOPE",
+      "d:scope": "PINNED_FILES_EXPORT_AND_EXPLICIT_EXTERNAL_DEPENDENCIES",
+      "d:recordedAt": "2026-10-04T00:25:25.137172+00:00",
+      "d:authority": "SECONDARY_AI",
+      "d:sourceCommit": "31dc057f4cab644265459acb345ad0a9736a610d",
+      "d:criterion": [
+        {
+          "@id": "criterion:PT02-C1"
         },
         {
-          "@id": "test:2cb7af2e2cde44d0e08a2db8e471f1c03cb183d4407aed5f22b2ad175b894487"
+          "@id": "criterion:PT02-C2"
         },
         {
-          "@id": "test:9af42f1d26174503f9c2ef899d2f37bdab33142d11ea6bb0aca7bd4a3e514d5d"
+          "@id": "criterion:PT02-C3"
         },
         {
-          "@id": "test:8958cf4aec00f9a66dfc3576249ad1d148145a938fcf3b6f9cf0b4c2e97a28ca"
+          "@id": "criterion:PT02-C4"
+        }
+      ],
+      "d:evidence": [
+        {
+          "@id": "test:29b7c99a14bd56e280f3ebec9e2df73fcfd2ab37154c3493248f70427957ed75"
         },
         {
-          "@id": "test:dc761a0843a98d3eedddb0a44ea30e6d745e5202e06f55b356c96d8ab5ee76f1"
+          "@id": "test:6305978bcb58ad21e275c39378e1828a101423ca918351dba2d331a0a0b89889"
         },
         {
-          "@id": "test:a99a4f5c426271d52a8f1aad201064bedb366f7459b62e013fc35c1229be480c"
+          "@id": "test:0f6f9d933ea038f0756a6bd49355cbdbb9bd6fbaf59040ee4011f014963bf8e1"
         },
         {
-          "@id": "test:50a71d08467faaf0d29870dae883596e78e5259b80590c70fb9a0009e722b262"
+          "@id": "test:809386a484e9d49d5abf1507a443cb18d68d8e4e584ee72ab016b303732b6b13"
         },
         {
-          "@id": "test:ea00c252bb8f9b1403f6a0e801f7351014d267c51864e889275c5eee1e94d5a5"
+          "@id": "test:18caeb21a4bd81ac88a593a44cdbffaafa15944f76c0892913b404195d711f7d"
         },
         {
-          "@id": "test:6858033ababd53342caeaf6eaf84badb2f4df581c25b46188bc7804b8b8a421f"
+          "@id": "test:93fb59ca0e81d77605e859eee2a60d0015da78eae1066b3fe9a88b4dabe020a4"
         },
         {
-          "@id": "test:38940c59d5494317414792a73e14052fb67ab56e26210c4e8bb59e0fbafea283"
+          "@id": "test:707fcb5cd1befed9ba824ec429517d0ec962cd887d881ad0a81a3fdfd0e06dfa"
         },
         {
-          "@id": "test:f1ad1f53d69a9b7c28898367c9f3237af542c5ccd1f289d5a37945c863e7d386"
+          "@id": "test:a91d45e8ca1515a4b2216c46ae5cccc57da09ebcc652880233d8479894abd051"
         },
         {
-          "@id": "test:1c8856238d80a7a271322e1fe1644e7c7d5ba5334e6376d0103c2eaf217f7614"
+          "@id": "test:f802bd009d249be598d3ec46727855a9bbb6e6e32dd4aef91b9ba184f21bff32"
         },
         {
-          "@id": "test:a59d13f618d4dbe25a5fed8dace1f94dd1adb0dec70e11a5bae0326eb87023b1"
+          "@id": "test:abfe156282861729e38a81d2f2e383a9439a74af0243a3bc9f0335b5c4f45b6f"
         },
         {
-          "@id": "test:bf5b2cd0ec536eb41edc1ca9dbc72ea5b57fd2a63e45b97300fa6a6a6a3f2af3"
+          "@id": "test:44358be8249adcbb8c7c0a62d03de286263997f46fff315ef250bd3055b4aee4"
         },
         {
-          "@id": "test:8953c2e35a7d0e54a90b616d00aaf6f24cbae71563c9a48a75a6820a0611da93"
+          "@id": "test:f0a46ed554c971a1ab2ec874ae06223b429210d7bf38fdac36f35782f08f60eb"
         },
         {
-          "@id": "test:1b013ece0e03a42a6f7807639b64f7757173a5cfd3df8db4bdda959d92599f4e"
+          "@id": "test:5de0ff507dd6a3da689b433b90e0a82d5309efae9a56cb48b6d280a5b839c3f5"
         },
         {
-          "@id": "test:ec196d1753adf5d31f001dfa21793cf78b2f5c225a15ff97d3a9c79bd221c059"
+          "@id": "test:27d12c2f6918de14bb6f58b8b1b007e9783961f9b85d2458ed06a9badc0ad7c4"
         },
         {
-          "@id": "test:8a376503b53a180269544873e5fbaf33d0ba1b6f1471d43deeda8d158b5487c5"
+          "@id": "test:a5ad3c91ff70ec5d04b46edfcca6c959b04bf213587f55663590ad4b112cae23"
         },
         {
-          "@id": "test:7c2f22df00c4c3cd13a75c1007772a8984f281a2a247809475341e5e5cb31cc4"
+          "@id": "test:d9082c4088a2cdb11bfb724d574068e1c938824f0153679825cee75942d1589d"
         },
         {
-          "@id": "test:c66415185356eafd1c33974a2e5d3524335a6c677f0697bd8357e7b0464b8a7b"
+          "@id": "test:fb5192560eb974e32d6704af9dec128dfe497a8afaced4b6119e13b03679fe65"
+        },
+        {
+          "@id": "test:5601dfc98da7c8c839e2a049de3326cbcc029311d3fda7ce17ee478eb26a7a80"
+        },
+        {
+          "@id": "test:03e721c22d25dfdef7515e5649146a6eec3ae6b520e43914eb874b694fdbc83f"
+        },
+        {
+          "@id": "test:963ccdf1ad6c01bde26c5b905728f96902dc77652b063b1b1dd0d4f08ebce8df"
+        },
+        {
+          "@id": "test:4c14664f20b330b6271016d841d25bc1887ba8fddb86eb50ba96d890d35d30a7"
+        },
+        {
+          "@id": "test:7535bce14624eed123237faf4b1cc03d77090636240714860e7a6974ca5aeb4c"
+        },
+        {
+          "@id": "test:f9e58164c407dde665f7d49b8c9327193b18d1fdcb32bc4d91a36996ad48ca1f"
         }
       ],
       "prov:wasDerivedFrom": {
@@ -149,14 +181,18 @@
       "@type": "d:Task"
     },
     {
+      "@id": "task:PT02",
+      "@type": "d:Task"
+    },
+    {
       "@id": "urn:usl:development-progress:receipt",
       "@type": [
         "d:Receipt",
         "prov:Entity"
       ],
       "d:path": "research/development-progress/receipt.json",
-      "d:sha256": "sha256:f4bbd4ff463f150ca5fa547cce883d538defcde47df99c2aa52b16c887c8c647",
-      "d:tapDigest": "sha256:e6eda992ed7c52487f9d5af5bc16853bda105dae5fbfe538fe063df7479fcfae"
+      "d:sha256": "sha256:da5c59ffc60f4e2f484fd9fe8dce65464c123d7a37e7ba08fe4b358a64f51072",
+      "d:tapDigest": "sha256:b37eec5f06f1b793baaf88e8f8da9679ec80e43b8e2e919c7758c3b82c61b3da"
     },
     {
       "@id": "criterion:DG01-C1",
@@ -209,6 +245,99 @@
         },
         {
           "@id": "test:2e84894ba43f1033880a99344bcebda5d1642f7e70366e6fdb2cccb136c6aacf"
+        }
+      ]
+    },
+    {
+      "@id": "criterion:PT02-C1",
+      "@type": "d:Criterion",
+      "d:checkedBy": [
+        {
+          "@id": "test:29b7c99a14bd56e280f3ebec9e2df73fcfd2ab37154c3493248f70427957ed75"
+        },
+        {
+          "@id": "test:6305978bcb58ad21e275c39378e1828a101423ca918351dba2d331a0a0b89889"
+        },
+        {
+          "@id": "test:0f6f9d933ea038f0756a6bd49355cbdbb9bd6fbaf59040ee4011f014963bf8e1"
+        },
+        {
+          "@id": "test:809386a484e9d49d5abf1507a443cb18d68d8e4e584ee72ab016b303732b6b13"
+        },
+        {
+          "@id": "test:18caeb21a4bd81ac88a593a44cdbffaafa15944f76c0892913b404195d711f7d"
+        },
+        {
+          "@id": "test:27d12c2f6918de14bb6f58b8b1b007e9783961f9b85d2458ed06a9badc0ad7c4"
+        },
+        {
+          "@id": "test:a5ad3c91ff70ec5d04b46edfcca6c959b04bf213587f55663590ad4b112cae23"
+        },
+        {
+          "@id": "test:03e721c22d25dfdef7515e5649146a6eec3ae6b520e43914eb874b694fdbc83f"
+        },
+        {
+          "@id": "test:963ccdf1ad6c01bde26c5b905728f96902dc77652b063b1b1dd0d4f08ebce8df"
+        }
+      ]
+    },
+    {
+      "@id": "criterion:PT02-C2",
+      "@type": "d:Criterion",
+      "d:checkedBy": [
+        {
+          "@id": "test:93fb59ca0e81d77605e859eee2a60d0015da78eae1066b3fe9a88b4dabe020a4"
+        },
+        {
+          "@id": "test:707fcb5cd1befed9ba824ec429517d0ec962cd887d881ad0a81a3fdfd0e06dfa"
+        },
+        {
+          "@id": "test:f802bd009d249be598d3ec46727855a9bbb6e6e32dd4aef91b9ba184f21bff32"
+        },
+        {
+          "@id": "test:abfe156282861729e38a81d2f2e383a9439a74af0243a3bc9f0335b5c4f45b6f"
+        },
+        {
+          "@id": "test:44358be8249adcbb8c7c0a62d03de286263997f46fff315ef250bd3055b4aee4"
+        },
+        {
+          "@id": "test:f0a46ed554c971a1ab2ec874ae06223b429210d7bf38fdac36f35782f08f60eb"
+        },
+        {
+          "@id": "test:7535bce14624eed123237faf4b1cc03d77090636240714860e7a6974ca5aeb4c"
+        },
+        {
+          "@id": "test:f9e58164c407dde665f7d49b8c9327193b18d1fdcb32bc4d91a36996ad48ca1f"
+        }
+      ]
+    },
+    {
+      "@id": "criterion:PT02-C3",
+      "@type": "d:Criterion",
+      "d:checkedBy": [
+        {
+          "@id": "test:a91d45e8ca1515a4b2216c46ae5cccc57da09ebcc652880233d8479894abd051"
+        },
+        {
+          "@id": "test:5de0ff507dd6a3da689b433b90e0a82d5309efae9a56cb48b6d280a5b839c3f5"
+        },
+        {
+          "@id": "test:fb5192560eb974e32d6704af9dec128dfe497a8afaced4b6119e13b03679fe65"
+        },
+        {
+          "@id": "test:4c14664f20b330b6271016d841d25bc1887ba8fddb86eb50ba96d890d35d30a7"
+        }
+      ]
+    },
+    {
+      "@id": "criterion:PT02-C4",
+      "@type": "d:Criterion",
+      "d:checkedBy": [
+        {
+          "@id": "test:d9082c4088a2cdb11bfb724d574068e1c938824f0153679825cee75942d1589d"
+        },
+        {
+          "@id": "test:5601dfc98da7c8c839e2a049de3326cbcc029311d3fda7ce17ee478eb26a7a80"
         }
       ]
     },
@@ -363,6 +492,213 @@
         "prov:Entity"
       ],
       "d:name": "DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:29b7c99a14bd56e280f3ebec9e2df73fcfd2ab37154c3493248f70427957ed75",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: records independent SHA-256 and length for the bytes actually published",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:6305978bcb58ad21e275c39378e1828a101423ca918351dba2d331a0a0b89889",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: unique staged publication never overwrites an existing export",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:0f6f9d933ea038f0756a6bd49355cbdbb9bd6fbaf59040ee4011f014963bf8e1",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: an owner snapshot mismatch before or after copying aborts and cleans up the bundle",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:809386a484e9d49d5abf1507a443cb18d68d8e4e584ee72ab016b303732b6b13",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: snapshots mutable request fields before awaiting the owner",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:18caeb21a4bd81ac88a593a44cdbffaafa15944f76c0892913b404195d711f7d",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: accessor-backed requests are refused before their values can vary across awaits",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:93fb59ca0e81d77605e859eee2a60d0015da78eae1066b3fe9a88b4dabe020a4",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: required dependencies are self-contained only when represented by packaged payload",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:707fcb5cd1befed9ba824ec429517d0ec962cd887d881ad0a81a3fdfd0e06dfa",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: a legacy caller-supplied verified flag cannot turn a dependency into a complete export",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:a91d45e8ca1515a4b2216c46ae5cccc57da09ebcc652880233d8479894abd051",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C3: unknown nested file fields cannot become inventory or restore metadata",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:f802bd009d249be598d3ec46727855a9bbb6e6e32dd4aef91b9ba184f21bff32",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: dependency closure inputs are bounded and nested package evidence is captured before the owner await",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:abfe156282861729e38a81d2f2e383a9439a74af0243a3bc9f0335b5c4f45b6f",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: rejects path escapes, special files, duplicate IDs, case collisions, excess entries, and byte budgets",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:44358be8249adcbb8c7c0a62d03de286263997f46fff315ef250bd3055b4aee4",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: restore paths preserve Unicode only when their NFC and case-folded forms are unambiguous",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:f0a46ed554c971a1ab2ec874ae06223b429210d7bf38fdac36f35782f08f60eb",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: a Git worktree restore profile is explicitly external without a Git closure adapter",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:5de0ff507dd6a3da689b433b90e0a82d5309efae9a56cb48b6d280a5b839c3f5",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C3: packages policy and dictionary pins without host registration or machine-local secret paths",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:27d12c2f6918de14bb6f58b8b1b007e9783961f9b85d2458ed06a9badc0ad7c4",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: duration budget expires before any complete bundle is published",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:a5ad3c91ff70ec5d04b46edfcca6c959b04bf213587f55663590ad4b112cae23",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: PINNED_BYTE_SET accepts an optional host assertion but never relabels itself as OWNER_FROZEN",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:d9082c4088a2cdb11bfb724d574068e1c938824f0153679825cee75942d1589d",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C4: unsupported Git closure remains explicitly external and no arbitrary host program runs",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:fb5192560eb974e32d6704af9dec128dfe497a8afaced4b6119e13b03679fe65",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C3: the standalone CLI accepts only a bounded PINNED_BYTE_SET spec and exposes help",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:5601dfc98da7c8c839e2a049de3326cbcc029311d3fda7ce17ee478eb26a7a80",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C4: a PINNED_BYTE_SET Git-worktree closure digest is computed over exactly one normalized Git closure",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:03e721c22d25dfdef7515e5649146a6eec3ae6b520e43914eb874b694fdbc83f",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: any staged-payload tamper or extra staged entry after the final owner assertion aborts publication",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:963ccdf1ad6c01bde26c5b905728f96902dc77652b063b1b1dd0d4f08ebce8df",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C1: time spent in the final owner assertion counts against the export duration",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:4c14664f20b330b6271016d841d25bc1887ba8fddb86eb50ba96d890d35d30a7",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C3: CLI refuses a FIFO spec promptly instead of reading an unbounded stream",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:7535bce14624eed123237faf4b1cc03d77090636240714860e7a6974ca5aeb4c",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: dependency class and required semantics cannot be forged with JSON lookalikes",
+      "d:status": "PASS"
+    },
+    {
+      "@id": "test:f9e58164c407dde665f7d49b8c9327193b18d1fdcb32bc4d91a36996ad48ca1f",
+      "@type": [
+        "d:TestResult",
+        "prov:Entity"
+      ],
+      "d:name": "PT02-C2: restore paths reject Windows-reserved, colon/control, and file-directory ambiguities",
       "d:status": "PASS"
     },
     {
