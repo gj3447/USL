@@ -10,7 +10,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/research/standards-coverage/coverage.json",
       "metadata": {
         "path": "research/standards-coverage/coverage.json",
-        "sha256": "sha256:d95c4377fb3ff02ae789abc1e0daaf8ae975e7cbdcfaa0d951b1daaabcc1b75a"
+        "sha256": "sha256:9b9238949058475b170af998a08665138ded4d71f9cd3c75e95516cdc7703227"
       }
     },
     {
@@ -899,12 +899,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/integrations/resource-graph.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/integrations/resource-graph.ts",
       "metadata": {
         "id": "local:src/integrations/resource-graph.ts",
         "path": "src/integrations/resource-graph.ts",
         "sha256": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -913,12 +913,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/domain-profile.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/domain-profile.ts",
       "metadata": {
         "id": "local:src/domain-profile.ts",
         "path": "src/domain-profile.ts",
         "sha256": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -927,12 +927,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/integrations/property-graph.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/integrations/property-graph.ts",
       "metadata": {
         "id": "local:src/integrations/property-graph.ts",
         "path": "src/integrations/property-graph.ts",
         "sha256": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -941,12 +941,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/integrations/graph-engineering.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/integrations/graph-engineering.ts",
       "metadata": {
         "id": "local:src/integrations/graph-engineering.ts",
         "path": "src/integrations/graph-engineering.ts",
         "sha256": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -955,12 +955,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/contract-core.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/contract-core.ts",
       "metadata": {
         "id": "local:src/contract-core.ts",
         "path": "src/contract-core.ts",
         "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -969,12 +969,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/addons/portable-transfer.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/addons/portable-transfer.ts",
       "metadata": {
         "id": "local:src/addons/portable-transfer.ts",
         "path": "src/addons/portable-transfer.ts",
         "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -983,12 +983,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/addons/rule-policy.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/addons/rule-policy.ts",
       "metadata": {
         "id": "local:src/addons/rule-policy.ts",
         "path": "src/addons/rule-policy.ts",
         "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -997,12 +997,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/addons/rule-weight-evidence.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/addons/rule-weight-evidence.ts",
       "metadata": {
         "id": "local:src/addons/rule-weight-evidence.ts",
         "path": "src/addons/rule-weight-evidence.ts",
         "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1011,12 +1011,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/integrations/lean4.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/integrations/lean4.ts",
       "metadata": {
         "id": "local:src/integrations/lean4.ts",
         "path": "src/integrations/lean4.ts",
         "sha256": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1025,12 +1025,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:package.json",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:package.json",
       "metadata": {
         "id": "local:package.json",
         "path": "package.json",
         "sha256": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1039,12 +1039,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:scripts/validate-rdf.py",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:scripts/validate-rdf.py",
       "metadata": {
         "id": "local:scripts/validate-rdf.py",
         "path": "scripts/validate-rdf.py",
         "sha256": "sha256:b4e55e1a783ca050deb106c25f778b11a6ed55ee2b6336041b130525f46862e3",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1053,12 +1053,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:schemas/resource-graph.shacl.ttl",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:schemas/resource-graph.shacl.ttl",
       "metadata": {
         "id": "local:schemas/resource-graph.shacl.ttl",
         "path": "schemas/resource-graph.shacl.ttl",
         "sha256": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1067,12 +1067,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:scripts/validate-engineering-rdf.py",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:scripts/validate-engineering-rdf.py",
       "metadata": {
         "id": "local:scripts/validate-engineering-rdf.py",
         "path": "scripts/validate-engineering-rdf.py",
         "sha256": "sha256:c36e8c6f0c76b1cf6cd9516e0f593353023076578dc41e1ad3b9698a05d79195",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1081,12 +1081,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:docs/GRAPH_ENGINEERING_STATUS.md",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:docs/GRAPH_ENGINEERING_STATUS.md",
       "metadata": {
         "id": "local:docs/GRAPH_ENGINEERING_STATUS.md",
         "path": "docs/GRAPH_ENGINEERING_STATUS.md",
-        "sha256": "sha256:af5fbaca74b79e2fdb56c775d93127bb3fec98d87f4ee6ab9fbbaa625e85a2dd",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sha256": "sha256:a362057e5adb732e85596980b4409acf255b4f829e9704f2118435f2ff9e01b3",
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1095,12 +1095,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:docs/ENGINEERING_CONTRACTS.md",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:docs/ENGINEERING_CONTRACTS.md",
       "metadata": {
         "id": "local:docs/ENGINEERING_CONTRACTS.md",
         "path": "docs/ENGINEERING_CONTRACTS.md",
         "sha256": "sha256:b1f54e81a859fff521d4e66fde11479653dbf12b5dfa58bf355353276accdbed",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1109,12 +1109,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:research/engineering/catalog.json",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:research/engineering/catalog.json",
       "metadata": {
         "id": "local:research/engineering/catalog.json",
         "path": "research/engineering/catalog.json",
         "sha256": "sha256:537b2b8d8cfd843fbbf7d2ea2b245873c73c5854f2faaef7e5aef71193e6cc2e",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1123,12 +1123,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:scripts/build-portability-research.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:scripts/build-portability-research.ts",
       "metadata": {
         "id": "local:scripts/build-portability-research.ts",
         "path": "scripts/build-portability-research.ts",
         "sha256": "sha256:45a192f0aaa11feaa4c9e396e5213755043da27030f484fb204ac054332ac073",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {
@@ -1137,12 +1137,12 @@
         "urn:usl:standards-coverage:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@67e6916f53c54f5fa4f446943e7b96c9b9da0e9f:src/capabilities.ts",
+      "locator": "git://github.com/gj3447/USL@9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0:src/capabilities.ts",
       "metadata": {
         "id": "local:src/capabilities.ts",
         "path": "src/capabilities.ts",
         "sha256": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
-        "sourceCommit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+        "sourceCommit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
       }
     },
     {

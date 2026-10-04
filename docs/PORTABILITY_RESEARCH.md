@@ -2,7 +2,7 @@
 
 USL이 컴퓨터·메모리 저장소·작업경로 이동을 견디려면 고정 ID에 더해 일관된 snapshot, 닫힌 복원 범위, 검증 후 활성화, 인과 이력과 명시적인 owner 계약이 필요하다. 조사 결과를 현재 코드와 대조해 다음 구현의 선택과 반례를 정리했다.
 
-조사 기준일은 2026-10-03, 코드·실행 기록 기준은 `b9957f5f40fd12fab21cde4c8f0f3d62c455e038`이다. 외부 1차 자료 27개의 사실과 USL에 대한 AI 구현 제안을 구분한다. PT01은 순수 manifest 계약이며, PT02·PT03의 파일 export/import·재바인딩은 별도 모듈에 있다. 이 연구 빌더는 제한된 parser probe와 기록된 실행 근거를 대조한다.
+조사 기준일은 2026-10-03, 코드·실행 기록 기준은 `9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0`이다. 외부 1차 자료 27개의 사실과 USL에 대한 AI 구현 제안을 구분한다. PT01은 순수 manifest 계약이며, PT02·PT03의 파일 export/import·재바인딩은 별도 모듈에 있다. 이 연구 빌더는 제한된 parser probe와 기록된 실행 근거를 대조한다.
 
 ## 구현 판단
 
@@ -81,7 +81,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02, PT03**. 별도 버전의 export inventory에 INCLUDED·REQUIRED_EXTERNAL·EXCLUDED와 이유, 원래 이름→ASCII payload 위치, hash·size·owner snapshot 참조를 기록한다. 선택한 복원 프로필에 필요한 항목이 모두 포함되어야 SELF_CONTAINED로 표시한다.
 
-현재: PT02 export와 PT03 PINNED_FILES import가 실제 bytes·크기·원본 상대 복원 경로·ASCII payload 매핑·여섯 sidecar·inventory와 dependency 대응을 양방향 검사한다. 외부 필수 의존성이 남으면 import를 거부한다. 완전성은 owner가 명시한 파일 집합에 한정된다.
+현재: PT02 export와 PT03 PINNED_FILES import가 실제 bytes·크기·원본 상대 복원 경로·ASCII payload 매핑·여섯 sidecar·inventory와 dependency 대응을 양방향 검사한다. 외부 필수 의존성이 남으면 import를 거부한다. 완전성은 owner가 명시한 파일 집합에 한정된다. 재검증에서 snapshot ID·owner 일관성 선언의 모순과 exporter가 금지한 보호 경로를 거부하는 회귀 검사를 추가했다.
 
 남은 범위: 선택한 PINNED_FILES 범위 밖의 숨은 의존성과 전체 역사 보존은 증명하지 않는다. import의 namespace/native ID 충돌·무결성·복원 검사는 PT03이며 다기기 인수검사는 PT04다.
 
@@ -120,7 +120,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT02, PT03, PT04**. 번들 경로의 안전한 문자 규칙과 실제 목적지의 성분 길이·전체 길이·대소문자·Unicode·symlink/reparse point 정책을 별도로 검사한다. MVP는 regular file/directory만 지원하고 나머지는 명시적으로 거부한다.
 
-현재: PT03는 경로 이탈·case/NFC 충돌·예약명·심볼릭 링크·특수 파일을 거부한다. Linux에서 실제 다른 root로 파일 묶음을 복사하고 원본을 없앤 뒤 복원·재바인딩했다. macOS/Windows 전달 CI는 작성되었으나 아직 NOT_RUN이며 모든 filesystem 지원을 뜻하지 않는다.
+현재: PT03는 경로 이탈·case/NFC 충돌·예약명·심볼릭 링크·특수 파일을 거부한다. Linux에서 실제 다른 root로 파일 묶음을 복사하고 원본을 없앤 뒤 복원·재바인딩했다. macOS/Windows 전달 CI는 작성되었으나 아직 NOT_RUN이며 모든 filesystem 지원을 뜻하지 않는다. 임시 디렉터리 별칭을 실제 경로로 해석하는 fixture와 별칭 환경의 재실행 검사도 통과했다.
 
 남은 범위: 현재 300자 ASCII 성분은 v1 parser가 허용한다. 이는 실제 filesystem 생성 성공의 증거가 아니며 native OS 인수검사가 필요하다.
 
@@ -194,7 +194,7 @@ SQLite는 owner backup API를, Git은 refs 외에 working tree·submodule·LFS �
 
 **P0 · PT04**. 요구사항→설계판단→근거→코드→인수기준을 추적하고 실행한 검사와 미실행 기준을 구분한다. Source status·revision·bytes pin·관측 시각을 보존하고 domain/range·cardinality·DAG 및 정확한 query endpoint를 검사한다.
 
-현재: 별도 개발 진행 v3 receipt에 DG01/PT02/PT03/PT04 관련 실제 로컬 검사 80개와 Linux producer→bundle 복사→원본 삭제→consumer·재바인딩, 별도 bytes/해시 시간/peak RSS 관측을 기록했다. 그 기록과 소스 commit/bytes를 이 연구 그래프에 연결한다. 이 연구 빌더 자체는 4개 순수 probe만 실행하며 Git 전체 복원과 다른 OS 인수검사를 PASS로 승격하지 않는다.
+현재: 별도 개발 진행 v3 receipt에 DG01/PT02/PT03/PT04 관련 실제 로컬 검사 82개와 Linux producer→bundle 복사→원본 삭제→consumer·재바인딩, 별도 bytes/해시 시간/peak RSS 관측을 기록했다. 그 기록과 소스 commit/bytes를 이 연구 그래프에 연결한다. 이 연구 빌더 자체는 4개 순수 probe만 실행하며 Git 전체 복원과 다른 OS 인수검사를 PASS로 승격하지 않는다.
 
 남은 범위: 이번 연구 그래프 검증은 export/import·다기기 내구성·외부 owner 연동의 실행 성공을 증명하지 않는다.
 
