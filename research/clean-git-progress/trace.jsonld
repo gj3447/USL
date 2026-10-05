@@ -1,0 +1,199 @@
+{
+  "@context": {
+    "g": "urn:usl:clean-git-progress:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "observation:clean-git-export",
+      "@type": [
+        "g:Observation",
+        "prov:Entity"
+      ],
+      "g:package": {
+        "@id": "package:CP01"
+      },
+      "g:implementation": "CLEAN_EXPORT_LOCAL_SCOPE",
+      "g:sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "g:recordedAt": "2026-10-05T13:16:26.029520+00:00",
+      "g:profile": "CLEAN_GIT_WORKTREE_V1",
+      "g:restore": "CP02_NOT_IMPLEMENTED",
+      "g:atomicSnapshot": "NOT_CLAIMED",
+      "g:fullWorkspace": "CP03_CP04_PENDING",
+      "g:macos": "NOT_RUN",
+      "g:windows": "NOT_RUN",
+      "g:authority": "NOT_GRANTED",
+      "prov:wasDerivedFrom": {
+        "@id": "receipt:clean-git-export"
+      }
+    },
+    {
+      "@id": "package:CP01",
+      "@type": "g:Package",
+      "g:acceptance": [
+        {
+          "@id": "acceptance:CP01-1"
+        },
+        {
+          "@id": "acceptance:CP01-2"
+        }
+      ]
+    },
+    {
+      "@id": "receipt:clean-git-export",
+      "@type": "g:Receipt",
+      "g:sha256": "sha256:cfbe188a13dc5a4999c7777979ca35649caec3b130b29b110fa9bee51b683152",
+      "g:tapDigest": "sha256:851ca4ce5daaeda5c03ae0c2137da791953385b1470dd1c8478bd67227b8bf5e",
+      "g:authority": "SECONDARY_AI"
+    },
+    {
+      "@id": "acceptance:CP01-1",
+      "@type": "g:Acceptance",
+      "g:coverage": "LOCAL_EXPORT_CASES_PASS",
+      "g:checkedBy": [
+        {
+          "@id": "test:clean-git:c9cbe1061804eb5a55eacaa4a983ee93ec1878e139e7f647799169cab9c6b720"
+        },
+        {
+          "@id": "test:clean-git:2966bdd0aab62f666067576920282c85aef9f28c7f5c7bdab31e971033c7473d"
+        },
+        {
+          "@id": "test:clean-git:5e9bc02c78cee9f4d362912af0070f2db5345d4d41e7d616d7f325db591a4226"
+        },
+        {
+          "@id": "test:clean-git:a2ff059fdb2d77d1eb9c13f60d0d298bc45246f9c9372ed6cc68c93717bcc5ff"
+        },
+        {
+          "@id": "test:clean-git:80bfe813b075af465fa2d0e17fc8f83b27c9482dc8314c1c01074f5a400c1656"
+        },
+        {
+          "@id": "test:clean-git:574ed89a47463d1c4272f65afaa6076b078ac3588fa9e922f3f19a465ea72d33"
+        },
+        {
+          "@id": "test:clean-git:35547bbfe8332453e3ac251e0c0d25449797ed13402842382506eb8c2ef3d5c6"
+        },
+        {
+          "@id": "test:clean-git:85b8b6e673fce9c6c39a9d51e0ba85c2bbfccd77601f4dc36478a0681f3467a3"
+        }
+      ]
+    },
+    {
+      "@id": "acceptance:CP01-2",
+      "@type": "g:Acceptance",
+      "g:coverage": "LOCAL_EXPORT_CASES_PASS",
+      "g:checkedBy": [
+        {
+          "@id": "test:clean-git:81c99bff688955c28f2462f2ac5336fbf7c3e711e93cb78bb9da87864f55db18"
+        },
+        {
+          "@id": "test:clean-git:5a345dfa60f1d3e0f20ddd3bca632fba64401f277d6236e5686b1dce1d87f180"
+        },
+        {
+          "@id": "test:clean-git:1ffa2813a8b63c197eb48c00a71357e3a0323517528032d8534a66b71b1ec58b"
+        },
+        {
+          "@id": "test:clean-git:42bd350f8b50e804ea92320be2904f9d8c2016ce03f9e02f7a88990588f5d10e"
+        },
+        {
+          "@id": "test:clean-git:49a13db7cfce9cbfcfc7fed261c64581fbbefa8061da3bdf4cc12d70c9c8cfa5"
+        },
+        {
+          "@id": "test:clean-git:0258a31d9e52afac0d80203628b1639d835d13ff65cc01bd9f75341f8a63cc21"
+        },
+        {
+          "@id": "test:clean-git:c9d7fda6a1ebddfadb6eda70d8bbb7aa405764f61d5c26239afe4c1fd98dcc77"
+        }
+      ]
+    },
+    {
+      "@id": "test:clean-git:c9cbe1061804eb5a55eacaa4a983ee93ec1878e139e7f647799169cab9c6b720",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: SHA-256 repositories export verifiable objects without the source",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:2966bdd0aab62f666067576920282c85aef9f28c7f5c7bdab31e971033c7473d",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: input pins are captured before awaits and manifest contradictions are rejected",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:81c99bff688955c28f2462f2ac5336fbf7c3e711e93cb78bb9da87864f55db18",
+      "@type": "g:TestResult",
+      "g:name": "CP01-2: source changes after staging starts abort publication and preserve the source",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:5a345dfa60f1d3e0f20ddd3bca632fba64401f277d6236e5686b1dce1d87f180",
+      "@type": "g:TestResult",
+      "g:name": "CP01-2: ancestor symlinks, hidden dirty index flags, and promisor markers fail closed",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:5e9bc02c78cee9f4d362912af0070f2db5345d4d41e7d616d7f325db591a4226",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: uncompressed and duration budgets abort without publishing or editing the source",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:1ffa2813a8b63c197eb48c00a71357e3a0323517528032d8534a66b71b1ec58b",
+      "@type": "g:TestResult",
+      "g:name": "CP01-2: an unconfigured LFS pointer anywhere in selected history rejects incomplete content",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:a2ff059fdb2d77d1eb9c13f60d0d298bc45246f9c9372ed6cc68c93717bcc5ff",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: standalone CLI exports an explicitly pinned clean repository",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:42bd350f8b50e804ea92320be2904f9d8c2016ce03f9e02f7a88990588f5d10e",
+      "@type": "g:TestResult",
+      "g:name": "CP01-2: Git export CLI refuses invalid flags, special files, and spec destinations",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:80bfe813b075af465fa2d0e17fc8f83b27c9482dc8314c1c01074f5a400c1656",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: exports a clean detached linked worktree as a native self-contained bundle without source paths",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:574ed89a47463d1c4272f65afaa6076b078ac3588fa9e922f3f19a465ea72d33",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: rejects independently pinned HEAD/ref/object-format disagreement before publishing",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:49a13db7cfce9cbfcfc7fed261c64581fbbefa8061da3bdf4cc12d70c9c8cfa5",
+      "@type": "g:TestResult",
+      "g:name": "CP01-2: rejects dirty index, worktree, and untracked states without changing the source",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:0258a31d9e52afac0d80203628b1639d835d13ff65cc01bd9f75341f8a63cc21",
+      "@type": "g:TestResult",
+      "g:name": "CP01-2: rejects unsupported repository closure forms without executing configured filters",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:35547bbfe8332453e3ac251e0c0d25449797ed13402842382506eb8c2ef3d5c6",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: rejects shallow and alternates repositories rather than borrowing an original object store",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:85b8b6e673fce9c6c39a9d51e0ba85c2bbfccd77601f4dc36478a0681f3467a3",
+      "@type": "g:TestResult",
+      "g:name": "CP01-1: refuses symlink roots, malformed refs, accessors, and tiny budgets without publication",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:c9d7fda6a1ebddfadb6eda70d8bbb7aa405764f61d5c26239afe4c1fd98dcc77",
+      "@type": "g:TestResult",
+      "g:name": "CP01-2: rejects unborn and LFS/filter worktrees before publication or filter execution",
+      "g:status": "PASS"
+    }
+  ]
+}
