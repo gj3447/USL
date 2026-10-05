@@ -2,7 +2,7 @@
 import { spawn } from "node:child_process"
 import { createHash, randomUUID } from "node:crypto"
 import { constants } from "node:fs"
-import { lstat, mkdir, open, readdir, rename, rm, writeFile } from "node:fs/promises"
+import { lstat, mkdir, open, opendir, readdir, rename, rm, writeFile } from "node:fs/promises"
 import { isAbsolute, join, parse, relative, resolve, sep } from "node:path"
 import { z } from "zod"
 import { contractDigest, contractIri, contractSnapshot, freezeContract } from "../contract-core.js"
@@ -68,10 +68,18 @@ const within = (root: string, path: string) => { const p = relative(root, path);
 const runGit = (cwd: string, args: readonly string[], end: number, maxOutput = MAX_METADATA, input?: string, allowUnset = false): Promise<Buffer> => {
   deadline(end)
   return new Promise((done, reject) => {
-    const child = spawn(GIT, ["-C", cwd, ...config, ...args], { shell: false, env, stdio: ["pipe", "pipe", "pipe"] })
+    const processGroup = process.platform !== "win32"
+    const child = spawn(GIT, ["-C", cwd, ...config, ...args], { shell: false, env, detached: processGroup, stdio: ["pipe", "pipe", "pipe"] })
     const chunks: Buffer[] = []
     let total = 0, errors = 0, failure: Error | undefined
-    const stop = (message: string) => { failure ??= new Error(message); child.kill("SIGKILL") }
+    const stop = (message: string) => {
+      failure ??= new Error(message)
+      // Git bundle spawns pack-objects; kill its group too so inherited pipes cannot outlive the budget.
+      if (processGroup && child.pid !== undefined) {
+        try { process.kill(-child.pid, "SIGKILL"); return } catch { /* already exited or unavailable */ }
+      }
+      child.kill("SIGKILL")
+    }
     const timer = setTimeout(() => stop("clean Git export duration budget exceeded"), Math.max(1, end - Date.now()))
     child.stdout.on("data", (chunk: Buffer) => {
       if (failure) return
@@ -131,7 +139,8 @@ const checkObjectStore = async (root: string, end: number) => {
   while (stack.length) {
     deadline(end)
     const directory = stack.pop()!
-    for (const item of await readdir(directory, { withFileTypes: true })) {
+    for await (const item of await opendir(directory)) {
+      deadline(end)
       if (++count > MAX_OBJECTS + 4096) throw new Error("object-store metadata entry budget exceeded")
       if (item.isSymbolicLink() || (!item.isFile() && !item.isDirectory())) throw new Error("object store symlink/special file is unsupported")
       if (item.name.endsWith(".promisor")) throw new Error("clean Git profile rejects promisor pack markers")
