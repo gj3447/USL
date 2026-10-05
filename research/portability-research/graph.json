@@ -9,7 +9,7 @@
       ],
       "locator": "https://github.com/gj3447/USL/blob/master/research/portability-research/research.json",
       "metadata": {
-        "digest": "sha256:dd62d7df578ea763861af81d6968a1bba2bf1180feec372980f099c14a4b3af2",
+        "digest": "sha256:8e7e72d430e47f2a9b036294f83797b01d092ca8e1aa3766d4302ead5e156425",
         "scope": {
           "persistence": "LOCAL_REPOSITORY",
           "sharedKgWrite": "NOT_PERFORMED",
@@ -626,12 +626,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/addons/portable-transfer.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/addons/portable-transfer.ts",
       "metadata": {
         "id": "source:src/addons/portable-transfer.ts",
         "path": "src/addons/portable-transfer.ts",
         "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -640,12 +640,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/resource-bindings.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/resource-bindings.ts",
       "metadata": {
         "id": "source:src/resource-bindings.ts",
         "path": "src/resource-bindings.ts",
         "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -654,12 +654,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/contract-core.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/contract-core.ts",
       "metadata": {
         "id": "source:src/contract-core.ts",
         "path": "src/contract-core.ts",
         "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -668,12 +668,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/addons/rule-policy.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/addons/rule-policy.ts",
       "metadata": {
         "id": "source:src/addons/rule-policy.ts",
         "path": "src/addons/rule-policy.ts",
         "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -682,12 +682,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/addons/rule-weight-evidence.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/addons/rule-weight-evidence.ts",
       "metadata": {
         "id": "source:src/addons/rule-weight-evidence.ts",
         "path": "src/addons/rule-weight-evidence.ts",
         "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -696,12 +696,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/addons/rule-weight-review.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/addons/rule-weight-review.ts",
       "metadata": {
         "id": "source:src/addons/rule-weight-review.ts",
         "path": "src/addons/rule-weight-review.ts",
         "sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -710,12 +710,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/cli-operation.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/cli-operation.ts",
       "metadata": {
         "id": "source:src/cli-operation.ts",
         "path": "src/cli-operation.ts",
         "sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -724,12 +724,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/cli-recovery.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/cli-recovery.ts",
       "metadata": {
         "id": "source:src/cli-recovery.ts",
         "path": "src/cli-recovery.ts",
         "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -738,12 +738,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:test/portable-transfer.test.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:test/portable-transfer.test.ts",
       "metadata": {
         "id": "source:test/portable-transfer.test.ts",
         "path": "test/portable-transfer.test.ts",
         "sha256": "sha256:6859e7ebc325d933bbab7df9959c887bdc915830a83a20f64b68ccb8944acc9f",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -752,12 +752,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:research/portable-transfer/contract.receipt.json",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:research/portable-transfer/contract.receipt.json",
       "metadata": {
         "id": "source:research/portable-transfer/contract.receipt.json",
         "path": "research/portable-transfer/contract.receipt.json",
         "sha256": "sha256:dd46c7a32c2da760f14a8fa974a3b73bb0d03dee5bbb11241d6f32a7a938b032",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -766,12 +766,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:research/portability-plan/plan.json",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:research/portability-plan/plan.json",
       "metadata": {
         "id": "source:research/portability-plan/plan.json",
         "path": "research/portability-plan/plan.json",
         "sha256": "sha256:8b75194d5dadfbaa0701a1bb3ea66e31dfdfc6ce14aef14e4e6401435f3074d5",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -780,12 +780,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:docs/PORTABLE_TRANSFER.md",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:docs/PORTABLE_TRANSFER.md",
       "metadata": {
         "id": "source:docs/PORTABLE_TRANSFER.md",
         "path": "docs/PORTABLE_TRANSFER.md",
         "sha256": "sha256:2b3e6ae75f387d4d43f05785b6fd644205e35a8cf2e2baed6202c13c155d4b64",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
@@ -794,11 +794,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/addons/portable-transfer-export.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/addons/portable-transfer-export.ts",
       "metadata": {
         "id": "source:src/addons/portable-transfer-export.ts",
         "path": "src/addons/portable-transfer-export.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
       }
     },
@@ -808,11 +808,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:scripts/usl-transfer-export.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:scripts/usl-transfer-export.ts",
       "metadata": {
         "id": "source:scripts/usl-transfer-export.ts",
         "path": "scripts/usl-transfer-export.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:8e22f38fc040ee8b4b4f43de245802e4bcc110e29e5dc3d60398aba0d48ce4f9"
       }
     },
@@ -822,11 +822,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:test/portable-transfer-export.test.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:test/portable-transfer-export.test.ts",
       "metadata": {
         "id": "source:test/portable-transfer-export.test.ts",
         "path": "test/portable-transfer-export.test.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:ae39ab2e87c5acddfd9a1d2ad4574b5aac90f7049236b122e016b2caf053960e"
       }
     },
@@ -836,11 +836,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:docs/PORTABLE_TRANSFER_EXPORT.md",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:docs/PORTABLE_TRANSFER_EXPORT.md",
       "metadata": {
         "id": "source:docs/PORTABLE_TRANSFER_EXPORT.md",
         "path": "docs/PORTABLE_TRANSFER_EXPORT.md",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:e76f84fab8631db1c69a3e31e0410db24f1c2aa2b03ef4686dbfebf6bc53997d"
       }
     },
@@ -850,12 +850,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:research/development-progress/receipt.json",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:research/development-progress/receipt.json",
       "metadata": {
         "id": "source:research/development-progress/receipt.json",
         "path": "research/development-progress/receipt.json",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
-        "sha256": "sha256:0397f5a85fd519a6ca007f92216013e7acef3371f5daecdac062a419b6750e25"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
+        "sha256": "sha256:6757cdc7fe958c21f035b1286384599d66d9eff8348c1765686f1b80e663bb17"
       }
     },
     {
@@ -864,11 +864,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/addons/portable-transfer-import.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/addons/portable-transfer-import.ts",
       "metadata": {
         "id": "source:src/addons/portable-transfer-import.ts",
         "path": "src/addons/portable-transfer-import.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:e1f6a36c6bc8a16160a3c0b432b165ce91520f84cb1f77a8c728a93d2c314180"
       }
     },
@@ -878,11 +878,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:src/addons/portable-transfer-bindings.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:src/addons/portable-transfer-bindings.ts",
       "metadata": {
         "id": "source:src/addons/portable-transfer-bindings.ts",
         "path": "src/addons/portable-transfer-bindings.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05"
       }
     },
@@ -892,11 +892,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:test/portable-transfer-restore.test.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:test/portable-transfer-restore.test.ts",
       "metadata": {
         "id": "source:test/portable-transfer-restore.test.ts",
         "path": "test/portable-transfer-restore.test.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:b794f041d65d36542302aa3bb7b43f2d1b89486c9109187346f7ad227770e341"
       }
     },
@@ -906,11 +906,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:test/portable-transfer-bindings.test.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:test/portable-transfer-bindings.test.ts",
       "metadata": {
         "id": "source:test/portable-transfer-bindings.test.ts",
         "path": "test/portable-transfer-bindings.test.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:e35dadd1c79c55d8f34725ff251c7478a76f91331dee3addb6453df7f7da6bbb"
       }
     },
@@ -920,11 +920,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:test/portable-transfer-portability.test.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:test/portable-transfer-portability.test.ts",
       "metadata": {
         "id": "source:test/portable-transfer-portability.test.ts",
         "path": "test/portable-transfer-portability.test.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:882c34dcabbe14ddfa44045e5e64f794cbaf48beb8742e4952c75b6b912c038b"
       }
     },
@@ -934,11 +934,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:scripts/usl-transfer-import.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:scripts/usl-transfer-import.ts",
       "metadata": {
         "id": "source:scripts/usl-transfer-import.ts",
         "path": "scripts/usl-transfer-import.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:6673c43c7aa22d0604d7406de148d3f7ca251f684efaf6bae6250cfe44238417"
       }
     },
@@ -948,11 +948,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:scripts/portable-transfer-acceptance.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:scripts/portable-transfer-acceptance.ts",
       "metadata": {
         "id": "source:scripts/portable-transfer-acceptance.ts",
         "path": "scripts/portable-transfer-acceptance.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:64794dfb9272375e23cbe9e78a7b25992282417db484d18145f9b684fe83dc66"
       }
     },
@@ -962,11 +962,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:scripts/measure-portable-transfer.ts",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:scripts/measure-portable-transfer.ts",
       "metadata": {
         "id": "source:scripts/measure-portable-transfer.ts",
         "path": "scripts/measure-portable-transfer.ts",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:941de7ffbc51d4d3873346db346ad0ba143da04f0ac5abd0728bed22e4440674"
       }
     },
@@ -976,11 +976,11 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:docs/PORTABLE_TRANSFER_IMPORT.md",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:docs/PORTABLE_TRANSFER_IMPORT.md",
       "metadata": {
         "id": "source:docs/PORTABLE_TRANSFER_IMPORT.md",
         "path": "docs/PORTABLE_TRANSFER_IMPORT.md",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
         "sha256": "sha256:37b7b4a4fcb25771443b78660bf43278fcf40b68f4eda7d1ce82aaf530c86fa4"
       }
     },
@@ -990,12 +990,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:research/development-progress/acceptance.json",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:research/development-progress/acceptance.json",
       "metadata": {
         "id": "source:research/development-progress/acceptance.json",
         "path": "research/development-progress/acceptance.json",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
-        "sha256": "sha256:8a3f384de05919ab7aeba06d84e49a6e2add170767aa5b9a88b7f8be3624456e"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
+        "sha256": "sha256:c8ec3a3fdc2aab2ff081ec9775cd8fd704ad2dc3a850107c252e69138202ee1a"
       }
     },
     {
@@ -1004,12 +1004,12 @@
         "urn:usl:portability-research:LocalSource",
         "http://www.w3.org/ns/prov#Entity"
       ],
-      "locator": "git://github.com/gj3447/USL@1e85fdb10b8be51188a11d11f4321a279f3c3d53:research/architecture/core-cli-c01.receipt.json",
+      "locator": "git://github.com/gj3447/USL@2e7a82c2dac2fc95de9fed30faefd16acfe58aa3:research/architecture/core-cli-c01.receipt.json",
       "metadata": {
         "id": "source:research/architecture/core-cli-c01.receipt.json",
         "path": "research/architecture/core-cli-c01.receipt.json",
         "sha256": "sha256:f4ecc67fc05e5a7e5d869e4d3b75e8b8738768a2c64a63bf22c05dd524512cfc",
-        "sourceCommit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+        "sourceCommit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
       }
     },
     {
