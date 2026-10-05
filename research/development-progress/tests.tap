@@ -2,499 +2,499 @@ TAP version 13
 # Subtest: explicit workspace inspection hashes files and emits a redacted Git candidate
 ok 1 - explicit workspace inspection hashes files and emits a redacted Git candidate
   ---
-  duration_ms: 101.147629
+  duration_ms: 79.865516
   type: 'test'
   ...
 # Subtest: worktree facts survive a moved registered root and report a common Git directory
 ok 2 - worktree facts survive a moved registered root and report a common Git directory
   ---
-  duration_ms: 85.324798
+  duration_ms: 58.773657
   type: 'test'
   ...
 # Subtest: a linked worktree uses the main checkout common Git directory
 ok 3 - a linked worktree uses the main checkout common Git directory
   ---
-  duration_ms: 82.922166
+  duration_ms: 72.486365
   type: 'test'
   ...
 # Subtest: ordinary directories and unborn repositories are distinguished without origin
 ok 4 - ordinary directories and unborn repositories are distinguished without origin
   ---
-  duration_ms: 71.970192
+  duration_ms: 48.375832
   type: 'test'
   ...
 # Subtest: limits and input contracts fail before filesystem resolution
 ok 5 - limits and input contracts fail before filesystem resolution
   ---
-  duration_ms: 15.865144
+  duration_ms: 6.257129
   type: 'test'
   ...
 # Subtest: DG01-C1: equal bytes with a different HEAD or owner checkout identity hold
 ok 6 - DG01-C1: equal bytes with a different HEAD or owner checkout identity hold
   ---
-  duration_ms: 187.616328
+  duration_ms: 158.243089
   type: 'test'
   ...
 # Subtest: DG01-C1: an explicit Git worktree move and owner remap retain the selected logical binding
 ok 7 - DG01-C1: an explicit Git worktree move and owner remap retain the selected logical binding
   ---
-  duration_ms: 151.42674
+  duration_ms: 124.253571
   type: 'test'
   ...
 # Subtest: DG01-C2: dirty, detached, sparse, subdirectory and broken-gitfile states are held by policy
 ok 8 - DG01-C2: dirty, detached, sparse, subdirectory and broken-gitfile states are held by policy
   ---
-  duration_ms: 244.648535
+  duration_ms: 238.695128
   type: 'test'
   ...
 # Subtest: DG01-C2: an owner may explicitly allow a dirty checkout and an unborn checkout is distinguished
 ok 9 - DG01-C2: an owner may explicitly allow a dirty checkout and an unborn checkout is distinguished
   ---
-  duration_ms: 225.672624
+  duration_ms: 183.923873
   type: 'test'
   ...
 # Subtest: DG01-C3: a prepared guard holds after HEAD, index or runner changes and a caller action stays at zero
 ok 10 - DG01-C3: a prepared guard holds after HEAD, index or runner changes and a caller action stays at zero
   ---
-  duration_ms: 482.011767
+  duration_ms: 431.637599
   type: 'test'
   ...
 # Subtest: DG01-C2: a nested submodule is held unless a future profile closes its scope
 ok 11 - DG01-C2: a nested submodule is held unless a future profile closes its scope
   ---
-  duration_ms: 170.514349
+  duration_ms: 166.510664
   type: 'test'
   ...
 # Subtest: DG01-C3: a prepared guard is process-local, an initial HOLD cannot become PASS, and a remap is stale
 ok 12 - DG01-C3: a prepared guard is process-local, an initial HOLD cannot become PASS, and a remap is stale
   ---
-  duration_ms: 187.27026
+  duration_ms: 170.613136
   type: 'test'
   ...
 # Subtest: DG01-C2: malformed sparse configuration and unborn index changes fail closed
 ok 13 - DG01-C2: malformed sparse configuration and unborn index changes fail closed
   ---
-  duration_ms: 141.89578
+  duration_ms: 147.060651
   type: 'test'
   ...
 # Subtest: DG01-C2: FIFO, untracked nested repository and symlink inputs fail closed without traversal
 ok 14 - DG01-C2: FIFO, untracked nested repository and symlink inputs fail closed without traversal
   ---
-  duration_ms: 225.874496
+  duration_ms: 203.456517
   type: 'test'
   ...
 # Subtest: DG01-C2: configured Git clean filters hold before a selected-file observation can invoke them
 ok 15 - DG01-C2: configured Git clean filters hold before a selected-file observation can invoke them
   ---
-  duration_ms: 72.170405
+  duration_ms: 65.746342
   type: 'test'
   ...
 # Subtest: DG01-C1: a selected content pin reports exact MATCH then MISMATCH
 ok 16 - DG01-C1: a selected content pin reports exact MATCH then MISMATCH
   ---
-  duration_ms: 137.511094
+  duration_ms: 120.918572
   type: 'test'
   ...
 # Subtest: DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed
 ok 17 - DG01-C3: policies and hosts are snapshotted, reject accessors, and bounded untracked capture fails closed
   ---
-  duration_ms: 124.444111
+  duration_ms: 128.660608
   type: 'test'
   ...
 # Subtest: PT03-C1: verified restore rebinds only selected locators and preserves graph identities and ordered roles without the original source
 ok 18 - PT03-C1: verified restore rebinds only selected locators and preserves graph identities and ordered roles without the original source
   ---
-  duration_ms: 170.913552
+  duration_ms: 170.088938
   type: 'test'
   ...
 # Subtest: PT03-C1: rebinding rejects forged handles, changed restored bytes and mismatched explicit identities
 ok 19 - PT03-C1: rebinding rejects forged handles, changed restored bytes and mismatched explicit identities
   ---
-  duration_ms: 93.574998
+  duration_ms: 60.833491
   type: 'test'
   ...
 # Subtest: PT03-C1: rebinding captures mutable selections and refuses implicit remapping of unselected workspaces
 ok 20 - PT03-C1: rebinding captures mutable selections and refuses implicit remapping of unselected workspaces
   ---
-  duration_ms: 68.466488
+  duration_ms: 62.043043
   type: 'test'
   ...
 # Subtest: PT03-C3: historical snapshots cannot be implicitly rebound as working copies; explicit local branches retain their original revisions
 ok 21 - PT03-C3: historical snapshots cannot be implicitly rebound as working copies; explicit local branches retain their original revisions
   ---
-  duration_ms: 128.291711
+  duration_ms: 104.246095
   type: 'test'
   ...
 # Subtest: PT02-C1: records independent SHA-256 and length for the bytes actually published
 ok 22 - PT02-C1: records independent SHA-256 and length for the bytes actually published
   ---
-  duration_ms: 84.7822
+  duration_ms: 85.063161
   type: 'test'
   ...
 # Subtest: PT02-C1: unique staged publication never overwrites an existing export
 ok 23 - PT02-C1: unique staged publication never overwrites an existing export
   ---
-  duration_ms: 37.223538
+  duration_ms: 52.026657
   type: 'test'
   ...
 # Subtest: PT02-C1: an owner snapshot mismatch before or after copying aborts and cleans up the bundle
 ok 24 - PT02-C1: an owner snapshot mismatch before or after copying aborts and cleans up the bundle
   ---
-  duration_ms: 14.643609
+  duration_ms: 27.463402
   type: 'test'
   ...
 # Subtest: PT02-C1: snapshots mutable request fields before awaiting the owner
 ok 25 - PT02-C1: snapshots mutable request fields before awaiting the owner
   ---
-  duration_ms: 26.995467
+  duration_ms: 41.905723
   type: 'test'
   ...
 # Subtest: PT02-C1: accessor-backed requests are refused before their values can vary across awaits
 ok 26 - PT02-C1: accessor-backed requests are refused before their values can vary across awaits
   ---
-  duration_ms: 3.092196
+  duration_ms: 4.282932
   type: 'test'
   ...
 # Subtest: PT02-C2: required dependencies are self-contained only when represented by packaged payload
 ok 27 - PT02-C2: required dependencies are self-contained only when represented by packaged payload
   ---
-  duration_ms: 56.070935
+  duration_ms: 57.453719
   type: 'test'
   ...
 # Subtest: PT02-C2: a legacy caller-supplied verified flag cannot turn a dependency into a complete export
 ok 28 - PT02-C2: a legacy caller-supplied verified flag cannot turn a dependency into a complete export
   ---
-  duration_ms: 2.411986
+  duration_ms: 3.739703
   type: 'test'
   ...
 # Subtest: PT02-C3: unknown nested file fields cannot become inventory or restore metadata
 ok 29 - PT02-C3: unknown nested file fields cannot become inventory or restore metadata
   ---
-  duration_ms: 9.372241
+  duration_ms: 4.952046
   type: 'test'
   ...
 # Subtest: PT02-C2: dependency closure inputs are bounded and nested package evidence is captured before the owner await
 ok 30 - PT02-C2: dependency closure inputs are bounded and nested package evidence is captured before the owner await
   ---
-  duration_ms: 41.627524
+  duration_ms: 53.836202
   type: 'test'
   ...
 # Subtest: PT02-C2: rejects path escapes, special files, duplicate IDs, case collisions, excess entries, and byte budgets
 ok 31 - PT02-C2: rejects path escapes, special files, duplicate IDs, case collisions, excess entries, and byte budgets
   ---
-  duration_ms: 59.666819
+  duration_ms: 52.824089
   type: 'test'
   ...
 # Subtest: PT02-C2: restore paths preserve Unicode only when their NFC and case-folded forms are unambiguous
 ok 32 - PT02-C2: restore paths preserve Unicode only when their NFC and case-folded forms are unambiguous
   ---
-  duration_ms: 6.47503
+  duration_ms: 10.581529
   type: 'test'
   ...
 # Subtest: PT02-C2: a Git worktree restore profile is explicitly external without a Git closure adapter
 ok 33 - PT02-C2: a Git worktree restore profile is explicitly external without a Git closure adapter
   ---
-  duration_ms: 29.061132
+  duration_ms: 24.069679
   type: 'test'
   ...
 # Subtest: PT02-C3: packages policy and dictionary pins without host registration or machine-local secret paths
 ok 34 - PT02-C3: packages policy and dictionary pins without host registration or machine-local secret paths
   ---
-  duration_ms: 47.689242
+  duration_ms: 47.855542
   type: 'test'
   ...
 # Subtest: PT02-C1: duration budget expires before any complete bundle is published
 ok 35 - PT02-C1: duration budget expires before any complete bundle is published
   ---
-  duration_ms: 14.965029
+  duration_ms: 15.503107
   type: 'test'
   ...
 # Subtest: PT02-C1: PINNED_BYTE_SET accepts an optional host assertion but never relabels itself as OWNER_FROZEN
 ok 36 - PT02-C1: PINNED_BYTE_SET accepts an optional host assertion but never relabels itself as OWNER_FROZEN
   ---
-  duration_ms: 32.436325
+  duration_ms: 65.480519
   type: 'test'
   ...
 # Subtest: PT02-C4: unsupported Git closure remains explicitly external and no arbitrary host program runs
 ok 37 - PT02-C4: unsupported Git closure remains explicitly external and no arbitrary host program runs
   ---
-  duration_ms: 25.357945
+  duration_ms: 23.017975
   type: 'test'
   ...
 # Subtest: PT02-C3: the standalone CLI accepts only a bounded PINNED_BYTE_SET spec and exposes help
 ok 38 - PT02-C3: the standalone CLI accepts only a bounded PINNED_BYTE_SET spec and exposes help
   ---
-  duration_ms: 2435.975105
+  duration_ms: 2174.154613
   type: 'test'
   ...
 # Subtest: PT02-C4: a PINNED_BYTE_SET Git-worktree closure digest is computed over exactly one normalized Git closure
 ok 39 - PT02-C4: a PINNED_BYTE_SET Git-worktree closure digest is computed over exactly one normalized Git closure
   ---
-  duration_ms: 11.024287
+  duration_ms: 9.145953
   type: 'test'
   ...
 # Subtest: PT02-C1: any staged-payload tamper or extra staged entry after the final owner assertion aborts publication
 ok 40 - PT02-C1: any staged-payload tamper or extra staged entry after the final owner assertion aborts publication
   ---
-  duration_ms: 18.7356
+  duration_ms: 17.211048
   type: 'test'
   ...
 # Subtest: PT02-C1: time spent in the final owner assertion counts against the export duration
 ok 41 - PT02-C1: time spent in the final owner assertion counts against the export duration
   ---
-  duration_ms: 4.508683
+  duration_ms: 16.242091
   type: 'test'
   ...
 # Subtest: PT02-C3: CLI refuses a FIFO spec promptly instead of reading an unbounded stream
 ok 42 - PT02-C3: CLI refuses a FIFO spec promptly instead of reading an unbounded stream
   ---
-  duration_ms: 394.992705
+  duration_ms: 361.525262
   type: 'test'
   ...
 # Subtest: PT02-C2: dependency class and required semantics cannot be forged with JSON lookalikes
 ok 43 - PT02-C2: dependency class and required semantics cannot be forged with JSON lookalikes
   ---
-  duration_ms: 4.398027
+  duration_ms: 3.304095
   type: 'test'
   ...
 # Subtest: PT02-C2: restore paths reject Windows-reserved, colon/control, and file-directory ambiguities
 ok 44 - PT02-C2: restore paths reject Windows-reserved, colon/control, and file-directory ambiguities
   ---
-  duration_ms: 3.905206
+  duration_ms: 3.593772
   type: 'test'
   ...
 # Subtest: PT04-C1: a copied self-contained bundle restores without source, cache, or original bundle
 ok 45 - PT04-C1: a copied self-contained bundle restores without source, cache, or original bundle
   ---
-  duration_ms: 164.574792
+  duration_ms: 184.046533
   type: 'test'
   ...
 # Subtest: PT04-C2: missing required dependencies and a one-byte payload change never publish a restored workspace
 ok 46 - PT04-C2: missing required dependencies and a one-byte payload change never publish a restored workspace
   ---
-  duration_ms: 122.892053
+  duration_ms: 143.388908
   type: 'test'
   ...
 # Subtest: PT04-C2: a budget-interrupted import leaves no completion marker and does not retry effects
 ok 47 - PT04-C2: a budget-interrupted import leaves no completion marker and does not retry effects
   ---
-  duration_ms: 103.114294
+  duration_ms: 125.659126
   type: 'test'
   ...
 # Subtest: PT04-C3: a separate producer and cache-free consumer report exact transport metrics
 ok 48 - PT04-C3: a separate producer and cache-free consumer report exact transport metrics
   ---
-  duration_ms: 1920.587531
+  duration_ms: 1862.553918
   type: 'test'
   ...
 # Subtest: PT04-C1: owned transport fixtures resolve temporary-directory aliases before strict filesystem checks
 ok 49 - PT04-C1: owned transport fixtures resolve temporary-directory aliases before strict filesystem checks
   ---
-  duration_ms: 903.665745
+  duration_ms: 919.362561
   type: 'test'
   ...
 # Subtest: PT03-C1: verifies a real PT02 bundle before rebinding exact IDs at a different root
 ok 50 - PT03-C1: verifies a real PT02 bundle before rebinding exact IDs at a different root
   ---
-  duration_ms: 103.685286
+  duration_ms: 139.438453
   type: 'test'
   ...
 # Subtest: PT03-C2: rejects receipt-pinned metadata and payload attacks without publishing a workspace
 ok 51 - PT03-C2: rejects receipt-pinned metadata and payload attacks without publishing a workspace
   ---
-  duration_ms: 83.686599
+  duration_ms: 132.479087
   type: 'test'
   ...
 # Subtest: PT03-C2: refuses extra entries, symlinks, FIFOs, and does not overwrite an incomplete reservation
 ok 52 - PT03-C2: refuses extra entries, symlinks, FIFOs, and does not overwrite an incomplete reservation
   ---
-  duration_ms: 191.486667
+  duration_ms: 281.230855
   type: 'test'
   ...
 # Subtest: PT03-C2: rechecks an existing same-digest result and only one concurrent reservation publishes
 ok 53 - PT03-C2: rechecks an existing same-digest result and only one concurrent reservation publishes
   ---
-  duration_ms: 126.672734
+  duration_ms: 132.323141
   type: 'test'
   ...
 # Subtest: PT03-C2: authenticated malformed dependency and inventory metadata cannot change the restore closure
 ok 54 - PT03-C2: authenticated malformed dependency and inventory metadata cannot change the restore closure
   ---
-  duration_ms: 171.744576
+  duration_ms: 160.088574
   type: 'test'
   ...
 # Subtest: PT03-C2: authenticated policy/schema substitutions and duplicate representations are rejected semantically
 ok 55 - PT03-C2: authenticated policy/schema substitutions and duplicate representations are rejected semantically
   ---
-  duration_ms: 353.914353
+  duration_ms: 300.394343
   type: 'test'
   ...
 # Subtest: PT03-C2: receipt-repinned case-folded restore paths cannot publish on a case-sensitive host
 ok 56 - PT03-C2: receipt-repinned case-folded restore paths cannot publish on a case-sensitive host
   ---
-  duration_ms: 57.3152
+  duration_ms: 43.718127
   type: 'test'
   ...
 # Subtest: PT03-C2: authenticated non-exportable registration and credential paths cannot reserve a destination
 ok 57 - PT03-C2: authenticated non-exportable registration and credential paths cannot reserve a destination
   ---
-  duration_ms: 85.210353
+  duration_ms: 74.397599
   type: 'test'
   ...
 # Subtest: PT03-C2: authenticated metadata outside the exporter bounds cannot reserve a destination
 ok 58 - PT03-C2: authenticated metadata outside the exporter bounds cannot reserve a destination
   ---
-  duration_ms: 185.232486
+  duration_ms: 157.323585
   type: 'test'
   ...
 # Subtest: PT03-C3: preserves unknown, diverged, and withdrawn history without automatic activation or merge
 ok 59 - PT03-C3: preserves unknown, diverged, and withdrawn history without automatic activation or merge
   ---
-  duration_ms: 105.499075
+  duration_ms: 102.230501
   type: 'test'
   ...
 # Subtest: PT03-C3: owner-state duplicate keys are rejected and __proto__ remains an ordinary withdrawn native ID
 ok 60 - PT03-C3: owner-state duplicate keys are rejected and __proto__ remains an ordinary withdrawn native ID
   ---
-  duration_ms: 91.989579
+  duration_ms: 62.061928
   type: 'test'
   ...
 # Subtest: PT03-C4: only an immutable in-process result can be rechecked; marker and workspace replacement are detected
 ok 61 - PT03-C4: only an immutable in-process result can be rechecked; marker and workspace replacement are detected
   ---
-  duration_ms: 40.065179
+  duration_ms: 42.020411
   type: 'test'
   ...
 # Subtest: PT03-C4: rejects unsupported Git closure and keeps operations as historical data
 ok 62 - PT03-C4: rejects unsupported Git closure and keeps operations as historical data
   ---
-  duration_ms: 26.884035
+  duration_ms: 21.416255
   type: 'test'
   ...
 # Subtest: PT03-C5: rejects conflicting owner registry definitions without truncating native IDs
 ok 63 - PT03-C5: rejects conflicting owner registry definitions without truncating native IDs
   ---
-  duration_ms: 39.894509
+  duration_ms: 33.400836
   type: 'test'
   ...
 # Subtest: PT03-C4: CLI accepts help but rejects bad arguments and a FIFO spec promptly
 ok 64 - PT03-C4: CLI accepts help but rejects bad arguments and a FIFO spec promptly
   ---
-  duration_ms: 746.692558
+  duration_ms: 675.958922
   type: 'test'
   ...
 # Subtest: remapping a real linked worktree rejects a stale main-worktree plan before an attempt
 ok 65 - remapping a real linked worktree rejects a stale main-worktree plan before an attempt
   ---
-  duration_ms: 1867.398684
+  duration_ms: 1715.658636
   type: 'test'
   ...
 # Subtest: a shared operation store prevents re-execution after remapping between real worktrees
 ok 66 - a shared operation store prevents re-execution after remapping between real worktrees
   ---
-  duration_ms: 2315.601513
+  duration_ms: 2279.350279
   type: 'test'
   ...
 # Subtest: separate operation stores are an explicit cross-worktree duplicate-execution limitation
 ok 67 - separate operation stores are an explicit cross-worktree duplicate-execution limitation
   ---
-  duration_ms: 2934.203278
+  duration_ms: 2867.403509
   type: 'test'
   ...
 # Subtest: a Git branch HEAD change is not attested when the declared pinned files are unchanged
 ok 68 - a Git branch HEAD change is not attested when the declared pinned files are unchanged
   ---
-  duration_ms: 1087.560769
+  duration_ms: 1066.265714
   type: 'test'
   ...
 # Subtest: a changed pinned runner in a sibling worktree blocks before the external effect
 ok 69 - a changed pinned runner in a sibling worktree blocks before the external effect
   ---
-  duration_ms: 747.57723
+  duration_ms: 732.333394
   type: 'test'
   ...
 # Subtest: worktree graph rebinding preserves complete logical links while selecting divergent content
 ok 70 - worktree graph rebinding preserves complete logical links while selecting divergent content
   ---
-  duration_ms: 88.253097
+  duration_ms: 107.367391
   type: 'test'
   ...
 # Subtest: CLI inspection selects the linked worktree through host-relative workspace configuration
 ok 71 - CLI inspection selects the linked worktree through host-relative workspace configuration
   ---
-  duration_ms: 1159.312604
+  duration_ms: 1058.492816
   type: 'test'
   ...
 # Subtest: a subdirectory workspace observes its enclosing Git root without asserting checkout identity
 ok 72 - a subdirectory workspace observes its enclosing Git root without asserting checkout identity
   ---
-  duration_ms: 68.618153
+  duration_ms: 60.891277
   type: 'test'
   ...
 # Subtest: a worktree directory digest declaration remains unchecked rather than proving a tree snapshot
 ok 73 - a worktree directory digest declaration remains unchecked rather than proving a tree snapshot
   ---
-  duration_ms: 67.384321
+  duration_ms: 65.181722
   type: 'test'
   ...
 # Subtest: inspects explicit main and linked-worktree representations as one logical resource
 ok 74 - inspects explicit main and linked-worktree representations as one logical resource
   ---
-  duration_ms: 186.593676
+  duration_ms: 165.642509
   type: 'test'
   ...
 # Subtest: observes dirty working tree and index state independently per worktree
 ok 75 - observes dirty working tree and index state independently per worktree
   ---
-  duration_ms: 237.987969
+  duration_ms: 185.986922
   type: 'test'
   ...
 # Subtest: observes detached HEAD at the same commit without merging distinct representations
 ok 76 - observes detached HEAD at the same commit without merging distinct representations
   ---
-  duration_ms: 150.486541
+  duration_ms: 93.32665
   type: 'test'
   ...
 # Subtest: git worktree move plus host remapping preserves selected resource and representation IDs
 ok 77 - git worktree move plus host remapping preserves selected resource and representation IDs
   ---
-  duration_ms: 73.030492
+  duration_ms: 66.746137
   type: 'test'
   ...
 # Subtest: manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair
 ok 78 - manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair
   ---
-  duration_ms: 73.087134
+  duration_ms: 60.755695
   type: 'test'
   ...
 # Subtest: observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory
 ok 79 - observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory
   ---
-  duration_ms: 68.645493
+  duration_ms: 81.895904
   type: 'test'
   ...
 # Subtest: observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity
 ok 80 - observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity
   ---
-  duration_ms: 60.117551
+  duration_ms: 53.06432
   type: 'test'
   ...
 # Subtest: observes limitation: sparse checkout omission has no representation fallback
 ok 81 - observes limitation: sparse checkout omission has no representation fallback
   ---
-  duration_ms: 59.097095
+  duration_ms: 46.881031
   type: 'test'
   ...
 # Subtest: rejects a symlink from one worktree into another registered worktree
 ok 82 - rejects a symlink from one worktree into another registered worktree
   ---
-  duration_ms: 43.130222
+  duration_ms: 33.98361
   type: 'test'
   ...
 # Subtest: observes limitation: a wrong workspace alias can match bytes while its Git head differs
 ok 83 - observes limitation: a wrong workspace alias can match bytes while its Git head differs
   ---
-  duration_ms: 119.699759
+  duration_ms: 106.640957
   type: 'test'
   ...
 1..83
@@ -505,4 +505,4 @@ ok 83 - observes limitation: a wrong workspace alias can match bytes while its G
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 10117.313321
+# duration_ms 9777.772641

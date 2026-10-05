@@ -14,8 +14,8 @@
         "@id": "package:CP01"
       },
       "g:implementation": "CLEAN_EXPORT_LOCAL_SCOPE",
-      "g:sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
-      "g:recordedAt": "2026-10-05T13:16:26.029520+00:00",
+      "g:sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
+      "g:recordedAt": "2026-10-05T13:20:31.820299+00:00",
       "g:profile": "CLEAN_GIT_WORKTREE_V1",
       "g:restore": "CP02_NOT_IMPLEMENTED",
       "g:atomicSnapshot": "NOT_CLAIMED",
@@ -42,8 +42,8 @@
     {
       "@id": "receipt:clean-git-export",
       "@type": "g:Receipt",
-      "g:sha256": "sha256:cfbe188a13dc5a4999c7777979ca35649caec3b130b29b110fa9bee51b683152",
-      "g:tapDigest": "sha256:851ca4ce5daaeda5c03ae0c2137da791953385b1470dd1c8478bd67227b8bf5e",
+      "g:sha256": "sha256:dfb98cc28b45e2029c96aa939c6b02c05b0860a5238d0b80b3763920c8c4aaed",
+      "g:tapDigest": "sha256:5db83d975ee003468577bcd975a5d3c6c84538001418f2f91b7d0c59e867a2c8",
       "g:authority": "SECONDARY_AI"
     },
     {

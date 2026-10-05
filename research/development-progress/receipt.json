@@ -55,8 +55,8 @@
       ]
     }
   ],
-  "recordedAt": "2026-10-05T13:16:36.928056+00:00",
-  "sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+  "recordedAt": "2026-10-05T13:20:42.237444+00:00",
+  "sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -150,7 +150,7 @@
     },
     {
       "path": "src/addons/portable-transfer-git.ts",
-      "sha256": "sha256:1690c627b3a7dd9166923a7d276786c32d73b8d7bd4be6605555c24599d96bda"
+      "sha256": "sha256:dab8a47cf8c5192ad57ab80eb33b0dc0ba9122222b786394e1b7714f46e4359d"
     },
     {
       "path": "src/addons/portable-transfer-import.ts",
@@ -421,7 +421,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:76bdfffd110a580af546f4035bcf4da404d85c71d57fbca1741efcb4a8405d30",
+  "tapDigest": "sha256:b3ca17c2b6b91743e53f0aec11f7e042b1925e7de7bd753fd9611987ef3df0c7",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -864,6 +864,6 @@
     "criterion:PT04-C2",
     "criterion:PT04-C3"
   ],
-  "acceptanceDigest": "sha256:356b034499619b50a0e4a769889b18da31560ac82075e99673981b6dc0dad9cf",
+  "acceptanceDigest": "sha256:8a3f384de05919ab7aeba06d84e49a6e2add170767aa5b9a88b7f8be3624456e",
   "nextTask": "task:PT03"
 }

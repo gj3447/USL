@@ -1,8 +1,8 @@
 {
   "schema": "usl-clean-git-progress/v1",
   "authority": "SECONDARY_AI",
-  "recordedAt": "2026-10-05T13:16:26.029520+00:00",
-  "sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+  "recordedAt": "2026-10-05T13:20:31.820299+00:00",
+  "sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
   "package": "package:CP01",
   "implementation": "CLEAN_EXPORT_LOCAL_SCOPE",
   "nextPackage": "package:CP02",
@@ -33,7 +33,7 @@
   "sources": [
     {
       "path": "src/addons/portable-transfer-git.ts",
-      "sha256": "sha256:1690c627b3a7dd9166923a7d276786c32d73b8d7bd4be6605555c24599d96bda"
+      "sha256": "sha256:dab8a47cf8c5192ad57ab80eb33b0dc0ba9122222b786394e1b7714f46e4359d"
     },
     {
       "path": "src/contract-core.ts",
@@ -109,5 +109,5 @@
     "skipped": 0,
     "todo": 0
   },
-  "tapDigest": "sha256:851ca4ce5daaeda5c03ae0c2137da791953385b1470dd1c8478bd67227b8bf5e"
+  "tapDigest": "sha256:5db83d975ee003468577bcd975a5d3c6c84538001418f2f91b7d0c59e867a2c8"
 }

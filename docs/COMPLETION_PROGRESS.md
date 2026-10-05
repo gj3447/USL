@@ -6,7 +6,7 @@
 
 상태: **CLEAN_EXPORT_LOCAL_SCOPE**. 독립 pin으로 선택한 refs/HEAD의 Git objects를 export하고 비어 있는 저장소에서 prerequisites 없는 bundle을 검증한다.
 
-소스 `330b663af420e5cf0f13f1d91a5ea5c61c606e8d`; 기록 2026-10-05T13:16:26.029520+00:00. Linux / v24.20.0 / git version 2.47.3에서 **15개 PASS**, 실패·건너뜀 0.
+소스 `d653789ef80a3c4cdf756b88532598f836bb5738`; 기록 2026-10-05T13:20:31.820299+00:00. Linux / v24.20.0 / git version 2.47.3에서 **15개 PASS**, 실패·건너뜀 0.
 
 [사용법과 정확한 범위](PORTABLE_TRANSFER_GIT.md). dirty/index/untracked·submodule/LFS/alternates·원자 snapshot·타 OS·실기기 복구는 이 결과로 완료 처리하지 않는다.
 

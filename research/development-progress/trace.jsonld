@@ -16,9 +16,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "IMPLEMENTED_LOCAL_SCOPE",
       "d:scope": "OWNER_OPT_IN_CHECKOUT_GUARD_AND_LOCAL_COMPATIBILITY",
-      "d:recordedAt": "2026-10-05T13:16:36.928056+00:00",
+      "d:recordedAt": "2026-10-05T13:20:42.237444+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "d:sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
       "d:criterion": [
         {
           "@id": "criterion:DG01-C1"
@@ -84,9 +84,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "IMPLEMENTED_LOCAL_SCOPE",
       "d:scope": "PINNED_FILES_EXPORT_AND_EXPLICIT_EXTERNAL_DEPENDENCIES",
-      "d:recordedAt": "2026-10-05T13:16:36.928056+00:00",
+      "d:recordedAt": "2026-10-05T13:20:42.237444+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "d:sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
       "d:criterion": [
         {
           "@id": "criterion:PT02-C1"
@@ -188,9 +188,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "IMPLEMENTED_FILE_PROFILE_GIT_PENDING",
       "d:scope": "PINNED_FILE_RESTORE_REBINDING_REJECTION_ONLY_GIT_RESTORE_PENDING",
-      "d:recordedAt": "2026-10-05T13:16:36.928056+00:00",
+      "d:recordedAt": "2026-10-05T13:20:42.237444+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "d:sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
       "d:criterion": [
         {
           "@id": "criterion:PT03-C1"
@@ -283,9 +283,9 @@
       "d:status": "LOCAL_CASES_PASS",
       "d:implementation": "LOCAL_ACCEPTANCE_AND_CI_MATRIX",
       "d:scope": "LINUX_LOCAL_ONLY; PT04-C3_LINUX_MEASURED_OTHER_PLATFORMS_NOT_RUN",
-      "d:recordedAt": "2026-10-05T13:16:36.928056+00:00",
+      "d:recordedAt": "2026-10-05T13:20:42.237444+00:00",
       "d:authority": "SECONDARY_AI",
-      "d:sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "d:sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
       "d:criterion": [
         {
           "@id": "criterion:PT04-C1"
@@ -341,9 +341,9 @@
         "prov:Entity"
       ],
       "d:path": "research/development-progress/receipt.json",
-      "d:sha256": "sha256:950420239a6a325c7bb6993b4e557eb7f280a1798e3d880700113f153066215d",
-      "d:tapDigest": "sha256:76bdfffd110a580af546f4035bcf4da404d85c71d57fbca1741efcb4a8405d30",
-      "d:acceptanceDigest": "sha256:356b034499619b50a0e4a769889b18da31560ac82075e99673981b6dc0dad9cf",
+      "d:sha256": "sha256:0397f5a85fd519a6ca007f92216013e7acef3371f5daecdac062a419b6750e25",
+      "d:tapDigest": "sha256:b3ca17c2b6b91743e53f0aec11f7e042b1925e7de7bd753fd9611987ef3df0c7",
+      "d:acceptanceDigest": "sha256:8a3f384de05919ab7aeba06d84e49a6e2add170767aa5b9a88b7f8be3624456e",
       "d:acceptance": {
         "@id": "urn:usl:development-progress:acceptance"
       }
@@ -355,8 +355,8 @@
         "prov:Entity"
       ],
       "d:path": "research/development-progress/acceptance.json",
-      "d:sha256": "sha256:356b034499619b50a0e4a769889b18da31560ac82075e99673981b6dc0dad9cf",
-      "d:sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "d:sha256": "sha256:8a3f384de05919ab7aeba06d84e49a6e2add170767aa5b9a88b7f8be3624456e",
+      "d:sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
       "d:linux": "LOCAL_PASS",
       "d:macos": "NOT_RUN",
       "d:windows": "NOT_RUN",
