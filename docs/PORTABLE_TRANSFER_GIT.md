@@ -1,6 +1,6 @@
 # CP01 · clean Git export
 
-`exportCleanGitTransfer`는 독립적으로 지정한 HEAD와 branch refs에 필요한 Git 객체를 `CLEAN_GIT_WORKTREE_V1` 묶음으로 내보낸다. 원본 저장소 없이 검증할 수 있는 `repo.bundle`, `manifest.json`, `receipt.json` 세 파일을 만든다. USL importer, checkout 복원, 여러 worktree 재생성 및 링크 재바인딩은 다음 단계인 CP02의 작업이다.
+`exportCleanGitTransfer`는 독립적으로 지정한 HEAD와 branch refs에 필요한 Git 객체를 `CLEAN_GIT_WORKTREE_V1` 묶음으로 내보낸다. 원본 저장소 없이 검증할 수 있는 `repo.bundle`, `manifest.json`, `receipt.json` 세 파일을 만든다. checkout 복원, 여러 worktree 재생성 및 링크 재바인딩은 별도 [CP02 importer](PORTABLE_TRANSFER_GIT_IMPORT.md)가 담당한다. export manifest의 `NO_RESTORE_OR_REBIND`는 이 producer 자체의 범위를 나타낸다.
 
 ## 실행
 

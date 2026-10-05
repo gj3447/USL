@@ -1,13 +1,14 @@
-/** Bounded clean commit-object export. CP02, not this module, restores worktrees. */
+/** Bounded clean Git export and isolated multi-worktree restore. No code execution or authority grant. */
 import { spawn } from "node:child_process"
 import { createHash, randomUUID } from "node:crypto"
 import { constants } from "node:fs"
-import { lstat, mkdir, open, opendir, readdir, rename, rm, writeFile } from "node:fs/promises"
-import { isAbsolute, join, parse, relative, resolve, sep } from "node:path"
+import { lstat, mkdir, open, opendir, readdir, rename, rm, rmdir, writeFile } from "node:fs/promises"
+import { dirname, isAbsolute, join, parse, relative, resolve, sep } from "node:path"
 import { z } from "zod"
 import { contractDigest, contractIri, contractSnapshot, freezeContract } from "../contract-core.js"
 
 export const CLEAN_GIT_TRANSFER_SCHEMA = "usl-clean-git-export/v1" as const
+export const CLEAN_GIT_IMPORT_SCHEMA = "usl-clean-git-import/v1" as const
 const MAX_BYTES = 512 * 1024 * 1024, DEFAULT_BYTES = 64 * 1024 * 1024
 const MAX_OBJECTS = 100_000, MAX_DURATION = 300_000, MAX_METADATA = 16 * 1024 * 1024
 const OID = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/u
@@ -164,6 +165,259 @@ export const parseCleanGitTransferManifest = (input: unknown): CleanGitTransferM
   return freezeContract(value)
 }
 
+const digestSchema = z.string().regex(/^sha256:[a-f0-9]{64}$/u)
+const importFileSchema = z.object({ nativeId: label, revisionId: z.string().regex(OID), representationId: label, worktreeId: label,
+  path: z.string().min(1).max(1024), expectedByteDigest: digestSchema, expectedByteLength: z.number().int().min(0).max(MAX_BYTES) }).strict()
+const importWorktreeSchema = z.object({ worktreeId: label, path: z.string().min(1).max(128).regex(/^[A-Za-z0-9][A-Za-z0-9._-]*$/u), head: z.string().regex(OID), branch: refSchema.optional() }).strict()
+const importRequestSchema = z.object({
+  schema: z.literal(CLEAN_GIT_IMPORT_SCHEMA), bundlePath: z.string().min(1).max(4096), destinationParent: z.string().min(1).max(4096), destinationName: z.string().min(1).max(128).regex(/^[A-Za-z0-9][A-Za-z0-9._-]*$/u),
+  expectedReceiptDigest: digestSchema, allowedOwnerNamespace: contractIri.max(512), expectedRepositoryId: label,
+  worktrees: z.array(importWorktreeSchema).min(1).max(16), files: z.array(importFileSchema).min(1).max(1024),
+  freshnessMode: z.enum(["HISTORICAL_SNAPSHOT", "LOCAL_BRANCH"]).default("HISTORICAL_SNAPSHOT"),
+  maxBundleBytes: z.number().int().min(1).max(MAX_BYTES).optional(), maxUncompressedBytes: z.number().int().min(1).max(MAX_BYTES).optional(), maxCheckoutBytes: z.number().int().min(1).max(MAX_BYTES).optional(), maxObjects: z.number().int().min(1).max(MAX_OBJECTS).optional(), maxDurationMs: z.number().int().min(1).max(MAX_DURATION).optional(),
+}).strict()
+const importReceiptSchema = z.object({ schema: z.literal("usl-clean-git-receipt/v1"), manifestDigest: digestSchema,
+  manifestByteDigest: digestSchema, bundleByteDigest: digestSchema, bytes: z.number().int().min(1).max(MAX_BYTES),
+  objectCount: z.number().int().min(1).max(MAX_OBJECTS), execution: z.literal("LOCAL_EXPORT_ONLY") }).strict()
+export interface RestoredCleanGitFile {
+  readonly nativeId: string; readonly revisionId: string; readonly representationId: string; readonly worktreeId: string
+  readonly path: string; readonly restorePath: string; readonly byteDigest: string; readonly bytes: number; readonly objectId: string; readonly mode: string
+}
+export interface CleanGitRestoreResult {
+  readonly destinationPath: string; readonly repositoryPath: string; readonly manifest: CleanGitTransferManifest
+  readonly manifestDigest: string; readonly bundleDigest: string; readonly receiptDigest: string
+  readonly worktrees: readonly Readonly<z.infer<typeof importWorktreeSchema>>[]; readonly files: readonly RestoredCleanGitFile[]
+  readonly freshnessMode: "HISTORICAL_SNAPSHOT" | "LOCAL_BRANCH"; readonly authority: "NOT_GRANTED"; readonly execution: "NOT_REQUESTED"
+}
+const restoreHandles = new WeakMap<object, { result: CleanGitRestoreResult; root: Awaited<ReturnType<typeof lstat>>; fingerprint: string; maxBytes: number; durationMs: number }>()
+const safeRestorePath = (value: string) => !isAbsolute(value) && !/[\\:\u0000-\u001f\u007f]/u.test(value) && value.split("/").every(x =>
+  !!x && x !== "." && x !== ".." && !/[. ]$/u.test(x) && x.toLowerCase() !== ".git" && !/^(?:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/iu.test(x))
+const decodeJson = (bytes: Buffer): unknown => JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes))
+const sameInode = (a: Awaited<ReturnType<typeof lstat>>, b: Awaited<ReturnType<typeof lstat>>) => a.dev === b.dev && a.ino === b.ino && a.isDirectory() && b.isDirectory() && !b.isSymbolicLink()
+
+/** A content/mode pin of the entire isolated restore, including Git metadata.
+ * Recheck performs no Git command until mutable config and gitfiles are checked.
+ * Even ignored additions or benign Git metadata writes invalidate this strict handle.
+ */
+async function restoreFingerprint(root: string, maxBytes: number, end: number) {
+  await safeDirectory(root, end)
+  const stack = [root], rows: string[] = [JSON.stringify([".", "directory", (await lstat(root)).mode & 0o777])]; let count = 0, total = 0, names = 0
+  while (stack.length) {
+    const directory = stack.pop()!
+    for await (const entry of await opendir(directory)) {
+      deadline(end)
+      if (++count > MAX_OBJECTS * 3 + 4096) throw new Error("restore entry budget exceeded")
+      const file = join(directory, entry.name), name = relative(root, file)
+      names += Buffer.byteLength(name); if (names > MAX_METADATA) throw new Error("restore path metadata budget exceeded")
+      const info = await lstat(file)
+      if (info.isSymbolicLink() || (!info.isFile() && !info.isDirectory())) throw new Error("restore contains a symlink or special file")
+      if (info.isDirectory()) { rows.push(JSON.stringify([name, "directory", info.mode & 0o777])); stack.push(file); continue }
+      total += info.size; if (!Number.isSafeInteger(total) || total > maxBytes) throw new Error("restore byte budget exceeded")
+      const bytes = await regularBytes(file, Math.min(MAX_BYTES, maxBytes), end)
+      rows.push(JSON.stringify([name, info.mode & 0o777, bytes.length, sha(bytes)]))
+    }
+  }
+  const fingerprint = sha(Buffer.from(rows.sort().join("\n")))
+  deadline(end)
+  return fingerprint
+}
+export const recheckCleanGitRestore = async (result: unknown): Promise<CleanGitRestoreResult> => {
+  const handle = result && typeof result === "object" ? restoreHandles.get(result) : undefined
+  if (!handle) throw new Error("unverified clean Git restore handle; serialized handles are not accepted")
+  const end = Date.now() + handle.durationMs
+  const root = handle.result.destinationPath
+  if (!sameInode(handle.root, await lstat(root))) throw new Error("restore root identity changed")
+  if (await restoreFingerprint(root, handle.maxBytes, end) !== handle.fingerprint) throw new Error("restore Git/config/index/HEAD or file state changed; stale verification handle")
+  if (!sameInode(handle.root, await lstat(root))) throw new Error("restore root changed during recheck")
+  return handle.result
+}
+
+type TreeFile = { path: string; mode: string; objectId: string; bytes: number }
+async function checkoutTree(repository: string, head: string, end: number): Promise<TreeFile[]> {
+  const text = await git(repository, ["ls-tree", "-r", "-l", "-z", "--full-tree", head], end)
+  const files: TreeFile[] = [], paths = new Map<string, string>()
+  for (const row of text.split("\0").filter(Boolean)) {
+    const match = /^(100644|100755) blob ([a-f0-9]+) +([0-9]+)\t(.+)$/su.exec(row)
+    if (!match || !safeRestorePath(match[4]!)) throw new Error("unsupported or unsafe checkout tree path/mode (submodule and symlink require another profile)")
+    const path = match[4]!
+    if (path.split("/").some(x => x.toLowerCase() === ".gitattributes")) throw new Error("checkout attributes and transformations are unsupported in the raw clean restore profile")
+    const parts = path.split("/")
+    for (let i = 1; i <= parts.length; i++) {
+      const name = parts.slice(0, i).join("/"), folded = name.normalize("NFC").toLowerCase()
+      if (paths.has(folded) && paths.get(folded) !== name) throw new Error("case/normalization collision in checkout tree")
+      paths.set(folded, name)
+    }
+    files.push({ path, mode: match[1]!, objectId: match[2]!, bytes: Number(match[3]) })
+    if (files.length > MAX_OBJECTS) throw new Error("checkout file count budget exceeded")
+  }
+  return files
+}
+
+/** Restore only an independently pinned CP01 bundle into a wholly new local root. */
+export const importCleanGitTransfer = async (input: unknown): Promise<CleanGitRestoreResult> => {
+  const request = importRequestSchema.parse(contractSnapshot(input, 2 * 1024 * 1024))
+  const durationMs = request.maxDurationMs ?? 60_000, end = Date.now() + durationMs
+  const maxBundle = request.maxBundleBytes ?? DEFAULT_BYTES, maxObjects = request.maxObjects ?? MAX_OBJECTS
+  const maxUncompressed = request.maxUncompressedBytes ?? DEFAULT_BYTES, maxCheckout = request.maxCheckoutBytes ?? DEFAULT_BYTES
+  if (!safeRestorePath(request.destinationName) || request.worktrees.some(x => !safeRestorePath(x.path)) || request.files.some(x => !safeRestorePath(x.path))) throw new Error("unsafe restore path")
+  const unique = (values: string[], label: string) => { if (new Set(values).size !== values.length) throw new Error(`duplicate ${label}`) }
+  unique(request.worktrees.map(x => x.worktreeId), "worktree identity")
+  unique(request.worktrees.map(x => x.path.toLowerCase()), "worktree path")
+  unique(request.worktrees.flatMap(x => x.branch ? [x.branch] : []), "checked-out branch")
+  unique(request.files.map(x => x.representationId), "representation identity")
+  unique(request.files.map(x => JSON.stringify([x.worktreeId, x.path.normalize("NFC").toLowerCase()])), "selected file path")
+  const bundleRoot = await safeDirectory(request.bundlePath, end), parent = await safeDirectory(request.destinationParent, end)
+  const destinationPath = join(parent, request.destinationName)
+  if (within(bundleRoot, destinationPath) || within(destinationPath, bundleRoot)) throw new Error("bundle and restore roots must be separate")
+  const bundleEntries: string[] = []
+  for await (const entry of await opendir(bundleRoot)) {
+    deadline(end)
+    if (bundleEntries.length === 3) throw new Error("unexpected bundle entry")
+    bundleEntries.push(entry.name)
+  }
+  if (bundleEntries.sort().join("\n") !== "manifest.json\nreceipt.json\nrepo.bundle") throw new Error("unexpected bundle entry")
+  const receiptBytes = await regularBytes(join(bundleRoot, "receipt.json"), 1024 * 1024, end)
+  if (sha(receiptBytes) !== request.expectedReceiptDigest) throw new Error("independent receipt digest mismatch")
+  const receipt = importReceiptSchema.parse(decodeJson(receiptBytes))
+  const manifestBytes = await regularBytes(join(bundleRoot, "manifest.json"), 1024 * 1024, end)
+  if (sha(manifestBytes) !== receipt.manifestByteDigest) throw new Error("raw manifest digest mismatch")
+  const manifest = parseCleanGitTransferManifest(decodeJson(manifestBytes))
+  if (contractDigest(manifest) !== receipt.manifestDigest || manifest.ownerNamespace !== request.allowedOwnerNamespace || manifest.repositoryId !== request.expectedRepositoryId) throw new Error("manifest owner/repository/digest mismatch")
+  if (receipt.bytes !== manifest.bundle.bytes || receipt.objectCount !== manifest.bundle.objectCount || receipt.bundleByteDigest !== manifest.bundle.byteDigest) throw new Error("receipt and manifest payload facts differ")
+  if (manifest.bundle.objectCount > maxObjects || manifest.bundle.reachableUncompressedBytes > maxUncompressed) throw new Error("declared Git closure exceeds import budget")
+  const bundleBytes = await regularBytes(join(bundleRoot, "repo.bundle"), maxBundle, end)
+  if (sha(bundleBytes) !== receipt.bundleByteDigest || bundleBytes.length !== receipt.bytes) throw new Error("bundle byte pin mismatch")
+  // Inspect the PACK object count before invoking index-pack/unbundle on captured bytes.
+  const headerEnd = bundleBytes.indexOf("\n\n") + 2
+  if (headerEnd < 2 || headerEnd > MAX_METADATA || headerEnd + 12 > bundleBytes.length ||
+      bundleBytes.subarray(0, 16).toString("ascii") !== "# v3 git bundle\n" || bundleBytes.subarray(headerEnd, headerEnd + 4).toString("ascii") !== "PACK") throw new Error("invalid bundle/PACK header")
+  const packCount = bundleBytes.readUInt32BE(headerEnd + 8)
+  if (packCount !== manifest.bundle.objectCount || packCount > maxObjects) throw new Error("PACK object count differs from pin or budget")
+  const pinnedHeads = new Set([manifest.expectedHead, ...Object.values(manifest.expectedRefs)])
+  for (const wt of request.worktrees) {
+    if (!pinnedHeads.has(wt.head) || (wt.branch !== undefined && manifest.expectedRefs[wt.branch] !== wt.head)) throw new Error("worktree HEAD/branch differs from independently pinned bundle roots")
+  }
+  const byId = new Map(request.worktrees.map(x => [x.worktreeId, x]))
+  const nativeRevisions = new Map<string, string>()
+  for (const file of request.files) {
+    const wt = byId.get(file.worktreeId)
+    if (!wt || wt.head !== file.revisionId) throw new Error("native revision/worktree selection mismatch")
+    const key = JSON.stringify([file.nativeId, file.revisionId]), descriptor = JSON.stringify([file.path, file.expectedByteDigest, file.expectedByteLength])
+    if (nativeRevisions.has(key) && nativeRevisions.get(key) !== descriptor) throw new Error("contradictory native revision descriptor")
+    nativeRevisions.set(key, descriptor)
+  }
+  // Fixed reservation serializes cooperating imports; mkdir reserves the actual name without clobbering an existing path.
+  const lock = join(parent, `.usl-clean-git-${sha(Buffer.from(request.destinationName.toLowerCase())).slice(7)}.lock`)
+  await mkdir(lock, { mode: 0o700 })
+  const lockStat = await lstat(lock), stage = join(lock, "stage")
+  let reserved: Awaited<ReturnType<typeof lstat>> | undefined, published: Awaited<ReturnType<typeof lstat>> | undefined
+  try {
+    await mkdir(destinationPath, { mode: 0o700 }); reserved = await lstat(destinationPath)
+    await mkdir(stage, { mode: 0o700 })
+    const repository = join(stage, "repository.git"), localBundle = join(stage, "input.bundle")
+    await writeFile(localBundle, bundleBytes, { flag: "wx", mode: 0o600 })
+    await git(stage, ["init", "--bare", "--template=", `--object-format=${manifest.objectFormat}`, repository], end)
+    await git(repository, ["bundle", "verify", localBundle], end)
+    const heads: Record<string, string> = Object.create(null)
+    for (const row of (await git(repository, ["bundle", "list-heads", localBundle], end)).trim().split("\n")) {
+      const match = /^([a-f0-9]+) (HEAD|refs\/heads\/.+)$/u.exec(row)
+      if (!match || Object.hasOwn(heads, match[2]!)) throw new Error("invalid bundle heads")
+      heads[match[2]!] = match[1]!
+    }
+    if (!equal(heads, manifest.bundle.heads)) throw new Error("bundle heads differ from manifest pins")
+    await git(repository, ["bundle", "unbundle", localBundle], end)
+    const objects = await closure(repository, manifest, end, maxObjects, maxUncompressed)
+    if (objects.ids.length !== packCount || objects.total !== manifest.bundle.reachableUncompressedBytes) throw new Error("actual Git closure differs from pinned manifest")
+    await git(repository, ["fsck", "--strict", "--no-reflogs", "--no-progress", ...objects.tips], end)
+    await runGit(repository, ["update-ref", "--stdin"], end, MAX_METADATA, Object.entries(manifest.expectedRefs).map(([ref, oid]) => `create ${ref} ${oid}\n`).join(""))
+    await git(repository, ["update-ref", "--no-deref", "HEAD", manifest.expectedHead], end)
+    await rm(localBundle)
+    const trees = new Map<string, TreeFile[]>(); let checkoutBytes = 0, fileCount = 0
+    for (const wt of request.worktrees) {
+      const files = await checkoutTree(repository, wt.head, end)
+      for (const file of files) { checkoutBytes += file.bytes; fileCount++ }
+      if (!Number.isSafeInteger(checkoutBytes) || checkoutBytes > maxCheckout || fileCount > MAX_OBJECTS) throw new Error("checkout file/byte budget exceeded")
+      trees.set(wt.worktreeId, files)
+    }
+    const restored: RestoredCleanGitFile[] = []
+    for (const selection of request.files) {
+      const file = trees.get(selection.worktreeId)!.find(f => f.path === selection.path)
+      if (!file || file.bytes !== selection.expectedByteLength) throw new Error("selected native revision file is absent or size pin differs")
+      const bytes = await runGit(repository, ["cat-file", "blob", file.objectId], end, file.bytes + 1)
+      if (bytes.length !== file.bytes || sha(bytes) !== selection.expectedByteDigest) throw new Error("selected file byte pin mismatch")
+      restored.push({ nativeId: selection.nativeId, revisionId: selection.revisionId, representationId: selection.representationId, worktreeId: selection.worktreeId,
+        path: selection.path, restorePath: `worktrees/${byId.get(selection.worktreeId)!.path}/${selection.path}`, byteDigest: sha(bytes), bytes: bytes.length, objectId: file.objectId, mode: file.mode })
+    }
+    const pointerUpdates: { file: string; content: string }[] = []
+    await mkdir(join(stage, "worktrees"), { mode: 0o700 })
+    for (const wt of request.worktrees) {
+      const target = join(stage, "worktrees", wt.path)
+      await git(repository, ["worktree", "add", "--detach", "--no-checkout", target, wt.head], end)
+      if (wt.branch) await git(target, ["symbolic-ref", "HEAD", wt.branch], end)
+      await git(target, ["read-tree", wt.head], end)
+      for (const file of trees.get(wt.worktreeId)!) {
+        deadline(end)
+        const bytes = await runGit(repository, ["cat-file", "blob", file.objectId], end, file.bytes + 1)
+        if (bytes.length !== file.bytes) throw new Error("Git blob size changed")
+        const path = join(target, file.path)
+        await mkdir(dirname(path), { recursive: true, mode: 0o700 })
+        await writeFile(path, bytes, { flag: "wx", mode: file.mode === "100755" ? 0o700 : 0o600 })
+        if (!bytes.equals(await regularBytes(path, file.bytes, end))) throw new Error("materialized file changed")
+      }
+      await git(target, ["update-index", "--refresh"], end)
+      if ((await git(target, ["rev-parse", "HEAD"], end)).trim() !== wt.head || await git(target, ["status", "--porcelain=v1", "-z", "--untracked-files=all"], end)) throw new Error("materialized worktree differs from pinned clean commit")
+      const admin = (await git(target, ["rev-parse", "--absolute-git-dir"], end)).trim()
+      if (!within(join(repository, "worktrees"), admin) || admin === join(repository, "worktrees")) throw new Error("worktree administration path escaped restore")
+      await safeDirectory(admin, end)
+      if ((await regularBytes(join(admin, "commondir"), 4096, end)).toString("utf8").trim() !== "../..") throw new Error("unexpected common directory link")
+      pointerUpdates.push({ file: join(target, ".git"), content: `gitdir: ${join(destinationPath, relative(stage, admin))}\n` },
+        { file: join(admin, "gitdir"), content: join(destinationPath, "worktrees", wt.path, ".git") + "\n" })
+    }
+    // Replace only fresh generated pointers with their final root; never copy original gitfiles or require manual repair.
+    for (const update of pointerUpdates) {
+      await regularBytes(update.file, 4096, end)
+      await writeFile(update.file, update.content, { flag: "w", mode: 0o600 })
+      if (!(await regularBytes(update.file, 4096, end)).equals(Buffer.from(update.content))) throw new Error("generated Git pointer changed")
+    }
+    await writeFile(join(stage, "restore.json"), JSON.stringify({ schema: "usl-clean-git-restored/v1", manifestDigest: receipt.manifestDigest, sourceReceiptDigest: request.expectedReceiptDigest,
+      ownerNamespace: manifest.ownerNamespace, repositoryId: manifest.repositoryId, worktrees: request.worktrees, files: restored, authority: "NOT_GRANTED", execution: "NOT_REQUESTED" }, null, 2) + "\n", { flag: "wx", mode: 0o600 })
+    const maxSnapshotBytes = maxBundle + maxCheckout + 4 * MAX_METADATA
+    const fingerprint = await restoreFingerprint(stage, maxSnapshotBytes, end)
+    await safeDirectory(parent, end)
+    if (!sameInode(reserved, await lstat(destinationPath)) || (await readdir(destinationPath)).length) throw new Error("destination reservation changed")
+    const stageStat = await lstat(stage)
+    deadline(end); await rename(stage, destinationPath); published = stageStat
+    for (const wt of request.worktrees) {
+      const target = join(destinationPath, "worktrees", wt.path)
+      if ((await git(target, ["rev-parse", "--path-format=absolute", "--git-common-dir"], end)).trim() !== join(destinationPath, "repository.git") ||
+          (await git(target, ["rev-parse", "HEAD"], end)).trim() !== wt.head ||
+          (await git(target, ["symbolic-ref", "-q", "HEAD"], end, MAX_METADATA, true)).trim() !== (wt.branch ?? "")) throw new Error("published Git topology mismatch")
+      const admin = (await git(target, ["rev-parse", "--absolute-git-dir"], end)).trim()
+      if (!within(join(destinationPath, "repository.git", "worktrees"), admin) ||
+          (await regularBytes(join(admin, "gitdir"), 4096, end)).toString("utf8").trim() !== join(target, ".git")) throw new Error("published backlink mismatch")
+    }
+    if (await restoreFingerprint(destinationPath, maxSnapshotBytes, end) !== fingerprint) throw new Error("published restore changed during verification")
+    const result: CleanGitRestoreResult = freezeContract({ destinationPath, repositoryPath: join(destinationPath, "repository.git"), manifest, manifestDigest: receipt.manifestDigest,
+      bundleDigest: sha(bundleBytes), receiptDigest: sha(receiptBytes), worktrees: request.worktrees.map(x => ({ ...x, path: `worktrees/${x.path}` })), files: restored,
+      freshnessMode: request.freshnessMode, authority: "NOT_GRANTED", execution: "NOT_REQUESTED" })
+    restoreHandles.set(result, { result, root: published, fingerprint, maxBytes: maxSnapshotBytes, durationMs })
+    return result
+  } catch (error) {
+    const owned = published ?? reserved
+    if (owned) {
+      try {
+        if (sameInode(owned, await lstat(destinationPath))) {
+          if (published) await rm(destinationPath, { recursive: true })
+          else await rmdir(destinationPath) // refuses a reservation populated by another writer
+        }
+      } catch (cleanupError) { if (!['ENOENT', 'ENOTEMPTY'].includes((cleanupError as NodeJS.ErrnoException).code ?? '')) throw cleanupError }
+    }
+    throw error
+  } finally {
+    if (sameInode(lockStat, await lstat(lock))) await rm(lock, { recursive: true, force: true })
+  }
+}
+
 const observe = async (source: string, destination: string, request: Request, end: number) => {
   if ((await git(source, ["rev-parse", "--is-inside-work-tree"], end)).trim() !== "true" ||
       resolve((await git(source, ["rev-parse", "--show-toplevel"], end)).trim()) !== source) throw new Error("sourceRoot must be the selected Git worktree root")
@@ -209,7 +463,7 @@ const observe = async (source: string, destination: string, request: Request, en
   return { head, refs: stable(actual), fingerprint: contractDigest({ common, privateDir, settings, index, attachment, flags }) }
 }
 
-async function closure(root: string, request: Request, end: number, maxObjects: number, maxBytes: number) {
+async function closure(root: string, request: Pick<Request, "expectedHead" | "expectedRefs">, end: number, maxObjects: number, maxBytes: number) {
   const tips = [...new Set([request.expectedHead, ...Object.values(request.expectedRefs)])]
   const ids = (await git(root, ["rev-list", "--objects", "--no-object-names", ...tips], end, Math.min(MAX_METADATA, (maxObjects + 1) * 66))).trim().split("\n").filter(Boolean)
   if (!ids.length || ids.length > maxObjects || new Set(ids).size !== ids.length || ids.some(x => !OID.test(x))) throw new Error("reachable object closure exceeds object budget")
