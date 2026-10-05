@@ -5,7 +5,7 @@
   },
   "@graph": [
     {
-      "@id": "observation:clean-git-export",
+      "@id": "observation:CP01",
       "@type": [
         "g:Observation",
         "prov:Entity"
@@ -14,17 +14,44 @@
         "@id": "package:CP01"
       },
       "g:implementation": "CLEAN_EXPORT_LOCAL_SCOPE",
-      "g:sourceCommit": "d653789ef80a3c4cdf756b88532598f836bb5738",
-      "g:recordedAt": "2026-10-05T13:20:31.820299+00:00",
+      "g:sourceCommit": "f6a684c396dacd4a43eedff6707bf69c64b66937",
+      "g:recordedAt": "2026-10-05T13:57:42.068588+00:00",
       "g:profile": "CLEAN_GIT_WORKTREE_V1",
-      "g:restore": "CP02_NOT_IMPLEMENTED",
+      "g:restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
       "g:atomicSnapshot": "NOT_CLAIMED",
       "g:fullWorkspace": "CP03_CP04_PENDING",
       "g:macos": "NOT_RUN",
       "g:windows": "NOT_RUN",
       "g:authority": "NOT_GRANTED",
+      "g:registration": "LOCAL_PROPOSAL_ONLY",
+      "g:crashRecovery": "NOT_IMPLEMENTED",
       "prov:wasDerivedFrom": {
-        "@id": "receipt:clean-git-export"
+        "@id": "receipt:clean-git"
+      }
+    },
+    {
+      "@id": "observation:CP02",
+      "@type": [
+        "g:Observation",
+        "prov:Entity"
+      ],
+      "g:package": {
+        "@id": "package:CP02"
+      },
+      "g:implementation": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE",
+      "g:sourceCommit": "f6a684c396dacd4a43eedff6707bf69c64b66937",
+      "g:recordedAt": "2026-10-05T13:57:42.068588+00:00",
+      "g:profile": "CLEAN_GIT_WORKTREE_V1",
+      "g:restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
+      "g:atomicSnapshot": "NOT_CLAIMED",
+      "g:fullWorkspace": "CP03_CP04_PENDING",
+      "g:macos": "NOT_RUN",
+      "g:windows": "NOT_RUN",
+      "g:authority": "NOT_GRANTED",
+      "g:registration": "LOCAL_PROPOSAL_ONLY",
+      "g:crashRecovery": "NOT_IMPLEMENTED",
+      "prov:wasDerivedFrom": {
+        "@id": "receipt:clean-git"
       }
     },
     {
@@ -40,16 +67,31 @@
       ]
     },
     {
-      "@id": "receipt:clean-git-export",
-      "@type": "g:Receipt",
-      "g:sha256": "sha256:dfb98cc28b45e2029c96aa939c6b02c05b0860a5238d0b80b3763920c8c4aaed",
-      "g:tapDigest": "sha256:5db83d975ee003468577bcd975a5d3c6c84538001418f2f91b7d0c59e867a2c8",
+      "@id": "package:CP02",
+      "@type": "g:Package",
+      "g:acceptance": [
+        {
+          "@id": "acceptance:CP02-1"
+        },
+        {
+          "@id": "acceptance:CP02-2"
+        }
+      ]
+    },
+    {
+      "@id": "receipt:clean-git",
+      "@type": [
+        "g:Receipt",
+        "prov:Entity"
+      ],
+      "g:sha256": "sha256:8ba07fb38e4e8d34ef6fafe8f82783b4194ca7b5f0200da819c7b274f8b7751e",
+      "g:tapDigest": "sha256:6a90506b9fa58f6b744e5ae018e1eba2821dcc0c9daf70fba271c89fb67a9ffd",
       "g:authority": "SECONDARY_AI"
     },
     {
       "@id": "acceptance:CP01-1",
       "@type": "g:Acceptance",
-      "g:coverage": "LOCAL_EXPORT_CASES_PASS",
+      "g:coverage": "LOCAL_CASES_PASS",
       "g:checkedBy": [
         {
           "@id": "test:clean-git:c9cbe1061804eb5a55eacaa4a983ee93ec1878e139e7f647799169cab9c6b720"
@@ -80,7 +122,7 @@
     {
       "@id": "acceptance:CP01-2",
       "@type": "g:Acceptance",
-      "g:coverage": "LOCAL_EXPORT_CASES_PASS",
+      "g:coverage": "LOCAL_CASES_PASS",
       "g:checkedBy": [
         {
           "@id": "test:clean-git:81c99bff688955c28f2462f2ac5336fbf7c3e711e93cb78bb9da87864f55db18"
@@ -102,6 +144,65 @@
         },
         {
           "@id": "test:clean-git:c9d7fda6a1ebddfadb6eda70d8bbb7aa405764f61d5c26239afe4c1fd98dcc77"
+        }
+      ]
+    },
+    {
+      "@id": "acceptance:CP02-1",
+      "@type": "g:Acceptance",
+      "g:coverage": "LOCAL_CASES_PASS",
+      "g:checkedBy": [
+        {
+          "@id": "test:clean-git:9f72507f8361af52605633cc13b4d3ada6d1438fde84c13def3cf73d75e9b6cf"
+        },
+        {
+          "@id": "test:clean-git:5a3a1790d6348bb5047f0724df2f9cdc581bf929cad135914aad40b8cfdc0b40"
+        },
+        {
+          "@id": "test:clean-git:8ccf16fe198ff74940fa87a04345ef76eaf2b9e223bde1758cd82fd857f5d385"
+        },
+        {
+          "@id": "test:clean-git:07503f1038bfef0f28eaf647eeefa8953c837f2a6645bee94afa5bf518251496"
+        },
+        {
+          "@id": "test:clean-git:c6ff125838d9ff01a1a19bdf0745350e7281938b4bd2d6968ba590f8eda77532"
+        }
+      ]
+    },
+    {
+      "@id": "acceptance:CP02-2",
+      "@type": "g:Acceptance",
+      "g:coverage": "LOCAL_CASES_PASS",
+      "g:checkedBy": [
+        {
+          "@id": "test:clean-git:0b9c1439bfd70df5225883ea3d9e4ef7d9e6809085aa9d77335f4dbdd5f65796"
+        },
+        {
+          "@id": "test:clean-git:5eeb963ae92ff0f9eac709de22ea367d5cafa23fe91787f866214f95d6dbda9a"
+        },
+        {
+          "@id": "test:clean-git:b3377cf2fd0135bac8494b5ad4c5776c9f36e7ffef838517d551e8dff07e9069"
+        },
+        {
+          "@id": "test:clean-git:b95d9ac2ff93400221390f810aa0115b5cf38ad2e621889e7e619f0b3d1c8cac"
+        },
+        {
+          "@id": "test:clean-git:24c336fb55317422562ff89d63005749a653a80ab2fea9b5f11712eb3b91b1d8"
+        },
+        {
+          "@id": "test:clean-git:f05cb095fd2afe6918dbadbb1271f33c4c8e69a425347e2f465b226f372849f4"
+        },
+        {
+          "@id": "test:clean-git:4ff020d1d95c125ef097078690d9220fea1523e91bf0ad622e502dc042b15add"
+        },
+        {
+          "@id": "test:clean-git:87ffd522abeaf820cfe5f4eeee4b58ac1725e789e4f827fd0428b77d5ae86499"
+        },
+        {
+          "@id": "test:clean-git:67286a2944de66e9c6b750b83618bca01d8ba85326aae57433308c3672e4a92f"
+        },
+        {
+          "@id": "test:clean-git:13d52f779f74128b3224c7aa3c3ac9dddffb85e8dde35a3efff71df744a071e2"
         }
       ]
     },
@@ -142,6 +243,36 @@
       "g:status": "PASS"
     },
     {
+      "@id": "test:clean-git:9f72507f8361af52605633cc13b4d3ada6d1438fde84c13def3cf73d75e9b6cf",
+      "@type": "g:TestResult",
+      "g:name": "CP02-1: Git restore rebinds selected IDs and ordered roles after source and backup deletion",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:0b9c1439bfd70df5225883ea3d9e4ef7d9e6809085aa9d77335f4dbdd5f65796",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: forged, stale and mismatched Git restore handles cannot produce bindings",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:5eeb963ae92ff0f9eac709de22ea367d5cafa23fe91787f866214f95d6dbda9a",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: binding inputs are captured, unselected workspaces stay intact, and branch mode is explicit",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:b3377cf2fd0135bac8494b5ad4c5776c9f36e7ffef838517d551e8dff07e9069",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: restored binding uses the existing checkout guard and holds stale HEAD before an owner action",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:5a3a1790d6348bb5047f0724df2f9cdc581bf929cad135914aad40b8cfdc0b40",
+      "@type": "g:TestResult",
+      "g:name": "CP02-1: multiple worktrees retain separate explicit workspace roots and representation identities",
+      "g:status": "PASS"
+    },
+    {
       "@id": "test:clean-git:a2ff059fdb2d77d1eb9c13f60d0d298bc45246f9c9372ed6cc68c93717bcc5ff",
       "@type": "g:TestResult",
       "g:name": "CP01-1: standalone CLI exports an explicitly pinned clean repository",
@@ -151,6 +282,66 @@
       "@id": "test:clean-git:42bd350f8b50e804ea92320be2904f9d8c2016ce03f9e02f7a88990588f5d10e",
       "@type": "g:TestResult",
       "g:name": "CP01-2: Git export CLI refuses invalid flags, special files, and spec destinations",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:8ccf16fe198ff74940fa87a04345ef76eaf2b9e223bde1758cd82fd857f5d385",
+      "@type": "g:TestResult",
+      "g:name": "CP02-1: standalone import CLI restores native Git data without source or original backup",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:b95d9ac2ff93400221390f810aa0115b5cf38ad2e621889e7e619f0b3d1c8cac",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: import CLI refuses spec-selected destinations, unsafe spec files and unknown flags",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:07503f1038bfef0f28eaf647eeefa8953c837f2a6645bee94afa5bf518251496",
+      "@type": "g:TestResult",
+      "g:name": "CP02-1: restores independently from copied transport after original common store disappears",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:24c336fb55317422562ff89d63005749a653a80ab2fea9b5f11712eb3b91b1d8",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: serializes a destination reservation and preserves an existing destination",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:f05cb095fd2afe6918dbadbb1271f33c4c8e69a425347e2f465b226f372849f4",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: rejects tampered receipt, collisions, traversal and duplicate native revision before destination publication",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:c6ff125838d9ff01a1a19bdf0745350e7281938b4bd2d6968ba590f8eda77532",
+      "@type": "g:TestResult",
+      "g:name": "CP02-1: SHA-256 restores complete trees, executable bits and independent object storage",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:4ff020d1d95c125ef097078690d9220fea1523e91bf0ad622e502dc042b15add",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: failed file pins and aggregate checkout budgets clean only newly reserved destinations",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:87ffd522abeaf820cfe5f4eeee4b58ac1725e789e4f827fd0428b77d5ae86499",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: receipt metadata and a corrupted pack cannot inherit a valid-looking digest chain",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:67286a2944de66e9c6b750b83618bca01d8ba85326aae57433308c3672e4a92f",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: unsupported transformations, case collisions and symlink transports are refused",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:13d52f779f74128b3224c7aa3c3ac9dddffb85e8dde35a3efff71df744a071e2",
+      "@type": "g:TestResult",
+      "g:name": "CP02-2: captured inputs, branch collisions and ignored additions cannot bypass verification",
       "g:status": "PASS"
     },
     {
