@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Record executed CP01/CP02 local cases, preserving the original completion plan."""
+"""Record bounded CP01–CP03 local cases without promoting workspace restore."""
 import argparse
 import hashlib
 import json
@@ -17,17 +17,23 @@ FOLDER = ROOT / "research/clean-git-progress"
 NS = Namespace("urn:usl:clean-git-progress:")
 TESTS = ["test/portable-transfer-git.test.ts", "test/portable-transfer-git-cli.test.ts", "test/portable-transfer-git-adversarial.test.ts",
          "test/portable-transfer-git-import.test.ts", "test/portable-transfer-git-bindings.test.ts",
-         "test/portable-transfer-git-restore-adversarial.test.ts", "test/portable-transfer-git-import-cli.test.ts"]
+         "test/portable-transfer-git-restore-adversarial.test.ts", "test/portable-transfer-git-import-cli.test.ts", "test/portable-transfer-git-state.test.ts", "test/portable-transfer-git-state-adversarial.test.ts"]
 COMMAND = ["node", "--import", "tsx", "--test", "--test-reporter=tap", *TESTS]
 SOURCES = sorted({str(p.relative_to(ROOT)) for p in (ROOT / "src").rglob("*.ts")} | set([
     "scripts/usl-git-export.ts", "scripts/usl-git-import.ts", "scripts/record-clean-git-progress.py",
-    "schemas/clean-git-progress/progress.shacl.ttl", "docs/PORTABLE_TRANSFER_GIT.md", "docs/PORTABLE_TRANSFER_GIT_IMPORT.md",
+    "schemas/clean-git-progress/progress.shacl.ttl", "docs/PORTABLE_TRANSFER_GIT.md", "docs/PORTABLE_TRANSFER_GIT_IMPORT.md", "docs/PORTABLE_TRANSFER_GIT_STATE.md",
     "research/completion-plan/plan.json", "package.json", "package-lock.json", "test/clean-git-fixture.ts", *TESTS]))
-IMPLEMENTATIONS = {"CP01": "CLEAN_EXPORT_LOCAL_SCOPE", "CP02": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE"}
+IMPLEMENTATIONS = {"CP01": "CLEAN_EXPORT_LOCAL_SCOPE", "CP02": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE", "CP03": "STATE_CAPTURE_VERIFY_LOCAL_SCOPE"}
 ACCEPTANCE = [f"{p}-{i}" for p in IMPLEMENTATIONS for i in (1, 2)]
 BOUNDARIES = {"profile": "CLEAN_GIT_WORKTREE_V1", "restore": "RAW_REGULAR_CLEAN_TREES_ONLY", "atomicSnapshot": "NOT_CLAIMED",
               "fullWorkspace": "CP03_CP04_PENDING", "macos": "NOT_RUN", "windows": "NOT_RUN", "authority": "NOT_GRANTED",
               "registration": "LOCAL_PROPOSAL_ONLY", "crashRecovery": "NOT_IMPLEMENTED"}
+PACKAGE_BOUNDARIES = {p: ({**BOUNDARIES, "profile": "RAW_REGULAR_GIT_STATE_V1", "restore": "NOT_IMPLEMENTED", "registration": "NOT_IMPLEMENTED"}
+                          if p == "CP03" else BOUNDARIES) for p in IMPLEMENTATIONS}
+
+
+def coverage(acceptance):
+    return "LOCAL_CAPTURE_CASES_PASS_RESTORE_PENDING" if acceptance.startswith("CP03-") else "LOCAL_CASES_PASS"
 
 
 def require(value, message):
@@ -78,8 +84,8 @@ def main():
         names, totals = parse_tap(run.stdout)
         for source in pins:
             require(sha((ROOT / source["path"]).read_bytes()) == source["sha256"], "source changed during test run")
-        receipt = {"schema": "usl-clean-git-progress/v2", "authority": "SECONDARY_AI", "recordedAt": datetime.now(timezone.utc).isoformat(),
-                   "sourceCommit": commit, "implementations": IMPLEMENTATIONS, "nextPackage": "package:CP03", "boundaries": BOUNDARIES, "command": COMMAND,
+        receipt = {"schema": "usl-clean-git-progress/v3", "authority": "SECONDARY_AI", "recordedAt": datetime.now(timezone.utc).isoformat(),
+                   "sourceCommit": commit, "implementations": IMPLEMENTATIONS, "nextPackage": "package:CP03", "boundaries": PACKAGE_BOUNDARIES, "command": COMMAND,
                    "environment": {"system": platform.system(), "node": subprocess.check_output(["node", "--version"], text=True).strip(), "git": git("--version").decode().strip()},
                    "sources": pins, "tests": names, "totals": totals, "tapDigest": sha(run.stdout.encode())}
         FOLDER.mkdir(parents=True, exist_ok=True)
@@ -88,8 +94,8 @@ def main():
     receipt = json.loads((FOLDER / "receipt.json").read_text())
     tap = (FOLDER / "tests.tap").read_text()
     names, totals = parse_tap(tap)
-    require(receipt["schema"] == "usl-clean-git-progress/v2" and receipt["authority"] == "SECONDARY_AI", "receipt identity drift")
-    require(receipt["command"] == COMMAND and receipt["boundaries"] == BOUNDARIES and receipt["environment"]["system"] == "Linux", "scope promoted")
+    require(receipt["schema"] == "usl-clean-git-progress/v3" and receipt["authority"] == "SECONDARY_AI", "receipt identity drift")
+    require(receipt["command"] == COMMAND and receipt["boundaries"] == PACKAGE_BOUNDARIES and receipt["environment"]["system"] == "Linux", "scope promoted")
     require(receipt["implementations"] == IMPLEMENTATIONS and receipt["nextPackage"] == "package:CP03", "implementation scope drift")
     require(receipt["tapDigest"] == sha(tap.encode()) and receipt["tests"] == names and receipt["totals"] == totals, "test evidence drift")
     require([s["path"] for s in receipt["sources"]] == SOURCES, "source coverage drift")
@@ -101,10 +107,10 @@ def main():
     trace = {"@context": {"g": str(NS), "prov": "http://www.w3.org/ns/prov#"}, "@graph": [
         *[{"@id": "observation:" + p, "@type": ["g:Observation", "prov:Entity"], "g:package": ref("package:" + p),
            "g:implementation": scope, "g:sourceCommit": receipt["sourceCommit"], "g:recordedAt": receipt["recordedAt"],
-           **{"g:" + k: v for k, v in BOUNDARIES.items()}, "prov:wasDerivedFrom": ref("receipt:clean-git")} for p, scope in IMPLEMENTATIONS.items()],
+           **{"g:" + k: v for k, v in PACKAGE_BOUNDARIES[p].items()}, "prov:wasDerivedFrom": ref("receipt:clean-git")} for p, scope in IMPLEMENTATIONS.items()],
         *[{"@id": "package:" + p, "@type": "g:Package", "g:acceptance": [ref(f"acceptance:{p}-{i}") for i in (1, 2)]} for p in IMPLEMENTATIONS],
         {"@id": "receipt:clean-git", "@type": ["g:Receipt", "prov:Entity"], "g:sha256": sha((FOLDER / "receipt.json").read_bytes()), "g:tapDigest": receipt["tapDigest"], "g:authority": "SECONDARY_AI"},
-        *[{"@id": "acceptance:" + a, "@type": "g:Acceptance", "g:coverage": "LOCAL_CASES_PASS", "g:checkedBy": [ref(test_id(n)) for n in names if n.startswith(a + ":")]} for a in ACCEPTANCE],
+        *[{"@id": "acceptance:" + a, "@type": "g:Acceptance", "g:coverage": coverage(a), "g:checkedBy": [ref(test_id(n)) for n in names if n.startswith(a + ":")]} for a in ACCEPTANCE],
         *[{"@id": test_id(name), "@type": "g:TestResult", "g:name": name, "g:status": "PASS"} for name in names],
     ]}
     trace_text = encoded(trace)
@@ -132,15 +138,25 @@ def main():
     bad.set((URIRef("package:CP02"), NS.acceptance, URIRef("acceptance:CP01-1")))
     require(not validate(bad, shacl_graph=shapes)[0], "wrong acceptance package accepted")
     negatives += 1
+    for subject, key, value in [("acceptance:CP03-1", "coverage", "LOCAL_CASES_PASS"), ("acceptance:CP03-2", "coverage", "FULL_RESTORE_PASS"),
+                                ("observation:CP03", "restore", "RAW_REGULAR_CLEAN_TREES_ONLY"), ("observation:CP03", "registration", "LOCAL_PROPOSAL_ONLY")]:
+        bad = Graph()
+        for triple in rdf:
+            bad.add(triple)
+        bad.set((URIRef(subject), NS[key], Literal(value)))
+        require(not validate(bad, shacl_graph=shapes)[0], f"CP03 scope promotion accepted: {subject}/{key}")
+        negatives += 1
     document = "\n".join([
         "# USL 완료 계획의 실행 진행", "", "[완료 계획](COMPLETION_PLAN.md)은 원래 PLANNED/NOT_RUN snapshot으로 유지하고 실제 실행 관측을 여기에 연결한다.", "",
         "## CP01 · clean Git 계약과 export", "", "상태: **CLEAN_EXPORT_LOCAL_SCOPE**. 독립 pin의 refs/HEAD와 도달 가능한 Git objects를 prerequisites 없는 bundle로 내보낸다. [계약과 사용법](PORTABLE_TRANSFER_GIT.md).", "",
         "## CP02 · clean Git 복원과 선택 바인딩", "", "상태: **CLEAN_RESTORE_REBIND_LOCAL_SCOPE**. 복사한 bundle에서 새 bare 객체 저장소와 branch/detached worktree들을 만든다. 원본과 backup 삭제 뒤 Git topology·전체 파일·메타데이터를 검사하고, owner가 선택한 binding과 graph locator만 갱신하는 로컬 제안을 반환한다. [계약과 사용법](PORTABLE_TRANSFER_GIT_IMPORT.md).", "",
+        "## CP03 · index/working/untracked raw state capture", "", "상태: **STATE_CAPTURE_VERIFY_LOCAL_SCOPE**. HEAD tree, index stage 0–3 mode/OID, working raw bytes 또는 ABSENT, 선택 untracked bytes를 분리한 sidecar로 검증한다. 이 profile의 복원·USL rebind는 아직 구현하지 않는다. [계약과 사용법](PORTABLE_TRANSFER_GIT_STATE.md).", "",
         f"소스 `{receipt['sourceCommit']}`; 기록 {receipt['recordedAt']}. Linux / {receipt['environment']['node']} / {receipt['environment']['git']}에서 **{totals['tests']}개 PASS**, 실패·건너뜀 0.", "",
-        "인수 범위는 raw regular clean trees다. checkout attributes·dirty/index/untracked 보존·submodule/LFS/alternates·원자 snapshot·프로세스 crash 복구·타 OS·실기기 이동은 이 결과로 완료 처리하지 않는다. 실제 registry에는 쓰지 않으며 권한을 부여하지 않는다.", "",
-        "다음은 **CP03: dirty/index/untracked 작업 상태 보존**이다. CP04의 고급 Git 의존성 폐쇄와 함께 전체 작업환경 범위를 확장한다.", "",
+        "CP01/02 인수 범위는 raw regular clean trees다. CP03는 수정된 작업 상태의 수집·검증까지 포함하며 실제 복원은 대기다. submodule/LFS/alternates·원자 snapshot·프로세스 crash 복구·타 OS·실기기 이동은 이 결과로 완료 처리하지 않는다. 실제 registry에는 쓰지 않으며 권한을 부여하지 않는다.", "",
+        "CP03에서 symlink/special file, sparse, attributes/filter/LFS, intent-to-add, skip/assume flags, 진행 중 merge/rebase는 HOLD다. stash/reflog, ignored·미선택 untracked, config/hooks/history는 수집 범위 밖이다. 이 결과는 전체 workspace 복원 성공이 아니다.", "",
+        "다음은 **CP03의 검증된 작업 상태 복원과 선택 binding 재연결**이다. CP04의 고급 Git 의존성 폐쇄도 남아 있다.", "",
         "| 인수 조건 | 실행한 검사 |", "|---|---|",
-        *["| " + a + " · LOCAL_CASES_PASS | " + "<br>".join(n for n in names if n.startswith(a + ":")) + " |" for a in ACCEPTANCE], "",
+        *["| " + a + " · " + coverage(a) + " | " + "<br>".join(n for n in names if n.startswith(a + ":")) + " |" for a in ACCEPTANCE], "",
         "[실행 receipt](../research/clean-git-progress/receipt.json) · [TAP](../research/clean-git-progress/tests.tap) · [RDF](../research/clean-git-progress/trace.jsonld) · [SHACL](../schemas/clean-git-progress/progress.shacl.ttl).", "",
         "```sh", "python3 -B scripts/record-clean-git-progress.py --check", "```", "",
     ])

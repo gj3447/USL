@@ -66,7 +66,7 @@ const equal = (a: Readonly<Record<string, string>>, b: Readonly<Record<string, s
 const within = (root: string, path: string) => { const p = relative(root, path); return !p || (p !== ".." && !p.startsWith(`..${sep}`) && !isAbsolute(p)) }
 
 /** Capture at most maxOutput bytes. Bundle creation writes stdout, never an unbounded disk file. */
-const runGit = (cwd: string, args: readonly string[], end: number, maxOutput = MAX_METADATA, input?: string, allowUnset = false): Promise<Buffer> => {
+const runGit = (cwd: string, args: readonly string[], end: number, maxOutput = MAX_METADATA, input?: string | Uint8Array, allowUnset = false): Promise<Buffer> => {
   deadline(end)
   return new Promise((done, reject) => {
     const processGroup = process.platform !== "win32"
@@ -552,3 +552,6 @@ export const exportCleanGitTransfer = async (input: unknown): Promise<CleanGitTr
     return freezeContract({ bundlePath: finalPath, gitBundlePath: join(finalPath, "repo.bundle"), manifestPath: join(finalPath, "manifest.json"), receiptPath: join(finalPath, "receipt.json"), transferPath: finalPath, manifestDigest, receiptDigest: sha(receiptBytes), bundleByteDigest, bytes: payload.length, objectCount: objects.ids.length, manifest })
   } catch (error) { await rm(stage, { recursive: true, force: true }); throw error }
 }
+
+/** @internal Shared bounded primitives; these helpers confer no verification or access authority. */
+export const gitTransferInternals = Object.freeze({ runGit, git, safeDirectory, regularBytes, absent, checkObjectStore, safeRestorePath, sha, within, deadline })
