@@ -1,23 +1,48 @@
 {
-  "schema": "usl-clean-git-progress/v2",
+  "schema": "usl-clean-git-progress/v3",
   "authority": "SECONDARY_AI",
-  "recordedAt": "2026-10-05T13:57:42.068588+00:00",
-  "sourceCommit": "f6a684c396dacd4a43eedff6707bf69c64b66937",
+  "recordedAt": "2026-10-06T16:03:59.534883+00:00",
+  "sourceCommit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
   "implementations": {
     "CP01": "CLEAN_EXPORT_LOCAL_SCOPE",
-    "CP02": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE"
+    "CP02": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE",
+    "CP03": "STATE_CAPTURE_VERIFY_LOCAL_SCOPE"
   },
   "nextPackage": "package:CP03",
   "boundaries": {
-    "profile": "CLEAN_GIT_WORKTREE_V1",
-    "restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
-    "atomicSnapshot": "NOT_CLAIMED",
-    "fullWorkspace": "CP03_CP04_PENDING",
-    "macos": "NOT_RUN",
-    "windows": "NOT_RUN",
-    "authority": "NOT_GRANTED",
-    "registration": "LOCAL_PROPOSAL_ONLY",
-    "crashRecovery": "NOT_IMPLEMENTED"
+    "CP01": {
+      "profile": "CLEAN_GIT_WORKTREE_V1",
+      "restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
+      "atomicSnapshot": "NOT_CLAIMED",
+      "fullWorkspace": "CP03_CP04_PENDING",
+      "macos": "NOT_RUN",
+      "windows": "NOT_RUN",
+      "authority": "NOT_GRANTED",
+      "registration": "LOCAL_PROPOSAL_ONLY",
+      "crashRecovery": "NOT_IMPLEMENTED"
+    },
+    "CP02": {
+      "profile": "CLEAN_GIT_WORKTREE_V1",
+      "restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
+      "atomicSnapshot": "NOT_CLAIMED",
+      "fullWorkspace": "CP03_CP04_PENDING",
+      "macos": "NOT_RUN",
+      "windows": "NOT_RUN",
+      "authority": "NOT_GRANTED",
+      "registration": "LOCAL_PROPOSAL_ONLY",
+      "crashRecovery": "NOT_IMPLEMENTED"
+    },
+    "CP03": {
+      "profile": "RAW_REGULAR_GIT_STATE_V1",
+      "restore": "NOT_IMPLEMENTED",
+      "atomicSnapshot": "NOT_CLAIMED",
+      "fullWorkspace": "CP03_CP04_PENDING",
+      "macos": "NOT_RUN",
+      "windows": "NOT_RUN",
+      "authority": "NOT_GRANTED",
+      "registration": "NOT_IMPLEMENTED",
+      "crashRecovery": "NOT_IMPLEMENTED"
+    }
   },
   "command": [
     "node",
@@ -31,7 +56,9 @@
     "test/portable-transfer-git-import.test.ts",
     "test/portable-transfer-git-bindings.test.ts",
     "test/portable-transfer-git-restore-adversarial.test.ts",
-    "test/portable-transfer-git-import-cli.test.ts"
+    "test/portable-transfer-git-import-cli.test.ts",
+    "test/portable-transfer-git-state.test.ts",
+    "test/portable-transfer-git-state-adversarial.test.ts"
   ],
   "environment": {
     "system": "Linux",
@@ -41,11 +68,15 @@
   "sources": [
     {
       "path": "docs/PORTABLE_TRANSFER_GIT.md",
-      "sha256": "sha256:cb1a7fc2134658f77c344cdcc4fb04d2b83529775cc9f654d8fb2067a4486986"
+      "sha256": "sha256:9ca9cd2b6eb50fa28826c79cc8faac3f1da723696781495e8ca433bd60dc48c1"
     },
     {
       "path": "docs/PORTABLE_TRANSFER_GIT_IMPORT.md",
       "sha256": "sha256:0aaa48e646ec0702bfa78f46d22737acd8f696cc111635ba3caf9d118cbaaee5"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT_STATE.md",
+      "sha256": "sha256:eeab2f3ecd2524acb1644d7c9cb24d4b42aaf0cd81a15f9a2d4fd37a17309f43"
     },
     {
       "path": "package-lock.json",
@@ -61,11 +92,11 @@
     },
     {
       "path": "schemas/clean-git-progress/progress.shacl.ttl",
-      "sha256": "sha256:813c09b6c2bd48d01051ff0fa9941ffea3cbeb4ee134218ac1ffa76211d96618"
+      "sha256": "sha256:1578601c2efe1fdf791a1e51768168daffc1f9a0f153a35793a560aa3470654f"
     },
     {
       "path": "scripts/record-clean-git-progress.py",
-      "sha256": "sha256:35e7aca83d04c314e070e57e21c410bb59e0e95ce6ee5ea3819c2ba80aaff28f"
+      "sha256": "sha256:57e5e838a9a3c9da4b3fd9b732d86d119f5648c0d2e8a3b614ba6b45c342d97d"
     },
     {
       "path": "scripts/usl-git-export.ts",
@@ -96,8 +127,12 @@
       "sha256": "sha256:3e394badcbc1a1e1e9a1964844d8387b848f7e827b883f22d6f5507da0237f2f"
     },
     {
+      "path": "src/addons/portable-transfer-git-state.ts",
+      "sha256": "sha256:241f447b1201788f32ae6fdd1bbbfb18391ba339d886040a88efda4c0ca6031b"
+    },
+    {
       "path": "src/addons/portable-transfer-git.ts",
-      "sha256": "sha256:eb356d684d251a61f15d51b0c7b6574d0a4efc670aa2fca90d26bce1eb43889e"
+      "sha256": "sha256:687467bd0e0fb4a118bccbac8eefe6c34b6ce8c414706bf4512708bfd442a6ce"
     },
     {
       "path": "src/addons/portable-transfer-import.ts",
@@ -352,6 +387,14 @@
       "sha256": "sha256:8735826f48bbaadc4484b09daadb0a6c615d8432ba98b91f13ddea0197296e6b"
     },
     {
+      "path": "test/portable-transfer-git-state-adversarial.test.ts",
+      "sha256": "sha256:10979ec628f30bf52263dce52293fa1a491cea9bd73f51899c46bd3a3b57dd60"
+    },
+    {
+      "path": "test/portable-transfer-git-state.test.ts",
+      "sha256": "sha256:f12515f22237c719970d814cf4022685f5c089d29654db12c9d433de36e1e129"
+    },
+    {
       "path": "test/portable-transfer-git.test.ts",
       "sha256": "sha256:71b29378d8080429db5bd371fb9ebe519398735cd58a6b1ff5dec676038d991d"
     }
@@ -380,6 +423,18 @@
     "CP02-2: receipt metadata and a corrupted pack cannot inherit a valid-looking digest chain",
     "CP02-2: unsupported transformations, case collisions and symlink transports are refused",
     "CP02-2: captured inputs, branch collisions and ignored additions cannot bypass verification",
+    "CP03-1: working deletion, executable mode divergence, detached worktree and index v4 stay distinct",
+    "CP03-1: binary state above four MiB verifies within an explicit budget without disclosing unselected bytes",
+    "CP03-2: intent-to-add, assume flags, attributes, LFS and special selections HOLD without publication",
+    "CP03-2: state changes during capture and exhausted budgets leave no artifact or source edits",
+    "CP03-2: rehashed receipts cannot validate missing blobs, incorrect native OIDs, mixed stages or broader scope",
+    "CP03-2: path collisions, stale independent pins and input mutation cannot broaden selected capture",
+    "CP03-1: captures staged A/worktree B, deletion, rename, executable mode, and selected binary/empty untracked bytes",
+    "CP03-1: copied artifact verifies after source and original backup are deleted, with no restore authority",
+    "CP03-1: captures SHA-256 object IDs and native conflict stages which round-trip into an isolated Git index",
+    "CP03-2: rejects unsafe Git states, selected paths, unsupported index flags, and incomplete operations",
+    "CP03-2: edited state bytes cannot inherit the original receipt pin",
+    "CP03-2: verifier rejects wrong identity/head and an altered receipt",
     "CP01-1: exports a clean detached linked worktree as a native self-contained bundle without source paths",
     "CP01-1: rejects independently pinned HEAD/ref/object-format disagreement before publishing",
     "CP01-2: rejects dirty index, worktree, and untracked states without changing the source",
@@ -389,12 +444,12 @@
     "CP01-2: rejects unborn and LFS/filter worktrees before publication or filter execution"
   ],
   "totals": {
-    "tests": 30,
-    "pass": 30,
+    "tests": 42,
+    "pass": 42,
     "fail": 0,
     "cancelled": 0,
     "skipped": 0,
     "todo": 0
   },
-  "tapDigest": "sha256:6a90506b9fa58f6b744e5ae018e1eba2821dcc0c9daf70fba271c89fb67a9ffd"
+  "tapDigest": "sha256:8ccbfe5a5888b5c98ac04b9a6356e28f7d8881b44e87f26edbbda498fb3335da"
 }
