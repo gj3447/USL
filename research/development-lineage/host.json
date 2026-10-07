@@ -1,0 +1,9 @@
+{
+  "schema": "usl-cli-host/v1",
+  "bindings": "bindings.json",
+  "workspaces": {
+    "usl": "../.."
+  },
+  "maxSourceBytes": 1048576,
+  "actions": []
+}

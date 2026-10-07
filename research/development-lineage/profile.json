@@ -1,0 +1,690 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:development-lineage:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "urn:usl:development-lineage:snapshot_subject",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "snapshot",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Snapshot"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "subject",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:ConceptReference"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_request",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "snapshot",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Snapshot"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "statement",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:UserStatement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_milestone",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "snapshot",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Snapshot"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "milestone",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Milestone"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_facet",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "snapshot",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Snapshot"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:HswmAssessment"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_next",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "snapshot",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Snapshot"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RemainingTask"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:parent",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "child",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Commit"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "parent",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Commit"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_commit",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "milestone",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Milestone"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "commit",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Commit"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "milestone",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Milestone"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_package",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "milestone",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Milestone"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:source_revision",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "commit",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Commit"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:task_requirement",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Task"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Requirement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:criterion_task",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "criterion",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Criterion"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:package_task",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Task"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:package_criterion",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "criterion",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Criterion"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:conditionally_depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:has_acceptance",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "acceptance",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Acceptance"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_package",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:PackageAssessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:PackageAssessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_run",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:PackageAssessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "run",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RecordedRun"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:run_commit",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "run",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RecordedRun"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "commit",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Commit"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:run_receipt",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "run",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RecordedRun"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:run_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "run",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RecordedRun"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:run_test",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "run",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RecordedRun"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "test",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:TestObservation"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:test_acceptance",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "test",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:TestObservation"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "acceptance",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Acceptance"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:refines_package",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RemainingTask"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:remaining_depends_on",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RemainingTask"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RemainingTask"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:remaining_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "task",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:RemainingTask"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:facet_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:HswmAssessment"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:statement_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "statement",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:UserStatement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:requirement_source",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Requirement"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Source"
+          ],
+          "metadata": []
+        }
+      ]
+    }
+  ]
+}

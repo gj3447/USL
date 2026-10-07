@@ -1,0 +1,15 @@
+{
+  "allowedLocators": [],
+  "maxResources": 64,
+  "maxInputBytes": 16777216,
+  "maxOutputBytes": 16777216,
+  "programs": {},
+  "connections": {
+    "usl-development-lineage": {
+      "graph": "graph.json",
+      "profile": "profile.json",
+      "namespace": "usl.development.lineage",
+      "format": "resource-graph"
+    }
+  }
+}

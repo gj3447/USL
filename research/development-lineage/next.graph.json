@@ -1,0 +1,1444 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "input:usl-lineage:catalog",
+      "types": [
+        "urn:usl:development-lineage:Input",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "path": "research/development-lineage/catalog.json",
+        "sha256": "sha256:7bce9ec170fa88fe7f6953b74bac3bf7d3e9a00b5627d1647c8e5aef532ee26e"
+      }
+    },
+    {
+      "id": "agent:usl-lineage",
+      "types": [
+        "urn:usl:development-lineage:Agent",
+        "http://www.w3.org/ns/prov#Agent"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "activity:usl-lineage",
+      "types": [
+        "urn:usl:development-lineage:Activity",
+        "http://www.w3.org/ns/prov#Activity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "recordedOn": "2026-10-07",
+        "execution": "LOCAL_GRAPH_BUILD_ONLY"
+      }
+    },
+    {
+      "id": "lineage:usl-development-2026-10-07",
+      "types": [
+        "urn:usl:development-lineage:Snapshot",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+        "authority": "SECONDARY_AI",
+        "coverageScope": "ALL_COMMITS_REACHABLE_FROM_SOURCE_COMMIT; SELECTED_SEMANTIC_MILESTONES; NOT_ALL_CONVERSATIONS_OR_RUNTIME_EVENTS",
+        "nextTask": "task:usl-remaining:coordinated-export",
+        "remoteKGWrite": "NOT_REQUESTED_OR_PERFORMED",
+        "hswmExecution": "NOT_READY",
+        "hswmAuthority": "NOT_GRANTED",
+        "operationalLearning": "NOT_ESTABLISHED",
+        "standardsSuperset": "NOT_CLAIMED",
+        "remotePublication": "NOT_VERIFIED",
+        "newRuntimeAcceptance": "NOT_RUN"
+      }
+    },
+    {
+      "id": "user:usl-lineage-request-2026-10-07",
+      "types": [
+        "urn:usl:development-lineage:UserStatement",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "user:usl-lineage-request-2026-10-07",
+        "authority": "USER_PRIMARY",
+        "text": "남은 문제 표준그래프 엔지니어링으로 구축해주고 그 이때까지 USL 개발 변천사가 표준 그래프 엔지니어링, USL 으로 제대로 꼼꼼하게 바인딩 HSWM 화 되어있냐 ㅇㅇ?",
+        "source": "CURRENT_CONVERSATION"
+      }
+    },
+    {
+      "id": "sym:Concept:usl",
+      "types": [
+        "urn:usl:development-lineage:ConceptReference",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:README.md",
+      "metadata": {
+        "nativeUid": "sym:Concept:usl",
+        "authority": "REFERENCE_ONLY",
+        "scope": "EXISTING_KG_ID_NO_CANON_REDEFINITION"
+      }
+    },
+    {
+      "id": "package:CP02",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP02",
+        "title": "clean Git·여러 worktree 독립 복원과 재바인딩",
+        "phase": "01_GIT_CLOSURE",
+        "priority": "P0",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "scope": "빈 격리 staging에 objects/refs를 검증 수입하고 owner가 지정한 worktree topology를 재구축한다. 옛 gitfile/commonGitDir 절대경로를 복사하지 않는다. 새 경로에서 native resource/representation/role과 고정 revision을 보존한다.",
+        "dependsOn": [
+          "package:CP01"
+        ],
+        "conditionalDependsOn": [],
+        "canonicalTaskIds": [
+          "task:PT03",
+          "task:DG01"
+        ],
+        "criterionIds": [
+          "criterion:PT03-C1",
+          "criterion:PT03-C2",
+          "criterion:PT03-C3",
+          "criterion:PT03-C4",
+          "criterion:PT03-C5",
+          "criterion:DG01-C1",
+          "criterion:DG01-C2",
+          "criterion:DG01-C3"
+        ],
+        "sourceIds": [
+          "source:completion:import",
+          "source:completion:bindings",
+          "source:completion:guard",
+          "source:completion:worktree"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:git-tools"
+        ],
+        "plannedOutputs": [
+          "src/addons/portable-transfer-git.ts",
+          "test/portable-transfer-git.test.ts"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP02-1",
+            "expectation": "원본 main/linked checkout·commonGitDir·원본 bundle·cache가 모두 없는 새 root에서 복원하고 refs/HEAD/object/file pin 및 gitfile 연결의 새 root 내부성을 확인한다.",
+            "negativeCase": "원본 object store·alternates·commonGitDir에 의존하거나 같은 bytes의 잘못된 checkout/HEAD를 통과시키면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP02-2",
+            "expectation": "복수 branch·detached HEAD·중복 native ID·경로 충돌·기존 목적지·동시 import·부분 실패를 검사한다. 실패는 새 staging만 정리하고 기존 작업환경/registry를 보존한다.",
+            "negativeCase": "수동 git repair를 성공 전제에서 숨기거나 소유자가 선택하지 않은 바인딩을 변경하거나 stale guard로 실행하면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "package:CP03",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP03",
+        "title": "dirty/index/untracked와 작업 중 상태 보존",
+        "phase": "02_FULL_WORKSPACE",
+        "priority": "P0",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "scope": "Git clean MVP를 실제 작업환경 profile로 확장한다. stage와 working tree를 분리하고 선택 untracked·실행 비트·symlink·rename/delete·merge conflict stage·stash/reflog 보존 범위를 계약한다. rebase/merge 진행 상태는 owner opt-in 재현 profile 또는 명시적 HOLD로 구분하며 제외 항목이 있는 상태를 전체 복원으로 부르지 않는다.",
+        "dependsOn": [
+          "package:CP02"
+        ],
+        "conditionalDependsOn": [],
+        "canonicalTaskIds": [
+          "task:PT02",
+          "task:PT03"
+        ],
+        "criterionIds": [
+          "criterion:PT02-C2",
+          "criterion:PT02-C4",
+          "criterion:PT03-C3",
+          "criterion:PT03-C5"
+        ],
+        "sourceIds": [
+          "source:completion:export",
+          "source:completion:import",
+          "source:completion:worktree",
+          "source:completion:plan"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:git-tools"
+        ],
+        "plannedOutputs": [
+          "src/addons/portable-transfer-git-state.ts",
+          "test/portable-transfer-git-state.test.ts",
+          "docs/PORTABLE_TRANSFER_GIT.md"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP03-1",
+            "expectation": "복원 전후 index stage·mode·blob OID, HEAD, 선택 dirty/untracked bytes를 각각 비교한다. 파일 목록만 비교하지 않는다.",
+            "negativeCase": "staged A/working B를 하나로 합치거나 conflict stage를 없애거나 미선택 untracked/private 설정을 자동 수집하면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP03-2",
+            "expectation": "portable permission/symlink/sparse 정책과 in-progress state별 지원·HOLD를 표시한다. 전체 profile gate는 계약한 모든 상태의 성공·반례 실행 근거를 요구한다.",
+            "negativeCase": "미지원 상태를 조용히 drop하거나 clean fallback을 FULL_WORKSPACE PASS로 기록하면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "package:CP04",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP04",
+        "title": "submodule·LFS·alternates·partial/sparse 의존성 폐쇄",
+        "phase": "02_FULL_WORKSPACE",
+        "priority": "P0",
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "scope": "Git 고급 profile은 recursive submodule의 고정 commit·선택 dirty state, LFS pointer가 가리키는 실제 object, alternates와 shallow/partial clone prerequisites를 전이적으로 수집한다. sparse 원문/인덱스 의미와 hash algorithm을 명시한다. 필요한 외부 bytes 미확보는 EXTERNAL_REQUIRED/HOLD다.",
+        "dependsOn": [
+          "package:CP01",
+          "package:CP02"
+        ],
+        "conditionalDependsOn": [],
+        "canonicalTaskIds": [
+          "task:PT02",
+          "task:PT03"
+        ],
+        "criterionIds": [
+          "criterion:PT02-C2",
+          "criterion:PT02-C4",
+          "criterion:PT03-C5"
+        ],
+        "sourceIds": [
+          "source:completion:worktree",
+          "source:completion:research",
+          "source:completion:export",
+          "source:completion:import"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:git-tools"
+        ],
+        "plannedOutputs": [
+          "src/addons/portable-transfer-git-dependencies.ts",
+          "test/portable-transfer-git-dependencies.test.ts"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP04-1",
+            "expectation": "네트워크 차단·원본 삭제·객체 cache 부재 상태에서 submodule/LFS/alternates fixture를 복원한다. recursion/cycle·object/bytes/time budget·path isolation을 검사한다.",
+            "negativeCase": "LFS pointer만 보관하거나 submodule URL 존재를 object 보유로 간주하거나 original alternates를 읽으면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP04-2",
+            "expectation": "부분/얕은 저장소는 profile에 필요한 object closure를 확장한 경우만 독립 복원으로 표시한다. 필터·원격 URL·credential helper는 자동 실행/등록하지 않는다.",
+            "negativeCase": "알 수 없는 prerequisite를 OPTIONAL로 낮추거나 원격 fetch 성공 없이 selfContained=true로 선언하면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "package:CP05",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP05",
+        "title": "일관된 owner snapshot과 장애 중단 복구",
+        "phase": "02_FULL_WORKSPACE",
+        "priority": "P0",
+        "owner": "OWNER_SNAPSHOT_ADAPTER",
+        "scope": "PINNED_BYTE_SET의 정직한 한계를 유지하고 owner export/lock/FS snapshot adapter를 별도로 구현한다. live DB/메모리 저장소는 소유 도구의 export·transaction boundary를 사용하며 바이트 스캔만으로 원자성을 주장하지 않는다.",
+        "dependsOn": [
+          "package:CP01"
+        ],
+        "conditionalDependsOn": [],
+        "canonicalTaskIds": [
+          "task:PT02",
+          "task:DG01"
+        ],
+        "criterionIds": [
+          "criterion:PT02-C1",
+          "criterion:PT02-C3",
+          "criterion:PT02-C4",
+          "criterion:DG01-C3"
+        ],
+        "sourceIds": [
+          "source:completion:export",
+          "source:completion:guard",
+          "source:completion:research"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:snapshot-owner"
+        ],
+        "plannedOutputs": [
+          "src/addons/portable-snapshot-owner.ts",
+          "test/portable-snapshot-owner.test.ts",
+          "docs/PORTABLE_SNAPSHOT_OWNER.md"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP05-1",
+            "expectation": "snapshot token·revision·owner export 결과를 전후 검증하고 일관성 상실·lock 만료·budget 초과·강제 종료 시 완성 marker가 생기지 않음을 검사한다.",
+            "negativeCase": "읽는 동안 source가 변경되는데 파일별 hash만 맞았다고 원자 snapshot으로 승격하면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP05-2",
+            "expectation": "원본 보존, 부분 staging 재검사/폐기, 동일 request 재시도와 overwrite 거부를 fault-injection으로 증명한다. fake owner와 실제 snapshot owner 실행 근거를 분리한다.",
+            "negativeCase": "전원/프로세스 중단 후 오래된 marker를 재사용하거나 live DB 파일 단순 복사를 정상 backup으로 공개하면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "package:CP06",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP06",
+        "title": "Linux·macOS·Windows 실제 이식성 matrix",
+        "phase": "03_ENVIRONMENT_ACCEPTANCE",
+        "priority": "P0",
+        "owner": "CI_AND_PLATFORM_OWNERS",
+        "scope": "기존 workflow를 기반으로 각 OS와 지원 Node/Git/파일시스템에서 실제 producer→artifact→consumer를 실행한다. 현재 Linux PINNED_FILES 기록은 기준선으로만 재사용하고 추가 Git profile을 별도 행으로 검사한다.",
+        "dependsOn": [
+          "package:CP02"
+        ],
+        "conditionalDependsOn": [],
+        "canonicalTaskIds": [
+          "task:PT04",
+          "task:DG01"
+        ],
+        "criterionIds": [
+          "criterion:PT04-C1",
+          "criterion:PT04-C2",
+          "criterion:PT04-C3",
+          "criterion:DG01-C1",
+          "criterion:DG01-C2",
+          "criterion:DG01-C3"
+        ],
+        "sourceIds": [
+          "source:completion:workflow",
+          "source:completion:acceptance",
+          "source:completion:runtime",
+          "source:completion:progress"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:os-runners"
+        ],
+        "plannedOutputs": [
+          ".github/workflows/portable-transfer.yml",
+          "scripts/portable-transfer-acceptance.ts",
+          "research/completion-execution/platforms.json"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP06-1",
+            "expectation": "세 OS 모두 사용자명/root/cache가 다른 환경에서 exact ID/revision/representation/ordered roles/metadata/provenance/payload를 비교한다. Node 22/24 지원 조합을 명시하고 각 row의 실제 명령·환경·exit/log digest를 기록한다.",
+            "negativeCase": "workflow 파일·한 OS PASS·동일 호스트 임시 폴더만으로 다기기/모든 OS PASS를 선언하면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP06-2",
+            "expectation": "case/NFC/NFD/reserved path·symlink/junction·permission·부분복사·1byte 변조·중단·중복 import·알고리즘/스키마 mismatch를 실제 해당 OS에서 거부한다.",
+            "negativeCase": "skip·미실행 row를 PASS로 합치거나 실패를 빈 성공으로 바꾸면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "package:CP07",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP07",
+        "title": "실기기 왕복 이동·백업 복구·규모 예산",
+        "phase": "03_ENVIRONMENT_ACCEPTANCE",
+        "priority": "P1",
+        "owner": "DEVICE_AND_RELEASE_OWNERS",
+        "scope": "서로 독립된 두 기기의 새 사용자/오프라인 복구로 FILES·CLEAN_GIT·FULL_WORKSPACE·owner snapshot 지원 profile을 각각 실검증한다. OS matrix와 물리 장치 결과는 분리한다. 작고 큰 fixture별 파일/객체/bytes/time/peak RSS 예산을 사전에 정한다.",
+        "dependsOn": [
+          "package:CP03",
+          "package:CP04",
+          "package:CP05",
+          "package:CP06"
+        ],
+        "conditionalDependsOn": [],
+        "canonicalTaskIds": [
+          "task:PT04",
+          "task:DG05"
+        ],
+        "criterionIds": [
+          "criterion:PT04-C1",
+          "criterion:PT04-C2",
+          "criterion:PT04-C3",
+          "criterion:DG05-C2",
+          "criterion:DG05-C3"
+        ],
+        "sourceIds": [
+          "source:completion:acceptance",
+          "source:completion:runtime",
+          "source:completion:worktree-receipt"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:physical-devices"
+        ],
+        "plannedOutputs": [
+          "scripts/measure-portable-transfer.ts",
+          "research/completion-execution/devices.json",
+          "docs/PORTABLE_TRANSFER_IMPORT.md"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP07-1",
+            "expectation": "A→B→A 이동 후 original/cache/network를 끊고 복원·재바인딩한다. offline 수정/old backup/연속 이동도 CP12/13과 통합해 원본과 conflict 기록을 보존한다.",
+            "negativeCase": "컨테이너/WSL/emulator를 별도 실기기로 표시하거나 실제 장치 없는 결과를 완료로 채우면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP07-2",
+            "expectation": "숫자 예산·fixture 크기·장치 사양·반복 횟수·측정 단위를 기록하고 예산 초과는 HOLD한다. 원본 장애/중단 시나리오와 rollback drill을 실행한다.",
+            "negativeCase": "22-byte fixture 측정으로 대형 저장소 성능을 일반화하거나 payload 절약을 비용/품질/Lean 증명으로 주장하면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "package:CP21",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP21",
+        "title": "실제 운영 outcome으로 W 후보 평가",
+        "phase": "06_OWNER_AND_W",
+        "priority": "P1",
+        "owner": "OUTCOME_OWNER_AND_W_REVIEWER",
+        "scope": "기존 hard/soft penalty·learned W estimate·confidence·authority를 유지하며 실제 owner 데이터로 학습/평가한다. 복원된 outcome이 입력되면 CP14 선행이 필수이고 새 owner 원자료의 offline 평가 준비는 독립 진행 가능하다.",
+        "dependsOn": [],
+        "conditionalDependsOn": [
+          "package:CP14"
+        ],
+        "canonicalTaskIds": [
+          "task:DG04"
+        ],
+        "criterionIds": [
+          "criterion:DG04-C1",
+          "criterion:DG04-C2",
+          "criterion:DG04-C3"
+        ],
+        "sourceIds": [
+          "source:completion:weight-review",
+          "source:completion:weight-evidence",
+          "source:completion:learner",
+          "source:completion:rule-policy"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:operational-data"
+        ],
+        "plannedOutputs": [
+          "research/operational-weight-review/dataset-contract.json",
+          "scripts/evaluate-operational-rule-weight.ts",
+          "docs/OPERATIONAL_WEIGHT_REVIEW.md"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP21-1",
+            "expectation": "rule/revision/context/action/outcome/단위/owner state/원자료 digest를 고정하고 synthetic/missing/observed 표본을 분리한다. provenance가 없는 복원 표본은 HOLD한다.",
+            "negativeCase": "640개 합성 episode를 실운영 표본으로 재명명하거나 copied receipt를 현재 owner 승인으로 간주하면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP21-2",
+            "expectation": "사전 정의한 baseline/train/holdout·누출 차단·맥락별 표본 수·효과/불확실성·replay를 보고한다. 근거 부족/열화는 KEEP_BASELINE/HOLD라는 유효한 평가 결과다.",
+            "negativeCase": "learned estimate를 penalty에 자동 복사하거나 hard constraint를 weight로 상쇄하거나 개선이 없는데 성공을 꾸미면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "package:CP22",
+      "types": [
+        "urn:usl:development-lineage:Package",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "git://github.com/gj3447/USL@0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:research/completion-plan/plan.json",
+      "metadata": {
+        "id": "package:CP22",
+        "title": "owner 검토·적용·rollback의 별도 운영 단계",
+        "phase": "06_OWNER_AND_W",
+        "priority": "P2",
+        "owner": "POLICY_AND_DASHBOARD_OWNER",
+        "scope": "review-ready 후보와 실제 적용은 다른 profile이다. metahumotonic_dashboard/HSWM 등 실제 owner connector·현재 state/revision·기존 scoped authorization을 확인하고 owner가 허용한 조건부 적용/관측/rollback을 연결한다. REVIEW_ONLY는 평가 완료 상태이고 APPLY 완료 상태가 아니다.",
+        "dependsOn": [
+          "package:CP14",
+          "package:CP21"
+        ],
+        "conditionalDependsOn": [],
+        "canonicalTaskIds": [
+          "task:DG04",
+          "task:PT07"
+        ],
+        "criterionIds": [
+          "criterion:DG04-C3",
+          "criterion:PT07-C1",
+          "criterion:PT07-C2",
+          "criterion:PT07-C3"
+        ],
+        "sourceIds": [
+          "source:completion:weight-review",
+          "source:completion:recovery",
+          "source:completion:learner"
+        ],
+        "prerequisiteIds": [
+          "prerequisite:owner-api",
+          "prerequisite:rollout-scope"
+        ],
+        "plannedOutputs": [
+          "docs/OPERATIONAL_WEIGHT_REVIEW.md",
+          "research/completion-execution/owner-rollout.json",
+          "test/owner-policy-rollout.test.ts"
+        ],
+        "acceptance": [
+          {
+            "id": "acceptance:CP22-1",
+            "expectation": "검토 profile은 적용0을 확인한다. 별도 적용 profile은 정확한 후보 digest·현재 state·owner 승인 범위·조건부 update 결과와 rollback을 실측한다.",
+            "negativeCase": "link/plan/review-ready만으로 live HSWM·CHU·KG를 수정하거나 owner 상태가 바뀌었는데 적용하면 실패.",
+            "execution": "NOT_RUN"
+          },
+          {
+            "id": "acceptance:CP22-2",
+            "expectation": "승인/connector/rollback 없는 적용 요청은 구체 prerequisite와 HOLD로 남긴다. 실제 서비스명·소유자를 추정으로 연결하지 않는다.",
+            "negativeCase": "REVIEW_ONLY/HOLD를 실제 배포 완료나 canonical W 구현 완료라고 보고하면 실패.",
+            "execution": "NOT_RUN"
+          }
+        ],
+        "status": "PLANNED"
+      }
+    },
+    {
+      "id": "task:usl-remaining:coordinated-export",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:coordinated-export",
+        "packageId": "package:CP03",
+        "title": "미커밋 작업 상태와 base Git bundle 통합 내보내기",
+        "dependsOn": [],
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "acceptance": "별도 clean checkout 준비 없이 동일 owner/repo/HEAD/ref의 bundle+sidecar를 한 결과로 생성하고 기존 CP03 importer로 원본 제거 후 복원한다.",
+        "negativeCase": "수집 중 HEAD/index/파일이 바뀌거나 budget을 넘으면 성공 artifact를 게시하지 않는다. 원자 snapshot이라고 주장하지 않는다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:state-cli",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:state-cli",
+        "packageId": "package:CP03",
+        "title": "통합 export·state import·검증을 CLI와 package surface로 제공",
+        "dependsOn": [
+          "task:usl-remaining:coordinated-export"
+        ],
+        "owner": "USL_CLI",
+        "status": "PLANNED",
+        "acceptance": "build된 package에서 문서의 export→복원→검증 명령을 실행하고 staged/working/untracked를 구분한다.",
+        "negativeCase": "잘못된 옵션·pin·owner·기존 목적지·권한 없는 입력을 거부하고 기존 파일을 보존한다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:binding-registration",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:binding-registration",
+        "packageId": "package:CP02",
+        "title": "복원 제안의 명시적 로컬 바인딩 등록 흐름",
+        "dependsOn": [
+          "task:usl-remaining:state-cli"
+        ],
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "acceptance": "owner가 선택한 로컬 registry만 갱신하고 stable ID·역할·선택하지 않은 표현을 보존하며 적용 전후 조회로 확인한다.",
+        "negativeCase": "오래된 restore 검증·충돌 workspace·잘못된 revision은 적용을 거부한다. 자동 원격 등록·접근 권한 승격은 없다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:git-profiles",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:git-profiles",
+        "packageId": "package:CP04",
+        "title": "고급 Git 상태와 제외 데이터의 profile별 지원표",
+        "dependsOn": [],
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "acceptance": "symlink/submodule/LFS/alternates/partial/sparse 및 진행 중 작업·stash/reflog/ignored/empty-directory를 지원·별도 의존·의도적 제외로 나누고 각 지원 profile에 실제 왕복 근거를 붙인다.",
+        "negativeCase": "미포함 데이터가 있는데 full workspace/self-contained로 성공 표시하지 않는다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:snapshot-crash",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:snapshot-crash",
+        "packageId": "package:CP05",
+        "title": "일관성·중단·재시작 복구 계약",
+        "dependsOn": [
+          "task:usl-remaining:coordinated-export"
+        ],
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "acceptance": "source 일관성 방법을 명시하고 게시 전후 강제 종료에서 부분 결과 식별·자기 소유 staging 정리·재시작 동작을 검사한다.",
+        "negativeCase": "프로세스 실패 처리만으로 원자 snapshot이나 crash durability를 PASS로 처리하지 않는다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:platform-matrix",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:platform-matrix",
+        "packageId": "package:CP06",
+        "title": "Linux·macOS·Windows 실제 실행 증거",
+        "dependsOn": [],
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "acceptance": "대소문자·Unicode·실행 비트·경로·Git object format 차이를 지원 OS별 실제 runner에서 측정한다.",
+        "negativeCase": "미실행 OS는 NOT_RUN으로 남기며 Linux 성공을 복제하지 않는다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:device-roundtrip",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:device-roundtrip",
+        "packageId": "package:CP07",
+        "title": "실기기 왕복 이동·원본 부재·규모 예산",
+        "dependsOn": [
+          "task:usl-remaining:binding-registration",
+          "task:usl-remaining:git-profiles",
+          "task:usl-remaining:snapshot-crash",
+          "task:usl-remaining:platform-matrix"
+        ],
+        "owner": "USL_OPTIONAL_CONSUMER",
+        "status": "PLANNED",
+        "acceptance": "서로 다른 두 장치에서 선택 profile의 export→복원→바인딩 조회와 원본 부재 시나리오를 실행하고 시간·메모리·크기를 기록한다.",
+        "negativeCase": "같은 호스트 임시 디렉터리 이동을 실기기 인수로 간주하지 않는다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:operational-outcomes",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:operational-outcomes",
+        "packageId": "package:CP21",
+        "title": "실제 운영 outcome 기반 W 후보 검토",
+        "dependsOn": [],
+        "owner": "HSWM_OWNER_CONSUMER",
+        "status": "PLANNED",
+        "acceptance": "owner가 제공한 versioned 실제 outcome에서 baseline/holdout/replay를 비교하고 근거와 맥락·제안을 연결한다.",
+        "negativeCase": "합성 fixture 결과를 metahumotonic_dashboard나 live HSWM 개선으로 승격하지 않는다.",
+        "execution": "NOT_RUN"
+      }
+    },
+    {
+      "id": "task:usl-remaining:owner-application",
+      "types": [
+        "urn:usl:development-lineage:RemainingTask",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "task:usl-remaining:owner-application",
+        "packageId": "package:CP22",
+        "title": "HSWM 현재 접근·검토·적용·rollback 근거",
+        "dependsOn": [
+          "task:usl-remaining:operational-outcomes"
+        ],
+        "owner": "HSWM_OWNER",
+        "status": "PLANNED",
+        "acceptance": "기존 owner workflow에서 선택 자원 등록·수신자·범위·만료·철회·허가된 도달성·검토 결정·적용 및 rollback을 별도 기록한다.",
+        "negativeCase": "이 그래프나 바인딩만으로 접근·실행·학습 권한을 생성하지 않는다. 복원 outcome을 쓰면 CP14 대조가 선행한다.",
+        "execution": "NOT_RUN"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:development-lineage:snapshot_subject",
+      "description": "Local view is about an existing stable KG concept; does not write or redefine it"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_request",
+      "description": "This AI view responds to the verbatim user request"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_milestone",
+      "description": "Navigation entry to an AI-selected historical milestone"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_facet",
+      "description": "Navigation entry to a scoped HSWM linkage assessment"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_next",
+      "description": "Next proposed implementation task, without execution authority"
+    },
+    {
+      "id": "urn:usl:development-lineage:parent",
+      "description": "Git child commit has this exact parent; does not imply semantic supersession"
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_commit",
+      "description": "AI-selected milestone refers to this recorded commit"
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_source",
+      "description": "Versioned artifact supports the milestone description, not runtime success"
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_package",
+      "description": "Milestone contributes to this package's scope; not a completion assertion"
+    },
+    {
+      "id": "urn:usl:development-lineage:source_revision",
+      "description": "Source bytes are taken from this immutable Git revision"
+    },
+    {
+      "id": "urn:usl:development-lineage:task_requirement",
+      "description": "Original task addresses original requirement"
+    },
+    {
+      "id": "urn:usl:development-lineage:criterion_task",
+      "description": "Original criterion belongs to original task"
+    },
+    {
+      "id": "urn:usl:development-lineage:package_task",
+      "description": "Existing completion package refines original task"
+    },
+    {
+      "id": "urn:usl:development-lineage:package_criterion",
+      "description": "Completion package addresses this original criterion"
+    },
+    {
+      "id": "urn:usl:development-lineage:depends_on",
+      "description": "Unconditional planned package dependency; not a runtime execution edge"
+    },
+    {
+      "id": "urn:usl:development-lineage:conditionally_depends_on",
+      "description": "Original conditional package dependency retained verbatim in package metadata"
+    },
+    {
+      "id": "urn:usl:development-lineage:has_acceptance",
+      "description": "Original future acceptance, distinct from later observations"
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_package",
+      "description": "Bounded current evidence assessment does not rewrite original plan status"
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_source",
+      "description": "Pinned historical receipt or plan grounds this assessment"
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_run",
+      "description": "Assessment cites this historical test run, not a fresh execution"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_commit",
+      "description": "Historical run reports this tested implementation revision"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_receipt",
+      "description": "Git-pinned receipt is evidence of a past reported run"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_source",
+      "description": "Receipt pins these exact source bytes at tested revision"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_test",
+      "description": "Named historical result included in this recorded run"
+    },
+    {
+      "id": "urn:usl:development-lineage:test_acceptance",
+      "description": "Historical bounded test addresses a planned acceptance without declaring full completion"
+    },
+    {
+      "id": "urn:usl:development-lineage:refines_package",
+      "description": "Actionable remaining subtask of an existing package"
+    },
+    {
+      "id": "urn:usl:development-lineage:remaining_depends_on",
+      "description": "Required order within the remaining subtask view"
+    },
+    {
+      "id": "urn:usl:development-lineage:remaining_source",
+      "description": "Pinned limitation or contract grounds remaining work"
+    },
+    {
+      "id": "urn:usl:development-lineage:facet_source",
+      "description": "Evidence for scoped HSWM linkage; never grants access or learning authority"
+    },
+    {
+      "id": "urn:usl:development-lineage:statement_source",
+      "description": "Verbatim statement preserved in a versioned source; interpretation remains separate"
+    },
+    {
+      "id": "urn:usl:development-lineage:requirement_source",
+      "description": "AI requirement is stored in the original development plan"
+    }
+  ],
+  "links": [
+    {
+      "id": "lineage-link:9a9d3799d1f08199b8a01fcd97c3e6ef003778dabd6b7049c773a9c6ffe5625e",
+      "meaning": "urn:usl:development-lineage:snapshot_subject",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "subject",
+          "resource": "sym:Concept:usl"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:3f7b00562279f5849bdd83f6cebe4c38407dfc7c4bf8cc62324fb9d786c38af2",
+      "meaning": "urn:usl:development-lineage:snapshot_request",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "statement",
+          "resource": "user:usl-lineage-request-2026-10-07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:649e2535c8aa5cf6a440c6ecf94b07401c796b612454e7240a571f456bf985af",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP03"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:6aa16d89f8590804e9581f3f4d8f64324107b77bb98b71e2402444fc1fd1541d",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP04"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:dab5e4b7be2c79f58a4717506ea7fcaae49f0e72e16ede6220436dad10cdae46",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP06"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:148da8b4ff371083e35ba580038bb906c1ebf4696709585f2ac592822e53a65e",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP07"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:2fbf6436aaa15fd2780da8c36fd9261cbebe2512eff4ad2361a8f622a388bffb",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP07"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:7556dbe2aa4e9bf6fecfe382ffde619a9fb6ecd4337e63565071d2f45d248641",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP07"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP05"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:5fc906c001a87f932e8354dd57048346235804cebe33ceae4736b0d318bff149",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP07"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:c5651da21e39fb50dd4f518430e01c358d4c2250e77134f1d83b99812ac7210d",
+      "meaning": "urn:usl:development-lineage:depends_on",
+      "participants": [
+        {
+          "role": "package",
+          "resource": "package:CP22"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "package:CP21"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:cac9ff1200734750258f343e7a866e2265cb672c3454aed57771b2d6fd9b8c6d",
+      "meaning": "urn:usl:development-lineage:snapshot_next",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:coordinated-export"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:9f1942fc1100f655f8b708f685d65a395737aae2e26c70e513db10f901fb4c78",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:coordinated-export"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:4636a4c732cd55f2e51c1b00ea298900931d3c73af252f1116cfe496ab9f559e",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:state-cli"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP03"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:bc0114be4dfbf5e7ef96bf3e641892c75dee4599cb79a6359438619ddf529b17",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:state-cli"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:coordinated-export"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:138cd7e67c816ddbd6bdddfa26a1638f11e76c81bc63ff3395730c999b863101",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:binding-registration"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP02"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:213c50dc01c536230609a4622e1a9cb168e834f46cb44feea848df0ad325a312",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:binding-registration"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:state-cli"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:64ce7d91f9148115850991360df1b1208d27f1a3b04a036b69aad7d78cf9f430",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:git-profiles"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP04"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:e03ba6be3dcfd702ad91df7d3b90ef3f06d807628a2cd039ba65642f05d317c8",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:snapshot-crash"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP05"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:759cd3dd0aa2105954f477c78975f89be407b3e2ba0afcf31bf6aaa71af39384",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:snapshot-crash"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:coordinated-export"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:200e8c431c2cff2c48fe1b51ec9d967ff5dfbd6b386c03115b8181561b27f4aa",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:platform-matrix"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP06"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:1d3d0605e9c06630a8639807b9123ef2a8c41fe13863b91faa38fb989a904857",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:device-roundtrip"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:1679b16f638e45cf379662224562ced44e142585f78378758a0ab763b07c0153",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:device-roundtrip"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:binding-registration"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:a6c7efa50f30d149024f102a51ddb2fcc0692d9fce0e04c15ec8124e00ed2580",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:device-roundtrip"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:git-profiles"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:81ea3cc7ba057f55016bae6d429fa03e44c01ef469ae00bab0738544b43b35c0",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:device-roundtrip"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:snapshot-crash"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:4500256fe378004b9dad6f04b4a7fd4be263554beb8ec7c9f6f4c4cb81710fc6",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:device-roundtrip"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:platform-matrix"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:b6e492976eff5ec13e167b87b1f6b3bb183cff0e0fd690b559e2441af28553f0",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:operational-outcomes"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP21"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:fe603471f27912c3c90b259b5203160039197acfd3ed859dd38b929dd8daabe9",
+      "meaning": "urn:usl:development-lineage:refines_package",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:owner-application"
+        },
+        {
+          "role": "package",
+          "resource": "package:CP22"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:7fe315f41ff4624b804d00ebccab0c6daac0bb584cf1dcc319142761e8d83e98",
+      "meaning": "urn:usl:development-lineage:remaining_depends_on",
+      "participants": [
+        {
+          "role": "task",
+          "resource": "task:usl-remaining:owner-application"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "task:usl-remaining:operational-outcomes"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "input:usl-lineage:catalog"
+    ],
+    "activity": "activity:usl-lineage",
+    "agent": "agent:usl-lineage"
+  }
+}

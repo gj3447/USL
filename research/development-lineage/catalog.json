@@ -1,0 +1,491 @@
+{
+  "schema": "usl-development-lineage-catalog/v1",
+  "id": "lineage:usl-development-2026-10-07",
+  "authority": "SECONDARY_AI",
+  "recordedOn": "2026-10-07",
+  "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+  "userRequest": {
+    "id": "user:usl-lineage-request-2026-10-07",
+    "authority": "USER_PRIMARY",
+    "text": "남은 문제 표준그래프 엔지니어링으로 구축해주고 그 이때까지 USL 개발 변천사가 표준 그래프 엔지니어링, USL 으로 제대로 꼼꼼하게 바인딩 HSWM 화 되어있냐 ㅇㅇ?",
+    "source": "CURRENT_CONVERSATION"
+  },
+  "coverageScope": "ALL_COMMITS_REACHABLE_FROM_SOURCE_COMMIT; SELECTED_SEMANTIC_MILESTONES; NOT_ALL_CONVERSATIONS_OR_RUNTIME_EVENTS",
+  "boundaries": {
+    "remoteKGWrite": "NOT_REQUESTED_OR_PERFORMED",
+    "hswmExecution": "NOT_READY",
+    "hswmAuthority": "NOT_GRANTED",
+    "operationalLearning": "NOT_ESTABLISHED",
+    "standardsSuperset": "NOT_CLAIMED",
+    "remotePublication": "NOT_VERIFIED",
+    "newRuntimeAcceptance": "NOT_RUN"
+  },
+  "milestones": [
+    {
+      "id": "milestone:usl:initial",
+      "commit": "1b2ab8bf94b9054df5aed34e8fa22756b974fea5",
+      "title": "Git 정체성과 초기 USL 기록",
+      "sourcePath": "README.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:syntax-lean",
+      "commit": "6a9834704d5902c1bd147b03d5844be574783685",
+      "title": "문법·어댑터 통합과 Lean 연결",
+      "sourcePath": "docs/DECISIONS.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:proof",
+      "commit": "250b493308f4b38a55dff06f315ec3e2f4483a51",
+      "title": "Lean 그래프·읽기 범위 계약 증명",
+      "sourcePath": "docs/LEAN4_INTEGRATION.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:engineering",
+      "commit": "85c41d7d6228d299200232804762199fd5e5e914",
+      "title": "공학 계약과 적대적 검증 그래프",
+      "sourcePath": "research/engineering/graph.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:capabilities",
+      "commit": "3c2c810d52bce9a4249c4e1ecf955d93337d233e",
+      "title": "SDK·CLI·MCP capability 발견",
+      "sourcePath": "docs/CAPABILITY_CATALOG.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:bindings",
+      "commit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+      "title": "portable resource bindings와 그래프 CLI",
+      "sourcePath": "docs/RESOURCE_BINDINGS.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:operations",
+      "commit": "aaca7c4d908930671ecde4127c4504175061538f",
+      "title": "바인딩 관측과 작업 기록 대조",
+      "sourcePath": "docs/BINDING_OPERATIONS.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:hswm",
+      "commit": "ee0af92f6a9f44e05362c2350abb4a19cd5b7f83",
+      "title": "선택 HSWM 자료 연결",
+      "sourcePath": "connections/hswm/source-receipt.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:syntax-scope",
+      "commit": "ae5210b1ec144e7584b7dc43ab21cb7d9c3942de",
+      "title": "단순 바인딩과 상위 CLI 프로그램으로 범위 명확화",
+      "sourcePath": "docs/DECISIONS.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:cli",
+      "commit": "0b90a37d619617ab641803074ac8c1f4df2fe864",
+      "title": "CLI 도움말 C01 검증 기록",
+      "sourcePath": "research/architecture/core-cli-c01.receipt.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:kg",
+      "commit": "20aa6ac1f137844a09ce4a6a8339f29dc5457742",
+      "title": "공유 KG 최신 근거 안내 draft",
+      "sourcePath": "research/architecture/kg-bridge.publication.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:weights",
+      "commit": "bb3f58e2490834d38f837b61e03069bdc640e099",
+      "title": "선택형 규칙 강제 수준과 soft weight",
+      "sourcePath": "docs/RULE_POLICY.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP21"
+      ]
+    },
+    {
+      "id": "milestone:usl:outcomes",
+      "commit": "05d4c68de0f4a417bb7290a136b7d977a586711b",
+      "title": "맥락·outcome·W 변경 제안 연결",
+      "sourcePath": "docs/RULE_WEIGHT_EVIDENCE.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP21"
+      ]
+    },
+    {
+      "id": "milestone:usl:review",
+      "commit": "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38",
+      "title": "오프라인 학습기 검토와 replay",
+      "sourcePath": "research/rule-weight-evidence/learner-execution.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP21",
+        "package:CP22"
+      ]
+    },
+    {
+      "id": "milestone:usl:portable",
+      "commit": "f7a93226f1ed4f71d578db0e318d5da35428fc3d",
+      "title": "PT01 이식 identity·revision 명세",
+      "sourcePath": "docs/PORTABLE_TRANSFER.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP01",
+        "package:CP02",
+        "package:CP03"
+      ]
+    },
+    {
+      "id": "milestone:usl:standards",
+      "commit": "32a20fcf1336f7c955abb5cd43d1ae495b048e0f",
+      "title": "표준 적용 범위와 상위호환 주장 감사",
+      "sourcePath": "research/standards-coverage/coverage.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP09",
+        "package:CP20"
+      ]
+    },
+    {
+      "id": "milestone:usl:worktrees",
+      "commit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "title": "분기 worktree 격리·이식 한계 감사",
+      "sourcePath": "research/worktree-audit/receipt.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:guard",
+      "commit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+      "title": "선택형 checkout guard",
+      "sourcePath": "docs/CHECKOUT_GUARD.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP02",
+        "package:CP05",
+        "package:CP06"
+      ]
+    },
+    {
+      "id": "milestone:usl:files",
+      "commit": "8845156644b9a5d439d72a0b4cfc371f0afd861c",
+      "title": "선택 파일 복원과 로컬 재바인딩",
+      "sourcePath": "docs/PORTABLE_TRANSFER_IMPORT.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP02"
+      ]
+    },
+    {
+      "id": "milestone:usl:completion",
+      "commit": "d0959ec7b6c310ce73813ab15701cfdd875ff135",
+      "title": "미완료 작업 CP01–CP23 계획",
+      "sourcePath": "research/completion-plan/plan.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:git-export",
+      "commit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "title": "CP01 clean Git export",
+      "sourcePath": "docs/PORTABLE_TRANSFER_GIT.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP01"
+      ]
+    },
+    {
+      "id": "milestone:usl:git-restore",
+      "commit": "f6a684c396dacd4a43eedff6707bf69c64b66937",
+      "title": "CP02 여러 clean worktree 복원",
+      "sourcePath": "docs/PORTABLE_TRANSFER_GIT_IMPORT.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP02"
+      ]
+    },
+    {
+      "id": "milestone:usl:state-capture",
+      "commit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
+      "title": "CP03 index·working 상태 수집",
+      "sourcePath": "docs/PORTABLE_TRANSFER_GIT_STATE.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP03"
+      ]
+    },
+    {
+      "id": "milestone:usl:likeness",
+      "commit": "aeaa0cb1dc6da00a8a40fa68bc59a16f43ea0aa8",
+      "title": "HSWM_LIKENESS 세션 탐색 설정",
+      "sourcePath": "connections/hswm-likeness/session-2026-10-06.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    },
+    {
+      "id": "milestone:usl:state-restore",
+      "commit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "title": "CP03 작업 상태 복원·재연결 제안",
+      "sourcePath": "docs/PORTABLE_TRANSFER_GIT_STATE.md",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP03"
+      ]
+    },
+    {
+      "id": "milestone:usl:state-evidence",
+      "commit": "fd0cd87d9445f8c4898ad0046189e13863e1e61d",
+      "title": "CP03 복원 인수검사 근거",
+      "sourcePath": "research/clean-git-progress/receipt.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": [
+        "package:CP01",
+        "package:CP02",
+        "package:CP03"
+      ]
+    },
+    {
+      "id": "milestone:usl:research-refresh",
+      "commit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "title": "복원 구현 이후 연구 근거 pin 갱신",
+      "sourcePath": "research/portability-research/research.json",
+      "classificationAuthority": "SECONDARY_AI",
+      "claim": "SOURCE_CHANGE_RECORDED_NOT_RUNTIME_PASS",
+      "packageIds": []
+    }
+  ],
+  "nextTask": "task:usl-remaining:coordinated-export",
+  "remaining": [
+    {
+      "id": "task:usl-remaining:coordinated-export",
+      "packageId": "package:CP03",
+      "title": "미커밋 작업 상태와 base Git bundle 통합 내보내기",
+      "dependsOn": [],
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "status": "PLANNED",
+      "acceptance": "별도 clean checkout 준비 없이 동일 owner/repo/HEAD/ref의 bundle+sidecar를 한 결과로 생성하고 기존 CP03 importer로 원본 제거 후 복원한다.",
+      "negativeCase": "수집 중 HEAD/index/파일이 바뀌거나 budget을 넘으면 성공 artifact를 게시하지 않는다. 원자 snapshot이라고 주장하지 않는다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:state-cli",
+      "packageId": "package:CP03",
+      "title": "통합 export·state import·검증을 CLI와 package surface로 제공",
+      "dependsOn": [
+        "task:usl-remaining:coordinated-export"
+      ],
+      "owner": "USL_CLI",
+      "status": "PLANNED",
+      "acceptance": "build된 package에서 문서의 export→복원→검증 명령을 실행하고 staged/working/untracked를 구분한다.",
+      "negativeCase": "잘못된 옵션·pin·owner·기존 목적지·권한 없는 입력을 거부하고 기존 파일을 보존한다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:binding-registration",
+      "packageId": "package:CP02",
+      "title": "복원 제안의 명시적 로컬 바인딩 등록 흐름",
+      "dependsOn": [
+        "task:usl-remaining:state-cli"
+      ],
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "status": "PLANNED",
+      "acceptance": "owner가 선택한 로컬 registry만 갱신하고 stable ID·역할·선택하지 않은 표현을 보존하며 적용 전후 조회로 확인한다.",
+      "negativeCase": "오래된 restore 검증·충돌 workspace·잘못된 revision은 적용을 거부한다. 자동 원격 등록·접근 권한 승격은 없다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:git-profiles",
+      "packageId": "package:CP04",
+      "title": "고급 Git 상태와 제외 데이터의 profile별 지원표",
+      "dependsOn": [],
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "status": "PLANNED",
+      "acceptance": "symlink/submodule/LFS/alternates/partial/sparse 및 진행 중 작업·stash/reflog/ignored/empty-directory를 지원·별도 의존·의도적 제외로 나누고 각 지원 profile에 실제 왕복 근거를 붙인다.",
+      "negativeCase": "미포함 데이터가 있는데 full workspace/self-contained로 성공 표시하지 않는다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:snapshot-crash",
+      "packageId": "package:CP05",
+      "title": "일관성·중단·재시작 복구 계약",
+      "dependsOn": [
+        "task:usl-remaining:coordinated-export"
+      ],
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "status": "PLANNED",
+      "acceptance": "source 일관성 방법을 명시하고 게시 전후 강제 종료에서 부분 결과 식별·자기 소유 staging 정리·재시작 동작을 검사한다.",
+      "negativeCase": "프로세스 실패 처리만으로 원자 snapshot이나 crash durability를 PASS로 처리하지 않는다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:platform-matrix",
+      "packageId": "package:CP06",
+      "title": "Linux·macOS·Windows 실제 실행 증거",
+      "dependsOn": [],
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "status": "PLANNED",
+      "acceptance": "대소문자·Unicode·실행 비트·경로·Git object format 차이를 지원 OS별 실제 runner에서 측정한다.",
+      "negativeCase": "미실행 OS는 NOT_RUN으로 남기며 Linux 성공을 복제하지 않는다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:device-roundtrip",
+      "packageId": "package:CP07",
+      "title": "실기기 왕복 이동·원본 부재·규모 예산",
+      "dependsOn": [
+        "task:usl-remaining:binding-registration",
+        "task:usl-remaining:git-profiles",
+        "task:usl-remaining:snapshot-crash",
+        "task:usl-remaining:platform-matrix"
+      ],
+      "owner": "USL_OPTIONAL_CONSUMER",
+      "status": "PLANNED",
+      "acceptance": "서로 다른 두 장치에서 선택 profile의 export→복원→바인딩 조회와 원본 부재 시나리오를 실행하고 시간·메모리·크기를 기록한다.",
+      "negativeCase": "같은 호스트 임시 디렉터리 이동을 실기기 인수로 간주하지 않는다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:operational-outcomes",
+      "packageId": "package:CP21",
+      "title": "실제 운영 outcome 기반 W 후보 검토",
+      "dependsOn": [],
+      "owner": "HSWM_OWNER_CONSUMER",
+      "status": "PLANNED",
+      "acceptance": "owner가 제공한 versioned 실제 outcome에서 baseline/holdout/replay를 비교하고 근거와 맥락·제안을 연결한다.",
+      "negativeCase": "합성 fixture 결과를 metahumotonic_dashboard나 live HSWM 개선으로 승격하지 않는다.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "task:usl-remaining:owner-application",
+      "packageId": "package:CP22",
+      "title": "HSWM 현재 접근·검토·적용·rollback 근거",
+      "dependsOn": [
+        "task:usl-remaining:operational-outcomes"
+      ],
+      "owner": "HSWM_OWNER",
+      "status": "PLANNED",
+      "acceptance": "기존 owner workflow에서 선택 자원 등록·수신자·범위·만료·철회·허가된 도달성·검토 결정·적용 및 rollback을 별도 기록한다.",
+      "negativeCase": "이 그래프나 바인딩만으로 접근·실행·학습 권한을 생성하지 않는다. 복원 outcome을 쓰면 CP14 대조가 선행한다.",
+      "execution": "NOT_RUN"
+    }
+  ],
+  "hswmFacets": [
+    {
+      "id": "assessment:usl-hswm:source-links",
+      "status": "SELECTED_FILES_PINNED_HISTORICALLY",
+      "sourcePath": "connections/hswm/source-receipt.json",
+      "finding": "2026-09-28 선택 파일 관측이며 전체 USL 개발사나 현재 HSWM 동작 증거가 아니다.",
+      "authority": "SECONDARY_AI",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "assessment:usl-hswm:navigation",
+      "status": "NAVIGATION_ONLY_NOT_EXECUTED",
+      "sourcePath": "connections/hswm/graph.json",
+      "finding": "SECONDARY_AI_NAVIGATION / NOT_EXECUTED / NOT_ESTABLISHED; host actions는 비어 있다.",
+      "authority": "SECONDARY_AI",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "assessment:usl-hswm:adapter",
+      "status": "ARGUMENT_PREPARATION_ONLY",
+      "sourcePath": "docs/HSWM_INTEGRATION.md",
+      "finding": "caller 소유 policy·allowed_reads·resource pins가 필요하며 준비 함수는 권한/credit/learning을 만들지 않는다.",
+      "authority": "SECONDARY_AI",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "assessment:usl-hswm:likeness-session",
+      "status": "EXTERNAL_DESCRIPTOR_ONLY",
+      "sourcePath": "connections/hswm-likeness/session-2026-10-06.json",
+      "finding": "외부 host-local graph를 가리키는 설정만 확인했다. allowedLocators=[]; 이번 작업은 외부 graph를 읽거나 실행하지 않는다.",
+      "authority": "SECONDARY_AI",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "assessment:usl-hswm:weight-learning",
+      "status": "OFFLINE_SYNTHETIC_REVIEW_ONLY",
+      "sourcePath": "research/rule-weight-evidence/learner-execution.json",
+      "finding": "SYNTHETIC_OFFLINE_LEARNER_NO_LIVE_HSWM; 실제 운영 효과나 canonical W 갱신 증거가 아니다.",
+      "authority": "SECONDARY_AI",
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "assessment:usl-hswm:kg-bridge",
+      "status": "PUBLISHED_PRELIMINARY_HISTORICALLY",
+      "sourcePath": "research/architecture/kg-bridge.publication.json",
+      "finding": "2026-10-01 PUBLISHED_DRAFT 관측; ABOUT는 PROPOSED. 새 이력 그래프의 원격 게시나 canon 승격을 뜻하지 않는다.",
+      "authority": "SECONDARY_AI",
+      "execution": "NOT_EXECUTED"
+    }
+  ],
+  "competencyQuestions": [
+    {
+      "id": "cq:usl-lineage:history",
+      "question": "기준 commit까지 모든 부모 관계와 주요 개발 변화의 원문은 무엇인가?"
+    },
+    {
+      "id": "cq:usl-lineage:remaining",
+      "question": "다음 작업은 어떤 기존 CP 요구사항을 구체화하고 무엇으로 완료를 판정하는가?"
+    },
+    {
+      "id": "cq:usl-lineage:evidence",
+      "question": "CP03의 과거 capture와 현재 restore 근거는 각각 어느 revision인가?"
+    },
+    {
+      "id": "cq:usl-lineage:authority",
+      "question": "USER_PRIMARY 원문과 AI 분류, 과거 실행과 미래 인수 조건은 분리되는가?"
+    },
+    {
+      "id": "cq:usl-lineage:hswm",
+      "question": "HSWM navigation, adapter, W 검토, 실제 실행·학습은 어디까지 입증됐는가?"
+    },
+    {
+      "id": "cq:usl-lineage:bindings",
+      "question": "workspace를 옮겨도 resource ID와 link roles를 보존하고 원문 pin을 선택할 수 있는가?"
+    }
+  ]
+}

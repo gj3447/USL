@@ -1,0 +1,1652 @@
+{
+  "schema": "usl-development-lineage-inventory/v1",
+  "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+  "coverageScope": "ALL_COMMITS_REACHABLE_FROM_SOURCE_COMMIT; SELECTED_SEMANTIC_MILESTONES; NOT_ALL_CONVERSATIONS_OR_RUNTIME_EVENTS",
+  "commits": [
+    {
+      "commit": "1b2ab8bf94b9054df5aed34e8fa22756b974fea5",
+      "tree": "01cbf560190130ce889a30bb857075f926618523",
+      "parents": [],
+      "committedAt": "2026-09-08T07:20:00Z",
+      "subject": "chore: git init — 리비전 정체성 부여 (위치 결정 아님, OQ-A.5 는 열린 채로 둔다)",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "6a9834704d5902c1bd147b03d5844be574783685",
+      "tree": "fdfd973d58df03434d1b4141b415e487e2d1e810",
+      "parents": [
+        "1b2ab8bf94b9054df5aed34e8fa22756b974fea5"
+      ],
+      "committedAt": "2026-09-14T07:04:05Z",
+      "subject": "feat: consolidate USL adapters and integrate Lean 4",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "b0b02001858bd0bfc20c17dd9933b376c217a5b8",
+      "tree": "2532d1129e01e9a5db0be4cfb0197d805cb2f8bd",
+      "parents": [
+        "6a9834704d5902c1bd147b03d5844be574783685"
+      ],
+      "committedAt": "2026-09-14T07:18:22Z",
+      "subject": "docs: require a commit for every completed change",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "250b493308f4b38a55dff06f315ec3e2f4483a51",
+      "tree": "89fa740ac12a0af7d06f3a897248e0566c97d9df",
+      "parents": [
+        "b0b02001858bd0bfc20c17dd9933b376c217a5b8"
+      ],
+      "committedAt": "2026-09-14T08:03:42Z",
+      "subject": "feat: prove USL graph and read-scope contracts in Lean 4",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "de2b902d8033be3b8305f12fae507c499d73c118",
+      "tree": "62d7aa0298dd4f0629fdd65d74b761fa3298eba0",
+      "parents": [
+        "250b493308f4b38a55dff06f315ec3e2f4483a51"
+      ],
+      "committedAt": "2026-09-22T06:50:49Z",
+      "subject": "docs: research AI-native adapters and USL roadmap",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "85c41d7d6228d299200232804762199fd5e5e914",
+      "tree": "ff056b8c579cebf165a9be54d5b81697dde986d3",
+      "parents": [
+        "de2b902d8033be3b8305f12fae507c499d73c118"
+      ],
+      "committedAt": "2026-09-22T07:34:00Z",
+      "subject": "feat: add engineering contracts and adversarial review graph",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "3c2c810d52bce9a4249c4e1ecf955d93337d233e",
+      "tree": "1758ce45c34abcca05af0159976494639b0127f3",
+      "parents": [
+        "85c41d7d6228d299200232804762199fd5e5e914"
+      ],
+      "committedAt": "2026-09-22T09:53:11Z",
+      "subject": "feat: unify capability discovery across SDK CLI and MCP",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+      "tree": "e0667b610cbd5545fce9790393b2c424606b2aa3",
+      "parents": [
+        "3c2c810d52bce9a4249c4e1ecf955d93337d233e"
+      ],
+      "committedAt": "2026-09-28T04:58:49Z",
+      "subject": "feat: add portable resource bindings and graph-grounded CLI execution",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "e2833a30c7eb5f5f924440bf28d0ef78b2e99f56",
+      "tree": "dfa5c203ca62137120b6679e1feb7417f7fae8c4",
+      "parents": [
+        "01239ca94abab374cca0a7240c4fb31235fb221a"
+      ],
+      "committedAt": "2026-09-28T05:30:33Z",
+      "subject": "docs: map current engineering state proof scope and next steps",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "aaca7c4d908930671ecde4127c4504175061538f",
+      "tree": "1bbfa3bbee67358923c996f112f6ac0f84a0b8f7",
+      "parents": [
+        "e2833a30c7eb5f5f924440bf28d0ef78b2e99f56"
+      ],
+      "committedAt": "2026-09-28T06:46:51Z",
+      "subject": "feat: inspect bindings and reconcile durable CLI attempts",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "ee0af92f6a9f44e05362c2350abb4a19cd5b7f83",
+      "tree": "f4eb32ddfe187b2a29be83cf55f6d42b4774f816",
+      "parents": [
+        "aaca7c4d908930671ecde4127c4504175061538f"
+      ],
+      "committedAt": "2026-09-28T06:57:03Z",
+      "subject": "feat: connect active HSWM research through portable resource bindings",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "138b5812ff4723236d00da0f38715784574a2b80",
+      "tree": "4c75f13b6b88eddbcfed59f7c10590a8af17cf8a",
+      "parents": [
+        "ee0af92f6a9f44e05362c2350abb4a19cd5b7f83"
+      ],
+      "committedAt": "2026-09-29T00:43:11Z",
+      "subject": "chore: adopt HSWM dual licensing for public USL release",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "245273f1dfdaac8338eea88be207ecb4ad435003",
+      "tree": "d2bdedc34f609ca05f2db13b24c337d4f9635ba3",
+      "parents": [
+        "138b5812ff4723236d00da0f38715784574a2b80"
+      ],
+      "committedAt": "2026-09-29T00:53:35Z",
+      "subject": "feat: add opt-in USL workspace linking rules and local installer",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "67a5cb44c62bf7d695d334800e550112b5c20caa",
+      "tree": "5e0435ad7477de43d798cf18dcfc07dce35c1a8a",
+      "parents": [
+        "245273f1dfdaac8338eea88be207ecb4ad435003"
+      ],
+      "committedAt": "2026-09-29T01:13:48Z",
+      "subject": "feat: require approved workspace access for HSWM and sync repository rules",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "44a0403019b4058b3db0a9e2b3143d11b6b12d63",
+      "tree": "d4ffee176266abeea5617cdb7da9f9bf0ddb2e33",
+      "parents": [
+        "67a5cb44c62bf7d695d334800e550112b5c20caa"
+      ],
+      "committedAt": "2026-09-29T01:19:17Z",
+      "subject": "feat: bind the CHU · HSWM · USL ecosystem",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "4fbc15d5d11b51f7ce166039c88512315db7ff85",
+      "tree": "f5417a6ca144e15613e9a5d30dfa40943f7296ec",
+      "parents": [
+        "44a0403019b4058b3db0a9e2b3143d11b6b12d63"
+      ],
+      "committedAt": "2026-09-29T01:23:39Z",
+      "subject": "fix: make documentation portable and record HSWM policy rollout",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "924cebd96c6ac6eb435685d59697ccea3979045c",
+      "tree": "518832df2b2abc378b266b471821aa7a67b78119",
+      "parents": [
+        "4fbc15d5d11b51f7ce166039c88512315db7ff85"
+      ],
+      "committedAt": "2026-09-29T01:35:58Z",
+      "subject": "fix: re-pin the CHU ecosystem connection after concurrent USL doc update",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "f7528609a2d3ee4b8bdb5fb5cde85a5671c851b6",
+      "tree": "0d75f8a6be3e44da3d92d90c660c8cfd5e2dbc93",
+      "parents": [
+        "924cebd96c6ac6eb435685d59697ccea3979045c"
+      ],
+      "committedAt": "2026-09-29T02:18:13Z",
+      "subject": "fix: re-pin CHU connection to 752d127 after Linux OS research",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "e537d7c7967a6212810bbdb06cc451998d60edd8",
+      "tree": "65d85784b8f8d8721e32ea5840928de6510d9cb8",
+      "parents": [
+        "f7528609a2d3ee4b8bdb5fb5cde85a5671c851b6"
+      ],
+      "committedAt": "2026-09-29T03:33:36Z",
+      "subject": "docs: complete HSWM policy rollout across all 86 repositories",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "02a25ed46d9b71ed298c54865d1c6bfc3c79e9b5",
+      "tree": "d590dfb1bdde78a0e1d02c11d80446f878a87915",
+      "parents": [
+        "e537d7c7967a6212810bbdb06cc451998d60edd8"
+      ],
+      "committedAt": "2026-09-29T03:45:48Z",
+      "subject": "fix: re-pin CHU connection after HSWM rollout completion",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "c79fc82d2b5d56ec0f83e7b130e0f0782c40372e",
+      "tree": "1b960777708fffff0f9d9423e95a79da6c908332",
+      "parents": [
+        "02a25ed46d9b71ed298c54865d1c6bfc3c79e9b5"
+      ],
+      "committedAt": "2026-09-29T04:03:39Z",
+      "subject": "docs: route agent rules by task from a thin shared entry",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "4cbb466316884d053ce00ec16edc9239f1820605",
+      "tree": "1f7f722a89ffcc85115b8f4a1a9b21310bcf66d6",
+      "parents": [
+        "c79fc82d2b5d56ec0f83e7b130e0f0782c40372e"
+      ],
+      "committedAt": "2026-09-29T06:40:59Z",
+      "subject": "docs: record removal of mandatory slideshow review approvals",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "679c8eac984167a1b5fb6987c8176279b6a9d0ac",
+      "tree": "1c650d17cdf57b834061506e06a169fa2f0714e0",
+      "parents": [
+        "4cbb466316884d053ce00ec16edc9239f1820605"
+      ],
+      "committedAt": "2026-09-29T07:53:48Z",
+      "subject": "docs: preserve USL HSWM likeness and weighted hypergraph requirements",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "06490d08bb610ad68a2ba318e3fb6f2efbc90f38",
+      "tree": "8e4186b989eadadfcc73d43711a8fe2323dfd7cc",
+      "parents": [
+        "679c8eac984167a1b5fb6987c8176279b6a9d0ac"
+      ],
+      "committedAt": "2026-09-29T08:19:29Z",
+      "subject": "docs: model USL syntax and CLI architecture as a standards graph",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "f497a1111bf72a3e8e550cff15a044b2e541a0c1",
+      "tree": "8c6d3eb94a30deb93e9f3da0a7ec5a1191810998",
+      "parents": [
+        "06490d08bb610ad68a2ba318e3fb6f2efbc90f38"
+      ],
+      "committedAt": "2026-09-29T08:54:17Z",
+      "subject": "docs: keep USL a simple binding syntax with optional addon rules",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "ae5210b1ec144e7584b7dc43ab21cb7d9c3942de",
+      "tree": "e36ee5e25fdd4868d47a917d4869ca894581fd27",
+      "parents": [
+        "f497a1111bf72a3e8e550cff15a044b2e541a0c1"
+      ],
+      "committedAt": "2026-09-29T09:00:04Z",
+      "subject": "docs: clarify CLI programs built on USL binding syntax",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "2969b4d472b2d0366a3b651ab85a9dc75f6e72ef",
+      "tree": "9166eb965e2331ee543054c5fb97c3dc1f93e10d",
+      "parents": [
+        "ae5210b1ec144e7584b7dc43ab21cb7d9c3942de"
+      ],
+      "committedAt": "2026-09-29T10:40:30Z",
+      "subject": "research: trace USL compression costs through the architecture graph",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "daca2818d4b130d59503457838ba613952cf18c6",
+      "tree": "33c7781771e4e96bc5caa9ff55c6eae75014d3dd",
+      "parents": [
+        "2969b4d472b2d0366a3b651ab85a9dc75f6e72ef"
+      ],
+      "committedAt": "2026-09-29T10:52:42Z",
+      "subject": "feat: add optional binding examples and plan core CLI development",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "4a08a024519927c21440823df1e900b86bd61857",
+      "tree": "dd82d31cb683a86d43e2fad08c79be7c717d4ce2",
+      "parents": [
+        "daca2818d4b130d59503457838ba613952cf18c6"
+      ],
+      "committedAt": "2026-09-29T14:51:31Z",
+      "subject": "docs: generate a graph engineering status and dependency overview",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "a90a37393b64c650bacb417730cb40b8553d3396",
+      "tree": "80e7ab1c5b084a554ffa15ab9d447319c41fa462",
+      "parents": [
+        "4a08a024519927c21440823df1e900b86bd61857"
+      ],
+      "committedAt": "2026-09-30T02:20:01Z",
+      "subject": "feat: organize CLI help through shared command contracts",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "8d38fa7dbf0bb52209f5d0c34dc72e3f97bcd3c6",
+      "tree": "4eb22743be6b710997263f67029c1fd3d495b76a",
+      "parents": [
+        "a90a37393b64c650bacb417730cb40b8553d3396"
+      ],
+      "committedAt": "2026-09-30T02:23:54Z",
+      "subject": "fix: preserve the help command help alias",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "0b90a37d619617ab641803074ac8c1f4df2fe864",
+      "tree": "d8026b9f9037b7b5f84383eef8005d0e7b0e7211",
+      "parents": [
+        "8d38fa7dbf0bb52209f5d0c34dc72e3f97bcd3c6"
+      ],
+      "committedAt": "2026-09-30T02:25:39Z",
+      "subject": "docs: record verified C01 completion in the engineering graph",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "20aa6ac1f137844a09ce4a6a8339f29dc5457742",
+      "tree": "489dae8f64b9a04b56056ecc2ae57ae6f1245b18",
+      "parents": [
+        "0b90a37d619617ab641803074ac8c1f4df2fe864"
+      ],
+      "committedAt": "2026-10-01T00:16:10Z",
+      "subject": "docs: connect shared KG USL records to current engineering evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "bb3f58e2490834d38f837b61e03069bdc640e099",
+      "tree": "9dcd8e90fb0493fc47735698e2d2635c27254e08",
+      "parents": [
+        "20aa6ac1f137844a09ce4a6a8339f29dc5457742"
+      ],
+      "committedAt": "2026-10-02T13:48:22Z",
+      "subject": "Add optional weighted rule policy contract and graph evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "947b4dbf52278d998be31f936d4cf3384e3acd89",
+      "tree": "c014b067d92cf40f84907b398820e414a497303d",
+      "parents": [
+        "bb3f58e2490834d38f837b61e03069bdc640e099"
+      ],
+      "committedAt": "2026-10-02T13:51:55Z",
+      "subject": "Refresh graph verification receipts for rule policy integration",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "05d4c68de0f4a417bb7290a136b7d977a586711b",
+      "tree": "62812738174294d8e33d2d105feaf325cfbee75c",
+      "parents": [
+        "947b4dbf52278d998be31f936d4cf3384e3acd89"
+      ],
+      "committedAt": "2026-10-03T02:04:34Z",
+      "subject": "Connect rule weights to contextual outcome evidence and proposals",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "bfbf110ddc8c9092b480ebe6948cb1681863bd81",
+      "tree": "34470f871b7fd25c871b18933fd5ad55e93f4f5b",
+      "parents": [
+        "05d4c68de0f4a417bb7290a136b7d977a586711b"
+      ],
+      "committedAt": "2026-10-03T02:06:07Z",
+      "subject": "Refresh compatibility evidence for optional rule weight proposals",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38",
+      "tree": "2bcbb3d7bda966fe00e17bed304915c5ba073fc5",
+      "parents": [
+        "bfbf110ddc8c9092b480ebe6948cb1681863bd81"
+      ],
+      "committedAt": "2026-10-03T03:28:41Z",
+      "subject": "Connect rule weight proposals to offline learner review and replay",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "b869c517ea6c58c24583f473fd049d1d2adac176",
+      "tree": "819dcbde5fd3afe0e56f5ce6c8923301f95d745e",
+      "parents": [
+        "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38"
+      ],
+      "committedAt": "2026-10-03T03:29:59Z",
+      "subject": "Refresh compatibility receipts after offline learner review integration",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "c9dd895496b9bd4f7997317d00a0ba0404e51a33",
+      "tree": "9f604cd041a4654e187a31f0676c2c7249b94762",
+      "parents": [
+        "b869c517ea6c58c24583f473fd049d1d2adac176"
+      ],
+      "committedAt": "2026-10-03T11:07:11Z",
+      "subject": "Plan portable workspace transfer and restore with a validated task graph",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "f7a93226f1ed4f71d578db0e318d5da35428fc3d",
+      "tree": "75121c2bfc9e80ac807b8afcd37473fd13c803f5",
+      "parents": [
+        "c9dd895496b9bd4f7997317d00a0ba0404e51a33"
+      ],
+      "committedAt": "2026-10-03T11:41:16Z",
+      "subject": "Implement PT01 portable identity and revision manifest contract",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "25cb824d383f125d8326c8123ad82a919073d60b",
+      "tree": "88a00b54daf7efc09584887770946686667c2793",
+      "parents": [
+        "f7a93226f1ed4f71d578db0e318d5da35428fc3d"
+      ],
+      "committedAt": "2026-10-03T11:42:14Z",
+      "subject": "Refresh compatibility evidence after portable manifest integration",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "2bc059b9ae6c624f993f10d77298ddcf887eb412",
+      "tree": "b274247eaa0948c5b39ee4cdf732385c2297f659",
+      "parents": [
+        "25cb824d383f125d8326c8123ad82a919073d60b"
+      ],
+      "committedAt": "2026-10-03T12:10:03Z",
+      "subject": "Build sourced portability research graph and implementation acceptance criteria",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "32a20fcf1336f7c955abb5cd43d1ae495b048e0f",
+      "tree": "00c31666b5eff456cedba7ff721d6f9b112aeed4",
+      "parents": [
+        "2bc059b9ae6c624f993f10d77298ddcf887eb412"
+      ],
+      "committedAt": "2026-10-03T12:37:27Z",
+      "subject": "research: audit graph standards coverage and superset claim",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "tree": "16c713311c6acdf140f6125de000673c77fb32cf",
+      "parents": [
+        "32a20fcf1336f7c955abb5cd43d1ae495b048e0f"
+      ],
+      "committedAt": "2026-10-03T13:19:09Z",
+      "subject": "test: audit linked worktree isolation and portability limits",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "0c648674041041c57f27b561eef4e00ef7539451",
+      "tree": "61ee1a5ce69b07478dd80dba77fac473d9b46c73",
+      "parents": [
+        "2576eef7df08e0866d709d5f23da06e79950cc21"
+      ],
+      "committedAt": "2026-10-03T17:21:45Z",
+      "subject": "Add integrated USL development plan graph and validation gates",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+      "tree": "ffb9c9cdc6b90d2088c182755cb59ee8fdf8626e",
+      "parents": [
+        "0c648674041041c57f27b561eef4e00ef7539451"
+      ],
+      "committedAt": "2026-10-03T23:59:41Z",
+      "subject": "Implement opt-in checkout guard and preserve planning snapshot provenance",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "4103a9526e0cefaf2bbbee4964a841fe5254b29f",
+      "tree": "6513cfbc4b3d95668b5d819a6c7cbf9f3f33b833",
+      "parents": [
+        "4d9a175b994f847624f19ddb2cbc764f856130e1"
+      ],
+      "committedAt": "2026-10-04T00:02:58Z",
+      "subject": "Record DG01 execution and refresh local compatibility evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "bb3344426dbcfa7a6837be027f1a9aec354fd894",
+      "tree": "bba73daffd82f671fc3f4d7d8a77c6485936c720",
+      "parents": [
+        "4103a9526e0cefaf2bbbee4964a841fe5254b29f"
+      ],
+      "committedAt": "2026-10-04T00:04:35Z",
+      "subject": "Refresh research source pins after checkout guard verification",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "31dc057f4cab644265459acb345ad0a9736a610d",
+      "tree": "5ff2a7cefa2e719754627f45bfb71aabca78cfa4",
+      "parents": [
+        "bb3344426dbcfa7a6837be027f1a9aec354fd894"
+      ],
+      "committedAt": "2026-10-04T00:24:07Z",
+      "subject": "Implement bounded pinned-file export with verified portable metadata",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670",
+      "tree": "a4121684ba709e83d5166a2c11a5bdc4c0e94f83",
+      "parents": [
+        "31dc057f4cab644265459acb345ad0a9736a610d"
+      ],
+      "committedAt": "2026-10-04T00:29:39Z",
+      "subject": "Record DG01 and PT02 execution with refreshed compatibility evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "f7241f62ed318b3972aca55b245dce02d4e3e689",
+      "tree": "e8797a8b23a79583fac64ea744f9b87924ad7591",
+      "parents": [
+        "7ab9afaa4e99ca77f7c2d26045de5a1cfae8f670"
+      ],
+      "committedAt": "2026-10-04T00:31:35Z",
+      "subject": "Connect portability research to verified pinned-file export progress",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "8845156644b9a5d439d72a0b4cfc371f0afd861c",
+      "tree": "7ea3639b6384a245dbc00a928415a38df3110fb4",
+      "parents": [
+        "f7241f62ed318b3972aca55b245dce02d4e3e689"
+      ],
+      "committedAt": "2026-10-04T01:20:41Z",
+      "subject": "Implement verified file restore and local graph rebinding",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "7576cf9bccea1a068f2a84f69bace3f3eb419b72",
+      "tree": "467b1928125ec5587cd3f38b60e589f0d5209499",
+      "parents": [
+        "8845156644b9a5d439d72a0b4cfc371f0afd861c"
+      ],
+      "committedAt": "2026-10-04T01:24:23Z",
+      "subject": "Run restore CLI tests independently of npm PATH",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "b9957f5f40fd12fab21cde4c8f0f3d62c455e038",
+      "tree": "4938f451d20bb3d75dd1e574bd7d5868929bdf73",
+      "parents": [
+        "7576cf9bccea1a068f2a84f69bace3f3eb419b72"
+      ],
+      "committedAt": "2026-10-04T01:25:50Z",
+      "subject": "Record file restore acceptance and partial portability coverage",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f",
+      "tree": "fc08ec1cd1d8e1cbe18a12bb70396d71d0258020",
+      "parents": [
+        "b9957f5f40fd12fab21cde4c8f0f3d62c455e038"
+      ],
+      "committedAt": "2026-10-04T01:29:03Z",
+      "subject": "Connect portability research to verified file restore evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "befc53b36c8494ffbe45eae378cdf0cd55f27d0a",
+      "tree": "bb81e654bc8bcb9fc679368be071333a70ed4e50",
+      "parents": [
+        "67e6916f53c54f5fa4f446943e7b96c9b9da0e9f"
+      ],
+      "committedAt": "2026-10-04T01:29:44Z",
+      "subject": "Refresh standards coverage against restore research evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28",
+      "tree": "ef17835fb088c47295abf64ca92d62121b82a134",
+      "parents": [
+        "befc53b36c8494ffbe45eae378cdf0cd55f27d0a"
+      ],
+      "committedAt": "2026-10-04T06:01:04Z",
+      "subject": "Reject contradictory restore provenance and protected paths",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "93f9b1df88ae4f5250d37316cce435f765d58e9f",
+      "tree": "dd517467776e4bd97c9949f86d15cad7865874d8",
+      "parents": [
+        "ef0ce11241f25fbc5d1b4d8c5cc5e422c4adde28"
+      ],
+      "committedAt": "2026-10-04T06:04:56Z",
+      "subject": "Record adversarial restore fixes and 431-test verification",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0",
+      "tree": "098723e38b63b3a20e9107c65c8cccd8edec1e68",
+      "parents": [
+        "93f9b1df88ae4f5250d37316cce435f765d58e9f"
+      ],
+      "committedAt": "2026-10-04T06:05:36Z",
+      "subject": "Update architecture status to verified restore revision",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "3e8591839a754252b026b52625cef03c0116655c",
+      "tree": "6e2e6030ef1a02ef783241c0e3b7f0365ecf2f13",
+      "parents": [
+        "9b035b0b97398a9d4849ee2cde8c69fb8c8b25b0"
+      ],
+      "committedAt": "2026-10-04T06:06:09Z",
+      "subject": "Refresh graph evidence after adversarial restore verification",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "17ad4031ad52b6c5e56352a121a7e3164290a434",
+      "tree": "807d1778a439f41c4259b1d3436b494b95c53c5b",
+      "parents": [
+        "3e8591839a754252b026b52625cef03c0116655c"
+      ],
+      "committedAt": "2026-10-04T06:34:34Z",
+      "subject": "Enforce portable import metadata bounds and strict values",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "7c6d2a200978141e8e9743088f14e5e3b633cc43",
+      "tree": "5cee7d1e5ee6102579526058a0f7bb1fcd794a76",
+      "parents": [
+        "17ad4031ad52b6c5e56352a121a7e3164290a434"
+      ],
+      "committedAt": "2026-10-04T06:38:27Z",
+      "subject": "Record strict import verification on Node 22 and Node 24",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "250bfffb0463aa94feea5619691a7fb3ed68630d",
+      "tree": "310560a578a87234d093131636463807fc7f9cec",
+      "parents": [
+        "7c6d2a200978141e8e9743088f14e5e3b633cc43"
+      ],
+      "committedAt": "2026-10-04T06:41:17Z",
+      "subject": "Connect metadata hardening and dual-runtime verification to research",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "d0959ec7b6c310ce73813ab15701cfdd875ff135",
+      "tree": "b9913debe0936f81508744e58b292f84ced7f21a",
+      "parents": [
+        "250bfffb0463aa94feea5619691a7fb3ed68630d"
+      ],
+      "committedAt": "2026-10-04T13:26:42Z",
+      "subject": "Plan remaining USL implementation and acceptance gates",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "tree": "beb565b29f237b64aaaf35bba0099a515d5be3ec",
+      "parents": [
+        "d0959ec7b6c310ce73813ab15701cfdd875ff135"
+      ],
+      "committedAt": "2026-10-05T13:16:12Z",
+      "subject": "Implement bounded clean Git export with independent object verification",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "9158093a7c9ceb47fc3674f9c30face68819a8b4",
+      "tree": "1182ae8097a2ddb5b9a5a7813a6d1056eb429adf",
+      "parents": [
+        "330b663af420e5cf0f13f1d91a5ea5c61c606e8d"
+      ],
+      "committedAt": "2026-10-05T13:17:51Z",
+      "subject": "Record CP01 execution evidence and refreshed portability regression results",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "d653789ef80a3c4cdf756b88532598f836bb5738",
+      "tree": "4dceffe5945c06eef7cebaa290f1d55b9cc51f03",
+      "parents": [
+        "9158093a7c9ceb47fc3674f9c30face68819a8b4"
+      ],
+      "committedAt": "2026-10-05T13:20:28Z",
+      "subject": "Terminate Git worker groups when export budgets expire",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "1e85fdb10b8be51188a11d11f4321a279f3c3d53",
+      "tree": "5bfb7c1b73e0dd13b8b5df4c62ae9ed36376260e",
+      "parents": [
+        "d653789ef80a3c4cdf756b88532598f836bb5738"
+      ],
+      "committedAt": "2026-10-05T13:21:07Z",
+      "subject": "Bind portability evidence to bounded Git process cleanup",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "f0180cb20368af4805947685d1a56d985a99ddfa",
+      "tree": "e66cbd40da8b047f739f50ac195f5856bc1f2737",
+      "parents": [
+        "1e85fdb10b8be51188a11d11f4321a279f3c3d53"
+      ],
+      "committedAt": "2026-10-05T13:22:11Z",
+      "subject": "Refresh research source pins after CP01 portability verification",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "f6a684c396dacd4a43eedff6707bf69c64b66937",
+      "tree": "0c1cf63745251eebd2dc655129a47fee5519d54f",
+      "parents": [
+        "f0180cb20368af4805947685d1a56d985a99ddfa"
+      ],
+      "committedAt": "2026-10-05T13:57:37Z",
+      "subject": "Restore isolated clean Git worktrees and preserve selected USL bindings",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3",
+      "tree": "afa48b92c4e7ede9e20f217e84db53160829ba17",
+      "parents": [
+        "f6a684c396dacd4a43eedff6707bf69c64b66937"
+      ],
+      "committedAt": "2026-10-05T13:59:04Z",
+      "subject": "Record clean Git restoration and binding acceptance evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "f82ddf25225ae8adb752e9eaf48e601ca27ec82b",
+      "tree": "51759b77a270ed2498d89210b1ab9a9c18456b30",
+      "parents": [
+        "2e7a82c2dac2fc95de9fed30faefd16acfe58aa3"
+      ],
+      "committedAt": "2026-10-05T13:59:52Z",
+      "subject": "Refresh research pins after clean Git restore verification",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
+      "tree": "bd68233228f5cfa545b28ebe6fb0c842f1dce781",
+      "parents": [
+        "f82ddf25225ae8adb752e9eaf48e601ca27ec82b"
+      ],
+      "committedAt": "2026-10-06T16:03:31Z",
+      "subject": "Capture portable Git index and working state with explicit restoration boundaries",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "aaa026fa391d372391518d1f16fcfaf24173fa7f",
+      "tree": "abc7f2716b8795289bd6fb475e5db182a4e05cef",
+      "parents": [
+        "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e"
+      ],
+      "committedAt": "2026-10-06T16:04:54Z",
+      "subject": "Record CP03 capture cases and preserve pending restore acceptance",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "03a89a161d0139bfc965f50ed7b1e8e3f0c0a0b6",
+      "tree": "055f8f7867dae67786427640755be9b115008300",
+      "parents": [
+        "aaa026fa391d372391518d1f16fcfaf24173fa7f"
+      ],
+      "committedAt": "2026-10-06T16:05:36Z",
+      "subject": "Refresh portability research evidence pins after CP03 state capture",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "aeaa0cb1dc6da00a8a40fa68bc59a16f43ea0aa8",
+      "tree": "457774c41398f8c14f1483c55988431b5b0d94b4",
+      "parents": [
+        "03a89a161d0139bfc965f50ed7b1e8e3f0c0a0b6"
+      ],
+      "committedAt": "2026-10-07T00:07:42Z",
+      "subject": "docs: register HSWM likeness USL session connection",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "tree": "97b14778bd5fa79e6c2875ebc38042edcc27f68a",
+      "parents": [
+        "aeaa0cb1dc6da00a8a40fa68bc59a16f43ea0aa8"
+      ],
+      "committedAt": "2026-10-07T00:14:23Z",
+      "subject": "Restore pinned Git working state and propose state-aware USL bindings",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "fd0cd87d9445f8c4898ad0046189e13863e1e61d",
+      "tree": "7f2ff825af116cca2110bc2ec4d2414ec84daf26",
+      "parents": [
+        "10fd5d47efeeff01bc50871fd3c1bbab052dd702"
+      ],
+      "committedAt": "2026-10-07T00:15:16Z",
+      "subject": "Record bounded CP03 restore and rebinding acceptance evidence",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    },
+    {
+      "commit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "tree": "f23905ccd477d14aa7acb8912919fbb940b0b09b",
+      "parents": [
+        "fd0cd87d9445f8c4898ad0046189e13863e1e61d"
+      ],
+      "committedAt": "2026-10-07T00:16:26Z",
+      "subject": "Refresh portability evidence pins after Git state restoration",
+      "authority": "REPOSITORY_RECORD",
+      "claim": "COMMIT_EXISTS_NOT_RUNTIME_PASS"
+    }
+  ],
+  "sources": [
+    {
+      "path": "README.md",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:53599a953ebb1b5a1d20c77e5545f1d6a1b09674c4b8283f80e8ad65f6fb53de",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "README.md",
+      "sourceCommit": "1b2ab8bf94b9054df5aed34e8fa22756b974fea5",
+      "sha256": "sha256:abfa2351ef118c6bf206f9fbe7e2eb475285ad2f9ac003898d789502404f942b",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "sourceCommit": "6a9834704d5902c1bd147b03d5844be574783685",
+      "sha256": "sha256:201b5dd439f76b789fb8fae7c83c5850159963c90176904e58095ea6e71b9415",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/LEAN4_INTEGRATION.md",
+      "sourceCommit": "250b493308f4b38a55dff06f315ec3e2f4483a51",
+      "sha256": "sha256:c16b4afb20c67ddbb096c0d67585e70bdb186ecd1f1c21576ab405bef7f3b56f",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/engineering/graph.json",
+      "sourceCommit": "85c41d7d6228d299200232804762199fd5e5e914",
+      "sha256": "sha256:74d57be2c87c8a510b3f7f5b4b2f0c295124d8574793aa746259dc6eb6d12233",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/CAPABILITY_CATALOG.md",
+      "sourceCommit": "3c2c810d52bce9a4249c4e1ecf955d93337d233e",
+      "sha256": "sha256:50f3d16b12d7aaa97e42342e2b1289c020237f86f72cd999d6a1ed304a3b8299",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/RESOURCE_BINDINGS.md",
+      "sourceCommit": "01239ca94abab374cca0a7240c4fb31235fb221a",
+      "sha256": "sha256:4087184d51e4f8d06d4a69063dd532ae4224334e2ba5c80cfd50c4dee0d7e0c7",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/BINDING_OPERATIONS.md",
+      "sourceCommit": "aaca7c4d908930671ecde4127c4504175061538f",
+      "sha256": "sha256:a93839db57c94625b76f8e15824e70eff0259c45012a3cb35ed44dc9bb0fca5c",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "connections/hswm/source-receipt.json",
+      "sourceCommit": "ee0af92f6a9f44e05362c2350abb4a19cd5b7f83",
+      "sha256": "sha256:c5566ca23b2b110949b44c6910c7ed454032145be2b3e9a9c223bae51380e7be",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "sourceCommit": "ae5210b1ec144e7584b7dc43ab21cb7d9c3942de",
+      "sha256": "sha256:f4338c9247cfaf1e59bfe3ef53724f7900221c7f839b36023a5a14a83916b4e7",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/architecture/core-cli-c01.receipt.json",
+      "sourceCommit": "0b90a37d619617ab641803074ac8c1f4df2fe864",
+      "sha256": "sha256:6f9c2dedfcf7f6c16fece33d35a7bf49368cc63669b81b9b9f307b4f1696b29a",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/architecture/kg-bridge.publication.json",
+      "sourceCommit": "20aa6ac1f137844a09ce4a6a8339f29dc5457742",
+      "sha256": "sha256:55cade0f47019c0c6f7e6b024781c7560feeb3f99b26cc7114abd1aacdce5662",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/RULE_POLICY.md",
+      "sourceCommit": "bb3f58e2490834d38f837b61e03069bdc640e099",
+      "sha256": "sha256:a97bb69161c7d0009f7431dfbe960eed8c36ac713ce3d28ecb915dc6c6cb590a",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/RULE_WEIGHT_EVIDENCE.md",
+      "sourceCommit": "05d4c68de0f4a417bb7290a136b7d977a586711b",
+      "sha256": "sha256:381918677a7319dc133223df94d88561631f5031e828602c971b5bfa851aa82d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/rule-weight-evidence/learner-execution.json",
+      "sourceCommit": "fa6b6d382fbb9d91f8f72c8ac92e742ab6bc7e38",
+      "sha256": "sha256:42c4b25334c7958ecb77d0e556833671356f60eed8b147dd0a304adf0daff1d6",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER.md",
+      "sourceCommit": "f7a93226f1ed4f71d578db0e318d5da35428fc3d",
+      "sha256": "sha256:77d7b0f0ad3d9cf21ffe9c6a353f56f71039e69570185153b5d789054ddbecdc",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/standards-coverage/coverage.json",
+      "sourceCommit": "32a20fcf1336f7c955abb5cd43d1ae495b048e0f",
+      "sha256": "sha256:ad5b9f6d84fb805418e14228574670ce66bb09e037a2167d0a36c8f9554cf1ae",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/worktree-audit/receipt.json",
+      "sourceCommit": "2576eef7df08e0866d709d5f23da06e79950cc21",
+      "sha256": "sha256:07d265649e868e85d3d7021e7a88ce426f0d9eaa55556f378c920a76f08264f3",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/CHECKOUT_GUARD.md",
+      "sourceCommit": "4d9a175b994f847624f19ddb2cbc764f856130e1",
+      "sha256": "sha256:9c668db86982beb843af19723ec5e089797b440518629263d66d358a5a1086a9",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_IMPORT.md",
+      "sourceCommit": "8845156644b9a5d439d72a0b4cfc371f0afd861c",
+      "sha256": "sha256:979615720847ce33181b141cdbe0762745fbf30011e04bb254d3463bbbdd007d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/completion-plan/plan.json",
+      "sourceCommit": "d0959ec7b6c310ce73813ab15701cfdd875ff135",
+      "sha256": "sha256:1df35f4fe2cc70e5cb3851471aa4bde19b4d83768c8ea044f0d16c20ec6be5b5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT.md",
+      "sourceCommit": "330b663af420e5cf0f13f1d91a5ea5c61c606e8d",
+      "sha256": "sha256:060d60887dd57d69b9f62a4844c03dc35d1e164f73dd4d39af6591d7eda284b2",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT_IMPORT.md",
+      "sourceCommit": "f6a684c396dacd4a43eedff6707bf69c64b66937",
+      "sha256": "sha256:0aaa48e646ec0702bfa78f46d22737acd8f696cc111635ba3caf9d118cbaaee5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT_STATE.md",
+      "sourceCommit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
+      "sha256": "sha256:eeab2f3ecd2524acb1644d7c9cb24d4b42aaf0cd81a15f9a2d4fd37a17309f43",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "connections/hswm-likeness/session-2026-10-06.json",
+      "sourceCommit": "aeaa0cb1dc6da00a8a40fa68bc59a16f43ea0aa8",
+      "sha256": "sha256:e93ba5700200fe5ea584903a1f97dfe5c182cc2c5075ee82408a0cd3f1c700fe",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT_STATE.md",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:4b2209f14b253761db3a64dc28b06a37d86c8d45b9f2b459973ed8d877a2279a",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/clean-git-progress/receipt.json",
+      "sourceCommit": "fd0cd87d9445f8c4898ad0046189e13863e1e61d",
+      "sha256": "sha256:71ca8bb36bdee92700c4f7bfe3e8e594b61aaafa5a478b0a753826e37394d549",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/portability-research/research.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:5994f93f39902cb077629ac1ed58d92f0623215190da9008d06a876f197c2c28",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/development-plan/plan.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:d1dbe46a4246da80386525962b8b6f58f6badb406222a79e032ec1b156aecdc9",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/completion-plan/plan.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:1df35f4fe2cc70e5cb3851471aa4bde19b4d83768c8ea044f0d16c20ec6be5b5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/clean-git-progress/receipt.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:71ca8bb36bdee92700c4f7bfe3e8e594b61aaafa5a478b0a753826e37394d549",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT.md",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:18a3e242e9605adbac1f7884c9b90b696f1d96a6558572f910a1255cddf55249",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT_IMPORT.md",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:0aaa48e646ec0702bfa78f46d22737acd8f696cc111635ba3caf9d118cbaaee5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "package-lock.json",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "package.json",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/completion-plan/plan.json",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:1df35f4fe2cc70e5cb3851471aa4bde19b4d83768c8ea044f0d16c20ec6be5b5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "schemas/clean-git-progress/progress.shacl.ttl",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:ca6c9ceb02bae9c08b9a3bb968154c6ccf86da03958a00e9c3d847ebfc0a91f6",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "scripts/record-clean-git-progress.py",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:5505aedc7ef7802997f20b71a29727e81a0975abcf8bee9333b9fa7ee9cd73db",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "scripts/usl-git-export.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:2570ce6dba961bfa33f05eed17a8b44a0ebdf80013a546463e832bf5c31408ea",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "scripts/usl-git-import.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:a71ba9e0df484b04b1f0f6d5b0edf4d7593930f7315154b361b4da06c3b2d527",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/adapters.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/checkout-guard.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-bindings.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-export.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-git-bindings.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:de33ca248de6ace2c47e3b02292cec74534e0e75b1af376d01e4ef39f506528d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-git-state-bindings.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:6ff2d35b71129d5bc7b64887691a5c7e9e0e91d08e6589c325089af79d7a4ffa",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-git-state-restore.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:0d9095fcbee76dd3c13d5d09e5040261766b42818d02414396a2a2cdd0571dc6",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-git-state.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:241f447b1201788f32ae6fdd1bbbfb18391ba339d886040a88efda4c0ca6031b",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-git.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:738f9e50ff484376bfa3e6fb2c3aba67da46664f9643658949031aca4c30a999",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer-import.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:e1f6a36c6bc8a16160a3c0b432b165ce91520f84cb1f77a8c728a93d2c314180",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/portable-transfer.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/rule-policy.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/rule-weight-evidence.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/addons/rule-weight-review.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/application.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/attempt-state.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:15d4bb7f6465d1b39066b0f182953fef24e7eb7e208dc3a0d81f068464935e7e",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/binding-inspection.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:bf3b42d8c32ddfacf04f9dec8104d61e202f10190ec74f9bd377340b550975e8",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/bounded-read.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:e016f04530b8046daccc274269412cfccee5607ba661fd718730ee15c0a7e7c7",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/capabilities.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:56947b7411b532f89a1a8af703885b748e5b47f70f1345225bf627301d333018",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/capability-catalog.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:6a8b0ac0696d8afdbca1a3d8d242def7c39c0f4a73c59d53857747dab703ddbc",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-adapter.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:4d2f6a159b40bbeb5b437cd9a600210453cafa598997b82246ba910b996349b4",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-capabilities.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:48cee118eeccaaea3e2a0aefa3bdd292382a91a51e33a6895e4d7bd810ee1c70",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-help.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:4df34b8da44cfa1dfbcd316610b6d44df11ff13e9209e21fdbb7167d5887c5dc",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-host-command.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:f328f49fdd91046d1216f307e23e91cc06481e08af0f180609b8b3f07fd95f77",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-host.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-operation.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:ac45d633e9eafddd995db8346e22fd1676690cb86e39a4eea2dddd5af226474b",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-platform.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:289c4a3a8bcd6c26811924bb703a0038894c7b64207964142ce25ae588c0771a",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-process.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:c9d20c5af3b9a8aeb81c42a5ded7b4706d59dee08ac2d15d101de34b11d3fa29",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli-recovery.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:8dfd31cb753d765e9f5d68d3d603c815fba73f7238dda95c2270add562230ce9",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/cli.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:5843b269a772cabcf62c700448af6fc331d97553c51d365f7b75657bd71abaa7",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/contract-core.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:dfa9a3d5387dc9f77afa90c4247b1b0afe2decf824b3f70cca328b5e4891e322",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/domain-profile.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:625283ea49fea72688970c38ecce1f0681fd474b74931b2e43d883a13b89c7b6",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/domain.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/engineering-review.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:9c5eed58e088fcec45350f2516d41dad5b5add3bb5fb3e004ca94e8db0daf577",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/index.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:f32c1c08aa8a23e5b8d0e15463ede1a9c24c5a4b5c9506bbbdda89a997c6aa36",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/integrations/capability-inventory.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/integrations/graph-engineering.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/integrations/hswm.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/integrations/lean4.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/integrations/property-graph.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:e0c13da142ce080857309e2089cdef3696387c36f2f428cbf4a391e59e86a0a5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/integrations/resource-bindings.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:4d7588cb734b3d4c3cb22b77216e44e32c6801a11aba184227ecd121d4d42902",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/integrations/resource-graph.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/json-data.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:bfd430f5dde0b1d1917acda4d54a80f833989e765e4329ecffe48a5072a2ad8a",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/code.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:76b97d1dc700cc58bc82d5b9ff66fe8809f642c191c90297acd8d4662bd99a27",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/compact.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:8b423bfdb950114c50546e0c947e25b6748cf154e331b896b0ec77630293b416",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/comparison.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:a88ed19541f31e6558e144c4ee6fe324ccda7381dac017d060aeb0640f748862",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/compiler.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:3e5d59316e4da844506e5ff685b089618085166264a2eba1f4a04775b53ca86f",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/digest.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:381eb5c94c6af000a52d26888054ada6f8850007cae4cf71e76a80cee6419da1",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/index.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:d86e7908c37388c8cf7a1538d7674033ab604f238bcb3c2f4c80a1dbf4c2f369",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/model.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:6707b3efb96f5aefca14b120994914fda9841d03f2f6719c871f437792884493",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/navigation.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:26b815df829887a4cdbc5dbb8f1bf7d302aba219b04c342f4ebde048fa24951e",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/observation-schema.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:0a2fdb929e4ff6709afa54efcbc659434909f2a245efa70d6b5e2e611a4694a5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/parser.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:ee616d50a6ad8027feec0dc49fa7c4b69403efceb66aabcd00a44b46895357ed",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/project.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:7954aa7f47c4d306cac0f1aa98e820d7318f0a7062761405de6b17975f866d8c",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/language/runtime.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:522aea1b923b6437bba5a8c5bef8cdddb2128afe623577426342d9c43e44d4a8",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/locator.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/mcp-config.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:d2e77e10dec777daaa9d777c9a14c6a10e3a0a2ec4776f655e2651eadeef9776",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/mcp.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:a4e9832cbf87934751ff3ac0d849ec32b25a46842c2f662b445f667914d77f2f",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/pierce.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:6d8ed1a5faf0b5cf0108f8723a90b8d7bbc23159683a09c11728d7f168b6761e",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/program-store.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/project.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/resolve.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/resource-bindings.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/storage.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "src/validation.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/clean-git-fixture.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:834ca9d3b961e5b82ed5ce55daddcc1944262c3e3aae663ce652d819058dabf5",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-adversarial.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:9a0657dba311d34a5a470f0a6757900a13de3b2723f3621db224ae172f746ac8",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-bindings.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:f84ef6e776276dc9c7b9b3f8e37e8c580aad7ee7d4e5ebbff9d19ca5a81be0cb",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-cli.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:d5a1b5d0fe5640b5df19d8f0ac76e7736a2027c7a3bc2d87486f66fb6ccb0402",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-import-cli.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:a49e45f45692ec65efbc05b51e561964c008451fa1ab022d446ff365a9d2a43d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-import.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:59b815b359b75fdfdcd178a0018a6b5c84f85c5eea10664a97a1d84e199cfd31",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-restore-adversarial.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:8735826f48bbaadc4484b09daadb0a6c615d8432ba98b91f13ddea0197296e6b",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-state-adversarial.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:10979ec628f30bf52263dce52293fa1a491cea9bd73f51899c46bd3a3b57dd60",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-state-integration.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:809824c7d21dd202643aae7c1c68c80d01f7c7166b57b6cb13331e14eadb87ea",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-state-restore.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:cc98e779f55a92bc87ea61d48b98e561011a481fb8ddced200801b9d9e91208d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git-state.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:f12515f22237c719970d814cf4022685f5c089d29654db12c9d433de36e1e129",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "test/portable-transfer-git.test.ts",
+      "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "sha256": "sha256:71b29378d8080429db5bd371fb9ebe519398735cd58a6b1ff5dec676038d991d",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/PORTABLE_TRANSFER_GIT_STATE.md",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:4b2209f14b253761db3a64dc28b06a37d86c8d45b9f2b459973ed8d877a2279a",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/RULE_WEIGHT_REVIEW.md",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:4fd9716a318eb02e77a960394d81735f9b7553d0118b1e00569e2657e1b9c789",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "connections/hswm/source-receipt.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:c5566ca23b2b110949b44c6910c7ed454032145be2b3e9a9c223bae51380e7be",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "connections/hswm/graph.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:46b0b09454c3811eb80925eb0be1fe825d004edf5c7109f0b2e7a42a202e4b5f",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "docs/HSWM_INTEGRATION.md",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:ae6c4adf1c94e645ff606a1752a93ba59e6388829872e74408c22afdca2d0897",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "connections/hswm-likeness/session-2026-10-06.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:e93ba5700200fe5ea584903a1f97dfe5c182cc2c5075ee82408a0cd3f1c700fe",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/rule-weight-evidence/learner-execution.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:42c4b25334c7958ecb77d0e556833671356f60eed8b147dd0a304adf0daff1d6",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/architecture/kg-bridge.publication.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:55cade0f47019c0c6f7e6b024781c7560feeb3f99b26cc7114abd1aacdce5662",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    },
+    {
+      "path": "research/architecture/hswm-like.plan.json",
+      "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+      "sha256": "sha256:ed6e2eed6282f3fa0b167b8444b2588edea9a28d374005583689a97b537d3c26",
+      "scope": "PINNED_GIT_BLOB_NOT_LIVE_SERVICE"
+    }
+  ],
+  "counts": {
+    "commits": 80,
+    "milestones": 27,
+    "packages": 23,
+    "remainingTasks": 9,
+    "hswmFacets": 6,
+    "resources": 480,
+    "links": 920
+  }
+}

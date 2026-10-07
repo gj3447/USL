@@ -31,6 +31,7 @@ Copyright © 2026 **Ra Gyeongjun (라경준)**. **AGPL-3.0-or-later 또는 별�
 - [사용자 매뉴얼](docs/USER_MANUAL.md) · [빠른 시작](docs/GETTING_STARTED.md) · [CLI](docs/CLI.md) · [MCP](docs/MCP.md)
 - [기존 `.usl` 문법](docs/LANGUAGE.md) · [TypeScript 코드 내장](docs/CODE_INTEGRATION.md)
 - [과거 설계·검증 기록](archive/README.md)
+- [개발 변천사·남은 작업·HSWM 연결 수준 감사](docs/DEVELOPMENT_LINEAGE.md) · [USL 이력 그래프와 바인딩](research/development-lineage/graph.json)
 
 ## 연결을 표현하는 방법
 
