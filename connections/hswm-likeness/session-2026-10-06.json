@@ -1,0 +1,15 @@
+{
+  "allowedLocators": [],
+  "maxResources": 16,
+  "maxInputBytes": 4194304,
+  "maxOutputBytes": 8388608,
+  "programs": {},
+  "connections": {
+    "hswm-session-2026-10-06": {
+      "graph": "../../../HSWM_LIKENESS/.local/usl/session-2026-10-06/graph.json",
+      "profile": "../../../HSWM_LIKENESS/.local/usl/session-2026-10-06/profile.json",
+      "namespace": "hswm.likeness.session.2026-10-06",
+      "format": "resource-graph"
+    }
+  }
+}
