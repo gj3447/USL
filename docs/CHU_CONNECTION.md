@@ -9,6 +9,13 @@
 | [HSWM](https://github.com/gj3447/HSWM) | CHU 안의 **LLM 전용** 하이퍼그래프 AI |
 | USL | 자원을 의미와 역할로 연결하는 바인딩 문법 (별도 DB 없음) |
 
+2026-10-07 사용자 정정: 위 표의 HSWM은 소프트웨어 저장소의 자기 정의다.
+철학적 HSWM은 주어진 범위·목적·제약에서 CHU가 얼마나 최적화됐는가로 별도
+평가한다. 표준 그래프 엔지니어링 기반 구성이 현재 HSWM 소프트웨어보다 높은
+평가를 받을 가능성도 열어 둔다. 저장소 연결 여부나 실행 준비 상태가 이
+최적화 정도의 점수는 아니다. [원문과 적용 결정](DECISIONS.md) ·
+[비교 평가 초안](DEVELOPMENT_LINEAGE.md).
+
 CHU 쪽 관계 설명: [CHU `ECOSYSTEM.md`](https://github.com/gj3447/CHU/blob/main/ECOSYSTEM.md).
 
 ## USL과 CHU의 관계

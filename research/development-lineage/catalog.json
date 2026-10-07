@@ -18,7 +18,9 @@
     "operationalLearning": "NOT_ESTABLISHED",
     "standardsSuperset": "NOT_CLAIMED",
     "remotePublication": "NOT_VERIFIED",
-    "newRuntimeAcceptance": "NOT_RUN"
+    "newRuntimeAcceptance": "NOT_RUN",
+    "hswmExecutionScope": "SOFTWARE_INTEGRATION_ONLY",
+    "philosophicalOptimizationStatus": "NOT_MEASURED"
   },
   "milestones": [
     {
@@ -487,5 +489,182 @@
       "id": "cq:usl-lineage:bindings",
       "question": "workspace를 옮겨도 resource ID와 link roles를 보존하고 원문 pin을 선택할 수 있는가?"
     }
-  ]
+  ],
+  "philosophy": {
+    "id": "evaluation:hswm-philosophy:usl-v1",
+    "version": "1",
+    "authority": "SECONDARY_AI",
+    "status": "EVALUATION_DESIGN_ONLY",
+    "recordedOn": "2026-10-07",
+    "interpretation": "철학적 HSWM을 주어진 범위·목적·제약에서 CHU 구성의 최적화 정도로 해석한다. 특정 HSWM 소프트웨어는 그 관점에서 평가할 후보이며 정의나 자동 만점 기준이 아니다.",
+    "operationalReadinessIsScore": false,
+    "numericScore": null,
+    "measurementStatus": "NOT_MEASURED",
+    "optimalityStatus": "NOT_PROVEN",
+    "scoreIsCanonicalW": false,
+    "nativeImplementationBonus": false,
+    "userStatements": [
+      {
+        "id": "user:hswm-philosophy-scope-2026-10-07",
+        "authority": "USER_PRIMARY",
+        "source": "CURRENT_CONVERSATION",
+        "text": "철학적인 HSWM 을 생각해봐봐 ㅇㅇ 어케해야 하는지 ㅇㅇ 그 CHU 가 주어진 범위에서 최대로 최적화 된게 HSWM 수치로 볼수가 있는거야 개념적으로 이해가 되냐 ㅇㅇ?"
+      },
+      {
+        "id": "user:hswm-software-comparison-2026-10-07",
+        "authority": "USER_PRIMARY",
+        "source": "CURRENT_CONVERSATION",
+        "text": "ㅇㅇ ㄱㄱ 지금 HSWM 소프트웨어는 아직 많이 미약하지 ㅇㅇ 첨단 표준그래프 엔지니어링 이 더 HSWM 가 높을지도 모름 ㅇㅇ"
+      }
+    ],
+    "context": {
+      "id": "context:hswm-philosophy:usl-v1",
+      "authority": "SECONDARY_AI",
+      "status": "PROPOSED_PROFILE",
+      "objective": "USL 개발 근거와 작업환경 자원을 정확히 연결·탐색·이동하고 결과를 이용해 더 나은 구성을 선택한다.",
+      "scope": "USL의 선택된 자원·바인딩·개발 근거 그래프; CHU 전체나 일반 지능의 절대 척도가 아니다.",
+      "constraints": [
+        "stable ID·의미·이름 있는 역할과 원문 출처를 보존한다.",
+        "owner scope와 데이터 포함 범위를 보존한다.",
+        "동일 workload·환경·자원 예산·오류 계약을 후보 모두에 적용한다.",
+        "필수 제약 위반을 비용 절감이나 가중 평균으로 상쇄하지 않는다."
+      ],
+      "workloadStatus": "NOT_SELECTED",
+      "workloadDigest": null,
+      "environmentStatus": "NOT_SELECTED",
+      "measurementProtocol": "NOT_DEFINED",
+      "normalization": "NOT_DEFINED",
+      "aggregation": "NOT_DEFINED",
+      "weights": null,
+      "weightAuthority": "NOT_SELECTED",
+      "requiredBeforeNumericScore": [
+        "목적·scope·제약·평가 profile version",
+        "비교할 실행 가능한 구성과 각각의 revision·artifact digest",
+        "같은 workload·입력 digest·환경·예산",
+        "측정법·오류 처리·측정 시각·raw 결과와 evidence pin",
+        "정규화·집계 방식·가중치 및 선택 주체",
+        "반복 측정의 변동성과 평가 한계"
+      ],
+      "comparisonRule": "이름·규격 문서의 개수 대신 같은 조건에서 측정한 구성을 비교한다. 가능한 비교는 해당 profile에 한정하고 전역 최적성으로 확대하지 않는다."
+    },
+    "candidates": [
+      {
+        "id": "candidate:hswm-philosophy:hswm-software",
+        "label": "HSWM 소프트웨어의 선택된 구현",
+        "kind": "SOFTWARE_FAMILY",
+        "selectionStatus": "CONCRETE_REVISION_REQUIRED",
+        "selectedRevision": null,
+        "artifactDigest": null,
+        "measurementStatus": "NOT_MEASURED",
+        "score": null,
+        "evidenceIds": []
+      },
+      {
+        "id": "candidate:hswm-philosophy:standards-stack",
+        "label": "표준 그래프 엔지니어링 기반의 선택된 구성",
+        "kind": "ENGINEERING_APPROACH",
+        "selectionStatus": "CONCRETE_PIPELINE_REQUIRED",
+        "selectedRevision": null,
+        "artifactDigest": null,
+        "measurementStatus": "NOT_MEASURED",
+        "score": null,
+        "evidenceIds": []
+      }
+    ],
+    "dimensions": [
+      {
+        "id": "dimension:hswm-philosophy:purpose-fit",
+        "label": "목적 적합성",
+        "proposal": "동일한 실제 작업에서 요구사항을 만족한 비율과 실패 유형을 분리한다.",
+        "packageIds": [
+          "package:CP07",
+          "package:CP23"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      },
+      {
+        "id": "dimension:hswm-philosophy:semantic-fidelity",
+        "label": "의미·출처 보존",
+        "proposal": "ID·역할·맥락·원문 pin·변환 손실을 검사한다. 필수 의미 보존 위반은 집계 전 자격 조건으로 다룬다.",
+        "packageIds": [
+          "package:CP09",
+          "package:CP10",
+          "package:CP20"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      },
+      {
+        "id": "dimension:hswm-philosophy:retrieval-quality",
+        "label": "탐색·판단 품질",
+        "proposal": "정답과 근거가 지정된 질의에서 실제 target 도달·근거 지지·잘못된 연결을 측정한다. 노드·링크 수 자체를 점수로 쓰지 않는다.",
+        "packageIds": [
+          "package:CP08",
+          "package:CP15"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      },
+      {
+        "id": "dimension:hswm-philosophy:portability",
+        "label": "이동·변화에 대한 강건성",
+        "proposal": "선택 profile에서 이동·worktree 분기·원본 부재·손상 이후 의미와 작업 상태가 보존되는지를 측정한다.",
+        "packageIds": [
+          "package:CP03",
+          "package:CP04",
+          "package:CP05",
+          "package:CP06",
+          "package:CP07"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      },
+      {
+        "id": "dimension:hswm-philosophy:feedback",
+        "label": "결과에 근거한 개선",
+        "proposal": "작업 결과로 구성을 바꿨을 때 baseline·holdout·replay 대비 개선되는지를 평가한다. 수동 또는 자동이라는 이름만으로 우열을 정하지 않는다.",
+        "packageIds": [
+          "package:CP21",
+          "package:CP22"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      },
+      {
+        "id": "dimension:hswm-philosophy:resource-cost",
+        "label": "제약 안에서의 자원 효율",
+        "proposal": "동일 정확도·지원 범위·예산 아래 시간·메모리·bytes·실제 비용을 각각 측정한다. token 추정과 실제 청구는 분리한다.",
+        "packageIds": [
+          "package:CP07",
+          "package:CP17"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      }
+    ],
+    "comparison": {
+      "id": "comparison:hswm-philosophy:standards-vs-software",
+      "authority": "SECONDARY_AI",
+      "status": "HYPOTHESIS_NOT_TESTED",
+      "hypothesis": "같은 범위·목적·제약에서 표준 그래프 엔지니어링 기반 구성이 현재 선택된 HSWM 소프트웨어보다 더 높은 철학적 HSWM 최적화 정도를 보일 수 있다.",
+      "sourceStatementId": "user:hswm-software-comparison-2026-10-07",
+      "contextId": "context:hswm-philosophy:usl-v1",
+      "candidateIds": [
+        "candidate:hswm-philosophy:hswm-software",
+        "candidate:hswm-philosophy:standards-stack"
+      ],
+      "winner": "UNDETERMINED",
+      "score": null,
+      "evidenceIds": [],
+      "optimalityStatus": "NOT_PROVEN"
+    },
+    "implementationBoundary": "평가 관점과 비교 계약의 로컬 그래프다. 새 점수 계산기·학습기·HSWM 실행이나 측정된 순위를 구현했다고 주장하지 않는다."
+  }
 }

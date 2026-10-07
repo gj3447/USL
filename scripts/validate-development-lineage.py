@@ -41,6 +41,7 @@ def dag(edges, label):
 def validate_model(catalog, graph, inventory, bindings):
     resource=index(graph); meanings={m["id"] for m in graph["meanings"]}
     profile=load("profile.json"); roles={m["id"]:{r["role"]:set(r["types"]) for r in m["roles"]} for m in profile["meanings"]}
+    role_order={m["id"]:[r["role"] for r in m["roles"]] for m in profile["meanings"]}
     if meanings != set(roles): fail("meanings/profile mismatch")
     # closed typed endpoints/cardinality
     for link in graph["links"]:
@@ -102,7 +103,7 @@ def validate_model(catalog, graph, inventory, bindings):
         if "Acceptance" in type_name(r) and r["metadata"].get("execution") != "NOT_RUN": fail("future acceptance promoted")
         if "RemainingTask" in type_name(r) and (r["metadata"].get("status"),r["metadata"].get("execution")) != ("PLANNED","NOT_RUN"): fail("remaining task promoted")
     snapshot=resource[catalog["id"]]["metadata"]
-    for key,value in {"authority":"SECONDARY_AI","hswmExecution":"NOT_READY","hswmAuthority":"NOT_GRANTED","operationalLearning":"NOT_ESTABLISHED"}.items():
+    for key,value in {"authority":"SECONDARY_AI","hswmExecution":"NOT_READY","hswmAuthority":"NOT_GRANTED","operationalLearning":"NOT_ESTABLISHED","hswmExecutionScope":"SOFTWARE_INTEGRATION_ONLY","philosophicalOptimizationStatus":"NOT_MEASURED"}.items():
         if snapshot.get(key)!=value: fail("HSWM/runtime boundary inflated")
     facets={x["id"]:x for x in catalog["hswmFacets"]}
     got_facets={uid:r["metadata"] for uid,r in resource.items() if "HswmAssessment" in type_name(r)}
@@ -138,9 +139,28 @@ def validate_model(catalog, graph, inventory, bindings):
     facets_at_snapshot={p["assessment"] for name,p in snapshot_pairs if name=="snapshot_facet"}
     if milestones != {x["id"] for x in catalog["milestones"]} or facets_at_snapshot != {x["id"] for x in catalog["hswmFacets"]}: fail("snapshot coverage tuple mismatch")
     scope=json.loads(subprocess.check_output(["git","show",f"{base}:research/architecture/hswm-like.plan.json"],cwd=ROOT))
-    expected_statements={catalog["userRequest"]["id"]:catalog["userRequest"], **{x["id"]:x for x in scope["scopeCorrections"]}}
+    philosophy=catalog["philosophy"]
+    expected_statements={catalog["userRequest"]["id"]:catalog["userRequest"], **{x["id"]:x for x in scope["scopeCorrections"]}, **{x["id"]:x for x in philosophy["userStatements"]}}
     actual_statements={uid:r["metadata"] for uid,r in resource.items() if "UserStatement" in type_name(r)}
     if actual_statements != expected_statements: fail("USER_PRIMARY statement source/text mismatch")
+    # Philosophy is an exact catalog projection but has non-negotiable unmeasured boundaries.
+    frame=resource.get(philosophy["id"]); context=resource.get(philosophy["context"]["id"]); comparison=resource.get(philosophy["comparison"]["id"])
+    if not frame or frame["metadata"] != {k:v for k,v in philosophy.items() if k not in {"userStatements","context","candidates","dimensions","comparison"}} or not context or context["metadata"] != philosophy["context"] or not comparison or comparison["metadata"] != philosophy["comparison"]: fail("philosophy frame/context/comparison catalog mismatch")
+    candidates={x["id"]:x for x in philosophy["candidates"]}; dimensions={x["id"]:x for x in philosophy["dimensions"]}
+    if {uid:r["metadata"] for uid,r in resource.items() if "EvaluationCandidate" in type_name(r)} != candidates or {uid:r["metadata"] for uid,r in resource.items() if "EvaluationDimension" in type_name(r)} != dimensions: fail("philosophy candidate/dimension catalog mismatch")
+    hard={"status":"EVALUATION_DESIGN_ONLY","operationalReadinessIsScore":False,"numericScore":None,"measurementStatus":"NOT_MEASURED","optimalityStatus":"NOT_PROVEN","scoreIsCanonicalW":False,"nativeImplementationBonus":False}
+    if any(frame["metadata"].get(k) != v for k,v in hard.items()): fail("evaluation frame improperly measured/promoted")
+    if any(c.get("selectedRevision") is not None or c.get("artifactDigest") is not None or c.get("score") is not None or c.get("measurementStatus")!="NOT_MEASURED" or c.get("evidenceIds") for c in candidates.values()): fail("unselected candidate has fabricated measurement")
+    if comparison["metadata"].get("status")!="HYPOTHESIS_NOT_TESTED" or comparison["metadata"].get("winner")!="UNDETERMINED" or comparison["metadata"].get("score") is not None or comparison["metadata"].get("optimalityStatus")!="NOT_PROVEN" or comparison["metadata"].get("evidenceIds"): fail("comparison winner/score fabricated")
+    context_hard={"workloadStatus":"NOT_SELECTED","workloadDigest":None,"environmentStatus":"NOT_SELECTED","measurementProtocol":"NOT_DEFINED","normalization":"NOT_DEFINED","aggregation":"NOT_DEFINED","weights":None,"weightAuthority":"NOT_SELECTED"}
+    if any(context["metadata"].get(k) != v for k,v in context_hard.items()): fail("evaluation context falsely finalized")
+    if any(d.get("measurementStatus")!="NOT_MEASURED" or d.get("value") is not None for d in dimensions.values()): fail("dimension measurement fabricated")
+    # Exact philosophy relation tuples from nested catalog fields.
+    def links_of(name):
+        source_role,target_role=role_order[str(NS[name])]
+        return {(pair(x)[source_role],pair(x)[target_role]) for x in graph["links"] if x["meaning"]==str(NS[name])}
+    if links_of("snapshot_philosophy") != {(catalog["id"],philosophy["id"])} or links_of("frame_statement") != {(philosophy["id"],x["id"]) for x in philosophy["userStatements"]} or links_of("frame_context") != {(philosophy["id"],philosophy["context"]["id"])} or links_of("frame_candidate") != {(philosophy["id"],x) for x in candidates} or links_of("frame_dimension") != {(philosophy["id"],x) for x in dimensions} or links_of("frame_comparison") != {(philosophy["id"],philosophy["comparison"]["id"])}: fail("philosophy frame relation mismatch")
+    if links_of("comparison_candidate") != {(philosophy["comparison"]["id"],x) for x in philosophy["comparison"]["candidateIds"]} or links_of("comparison_context") != {(philosophy["comparison"]["id"],philosophy["context"]["id"])} or links_of("comparison_statement") != {(philosophy["comparison"]["id"],philosophy["comparison"]["sourceStatementId"])} or links_of("dimension_package") != {(d["id"],p) for d in dimensions.values() for p in d["packageIds"]} or links_of("frame_operational_context") != {(philosophy["id"],x["id"]) for x in catalog["hswmFacets"]}: fail("philosophy comparison/dimension/facet relation mismatch")
     # all graph resources have one binding and selection
     bound={x["id"] for x in bindings["resources"]}
     if bound != set(resource): fail("binding resource coverage mismatch")
@@ -158,7 +178,7 @@ def rdf_checks(trace, graph, catalog):
     relationships=query("SELECT ?f ?t ?p WHERE { ?r a l:Relationship; l:from ?f; l:to ?t; l:predicate ?p }")
     if relationships != expected_relationships: fail("trace/native graph relationship tuple mismatch")
     if parents != {(f,t) for f,t,p in expected_relationships if p=="parent"}: fail("CQ parent tuple mismatch")
-    for predicate in ("milestone_commit","milestone_source","milestone_package","package_criterion","depends_on","conditionally_depends_on","facet_source","statement_source","run_commit","run_receipt","run_source","run_test","test_acceptance"):
+    for predicate in ("milestone_commit","milestone_source","milestone_package","package_criterion","depends_on","conditionally_depends_on","facet_source","statement_source","run_commit","run_receipt","run_source","run_test","test_acceptance","snapshot_philosophy","frame_statement","frame_context","frame_candidate","frame_dimension","frame_comparison","frame_operational_context","comparison_candidate","comparison_context","comparison_statement","dimension_package"):
         direct=query(f"SELECT ?a ?b WHERE {{ ?a l:{predicate} ?b }}")
         rel={(f,t) for f,t,p in relationships if p==predicate}
         if direct != rel: fail("CQ exact relationship mismatch: "+predicate)
@@ -209,5 +229,21 @@ def main():
     must_reject_shacl("shacl-future-acceptance", lambda t: next(x for x in t["@graph"] if str(NS.Acceptance) in x.get("@type",[])).__setitem__("l:execution","PASS"), trace)
     must_reject_shacl("shacl-snapshot-ready", lambda t: next(x for x in t["@graph"] if str(NS.Snapshot) in x.get("@type",[])).__setitem__("l:hswmExecution","READY"), trace)
     must_reject_shacl("shacl-snapshot-w-learned", lambda t: next(x for x in t["@graph"] if str(NS.Snapshot) in x.get("@type",[])).__setitem__("l:operationalLearning","W_LEARNED"), trace)
-    print(json.dumps({"status":"PASS","commits":len(inventory["commits"]),"packages":23,"criteria":47,"resources":len(graph["resources"]),"links":len(graph["links"]),"rdfTriples":triples,"relationships":relationships,"negativeMutations":13},ensure_ascii=False))
+    # Mutate catalog and projection together: rejection must come from hard boundaries, not projection drift.
+    def mutate_philosophy(c,g,field,value,section=None):
+        target=c["philosophy"] if section is None else (next(x for x in c["philosophy"][section] if x["id"]=="candidate:hswm-philosophy:hswm-software") if section=="candidates" else c["philosophy"][section])
+        target[field]=value
+        uid=target["id"]
+        next(x for x in g["resources"] if x["id"]==uid)["metadata"][field]=value
+    must_reject("evaluation-numeric-score", lambda c,g,i,b: mutate_philosophy(c,g,"numericScore",0), catalog,graph,inventory,bindings)
+    must_reject("candidate-score", lambda c,g,i,b: mutate_philosophy(c,g,"score",0,"candidates"), catalog,graph,inventory,bindings)
+    must_reject("comparison-winner", lambda c,g,i,b: mutate_philosophy(c,g,"winner","candidate:hswm-philosophy:standards-stack","comparison"), catalog,graph,inventory,bindings)
+    must_reject("readiness-score", lambda c,g,i,b: mutate_philosophy(c,g,"operationalReadinessIsScore",True), catalog,graph,inventory,bindings)
+    must_reject("candidate-measured", lambda c,g,i,b: mutate_philosophy(c,g,"measurementStatus","MEASURED","candidates"), catalog,graph,inventory,bindings)
+    must_reject_shacl("shacl-numeric-score", lambda t: next(x for x in t["@graph"] if str(NS.EvaluationFrame) in x.get("@type",[])).__setitem__("l:numericScore",0), trace)
+    must_reject_shacl("shacl-candidate-score", lambda t: next(x for x in t["@graph"] if str(NS.EvaluationCandidate) in x.get("@type",[])).__setitem__("l:score",0), trace)
+    must_reject_shacl("shacl-winner", lambda t: next(x for x in t["@graph"] if str(NS.ComparisonProposal) in x.get("@type",[])).__setitem__("l:winner","candidate:hswm-philosophy:standards-stack"), trace)
+    must_reject_shacl("shacl-readiness-score", lambda t: next(x for x in t["@graph"] if str(NS.EvaluationFrame) in x.get("@type",[])).__setitem__("l:operationalReadinessIsScore",True), trace)
+    must_reject_shacl("shacl-candidate-measured", lambda t: next(x for x in t["@graph"] if str(NS.EvaluationCandidate) in x.get("@type",[])).__setitem__("l:measurementStatus","MEASURED"), trace)
+    print(json.dumps({"status":"PASS","commits":len(inventory["commits"]),"packages":23,"criteria":47,"resources":len(graph["resources"]),"links":len(graph["links"]),"rdfTriples":triples,"relationships":relationships,"negativeMutations":23},ensure_ascii=False))
 if __name__=="__main__": main()

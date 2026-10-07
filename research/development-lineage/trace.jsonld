@@ -11,7 +11,7 @@
         "http://www.w3.org/ns/prov#Entity"
       ],
       "l:path": "research/development-lineage/catalog.json",
-      "l:sha256": "sha256:7bce9ec170fa88fe7f6953b74bac3bf7d3e9a00b5627d1647c8e5aef532ee26e"
+      "l:sha256": "sha256:da90c3ea9410461ddb1948db03cda15fadfded26206a3d3c8b8cbcbd52303f5e"
     },
     {
       "@id": "agent:usl-lineage",
@@ -53,6 +53,8 @@
       "l:standardsSuperset": "NOT_CLAIMED",
       "l:remotePublication": "NOT_VERIFIED",
       "l:newRuntimeAcceptance": "NOT_RUN",
+      "l:hswmExecutionScope": "SOFTWARE_INTEGRATION_ONLY",
+      "l:philosophicalOptimizationStatus": "NOT_MEASURED",
       "prov:wasGeneratedBy": {
         "@id": "activity:usl-lineage"
       }
@@ -6113,6 +6115,204 @@
       "l:id": "user:compression-cost",
       "l:text": "ㅇㅇ 그 내용으로 표준 그래프 엔지니어링 구축해주고 USL 문법에 그것도 고려해야해 얼마나 압축할지 압축기술 데이터 최소로 최대한의 데이터를 우겨넣어야 좋잖아 메모리도 아끼고 토큰도 아끼고 ㅇㅇ ai 토큰기술과 그 압축기술에 대해서도 한번 알아줘봐봐 비용최소화 해야해 문법 자체로써도",
       "l:authority": "USER_PRIMARY"
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationFrame",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "evaluation:hswm-philosophy:usl-v1",
+      "l:version": "1",
+      "l:authority": "SECONDARY_AI",
+      "l:status": "EVALUATION_DESIGN_ONLY",
+      "l:recordedOn": "2026-10-07",
+      "l:interpretation": "철학적 HSWM을 주어진 범위·목적·제약에서 CHU 구성의 최적화 정도로 해석한다. 특정 HSWM 소프트웨어는 그 관점에서 평가할 후보이며 정의나 자동 만점 기준이 아니다.",
+      "l:operationalReadinessIsScore": false,
+      "l:measurementStatus": "NOT_MEASURED",
+      "l:optimalityStatus": "NOT_PROVEN",
+      "l:scoreIsCanonicalW": false,
+      "l:nativeImplementationBonus": false,
+      "l:implementationBoundary": "평가 관점과 비교 계약의 로컬 그래프다. 새 점수 계산기·학습기·HSWM 실행이나 측정된 순위를 구현했다고 주장하지 않는다.",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "user:hswm-philosophy-scope-2026-10-07",
+      "@type": [
+        "urn:usl:development-lineage:UserStatement",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "user:hswm-philosophy-scope-2026-10-07",
+      "l:authority": "USER_PRIMARY",
+      "l:source": "CURRENT_CONVERSATION",
+      "l:text": "철학적인 HSWM 을 생각해봐봐 ㅇㅇ 어케해야 하는지 ㅇㅇ 그 CHU 가 주어진 범위에서 최대로 최적화 된게 HSWM 수치로 볼수가 있는거야 개념적으로 이해가 되냐 ㅇㅇ?"
+    },
+    {
+      "@id": "user:hswm-software-comparison-2026-10-07",
+      "@type": [
+        "urn:usl:development-lineage:UserStatement",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "user:hswm-software-comparison-2026-10-07",
+      "l:authority": "USER_PRIMARY",
+      "l:source": "CURRENT_CONVERSATION",
+      "l:text": "ㅇㅇ ㄱㄱ 지금 HSWM 소프트웨어는 아직 많이 미약하지 ㅇㅇ 첨단 표준그래프 엔지니어링 이 더 HSWM 가 높을지도 모름 ㅇㅇ"
+    },
+    {
+      "@id": "context:hswm-philosophy:usl-v1",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationContext",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "context:hswm-philosophy:usl-v1",
+      "l:authority": "SECONDARY_AI",
+      "l:status": "PROPOSED_PROFILE",
+      "l:objective": "USL 개발 근거와 작업환경 자원을 정확히 연결·탐색·이동하고 결과를 이용해 더 나은 구성을 선택한다.",
+      "l:scope": "USL의 선택된 자원·바인딩·개발 근거 그래프; CHU 전체나 일반 지능의 절대 척도가 아니다.",
+      "l:workloadStatus": "NOT_SELECTED",
+      "l:environmentStatus": "NOT_SELECTED",
+      "l:measurementProtocol": "NOT_DEFINED",
+      "l:normalization": "NOT_DEFINED",
+      "l:aggregation": "NOT_DEFINED",
+      "l:weightAuthority": "NOT_SELECTED",
+      "l:comparisonRule": "이름·규격 문서의 개수 대신 같은 조건에서 측정한 구성을 비교한다. 가능한 비교는 해당 profile에 한정하고 전역 최적성으로 확대하지 않는다.",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "candidate:hswm-philosophy:hswm-software",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationCandidate",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "candidate:hswm-philosophy:hswm-software",
+      "l:label": "HSWM 소프트웨어의 선택된 구현",
+      "l:kind": "SOFTWARE_FAMILY",
+      "l:selectionStatus": "CONCRETE_REVISION_REQUIRED",
+      "l:measurementStatus": "NOT_MEASURED"
+    },
+    {
+      "@id": "candidate:hswm-philosophy:standards-stack",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationCandidate",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "candidate:hswm-philosophy:standards-stack",
+      "l:label": "표준 그래프 엔지니어링 기반의 선택된 구성",
+      "l:kind": "ENGINEERING_APPROACH",
+      "l:selectionStatus": "CONCRETE_PIPELINE_REQUIRED",
+      "l:measurementStatus": "NOT_MEASURED"
+    },
+    {
+      "@id": "dimension:hswm-philosophy:purpose-fit",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "dimension:hswm-philosophy:purpose-fit",
+      "l:label": "목적 적합성",
+      "l:proposal": "동일한 실제 작업에서 요구사항을 만족한 비율과 실패 유형을 분리한다.",
+      "l:authority": "SECONDARY_AI",
+      "l:measurementStatus": "NOT_MEASURED",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:semantic-fidelity",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "dimension:hswm-philosophy:semantic-fidelity",
+      "l:label": "의미·출처 보존",
+      "l:proposal": "ID·역할·맥락·원문 pin·변환 손실을 검사한다. 필수 의미 보존 위반은 집계 전 자격 조건으로 다룬다.",
+      "l:authority": "SECONDARY_AI",
+      "l:measurementStatus": "NOT_MEASURED",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:retrieval-quality",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "dimension:hswm-philosophy:retrieval-quality",
+      "l:label": "탐색·판단 품질",
+      "l:proposal": "정답과 근거가 지정된 질의에서 실제 target 도달·근거 지지·잘못된 연결을 측정한다. 노드·링크 수 자체를 점수로 쓰지 않는다.",
+      "l:authority": "SECONDARY_AI",
+      "l:measurementStatus": "NOT_MEASURED",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:portability",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "dimension:hswm-philosophy:portability",
+      "l:label": "이동·변화에 대한 강건성",
+      "l:proposal": "선택 profile에서 이동·worktree 분기·원본 부재·손상 이후 의미와 작업 상태가 보존되는지를 측정한다.",
+      "l:authority": "SECONDARY_AI",
+      "l:measurementStatus": "NOT_MEASURED",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:feedback",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "dimension:hswm-philosophy:feedback",
+      "l:label": "결과에 근거한 개선",
+      "l:proposal": "작업 결과로 구성을 바꿨을 때 baseline·holdout·replay 대비 개선되는지를 평가한다. 수동 또는 자동이라는 이름만으로 우열을 정하지 않는다.",
+      "l:authority": "SECONDARY_AI",
+      "l:measurementStatus": "NOT_MEASURED",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:resource-cost",
+      "@type": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "dimension:hswm-philosophy:resource-cost",
+      "l:label": "제약 안에서의 자원 효율",
+      "l:proposal": "동일 정확도·지원 범위·예산 아래 시간·메모리·bytes·실제 비용을 각각 측정한다. token 추정과 실제 청구는 분리한다.",
+      "l:authority": "SECONDARY_AI",
+      "l:measurementStatus": "NOT_MEASURED",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
+    },
+    {
+      "@id": "comparison:hswm-philosophy:standards-vs-software",
+      "@type": [
+        "urn:usl:development-lineage:ComparisonProposal",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "l:id": "comparison:hswm-philosophy:standards-vs-software",
+      "l:authority": "SECONDARY_AI",
+      "l:status": "HYPOTHESIS_NOT_TESTED",
+      "l:hypothesis": "같은 범위·목적·제약에서 표준 그래프 엔지니어링 기반 구성이 현재 선택된 HSWM 소프트웨어보다 더 높은 철학적 HSWM 최적화 정도를 보일 수 있다.",
+      "l:sourceStatementId": "user:hswm-software-comparison-2026-10-07",
+      "l:contextId": "context:hswm-philosophy:usl-v1",
+      "l:winner": "UNDETERMINED",
+      "l:optimalityStatus": "NOT_PROVEN",
+      "prov:wasGeneratedBy": {
+        "@id": "activity:usl-lineage"
+      }
     },
     {
       "@id": "cq:usl-lineage:history",
@@ -23630,6 +23830,864 @@
         "@id": "source:usl-lineage:0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324:7e3004dcf531"
       },
       "l:predicate": "statement_source",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "lineage:usl-development-2026-10-07",
+      "l:snapshot_philosophy": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      }
+    },
+    {
+      "@id": "lineage-link:4b14116f5cab3b59d0888bc36952331de2d3473a41a719958b11814ed87df187",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "lineage:usl-development-2026-10-07"
+      },
+      "l:to": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:predicate": "snapshot_philosophy",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_statement": {
+        "@id": "user:hswm-philosophy-scope-2026-10-07"
+      }
+    },
+    {
+      "@id": "lineage-link:a13302fe0552c181d4a0d24ae72d1a26f7e2c680ddbe094f3a89407705c731a8",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "user:hswm-philosophy-scope-2026-10-07"
+      },
+      "l:predicate": "frame_statement",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_statement": {
+        "@id": "user:hswm-software-comparison-2026-10-07"
+      }
+    },
+    {
+      "@id": "lineage-link:d207dc3e0532ac2a2fcd5d9b1b8a897049da217051bfb1b39c8d661e70a0ca4c",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "user:hswm-software-comparison-2026-10-07"
+      },
+      "l:predicate": "frame_statement",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_context": {
+        "@id": "context:hswm-philosophy:usl-v1"
+      }
+    },
+    {
+      "@id": "lineage-link:703fbe859c02b4c45dbac491f3b470d34e2cda17dc13e5bb5bec0470bf6683e0",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "context:hswm-philosophy:usl-v1"
+      },
+      "l:predicate": "frame_context",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_candidate": {
+        "@id": "candidate:hswm-philosophy:hswm-software"
+      }
+    },
+    {
+      "@id": "lineage-link:4ddaf7242daaa0767da69a8363bbe9a4ee165f09d3aa7618a0910a454469d4f3",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "candidate:hswm-philosophy:hswm-software"
+      },
+      "l:predicate": "frame_candidate",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_candidate": {
+        "@id": "candidate:hswm-philosophy:standards-stack"
+      }
+    },
+    {
+      "@id": "lineage-link:83a8f4a9bc9ca552e0785dffe6a3ff741be1195188c70dd582a86c6bde4fe906",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "candidate:hswm-philosophy:standards-stack"
+      },
+      "l:predicate": "frame_candidate",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_dimension": {
+        "@id": "dimension:hswm-philosophy:purpose-fit"
+      }
+    },
+    {
+      "@id": "lineage-link:bb4c28ffabf776b090e3316d1eb94763b3557c7de1ee74a387cceec7bd3e70f9",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "dimension:hswm-philosophy:purpose-fit"
+      },
+      "l:predicate": "frame_dimension",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:purpose-fit",
+      "l:dimension_package": {
+        "@id": "package:CP07"
+      }
+    },
+    {
+      "@id": "lineage-link:390dc517c9226aa33b49a0d6afe939321de6ec5aad3802f2ccfcdf1070df38ad",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:purpose-fit"
+      },
+      "l:to": {
+        "@id": "package:CP07"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:purpose-fit",
+      "l:dimension_package": {
+        "@id": "package:CP23"
+      }
+    },
+    {
+      "@id": "lineage-link:bc16849510dc86e5d560242e51dcf051873dc983bdb410fd7718fedf5851816c",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:purpose-fit"
+      },
+      "l:to": {
+        "@id": "package:CP23"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_dimension": {
+        "@id": "dimension:hswm-philosophy:semantic-fidelity"
+      }
+    },
+    {
+      "@id": "lineage-link:607307dfa0a2188e18f6e2ec22e3953f2a2b8843ff3a70adc66ef90f5f11ab55",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "dimension:hswm-philosophy:semantic-fidelity"
+      },
+      "l:predicate": "frame_dimension",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:semantic-fidelity",
+      "l:dimension_package": {
+        "@id": "package:CP09"
+      }
+    },
+    {
+      "@id": "lineage-link:74355c4f0143e8017b8829415706792aa8be222742e360b8bf83e3a9ba49ff13",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:semantic-fidelity"
+      },
+      "l:to": {
+        "@id": "package:CP09"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:semantic-fidelity",
+      "l:dimension_package": {
+        "@id": "package:CP10"
+      }
+    },
+    {
+      "@id": "lineage-link:cbfc9613f40f770ef043381852f9e591a16e692e83ffda95025665d454b7a934",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:semantic-fidelity"
+      },
+      "l:to": {
+        "@id": "package:CP10"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:semantic-fidelity",
+      "l:dimension_package": {
+        "@id": "package:CP20"
+      }
+    },
+    {
+      "@id": "lineage-link:508dff9619e3fd4229afc200efd0e5c3593b5939be4660f7878e09c03cf71c65",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:semantic-fidelity"
+      },
+      "l:to": {
+        "@id": "package:CP20"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_dimension": {
+        "@id": "dimension:hswm-philosophy:retrieval-quality"
+      }
+    },
+    {
+      "@id": "lineage-link:e4c7f7b7e6d25e7e56a1e8141fdfb5a4434c1b24e022071444474a7f6661286f",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "dimension:hswm-philosophy:retrieval-quality"
+      },
+      "l:predicate": "frame_dimension",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:retrieval-quality",
+      "l:dimension_package": {
+        "@id": "package:CP08"
+      }
+    },
+    {
+      "@id": "lineage-link:0e254512be18d1d15489d2ecc86d46063e9c92b328a9a697491e6b3413761143",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:retrieval-quality"
+      },
+      "l:to": {
+        "@id": "package:CP08"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:retrieval-quality",
+      "l:dimension_package": {
+        "@id": "package:CP15"
+      }
+    },
+    {
+      "@id": "lineage-link:0d45ced65f768c983e265e6acaf677059bdaf9266b0d8ac1ee6ae635136975db",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:retrieval-quality"
+      },
+      "l:to": {
+        "@id": "package:CP15"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_dimension": {
+        "@id": "dimension:hswm-philosophy:portability"
+      }
+    },
+    {
+      "@id": "lineage-link:9fb60c20f191abdefd7697bdf3a7fa0e463dfcf078bae76081d65116984550e0",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "dimension:hswm-philosophy:portability"
+      },
+      "l:predicate": "frame_dimension",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:portability",
+      "l:dimension_package": {
+        "@id": "package:CP03"
+      }
+    },
+    {
+      "@id": "lineage-link:7150ccb29938ba91d34cc8e517c682a02aeb8964028525b2f04f0b47f693c3fb",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:portability"
+      },
+      "l:to": {
+        "@id": "package:CP03"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:portability",
+      "l:dimension_package": {
+        "@id": "package:CP04"
+      }
+    },
+    {
+      "@id": "lineage-link:f681716ee37eb9027f6300f08b4f0eb61907b7b362dc71971b4a4dde6a4a84ab",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:portability"
+      },
+      "l:to": {
+        "@id": "package:CP04"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:portability",
+      "l:dimension_package": {
+        "@id": "package:CP05"
+      }
+    },
+    {
+      "@id": "lineage-link:a65ae556486d708014735ea589a45250bb0e71fa6edb9e98a8cd16f1ceb910d7",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:portability"
+      },
+      "l:to": {
+        "@id": "package:CP05"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:portability",
+      "l:dimension_package": {
+        "@id": "package:CP06"
+      }
+    },
+    {
+      "@id": "lineage-link:e278721e28acab1a62a1e7e20917a9d8f8cde1ac2ed30c72ab05f841fde9f2e3",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:portability"
+      },
+      "l:to": {
+        "@id": "package:CP06"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:portability",
+      "l:dimension_package": {
+        "@id": "package:CP07"
+      }
+    },
+    {
+      "@id": "lineage-link:d3eb581281ca2a6d7bb7bac445764c29a94afedd87b07bc6d3f8fe4ade431fa5",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:portability"
+      },
+      "l:to": {
+        "@id": "package:CP07"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_dimension": {
+        "@id": "dimension:hswm-philosophy:feedback"
+      }
+    },
+    {
+      "@id": "lineage-link:bb6d5db390338fa85c537aa7a8a9ebf24be95b423795d0d3ef2bb24e92b220b6",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "dimension:hswm-philosophy:feedback"
+      },
+      "l:predicate": "frame_dimension",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:feedback",
+      "l:dimension_package": {
+        "@id": "package:CP21"
+      }
+    },
+    {
+      "@id": "lineage-link:614150b00e1236e89e2e9886f5346cd60a738f5b64a8fa239d40b6019849c71f",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:feedback"
+      },
+      "l:to": {
+        "@id": "package:CP21"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:feedback",
+      "l:dimension_package": {
+        "@id": "package:CP22"
+      }
+    },
+    {
+      "@id": "lineage-link:aab1d44610ace6edad35eb93db2f9afeccf204519437abbc5e7a1746e5d3d6c9",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:feedback"
+      },
+      "l:to": {
+        "@id": "package:CP22"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_dimension": {
+        "@id": "dimension:hswm-philosophy:resource-cost"
+      }
+    },
+    {
+      "@id": "lineage-link:daac07f967d7a59664c85df6c543ecd87b82f610cd5279cf56d633cc05e78366",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "dimension:hswm-philosophy:resource-cost"
+      },
+      "l:predicate": "frame_dimension",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:resource-cost",
+      "l:dimension_package": {
+        "@id": "package:CP07"
+      }
+    },
+    {
+      "@id": "lineage-link:42d9d3ceaea56b4b92f94a1bf7887b987db1c4838f11431334a8e90b979f2955",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:resource-cost"
+      },
+      "l:to": {
+        "@id": "package:CP07"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "dimension:hswm-philosophy:resource-cost",
+      "l:dimension_package": {
+        "@id": "package:CP17"
+      }
+    },
+    {
+      "@id": "lineage-link:83e9ba3c4e7f5d08a6361c2b3b99adb8e1bbd2f144625d547eb93980473559ff",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "dimension:hswm-philosophy:resource-cost"
+      },
+      "l:to": {
+        "@id": "package:CP17"
+      },
+      "l:predicate": "dimension_package",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_comparison": {
+        "@id": "comparison:hswm-philosophy:standards-vs-software"
+      }
+    },
+    {
+      "@id": "lineage-link:6a3122ca84dc353a4c14d4d276ab54968e6d796a80f455e08a57d03438842d60",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "comparison:hswm-philosophy:standards-vs-software"
+      },
+      "l:predicate": "frame_comparison",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "comparison:hswm-philosophy:standards-vs-software",
+      "l:comparison_context": {
+        "@id": "context:hswm-philosophy:usl-v1"
+      }
+    },
+    {
+      "@id": "lineage-link:7572deb2ba3ea88a2cc015775171bd1149140452f75a4a8d060f25757fdcd098",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "comparison:hswm-philosophy:standards-vs-software"
+      },
+      "l:to": {
+        "@id": "context:hswm-philosophy:usl-v1"
+      },
+      "l:predicate": "comparison_context",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "comparison:hswm-philosophy:standards-vs-software",
+      "l:comparison_statement": {
+        "@id": "user:hswm-software-comparison-2026-10-07"
+      }
+    },
+    {
+      "@id": "lineage-link:99d73239b7d24d18807bf888d8c5cb2fda7290b4bf2f5b9069fb350994db21af",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "comparison:hswm-philosophy:standards-vs-software"
+      },
+      "l:to": {
+        "@id": "user:hswm-software-comparison-2026-10-07"
+      },
+      "l:predicate": "comparison_statement",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "comparison:hswm-philosophy:standards-vs-software",
+      "l:comparison_candidate": {
+        "@id": "candidate:hswm-philosophy:hswm-software"
+      }
+    },
+    {
+      "@id": "lineage-link:14be842014d20f9abde2fdb8450aff79faa1212e3b82d2b7b78ea2bee81347c4",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "comparison:hswm-philosophy:standards-vs-software"
+      },
+      "l:to": {
+        "@id": "candidate:hswm-philosophy:hswm-software"
+      },
+      "l:predicate": "comparison_candidate",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "comparison:hswm-philosophy:standards-vs-software",
+      "l:comparison_candidate": {
+        "@id": "candidate:hswm-philosophy:standards-stack"
+      }
+    },
+    {
+      "@id": "lineage-link:d51ce6ca01be1cccd9c7028353f78cf1c6d2a921666564c5b18f1573962f4ceb",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "comparison:hswm-philosophy:standards-vs-software"
+      },
+      "l:to": {
+        "@id": "candidate:hswm-philosophy:standards-stack"
+      },
+      "l:predicate": "comparison_candidate",
+      "l:status": "PLANNING_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_operational_context": {
+        "@id": "assessment:usl-hswm:source-links"
+      }
+    },
+    {
+      "@id": "lineage-link:b4c717b9bfb61c167dc57b9cc2685826b6e28c0a83c8f4db1376cd1ef462f834",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "assessment:usl-hswm:source-links"
+      },
+      "l:predicate": "frame_operational_context",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_operational_context": {
+        "@id": "assessment:usl-hswm:navigation"
+      }
+    },
+    {
+      "@id": "lineage-link:f97942847312ad27ef6782149268e10eeac6f44685d635678903ca855cddfa13",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "assessment:usl-hswm:navigation"
+      },
+      "l:predicate": "frame_operational_context",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_operational_context": {
+        "@id": "assessment:usl-hswm:adapter"
+      }
+    },
+    {
+      "@id": "lineage-link:5f15d81b3e0d21534fcd271790a4841c36e5303bb527d0bdb71db3663017e85a",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "assessment:usl-hswm:adapter"
+      },
+      "l:predicate": "frame_operational_context",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_operational_context": {
+        "@id": "assessment:usl-hswm:likeness-session"
+      }
+    },
+    {
+      "@id": "lineage-link:9898b3e24ccf73bd39a5018e15fc571528ebf0c027f4204aadb3f2032a2910fb",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "assessment:usl-hswm:likeness-session"
+      },
+      "l:predicate": "frame_operational_context",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_operational_context": {
+        "@id": "assessment:usl-hswm:weight-learning"
+      }
+    },
+    {
+      "@id": "lineage-link:eb828f484b4b0b4e7eb395a3db0a39ec50ed81aa29be2048137c95c20b5178ae",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "assessment:usl-hswm:weight-learning"
+      },
+      "l:predicate": "frame_operational_context",
+      "l:status": "RECORDED_RELATION",
+      "l:authority": "SECONDARY_AI",
+      "prov:wasDerivedFrom": {
+        "@id": "input:usl-lineage:catalog"
+      }
+    },
+    {
+      "@id": "evaluation:hswm-philosophy:usl-v1",
+      "l:frame_operational_context": {
+        "@id": "assessment:usl-hswm:kg-bridge"
+      }
+    },
+    {
+      "@id": "lineage-link:54433706b39d9417a8fdd0da539fa2d711e199d59086cd28cd5d57f9b611ee06",
+      "@type": "l:Relationship",
+      "l:from": {
+        "@id": "evaluation:hswm-philosophy:usl-v1"
+      },
+      "l:to": {
+        "@id": "assessment:usl-hswm:kg-bridge"
+      },
+      "l:predicate": "frame_operational_context",
       "l:status": "RECORDED_RELATION",
       "l:authority": "SECONDARY_AI",
       "prov:wasDerivedFrom": {

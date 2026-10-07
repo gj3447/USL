@@ -18,20 +18,20 @@ const ROOT = fileURLToPath(new URL("..", import.meta.url))
 const BASE = join(ROOT, "research", "development-lineage")
 const paths = {
   graph: join(BASE, "graph.json"), profile: join(BASE, "profile.json"), bindings: join(BASE, "bindings.json"),
-  selections: join(BASE, "selections.json"), catalog: join(BASE, "catalog.json"), next: join(BASE, "next.graph.json"), mcp: join(BASE, "mcp.json"),
+  selections: join(BASE, "selections.json"), catalog: join(BASE, "catalog.json"), next: join(BASE, "next.graph.json"), philosophy: join(BASE, "philosophy.graph.json"), mcp: join(BASE, "mcp.json"),
 } as const
 const namespace = "usl.development.lineage"
 
 const fail = (message: string): never => { throw new Error(`development-lineage validation failed: ${message}`) }
 const unwrap = <A, E>(result: Either.Either<A, E>, label: string): A => Either.getOrThrowWith(result, error => fail(`${label}: ${String(error)}`))
-const bytes = async (path: string) => {
+const bytes = async (path: string, maxBytes = 1024 * 1024) => {
   const value = await readFile(path)
-  if (value.byteLength > 1024 * 1024) fail(`input exceeds 1 MiB: ${relative(ROOT, path)}`)
+  if (value.byteLength > maxBytes) fail(`input exceeds ${maxBytes} byte budget: ${relative(ROOT, path)}`)
   return value
 }
-const json = async (path: string): Promise<unknown> => {
+const json = async (path: string, maxBytes?: number): Promise<unknown> => {
   let value: unknown
-  try { value = JSON.parse((await bytes(path)).toString("utf8")) } catch { fail(`invalid UTF-8 JSON: ${relative(ROOT, path)}`) }
+  try { value = JSON.parse((await bytes(path, maxBytes)).toString("utf8")) } catch { fail(`invalid UTF-8 JSON: ${relative(ROOT, path)}`) }
   return value
 }
 const copy = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T
@@ -93,6 +93,40 @@ const assertInducedSubset = (full: ResourceGraph, next: ResourceGraph) => {
   const sourceMeanings = new Map(full.meanings.map(meaning => [meaning.id, meaning]))
   for (const meaning of next.meanings) assert.deepEqual(meaning, sourceMeanings.get(meaning.id), `next graph rewrote meaning ${meaning.id}`)
   assert.deepEqual(next.provenance, full.provenance, "next graph rewrote provenance")
+}
+
+const record = (value: unknown, label: string): Record<string, unknown> => {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) fail(`${label} must be an object`)
+  return value as Record<string, unknown>
+}
+const philosophySemantics = (catalogValue: unknown, graph: ResourceGraph) => {
+  const catalog = record(catalogValue, "catalog")
+  const philosophy = record(catalog.philosophy, "catalog philosophy")
+  assert.equal(philosophy.operationalReadinessIsScore, false, "operational readiness must not be a score")
+  assert.equal(philosophy.numericScore, null, "unmeasured philosophical evaluation must have null score")
+  assert.equal(philosophy.measurementStatus, "NOT_MEASURED")
+  assert.equal(philosophy.optimalityStatus, "NOT_PROVEN")
+  const comparison = record(philosophy.comparison, "philosophy comparison")
+  assert.equal(comparison.status, "HYPOTHESIS_NOT_TESTED")
+  assert.equal(comparison.score, null)
+  assert.equal(comparison.winner, "UNDETERMINED")
+  const boundaries = record(catalog.boundaries, "catalog boundaries")
+  assert.equal(boundaries.hswmExecution, "NOT_READY")
+  assert.notEqual(boundaries.hswmExecution, 0, "NOT_READY must not be coerced into a numerical score")
+  assert.equal(boundaries.hswmExecutionScope, "SOFTWARE_INTEGRATION_ONLY")
+  assert.equal(boundaries.philosophicalOptimizationStatus, "NOT_MEASURED")
+  const byId = new Map(graph.resources.map(resource => [resource.id, resource]))
+  const frame = byId.get("evaluation:hswm-philosophy:usl-v1") ?? fail("philosophy view omitted evaluation frame")
+  const graphComparison = byId.get("comparison:hswm-philosophy:standards-vs-software") ?? fail("philosophy view omitted comparison")
+  assert.deepEqual(frame.metadata, Object.fromEntries(Object.entries(philosophy).filter(([key]) => !["userStatements", "context", "candidates", "dimensions", "comparison"].includes(key))), "evaluation frame metadata drifted")
+  assert.deepEqual(graphComparison.metadata, comparison, "comparison metadata drifted")
+  const candidates = Array.isArray(philosophy.candidates) ? philosophy.candidates : fail("philosophy candidates must be an array")
+  if (candidates.length !== 2) fail("philosophy candidates are incomplete")
+  for (const candidate of candidates) {
+    const item = record(candidate, "philosophy candidate")
+    assert.equal(item.measurementStatus, "NOT_MEASURED")
+    assert.equal(item.score, null)
+  }
 }
 
 const contextMustContainNativeIds = async (raw: string, profile: ReturnType<typeof parseDomainProfile>, policy: typeof DEFAULT_USL_POLICY,
@@ -174,10 +208,14 @@ const probeBindings = async (rawText: string, raw: ResourceGraph, bindings: Reso
 const main = async () => {
   if (process.argv.length !== 2) fail("this validator accepts no arguments")
   await Promise.all(Object.values(paths).map(async path => { if (!(await stat(path)).isFile()) fail(`missing input: ${relative(ROOT, path)}`) }))
-  const rawText = (await bytes(paths.graph)).toString("utf8")
+  // Only the full graph follows the explicit MCP 16 MiB budget. Bindings keep
+  // their independently enforced 1 MiB compact-input boundary below.
+  const rawText = (await bytes(paths.graph, 16 * 1024 * 1024)).toString("utf8")
   const raw = unwrap(parseResourceGraph(rawText), "resource graph")
   const nextText = (await bytes(paths.next)).toString("utf8")
   const next = unwrap(parseResourceGraph(nextText), "next resource graph")
+  const philosophyText = (await bytes(paths.philosophy)).toString("utf8")
+  const philosophy = unwrap(parseResourceGraph(philosophyText), "philosophy resource graph")
   // Binding has a deliberate 1 MiB input cap; generated presentation whitespace
   // is not semantic graph data, so bind its compact parsed form.
   const bindText = JSON.stringify(raw)
@@ -200,11 +238,21 @@ const main = async () => {
   unwrap(resourceGraphJsonLd(rawText, { namespace, profile }), "resourceGraphJsonLd")
   graphNegatives(raw, profile)
   assertInducedSubset(raw, next)
+  assertInducedSubset(raw, philosophy)
+  philosophySemantics(await json(paths.catalog), philosophy)
   unwrap(adaptResourceGraph(nextText, { namespace, profile }), "next adaptResourceGraph")
+  unwrap(adaptResourceGraph(philosophyText, { namespace, profile }), "philosophy adaptResourceGraph")
   await fullConnectionProbe(rawText, profile)
   await contextMustContainNativeIds(nextText, profile, DEFAULT_USL_POLICY)
+  await contextMustContainNativeIds(philosophyText, profile, DEFAULT_USL_POLICY,
+    "evaluation:hswm-philosophy:usl-v1", "comparison:hswm-philosophy:standards-vs-software")
+  const fullPolicy = parseMcpConfig((await bytes(paths.mcp)).toString("utf8"), BASE, "development-lineage MCP config").policy
+  await contextMustContainNativeIds(rawText, profile, fullPolicy,
+    "evaluation:hswm-philosophy:usl-v1", "candidate:hswm-philosophy:standards-stack")
+  await contextMustContainNativeIds(philosophyText, profile, DEFAULT_USL_POLICY,
+    "evaluation:hswm-philosophy:usl-v1", "candidate:hswm-philosophy:standards-stack")
   await probeBindings(bindText, raw, bindings, selections)
-  process.stdout.write(`${JSON.stringify({ resources: raw.resources.length, meanings: raw.meanings.length, links: raw.links.length, nextResources: next.resources.length, nextLinks: next.links.length, selections: selections.length, negatives: 3, bindingProbe: "PASS", fullConnection: "PASS", defaultNextConnection: "PASS", jsonld: "PASS" })}\n`)
+  process.stdout.write(`${JSON.stringify({ resources: raw.resources.length, meanings: raw.meanings.length, links: raw.links.length, nextResources: next.resources.length, nextLinks: next.links.length, philosophyResources: philosophy.resources.length, philosophyLinks: philosophy.links.length, selections: selections.length, negatives: 3, bindingProbe: "PASS", fullConnection: "PASS", defaultNextConnection: "PASS", philosophyContexts: "PASS", jsonld: "PASS" })}\n`)
 }
 
 main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`); process.exitCode = 1 })

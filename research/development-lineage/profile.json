@@ -685,6 +685,248 @@
           "metadata": []
         }
       ]
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_philosophy",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "snapshot",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Snapshot"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "frame",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationFrame"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_statement",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "frame",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationFrame"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "statement",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:UserStatement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_context",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "frame",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationFrame"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "context",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationContext"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_candidate",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "frame",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationFrame"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "candidate",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationCandidate"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_dimension",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "frame",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationFrame"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "dimension",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationDimension"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_comparison",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "frame",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationFrame"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "comparison",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:ComparisonProposal"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_operational_context",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "frame",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationFrame"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "assessment",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:HswmAssessment"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_candidate",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "comparison",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:ComparisonProposal"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "candidate",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationCandidate"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_context",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "comparison",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:ComparisonProposal"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "context",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationContext"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_statement",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "comparison",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:ComparisonProposal"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "statement",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:UserStatement"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:development-lineage:dimension_package",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "dimension",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:EvaluationDimension"
+          ],
+          "metadata": []
+        },
+        {
+          "role": "package",
+          "required": true,
+          "types": [
+            "urn:usl:development-lineage:Package"
+          ],
+          "metadata": []
+        }
+      ]
     }
   ]
 }

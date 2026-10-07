@@ -14,15 +14,17 @@ l:AcceptanceShape a sh:NodeShape ;
 
 l:SnapshotShape a sh:NodeShape ;
   sh:targetClass l:Snapshot ;
-  sh:property [ sh:path l:authority ; sh:minCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
-  sh:property [ sh:path l:hswmExecution ; sh:minCount 1 ; sh:hasValue "NOT_READY" ] ;
-  sh:property [ sh:path l:hswmAuthority ; sh:minCount 1 ; sh:hasValue "NOT_GRANTED" ] ;
-  sh:property [ sh:path l:operationalLearning ; sh:minCount 1 ; sh:hasValue "NOT_ESTABLISHED" ] .
+  sh:property [ sh:path l:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
+  sh:property [ sh:path l:hswmExecution ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_READY" ] ;
+  sh:property [ sh:path l:hswmAuthority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_GRANTED" ] ;
+  sh:property [ sh:path l:operationalLearning ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_ESTABLISHED" ] ;
+  sh:property [ sh:path l:hswmExecutionScope ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SOFTWARE_INTEGRATION_ONLY" ] ;
+  sh:property [ sh:path l:philosophicalOptimizationStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_MEASURED" ] .
 
 l:RemainingTaskShape a sh:NodeShape ;
   sh:targetClass l:RemainingTask ;
-  sh:property [ sh:path l:status ; sh:minCount 1 ; sh:hasValue "PLANNED" ] ;
-  sh:property [ sh:path l:execution ; sh:minCount 1 ; sh:hasValue "NOT_RUN" ] .
+  sh:property [ sh:path l:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "PLANNED" ] ;
+  sh:property [ sh:path l:execution ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_RUN" ] .
 
 l:ActivityShape a sh:NodeShape ;
   sh:targetClass prov:Activity ;
@@ -34,4 +36,35 @@ l:RelationshipShape a sh:NodeShape ;
   sh:property [ sh:path l:from ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path l:to ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path l:predicate ; sh:minCount 1 ; sh:maxCount 1 ] ;
-  sh:property [ sh:path l:authority ; sh:minCount 1 ; sh:hasValue "SECONDARY_AI" ] .
+  sh:property [ sh:path l:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] .
+
+l:EvaluationFrameShape a sh:NodeShape ;
+  sh:targetClass l:EvaluationFrame ;
+  sh:property [ sh:path l:authority ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "SECONDARY_AI" ] ;
+  sh:property [ sh:path l:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "EVALUATION_DESIGN_ONLY" ] ;
+  sh:property [ sh:path l:operationalReadinessIsScore ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue false ] ;
+  sh:property [ sh:path l:scoreIsCanonicalW ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue false ] ;
+  sh:property [ sh:path l:nativeImplementationBonus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue false ] ;
+  sh:property [ sh:path l:measurementStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_MEASURED" ] ;
+  sh:property [ sh:path l:optimalityStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_PROVEN" ] ;
+  sh:property [ sh:path l:numericScore ; sh:maxCount 0 ] .
+
+l:EvaluationCandidateShape a sh:NodeShape ;
+  sh:targetClass l:EvaluationCandidate ;
+  sh:property [ sh:path l:selectionStatus ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path l:measurementStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_MEASURED" ] ;
+  sh:property [ sh:path l:score ; sh:maxCount 0 ] ;
+  sh:property [ sh:path l:selectedRevision ; sh:maxCount 0 ] ;
+  sh:property [ sh:path l:artifactDigest ; sh:maxCount 0 ] .
+
+l:EvaluationDimensionShape a sh:NodeShape ;
+  sh:targetClass l:EvaluationDimension ;
+  sh:property [ sh:path l:measurementStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_MEASURED" ] ;
+  sh:property [ sh:path l:value ; sh:maxCount 0 ] .
+
+l:ComparisonProposalShape a sh:NodeShape ;
+  sh:targetClass l:ComparisonProposal ;
+  sh:property [ sh:path l:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "HYPOTHESIS_NOT_TESTED" ] ;
+  sh:property [ sh:path l:winner ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "UNDETERMINED" ] ;
+  sh:property [ sh:path l:optimalityStatus ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue "NOT_PROVEN" ] ;
+  sh:property [ sh:path l:score ; sh:maxCount 0 ] .

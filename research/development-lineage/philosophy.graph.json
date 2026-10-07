@@ -1,0 +1,1193 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "input:usl-lineage:catalog",
+      "types": [
+        "urn:usl:development-lineage:Input",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "path": "research/development-lineage/catalog.json",
+        "sha256": "sha256:da90c3ea9410461ddb1948db03cda15fadfded26206a3d3c8b8cbcbd52303f5e"
+      }
+    },
+    {
+      "id": "agent:usl-lineage",
+      "types": [
+        "urn:usl:development-lineage:Agent",
+        "http://www.w3.org/ns/prov#Agent"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "authority": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "activity:usl-lineage",
+      "types": [
+        "urn:usl:development-lineage:Activity",
+        "http://www.w3.org/ns/prov#Activity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "recordedOn": "2026-10-07",
+        "execution": "LOCAL_GRAPH_BUILD_ONLY"
+      }
+    },
+    {
+      "id": "lineage:usl-development-2026-10-07",
+      "types": [
+        "urn:usl:development-lineage:Snapshot",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "sourceCommit": "0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324",
+        "authority": "SECONDARY_AI",
+        "coverageScope": "ALL_COMMITS_REACHABLE_FROM_SOURCE_COMMIT; SELECTED_SEMANTIC_MILESTONES; NOT_ALL_CONVERSATIONS_OR_RUNTIME_EVENTS",
+        "nextTask": "task:usl-remaining:coordinated-export",
+        "remoteKGWrite": "NOT_REQUESTED_OR_PERFORMED",
+        "hswmExecution": "NOT_READY",
+        "hswmAuthority": "NOT_GRANTED",
+        "operationalLearning": "NOT_ESTABLISHED",
+        "standardsSuperset": "NOT_CLAIMED",
+        "remotePublication": "NOT_VERIFIED",
+        "newRuntimeAcceptance": "NOT_RUN",
+        "hswmExecutionScope": "SOFTWARE_INTEGRATION_ONLY",
+        "philosophicalOptimizationStatus": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "assessment:usl-hswm:source-links",
+      "types": [
+        "urn:usl:development-lineage:HswmAssessment",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "assessment:usl-hswm:source-links",
+        "status": "SELECTED_FILES_PINNED_HISTORICALLY",
+        "sourcePath": "connections/hswm/source-receipt.json",
+        "finding": "2026-09-28 선택 파일 관측이며 전체 USL 개발사나 현재 HSWM 동작 증거가 아니다.",
+        "authority": "SECONDARY_AI",
+        "execution": "NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "assessment:usl-hswm:navigation",
+      "types": [
+        "urn:usl:development-lineage:HswmAssessment",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "assessment:usl-hswm:navigation",
+        "status": "NAVIGATION_ONLY_NOT_EXECUTED",
+        "sourcePath": "connections/hswm/graph.json",
+        "finding": "SECONDARY_AI_NAVIGATION / NOT_EXECUTED / NOT_ESTABLISHED; host actions는 비어 있다.",
+        "authority": "SECONDARY_AI",
+        "execution": "NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "assessment:usl-hswm:adapter",
+      "types": [
+        "urn:usl:development-lineage:HswmAssessment",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "assessment:usl-hswm:adapter",
+        "status": "ARGUMENT_PREPARATION_ONLY",
+        "sourcePath": "docs/HSWM_INTEGRATION.md",
+        "finding": "caller 소유 policy·allowed_reads·resource pins가 필요하며 준비 함수는 권한/credit/learning을 만들지 않는다.",
+        "authority": "SECONDARY_AI",
+        "execution": "NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "assessment:usl-hswm:likeness-session",
+      "types": [
+        "urn:usl:development-lineage:HswmAssessment",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "assessment:usl-hswm:likeness-session",
+        "status": "EXTERNAL_DESCRIPTOR_ONLY",
+        "sourcePath": "connections/hswm-likeness/session-2026-10-06.json",
+        "finding": "외부 host-local graph를 가리키는 설정만 확인했다. allowedLocators=[]; 이번 작업은 외부 graph를 읽거나 실행하지 않는다.",
+        "authority": "SECONDARY_AI",
+        "execution": "NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "assessment:usl-hswm:weight-learning",
+      "types": [
+        "urn:usl:development-lineage:HswmAssessment",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "assessment:usl-hswm:weight-learning",
+        "status": "OFFLINE_SYNTHETIC_REVIEW_ONLY",
+        "sourcePath": "research/rule-weight-evidence/learner-execution.json",
+        "finding": "SYNTHETIC_OFFLINE_LEARNER_NO_LIVE_HSWM; 실제 운영 효과나 canonical W 갱신 증거가 아니다.",
+        "authority": "SECONDARY_AI",
+        "execution": "NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "assessment:usl-hswm:kg-bridge",
+      "types": [
+        "urn:usl:development-lineage:HswmAssessment",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "assessment:usl-hswm:kg-bridge",
+        "status": "PUBLISHED_PRELIMINARY_HISTORICALLY",
+        "sourcePath": "research/architecture/kg-bridge.publication.json",
+        "finding": "2026-10-01 PUBLISHED_DRAFT 관측; ABOUT는 PROPOSED. 새 이력 그래프의 원격 게시나 canon 승격을 뜻하지 않는다.",
+        "authority": "SECONDARY_AI",
+        "execution": "NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "evaluation:hswm-philosophy:usl-v1",
+      "types": [
+        "urn:usl:development-lineage:EvaluationFrame",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "evaluation:hswm-philosophy:usl-v1",
+        "version": "1",
+        "authority": "SECONDARY_AI",
+        "status": "EVALUATION_DESIGN_ONLY",
+        "recordedOn": "2026-10-07",
+        "interpretation": "철학적 HSWM을 주어진 범위·목적·제약에서 CHU 구성의 최적화 정도로 해석한다. 특정 HSWM 소프트웨어는 그 관점에서 평가할 후보이며 정의나 자동 만점 기준이 아니다.",
+        "operationalReadinessIsScore": false,
+        "numericScore": null,
+        "measurementStatus": "NOT_MEASURED",
+        "optimalityStatus": "NOT_PROVEN",
+        "scoreIsCanonicalW": false,
+        "nativeImplementationBonus": false,
+        "implementationBoundary": "평가 관점과 비교 계약의 로컬 그래프다. 새 점수 계산기·학습기·HSWM 실행이나 측정된 순위를 구현했다고 주장하지 않는다."
+      }
+    },
+    {
+      "id": "user:hswm-philosophy-scope-2026-10-07",
+      "types": [
+        "urn:usl:development-lineage:UserStatement",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "user:hswm-philosophy-scope-2026-10-07",
+        "authority": "USER_PRIMARY",
+        "source": "CURRENT_CONVERSATION",
+        "text": "철학적인 HSWM 을 생각해봐봐 ㅇㅇ 어케해야 하는지 ㅇㅇ 그 CHU 가 주어진 범위에서 최대로 최적화 된게 HSWM 수치로 볼수가 있는거야 개념적으로 이해가 되냐 ㅇㅇ?"
+      }
+    },
+    {
+      "id": "user:hswm-software-comparison-2026-10-07",
+      "types": [
+        "urn:usl:development-lineage:UserStatement",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "user:hswm-software-comparison-2026-10-07",
+        "authority": "USER_PRIMARY",
+        "source": "CURRENT_CONVERSATION",
+        "text": "ㅇㅇ ㄱㄱ 지금 HSWM 소프트웨어는 아직 많이 미약하지 ㅇㅇ 첨단 표준그래프 엔지니어링 이 더 HSWM 가 높을지도 모름 ㅇㅇ"
+      }
+    },
+    {
+      "id": "context:hswm-philosophy:usl-v1",
+      "types": [
+        "urn:usl:development-lineage:EvaluationContext",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "context:hswm-philosophy:usl-v1",
+        "authority": "SECONDARY_AI",
+        "status": "PROPOSED_PROFILE",
+        "objective": "USL 개발 근거와 작업환경 자원을 정확히 연결·탐색·이동하고 결과를 이용해 더 나은 구성을 선택한다.",
+        "scope": "USL의 선택된 자원·바인딩·개발 근거 그래프; CHU 전체나 일반 지능의 절대 척도가 아니다.",
+        "constraints": [
+          "stable ID·의미·이름 있는 역할과 원문 출처를 보존한다.",
+          "owner scope와 데이터 포함 범위를 보존한다.",
+          "동일 workload·환경·자원 예산·오류 계약을 후보 모두에 적용한다.",
+          "필수 제약 위반을 비용 절감이나 가중 평균으로 상쇄하지 않는다."
+        ],
+        "workloadStatus": "NOT_SELECTED",
+        "workloadDigest": null,
+        "environmentStatus": "NOT_SELECTED",
+        "measurementProtocol": "NOT_DEFINED",
+        "normalization": "NOT_DEFINED",
+        "aggregation": "NOT_DEFINED",
+        "weights": null,
+        "weightAuthority": "NOT_SELECTED",
+        "requiredBeforeNumericScore": [
+          "목적·scope·제약·평가 profile version",
+          "비교할 실행 가능한 구성과 각각의 revision·artifact digest",
+          "같은 workload·입력 digest·환경·예산",
+          "측정법·오류 처리·측정 시각·raw 결과와 evidence pin",
+          "정규화·집계 방식·가중치 및 선택 주체",
+          "반복 측정의 변동성과 평가 한계"
+        ],
+        "comparisonRule": "이름·규격 문서의 개수 대신 같은 조건에서 측정한 구성을 비교한다. 가능한 비교는 해당 profile에 한정하고 전역 최적성으로 확대하지 않는다."
+      }
+    },
+    {
+      "id": "candidate:hswm-philosophy:hswm-software",
+      "types": [
+        "urn:usl:development-lineage:EvaluationCandidate",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "candidate:hswm-philosophy:hswm-software",
+        "label": "HSWM 소프트웨어의 선택된 구현",
+        "kind": "SOFTWARE_FAMILY",
+        "selectionStatus": "CONCRETE_REVISION_REQUIRED",
+        "selectedRevision": null,
+        "artifactDigest": null,
+        "measurementStatus": "NOT_MEASURED",
+        "score": null,
+        "evidenceIds": []
+      }
+    },
+    {
+      "id": "candidate:hswm-philosophy:standards-stack",
+      "types": [
+        "urn:usl:development-lineage:EvaluationCandidate",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "candidate:hswm-philosophy:standards-stack",
+        "label": "표준 그래프 엔지니어링 기반의 선택된 구성",
+        "kind": "ENGINEERING_APPROACH",
+        "selectionStatus": "CONCRETE_PIPELINE_REQUIRED",
+        "selectedRevision": null,
+        "artifactDigest": null,
+        "measurementStatus": "NOT_MEASURED",
+        "score": null,
+        "evidenceIds": []
+      }
+    },
+    {
+      "id": "dimension:hswm-philosophy:purpose-fit",
+      "types": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "dimension:hswm-philosophy:purpose-fit",
+        "label": "목적 적합성",
+        "proposal": "동일한 실제 작업에서 요구사항을 만족한 비율과 실패 유형을 분리한다.",
+        "packageIds": [
+          "package:CP07",
+          "package:CP23"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      }
+    },
+    {
+      "id": "dimension:hswm-philosophy:semantic-fidelity",
+      "types": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "dimension:hswm-philosophy:semantic-fidelity",
+        "label": "의미·출처 보존",
+        "proposal": "ID·역할·맥락·원문 pin·변환 손실을 검사한다. 필수 의미 보존 위반은 집계 전 자격 조건으로 다룬다.",
+        "packageIds": [
+          "package:CP09",
+          "package:CP10",
+          "package:CP20"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      }
+    },
+    {
+      "id": "dimension:hswm-philosophy:retrieval-quality",
+      "types": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "dimension:hswm-philosophy:retrieval-quality",
+        "label": "탐색·판단 품질",
+        "proposal": "정답과 근거가 지정된 질의에서 실제 target 도달·근거 지지·잘못된 연결을 측정한다. 노드·링크 수 자체를 점수로 쓰지 않는다.",
+        "packageIds": [
+          "package:CP08",
+          "package:CP15"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      }
+    },
+    {
+      "id": "dimension:hswm-philosophy:portability",
+      "types": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "dimension:hswm-philosophy:portability",
+        "label": "이동·변화에 대한 강건성",
+        "proposal": "선택 profile에서 이동·worktree 분기·원본 부재·손상 이후 의미와 작업 상태가 보존되는지를 측정한다.",
+        "packageIds": [
+          "package:CP03",
+          "package:CP04",
+          "package:CP05",
+          "package:CP06",
+          "package:CP07"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      }
+    },
+    {
+      "id": "dimension:hswm-philosophy:feedback",
+      "types": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "dimension:hswm-philosophy:feedback",
+        "label": "결과에 근거한 개선",
+        "proposal": "작업 결과로 구성을 바꿨을 때 baseline·holdout·replay 대비 개선되는지를 평가한다. 수동 또는 자동이라는 이름만으로 우열을 정하지 않는다.",
+        "packageIds": [
+          "package:CP21",
+          "package:CP22"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      }
+    },
+    {
+      "id": "dimension:hswm-philosophy:resource-cost",
+      "types": [
+        "urn:usl:development-lineage:EvaluationDimension",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "dimension:hswm-philosophy:resource-cost",
+        "label": "제약 안에서의 자원 효율",
+        "proposal": "동일 정확도·지원 범위·예산 아래 시간·메모리·bytes·실제 비용을 각각 측정한다. token 추정과 실제 청구는 분리한다.",
+        "packageIds": [
+          "package:CP07",
+          "package:CP17"
+        ],
+        "authority": "SECONDARY_AI",
+        "measurementStatus": "NOT_MEASURED",
+        "value": null
+      }
+    },
+    {
+      "id": "comparison:hswm-philosophy:standards-vs-software",
+      "types": [
+        "urn:usl:development-lineage:ComparisonProposal",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
+      "metadata": {
+        "id": "comparison:hswm-philosophy:standards-vs-software",
+        "authority": "SECONDARY_AI",
+        "status": "HYPOTHESIS_NOT_TESTED",
+        "hypothesis": "같은 범위·목적·제약에서 표준 그래프 엔지니어링 기반 구성이 현재 선택된 HSWM 소프트웨어보다 더 높은 철학적 HSWM 최적화 정도를 보일 수 있다.",
+        "sourceStatementId": "user:hswm-software-comparison-2026-10-07",
+        "contextId": "context:hswm-philosophy:usl-v1",
+        "candidateIds": [
+          "candidate:hswm-philosophy:hswm-software",
+          "candidate:hswm-philosophy:standards-stack"
+        ],
+        "winner": "UNDETERMINED",
+        "score": null,
+        "evidenceIds": [],
+        "optimalityStatus": "NOT_PROVEN"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "urn:usl:development-lineage:snapshot_subject",
+      "description": "Local view is about an existing stable KG concept; does not write or redefine it"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_request",
+      "description": "This AI view responds to the verbatim user request"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_milestone",
+      "description": "Navigation entry to an AI-selected historical milestone"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_facet",
+      "description": "Navigation entry to a scoped HSWM linkage assessment"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_next",
+      "description": "Next proposed implementation task, without execution authority"
+    },
+    {
+      "id": "urn:usl:development-lineage:parent",
+      "description": "Git child commit has this exact parent; does not imply semantic supersession"
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_commit",
+      "description": "AI-selected milestone refers to this recorded commit"
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_source",
+      "description": "Versioned artifact supports the milestone description, not runtime success"
+    },
+    {
+      "id": "urn:usl:development-lineage:milestone_package",
+      "description": "Milestone contributes to this package's scope; not a completion assertion"
+    },
+    {
+      "id": "urn:usl:development-lineage:source_revision",
+      "description": "Source bytes are taken from this immutable Git revision"
+    },
+    {
+      "id": "urn:usl:development-lineage:task_requirement",
+      "description": "Original task addresses original requirement"
+    },
+    {
+      "id": "urn:usl:development-lineage:criterion_task",
+      "description": "Original criterion belongs to original task"
+    },
+    {
+      "id": "urn:usl:development-lineage:package_task",
+      "description": "Existing completion package refines original task"
+    },
+    {
+      "id": "urn:usl:development-lineage:package_criterion",
+      "description": "Completion package addresses this original criterion"
+    },
+    {
+      "id": "urn:usl:development-lineage:depends_on",
+      "description": "Unconditional planned package dependency; not a runtime execution edge"
+    },
+    {
+      "id": "urn:usl:development-lineage:conditionally_depends_on",
+      "description": "Original conditional package dependency retained verbatim in package metadata"
+    },
+    {
+      "id": "urn:usl:development-lineage:has_acceptance",
+      "description": "Original future acceptance, distinct from later observations"
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_package",
+      "description": "Bounded current evidence assessment does not rewrite original plan status"
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_source",
+      "description": "Pinned historical receipt or plan grounds this assessment"
+    },
+    {
+      "id": "urn:usl:development-lineage:assessment_run",
+      "description": "Assessment cites this historical test run, not a fresh execution"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_commit",
+      "description": "Historical run reports this tested implementation revision"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_receipt",
+      "description": "Git-pinned receipt is evidence of a past reported run"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_source",
+      "description": "Receipt pins these exact source bytes at tested revision"
+    },
+    {
+      "id": "urn:usl:development-lineage:run_test",
+      "description": "Named historical result included in this recorded run"
+    },
+    {
+      "id": "urn:usl:development-lineage:test_acceptance",
+      "description": "Historical bounded test addresses a planned acceptance without declaring full completion"
+    },
+    {
+      "id": "urn:usl:development-lineage:refines_package",
+      "description": "Actionable remaining subtask of an existing package"
+    },
+    {
+      "id": "urn:usl:development-lineage:remaining_depends_on",
+      "description": "Required order within the remaining subtask view"
+    },
+    {
+      "id": "urn:usl:development-lineage:remaining_source",
+      "description": "Pinned limitation or contract grounds remaining work"
+    },
+    {
+      "id": "urn:usl:development-lineage:facet_source",
+      "description": "Evidence for scoped HSWM linkage; never grants access or learning authority"
+    },
+    {
+      "id": "urn:usl:development-lineage:statement_source",
+      "description": "Verbatim statement preserved in a versioned source; interpretation remains separate"
+    },
+    {
+      "id": "urn:usl:development-lineage:requirement_source",
+      "description": "AI requirement is stored in the original development plan"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_philosophy",
+      "description": "This view separates philosophical optimization from software readiness"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_statement",
+      "description": "Verbatim user direction informs an AI evaluation design, not a measured score"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_context",
+      "description": "Goals, scope and constraints condition optimization; draft measurement choices stay explicit"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_candidate",
+      "description": "A candidate family requires a concrete pinned implementation before comparison"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_dimension",
+      "description": "AI-proposed measurement dimension, not an observed outcome or canonical W"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_comparison",
+      "description": "Untested comparison hypothesis without an asserted winner"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_operational_context",
+      "description": "Operational readiness is a separate observation, never a philosophical score or zero"
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_candidate",
+      "description": "Candidate in an unmeasured comparison, not a rank or equivalence assertion"
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_context",
+      "description": "Both candidates must be measured under this same evaluation contract"
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_statement",
+      "description": "Attribution for the user's comparative possibility, not performance evidence"
+    },
+    {
+      "id": "urn:usl:development-lineage:dimension_package",
+      "description": "An existing CP package can supply evidence for this proposed dimension; no execution claim"
+    }
+  ],
+  "links": [
+    {
+      "id": "lineage-link:e9f2ace90ca4953792ddd06f128b9404144c2f44fb25bd648ce08b15372e461f",
+      "meaning": "urn:usl:development-lineage:snapshot_facet",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:source-links"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:2c69dfe89092eff4716ca77788aa873137bd0339ac62eb46cc7f1bb55e0681e9",
+      "meaning": "urn:usl:development-lineage:snapshot_facet",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:navigation"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:b63590a12efa0b9f469770ad5e3367f0a72b533bd874e967b6254801528baec5",
+      "meaning": "urn:usl:development-lineage:snapshot_facet",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:adapter"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:d7301728bd2630b3645cbaa380262f0c7f4b7baf482c70dddcd933ba3d427edf",
+      "meaning": "urn:usl:development-lineage:snapshot_facet",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:likeness-session"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:aaa6ba80a9613b8b988a6990362cb4109f9e04a4ef08496a9d5ba4706a4c5f87",
+      "meaning": "urn:usl:development-lineage:snapshot_facet",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:weight-learning"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:b728ddfaae967327178a9216cf4c0da70413c376531fa0835f964462cef14e6e",
+      "meaning": "urn:usl:development-lineage:snapshot_facet",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:kg-bridge"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:4b14116f5cab3b59d0888bc36952331de2d3473a41a719958b11814ed87df187",
+      "meaning": "urn:usl:development-lineage:snapshot_philosophy",
+      "participants": [
+        {
+          "role": "snapshot",
+          "resource": "lineage:usl-development-2026-10-07"
+        },
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:a13302fe0552c181d4a0d24ae72d1a26f7e2c680ddbe094f3a89407705c731a8",
+      "meaning": "urn:usl:development-lineage:frame_statement",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "statement",
+          "resource": "user:hswm-philosophy-scope-2026-10-07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:d207dc3e0532ac2a2fcd5d9b1b8a897049da217051bfb1b39c8d661e70a0ca4c",
+      "meaning": "urn:usl:development-lineage:frame_statement",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "statement",
+          "resource": "user:hswm-software-comparison-2026-10-07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:703fbe859c02b4c45dbac491f3b470d34e2cda17dc13e5bb5bec0470bf6683e0",
+      "meaning": "urn:usl:development-lineage:frame_context",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "context",
+          "resource": "context:hswm-philosophy:usl-v1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:4ddaf7242daaa0767da69a8363bbe9a4ee165f09d3aa7618a0910a454469d4f3",
+      "meaning": "urn:usl:development-lineage:frame_candidate",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "candidate",
+          "resource": "candidate:hswm-philosophy:hswm-software"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:83a8f4a9bc9ca552e0785dffe6a3ff741be1195188c70dd582a86c6bde4fe906",
+      "meaning": "urn:usl:development-lineage:frame_candidate",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "candidate",
+          "resource": "candidate:hswm-philosophy:standards-stack"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:bb4c28ffabf776b090e3316d1eb94763b3557c7de1ee74a387cceec7bd3e70f9",
+      "meaning": "urn:usl:development-lineage:frame_dimension",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "dimension",
+          "resource": "dimension:hswm-philosophy:purpose-fit"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:607307dfa0a2188e18f6e2ec22e3953f2a2b8843ff3a70adc66ef90f5f11ab55",
+      "meaning": "urn:usl:development-lineage:frame_dimension",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "dimension",
+          "resource": "dimension:hswm-philosophy:semantic-fidelity"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:e4c7f7b7e6d25e7e56a1e8141fdfb5a4434c1b24e022071444474a7f6661286f",
+      "meaning": "urn:usl:development-lineage:frame_dimension",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "dimension",
+          "resource": "dimension:hswm-philosophy:retrieval-quality"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:9fb60c20f191abdefd7697bdf3a7fa0e463dfcf078bae76081d65116984550e0",
+      "meaning": "urn:usl:development-lineage:frame_dimension",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "dimension",
+          "resource": "dimension:hswm-philosophy:portability"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:bb6d5db390338fa85c537aa7a8a9ebf24be95b423795d0d3ef2bb24e92b220b6",
+      "meaning": "urn:usl:development-lineage:frame_dimension",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "dimension",
+          "resource": "dimension:hswm-philosophy:feedback"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:daac07f967d7a59664c85df6c543ecd87b82f610cd5279cf56d633cc05e78366",
+      "meaning": "urn:usl:development-lineage:frame_dimension",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "dimension",
+          "resource": "dimension:hswm-philosophy:resource-cost"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:6a3122ca84dc353a4c14d4d276ab54968e6d796a80f455e08a57d03438842d60",
+      "meaning": "urn:usl:development-lineage:frame_comparison",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "comparison",
+          "resource": "comparison:hswm-philosophy:standards-vs-software"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:7572deb2ba3ea88a2cc015775171bd1149140452f75a4a8d060f25757fdcd098",
+      "meaning": "urn:usl:development-lineage:comparison_context",
+      "participants": [
+        {
+          "role": "comparison",
+          "resource": "comparison:hswm-philosophy:standards-vs-software"
+        },
+        {
+          "role": "context",
+          "resource": "context:hswm-philosophy:usl-v1"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:99d73239b7d24d18807bf888d8c5cb2fda7290b4bf2f5b9069fb350994db21af",
+      "meaning": "urn:usl:development-lineage:comparison_statement",
+      "participants": [
+        {
+          "role": "comparison",
+          "resource": "comparison:hswm-philosophy:standards-vs-software"
+        },
+        {
+          "role": "statement",
+          "resource": "user:hswm-software-comparison-2026-10-07"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:14be842014d20f9abde2fdb8450aff79faa1212e3b82d2b7b78ea2bee81347c4",
+      "meaning": "urn:usl:development-lineage:comparison_candidate",
+      "participants": [
+        {
+          "role": "comparison",
+          "resource": "comparison:hswm-philosophy:standards-vs-software"
+        },
+        {
+          "role": "candidate",
+          "resource": "candidate:hswm-philosophy:hswm-software"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:d51ce6ca01be1cccd9c7028353f78cf1c6d2a921666564c5b18f1573962f4ceb",
+      "meaning": "urn:usl:development-lineage:comparison_candidate",
+      "participants": [
+        {
+          "role": "comparison",
+          "resource": "comparison:hswm-philosophy:standards-vs-software"
+        },
+        {
+          "role": "candidate",
+          "resource": "candidate:hswm-philosophy:standards-stack"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "PLANNING_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:b4c717b9bfb61c167dc57b9cc2685826b6e28c0a83c8f4db1376cd1ef462f834",
+      "meaning": "urn:usl:development-lineage:frame_operational_context",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:source-links"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:f97942847312ad27ef6782149268e10eeac6f44685d635678903ca855cddfa13",
+      "meaning": "urn:usl:development-lineage:frame_operational_context",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:navigation"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:5f15d81b3e0d21534fcd271790a4841c36e5303bb527d0bdb71db3663017e85a",
+      "meaning": "urn:usl:development-lineage:frame_operational_context",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:adapter"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:9898b3e24ccf73bd39a5018e15fc571528ebf0c027f4204aadb3f2032a2910fb",
+      "meaning": "urn:usl:development-lineage:frame_operational_context",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:likeness-session"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:eb828f484b4b0b4e7eb395a3db0a39ec50ed81aa29be2048137c95c20b5178ae",
+      "meaning": "urn:usl:development-lineage:frame_operational_context",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:weight-learning"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    },
+    {
+      "id": "lineage-link:54433706b39d9417a8fdd0da539fa2d711e199d59086cd28cd5d57f9b611ee06",
+      "meaning": "urn:usl:development-lineage:frame_operational_context",
+      "participants": [
+        {
+          "role": "frame",
+          "resource": "evaluation:hswm-philosophy:usl-v1"
+        },
+        {
+          "role": "assessment",
+          "resource": "assessment:usl-hswm:kg-bridge"
+        }
+      ],
+      "metadata": {
+        "authority": "SECONDARY_AI",
+        "status": "RECORDED_RELATION",
+        "recordedOn": "2026-10-07",
+        "evidenceScope": "PINNED_LOCAL_HISTORY_VIEW"
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "input:usl-lineage:catalog"
+    ],
+    "activity": "activity:usl-lineage",
+    "agent": "agent:usl-lineage"
+  }
+}

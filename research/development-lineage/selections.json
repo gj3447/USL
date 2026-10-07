@@ -1896,6 +1896,58 @@
     "representation": "rep_c393f2b0e39b67318e35e8a6"
   },
   {
+    "resource": "evaluation:hswm-philosophy:usl-v1",
+    "representation": "rep_d7813a332b9de4857c2d5f27"
+  },
+  {
+    "resource": "user:hswm-philosophy-scope-2026-10-07",
+    "representation": "rep_a622f93bec292114ab3e769c"
+  },
+  {
+    "resource": "user:hswm-software-comparison-2026-10-07",
+    "representation": "rep_e031e9e39a4eebb175786f90"
+  },
+  {
+    "resource": "context:hswm-philosophy:usl-v1",
+    "representation": "rep_a5c0fb82e98c394d72b4d291"
+  },
+  {
+    "resource": "candidate:hswm-philosophy:hswm-software",
+    "representation": "rep_d746d2d320258be5a3155e5b"
+  },
+  {
+    "resource": "candidate:hswm-philosophy:standards-stack",
+    "representation": "rep_c1758a1591603b40e8fec996"
+  },
+  {
+    "resource": "dimension:hswm-philosophy:purpose-fit",
+    "representation": "rep_bc2fb5f334484f698e11e716"
+  },
+  {
+    "resource": "dimension:hswm-philosophy:semantic-fidelity",
+    "representation": "rep_6c608b794abe93327a3b9249"
+  },
+  {
+    "resource": "dimension:hswm-philosophy:retrieval-quality",
+    "representation": "rep_b5a272d7668058afc20aee44"
+  },
+  {
+    "resource": "dimension:hswm-philosophy:portability",
+    "representation": "rep_f466f7a6d3db12be6cd5fc34"
+  },
+  {
+    "resource": "dimension:hswm-philosophy:feedback",
+    "representation": "rep_8eaec440f363590803d29dbe"
+  },
+  {
+    "resource": "dimension:hswm-philosophy:resource-cost",
+    "representation": "rep_f98bdc10eade329a92e94201"
+  },
+  {
+    "resource": "comparison:hswm-philosophy:standards-vs-software",
+    "representation": "rep_ff1182f02ea3055633d439c8"
+  },
+  {
     "resource": "cq:usl-lineage:history",
     "representation": "rep_ce8670257a1e5b15e28ce3c1"
   },

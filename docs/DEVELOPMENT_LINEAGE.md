@@ -1,10 +1,52 @@
 # USL 개발 변천사와 남은 작업
 
-기존 그래프는 CP03 작업 상태 복원·재연결 제안의 인수 근거까지 갖고 있다. 이번 뷰는 흩어진 계획·실행 기록을 Git 이력과 연결한다. **HSWM 자료 연결과 오프라인 W 검토는 있으나, 개발사 전체의 live HSWM 실행·학습 완료는 입증되지 않았다.**
+기존 그래프는 CP03 작업 상태 복원·재연결 제안의 인수 근거까지 갖고 있다. 이번 뷰는 흩어진 계획·실행 기록을 Git 이력과 연결한다. **철학적 HSWM 최적화 정도와 특정 HSWM 소프트웨어의 실행 준비는 별도 평가다.** live HSWM 실행·학습 미입증을 철학적 HSWM 점수 0으로 해석하지 않는다.
 
 기준 Git `0ba9e4191e8ca9a53d5ba9265ccab0834e7a1324`, 기록일 2026-10-07. 이 기준에서 도달 가능한 **80개 커밋과 부모 관계 전체**, AI가 선정한 **27개 주요 단계**, 기존 **23개 CP 작업**, **9개 세부 잔여 작업**, **6개 HSWM 연결 평가**를 담았다.
 
 모든 대화·실행 이벤트의 전수 이력은 아니다. Git 메시지는 저장소 기록이고 단계 분류는 SECONDARY_AI다. 사용자 원문은 별도 UserStatement이며, 연결이나 분류가 canon·권한·실행 성공을 만들지 않는다. 이 그래프 자체를 추가한 이후의 커밋은 다음 명시적 갱신 전까지 포함되지 않는다.
+
+## 철학적 HSWM과 소프트웨어 구현
+
+철학적 HSWM을 주어진 범위·목적·제약에서 CHU 구성의 최적화 정도로 해석한다. 특정 HSWM 소프트웨어는 그 관점에서 평가할 후보이며 정의나 자동 만점 기준이 아니다.
+
+사용자는 주어진 범위에서 CHU가 최대로 최적화된 정도를 HSWM 수치로 볼 수 있다고 설명했다. 이어 현재 HSWM 소프트웨어는 미약하며 표준 그래프 엔지니어링의 HSWM 정도가 더 높을 수도 있다고 평가했다. 두 발화는 [결정 기록](DECISIONS.md)과 catalog의 `philosophy.userStatements`에 원문으로 보존했다. **사용자가 제시한 철학적 방향·평가와, 실제 비교 측정 결과는 구분한다.**
+
+현재 HSWM 소프트웨어를 만점의 정의나 유일한 구현으로 두지 않는다. 표준 그래프 기술을 조합한 구성도 같은 목적·제약에서 더 좋은 결과를 낼 수 있다. 이는 비교 가능한 가설이며 이번 작업이 특정 구현의 우위를 입증한 것은 아니다. 규격 문서나 기술 계열 자체를 실행 가능한 후보와 동일시하지 않고 각각 구체적 구성·revision을 선택해야 한다.
+
+평가 초안의 목적: USL 개발 근거와 작업환경 자원을 정확히 연결·탐색·이동하고 결과를 이용해 더 나은 구성을 선택한다. 범위: USL의 선택된 자원·바인딩·개발 근거 그래프; CHU 전체나 일반 지능의 절대 척도가 아니다.
+
+| 제안한 평가 축 | 측정할 내용 | 근거를 제공할 기존 작업 |
+|---|---|---|
+| 목적 적합성 | 동일한 실제 작업에서 요구사항을 만족한 비율과 실패 유형을 분리한다. | package:CP07, package:CP23 |
+| 의미·출처 보존 | ID·역할·맥락·원문 pin·변환 손실을 검사한다. 필수 의미 보존 위반은 집계 전 자격 조건으로 다룬다. | package:CP09, package:CP10, package:CP20 |
+| 탐색·판단 품질 | 정답과 근거가 지정된 질의에서 실제 target 도달·근거 지지·잘못된 연결을 측정한다. 노드·링크 수 자체를 점수로 쓰지 않는다. | package:CP08, package:CP15 |
+| 이동·변화에 대한 강건성 | 선택 profile에서 이동·worktree 분기·원본 부재·손상 이후 의미와 작업 상태가 보존되는지를 측정한다. | package:CP03, package:CP04, package:CP05, package:CP06, package:CP07 |
+| 결과에 근거한 개선 | 작업 결과로 구성을 바꿨을 때 baseline·holdout·replay 대비 개선되는지를 평가한다. 수동 또는 자동이라는 이름만으로 우열을 정하지 않는다. | package:CP21, package:CP22 |
+| 제약 안에서의 자원 효율 | 동일 정확도·지원 범위·예산 아래 시간·메모리·bytes·실제 비용을 각각 측정한다. token 추정과 실제 청구는 분리한다. | package:CP07, package:CP17 |
+
+위 여섯 축과 측정 방법은 SECONDARY_AI 설계 제안이다. 철학 전체의 완성된 수학적 정의나 사용자가 지정한 가중치가 아니다. 먼저 축별 결과를 보존하고, 숫자 하나로 집계하려면 정규화·가중치·집계 규칙과 선택 주체를 명시한다. 이 평가 가중치를 HSWM의 canonical W와 자동으로 동일시하지 않는다.
+
+수치 비교 전에 고정할 항목:
+
+- 목적·scope·제약·평가 profile version
+- 비교할 실행 가능한 구성과 각각의 revision·artifact digest
+- 같은 workload·입력 digest·환경·예산
+- 측정법·오류 처리·측정 시각·raw 결과와 evidence pin
+- 정규화·집계 방식·가중치 및 선택 주체
+- 반복 측정의 변동성과 평가 한계
+
+필수 의미·출처·owner 범위 제약 위반은 다른 축의 높은 값으로 상쇄하지 않는다. 같은 조건의 유한 시험으로 해당 작업 범위에서의 우위는 평가할 수 있지만, 관측된 최고값을 CHU 전체의 전역 최적점이라고 부르지 않는다.
+
+현재 두 후보의 점수는 **null / NOT_MEASURED**, 우위는 **UNDETERMINED**, 최적성은 **NOT_PROVEN**이다. workload·구성 revision·측정법·정규화·가중치가 아직 정해지지 않았기 때문이다. HSWM 프로그램에 연결되지 않았거나 `NOT_READY`라는 이유만으로 0점을 부여하지 않는다. 노드 수·표준 이름·HSWM이라는 명칭에도 자동 가산점을 주지 않는다.
+
+[철학적 평가 뷰](../research/development-lineage/philosophy.graph.json)에서 두 후보와 비교 가설을 기존 USL로 조회한다:
+
+```sh
+npm run usl -- adapt --format resource-graph --graph research/development-lineage/philosophy.graph.json --profile research/development-lineage/profile.json --namespace usl.development.lineage --operation context --focus evaluation:hswm-philosophy:usl-v1 --target comparison:hswm-philosophy:standards-vs-software --compact
+```
+
+새 평가 엔진이나 학습기를 만든 것은 아니다. USL은 기준·대상·맥락·원문·측정 근거의 연결을 보존하고, 실제 측정과 최적화는 선택한 소비자 프로그램이 수행하는 기존 경계를 유지한다. 기존 CP 개발 순서도 이 관점으로 평가하되 새 점수 체계가 완성될 때까지 개발을 중단하지 않는다.
 
 ## 연결 구조
 
@@ -97,7 +139,7 @@ flowchart LR
 
 원문 근거: [HSWM 연결](HSWM_CONNECTION.md), [adapter 경계](HSWM_INTEGRATION.md), [W 검토](RULE_WEIGHT_REVIEW.md), [세션 연결](../connections/hswm-likeness/README.md). H/S/W/M 약자의 의미를 이 작업에서 새로 정의하지 않았다. soft coefficient·후보 제안·합성 outcome을 canonical W·실제 개선·적용 결과와 동일시하지 않는다.
 
-현재 이 개발 이력의 `hswmExecution=NOT_READY`, `hswmAuthority=NOT_GRANTED`, `operationalLearning=NOT_ESTABLISHED`다. 원격 KG에는 새 그래프를 쓰지 않았고 HSWM 외부 경로를 읽거나 실행하지 않았다. 기존 KG bridge의 PUBLISHED_DRAFT / PROPOSED는 그 당시의 예비 안내 기록으로 보존한다.
+현재 이 개발 이력의 `hswmExecution=NOT_READY`, `hswmAuthority=NOT_GRANTED`, `operationalLearning=NOT_ESTABLISHED`는 **특정 소프트웨어 통합·실행 경로**의 상태다. 철학적 최적화 정도는 별도 `NOT_MEASURED`이며 이 값들을 0점으로 환산하지 않는다. 원격 KG에는 새 그래프를 쓰지 않았고 HSWM 외부 경로를 읽거나 실행하지 않았다. 기존 KG bridge의 PUBLISHED_DRAFT / PROPOSED는 그 당시의 예비 안내 기록으로 보존한다.
 
 ## USL 바인딩과 재현
 

@@ -10,7 +10,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/research/development-lineage/catalog.json",
       "metadata": {
         "path": "research/development-lineage/catalog.json",
-        "sha256": "sha256:7bce9ec170fa88fe7f6953b74bac3bf7d3e9a00b5627d1647c8e5aef532ee26e"
+        "sha256": "sha256:da90c3ea9410461ddb1948db03cda15fadfded26206a3d3c8b8cbcbd52303f5e"
       }
     },
     {
@@ -54,7 +54,9 @@
         "operationalLearning": "NOT_ESTABLISHED",
         "standardsSuperset": "NOT_CLAIMED",
         "remotePublication": "NOT_VERIFIED",
-        "newRuntimeAcceptance": "NOT_RUN"
+        "newRuntimeAcceptance": "NOT_RUN",
+        "hswmExecutionScope": "SOFTWARE_INTEGRATION_ONLY",
+        "philosophicalOptimizationStatus": "NOT_MEASURED"
       }
     },
     {
@@ -870,6 +872,50 @@
     {
       "id": "urn:usl:development-lineage:requirement_source",
       "description": "AI requirement is stored in the original development plan"
+    },
+    {
+      "id": "urn:usl:development-lineage:snapshot_philosophy",
+      "description": "This view separates philosophical optimization from software readiness"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_statement",
+      "description": "Verbatim user direction informs an AI evaluation design, not a measured score"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_context",
+      "description": "Goals, scope and constraints condition optimization; draft measurement choices stay explicit"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_candidate",
+      "description": "A candidate family requires a concrete pinned implementation before comparison"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_dimension",
+      "description": "AI-proposed measurement dimension, not an observed outcome or canonical W"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_comparison",
+      "description": "Untested comparison hypothesis without an asserted winner"
+    },
+    {
+      "id": "urn:usl:development-lineage:frame_operational_context",
+      "description": "Operational readiness is a separate observation, never a philosophical score or zero"
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_candidate",
+      "description": "Candidate in an unmeasured comparison, not a rank or equivalence assertion"
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_context",
+      "description": "Both candidates must be measured under this same evaluation contract"
+    },
+    {
+      "id": "urn:usl:development-lineage:comparison_statement",
+      "description": "Attribution for the user's comparative possibility, not performance evidence"
+    },
+    {
+      "id": "urn:usl:development-lineage:dimension_package",
+      "description": "An existing CP package can supply evidence for this proposed dimension; no execution claim"
     }
   ],
   "links": [

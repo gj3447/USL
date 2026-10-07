@@ -124,6 +124,17 @@ def build():
         ("facet_source", "assessment", "HswmAssessment", "source", "Source", "Evidence for scoped HSWM linkage; never grants access or learning authority"),
         ("statement_source", "statement", "UserStatement", "source", "Source", "Verbatim statement preserved in a versioned source; interpretation remains separate"),
         ("requirement_source", "requirement", "Requirement", "source", "Source", "AI requirement is stored in the original development plan"),
+        ("snapshot_philosophy", "snapshot", "Snapshot", "frame", "EvaluationFrame", "This view separates philosophical optimization from software readiness"),
+        ("frame_statement", "frame", "EvaluationFrame", "statement", "UserStatement", "Verbatim user direction informs an AI evaluation design, not a measured score"),
+        ("frame_context", "frame", "EvaluationFrame", "context", "EvaluationContext", "Goals, scope and constraints condition optimization; draft measurement choices stay explicit"),
+        ("frame_candidate", "frame", "EvaluationFrame", "candidate", "EvaluationCandidate", "A candidate family requires a concrete pinned implementation before comparison"),
+        ("frame_dimension", "frame", "EvaluationFrame", "dimension", "EvaluationDimension", "AI-proposed measurement dimension, not an observed outcome or canonical W"),
+        ("frame_comparison", "frame", "EvaluationFrame", "comparison", "ComparisonProposal", "Untested comparison hypothesis without an asserted winner"),
+        ("frame_operational_context", "frame", "EvaluationFrame", "assessment", "HswmAssessment", "Operational readiness is a separate observation, never a philosophical score or zero"),
+        ("comparison_candidate", "comparison", "ComparisonProposal", "candidate", "EvaluationCandidate", "Candidate in an unmeasured comparison, not a rank or equivalence assertion"),
+        ("comparison_context", "comparison", "ComparisonProposal", "context", "EvaluationContext", "Both candidates must be measured under this same evaluation contract"),
+        ("comparison_statement", "comparison", "ComparisonProposal", "statement", "UserStatement", "Attribution for the user's comparative possibility, not performance evidence"),
+        ("dimension_package", "dimension", "EvaluationDimension", "package", "Package", "An existing CP package can supply evidence for this proposed dimension; no execution claim"),
     ]:
         relation(*row)
 
@@ -239,6 +250,33 @@ def build():
     for item in read_json(scope_path)["scopeCorrections"]:
         node(item["id"], "UserStatement", item, documentation(scope_path))
         edge("statement_source", item["id"], source(scope_path))
+    philosophy = catalog["philosophy"]
+    nested = {"userStatements", "context", "candidates", "dimensions", "comparison"}
+    node(philosophy["id"], "EvaluationFrame", {k: v for k, v in philosophy.items() if k not in nested})
+    edge("snapshot_philosophy", catalog["id"], philosophy["id"])
+    for statement in philosophy["userStatements"]:
+        node(statement["id"], "UserStatement", statement)
+        edge("frame_statement", philosophy["id"], statement["id"])
+    context = philosophy["context"]
+    node(context["id"], "EvaluationContext", context)
+    edge("frame_context", philosophy["id"], context["id"], "PLANNING_RELATION")
+    for candidate in philosophy["candidates"]:
+        node(candidate["id"], "EvaluationCandidate", candidate)
+        edge("frame_candidate", philosophy["id"], candidate["id"], "PLANNING_RELATION")
+    for dimension in philosophy["dimensions"]:
+        node(dimension["id"], "EvaluationDimension", dimension)
+        edge("frame_dimension", philosophy["id"], dimension["id"], "PLANNING_RELATION")
+        for package in dimension["packageIds"]:
+            edge("dimension_package", dimension["id"], package, "PLANNING_RELATION")
+    comparison = philosophy["comparison"]
+    node(comparison["id"], "ComparisonProposal", comparison)
+    edge("frame_comparison", philosophy["id"], comparison["id"], "PLANNING_RELATION")
+    edge("comparison_context", comparison["id"], context["id"], "PLANNING_RELATION")
+    edge("comparison_statement", comparison["id"], comparison["sourceStatementId"])
+    for candidate in comparison["candidateIds"]:
+        edge("comparison_candidate", comparison["id"], candidate, "PLANNING_RELATION")
+    for facet in catalog["hswmFacets"]:
+        edge("frame_operational_context", philosophy["id"], facet["id"])
     for item in catalog["competencyQuestions"]:
         node(item["id"], "CompetencyQuestion", item)
     for (revision, _), uid in sources.items():
@@ -261,7 +299,7 @@ def build():
         # Generating this view did not generate Git commits, user utterances,
         # old plans, source blobs, or historical test results. Attribute only
         # the new snapshot/AI assessments to the current projection activity.
-        elif any(NS + kind in item["types"] for kind in ("Snapshot", "Milestone", "PackageAssessment", "HswmAssessment", "RemainingTask")):
+        elif any(NS + kind in item["types"] for kind in ("Snapshot", "Milestone", "PackageAssessment", "HswmAssessment", "RemainingTask", "EvaluationFrame", "EvaluationContext", "EvaluationDimension", "ComparisonProposal")):
             value["prov:wasGeneratedBy"] = ref("activity:usl-lineage")
         trace_nodes.append(value)
     for item in edges:
@@ -285,8 +323,15 @@ def build():
     next_ids.update(x["packageId"] for x in catalog["remaining"])
     next_graph = {**graph, "resources": [r for r in graph["resources"] if r["id"] in next_ids],
                   "links": [link for link in graph["links"] if all(p["resource"] in next_ids for p in link["participants"])]}
+    philosophy_ids = {catalog["id"], philosophy["id"], context["id"], comparison["id"],
+                      "input:usl-lineage:catalog", "activity:usl-lineage", "agent:usl-lineage"}
+    for field in ("userStatements", "candidates", "dimensions"):
+        philosophy_ids.update(item["id"] for item in philosophy[field])
+    philosophy_ids.update(item["id"] for item in catalog["hswmFacets"])
+    philosophy_graph = {**graph, "resources": [r for r in graph["resources"] if r["id"] in philosophy_ids],
+                        "links": [link for link in graph["links"] if all(p["resource"] in philosophy_ids for p in link["participants"])]}
     outputs = {"graph.json": graph, "profile.json": profile, "trace.jsonld": trace,
-               "next.graph.json": next_graph,
+               "next.graph.json": next_graph, "philosophy.graph.json": philosophy_graph,
                "mcp.json": {"allowedLocators": [], "maxResources": 64, "maxInputBytes": 16777216, "maxOutputBytes": 16777216,
                    "programs": {}, "connections": {"usl-development-lineage": {"graph": "graph.json", "profile": "profile.json",
                    "namespace": "usl.development.lineage", "format": "resource-graph"}}},
@@ -296,9 +341,26 @@ def build():
     rendered = {FOLDER + "/" + name: encoded(value) for name, value in outputs.items()}
     rows = [
         "# USL 개발 변천사와 남은 작업", "",
-        "기존 그래프는 CP03 작업 상태 복원·재연결 제안의 인수 근거까지 갖고 있다. 이번 뷰는 흩어진 계획·실행 기록을 Git 이력과 연결한다. **HSWM 자료 연결과 오프라인 W 검토는 있으나, 개발사 전체의 live HSWM 실행·학습 완료는 입증되지 않았다.**", "",
+        "기존 그래프는 CP03 작업 상태 복원·재연결 제안의 인수 근거까지 갖고 있다. 이번 뷰는 흩어진 계획·실행 기록을 Git 이력과 연결한다. **철학적 HSWM 최적화 정도와 특정 HSWM 소프트웨어의 실행 준비는 별도 평가다.** live HSWM 실행·학습 미입증을 철학적 HSWM 점수 0으로 해석하지 않는다.", "",
         f"기준 Git `{base}`, 기록일 {catalog['recordedOn']}. 이 기준에서 도달 가능한 **{len(commits)}개 커밋과 부모 관계 전체**, AI가 선정한 **{len(catalog['milestones'])}개 주요 단계**, 기존 **{len(completion['packages'])}개 CP 작업**, **{len(catalog['remaining'])}개 세부 잔여 작업**, **{len(catalog['hswmFacets'])}개 HSWM 연결 평가**를 담았다.", "",
         "모든 대화·실행 이벤트의 전수 이력은 아니다. Git 메시지는 저장소 기록이고 단계 분류는 SECONDARY_AI다. 사용자 원문은 별도 UserStatement이며, 연결이나 분류가 canon·권한·실행 성공을 만들지 않는다. 이 그래프 자체를 추가한 이후의 커밋은 다음 명시적 갱신 전까지 포함되지 않는다.", "",
+        "## 철학적 HSWM과 소프트웨어 구현", "",
+        philosophy["interpretation"], "",
+        "사용자는 주어진 범위에서 CHU가 최대로 최적화된 정도를 HSWM 수치로 볼 수 있다고 설명했다. 이어 현재 HSWM 소프트웨어는 미약하며 표준 그래프 엔지니어링의 HSWM 정도가 더 높을 수도 있다고 평가했다. 두 발화는 [결정 기록](DECISIONS.md)과 catalog의 `philosophy.userStatements`에 원문으로 보존했다. **사용자가 제시한 철학적 방향·평가와, 실제 비교 측정 결과는 구분한다.**", "",
+        "현재 HSWM 소프트웨어를 만점의 정의나 유일한 구현으로 두지 않는다. 표준 그래프 기술을 조합한 구성도 같은 목적·제약에서 더 좋은 결과를 낼 수 있다. 이는 비교 가능한 가설이며 이번 작업이 특정 구현의 우위를 입증한 것은 아니다. 규격 문서나 기술 계열 자체를 실행 가능한 후보와 동일시하지 않고 각각 구체적 구성·revision을 선택해야 한다.", "",
+        f"평가 초안의 목적: {context['objective']} 범위: {context['scope']}", "",
+        "| 제안한 평가 축 | 측정할 내용 | 근거를 제공할 기존 작업 |", "|---|---|---|",
+        *[f"| {d['label']} | {d['proposal']} | {', '.join(d['packageIds'])} |" for d in philosophy["dimensions"]], "",
+        "위 여섯 축과 측정 방법은 SECONDARY_AI 설계 제안이다. 철학 전체의 완성된 수학적 정의나 사용자가 지정한 가중치가 아니다. 먼저 축별 결과를 보존하고, 숫자 하나로 집계하려면 정규화·가중치·집계 규칙과 선택 주체를 명시한다. 이 평가 가중치를 HSWM의 canonical W와 자동으로 동일시하지 않는다.", "",
+        "수치 비교 전에 고정할 항목:", "",
+        *["- " + item for item in context["requiredBeforeNumericScore"]], "",
+        "필수 의미·출처·owner 범위 제약 위반은 다른 축의 높은 값으로 상쇄하지 않는다. 같은 조건의 유한 시험으로 해당 작업 범위에서의 우위는 평가할 수 있지만, 관측된 최고값을 CHU 전체의 전역 최적점이라고 부르지 않는다.", "",
+        "현재 두 후보의 점수는 **null / NOT_MEASURED**, 우위는 **UNDETERMINED**, 최적성은 **NOT_PROVEN**이다. workload·구성 revision·측정법·정규화·가중치가 아직 정해지지 않았기 때문이다. HSWM 프로그램에 연결되지 않았거나 `NOT_READY`라는 이유만으로 0점을 부여하지 않는다. 노드 수·표준 이름·HSWM이라는 명칭에도 자동 가산점을 주지 않는다.", "",
+        "[철학적 평가 뷰](../research/development-lineage/philosophy.graph.json)에서 두 후보와 비교 가설을 기존 USL로 조회한다:", "",
+        "```sh",
+        "npm run usl -- adapt --format resource-graph --graph research/development-lineage/philosophy.graph.json --profile research/development-lineage/profile.json --namespace usl.development.lineage --operation context --focus evaluation:hswm-philosophy:usl-v1 --target comparison:hswm-philosophy:standards-vs-software --compact",
+        "```", "",
+        "새 평가 엔진이나 학습기를 만든 것은 아니다. USL은 기준·대상·맥락·원문·측정 근거의 연결을 보존하고, 실제 측정과 최적화는 선택한 소비자 프로그램이 수행하는 기존 경계를 유지한다. 기존 CP 개발 순서도 이 관점으로 평가하되 새 점수 체계가 완성될 때까지 개발을 중단하지 않는다.", "",
         "## 연결 구조", "", "```mermaid", "flowchart LR",
         "  Requirement[기존 요구사항] --> Task[원래 과제] --> Package[기존 CP 작업]",
         "  Package --> Remaining[세부 잔여 작업과 NOT_RUN 인수 조건]",
@@ -331,7 +393,7 @@ def build():
     ]
     rows += [f"| `{x['id'].rsplit(':', 1)[1]}` | `{x['status']}` | {x['finding']} |" for x in catalog["hswmFacets"]]
     rows += ["", "원문 근거: [HSWM 연결](HSWM_CONNECTION.md), [adapter 경계](HSWM_INTEGRATION.md), [W 검토](RULE_WEIGHT_REVIEW.md), [세션 연결](../connections/hswm-likeness/README.md). H/S/W/M 약자의 의미를 이 작업에서 새로 정의하지 않았다. soft coefficient·후보 제안·합성 outcome을 canonical W·실제 개선·적용 결과와 동일시하지 않는다.", "",
-        "현재 이 개발 이력의 `hswmExecution=NOT_READY`, `hswmAuthority=NOT_GRANTED`, `operationalLearning=NOT_ESTABLISHED`다. 원격 KG에는 새 그래프를 쓰지 않았고 HSWM 외부 경로를 읽거나 실행하지 않았다. 기존 KG bridge의 PUBLISHED_DRAFT / PROPOSED는 그 당시의 예비 안내 기록으로 보존한다.", "",
+        "현재 이 개발 이력의 `hswmExecution=NOT_READY`, `hswmAuthority=NOT_GRANTED`, `operationalLearning=NOT_ESTABLISHED`는 **특정 소프트웨어 통합·실행 경로**의 상태다. 철학적 최적화 정도는 별도 `NOT_MEASURED`이며 이 값들을 0점으로 환산하지 않는다. 원격 KG에는 새 그래프를 쓰지 않았고 HSWM 외부 경로를 읽거나 실행하지 않았다. 기존 KG bridge의 PUBLISHED_DRAFT / PROPOSED는 그 당시의 예비 안내 기록으로 보존한다.", "",
         "## USL 바인딩과 재현", "",
         "모든 graph resource는 [bindings](../research/development-lineage/bindings.json)와 명시적 [selections](../research/development-lineage/selections.json)를 가진다. Git commit·원문 snapshot은 immutable Git locator를 사용하고, 계획/평가 등의 설명 표현은 `usl` workspace alias와 repository-relative catalog 경로를 사용한다. 설명 표현을 고른 것은 원문 증거를 읽은 것이 아니다. 원문은 그래프의 Source 노드로 따라가야 한다.", "",
         "[host](../research/development-lineage/host.json)의 root는 저장소 상대 경로 `../..`이고 actions는 비어 있다. 개인 절대 경로·credential을 저장하지 않는다. 별도 폴더 배치에서는 owner가 root mapping을 바꾸되 기존 resource ID·역할은 유지한다. 실제 source 파일 내용 검사는 Git pin 검사로 수행하며, binding 자체는 파일 읽기 권한이나 내용 검증을 대신하지 않는다.", "",
