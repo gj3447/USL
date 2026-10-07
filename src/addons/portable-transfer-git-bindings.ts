@@ -29,13 +29,26 @@ const label = z.string().min(1).max(512)
 const requestSchema = z.object({
   bindings: z.unknown(), workspaceId: identifier.optional(), workspaces: z.record(label, identifier).optional(),
   selections: z.array(z.object({ resource: z.string().min(1).max(4096), bindingRepresentation: identifier,
-    nativeId: label, revisionId: z.string().regex(/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/u), representationId: label, worktreeId: label,
+    nativeId: label, revisionId: z.string().regex(/^(?:[a-f0-9]{40}|[a-f0-9]{64}|urn:usl:git-state:[a-f0-9]{64})$/u), representationId: label, worktreeId: label,
   }).strict()).min(1).max(1024),
   graph: z.string().max(1024 * 1024).optional(), hostname: z.string().min(1).max(256).optional(),
 }).strict().refine(x => (x.workspaceId === undefined) !== (x.workspaces === undefined), "select workspaceId or an explicit worktree-to-workspace mapping")
 
 /** No registration writes, owner-head activation, permission grants or restored code execution. */
 export async function rebindCleanGitRestore(restore: VerifiedRestore, input: CleanGitRestoreBindingRequest) {
+  return proposeBindings(restore, input, { schema: "usl-clean-git-restore-bindings/v1", freshness: "PINNED_HISTORICAL_REVISION", recheck: recheckCleanGitRestore })
+}
+interface BindingRestoreView {
+  readonly destinationPath: string; readonly manifestDigest: string; readonly bundleDigest: string
+  readonly freshnessMode: "LOCAL_BRANCH" | "HISTORICAL_SNAPSHOT"
+  readonly worktrees: readonly { readonly worktreeId: string; readonly path: string }[]
+  readonly files: readonly { readonly nativeId: string; readonly revisionId: string; readonly representationId: string; readonly worktreeId: string; readonly path: string; readonly byteDigest: string }[]
+  readonly stateReceipts?: readonly { readonly worktreeId: string; readonly receiptDigest: string; readonly revisionId: string }[]
+}
+async function proposeBindings(restore: BindingRestoreView, input: CleanGitRestoreBindingRequest, options: {
+  schema: string; freshness: string; recheck: (value: unknown) => Promise<unknown>
+  includeStateReceipts?: boolean
+}) {
   const captured = requestSchema.parse(contractSnapshot(input, 2 * 1024 * 1024))
   const bindings = parseResourceBindings(captured.bindings)
   const selections = captured.selections.map(selection => {
@@ -56,7 +69,7 @@ export async function rebindCleanGitRestore(restore: VerifiedRestore, input: Cle
     if (representation.kind === "workspace" && newWorkspaceIds.has(representation.workspace) && !selectedIds.has(representation.id))
       throw new Error("new workspace ID would remap an unselected representation")
   }
-  await recheckCleanGitRestore(restore)
+  await options.recheck(restore)
   const updates = new Map<string, { path: string; digest: string; workspace: string }>()
   const workspaces: Record<string, string> = Object.create(null)
   for (const selection of selections) {
@@ -82,12 +95,15 @@ export async function rebindCleanGitRestore(restore: VerifiedRestore, input: Cle
     selections.map(selection => ({ resource: selection.resource, representation: selection.bindingRepresentation })),
     { workspaces, ...(captured.hostname === undefined ? {} : { hostname: captured.hostname }) })
   // A wrong HEAD with identical selected bytes is still a stale restore.
-  await recheckCleanGitRestore(restore)
+  await options.recheck(restore)
   const body = {
-    schema: "usl-clean-git-restore-bindings/v1", manifestDigest: restore.manifestDigest, bundleDigest: restore.bundleDigest,
+    schema: options.schema, manifestDigest: restore.manifestDigest, bundleDigest: restore.bundleDigest,
     sourceBindingsDigest: contractDigest(bindings), resultBindingsDigest: contractDigest(rebound),
-    bindings: rebound, workspaces, selections: captured.selections, freshness: "PINNED_HISTORICAL_REVISION",
+    bindings: rebound, workspaces, selections: captured.selections, freshness: options.freshness,
+    ...(options.includeStateReceipts ? { stateReceipts: restore.stateReceipts! } : {}),
     execution: "NOT_REQUESTED", authority: "NOT_GRANTED", registration: "LOCAL_PROPOSAL_ONLY", ...(bound === undefined ? {} : bound),
   }
   return freezeContract({ ...body, digest: contractDigest(body) })
 }
+/** @internal The caller supplies a profile-specific opaque-handle recheck, never user callbacks. */
+export const gitRestoreBindingInternals = Object.freeze({ proposeBindings })

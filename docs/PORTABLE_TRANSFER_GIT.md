@@ -52,7 +52,7 @@ node --import tsx scripts/usl-git-export.ts --spec /absolute/private/export.json
 
 ignored 파일은 관측하거나 포함하지 않는다. bundle은 Git commit/tree/blob 이력과 선택한 refs를 담으며 `.git` 디렉터리의 복사본이나 전체 작업환경 백업이 아니다. 줄바꿈 변환 등으로 달라질 수 있는 실제 checkout 파일 bytes의 보존도 약속하지 않는다. `repositoryId`와 `worktreeId`는 소유자가 제공한 논리 label이며 실제 Git 관측으로 그 ID의 등록 권한까지 검증하지 않는다.
 
-수정된 index·working bytes와 선택 untracked는 별도 [CP03 state sidecar](PORTABLE_TRANSFER_GIT_STATE.md)로 수집·검증할 수 있다. 현재 CP03는 상태 복원과 binding 재연결을 완료하지 않았으며, clean exporter의 dirty 거부 조건도 유지한다.
+수정된 index·working bytes와 선택 untracked는 별도 [CP03 state sidecar](PORTABLE_TRANSFER_GIT_STATE.md)로 수집·검증하고, 같은 HEAD의 clean bundle과 결합해 복원·선택 binding 재연결 제안을 만들 수 있다. clean exporter의 dirty 거부 조건은 유지하며, 두 산출물을 한 번에 만드는 통합 exporter는 아직 남아 있다.
 
 source 관측은 원자적 snapshot이 아니다. 전후 관측에서 변경이 드러나면 출판을 거부하지만, 중간에 변경했다 되돌리는 경우나 같은 OS 계정의 적대적 경로 치환까지 배제하지 않는다. 안전한 사용 조건은 export 동안 선택한 source와 destination을 변경하지 않는 것이다. Linux에서 실행한 검사는 [진행 기록](COMPLETION_PROGRESS.md)에 있으며 macOS·Windows와 실기기 이동 검증은 아직 남아 있다.
 

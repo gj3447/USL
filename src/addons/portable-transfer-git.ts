@@ -189,7 +189,7 @@ export interface CleanGitRestoreResult {
   readonly worktrees: readonly Readonly<z.infer<typeof importWorktreeSchema>>[]; readonly files: readonly RestoredCleanGitFile[]
   readonly freshnessMode: "HISTORICAL_SNAPSHOT" | "LOCAL_BRANCH"; readonly authority: "NOT_GRANTED"; readonly execution: "NOT_REQUESTED"
 }
-const restoreHandles = new WeakMap<object, { result: CleanGitRestoreResult; root: Awaited<ReturnType<typeof lstat>>; fingerprint: string; maxBytes: number; durationMs: number }>()
+const restoreHandles = new WeakMap<object, { kind: "CLEAN" | "OVERLAY"; result: CleanGitRestoreResult; root: Awaited<ReturnType<typeof lstat>>; fingerprint: string; maxBytes: number; durationMs: number }>()
 const safeRestorePath = (value: string) => !isAbsolute(value) && !/[\\:\u0000-\u001f\u007f]/u.test(value) && value.split("/").every(x =>
   !!x && x !== "." && x !== ".." && !/[. ]$/u.test(x) && x.toLowerCase() !== ".git" && !/^(?:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/iu.test(x))
 const decodeJson = (bytes: Buffer): unknown => JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes))
@@ -221,9 +221,9 @@ async function restoreFingerprint(root: string, maxBytes: number, end: number) {
   deadline(end)
   return fingerprint
 }
-export const recheckCleanGitRestore = async (result: unknown): Promise<CleanGitRestoreResult> => {
+const recheckRestore = async (result: unknown, kind: "CLEAN" | "OVERLAY"): Promise<CleanGitRestoreResult> => {
   const handle = result && typeof result === "object" ? restoreHandles.get(result) : undefined
-  if (!handle) throw new Error("unverified clean Git restore handle; serialized handles are not accepted")
+  if (!handle || handle.kind !== kind) throw new Error("unverified Git restore handle; serialized or cross-profile handles are not accepted")
   const end = Date.now() + handle.durationMs
   const root = handle.result.destinationPath
   if (!sameInode(handle.root, await lstat(root))) throw new Error("restore root identity changed")
@@ -231,8 +231,21 @@ export const recheckCleanGitRestore = async (result: unknown): Promise<CleanGitR
   if (!sameInode(handle.root, await lstat(root))) throw new Error("restore root changed during recheck")
   return handle.result
 }
+export const recheckCleanGitRestore = (result: unknown): Promise<CleanGitRestoreResult> => recheckRestore(result, "CLEAN")
 
 type TreeFile = { path: string; mode: string; objectId: string; bytes: number }
+/** @internal Trusted in-process extension. This engine proves filesystem integrity only;
+ * profile-specific validation and public state handles belong to the state importer.
+ */
+export interface GitRestoreOverlay {
+  readonly maxExtraBytes: number
+  readonly deadline: number
+  apply(context: {
+    stage: string; repository: string; manifest: CleanGitTransferManifest
+    worktrees: readonly Readonly<z.infer<typeof importWorktreeSchema>>[]
+    trees: ReadonlyMap<string, readonly TreeFile[]>; end: number
+  }): Promise<unknown>
+}
 async function checkoutTree(repository: string, head: string, end: number): Promise<TreeFile[]> {
   const text = await git(repository, ["ls-tree", "-r", "-l", "-z", "--full-tree", head], end)
   const files: TreeFile[] = [], paths = new Map<string, string>()
@@ -255,8 +268,11 @@ async function checkoutTree(repository: string, head: string, end: number): Prom
 
 /** Restore only an independently pinned CP01 bundle into a wholly new local root. */
 export const importCleanGitTransfer = async (input: unknown): Promise<CleanGitRestoreResult> => {
-  const request = importRequestSchema.parse(contractSnapshot(input, 2 * 1024 * 1024))
-  const durationMs = request.maxDurationMs ?? 60_000, end = Date.now() + durationMs
+  return importGitTransfer(importRequestSchema.parse(contractSnapshot(input, 2 * 1024 * 1024)))
+}
+const importGitTransfer = async (input: unknown, overlay?: GitRestoreOverlay): Promise<CleanGitRestoreResult> => {
+  const request = (overlay ? importRequestSchema.extend({ files: z.array(importFileSchema).max(1024) }) : importRequestSchema).parse(contractSnapshot(input, 2 * 1024 * 1024))
+  const durationMs = request.maxDurationMs ?? 60_000, end = Math.min(Date.now() + durationMs, overlay?.deadline ?? Infinity)
   const maxBundle = request.maxBundleBytes ?? DEFAULT_BYTES, maxObjects = request.maxObjects ?? MAX_OBJECTS
   const maxUncompressed = request.maxUncompressedBytes ?? DEFAULT_BYTES, maxCheckout = request.maxCheckoutBytes ?? DEFAULT_BYTES
   if (!safeRestorePath(request.destinationName) || request.worktrees.some(x => !safeRestorePath(x.path)) || request.files.some(x => !safeRestorePath(x.path))) throw new Error("unsafe restore path")
@@ -373,15 +389,16 @@ export const importCleanGitTransfer = async (input: unknown): Promise<CleanGitRe
       pointerUpdates.push({ file: join(target, ".git"), content: `gitdir: ${join(destinationPath, relative(stage, admin))}\n` },
         { file: join(admin, "gitdir"), content: join(destinationPath, "worktrees", wt.path, ".git") + "\n" })
     }
+    const stateEvidence = overlay === undefined ? undefined : contractSnapshot(await overlay.apply({ stage, repository, manifest, worktrees: request.worktrees, trees, end }), MAX_METADATA)
     // Replace only fresh generated pointers with their final root; never copy original gitfiles or require manual repair.
     for (const update of pointerUpdates) {
       await regularBytes(update.file, 4096, end)
       await writeFile(update.file, update.content, { flag: "w", mode: 0o600 })
       if (!(await regularBytes(update.file, 4096, end)).equals(Buffer.from(update.content))) throw new Error("generated Git pointer changed")
     }
-    await writeFile(join(stage, "restore.json"), JSON.stringify({ schema: "usl-clean-git-restored/v1", manifestDigest: receipt.manifestDigest, sourceReceiptDigest: request.expectedReceiptDigest,
-      ownerNamespace: manifest.ownerNamespace, repositoryId: manifest.repositoryId, worktrees: request.worktrees, files: restored, authority: "NOT_GRANTED", execution: "NOT_REQUESTED" }, null, 2) + "\n", { flag: "wx", mode: 0o600 })
-    const maxSnapshotBytes = maxBundle + maxCheckout + 4 * MAX_METADATA
+    await writeFile(join(stage, "restore.json"), JSON.stringify({ schema: overlay ? "usl-git-state-restored/v1" : "usl-clean-git-restored/v1", manifestDigest: receipt.manifestDigest, sourceReceiptDigest: request.expectedReceiptDigest,
+      ownerNamespace: manifest.ownerNamespace, repositoryId: manifest.repositoryId, worktrees: request.worktrees, files: restored, ...(stateEvidence === undefined ? {} : { stateEvidence }), authority: "NOT_GRANTED", execution: "NOT_REQUESTED" }, null, 2) + "\n", { flag: "wx", mode: 0o600 })
+    const maxSnapshotBytes = maxBundle + maxCheckout + 4 * MAX_METADATA + (overlay?.maxExtraBytes ?? 0)
     const fingerprint = await restoreFingerprint(stage, maxSnapshotBytes, end)
     await safeDirectory(parent, end)
     if (!sameInode(reserved, await lstat(destinationPath)) || (await readdir(destinationPath)).length) throw new Error("destination reservation changed")
@@ -400,7 +417,7 @@ export const importCleanGitTransfer = async (input: unknown): Promise<CleanGitRe
     const result: CleanGitRestoreResult = freezeContract({ destinationPath, repositoryPath: join(destinationPath, "repository.git"), manifest, manifestDigest: receipt.manifestDigest,
       bundleDigest: sha(bundleBytes), receiptDigest: sha(receiptBytes), worktrees: request.worktrees.map(x => ({ ...x, path: `worktrees/${x.path}` })), files: restored,
       freshnessMode: request.freshnessMode, authority: "NOT_GRANTED", execution: "NOT_REQUESTED" })
-    restoreHandles.set(result, { result, root: published, fingerprint, maxBytes: maxSnapshotBytes, durationMs })
+    restoreHandles.set(result, { kind: overlay ? "OVERLAY" : "CLEAN", result, root: published, fingerprint, maxBytes: maxSnapshotBytes, durationMs })
     return result
   } catch (error) {
     const owned = published ?? reserved
@@ -554,4 +571,7 @@ export const exportCleanGitTransfer = async (input: unknown): Promise<CleanGitTr
 }
 
 /** @internal Shared bounded primitives; these helpers confer no verification or access authority. */
-export const gitTransferInternals = Object.freeze({ runGit, git, safeDirectory, regularBytes, absent, checkObjectStore, safeRestorePath, sha, within, deadline })
+export const gitTransferInternals = Object.freeze({ runGit, git, safeDirectory, regularBytes, absent, checkObjectStore, safeRestorePath, sha, within, deadline,
+  importWithOverlay: (input: unknown, overlay: GitRestoreOverlay) => importGitTransfer(input, overlay),
+  recheckOverlayIntegrity: (result: unknown) => recheckRestore(result, "OVERLAY"),
+})

@@ -6,7 +6,7 @@ g:ObservationShape a sh:NodeShape ; sh:targetClass g:Observation ;
   sh:or (
     [ sh:property [ sh:path g:package ; sh:hasValue <package:CP01> ] ; sh:property [ sh:path g:implementation ; sh:hasValue "CLEAN_EXPORT_LOCAL_SCOPE" ] ; sh:node g:CleanBoundaryShape ]
     [ sh:property [ sh:path g:package ; sh:hasValue <package:CP02> ] ; sh:property [ sh:path g:implementation ; sh:hasValue "CLEAN_RESTORE_REBIND_LOCAL_SCOPE" ] ; sh:node g:CleanBoundaryShape ]
-    [ sh:property [ sh:path g:package ; sh:hasValue <package:CP03> ] ; sh:property [ sh:path g:implementation ; sh:hasValue "STATE_CAPTURE_VERIFY_LOCAL_SCOPE" ] ; sh:node g:StateBoundaryShape ]
+    [ sh:property [ sh:path g:package ; sh:hasValue <package:CP03> ] ; sh:property [ sh:path g:implementation ; sh:hasValue "STATE_RESTORE_REBIND_LOCAL_SCOPE" ] ; sh:node g:StateBoundaryShape ]
   ) ;
   sh:property [ sh:path g:package ; sh:class g:Package ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path g:implementation ; sh:minCount 1 ; sh:maxCount 1 ] ;
@@ -23,9 +23,11 @@ g:CleanBoundaryShape a sh:NodeShape ;
   sh:property [ sh:path g:restore ; sh:hasValue "RAW_REGULAR_CLEAN_TREES_ONLY" ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path g:registration ; sh:hasValue "LOCAL_PROPOSAL_ONLY" ; sh:minCount 1 ; sh:maxCount 1 ] .
 g:StateBoundaryShape a sh:NodeShape ;
+  sh:property [ sh:path g:emptyDirectories ; sh:hasValue "NOT_RECONSTRUCTED" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path g:combinedDirtyExport ; sh:hasValue "NOT_IMPLEMENTED" ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path g:profile ; sh:hasValue "RAW_REGULAR_GIT_STATE_V1" ; sh:minCount 1 ; sh:maxCount 1 ] ;
-  sh:property [ sh:path g:restore ; sh:hasValue "NOT_IMPLEMENTED" ; sh:minCount 1 ; sh:maxCount 1 ] ;
-  sh:property [ sh:path g:registration ; sh:hasValue "NOT_IMPLEMENTED" ; sh:minCount 1 ; sh:maxCount 1 ] .
+  sh:property [ sh:path g:restore ; sh:hasValue "RAW_REGULAR_SELECTED_STATE_ONLY" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path g:registration ; sh:hasValue "LOCAL_PROPOSAL_ONLY" ; sh:minCount 1 ; sh:maxCount 1 ] .
 g:PackageShape a sh:NodeShape ; sh:targetClass g:Package ;
   sh:property [ sh:path g:acceptance ; sh:class g:Acceptance ; sh:minCount 2 ; sh:maxCount 2 ] ;
   sh:or (
@@ -36,14 +38,14 @@ g:PackageShape a sh:NodeShape ; sh:targetClass g:Package ;
 g:AcceptanceShape a sh:NodeShape ; sh:targetClass g:Acceptance ;
   sh:or (
     [ sh:in ( <acceptance:CP01-1> <acceptance:CP01-2> <acceptance:CP02-1> <acceptance:CP02-2> ) ; sh:property [ sh:path g:coverage ; sh:hasValue "LOCAL_CASES_PASS" ] ]
-    [ sh:in ( <acceptance:CP03-1> <acceptance:CP03-2> ) ; sh:property [ sh:path g:coverage ; sh:hasValue "LOCAL_CAPTURE_CASES_PASS_RESTORE_PENDING" ] ]
+    [ sh:in ( <acceptance:CP03-1> <acceptance:CP03-2> ) ; sh:property [ sh:path g:coverage ; sh:hasValue "LOCAL_STATE_PROFILE_CASES_PASS" ] ]
   ) ;
   sh:property [ sh:path g:coverage ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path g:checkedBy ; sh:class g:TestResult ; sh:minCount 1 ] .
 g:CP03AcceptanceOneShape a sh:NodeShape ; sh:targetNode <acceptance:CP03-1> ;
-  sh:property [ sh:path g:coverage ; sh:hasValue "LOCAL_CAPTURE_CASES_PASS_RESTORE_PENDING" ; sh:minCount 1 ; sh:maxCount 1 ] .
+  sh:property [ sh:path g:coverage ; sh:hasValue "LOCAL_STATE_PROFILE_CASES_PASS" ; sh:minCount 1 ; sh:maxCount 1 ] .
 g:CP03AcceptanceTwoShape a sh:NodeShape ; sh:targetNode <acceptance:CP03-2> ;
-  sh:property [ sh:path g:coverage ; sh:hasValue "LOCAL_CAPTURE_CASES_PASS_RESTORE_PENDING" ; sh:minCount 1 ; sh:maxCount 1 ] .
+  sh:property [ sh:path g:coverage ; sh:hasValue "LOCAL_STATE_PROFILE_CASES_PASS" ; sh:minCount 1 ; sh:maxCount 1 ] .
 g:TestShape a sh:NodeShape ; sh:targetClass g:TestResult ;
   sh:property [ sh:path g:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [ sh:path g:status ; sh:hasValue "PASS" ; sh:minCount 1 ; sh:maxCount 1 ] .

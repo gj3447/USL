@@ -1,8 +1,8 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:7a0319cd-45f5-405d-b2eb-4e18c143d92e",
-  "startedAt": "2026-10-06T16:01:53.250Z",
-  "finishedAt": "2026-10-06T16:01:54.838Z",
+  "runId": "urn:uuid:6ebc0118-4220-4f99-b9a8-a5c4e639a967",
+  "startedAt": "2026-10-07T00:12:48.278Z",
+  "finishedAt": "2026-10-07T00:12:49.011Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
@@ -14,9 +14,11 @@
     "src/addons/checkout-guard.ts": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
     "src/addons/portable-transfer-bindings.ts": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05",
     "src/addons/portable-transfer-export.ts": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a",
-    "src/addons/portable-transfer-git-bindings.ts": "sha256:3e394badcbc1a1e1e9a1964844d8387b848f7e827b883f22d6f5507da0237f2f",
+    "src/addons/portable-transfer-git-bindings.ts": "sha256:de33ca248de6ace2c47e3b02292cec74534e0e75b1af376d01e4ef39f506528d",
+    "src/addons/portable-transfer-git-state-bindings.ts": "sha256:6ff2d35b71129d5bc7b64887691a5c7e9e0e91d08e6589c325089af79d7a4ffa",
+    "src/addons/portable-transfer-git-state-restore.ts": "sha256:0d9095fcbee76dd3c13d5d09e5040261766b42818d02414396a2a2cdd0571dc6",
     "src/addons/portable-transfer-git-state.ts": "sha256:241f447b1201788f32ae6fdd1bbbfb18391ba339d886040a88efda4c0ca6031b",
-    "src/addons/portable-transfer-git.ts": "sha256:687467bd0e0fb4a118bccbac8eefe6c34b6ce8c414706bf4512708bfd442a6ce",
+    "src/addons/portable-transfer-git.ts": "sha256:738f9e50ff484376bfa3e6fb2c3aba67da46664f9643658949031aca4c30a999",
     "src/addons/portable-transfer-import.ts": "sha256:e1f6a36c6bc8a16160a3c0b432b165ce91520f84cb1f77a8c728a93d2c314180",
     "src/addons/portable-transfer.ts": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad",
     "src/addons/rule-policy.ts": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
@@ -230,5 +232,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:0aa80509fae6d99786c899c837457c2fdae337b4ed3c573aee9d5795ca46f5f5"
+  "receiptDigest": "sha256:8201b2b42c08dc87c84bbfa9ac805c0c05c8af12430fdcc9976d11cf31229ca6"
 }
