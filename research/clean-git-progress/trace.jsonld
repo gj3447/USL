@@ -14,8 +14,8 @@
         "@id": "package:CP01"
       },
       "g:implementation": "CLEAN_EXPORT_LOCAL_SCOPE",
-      "g:sourceCommit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
-      "g:recordedAt": "2026-10-06T16:03:59.534883+00:00",
+      "g:sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "g:recordedAt": "2026-10-07T00:14:28.666851+00:00",
       "g:profile": "CLEAN_GIT_WORKTREE_V1",
       "g:restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
       "g:atomicSnapshot": "NOT_CLAIMED",
@@ -39,8 +39,8 @@
         "@id": "package:CP02"
       },
       "g:implementation": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE",
-      "g:sourceCommit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
-      "g:recordedAt": "2026-10-06T16:03:59.534883+00:00",
+      "g:sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "g:recordedAt": "2026-10-07T00:14:28.666851+00:00",
       "g:profile": "CLEAN_GIT_WORKTREE_V1",
       "g:restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
       "g:atomicSnapshot": "NOT_CLAIMED",
@@ -63,18 +63,20 @@
       "g:package": {
         "@id": "package:CP03"
       },
-      "g:implementation": "STATE_CAPTURE_VERIFY_LOCAL_SCOPE",
-      "g:sourceCommit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
-      "g:recordedAt": "2026-10-06T16:03:59.534883+00:00",
+      "g:implementation": "STATE_RESTORE_REBIND_LOCAL_SCOPE",
+      "g:sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+      "g:recordedAt": "2026-10-07T00:14:28.666851+00:00",
       "g:profile": "RAW_REGULAR_GIT_STATE_V1",
-      "g:restore": "NOT_IMPLEMENTED",
+      "g:restore": "RAW_REGULAR_SELECTED_STATE_ONLY",
       "g:atomicSnapshot": "NOT_CLAIMED",
       "g:fullWorkspace": "CP03_CP04_PENDING",
       "g:macos": "NOT_RUN",
       "g:windows": "NOT_RUN",
       "g:authority": "NOT_GRANTED",
-      "g:registration": "NOT_IMPLEMENTED",
+      "g:registration": "LOCAL_PROPOSAL_ONLY",
       "g:crashRecovery": "NOT_IMPLEMENTED",
+      "g:combinedDirtyExport": "NOT_IMPLEMENTED",
+      "g:emptyDirectories": "NOT_RECONSTRUCTED",
       "prov:wasDerivedFrom": {
         "@id": "receipt:clean-git"
       }
@@ -121,8 +123,8 @@
         "g:Receipt",
         "prov:Entity"
       ],
-      "g:sha256": "sha256:54db513f68221e60d7d887f3b6654e7230f9842a767d3dfcfaaf6e45bf3f18b9",
-      "g:tapDigest": "sha256:8ccbfe5a5888b5c98ac04b9a6356e28f7d8881b44e87f26edbbda498fb3335da",
+      "g:sha256": "sha256:71ca8bb36bdee92700c4f7bfe3e8e594b61aaafa5a478b0a753826e37394d549",
+      "g:tapDigest": "sha256:ef867a29fea80753548544474334535b69429c9ed62261cb8b55794a30f9a8f1",
       "g:authority": "SECONDARY_AI"
     },
     {
@@ -246,13 +248,25 @@
     {
       "@id": "acceptance:CP03-1",
       "@type": "g:Acceptance",
-      "g:coverage": "LOCAL_CAPTURE_CASES_PASS_RESTORE_PENDING",
+      "g:coverage": "LOCAL_STATE_PROFILE_CASES_PASS",
       "g:checkedBy": [
         {
           "@id": "test:clean-git:612864d49186c027e3f69f084077369c09828a900ada2b0c130186d0f925d446"
         },
         {
           "@id": "test:clean-git:7ce1902727fe9f64d744eb2be3ea609d750607d122ef0527a1245bd76eea63bd"
+        },
+        {
+          "@id": "test:clean-git:409d8b622ccfa0a3bbe715081d8b43048edb5f9ea1377827a0b76a8dc9551c32"
+        },
+        {
+          "@id": "test:clean-git:73e93a67981dd9f89a2458dc34e37650c2e8b4e758491c60f665334313b137a3"
+        },
+        {
+          "@id": "test:clean-git:16269a44af03bbf284ab0edcffe7053c5ad72cc91863eb3b343af0766df7c8e3"
+        },
+        {
+          "@id": "test:clean-git:2976ccd1d9e1614141fbfd3918ac7b5fab691b5bf5150a5c26dba09fddaf6ff7"
         },
         {
           "@id": "test:clean-git:4dd4680e1e7c9d82c321f67361b0dbdba58ec46b977ff48b3981322e72295328"
@@ -268,7 +282,7 @@
     {
       "@id": "acceptance:CP03-2",
       "@type": "g:Acceptance",
-      "g:coverage": "LOCAL_CAPTURE_CASES_PASS_RESTORE_PENDING",
+      "g:coverage": "LOCAL_STATE_PROFILE_CASES_PASS",
       "g:checkedBy": [
         {
           "@id": "test:clean-git:644f29d2b4f3d404f315d629c16260832ed8f24eed5b09cbe9b59ffe2ce3b889"
@@ -281,6 +295,21 @@
         },
         {
           "@id": "test:clean-git:1d2377ed27f5ba5d994d0a237dfcca595438989dc87fff75634e9897fd33e594"
+        },
+        {
+          "@id": "test:clean-git:d9789fb64f63024de9e49d72dd8229b7ca8437be32ccf4810925e0af42c674a7"
+        },
+        {
+          "@id": "test:clean-git:af5c82aa4007e01d8acb5d628acb587a25b54bd3ff72e76db9faf6ee5df2a838"
+        },
+        {
+          "@id": "test:clean-git:656e45faa58155bb6312901279a4f2928ba25b4b85705ec6da4f02b64011cbe6"
+        },
+        {
+          "@id": "test:clean-git:1b37ce2fdd4a2b330070220bd2f8c47139ed20a665d7fa1875811e3157f1ee2b"
+        },
+        {
+          "@id": "test:clean-git:9baedc74e11519da7433930d44b1422807dc3b09d2e51dca754057d7c1f99849"
         },
         {
           "@id": "test:clean-git:bd17afa97eced55bb772820b719de67cee086e7b118a74b48e7d53e6812a6c04"
@@ -465,6 +494,60 @@
       "@id": "test:clean-git:1d2377ed27f5ba5d994d0a237dfcca595438989dc87fff75634e9897fd33e594",
       "@type": "g:TestResult",
       "g:name": "CP03-2: path collisions, stale independent pins and input mutation cannot broaden selected capture",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:409d8b622ccfa0a3bbe715081d8b43048edb5f9ea1377827a0b76a8dc9551c32",
+      "@type": "g:TestResult",
+      "g:name": "CP03-1: restored dirty bytes rebind stable resource IDs and ordered roles with a distinct state revision",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:73e93a67981dd9f89a2458dc34e37650c2e8b4e758491c60f665334313b137a3",
+      "@type": "g:TestResult",
+      "g:name": "CP03-1: multi-worktree restores keep staged deletion, working deletion, rename and detached state separate",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:d9789fb64f63024de9e49d72dd8229b7ca8437be32ccf4810925e0af42c674a7",
+      "@type": "g:TestResult",
+      "g:name": "CP03-2: stale, serialized, cross-profile and wrong-revision handles cannot update a binding",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:af5c82aa4007e01d8acb5d628acb587a25b54bd3ff72e76db9faf6ee5df2a838",
+      "@type": "g:TestResult",
+      "g:name": "CP03-2: state and history mismatches fail before publication even with a fully rehashed receipt",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:656e45faa58155bb6312901279a4f2928ba25b4b85705ec6da4f02b64011cbe6",
+      "@type": "g:TestResult",
+      "g:name": "CP03-2: budgets and explicit selection pins prevent partial or misidentified state restores",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:1b37ce2fdd4a2b330070220bd2f8c47139ed20a665d7fa1875811e3157f1ee2b",
+      "@type": "g:TestResult",
+      "g:name": "CP03-2: one destination reservation wins, existing data remains intact and metadata edits stale the restore",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:9baedc74e11519da7433930d44b1422807dc3b09d2e51dca754057d7c1f99849",
+      "@type": "g:TestResult",
+      "g:name": "CP03-2: internal overlay integrity cannot mint a verified CP03 state or clean binding handle",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:16269a44af03bbf284ab0edcffe7053c5ad72cc91863eb3b343af0766df7c8e3",
+      "@type": "g:TestResult",
+      "g:name": "CP03-1: restores a copied state sidecar onto the clean bundle's exact native index and dirty working bytes",
+      "g:status": "PASS"
+    },
+    {
+      "@id": "test:clean-git:2976ccd1d9e1614141fbfd3918ac7b5fab691b5bf5150a5c26dba09fddaf6ff7",
+      "@type": "g:TestResult",
+      "g:name": "CP03-1: restores SHA-256 conflict stages and executable working mode without treating the handle as serializable",
       "g:status": "PASS"
     },
     {

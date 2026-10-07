@@ -55,8 +55,8 @@
       ]
     }
   ],
-  "recordedAt": "2026-10-06T16:04:11.850152+00:00",
-  "sourceCommit": "e0caa66b8ed5211ccebafdc0d6bdde44372cf67e",
+  "recordedAt": "2026-10-07T00:14:40.779818+00:00",
+  "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -150,7 +150,15 @@
     },
     {
       "path": "src/addons/portable-transfer-git-bindings.ts",
-      "sha256": "sha256:3e394badcbc1a1e1e9a1964844d8387b848f7e827b883f22d6f5507da0237f2f"
+      "sha256": "sha256:de33ca248de6ace2c47e3b02292cec74534e0e75b1af376d01e4ef39f506528d"
+    },
+    {
+      "path": "src/addons/portable-transfer-git-state-bindings.ts",
+      "sha256": "sha256:6ff2d35b71129d5bc7b64887691a5c7e9e0e91d08e6589c325089af79d7a4ffa"
+    },
+    {
+      "path": "src/addons/portable-transfer-git-state-restore.ts",
+      "sha256": "sha256:0d9095fcbee76dd3c13d5d09e5040261766b42818d02414396a2a2cdd0571dc6"
     },
     {
       "path": "src/addons/portable-transfer-git-state.ts",
@@ -158,7 +166,7 @@
     },
     {
       "path": "src/addons/portable-transfer-git.ts",
-      "sha256": "sha256:687467bd0e0fb4a118bccbac8eefe6c34b6ce8c414706bf4512708bfd442a6ce"
+      "sha256": "sha256:738f9e50ff484376bfa3e6fb2c3aba67da46664f9643658949031aca4c30a999"
     },
     {
       "path": "src/addons/portable-transfer-import.ts",
@@ -429,7 +437,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:049e51c2792acb77deb8194bfbfef87de10120509fd94f9c34160f00cec4635b",
+  "tapDigest": "sha256:07ea239f63aa2665cca7ff67d9fe29ce70c2a88006c0d6a8d220aeb0f786f16a",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -872,6 +880,6 @@
     "criterion:PT04-C2",
     "criterion:PT04-C3"
   ],
-  "acceptanceDigest": "sha256:d441b5bb4ad92dbadfa5526d5154fda0208c87be3027e44af3f5dedfe68314cf",
+  "acceptanceDigest": "sha256:84a8c5ea8746ec22af9116a86be8d245ee796a83cc719f340d62a49135f37859",
   "nextTask": "task:PT03"
 }
