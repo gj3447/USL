@@ -1,0 +1,41 @@
+{
+  "schema": "metahumotonic-license-adoption/v1",
+  "date": "2026-10-07",
+  "repository": "gj3447/USL",
+  "base_commit": "4cbb466316884d053ce00ec16edc9239f1820605",
+  "base_tree": "1f7f722a89ffcc85115b8f4a1a9b21310bcf66d6",
+  "license": "LicenseRef-MetaHumotonic-1.2",
+  "license_path": "LICENSE",
+  "license_sha256": "dc4439a4bc7ea4cb913ba3a5a9ff679a1dc148a03f77a6deba82758c5a92b5a3",
+  "mode": "MHL_DEFAULT_WITH_PRESERVED_GRANTS",
+  "user_verbatim": "우리 모든 publci 을 메타휴모토닉 라이센스로 변경해줘 ㅇ",
+  "source_authority": "USER_PRIMARY",
+  "drafting_author": "OpenAI Codex",
+  "drafting_authority": "SECONDARY_AI",
+  "prior_grants_preserved": true,
+  "actual_hardware_access_granted": false,
+  "third_party_boundary": "Separate third-party terms remain; repository administration is not copyright ownership.",
+  "preserved_files": [
+    {
+      "original_path": "LICENSE",
+      "path": "licenses/pre-mhl-2026-10-07/LICENSE",
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "original_path": "LICENSING.md",
+      "path": "licenses/pre-mhl-2026-10-07/LICENSING.md",
+      "sha256": "858cfeaf32ac0d21700e61d16010a712abc659c6ed78be71448a13aad33f0ca9"
+    },
+    {
+      "original_path": "COPYRIGHT",
+      "path": "licenses/pre-mhl-2026-10-07/COPYRIGHT",
+      "sha256": "fe6be82c1347f81c299716b1b4223a7bd9922d5f4220a5df8e1ca8ea2d29aeb8"
+    },
+    {
+      "original_path": "NOTICE",
+      "path": "licenses/pre-mhl-2026-10-07/NOTICE",
+      "sha256": "749be9df0e4084cc88bfbda7b2869cd6a33ae2c559132eb3fdfe73836bbc45c9"
+    }
+  ],
+  "publication_tracking": "This is the prepared adoption record. Git history and remote readback establish publication; no full copyright audit or legal review is claimed."
+}
