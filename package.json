@@ -12,6 +12,10 @@
     "usl-mcp": "./dist/src/mcp.js"
   },
   "exports": {
+    "./memory-relocation": {
+      "types": "./dist/src/addons/memory-relocation.d.ts",
+      "import": "./dist/src/addons/memory-relocation.js"
+    },
     "./rule-policy": {
       "types": "./dist/src/addons/rule-policy.d.ts",
       "import": "./dist/src/addons/rule-policy.js"

@@ -15,6 +15,7 @@ Copyright © 2026 **Ra Gyeongjun (라경준)**. **MetaHumotonic License 1.2**로
 - [현재 구조와 표준의 적용 범위](docs/ARCHITECTURE.md)
 - [단순 바인딩 문법과 선택형 애드온의 경계](docs/SYNTAX_CLI_GRAPH_ARCHITECTURE.md) · [최소 작업 계획](docs/HSWM_LIKE_EXECUTION_PLAN.md) · [요구사항·구현 근거·작업 그래프](research/architecture/syntax-cli.graph.json)
 - [바인딩 조회·경로 이동·중복 실행 차단·복구 조회](docs/BINDING_OPERATIONS.md)
+- [메모리 이동 이벤트·내용 검증·조건부 바인딩 갱신](docs/MEMORY_RELOCATION.md)
 - [선택형 규칙 강제 수준·가중치·평가 계약과 표준 그래프](docs/RULE_POLICY.md)
 - [규칙 웨이트·맥락·작업 결과·HSWM W 연결 근거와 변경 제안](docs/RULE_WEIGHT_EVIDENCE.md) · [기존 학습기 결과의 오프라인 검토 CLI](docs/RULE_WEIGHT_REVIEW.md)
 - [실제 연결: gj3447/HSWM 연구 자료·로컬 경로·GitHub](docs/HSWM_CONNECTION.md)

@@ -13,6 +13,11 @@ a representation does not rename the resource or rewrite any meaning/link role
 that refers to that ID. A caller must select a representation explicitly when
 more than one exists.
 
+For owner-reported same-revision memory moves, the optional
+[memory relocation adapter](MEMORY_RELOCATION.md) verifies destination bytes
+against an existing pin and commits selected bindings through an owner-provided
+atomic state comparison. It does not copy files or discover new locations.
+
 This boundary also makes compact exchange safe: a short local alias or a
 dictionary entry may reduce repeated text only when the receiver can losslessly
 restore the canonical resource ID, representation ID, named role, metadata,
