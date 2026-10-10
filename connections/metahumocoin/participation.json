@@ -1,0 +1,15 @@
+{
+  "allowedLocators": [],
+  "maxResources": 64,
+  "maxInputBytes": 4194304,
+  "maxOutputBytes": 4194304,
+  "programs": {},
+  "connections": {
+    "metahumocoin-participation-v1": {
+      "graph": "../../../metahumocoin/.local/usl/current/graph.json",
+      "profile": "../../../metahumocoin/.local/usl/current/profile.json",
+      "namespace": "metahumocoin.participation.v1",
+      "format": "resource-graph"
+    }
+  }
+}
