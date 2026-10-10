@@ -21,6 +21,7 @@ Copyright © 2026 **Ra Gyeongjun (라경준)**. **MetaHumotonic License 1.2**로
 - [실제 연결: gj3447/HSWM 연구 자료·로컬 경로·GitHub](docs/HSWM_CONNECTION.md)
 - [HSWM_LIKENESS 2026-10-06 세션 그래프의 고정 USL 연결](connections/hswm-likeness/README.md)
 - [HSWM·OMC·metahumocoin 참여 동기와 정산 설계의 고정 연결](connections/metahumocoin/README.md)
+- [입체운행구름 · USL · 현재 인터넷 접합: 연결 그래프와 구현 순서](docs/OMC_INTERNET.md)
 - [CHU · HSWM · USL 생태계 연결: 하이퍼그래프 OS·LLM AI·n항 연결 문법](docs/CHU_CONNECTION.md)
 - [HSWM 필수 작업환경 연결·접근 확인·전체 저장소 agent 규칙](docs/WORKSPACE_LINKING.md)
 - [01239ca 시점의 검토·후속 작업 제안](docs/CURRENT_STATE_AND_NEXT_STEPS.md) · [후속 구현 그래프](research/engineering/binding-progress.graph.json)

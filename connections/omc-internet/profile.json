@@ -1,0 +1,199 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:omc-internet:profile:v1",
+  "version": "1.0.0",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "interprets",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:UserSource"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "USER_PRIMARY"
+            },
+            {
+              "key": "publication",
+              "equals": "LOCAL_ONLY"
+            }
+          ]
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:Requirement"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PROPOSED"
+            }
+          ]
+        },
+        {
+          "role": "subject",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:System"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "addresses",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            },
+            {
+              "key": "runtimeStatus",
+              "equals": "NOT_DEPLOYED_BY_THIS_PLAN"
+            },
+            {
+              "key": "implementationState",
+              "equals": "PARTIAL_PRIMITIVES"
+            }
+          ]
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:Requirement"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PROPOSED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "groundedIn",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            },
+            {
+              "key": "runtimeStatus",
+              "equals": "NOT_DEPLOYED_BY_THIS_PLAN"
+            },
+            {
+              "key": "implementationState",
+              "equals": "PARTIAL_PRIMITIVES"
+            }
+          ]
+        },
+        {
+          "role": "evidence",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:Evidence"
+          ],
+          "metadata": []
+        }
+      ]
+    },
+    {
+      "id": "dependsOn",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            },
+            {
+              "key": "runtimeStatus",
+              "equals": "NOT_DEPLOYED_BY_THIS_PLAN"
+            },
+            {
+              "key": "implementationState",
+              "equals": "PARTIAL_PRIMITIVES"
+            }
+          ]
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:omc-internet:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            },
+            {
+              "key": "runtimeStatus",
+              "equals": "NOT_DEPLOYED_BY_THIS_PLAN"
+            },
+            {
+              "key": "implementationState",
+              "equals": "PARTIAL_PRIMITIVES"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

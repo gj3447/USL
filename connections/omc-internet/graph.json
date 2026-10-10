@@ -1,0 +1,916 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "sym:Character:입체운행구름",
+      "types": [
+        "urn:usl:omc-internet:System"
+      ],
+      "locator": "kg://canonical-neo4j/sym:Character:입체운행구름",
+      "metadata": {
+        "title": "입체운행구름 / Orbital Motion Cloud / OMC",
+        "authorityClass": "UNSPECIFIED",
+        "identityScope": "Existing owner UID; no new identity or deployment claim",
+        "observedOn": "2026-10-10"
+      }
+    },
+    {
+      "id": "omc:source:internet-request",
+      "types": [
+        "urn:usl:omc-internet:UserSource"
+      ],
+      "locator": "file://usl-document-root/connections/omc-internet/request.json",
+      "metadata": {
+        "authorityClass": "USER_PRIMARY",
+        "sourceId": "omc:source:internet-request",
+        "textDigest": "sha256:ad414a3dca41017980137b54bec00769ec3117909a9948ca5419a4cc7f3f703f",
+        "recordedAt": "2026-10-10T15:13:54Z",
+        "publication": "LOCAL_ONLY",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "documentDigest": "sha256:9567d6e0f79f2949d0e9708b6128a492751dcd2a09b37ea0daf666c03dacd5b9",
+        "jsonPointer": "/sources/0",
+        "selectorStatus": "OWNER_READ_REQUIRED"
+      }
+    },
+    {
+      "id": "omc:source:mobility-request",
+      "types": [
+        "urn:usl:omc-internet:UserSource"
+      ],
+      "locator": "file://usl-document-root/connections/omc-internet/request.json",
+      "metadata": {
+        "authorityClass": "USER_PRIMARY",
+        "sourceId": "omc:source:mobility-request",
+        "textDigest": "sha256:22aad0d098cae11ca4812b35c87c0ac467f96f39ee4cc81491469e5162777d90",
+        "recordedAt": "2026-10-10T15:13:54Z",
+        "publication": "LOCAL_ONLY",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "documentDigest": "sha256:9567d6e0f79f2949d0e9708b6128a492751dcd2a09b37ea0daf666c03dacd5b9",
+        "jsonPointer": "/sources/1",
+        "selectorStatus": "OWNER_READ_REQUIRED"
+      }
+    },
+    {
+      "id": "omc:requirement:internal",
+      "types": [
+        "urn:usl:omc-internet:Requirement"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "OMC의 메모리·에이전트·도구·컴퓨팅 자원을 owner UID와 역할이 보존되는 USL 연결로 탐색한다.",
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:requirement:web",
+      "types": [
+        "urn:usl:omc-internet:Requirement"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "현재 웹·문서·저장소·API에서 필요한 정보를 읽고 출처와 갱신 상태를 구분한다.",
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:requirement:actions",
+      "types": [
+        "urn:usl:omc-internet:Requirement"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "허용된 외부 API·도구를 호출하고 기존 인터넷 클라이언트도 등록된 OMC 기능에 접근할 수 있게 한다.",
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:requirement:feedback",
+      "types": [
+        "urn:usl:omc-internet:Requirement"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "외부 변경과 실행 결과를 원래 작업·자원에 결속해 OMC 의사결정에 환류한다.",
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:requirement:mobility",
+      "types": [
+        "urn:usl:omc-internet:Requirement"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "컴퓨터·백업·worktree가 바뀌어도 자원 ID를 보존하고 해당 환경의 표현과 권한을 다시 확인한다.",
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:work:identity",
+      "types": [
+        "urn:usl:omc-internet:WorkItem"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "OMC owner projection과 공통 자원 식별",
+        "available": "Resource graph, owner UID, named roles, existing participation connection",
+        "remaining": "OMC owner별 bounded projection과 stable resource/revision identity를 연결",
+        "acceptance": [
+          "기존 OMC UID를 재사용하고 메모리·도구·작업을 별도 ID로 구분",
+          "USER_PRIMARY 원문과 AI 해석의 출처·권한을 분리",
+          "등록된 connection의 scope 밖을 자동 탐색하지 않음"
+        ],
+        "authorityClass": "SECONDARY_AI",
+        "status": "PLANNED",
+        "implementationState": "PARTIAL_PRIMITIVES",
+        "runtimeStatus": "NOT_DEPLOYED_BY_THIS_PLAN",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:work:web",
+      "types": [
+        "urn:usl:omc-internet:WorkItem"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "실제 HTTPS 읽기에서 내용 활용·갱신까지",
+        "available": "Bounded URL resolver with exact allowlist, redirect checks, hash and observedAt",
+        "remaining": "Owner가 정한 첫 endpoint와 내용 추출 read adapter, freshness/revalidation policy",
+        "acceptance": [
+          "첫 공개 HTTPS GET을 한정된 byte/time budget으로 관측",
+          "허용 밖 redirect·404/410·timeout·oversize를 성공으로 취급하지 않음",
+          "ETag/Last-Modified/Cache-Control 및 checkedAt를 분리하고 오래된 관측을 최신이라고 하지 않음",
+          "웹 원문을 출처 있는 데이터로 처리하며 실행 권한으로 해석하지 않음"
+        ],
+        "authorityClass": "SECONDARY_AI",
+        "status": "PLANNED",
+        "implementationState": "PARTIAL_PRIMITIVES",
+        "runtimeStatus": "NOT_DEPLOYED_BY_THIS_PLAN",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:work:actions",
+      "types": [
+        "urn:usl:omc-internet:WorkItem"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "등록된 양방향 HTTP/API·MCP 기능 연결",
+        "available": "Limited OpenAPI 3.1 and MCP tools/list import; host executor callback; local stdio MCP",
+        "remaining": "OMC용 protocol driver, host auth, inbound service registration, contract version tests",
+        "acceptance": [
+          "설명 목록 import와 실제 실행 상태를 분리",
+          "고정된 owner executor와 scope로 input/output contract를 검사",
+          "쓰기 중 timeout은 UNKNOWN으로 두고 operation identity 없이 재실행하지 않음",
+          "외부 클라이언트가 공개 또는 인가된 endpoint로만 기능을 사용",
+          "OpenAPI 3.2.1을 현 importer 지원으로 오인하지 않음"
+        ],
+        "authorityClass": "SECONDARY_AI",
+        "status": "PLANNED",
+        "implementationState": "PARTIAL_PRIMITIVES",
+        "runtimeStatus": "NOT_DEPLOYED_BY_THIS_PLAN",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:work:feedback",
+      "types": [
+        "urn:usl:omc-internet:WorkItem"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "갱신·실행 결과를 원래 작업에 환류",
+        "available": "Resource graph provenance and scoped observations",
+        "remaining": "Owner polling/webhook receiver, reconciliation, durable deduplication and revision ordering",
+        "acceptance": [
+          "owner + event ID로 중복을 판단하고 revision/generation으로 오래된 이벤트를 거부",
+          "webhook 누락은 polling/reconciliation으로 대조",
+          "withdrawal과 credential 만료 뒤 관측·실행을 중단",
+          "비용·지연·정확도·출처 충실도를 함께 기록하고 HSWM W 효과는 별도 평가"
+        ],
+        "authorityClass": "SECONDARY_AI",
+        "status": "PLANNED",
+        "implementationState": "PARTIAL_PRIMITIVES",
+        "runtimeStatus": "NOT_DEPLOYED_BY_THIS_PLAN",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:work:mobility",
+      "types": [
+        "urn:usl:omc-internet:WorkItem"
+      ],
+      "locator": "file://usl-document-root/docs/OMC_INTERNET.md",
+      "metadata": {
+        "title": "이동·분기 환경에서 접합 복구",
+        "available": "Portable bindings, Git/worktree inspection, memory relocation CAS adapter",
+        "remaining": "실제 OMC owner store와 목적지 등록을 통한 복구 및 cross-host integration",
+        "acceptance": [
+          "기존 resource ID와 revision/content digest를 보존하고 locator만 교체",
+          "다른 revision·동시 갱신·철회된 상태를 자동 합치지 않음",
+          "새 host가 credential과 workspace root를 로컬에서 재등록",
+          "오프라인 중 identity는 유지하되 unavailable/stale 상태를 표시"
+        ],
+        "authorityClass": "SECONDARY_AI",
+        "status": "PLANNED",
+        "implementationState": "PARTIAL_PRIMITIVES",
+        "runtimeStatus": "NOT_DEPLOYED_BY_THIS_PLAN",
+        "locatorStatus": "TEMPLATE_REQUIRES_LOCAL_BINDING",
+        "section": "development-sequence"
+      }
+    },
+    {
+      "id": "omc:evidence:resource-graph",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "git://github.com/gj3447/USL@25a1489a944b830d34eb1ec1f9b251d80848931f:src/integrations/resource-graph.ts",
+      "metadata": {
+        "title": "USL resource graph, JSON-LD and PROV source declarations",
+        "evidenceScope": "EXISTING_CODE",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false,
+        "repositoryRevision": "25a1489a944b830d34eb1ec1f9b251d80848931f",
+        "sourcePath": "src/integrations/resource-graph.ts",
+        "byteDigest": "sha256:2571999d7e4e534bf29cabfc5893ce1addd1ec07b5b46d367867dfac6eb6c74b"
+      }
+    },
+    {
+      "id": "omc:evidence:url-resolver",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "git://github.com/gj3447/USL@25a1489a944b830d34eb1ec1f9b251d80848931f:src/resolve.ts",
+      "metadata": {
+        "title": "HTTP live observation; bounded hash receipt, no freshness cache",
+        "evidenceScope": "EXISTING_CODE",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false,
+        "repositoryRevision": "25a1489a944b830d34eb1ec1f9b251d80848931f",
+        "sourcePath": "src/resolve.ts",
+        "byteDigest": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78"
+      }
+    },
+    {
+      "id": "omc:evidence:capabilities",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "git://github.com/gj3447/USL@25a1489a944b830d34eb1ec1f9b251d80848931f:docs/ENGINEERING_CONTRACTS.md",
+      "metadata": {
+        "title": "Limited importers and explicitly supplied host executor",
+        "evidenceScope": "EXISTING_CONTRACT",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false,
+        "repositoryRevision": "25a1489a944b830d34eb1ec1f9b251d80848931f",
+        "sourcePath": "docs/ENGINEERING_CONTRACTS.md",
+        "byteDigest": "sha256:b1f54e81a859fff521d4e66fde11479653dbf12b5dfa58bf355353276accdbed"
+      }
+    },
+    {
+      "id": "omc:evidence:memory-relocation",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "git://github.com/gj3447/USL@25a1489a944b830d34eb1ec1f9b251d80848931f:src/addons/memory-relocation.ts",
+      "metadata": {
+        "title": "Destination pin plus owner compare-and-swap; no transfer/P2P",
+        "evidenceScope": "EXISTING_CODE",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false,
+        "repositoryRevision": "25a1489a944b830d34eb1ec1f9b251d80848931f",
+        "sourcePath": "src/addons/memory-relocation.ts",
+        "byteDigest": "sha256:4289b5df5d75b67cbe2e9acd581cda810867c299185fab8bfb2aa613335b7f6c"
+      }
+    },
+    {
+      "id": "omc:evidence:participation",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "git://github.com/gj3447/USL@25a1489a944b830d34eb1ec1f9b251d80848931f:connections/metahumocoin/participation.json",
+      "metadata": {
+        "title": "metahumocoin-participation-v1: metadata navigation only",
+        "evidenceScope": "EXISTING_CONNECTION",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false,
+        "repositoryRevision": "25a1489a944b830d34eb1ec1f9b251d80848931f",
+        "sourcePath": "connections/metahumocoin/participation.json",
+        "byteDigest": "sha256:70093c1d264219365958cb6118546c8d97d2a8d42495b3e8d0ec159d15652ef0"
+      }
+    },
+    {
+      "id": "omc:evidence:http",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "metadata": {
+        "title": "HTTP Semantics, RFC 9110",
+        "evidenceScope": "PUBLIC_STANDARD",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false
+      }
+    },
+    {
+      "id": "omc:evidence:caching",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "https://www.rfc-editor.org/rfc/rfc9111.html",
+      "metadata": {
+        "title": "HTTP Caching, RFC 9111",
+        "evidenceScope": "PUBLIC_STANDARD",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false
+      }
+    },
+    {
+      "id": "omc:evidence:openapi",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "https://spec.openapis.org/oas/v3.2.1.html",
+      "metadata": {
+        "title": "OpenAPI 3.2.1; current USL importer supports only a 3.1.x subset",
+        "evidenceScope": "PUBLIC_STANDARD",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false
+      }
+    },
+    {
+      "id": "omc:evidence:jsonld",
+      "types": [
+        "urn:usl:omc-internet:Evidence"
+      ],
+      "locator": "https://www.w3.org/TR/json-ld11/",
+      "metadata": {
+        "title": "JSON-LD 1.1 interchange",
+        "evidenceScope": "PUBLIC_STANDARD",
+        "reviewedOn": "2026-10-10",
+        "runtimeProof": false
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "interprets",
+      "description": "AI derives a proposed requirement from an attributed user source for the named subject. Not a ratified implementation claim."
+    },
+    {
+      "id": "addresses",
+      "description": "Proposed work addresses a requirement; direction work to requirement. Does not assert completion."
+    },
+    {
+      "id": "groundedIn",
+      "description": "Work cites an existing artifact or standard as design evidence. Does not assert deployed interoperability."
+    },
+    {
+      "id": "dependsOn",
+      "description": "Planned delivery ordering: work follows prerequisite. Acyclic for this plan, not a global graph axiom."
+    }
+  ],
+  "links": [
+    {
+      "id": "omc:interpret:internal",
+      "meaning": "interprets",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:source:internet-request"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:internal"
+        },
+        {
+          "role": "subject",
+          "resource": "sym:Character:입체운행구름"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:address:internal",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:identity"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:internal"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:interpret:web",
+      "meaning": "interprets",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:source:internet-request"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:web"
+        },
+        {
+          "role": "subject",
+          "resource": "sym:Character:입체운행구름"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:address:web",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:web"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:web"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:interpret:actions",
+      "meaning": "interprets",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:source:internet-request"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:actions"
+        },
+        {
+          "role": "subject",
+          "resource": "sym:Character:입체운행구름"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:address:actions",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:actions"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:actions"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:interpret:feedback",
+      "meaning": "interprets",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:source:internet-request"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:feedback"
+        },
+        {
+          "role": "subject",
+          "resource": "sym:Character:입체운행구름"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:address:feedback",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:feedback"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:feedback"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:interpret:mobility",
+      "meaning": "interprets",
+      "participants": [
+        {
+          "role": "source",
+          "resource": "omc:source:mobility-request"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:mobility"
+        },
+        {
+          "role": "subject",
+          "resource": "sym:Character:입체운행구름"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:address:mobility",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:mobility"
+        },
+        {
+          "role": "requirement",
+          "resource": "omc:requirement:mobility"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:identity:resource-graph",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:identity"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:resource-graph"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:identity:participation",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:identity"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:participation"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:identity:jsonld",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:identity"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:jsonld"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:web:url-resolver",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:web"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:url-resolver"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:web:http",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:web"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:http"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:web:caching",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:web"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:caching"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:actions:capabilities",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:actions"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:capabilities"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:actions:openapi",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:actions"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:openapi"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:feedback:resource-graph",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:feedback"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:resource-graph"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:feedback:caching",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:feedback"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:caching"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:mobility:memory-relocation",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:mobility"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:memory-relocation"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:basis:mobility:resource-graph",
+      "meaning": "groundedIn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:mobility"
+        },
+        {
+          "role": "evidence",
+          "resource": "omc:evidence:resource-graph"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:sequence:web:identity",
+      "meaning": "dependsOn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:web"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "omc:work:identity"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:sequence:actions:web",
+      "meaning": "dependsOn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:actions"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "omc:work:web"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:sequence:feedback:web",
+      "meaning": "dependsOn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:feedback"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "omc:work:web"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    },
+    {
+      "id": "omc:sequence:mobility:identity",
+      "meaning": "dependsOn",
+      "participants": [
+        {
+          "role": "work",
+          "resource": "omc:work:mobility"
+        },
+        {
+          "role": "prerequisite",
+          "resource": "omc:work:identity"
+        }
+      ],
+      "metadata": {
+        "authorityClass": "SECONDARY_AI",
+        "status": "PROPOSED",
+        "recordedAt": "2026-10-10T15:13:54Z"
+      }
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "omc:source:internet-request",
+      "omc:source:mobility-request"
+    ]
+  }
+}

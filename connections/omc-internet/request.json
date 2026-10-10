@@ -1,0 +1,24 @@
+{
+  "schema": "usl-omc-internet-request/v1",
+  "recordedAt": "2026-10-10T15:13:54Z",
+  "publication": "LOCAL_ONLY",
+  "digestEncoding": "UTF-8 text field, no appended newline",
+  "sources": [
+    {
+      "id": "omc:source:internet-request",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "우리 입운구 입체운행구름을 USL 기반으로 긴밀하게 연결하고싶은데 ㅇㅇ; 그리고 입체운행 구름 자체가 인터넷에도 긴밀하게 연결되야하고 인터넷 지금 현재 인터넷에도 접합 잘 붙어있어야해 ㅇㅇ 알지 ㅇㅇ?",
+      "textDigest": "sha256:ad414a3dca41017980137b54bec00769ec3117909a9948ca5419a4cc7f3f703f"
+    },
+    {
+      "id": "omc:source:mobility-request",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "ㅇㅇ 그 다른 컴퓨터 왓다갓다 해도 그 백업 메모리 작업환경 마구 옮기더라도 USL 은 강건해야하거든 어떡하면 그렇게 할수 있을지 인터넷 검색좀해줘봐봐 ㅇㅇ",
+      "textDigest": "sha256:22aad0d098cae11ca4812b35c87c0ac467f96f39ee4cc81491469e5162777d90"
+    }
+  ]
+}

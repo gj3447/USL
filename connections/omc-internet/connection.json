@@ -1,0 +1,15 @@
+{
+  "allowedLocators": [],
+  "maxResources": 64,
+  "maxInputBytes": 1048576,
+  "maxOutputBytes": 1048576,
+  "programs": {},
+  "connections": {
+    "omc-internet-design-v1": {
+      "graph": "graph.json",
+      "profile": "profile.json",
+      "namespace": "omc.internet.design.v1",
+      "format": "resource-graph"
+    }
+  }
+}
