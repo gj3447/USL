@@ -1,0 +1,52 @@
+{
+  "schema": "usl-native-implementation-checks/v1",
+  "checks": [
+    {
+      "schema": "usl-native-implementation-check/v1",
+      "status": "PASS",
+      "count": 42,
+      "command": [
+        "env",
+        "TSX_DISABLE_CACHE=1",
+        "TMPDIR=/dev/shm",
+        "node",
+        "--import",
+        "tsx",
+        "--test",
+        "--test-reporter=tap",
+        "test/native-profile.test.ts",
+        "test/native-profile-store.test.ts",
+        "test/native-observation.test.ts",
+        "test/native-profile-runtime.test.ts",
+        "test/native-http.test.ts",
+        "test/native-delivery.test.ts"
+      ],
+      "recordedAt": "2026-10-11 12:44:26 UTC",
+      "baseCommit": "a311f2b",
+      "revisionKind": "CURRENT_BYTE_SNAPSHOT",
+      "pins": {
+        "src/addons/native-profile.ts": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+        "test/native-profile.test.ts": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+        "src/addons/native-profile-store.ts": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+        "test/native-profile-store.test.ts": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+        "src/addons/native-observation.ts": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e",
+        "test/native-observation.test.ts": "sha256:8ac0ac6d988029ac7845372d46109b2d9ac83e7a9fedf4a368bee525abbc765f",
+        "src/addons/native-profile-runtime.ts": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+        "test/native-profile-runtime.test.ts": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+        "src/addons/native-http.ts": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda",
+        "test/native-http.test.ts": "sha256:5d4b11012f25d2a777b00335b651c8b50449db00547025761e58df82574bc242",
+        "src/addons/native-delivery.ts": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0",
+        "test/native-delivery.test.ts": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7"
+      },
+      "output": {
+        "path": "research/native-development/implementation/test-output.tap",
+        "sha256": "sha256:22c625372519a04bca91af02364e6efec6d6dc6afbf8036ad60717dbd517db98"
+      },
+      "limitations": [
+        "LOCAL_LINUX_FIXTURES_AND_LOOPBACK_HTTP",
+        "NOT_ALL_ORIGINAL_ACCEPTANCE_SPECS",
+        "NO_LIVE_HSWM_EXECUTION"
+      ]
+    }
+  ]
+}

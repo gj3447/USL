@@ -1,0 +1,89 @@
+/** Private, owner-managed durable registry for native-profile snapshots and admissions. */
+import { randomUUID } from "node:crypto"
+import { constants } from "node:fs"
+import { mkdir, open, lstat, rename, rmdir, realpath, rm } from "node:fs/promises"
+import { basename, dirname, join, resolve } from "node:path"
+import { z } from "zod"
+import { contractDigest, contractHash, contractIri, contractSnapshot, freezeContract } from "../contract-core.js"
+import { parseNativeAdmission, parseNativeProfileSnapshot, type NativeAdmission, type NativeProfileSnapshot } from "./native-profile.js"
+
+export const NATIVE_PROFILE_STORE_SCHEMA = "usl-native-profile-store/v1" as const
+const MAX_BYTES = 1024 * 1024, MAX_ENTRIES = 1024
+const instant = z.string().refine(value => Number.isFinite(Date.parse(value)) && new Date(value).toISOString() === value, "canonical UTC timestamp")
+const entrySchema = z.strictObject({ admission: z.unknown(), state: z.enum(["ISSUED", "CONSUMED"]), attemptId: contractIri.optional() })
+const rawStateSchema = z.strictObject({ schema: z.literal(NATIVE_PROFILE_STORE_SCHEMA), ownerNamespace: contractIri, epoch: z.string().uuid(), revision: z.number().int().min(0).max(Number.MAX_SAFE_INTEGER - 1), generation: z.number().int().min(0).max(Number.MAX_SAFE_INTEGER - 1), active: z.unknown().nullable(), admissions: z.array(entrySchema).max(MAX_ENTRIES), lastObservedAt: instant, digest: contractHash })
+export interface NativeProfileStoreOptions { readonly directory: string; readonly ownerNamespace: string; readonly initialSnapshot?: NativeProfileSnapshot; readonly clock?: () => Date }
+export interface NativeProfileRegistryState { readonly schema: typeof NATIVE_PROFILE_STORE_SCHEMA; readonly ownerNamespace: string; readonly epoch: string; readonly revision: number; readonly generation: number; readonly active: NativeProfileSnapshot | null; readonly admissions: readonly { readonly admission: NativeAdmission; readonly state: "ISSUED" | "CONSUMED"; readonly attemptId?: string }[]; readonly lastObservedAt: string; readonly digest: string }
+export type NativeProfileStoreResult<T> = Readonly<{ status: "COMMITTED"; state: NativeProfileRegistryState; value: T }> | Readonly<{ status: "CONFLICT" | "HOLD"; reason: string; state?: NativeProfileRegistryState }> | Readonly<{ status: "COMMIT_UNKNOWN"; reason: string }>
+export interface NativeProfileStore { readonly read: () => Promise<NativeProfileRegistryState>; readonly activate: (expectedStateDigest: string, snapshot: unknown) => Promise<NativeProfileStoreResult<NativeProfileSnapshot>>; readonly issue: (expectedStateDigest: string, admission: unknown) => Promise<NativeProfileStoreResult<NativeAdmission>>; readonly consume: (expectedStateDigest: string, admission: unknown, attemptId: string) => Promise<NativeProfileStoreResult<NativeAdmission>>; readonly withdraw: (expectedStateDigest: string) => Promise<NativeProfileStoreResult<null>> }
+
+const syncDirectory = async (path: string) => { if (process.platform === "win32") return; const file = await open(path, constants.O_RDONLY | constants.O_DIRECTORY); try { await file.sync() } finally { await file.close() } }
+const stateDigest = (body: Omit<NativeProfileRegistryState, "digest">) => contractDigest(body)
+const seal = (body: Omit<NativeProfileRegistryState, "digest">): NativeProfileRegistryState => { const { digest: _previous, ...clean } = body as Omit<NativeProfileRegistryState, "digest"> & { digest?: string }; return freezeContract({ ...clean, digest: stateDigest(clean) }) }
+const now = (clock: (() => Date) | undefined) => (clock?.() ?? new Date()).toISOString()
+const checkRegularDirectory = async (path: string) => { const info = await lstat(path); if (!info.isDirectory() || info.isSymbolicLink()) throw new Error("native profile store directory must be a real directory") }
+const safeFile = async (path: string) => { const info = await lstat(path); if (!info.isFile() || info.isSymbolicLink()) throw new Error("native profile state must be a regular non-symlink file") }
+const parseState = (input: unknown, ownerNamespace: string): NativeProfileRegistryState => {
+  const raw = rawStateSchema.parse(contractSnapshot(input, MAX_BYTES)); if (raw.ownerNamespace !== ownerNamespace) throw new Error("native profile store owner namespace mismatch")
+  const rawBody = { schema: raw.schema, ownerNamespace: raw.ownerNamespace, epoch: raw.epoch, revision: raw.revision, generation: raw.generation, active: raw.active, admissions: raw.admissions, lastObservedAt: raw.lastObservedAt }
+  if (contractDigest(rawBody) !== raw.digest) throw new Error("native profile store digest mismatch")
+  const active = raw.active === null ? null : parseNativeProfileSnapshot(raw.active)
+  if (active !== null && active.generation !== raw.generation) throw new Error("native profile store active generation mismatch")
+  if (active !== null && active.manifest.ownerNamespace !== raw.ownerNamespace) throw new Error("active profile owner differs from store")
+  const admissions = raw.admissions.map(entry => ({ admission: parseNativeAdmission(entry.admission), state: entry.state, ...(entry.attemptId === undefined ? {} : { attemptId: entry.attemptId }) }))
+  if (new Set(admissions.map(entry => entry.admission.id)).size !== admissions.length) throw new Error("duplicate durable admission ID")
+  for (const entry of admissions) { if (entry.admission.ownerNamespace !== raw.ownerNamespace) throw new Error("admission owner differs from store"); if (entry.admission.generation > raw.generation) throw new Error("admission generation exceeds registry generation"); if ((entry.state === "CONSUMED") !== (entry.attemptId !== undefined)) throw new Error("invalid durable admission consumption state") }
+  const consumedAttempts = admissions.filter(entry => entry.state === "CONSUMED").map(entry => entry.attemptId!)
+  if (new Set(consumedAttempts).size !== consumedAttempts.length) throw new Error("duplicate durable consumed attempt ID")
+  const body = { schema: raw.schema, ownerNamespace: raw.ownerNamespace, epoch: raw.epoch, revision: raw.revision, generation: raw.generation, active, admissions, lastObservedAt: raw.lastObservedAt }
+  return freezeContract({ ...body, digest: raw.digest })
+}
+
+export const openNativeProfileStore = async (options: NativeProfileStoreOptions): Promise<NativeProfileStore> => {
+  const captured = contractSnapshot({ directory: options.directory, ownerNamespace: options.ownerNamespace })
+  const clock = options.clock
+  if (clock !== undefined && typeof clock !== "function") throw new Error("native profile store clock must be a function")
+  const directory = resolve(captured.directory), statePath = join(directory, "state.json"), lockPath = join(directory, "writer.lock")
+  const initial = options.initialSnapshot === undefined ? undefined : parseNativeProfileSnapshot(options.initialSnapshot)
+  if (!basename(directory) || !captured.ownerNamespace) throw new Error("invalid native profile store options")
+  const parent = dirname(directory)
+  await checkRegularDirectory(parent); if (await realpath(parent) !== parent) throw new Error("native profile store parent may not traverse symlinks")
+  try { await mkdir(directory, { mode: 0o700 }) } catch (error) { if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error }
+  await checkRegularDirectory(directory); if (await realpath(directory) !== directory) throw new Error("native profile store path may not traverse symlinks")
+  const read = async (): Promise<NativeProfileRegistryState> => {
+    await checkRegularDirectory(directory); await safeFile(statePath)
+    const file = await open(statePath, constants.O_RDONLY | constants.O_NOFOLLOW | constants.O_NONBLOCK)
+    try { const stat = await file.stat(); if (!stat.isFile() || stat.size > MAX_BYTES) throw new Error("native profile state exceeds bounds"); const bytes = Buffer.alloc(stat.size); let used = 0; while (used < bytes.length) { const result = await file.read(bytes, used, bytes.length - used, used); if (!result.bytesRead) break; used += result.bytesRead }; const after = await file.stat(); if (used !== bytes.length || after.size !== stat.size || after.mtimeMs !== stat.mtimeMs) throw new Error("native profile state changed during read"); return parseState(JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)), captured.ownerNamespace) } finally { await file.close() }
+  }
+  const initialState = (): NativeProfileRegistryState => {
+    if (!initial || initial.manifest.ownerNamespace !== captured.ownerNamespace) throw new Error("new native profile store requires matching initial snapshot")
+    return seal({ schema: NATIVE_PROFILE_STORE_SCHEMA, ownerNamespace: captured.ownerNamespace, epoch: randomUUID(), revision: 0, generation: initial.generation, active: initial, admissions: [], lastObservedAt: now(clock) })
+  }
+  try { await lstat(statePath) } catch (error) { if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error; const state = initialState(); validateStateForWrite(state, captured.ownerNamespace); await writeInitial(directory, statePath, state) }
+  const mutate = async <T>(expected: string, apply: (state: NativeProfileRegistryState) => { readonly hold?: string; readonly value?: T; readonly next?: NativeProfileRegistryState }): Promise<NativeProfileStoreResult<T>> => {
+    let lock
+    try { lock = await mkdir(lockPath, { mode: 0o700 }) } catch (error) { if ((error as NodeJS.ErrnoException).code === "EEXIST") return freezeContract({ status: "HOLD", reason: "WRITER_LOCKED" }); throw error }
+    try {
+      const state = await read(); if (state.digest !== expected) return freezeContract({ status: "CONFLICT", reason: "STALE_STATE", state })
+      const change = apply(state); if (change.hold) return freezeContract({ status: "HOLD", reason: change.hold, state }); if (!change.next || change.value === undefined) throw new Error("invalid native store mutation")
+      try { validateStateForWrite(change.next, captured.ownerNamespace) } catch { return freezeContract({ status: "HOLD", reason: "NEXT_STATE_OUT_OF_BOUNDS", state }) }
+      try { await replaceState(directory, statePath, change.next) } catch (error) { return freezeContract({ status: "COMMIT_UNKNOWN", reason: `DURABLE_WRITE_UNKNOWN:${error instanceof Error ? error.message : "error"}` }) }
+      return freezeContract({ status: "COMMITTED", state: change.next, value: change.value })
+    } finally { await rmdir(lockPath).catch(() => undefined) }
+  }
+  return Object.freeze({
+    read,
+    activate: async (expected: string, input: unknown) => { const expectedDigest = contractHash.parse(expected), snapshot = parseNativeProfileSnapshot(input), observedAt = now(clock); return mutate(expectedDigest, state => { if (Date.parse(observedAt) < Date.parse(state.lastObservedAt)) return { hold: "CLOCK_REGRESSION" }; if (snapshot.manifest.ownerNamespace !== state.ownerNamespace) return { hold: "OWNER_NAMESPACE_MISMATCH" }; if (snapshot.generation !== state.generation + 1) return { hold: "GENERATION_NOT_NEXT" }; const next = seal({ ...state, revision: state.revision + 1, generation: snapshot.generation, active: snapshot, lastObservedAt: observedAt }); return { next, value: snapshot } }) },
+    issue: async (expected: string, input: unknown) => { const expectedDigest = contractHash.parse(expected), admission = parseNativeAdmission(input), observedAt = now(clock); return mutate(expectedDigest, state => { const active = state.active; if (!active) return { hold: "NO_ACTIVE_PROFILE" }; if (Date.parse(observedAt) < Date.parse(state.lastObservedAt)) return { hold: "CLOCK_REGRESSION" }; if (!matches(admission, active) || !capable(admission, active) || Date.parse(admission.issuedAt) < Date.parse(state.lastObservedAt) || Date.parse(admission.issuedAt) > Date.parse(observedAt) || Date.parse(admission.expiresAt) <= Date.parse(observedAt)) return { hold: "ADMISSION_NOT_CURRENT" }; if (state.admissions.some(entry => entry.admission.id === admission.id)) return { hold: "ADMISSION_ID_REUSED" }; if (state.admissions.length >= MAX_ENTRIES) return { hold: "ADMISSION_CAPACITY" }; const next = seal({ ...state, revision: state.revision + 1, admissions: [...state.admissions, { admission, state: "ISSUED" as const }], lastObservedAt: observedAt }); return { next, value: admission } }) },
+    consume: async (expected: string, input: unknown, attemptId: string) => { const expectedDigest = contractHash.parse(expected), admission = parseNativeAdmission(input), capturedAttempt = contractIri.parse(attemptId), observedAt = now(clock); return mutate(expectedDigest, state => { const active = state.active, entry = state.admissions.find(candidate => candidate.admission.id === admission.id); if (!active || !entry || entry.state !== "ISSUED") return { hold: "ADMISSION_NOT_ISSUED" }; if (state.admissions.some(candidate => candidate.state === "CONSUMED" && candidate.attemptId === capturedAttempt)) return { hold: "ATTEMPT_ID_REUSED" }; if (Date.parse(observedAt) < Date.parse(state.lastObservedAt)) return { hold: "CLOCK_REGRESSION" }; if (entry.admission.digest !== admission.digest || !matches(admission, active) || !capable(admission, active) || Date.parse(admission.issuedAt) > Date.parse(observedAt) || Date.parse(admission.expiresAt) <= Date.parse(observedAt)) return { hold: "ADMISSION_NOT_CURRENT" }; const admissions = state.admissions.map(candidate => candidate.admission.id === admission.id ? { ...candidate, state: "CONSUMED" as const, attemptId: capturedAttempt } : candidate); const next = seal({ ...state, revision: state.revision + 1, admissions, lastObservedAt: observedAt }); return { next, value: admission } }) },
+    withdraw: async (expected: string) => { const expectedDigest = contractHash.parse(expected), observedAt = now(clock); return mutate(expectedDigest, state => { if (!state.active) return { hold: "NO_ACTIVE_PROFILE" }; if (Date.parse(observedAt) < Date.parse(state.lastObservedAt)) return { hold: "CLOCK_REGRESSION" }; const next = seal({ ...state, revision: state.revision + 1, active: null, lastObservedAt: observedAt }); return { next, value: null } }) },
+  })
+}
+const matches = (admission: NativeAdmission, snapshot: NativeProfileSnapshot) => admission.ownerNamespace === snapshot.manifest.ownerNamespace && admission.profileId === snapshot.manifest.id && admission.generation === snapshot.generation && admission.snapshotDigest === snapshot.digest
+const capable = (admission: NativeAdmission, snapshot: NativeProfileSnapshot) => snapshot.manifest.capabilities.some(capability => capability.id === admission.actionId && capability.scopeDigest === admission.scopeDigest)
+const validateStateForWrite = (state: NativeProfileRegistryState, ownerNamespace: string): void => {
+  if (Buffer.byteLength(JSON.stringify(state), "utf8") > MAX_BYTES || state.admissions.length > MAX_ENTRIES) throw new Error("native profile state exceeds bounds")
+  parseState(state, ownerNamespace)
+}
+async function writeInitial(directory: string, statePath: string, state: NativeProfileRegistryState) { const file = await open(statePath, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL | constants.O_NOFOLLOW, 0o600); try { await file.writeFile(JSON.stringify(state)); await file.sync() } finally { await file.close() }; await syncDirectory(directory) }
+async function replaceState(directory: string, statePath: string, state: NativeProfileRegistryState) { const temp = join(directory, `.state-${randomUUID()}.tmp`); let renamed = false; try { const file = await open(temp, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL | constants.O_NOFOLLOW, 0o600); try { await file.writeFile(JSON.stringify(state)); await file.sync() } finally { await file.close() }; await rename(temp, statePath); renamed = true; await syncDirectory(directory) } finally { if (!renamed) await rm(temp, { force: true }) } }

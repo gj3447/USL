@@ -2,6 +2,7 @@ import assert from "node:assert/strict"
 import { createHash } from "node:crypto"
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises"
 import { join } from "node:path"
+import { createServer } from "node:http"
 import { test, type TestContext } from "node:test"
 import { createNativeAdmission, createNativeProfileSnapshot } from "../src/addons/native-profile.js"
 import { openNativeProfileStore } from "../src/addons/native-profile-store.js"
@@ -118,4 +119,60 @@ test("native profile switch uses public store CAS: stale and concurrent writers 
   const oldAdmission = createNativeAdmission({ id: "urn:test:native-runtime:admission", invocationId: "urn:test:native-runtime:invocation", actionId: "urn:test:native-runtime:action", scopeDigest: bytesDigest("scope"), inputDigest: bytesDigest("input"), observationDigest: bytesDigest("observation"), deliveryDigest: bytesDigest("delivery"), evaluatorDigest: bytesDigest("evaluation"), issuedAt: "2026-10-11T00:00:00.000Z", expiresAt: "2026-10-11T00:01:00.000Z" }, firstSnapshot)
   const rejected = await store.issue((await store.read()).digest, oldAdmission)
   assert.equal(rejected.status, "HOLD")
+})
+
+test("native profile switch requires pinned HTTP registration and fresh matching bytes, including a conditional 304", async t => {
+  const value = await fixture(t), body = "owner selected HTTP source", etag = '"v1"'
+  let requests = 0
+  const server = createServer((request, response) => {
+    requests++
+    response.setHeader("ETag", etag)
+    if (request.headers["if-none-match"] === etag) { response.writeHead(304); response.end() }
+    else { response.end(body) }
+  })
+  await new Promise<void>(resolve => server.listen(0, "127.0.0.1", resolve))
+  t.after(() => new Promise<void>((resolve, reject) => { server.close(error => error ? reject(error) : resolve()); server.closeAllConnections() }))
+  const address = server.address(); assert.ok(address && typeof address === "object")
+  const url = `http://127.0.0.1:${address.port}/source`, resource = "urn:test:native-runtime:http"
+  const graph = JSON.stringify({ schema: "usl-resource-graph/v1", resources: [{ id: resource, types: ["urn:test:native-runtime:Source"], locator: url }], meanings: [], links: [] })
+  const manifest = { ...value.manifest, workspaceAliases: [], graphDigest: digestSource(graph),
+    bindings: { schema: "usl-resource-bindings/v1", resources: [{ id: resource, representations: [{ id: "remote", relation: "documentation", kind: "locator", locator: url, digest: bytesDigest(body) }] }] },
+    selections: [{ resource, representation: "remote" }] }
+  const registered = { workspaces: {}, checkouts: {}, checkoutPolicies: [], httpPolicies: [{ resource, representation: "remote", url, scopeDigest: bytesDigest("http-scope"), allowedUrls: [url] }] }
+  const first = snapshot(manifest, registered)
+  const store = await openNativeProfileStore({ directory: join(value.base, "http-store"), ownerNamespace: owner, initialSnapshot: first })
+  const state = await store.read()
+  const missing = await switchNativeProfile(store, { expectedStateDigest: state.digest, graph, manifest, environment: { workspaces: {}, checkouts: {}, checkoutPolicies: [] } })
+  assert.equal(missing.status, "HOLD"); assert.equal(requests, 0)
+  const changed = { ...manifest, bindings: { ...manifest.bindings, resources: [{ id: resource, representations: [{ ...manifest.bindings.resources[0]!.representations[0]!, digest: bytesDigest("wrong pin") }] }] } }
+  assert.equal((await switchNativeProfile(store, { expectedStateDigest: state.digest, graph, manifest: changed, environment: registered })).status, "HOLD")
+  assert.equal((await store.read()).digest, state.digest)
+  const result = await switchNativeProfile(store, { expectedStateDigest: state.digest, graph, manifest, environment: registered })
+  assert.equal(result.status, "COMMITTED")
+  assert.equal(requests, 3)
+  if (result.status === "COMMITTED") assert.equal(result.state.active?.manifestDigest, first.manifestDigest)
+})
+
+test("native profile switch applies required-source byte pins even when local representations omit a digest", async t => {
+  const value = await fixture(t), environmentA = value.environment(value.roots.a), environmentBad = value.environment(value.roots.bad)
+  const policy = '{"mode":"strict"}\n', source = {
+    id: "urn:test:native-runtime:required-policy", resource: "urn:test:native-runtime:policy", representation: "policy_file",
+    selector: { kind: "whole" as const }, revision: "policy-v1", digest: bytesDigest(policy), bytes: Buffer.byteLength(policy),
+  }
+  const manifest = { ...value.manifest,
+    bindings: { ...value.manifest.bindings, resources: value.manifest.bindings.resources.map(resource => resource.id === source.resource ? { ...resource, representations: resource.representations.map(representation => { const { digest: _digest, ...unpinned } = representation; return unpinned }) } : resource) },
+    requiredSources: [source],
+  }
+  const first = snapshot(manifest, environmentA)
+  const store = await openNativeProfileStore({ directory: join(value.base, "required-source-store"), ownerNamespace: owner, initialSnapshot: first,
+    clock: () => new Date("2026-10-11T00:00:00.000Z") })
+  const current = await store.read()
+  const bad = await switchNativeProfile(store, { expectedStateDigest: current.digest, graph: value.graph, manifest, environment: environmentBad })
+  assert.equal(bad.status, "HOLD")
+  assert.equal((await store.read()).digest, current.digest)
+  const good = await switchNativeProfile(store, { expectedStateDigest: current.digest, graph: value.graph, manifest, environment: environmentA })
+  assert.equal(good.status, "COMMITTED")
+  const wrongBytes = { ...manifest, requiredSources: [{ ...source, bytes: source.bytes + 1 }] }
+  const after = await store.read()
+  assert.equal((await switchNativeProfile(store, { expectedStateDigest: after.digest, graph: value.graph, manifest: wrongBytes, environment: environmentA })).status, "HOLD")
 })

@@ -1,0 +1,1649 @@
+{
+  "schema": "usl-resource-graph/v1",
+  "resources": [
+    {
+      "id": "urn:usl:native-implementation:baseline:plan",
+      "types": [
+        "urn:usl:native-implementation:HistoricalPlanSnapshot"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_PLANNED_SPECIFIED_NOT_RUN",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P01",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P01",
+        "status": "IMPLEMENTED_BOUNDED",
+        "plannedStatus": "PLANNED",
+        "scope": "PURE_CONTRACTS_NOT_AUTHORIZATION",
+        "limitations": [
+          "NO_GENERAL_ACCEPTANCE_CLAIM",
+          "NO_AUTHORITY_GRANT",
+          "READ_ONLY_PROGRESS_PROJECTION"
+        ],
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P01:code",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-profile.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-profile.ts",
+        "sha256": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P01:test",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-profile.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-profile.test.ts",
+        "sha256": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P02",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P02",
+        "status": "IMPLEMENTED_BOUNDED",
+        "plannedStatus": "PLANNED",
+        "scope": "SINGLE_OWNER_STORE_NOT_CROSS_HOST_AT_MOST_ONCE",
+        "limitations": [
+          "NO_GENERAL_ACCEPTANCE_CLAIM",
+          "NO_AUTHORITY_GRANT",
+          "READ_ONLY_PROGRESS_PROJECTION"
+        ],
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P02:code",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-profile-store.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-profile-store.ts",
+        "sha256": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P02:test",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-profile-store.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-profile-store.test.ts",
+        "sha256": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P03",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P03",
+        "status": "IMPLEMENTED_BOUNDED",
+        "plannedStatus": "PLANNED",
+        "scope": "LINUX_READ_ONLY_NON_ATOMIC",
+        "limitations": [
+          "NO_GENERAL_ACCEPTANCE_CLAIM",
+          "NO_AUTHORITY_GRANT",
+          "READ_ONLY_PROGRESS_PROJECTION"
+        ],
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P03:code",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-observation.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-observation.ts",
+        "sha256": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P03:test",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-observation.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-observation.test.ts",
+        "sha256": "sha256:8ac0ac6d988029ac7845372d46109b2d9ac83e7a9fedf4a368bee525abbc765f",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P05",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P05",
+        "status": "IMPLEMENTED_BOUNDED",
+        "plannedStatus": "PLANNED",
+        "scope": "A_TO_B_SAME_GRAPH_NO_AUTOCOPY",
+        "limitations": [
+          "NO_GENERAL_ACCEPTANCE_CLAIM",
+          "NO_AUTHORITY_GRANT",
+          "READ_ONLY_PROGRESS_PROJECTION"
+        ],
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P05:code",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-profile-runtime.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-profile-runtime.ts",
+        "sha256": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P05:test",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-profile-runtime.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-profile-runtime.test.ts",
+        "sha256": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P06",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P06",
+        "status": "IMPLEMENTED_BOUNDED",
+        "plannedStatus": "PLANNED",
+        "scope": "URL_ALLOWLIST_NOT_GITHUB_OR_IP_PIN",
+        "limitations": [
+          "NO_GENERAL_ACCEPTANCE_CLAIM",
+          "NO_AUTHORITY_GRANT",
+          "READ_ONLY_PROGRESS_PROJECTION"
+        ],
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P06:code",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-http.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-http.ts",
+        "sha256": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P06:test",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-http.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-http.test.ts",
+        "sha256": "sha256:5d4b11012f25d2a777b00335b651c8b50449db00547025761e58df82574bc242",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P08",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P08",
+        "status": "IMPLEMENTED_BOUNDED",
+        "plannedStatus": "PLANNED",
+        "scope": "REGISTERED_CALLBACK_FULL_DELIVERY_NOT_UNDERSTANDING_OR_DISPATCHER",
+        "limitations": [
+          "NO_GENERAL_ACCEPTANCE_CLAIM",
+          "NO_AUTHORITY_GRANT",
+          "READ_ONLY_PROGRESS_PROJECTION"
+        ],
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P08:code",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-delivery.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-delivery.ts",
+        "sha256": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P08:test",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-delivery.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-delivery.test.ts",
+        "sha256": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P04",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P04",
+        "status": "PLANNED",
+        "plannedStatus": "PLANNED",
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P07",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P07",
+        "status": "PLANNED",
+        "plannedStatus": "PLANNED",
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P09",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P09",
+        "status": "PLANNED",
+        "plannedStatus": "PLANNED",
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P10",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P10",
+        "status": "PLANNED",
+        "plannedStatus": "PLANNED",
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P11",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P11",
+        "status": "PLANNED",
+        "plannedStatus": "PLANNED",
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:work:P12",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P12",
+        "status": "PLANNED",
+        "plannedStatus": "PLANNED",
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358",
+      "types": [
+        "urn:usl:native-implementation:ObservedCheck"
+      ],
+      "locator": "file://usl-root/research/native-development/implementation/checks.json",
+      "metadata": {
+        "schema": "usl-native-implementation-check/v1",
+        "status": "PASS",
+        "count": 42,
+        "command": [
+          "env",
+          "TSX_DISABLE_CACHE=1",
+          "TMPDIR=/dev/shm",
+          "node",
+          "--import",
+          "tsx",
+          "--test",
+          "--test-reporter=tap",
+          "test/native-profile.test.ts",
+          "test/native-profile-store.test.ts",
+          "test/native-observation.test.ts",
+          "test/native-profile-runtime.test.ts",
+          "test/native-http.test.ts",
+          "test/native-delivery.test.ts"
+        ],
+        "recordedAt": "2026-10-11 12:44:26 UTC",
+        "baseCommit": "a311f2b",
+        "revisionKind": "CURRENT_BYTE_SNAPSHOT",
+        "pins": {
+          "src/addons/native-profile.ts": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+          "test/native-profile.test.ts": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+          "src/addons/native-profile-store.ts": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+          "test/native-profile-store.test.ts": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+          "src/addons/native-observation.ts": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e",
+          "test/native-observation.test.ts": "sha256:8ac0ac6d988029ac7845372d46109b2d9ac83e7a9fedf4a368bee525abbc765f",
+          "src/addons/native-profile-runtime.ts": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+          "test/native-profile-runtime.test.ts": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+          "src/addons/native-http.ts": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda",
+          "test/native-http.test.ts": "sha256:5d4b11012f25d2a777b00335b651c8b50449db00547025761e58df82574bc242",
+          "src/addons/native-delivery.ts": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0",
+          "test/native-delivery.test.ts": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7"
+        },
+        "output": {
+          "path": "research/native-development/implementation/test-output.tap",
+          "sha256": "sha256:22c625372519a04bca91af02364e6efec6d6dc6afbf8036ad60717dbd517db98"
+        },
+        "limitations": [
+          "LOCAL_LINUX_FIXTURES_AND_LOOPBACK_HTTP",
+          "NOT_ALL_ORIGINAL_ACCEPTANCE_SPECS",
+          "NO_LIVE_HSWM_EXECUTION"
+        ],
+        "evidenceRole": "RECORDED_LOCAL_RUN_NOT_SIGNED_ATTESTATION",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P01",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/16",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P02",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/17",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P03",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/18",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P05",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/20",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P06",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/21",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P08",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/23",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P04",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/19",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P07",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/22",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P09",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/24",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P10",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/25",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P11",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/26",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:work:P12",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/27",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R01",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/6",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R02",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/7",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R07",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/12",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R03",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/8",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R05",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/10",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R06",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/11",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R08",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/13",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R04",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/9",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R09",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/14",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:dev:req:R10",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/15",
+        "authorityClass": "SECONDARY_AI"
+      }
+    }
+  ],
+  "meanings": [
+    {
+      "id": "addresses",
+      "description": "Bounded implementation-progress relation; not an entailment."
+    },
+    {
+      "id": "checkedBy",
+      "description": "Bounded implementation-progress relation; not an entailment."
+    },
+    {
+      "id": "derivedFrom",
+      "description": "Bounded implementation-progress relation; not an entailment."
+    },
+    {
+      "id": "implementedBy",
+      "description": "Bounded implementation-progress relation; not an entailment."
+    },
+    {
+      "id": "observedBy",
+      "description": "Bounded implementation-progress relation; not an entailment."
+    },
+    {
+      "id": "snapshotOf",
+      "description": "Bounded implementation-progress relation; not an entailment."
+    }
+  ],
+  "links": [
+    {
+      "id": "urn:usl:native-implementation:link:79a3dc51a41b3482c5878a81a9ca3fd8e428053808f4d16b533790383df0a43f",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P01"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:6b012a93c6933eac12bbafc2f629165500cfee61af7abd4deed53afd1bd907be",
+      "meaning": "derivedFrom",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "baseline",
+          "resource": "urn:usl:native-implementation:baseline:plan"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:f549c5438b981c637a96b1b6587fb50459ee31d115fa892f7a5f5602687de396",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P01:code"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:df0efa91c091cf1aa1398c2f02ed9291685736265faa436612489df03805336e",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P01:test"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:a9e5c3d2b5918336ece220958b123fa4243f0ec32fb80d73237a5a2a9270c2fa",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P02"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P02"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:ee210f614068072872b45a1cd17c354f8d11423c51fe3be0ac54ff30a8e8f441",
+      "meaning": "derivedFrom",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P02"
+        },
+        {
+          "role": "baseline",
+          "resource": "urn:usl:native-implementation:baseline:plan"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:02a206322e1c582fa763b3e3ad5dc58202ba7f53ab9da87a6f4124d86c70c1c5",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P02"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P02:code"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:590f25597de4b995fa7d58bfc09a46a272d8fd0979d8d7cb1d255798a81efdb5",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P02"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P02:test"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:16615816e059a9b0b32255e6a78f80bf9fb4acba829efd186d265a892528bb0e",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P03"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P03"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c8f179972a368740039ac1eb397e676d2f0add4f19283fc43ec13e3eb7969f90",
+      "meaning": "derivedFrom",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P03"
+        },
+        {
+          "role": "baseline",
+          "resource": "urn:usl:native-implementation:baseline:plan"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c62ee01277c5fd10347a253c2525d61a454c12ffca241ca40e6578cc4f2ed2ac",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P03"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P03:code"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:50a3f3b56d7f2a6ce72f95b8aab2550225b4044b00d2d243d3a812758dd8e12a",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P03"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P03:test"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:6acbedf73f79eaa4c3309a05a9916d791e547c352e28bf32e611b3305b8e0967",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P05"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:6e6bcfca45d91c736fd61191693c1bcac605f2cde7f25d56bfc40b6f487072a9",
+      "meaning": "derivedFrom",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "baseline",
+          "resource": "urn:usl:native-implementation:baseline:plan"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:6d0bd82bed8f6595ef413862077d05129ed47b8861389087cb833cd24d710b47",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P05:code"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:9a5f5b0cbc81d233b47b2698222a029a108ecab0a9de24bd2eaa06e3603ac807",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P05:test"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:066a0ef45d89cdcc391986ff327bbb4ece38ddd7b15102b16c3e729e0a48434b",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P06"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P06"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:157daf35c43ff217d0924458cc81790741713786cc87345225ff5eb335bfdedd",
+      "meaning": "derivedFrom",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P06"
+        },
+        {
+          "role": "baseline",
+          "resource": "urn:usl:native-implementation:baseline:plan"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:1e8045b9ce1590d58330710ecb73a1a2a0637dfaa87fcfe9b7c2d58396a9bb38",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P06"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P06:code"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:302b21e00fd490ef51bdc562dbdb91bb481e211801d91c4daef362191ff4a836",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P06"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P06:test"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:f3c128e8557290915146e42e86c56d1c533d4c08ec64a982025dd2b34a539405",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P08"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P08"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:d1e3b7d7ba84be1b4b9e020784edaae65215d2a7a6c4851bb5e7afabd67f88a3",
+      "meaning": "derivedFrom",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P08"
+        },
+        {
+          "role": "baseline",
+          "resource": "urn:usl:native-implementation:baseline:plan"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:4d1fd0f62e2f65193fe9d1f1086d252b67efc73380119165853ffee90279e8c5",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P08"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P08:code"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:f0e43ec097c6679f28308ea70539369307a215412d73d678af5230ec2ad4d318",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P08"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P08:test"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:307f4c8cf2e53e8c31d9357b3722e455a1983240c9de105ede1112e397f50c54",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P04"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P04"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:f816db05c561fa93d9b8d41d51e84cc0f845236c7b16567c13d45315f94a4d4e",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P07"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P07"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:8221003ac85adbcbf58bcbcad9b218fb9299062e46412041f92e28810e5a78c1",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P09"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P09"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:928be9431f49cd4bab0a8630c2255a785974a43993768bf803981ef715018819",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P10"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:50db7d1104ebc9ad126315d784ba8a2806229c3d07a33898a836eab397686e45",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P11"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P11"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:d6b65a9d30f8841a4ba834110ddab6d0fed401027d1cdb1de74c0389e1f5df6f",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P12"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P12"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:d35bdfb39d01c878ef06c9961158fccff3696d70e4eb47467576c28cb1715082",
+      "meaning": "observedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "check",
+          "resource": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:aca7867c48a45e5b7796a460929e29dbf538c16619f6909469c9c66108024f29",
+      "meaning": "observedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P02"
+        },
+        {
+          "role": "check",
+          "resource": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:d9e348cbeb762f91e5eea0382620f273b41dccd25ae23c5df89b65a95f030b98",
+      "meaning": "observedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P03"
+        },
+        {
+          "role": "check",
+          "resource": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:41347c5e6bb5eefd66fe32b1edaed56460d237111ce9e7cea4cad4ede688649e",
+      "meaning": "observedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "check",
+          "resource": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:ab1de79b2adafc22d05a621925ead261f41e6e4aa00e56d604372fe8c528dda4",
+      "meaning": "observedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P06"
+        },
+        {
+          "role": "check",
+          "resource": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:37e5a8537638dc7a9318799ff5e25aa0fefa325df61b15b10cdb2717d6c0ea57",
+      "meaning": "observedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P08"
+        },
+        {
+          "role": "check",
+          "resource": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c668a0a6d737e0b701688f90b2180731d24516f3ad0b9a0672d8933d9ba12b85",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R01"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:dd66e130570e745b446463498ec55cf10d802f3c465a65522841d6e631a90988",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R02"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:4abae9624a97bf96bf80b85bee62c143d14d5c577c9260c70c7748ce233f7d33",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P01"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:a492d779370e98db00fd3b34ca53bd56ca8d0dbf499084fefa969ced900ab2dc",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P02"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R02"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:5d6b3eb06464ca700146b295f30ee11b983e2264ffe405f5008a6185a5d59c02",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P03"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R01"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:993dbcf468e4b88c25dfd97bfb6c941b2afb702812eca7c05846cdba9a5b5f64",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P03"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R03"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:05765e665b061d5e10cf30d972b7bbc8c2f54c413e85b4ce151a8f8bc6513951",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R01"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:6fbb27e485af580711d44e4249d74d214ea0ba4aa6a692d31c7d0cc88eeae62f",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R02"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:081578685dc9e8cbaaab8a4d48964285d160f2e0920da85feabbd3c192c90c06",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P05"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R03"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:4347aa143a2577dd17e4e0acd82a5df3aecac2ab9dc52823262644b20be84ca7",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P06"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R05"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c8940562b89f6cc8ca8ce6421badde4cc06f63a7c157f4ab576eb24ed134db6a",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P08"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R06"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c1dc6409a069b586fcfe2ce6fb192256b56c00c6fc11f7a87a6e5bc175d12f70",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P08"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R08"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c7017c9e0f3bf30aba3e0b571c78ea1cfc1e14a08dddaaa967ce43b59b99fe5a",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P04"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R04"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:977bf894ccd9003d62d0e2ee6dd82d18c86f95d17bb7ddc68a9ac3a83ce9b804",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P07"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R05"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:65cbe74467966931d4d1b53688e0e712317a1232e73bd3d4647282dc6567dd9f",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P09"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:19b2cb1349967eff218acdd6f920bbb62edbb97d4be84396c1aba6864db26284",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R06"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:4609de72ce4561ae9d8455b9fae2e765eab980754f584e73591f3577054edd1f",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:93a5aedeb791b2006994b888be34eaf3fd1769ef8cbdc2ca0071d40ccd360d4b",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P11"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R08"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:5827118a2648fba8cd9a8c2edf2479e9eaaa19da569e8dac756d8523b9b0d47c",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P11"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R09"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:6602f85348db46fcec03e5ff79f5326463d5dec1f5fbd6f6f855fb6123035d16",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P12"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R02"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:b1d456a43785fe12b0fa5d4dcb12aadd9067a6b4c0906aeb6f9691732ed7d149",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P12"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R05"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:e9b98efe1979537b6dbc893cbc13ec047e7899df9214491a0d705c00c29ce4dd",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P12"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R06"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:64567241c968ffaed3dae6bd28ba3540b25667d977bb0680f1eaa91308d2281e",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P12"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:ccb9ec5334bc70a350cfbbf74ca0f6bd26661f6fcc208c0fc3f6101c0f19aa77",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P12"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R10"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      "urn:usl:native-implementation:baseline:plan"
+    ]
+  }
+}

@@ -12,6 +12,30 @@
     "usl-mcp": "./dist/src/mcp.js"
   },
   "exports": {
+    "./native-profile": {
+      "types": "./dist/src/addons/native-profile.d.ts",
+      "import": "./dist/src/addons/native-profile.js"
+    },
+    "./native-profile-store": {
+      "types": "./dist/src/addons/native-profile-store.d.ts",
+      "import": "./dist/src/addons/native-profile-store.js"
+    },
+    "./native-observation": {
+      "types": "./dist/src/addons/native-observation.d.ts",
+      "import": "./dist/src/addons/native-observation.js"
+    },
+    "./native-profile-runtime": {
+      "types": "./dist/src/addons/native-profile-runtime.d.ts",
+      "import": "./dist/src/addons/native-profile-runtime.js"
+    },
+    "./native-http": {
+      "types": "./dist/src/addons/native-http.d.ts",
+      "import": "./dist/src/addons/native-http.js"
+    },
+    "./native-delivery": {
+      "types": "./dist/src/addons/native-delivery.d.ts",
+      "import": "./dist/src/addons/native-delivery.js"
+    },
     "./memory-relocation": {
       "types": "./dist/src/addons/memory-relocation.d.ts",
       "import": "./dist/src/addons/memory-relocation.js"

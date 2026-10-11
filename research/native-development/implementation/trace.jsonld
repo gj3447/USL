@@ -1,0 +1,1360 @@
+{
+  "@context": {
+    "ni": "urn:usl:native-implementation:",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:usl:native-implementation:baseline:plan",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalPlanSnapshot"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_PLANNED_SPECIFIED_NOT_RUN",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_PLANNED_SPECIFIED_NOT_RUN",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P01",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P01",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "PURE_CONTRACTS_NOT_AUTHORIZATION",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P01"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P01"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P01:code"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P01:test"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R01"
+        },
+        {
+          "@id": "urn:usl:dev:req:R02"
+        },
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P01:code",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-profile.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-profile.ts",
+          "sha256": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P01:test",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-profile.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-profile.test.ts",
+          "sha256": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P02",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P02",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "SINGLE_OWNER_STORE_NOT_CROSS_HOST_AT_MOST_ONCE",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P02"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P02"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P02:code"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P02:test"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R02"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P02:code",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-profile-store.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-profile-store.ts",
+          "sha256": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P02:test",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-profile-store.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-profile-store.test.ts",
+          "sha256": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P03",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P03",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "LINUX_READ_ONLY_NON_ATOMIC",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P03"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P03"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P03:code"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P03:test"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R01"
+        },
+        {
+          "@id": "urn:usl:dev:req:R03"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P03:code",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-observation.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-observation.ts",
+          "sha256": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P03:test",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-observation.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-observation.test.ts",
+          "sha256": "sha256:8ac0ac6d988029ac7845372d46109b2d9ac83e7a9fedf4a368bee525abbc765f",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:8ac0ac6d988029ac7845372d46109b2d9ac83e7a9fedf4a368bee525abbc765f",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P05",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P05",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "A_TO_B_SAME_GRAPH_NO_AUTOCOPY",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P05"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P05"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P05:code"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P05:test"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R01"
+        },
+        {
+          "@id": "urn:usl:dev:req:R02"
+        },
+        {
+          "@id": "urn:usl:dev:req:R03"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P05:code",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-profile-runtime.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-profile-runtime.ts",
+          "sha256": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P05:test",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-profile-runtime.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-profile-runtime.test.ts",
+          "sha256": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P06",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P06",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "URL_ALLOWLIST_NOT_GITHUB_OR_IP_PIN",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P06"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P06"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P06:code"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P06:test"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R05"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P06:code",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-http.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-http.ts",
+          "sha256": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P06:test",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-http.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-http.test.ts",
+          "sha256": "sha256:5d4b11012f25d2a777b00335b651c8b50449db00547025761e58df82574bc242",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:5d4b11012f25d2a777b00335b651c8b50449db00547025761e58df82574bc242",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P08",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P08",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "REGISTERED_CALLBACK_FULL_DELIVERY_NOT_UNDERSTANDING_OR_DISPATCHER",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P08"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P08"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P08:code"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P08:test"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R06"
+        },
+        {
+          "@id": "urn:usl:dev:req:R08"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P08:code",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-delivery.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-delivery.ts",
+          "sha256": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P08:test",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-delivery.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-delivery.test.ts",
+          "sha256": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P04",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P04",
+          "status": "PLANNED",
+          "plannedStatus": "PLANNED",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "PLANNED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P04"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P04"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R04"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P07",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P07",
+          "status": "PLANNED",
+          "plannedStatus": "PLANNED",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "PLANNED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P07"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P07"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R05"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P09",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P09",
+          "status": "PLANNED",
+          "plannedStatus": "PLANNED",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "PLANNED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P09"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P09"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P10",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P10",
+          "status": "PLANNED",
+          "plannedStatus": "PLANNED",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "PLANNED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P10"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P10"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R06"
+        },
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P11",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P11",
+          "status": "PLANNED",
+          "plannedStatus": "PLANNED",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "PLANNED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P11"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P11"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R08"
+        },
+        {
+          "@id": "urn:usl:dev:req:R09"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P12",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P12",
+          "status": "PLANNED",
+          "plannedStatus": "PLANNED",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "PLANNED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P12"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P12"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R02"
+        },
+        {
+          "@id": "urn:usl:dev:req:R05"
+        },
+        {
+          "@id": "urn:usl:dev:req:R06"
+        },
+        {
+          "@id": "urn:usl:dev:req:R07"
+        },
+        {
+          "@id": "urn:usl:dev:req:R10"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358",
+      "@type": [
+        "urn:usl:native-implementation:ObservedCheck"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/checks.json",
+      "ni:metadata": {
+        "@value": {
+          "schema": "usl-native-implementation-check/v1",
+          "status": "PASS",
+          "count": 42,
+          "command": [
+            "env",
+            "TSX_DISABLE_CACHE=1",
+            "TMPDIR=/dev/shm",
+            "node",
+            "--import",
+            "tsx",
+            "--test",
+            "--test-reporter=tap",
+            "test/native-profile.test.ts",
+            "test/native-profile-store.test.ts",
+            "test/native-observation.test.ts",
+            "test/native-profile-runtime.test.ts",
+            "test/native-http.test.ts",
+            "test/native-delivery.test.ts"
+          ],
+          "recordedAt": "2026-10-11 12:44:26 UTC",
+          "baseCommit": "a311f2b",
+          "revisionKind": "CURRENT_BYTE_SNAPSHOT",
+          "pins": {
+            "src/addons/native-profile.ts": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+            "test/native-profile.test.ts": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+            "src/addons/native-profile-store.ts": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+            "test/native-profile-store.test.ts": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+            "src/addons/native-observation.ts": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e",
+            "test/native-observation.test.ts": "sha256:8ac0ac6d988029ac7845372d46109b2d9ac83e7a9fedf4a368bee525abbc765f",
+            "src/addons/native-profile-runtime.ts": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+            "test/native-profile-runtime.test.ts": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+            "src/addons/native-http.ts": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda",
+            "test/native-http.test.ts": "sha256:5d4b11012f25d2a777b00335b651c8b50449db00547025761e58df82574bc242",
+            "src/addons/native-delivery.ts": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0",
+            "test/native-delivery.test.ts": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7"
+          },
+          "output": {
+            "path": "research/native-development/implementation/test-output.tap",
+            "sha256": "sha256:22c625372519a04bca91af02364e6efec6d6dc6afbf8036ad60717dbd517db98"
+          },
+          "limitations": [
+            "LOCAL_LINUX_FIXTURES_AND_LOOPBACK_HTTP",
+            "NOT_ALL_ORIGINAL_ACCEPTANCE_SPECS",
+            "NO_LIVE_HSWM_EXECUTION"
+          ],
+          "evidenceRole": "RECORDED_LOCAL_RUN_NOT_SIGNED_ATTESTATION",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "PASS"
+    },
+    {
+      "@id": "urn:usl:dev:work:P01",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/16",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P02",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/17",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P03",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/18",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P05",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/20",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P06",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/21",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P08",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/23",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P04",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/19",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P07",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/22",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P09",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/24",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P10",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/25",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P11",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/26",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:work:P12",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/27",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R01",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/6",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R02",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/7",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R07",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/12",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R03",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/8",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R05",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/10",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R06",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/11",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R08",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/13",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R04",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/9",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R09",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/14",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
+      "@id": "urn:usl:dev:req:R10",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/15",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    }
+  ]
+}

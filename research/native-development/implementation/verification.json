@@ -1,0 +1,87 @@
+{
+  "schema": "usl-native-implementation-verification/v1",
+  "authorityClass": "SECONDARY_AI",
+  "recordedAt": "2026-10-11 12:50:28 UTC",
+  "scope": "LOCAL_LINUX_IMPLEMENTATION_AND_GRAPH_ONLY",
+  "pins": {
+    "scripts/build-native-implementation.py": "sha256:a39d68b02d3f402a41342a26b3ecb3325922f585210c787a54be26827d866eb3",
+    "scripts/validate-native-implementation.py": "sha256:77f92290f9929a04fd6d13b0e587e14ef1fb4ad9aa1346bf64a614af6729dd08",
+    "test/native-implementation.test.ts": "sha256:9ce335024105fb4e190d41e53b3c5efb583c1d259998cb5be331b2075fa12a1c",
+    "research/native-development/implementation/graph.json": "sha256:591cc354c1dd46dda10b37e1cc36bd81cae29133b2c090269e710a3f7177febf",
+    "research/native-development/implementation/trace.jsonld": "sha256:3530b3f5797a6b7df6c8e8c10002698fdd05f57755dc03a2550fd5277dd2a2c2",
+    "research/native-development/implementation/shapes.ttl": "sha256:f4c991ba80f98ae82eddf679d6b2a8fa7beb683fb1535c12d72605f25255c727",
+    "research/native-development/implementation/checks.json": "sha256:a1866fb80b7c9411b67370cb42acc6ea948aadba1744845d99818773ca655c25",
+    "research/native-development/implementation/test-output.tap": "sha256:22c625372519a04bca91af02364e6efec6d6dc6afbf8036ad60717dbd517db98"
+  },
+  "runtime": {
+    "node": "v24.20.0",
+    "git": "git version 2.47.3",
+    "typescript": "5.9.3",
+    "effect": "3.22.1"
+  },
+  "checks": [
+    {
+      "command": "42-test command and exact TAP result in checks.json",
+      "status": "PASS",
+      "tests": 42,
+      "skipped": 0
+    },
+    {
+      "command": "node --import tsx --test test/native-implementation.test.ts test/native-development-plan.test.ts",
+      "status": "PASS",
+      "tests": 8,
+      "skipped": 0
+    },
+    {
+      "command": "python3 scripts/validate-native-implementation.py",
+      "status": "PASS",
+      "rdflib": "7.6.0",
+      "pyshacl": "0.40.1",
+      "triples": 305,
+      "roleEdgesPreserved": 60,
+      "negativeCasesRejected": 6
+    },
+    {
+      "command": "python3 scripts/validate-native-development.py",
+      "status": "PASS",
+      "negativeCasesRejected": 8
+    },
+    {
+      "command": "python3 scripts/build-native-development.py --self-test",
+      "status": "PASS",
+      "negativeCasesRejected": 12
+    },
+    {
+      "command": "python3 scripts/build-native-development.py --check",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/build-native-implementation.py --check",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "PASS"
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS"
+    },
+    {
+      "command": "built package self-reference imports for all six new subpaths",
+      "status": "PASS",
+      "imports": 6
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "status": "PASS",
+      "brokenLinks": 0
+    }
+  ],
+  "limits": [
+    "Original 24 future acceptance specifications remain SPECIFIED_NOT_RUN.",
+    "No live HSWM, GitHub service API, or OMC end-to-end execution.",
+    "Owner-store replay protection is local to its preserved history; not cross-machine global exactly-once.",
+    "New profile/delivery contracts are not yet enforced by P09/P10 dispatcher or agent harness."
+  ]
+}
