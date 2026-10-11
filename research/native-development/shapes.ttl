@@ -1,0 +1,116 @@
+@prefix nd: <urn:usl:native-development:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nd:RequirementShape a sh:NodeShape ;
+  sh:targetClass nd:Requirement ;
+  sh:property [ sh:path nd:authorityClass ; sh:hasValue "SECONDARY_AI" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:derivedFrom ; sh:class nd:UserSource ; sh:minCount 1 ] .
+
+nd:UserSourceShape a sh:NodeShape ;
+  sh:targetClass nd:UserSource ;
+  sh:property [ sh:path nd:authorityClass ; sh:hasValue "USER_PRIMARY" ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+nd:WorkItemShape a sh:NodeShape ;
+  sh:targetClass nd:WorkItem ;
+  sh:property [ sh:path nd:status ; sh:hasValue "PLANNED" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:ownerBoundary ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:deliverable ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:remaining ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:realizes ; sh:class nd:Requirement ; sh:minCount 1 ] ;
+  sh:property [ sh:path nd:verifiedBy ; sh:class nd:AcceptanceTest ; sh:minCount 1 ] ;
+  sh:property [ sh:path nd:groundedIn ; sh:class nd:Artifact ; sh:minCount 1 ] ;
+  sh:property [ sh:path nd:constrainedBy ; sh:class nd:Constraint ; sh:minCount 1 ] ;
+  sh:property [ sh:path nd:dependsOn ; sh:class nd:WorkItem ] ;
+  sh:property [ sh:path nd:conditionallyDependsOn ; sh:class nd:WorkItem ] ;
+  sh:property [ sh:path nd:refines ; sh:class nd:PriorWork ] .
+
+nd:ConditionalDependencyShape a sh:NodeShape ;
+  sh:targetClass nd:ConditionalDependency ;
+  sh:property [ sh:path nd:work ; sh:class nd:WorkItem ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:prerequisite ; sh:class nd:WorkItem ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:condition ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+nd:AcceptanceTestShape a sh:NodeShape ;
+  sh:targetClass nd:AcceptanceTest ;
+  sh:property [ sh:path nd:status ; sh:hasValue "SPECIFIED_NOT_RUN" ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:scenario ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:expected ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:kind ; sh:in ( "POSITIVE" "ADVERSARIAL" ) ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+nd:ConstraintShape a sh:NodeShape ;
+  sh:targetClass nd:Constraint ;
+  sh:property [ sh:path nd:rule ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+nd:ArtifactShape a sh:NodeShape ;
+  sh:targetClass nd:Artifact ;
+  sh:property [ sh:path nd:evidenceScope ; sh:in ( "PINNED_SOURCE" "PUBLIC_STANDARD" "PUBLIC_DOCUMENTATION" "LOCAL_UNTRACKED_SNAPSHOT" "HISTORICAL_OBSERVATION" ) ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:sourceState ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:runtimeTestedThisResearch ; sh:hasValue false ; sh:datatype xsd:boolean ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:repository ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:path ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:url ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:reviewedOn ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:minLength 1 ] ;
+  sh:property [ sh:path nd:byteDigest ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:pattern "^sha256:[0-9a-f]{64}$" ] ;
+  sh:property [ sh:path nd:bytes ; sh:datatype xsd:integer ; sh:maxCount 1 ; sh:minInclusive 1 ] ;
+  sh:property [ sh:path nd:contentRevision ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:pattern "^([0-9a-f]{40}|[0-9a-f]{64})$" ] ;
+  sh:sparql [
+    sh:message "Pinned, local-untracked, and historical artifacts need repository/path/byteDigest/bytes; pinned and historical artifacts also need contentRevision." ;
+    sh:select """
+      PREFIX nd: <urn:usl:native-development:>
+      SELECT $this WHERE {
+        {
+          $this nd:evidenceScope ?scope .
+          FILTER(?scope IN (\"PINNED_SOURCE\", \"LOCAL_UNTRACKED_SNAPSHOT\", \"HISTORICAL_OBSERVATION\"))
+          FILTER NOT EXISTS { $this nd:repository ?repository }
+        }
+        UNION {
+          $this nd:evidenceScope ?scope .
+          FILTER(?scope IN (\"PINNED_SOURCE\", \"LOCAL_UNTRACKED_SNAPSHOT\", \"HISTORICAL_OBSERVATION\"))
+          FILTER NOT EXISTS { $this nd:path ?path }
+        }
+        UNION {
+          $this nd:evidenceScope ?scope .
+          FILTER(?scope IN (\"PINNED_SOURCE\", \"LOCAL_UNTRACKED_SNAPSHOT\", \"HISTORICAL_OBSERVATION\"))
+          FILTER NOT EXISTS { $this nd:byteDigest ?digest }
+        }
+        UNION {
+          $this nd:evidenceScope ?scope .
+          FILTER(?scope IN (\"PINNED_SOURCE\", \"LOCAL_UNTRACKED_SNAPSHOT\", \"HISTORICAL_OBSERVATION\"))
+          FILTER NOT EXISTS { $this nd:bytes ?bytes }
+        }
+        UNION {
+          $this nd:evidenceScope ?scope .
+          FILTER(?scope IN (\"PINNED_SOURCE\", \"HISTORICAL_OBSERVATION\"))
+          FILTER NOT EXISTS { $this nd:contentRevision ?revision }
+        }
+        UNION {
+          $this nd:evidenceScope \"LOCAL_UNTRACKED_SNAPSHOT\" .
+          $this nd:contentRevision ?revision
+        }
+      }
+    """
+  ] ;
+  sh:sparql [
+    sh:message "Public standards and documentation need url and reviewedOn." ;
+    sh:select """
+      PREFIX nd: <urn:usl:native-development:>
+      SELECT $this WHERE {
+        {
+          $this nd:evidenceScope ?scope .
+          FILTER(?scope IN (\"PUBLIC_STANDARD\", \"PUBLIC_DOCUMENTATION\"))
+          FILTER NOT EXISTS { $this nd:url ?url }
+        }
+        UNION {
+          $this nd:evidenceScope ?scope .
+          FILTER(?scope IN (\"PUBLIC_STANDARD\", \"PUBLIC_DOCUMENTATION\"))
+          FILTER NOT EXISTS { $this nd:reviewedOn ?reviewedOn }
+        }
+      }
+    """
+  ] .
+
+nd:PriorWorkShape a sh:NodeShape ;
+  sh:targetClass nd:PriorWork ;
+  sh:property [ sh:path nd:originallyDeclaredIn ; sh:class nd:Artifact ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path nd:sourceSelector ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] .

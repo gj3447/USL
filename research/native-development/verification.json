@@ -1,0 +1,213 @@
+{
+  "schema": "usl-native-development-verification/v1",
+  "observedAt": "2026-10-11T11:40:16.126705+00:00",
+  "status": "VERIFIED_LOCAL_PLAN",
+  "publication": "LOCAL_ONLY",
+  "repositoryBaseRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+  "scope": "CURRENT_DEVELOPMENT_GRAPH_AND_BINDING_FIXTURES_ONLY",
+  "plannedRuntimeAcceptanceExecuted": false,
+  "environment": {
+    "node": "v24.20.0",
+    "python": "3.13.5",
+    "rdfDependencies": {
+      "rdflib": "7.6.0",
+      "pyshacl": "0.40.1"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "README.md",
+      "byteDigest": "sha256:bd4442b249fa8e6694f4b4b100f334760e09f44a361b103313dcd6a5f4b0fd46",
+      "bytes": 11922
+    },
+    {
+      "path": "connections/native-development/connection.json",
+      "byteDigest": "sha256:03eae31dd032562cd7532ba84ff53d47a9d7078c4a0812cb964d03f46c9eab83",
+      "bytes": 399
+    },
+    {
+      "path": "docs/NATIVE_DEVELOPMENT_PLAN.md",
+      "byteDigest": "sha256:5f9ef6d6d6231bcc0edb5c7b8a98fa0759d21a90feebc49d0c9903b8a640fe79",
+      "bytes": 12189
+    },
+    {
+      "path": "research/native-development/bindings.json",
+      "byteDigest": "sha256:9a953c83794ab9e1ca38bf7f4e97810acc17dff32400dcaae63d71ecb5dea65b",
+      "bytes": 48603
+    },
+    {
+      "path": "research/native-development/graph.json",
+      "byteDigest": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+      "bytes": 211652
+    },
+    {
+      "path": "research/native-development/graph.jsonld",
+      "byteDigest": "sha256:c0762c26e354516b9354882ef523dc281ff8baff23722b5c072dc7c897dee109",
+      "bytes": 592285
+    },
+    {
+      "path": "research/native-development/host.json",
+      "byteDigest": "sha256:b5fd120a8207c21b8c5ad3fd2ea0a4cbd254017fa8cd0c2a2bf8c6a02fc0e35e",
+      "bytes": 153
+    },
+    {
+      "path": "research/native-development/plan.json",
+      "byteDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "bytes": 31296
+    },
+    {
+      "path": "research/native-development/profile.json",
+      "byteDigest": "sha256:6324bd061c4803a6c9f5f10cb74004cfdae352bb0b5c0111d6b2d8f5c63ea400",
+      "bytes": 7653
+    },
+    {
+      "path": "research/native-development/references.json",
+      "byteDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "bytes": 23738
+    },
+    {
+      "path": "research/native-development/request.json",
+      "byteDigest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2",
+      "bytes": 3687
+    },
+    {
+      "path": "research/native-development/selections.json",
+      "byteDigest": "sha256:fe10142bd975c68b14e4d948d43335b8eae045403e8f090d52264254bc410042",
+      "bytes": 15964
+    },
+    {
+      "path": "research/native-development/shapes.ttl",
+      "byteDigest": "sha256:468831b8de5ae973a68c5df4a275f71dc7d249d9bb34333575f47605351d87db",
+      "bytes": 6436
+    },
+    {
+      "path": "research/native-development/trace.jsonld",
+      "byteDigest": "sha256:eb9cbdb07393c0f370af7c157ee9b6140f448e4f2b63bddeeea39ff68f707f0c",
+      "bytes": 111698
+    },
+    {
+      "path": "scripts/build-native-development.py",
+      "byteDigest": "sha256:baff2394c731545653025bea16cae6c0aaeba5b13df9484c49bd8d94f337351e",
+      "bytes": 19592
+    },
+    {
+      "path": "scripts/validate-native-development.py",
+      "byteDigest": "sha256:ea29efc94abe5c2bbb361265adc77d4dafd2a96f5bcef1762c99e171c76d1167",
+      "bytes": 7592
+    },
+    {
+      "path": "test/native-development-plan.test.ts",
+      "byteDigest": "sha256:f05ee60f6e42f0ec6c15038b21c9af4c50c6b4c3969e481b0a561babdddc5c26",
+      "bytes": 16598
+    }
+  ],
+  "checks": [
+    {
+      "command": "python3 scripts/build-native-development.py --check --check-evidence",
+      "status": "PASS",
+      "resources": 107,
+      "links": 206,
+      "requirements": 10,
+      "workItems": 12,
+      "acceptanceSpecifications": 24,
+      "immutableGitBlobPinsChecked": 21,
+      "untrackedBytePinsChecked": 9,
+      "priorWorkSelectorsChecked": 6,
+      "firstWorkItem": "P01"
+    },
+    {
+      "command": "python3 scripts/build-native-development.py --self-test",
+      "status": "PASS",
+      "negativeCasesRejected": 12
+    },
+    {
+      "command": "TSX_DISABLE_CACHE=1 TMPDIR=/dev/shm node --import tsx --test test/native-development-plan.test.ts",
+      "status": "PASS",
+      "tests": 5,
+      "sdkCompetencyQueries": 6,
+      "profileNegativeCasesRejected": 4,
+      "rootSwitchFixture": "LOCAL_A_B_ROOT_MAPPING_ONLY",
+      "preserved": [
+        "resource IDs",
+        "resource types",
+        "metadata",
+        "meanings",
+        "links and participant roles",
+        "provenance",
+        "selected resource and representation IDs",
+        "expected content pins"
+      ],
+      "changed": [
+        "resolved file locators",
+        "bound graph digest"
+      ],
+      "doesNotProve": [
+        "atomic runtime profile switch",
+        "dirty Git transfer",
+        "cross-computer execution",
+        "agent understanding or compliance"
+      ]
+    },
+    {
+      "command": "python3 scripts/validate-native-development.py",
+      "environment": "temporary isolated pinned RDF environment; removed after validation",
+      "status": "PASS",
+      "rdf": "PARSED",
+      "shacl": "CONFORMS",
+      "negativeCasesRejected": 8,
+      "competencyQueries": 4,
+      "conditionalDependencies": 4
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 scripts/check-docs.py",
+      "status": "PASS"
+    }
+  ],
+  "competencyWitnesses": [
+    [
+      "wig:native:source:user",
+      "urn:usl:dev:req:R06",
+      "urn:usl:dev:work:P08"
+    ],
+    [
+      "urn:usl:dev:work:P05",
+      "urn:usl:dev:artifact:root-switch"
+    ],
+    [
+      "urn:usl:dev:work:P09",
+      "urn:usl:dev:work:P05",
+      "urn:usl:dev:work:P02"
+    ],
+    [
+      "urn:usl:dev:work:P11",
+      "urn:usl:dev:constraint:C03"
+    ],
+    [
+      "urn:usl:dev:work:P04",
+      "urn:usl:dev:test:P04-adversarial"
+    ],
+    [
+      "wig:native:work:N1",
+      "urn:usl:dev:artifact:prior-graph"
+    ]
+  ],
+  "cliObservation": {
+    "focus": "urn:usl:dev:req:R06",
+    "target": "urn:usl:dev:work:P08",
+    "status": "FOUND",
+    "mode": "unfiltered CLI context --compact",
+    "baselineBytes": 280328,
+    "deliveredBytes": 257421,
+    "note": "SDK competency tests use selected role routes; this broad CLI query is not a retrieval-efficiency claim"
+  },
+  "interpretation": {
+    "semanticTruth": "NOT_EVALUATED",
+    "runtimeImplementationCompleteness": "NOT_CLAIMED",
+    "HSWMGlobalOptimality": "NOT_CLAIMED",
+    "authorization": "NOT_GRANTED_BY_GRAPH"
+  }
+}

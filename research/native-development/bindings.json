@@ -1,0 +1,1396 @@
+{
+  "schema": "usl-resource-bindings/v1",
+  "resources": [
+    {
+      "id": "wig:native:source:user",
+      "representations": [
+        {
+          "id": "rep_43a55c32899e986c29b5085b255d9b6515c57a858a67f6b84979fd661d20d279",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/request.json",
+          "digest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2"
+        }
+      ]
+    },
+    {
+      "id": "omc:source:internet-request",
+      "representations": [
+        {
+          "id": "rep_046796b08e2cbabcbff4c860a128ba48b384c0fbc1bab197585c1a19b3c7eada",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/request.json",
+          "digest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2"
+        }
+      ]
+    },
+    {
+      "id": "omc:source:mobility-request",
+      "representations": [
+        {
+          "id": "rep_8f10a6cb5d47719e29d321d26178de57fbe10c527299f7d9bd52e44313ec7a12",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/request.json",
+          "digest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:source:build",
+      "representations": [
+        {
+          "id": "rep_0dc0c190af29b478f5682a733da9f1c396acc77d3d4226cbe2e8ef729c85a892",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/request.json",
+          "digest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:source:hswm-scope",
+      "representations": [
+        {
+          "id": "rep_2a9bd5fb3c69f2c73ceb8043492278fb4512188fac77c343d3687b751c75af23",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/request.json",
+          "digest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:source:soft-rule",
+      "representations": [
+        {
+          "id": "rep_6e914f75f973cf7e38f4baa29edb588a6acb605242e19d96db388009e85bd17c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/request.json",
+          "digest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R01",
+      "representations": [
+        {
+          "id": "rep_dc986ee908a110664329b2b953b83464bde1621fe130ab61a54246cceab21c77",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R02",
+      "representations": [
+        {
+          "id": "rep_a07f907e73e4468710454114def0e5b699cdb1e486409afd538ef3107872ff86",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R03",
+      "representations": [
+        {
+          "id": "rep_a6dbdca2db7d13dce0419c156e53fba867cef31e600a9d853bfb93b3f1e7e13f",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R04",
+      "representations": [
+        {
+          "id": "rep_8683a905f4922047ebee4d0fac6b12cde8a68a5130a312e1f927daf76245ab9f",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R05",
+      "representations": [
+        {
+          "id": "rep_ac2c79d0b8ecc4a1a95731dacf8c4a12918c926faeef2eb3779f649ee0b41c87",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R06",
+      "representations": [
+        {
+          "id": "rep_68e307efdfbe63fdb0dce394aaf45262459914ad7a8c013b11017a6f40f1a836",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R07",
+      "representations": [
+        {
+          "id": "rep_3640deb3dac4a448652fecbb801d29e041545c0ad8ada61ae0be587143a5cf90",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R08",
+      "representations": [
+        {
+          "id": "rep_f5957a1093eda3c962d2754bbb7b20aa4f54d5e3a934eb275f9d83a184d55238",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R09",
+      "representations": [
+        {
+          "id": "rep_16f364727c5cbae0c63631e42ecabdecd3c0739f8126a7979d2f50b1e1b3538c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:req:R10",
+      "representations": [
+        {
+          "id": "rep_0da0d3d4a12d6d1fc06ae9322c46bd109b9488166467dcf89823da0195c57554",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P01",
+      "representations": [
+        {
+          "id": "rep_3f70abd825775cc99d8b5d7ded66b35a90673a67272b1584d7f0196a52730cab",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P02",
+      "representations": [
+        {
+          "id": "rep_bea293e6047c9a06eb68e006ecb0fe47b1304591ad827ed9f7a5823ec28805c5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P03",
+      "representations": [
+        {
+          "id": "rep_0823bd5d5225f42b9ab56f79479a087404eef0e9560e4db4c262cfdf2ef95a0d",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P04",
+      "representations": [
+        {
+          "id": "rep_9f75071bb0798c70956da404bec75680546762a14472aa6a1bfabcc27c75fa8d",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P05",
+      "representations": [
+        {
+          "id": "rep_12d116bb0f934c07891e45f48f7b77053dea206316979c3a69df7e632a0450ca",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P06",
+      "representations": [
+        {
+          "id": "rep_c8fb4bd7fd927378bb59afc2531a1bb30539989266f1cdefce7336d3cb784d38",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P07",
+      "representations": [
+        {
+          "id": "rep_1b27317e5a19805367509b780883158e9b63f81813fc9b6f9fde0196f59f4975",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P08",
+      "representations": [
+        {
+          "id": "rep_82847580eacdb6b3657c46c2c60bfa04cecc833653639b7143ef2643ad08d13c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P09",
+      "representations": [
+        {
+          "id": "rep_1ff4630ee5bfb38491e1acf21190132ef956973237b18b9c184c708d24f57da2",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P10",
+      "representations": [
+        {
+          "id": "rep_9506a9b31dc2d9d25abac9212194422c0e2c9f8bfc107eec1c6d7ce25f6d954b",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P11",
+      "representations": [
+        {
+          "id": "rep_e08639efa468b297a42bbd139fc59b6c7c17949b04b8ea6592ae8fbfab00e27e",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:work:P12",
+      "representations": [
+        {
+          "id": "rep_cf77d56447ae5c38227e2e341f4fc7353afea7385e8c7eb810a1b20b6b7c59a4",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P01-positive",
+      "representations": [
+        {
+          "id": "rep_7f69ed0ab9428a5899cc70c20008edeb24210d1edde811b400f3115672020733",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P01-adversarial",
+      "representations": [
+        {
+          "id": "rep_379355ca6e04dceed0f4dd619f9f2727c5f7990d64d68bfdc6f58a1f06e32967",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P02-positive",
+      "representations": [
+        {
+          "id": "rep_41343b54c78523312ba740aa76e5c7e8350f4f179b97b1127b95ba6e494e0494",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P02-adversarial",
+      "representations": [
+        {
+          "id": "rep_a6aaf7b4cb1a59f00a4b5b27f062b57f74d85c3f86b8ce72f41ed9ea95eb2001",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P03-positive",
+      "representations": [
+        {
+          "id": "rep_32f29f9684aa0bed187284364c70e71180e4de67632cd3c9b12baec9176d5d01",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P03-adversarial",
+      "representations": [
+        {
+          "id": "rep_c3214adb123a034aafb89abbf031657d535f00264d1465a6b93899dfd94ecd2c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P04-positive",
+      "representations": [
+        {
+          "id": "rep_03edd8d907757c00c67b4b7a90a8dbd9b50a76b7f308bafad52909e54128f322",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P04-adversarial",
+      "representations": [
+        {
+          "id": "rep_aeedf80119184bfef6a349cf7f2c81acc004c81d9c72db63c5c8f1839835e232",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P05-positive",
+      "representations": [
+        {
+          "id": "rep_e4427cf9ce3240c0a31e0acedcccdb09db82dabb269d0c4767a7ae72fe7662bf",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P05-adversarial",
+      "representations": [
+        {
+          "id": "rep_7196ff1823aee937c871dddb3aea8ae65b2bf44ddf102bcbd6fe5a236bb872fe",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P06-positive",
+      "representations": [
+        {
+          "id": "rep_ccdc73ee90ccbb3ff5112f788808c446afd5460db7eaf7b47875e3d1f09c0ac2",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P06-adversarial",
+      "representations": [
+        {
+          "id": "rep_facea5cc7aca27a129a213957c223ea26dbbd0402b23db42aebce5aa30d944a5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P07-positive",
+      "representations": [
+        {
+          "id": "rep_b0b7660beabdb16b4dd0b60cbac301050f8b82cea2cc2f3f98535e877dfad89c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P07-adversarial",
+      "representations": [
+        {
+          "id": "rep_6fc1b505daebe6b0d70ba8ec1cc4ad6b6d42814fbcd2d1c6ea549b81b584f997",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P08-positive",
+      "representations": [
+        {
+          "id": "rep_a505c2b51bf3ffc60b38e0982fadb4e65e7861d2059a553a6ec0b08f2a088f4f",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P08-adversarial",
+      "representations": [
+        {
+          "id": "rep_d3d87c62a82b4ca635c4b9cfcc73379d92c8b1f4af724fad5ef38da0f263768f",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P09-positive",
+      "representations": [
+        {
+          "id": "rep_a58fcf8ea4d84b90fffb7b9716105069b43f8ff85dfbd3983ff327820d6c3e73",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P09-adversarial",
+      "representations": [
+        {
+          "id": "rep_09f0e0f2c63e72e94936a00049119056f20d50cc4fa111b9b492e70e1e899c19",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P10-positive",
+      "representations": [
+        {
+          "id": "rep_b3aa319d5cc2d4616f0b3e5451583e832713cae3ef7a8172f7d5744a2bcaa76c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P10-adversarial",
+      "representations": [
+        {
+          "id": "rep_d2702a3a67be2e0bad1994271d3b7ffc30d031502754033879cb618dd36ad2f8",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P11-positive",
+      "representations": [
+        {
+          "id": "rep_39467fd2fd53bc21a0d45cb68685e3aa33c27af574328133a835d6c447d62aab",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P11-adversarial",
+      "representations": [
+        {
+          "id": "rep_9af39608552ff5ae36425bb7d0e524284f0cf1bf5727f6c8271f3f1ef2aed0dc",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P12-positive",
+      "representations": [
+        {
+          "id": "rep_093dc8b8814116249192a544b471c6ac2f4e99aaba553900e351d3941d734ca9",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:test:P12-adversarial",
+      "representations": [
+        {
+          "id": "rep_efc5d0b5bac575373a2a8b693024754a6f5ed3214353bfc04712a0a5b23b9d94",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:bindings",
+      "representations": [
+        {
+          "id": "rep_d590f1a34d7f651c793b8cbe5a5169343961fff9a1d42b83cfbfdb28dd46a1c7",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:resolver",
+      "representations": [
+        {
+          "id": "rep_d3692665cbac74cce0fbe72b4a13098bb4bdfc7879c8d47712bba1391b7a688e",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:checkout",
+      "representations": [
+        {
+          "id": "rep_9fc96b63c5b4c30ee44602b53bcf00e7acec7b84e835f62efaea7bf32a527283",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:relocation",
+      "representations": [
+        {
+          "id": "rep_f8ea0194e34fae626741de9b32c65604b595339e09a882d4b0eccec2c412dfe0",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:rule-policy",
+      "representations": [
+        {
+          "id": "rep_7a21951dcbe3eac2be93e37cc3ea9872d16b214ab2b1515bff3a158ac1123317",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:weight-review",
+      "representations": [
+        {
+          "id": "rep_bcbd362dcf31908c568fa0f7c17ea1fc9bb0fc314bf0c36696f12e53dc341a9b",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:learner",
+      "representations": [
+        {
+          "id": "rep_dbbbf3e6030c570674230fb3582d255a970a147ef05fc9b9e8a0f40ab7d3cc2b",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:w-contract",
+      "representations": [
+        {
+          "id": "rep_00b4e8b45f2c9d2a22d1695fc20ae2ad719b9334a42d4741a5b8d940fd88e446",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:producer",
+      "representations": [
+        {
+          "id": "rep_19b7bf7934e2cc1f1a670bb1680c1fdbe24928081040851b546329418655f6e5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:producer-services",
+      "representations": [
+        {
+          "id": "rep_ddab95d21f00a9d6a68027a3728d378e8eecb6df4db2420ccfe5d70c1cd5deef",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:outcomes",
+      "representations": [
+        {
+          "id": "rep_4f8bf02e75d78870d8449489077a8c9502b7028d500cb4edfd56fa729c36f881",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:context-policy",
+      "representations": [
+        {
+          "id": "rep_d53f2cdbec7b7bec847a9e74dba139626a855614c5fced8f5531a6ece1d8de83",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:w-doc",
+      "representations": [
+        {
+          "id": "rep_af56e1be275bc18564bb13b8ff7aec4b3f905d587b8ac8acdc69091e45359599",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:bridge-doc",
+      "representations": [
+        {
+          "id": "rep_838d753596426d1d12488eec0ab7d4105a7264b178eb8f9657f4178dd51f7ef0",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:rule-policy-doc",
+      "representations": [
+        {
+          "id": "rep_126584aafe77770610afc54795b42e99a9c77345ee1b192540f5b95a26620227",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:weight-evidence-doc",
+      "representations": [
+        {
+          "id": "rep_53f60626ca82e5033a2eeb99113f13ba556f922dbf19509efad4bddf54ff7cb5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:weight-review-doc",
+      "representations": [
+        {
+          "id": "rep_a7c4f056412e4ee2cd279c9bd3f8a2d75dd3ca33ef83daedd39deda468b2992b",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:placement",
+      "representations": [
+        {
+          "id": "rep_226223a5012530d1c9f4347c3b9165769b3112fa4a7230b7db7ec0ef293aebbb",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:research-boundary",
+      "representations": [
+        {
+          "id": "rep_cd9b7d7695a25eabc6df71cc005ee1ecffea8129c4cc1dc5b3298f322a378c12",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:native-design",
+      "representations": [
+        {
+          "id": "rep_57338fd2baf80ffcaeb80dda915290dceca624ce147cf40f02a9b58893230335",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:agent-design",
+      "representations": [
+        {
+          "id": "rep_4f1796ba112ebe50b21fccb1b11d70a478f33212698ae550b8fdc4a9d95cb65c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:read-design",
+      "representations": [
+        {
+          "id": "rep_2caa4d7a9421809ec930b4eb3abe6fd5ac9efb8246c9d7e3839cf170f31a5c81",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:prior-graph",
+      "representations": [
+        {
+          "id": "rep_14540a3f7a543daf6c8f8a2a478e05e146c8a68d52605186f7e79b01ef851d04",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:git-experiments",
+      "representations": [
+        {
+          "id": "rep_f4a35509bf136cc5acd564a6f37e277c5bc698685abb6952fa05549a75c04e24",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:root-switch",
+      "representations": [
+        {
+          "id": "rep_34087998a57e1a3d654f7468fbca1d896f3cdc0ae27ea2cd6eebc7185967b326",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:transfer-git",
+      "representations": [
+        {
+          "id": "rep_dc9c1290e4ae834598cdaad192b4feedbd8e97e72d83ae945a4b5b880f9a9466",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:transfer-state",
+      "representations": [
+        {
+          "id": "rep_6b58c62b47462cc272f89ec4d95e684a0b0ac940f3374f721cd975b101caf3ae",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:transfer-restore",
+      "representations": [
+        {
+          "id": "rep_7f090d095a7f63d56237cabaf2fe204597be818835f1b27177bcf0711aca073c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:omc-design",
+      "representations": [
+        {
+          "id": "rep_29d892cedce0b84ae3017a8d50950ca8bfa319ffc29278ec480c7c0ea65ab17c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:cli-host",
+      "representations": [
+        {
+          "id": "rep_9460d8efe16a0229f10633583a9e9e73e888b5781ac48a7a97e9be7481755c01",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:git-worktree",
+      "representations": [
+        {
+          "id": "rep_673f5a47ff28ad8ef5ae81996a6f6508a232d19bfeeebbf462503cd80cead729",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:rdf",
+      "representations": [
+        {
+          "id": "rep_83a34427e9ed64d854c0a12ced1523476a7db1a520af4bf6fe55e2633d185a18",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:shacl",
+      "representations": [
+        {
+          "id": "rep_d5c3557ee43d8f57f0b74e1184e77175a5ddfecd3f0bbc91d6005e1f78075b9c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:odrl",
+      "representations": [
+        {
+          "id": "rep_21ee11f80a9e1960461fffee6a5d2e0c8bd5e18247d315c206a0115dc11ff246",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:prov",
+      "representations": [
+        {
+          "id": "rep_4322573eb06c0abd1f8a8f0721c3c3bbd0b3d7c3be2e908f6631c326164d8f0c",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:uri",
+      "representations": [
+        {
+          "id": "rep_9230ee4868e87abd1028bc6ca20ec51ca8770772e4e98fbcb3a6ab11666f5e48",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:http-cache",
+      "representations": [
+        {
+          "id": "rep_83946f02c21df8748ce6c69d672d9faf3819327d04daf9ea1111fe00c0dae644",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:agents",
+      "representations": [
+        {
+          "id": "rep_80a33c41d71fdf2ae01fccf602b422f8b81783304149de7bfb308ed6c6d6e20d",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:hooks",
+      "representations": [
+        {
+          "id": "rep_eeba087ddeaeaab9d45bad96287d1222f1d40e8eeeac9505f7601bbcc1db8dd5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:copilot",
+      "representations": [
+        {
+          "id": "rep_aaf66e37539aae523007a9bdac83943664e081db6a43b5610574d3acc01a3ff0",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:artifact:codex",
+      "representations": [
+        {
+          "id": "rep_5e65f4751261ca33ac2c014b4ef9b9dbd4ad63ff7c18c6ff85b9417da14548bd",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/references.json",
+          "digest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C01",
+      "representations": [
+        {
+          "id": "rep_70e045618dfae087d521a40cdbbd902c81e978afcabcdeca90343b919b2c264a",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C02",
+      "representations": [
+        {
+          "id": "rep_f74342cf5c7cd20fbb8ad6e404f512198ce90693d45d4e4913ab5c13680df588",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C03",
+      "representations": [
+        {
+          "id": "rep_79d10fe1c9189d19ecd3b6ba1939a5c406110bcd168eaf08cc9aaf77781a06a5",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C04",
+      "representations": [
+        {
+          "id": "rep_16d988a0274b2ebe61b83a3bd424e1d01bdd4361846304b36d679f0dcf145c5d",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C05",
+      "representations": [
+        {
+          "id": "rep_d7e7a74ffcc7a6aab33dad12f9a23e6ba87cbb90d4c4036ca7d5408e5164497b",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C06",
+      "representations": [
+        {
+          "id": "rep_a824857ee979037eb7c82138d02c2504d460a29303123eb1b0d675091259dc29",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C07",
+      "representations": [
+        {
+          "id": "rep_133333a428731aca2ad0009605ef20c460dc835060a0b7702c30cb7f27a70bbd",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:dev:constraint:C08",
+      "representations": [
+        {
+          "id": "rep_acb7a2a3196d6b4a72f6df55aa6c81617a1de9753c2e2c1bbb7d2d67165b5de6",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "wig:native:work:N1",
+      "representations": [
+        {
+          "id": "rep_32d2e0280479084d70c09957a51c6bb85a2928b6407d165d53234120dbd9bb69",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "wig:native:work:N2",
+      "representations": [
+        {
+          "id": "rep_5e65ae6d01bc2dd4b987e9a1500ac3ff6970c7486932c3c068e7982d07f90d3d",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "wig:native:work:N3",
+      "representations": [
+        {
+          "id": "rep_af94189de514a48ee8cfa1635ceb79b33a58ed07643108341067a9c7c5def11b",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "wig:native:work:N4",
+      "representations": [
+        {
+          "id": "rep_aa35223a87e569cc6ebdd7c1caf335792cb1a00810ddf9314fd3682f0fcef325",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "wig:native:work:N5",
+      "representations": [
+        {
+          "id": "rep_a1987747a9b7a1e214a10a42126a88f70c410d34253ab8e5cbfb47560a5dc0af",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    },
+    {
+      "id": "wig:native:work:N6",
+      "representations": [
+        {
+          "id": "rep_8e5c5c9b463726d1ea14fea87a6b4b1fa138f3cfa84e2bc0e9cd6323b24c681f",
+          "relation": "working-copy",
+          "kind": "workspace",
+          "workspace": "usl",
+          "path": "research/native-development/plan.json",
+          "digest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039"
+        }
+      ]
+    }
+  ]
+}

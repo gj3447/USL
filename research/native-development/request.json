@@ -1,0 +1,55 @@
+{
+  "schema": "usl-native-development-request/v1",
+  "recordedAt": "2026-10-11T11:23:57Z",
+  "publication": "LOCAL_ONLY",
+  "sources": [
+    {
+      "id": "wig:native:source:user",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "git repo 연구해줘봐 ㅇㅇ USL 자체가 그 인터넷 url 이랑 git 에 완전히 native 하게 그 잘 연결되야하거든 ㅇㅇ 컴퓨터 작업환경도 마찬가지고 그리고 그 옮겻을때도 문제없도록 뭔가 추상 구조처럼 딱 하나만 바꾸면 딱딱딱 되야해 ㅇㅇ agent coding paradigm 도 확인해주고 그리고 그 내생각에 표준그래프 엔지니어링이랑 kg 의 차이점은 그 웨이트라고 생각하거든? 어떻게 강제적으로 읽게 규칙을 시키게할것인가 그 ai 로치면 웨이트 랜덤으로 읽는게 아니라 강제로 그리고 수치로 나눠서 읽을확률을 수치로 나눌수도 있고 HSWM 에서 이런 개념적 내용들이 들어가야하고 USL 도 그 기능을 지원해야해 알지 ㅇㅇ??",
+      "textDigest": "sha256:f5cd9f6317a8d476a305832b923c0c37dead3bfe263939207d52e6ff19cab903"
+    },
+    {
+      "id": "omc:source:internet-request",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "우리 입운구 입체운행구름을 USL 기반으로 긴밀하게 연결하고싶은데 ㅇㅇ; 그리고 입체운행 구름 자체가 인터넷에도 긴밀하게 연결되야하고 인터넷 지금 현재 인터넷에도 접합 잘 붙어있어야해 ㅇㅇ 알지 ㅇㅇ?",
+      "textDigest": "sha256:ad414a3dca41017980137b54bec00769ec3117909a9948ca5419a4cc7f3f703f"
+    },
+    {
+      "id": "omc:source:mobility-request",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "ㅇㅇ 그 다른 컴퓨터 왓다갓다 해도 그 백업 메모리 작업환경 마구 옮기더라도 USL 은 강건해야하거든 어떡하면 그렇게 할수 있을지 인터넷 검색좀해줘봐봐 ㅇㅇ",
+      "textDigest": "sha256:22aad0d098cae11ca4812b35c87c0ac467f96f39ee4cc81491469e5162777d90"
+    },
+    {
+      "id": "urn:usl:dev:source:build",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "지금까지 연구내용 표준그래프 엔지니어링으로 내가말한 요구사항 개발을 위한 표준그래프 엔지니어링 구축좀 해줘볼래 ㅇㅇ??",
+      "textDigest": "sha256:caff807083c48a17a785935148e8181154fa9dc4b8d84733398a6267d58c2e0e"
+    },
+    {
+      "id": "urn:usl:dev:source:hswm-scope",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "철학적인 HSWM 을 생각해봐봐 ㅇㅇ 어케해야 하는지 ㅇㅇ 그 CHU 가 주어진 범위에서 최대로 최적화 된게 HSWM 수치로 볼수가 있는거야 개념적으로 이해가 되냐 ㅇㅇ?",
+      "textDigest": "sha256:9cde9830f4e1713e766041e0d9211e88328a4df0e68eacfdb1c404f862d18cfb"
+    },
+    {
+      "id": "urn:usl:dev:source:soft-rule",
+      "authorityClass": "USER_PRIMARY",
+      "origin": "conversation",
+      "utteredAt": null,
+      "text": "usl 피드백 왓다 ㅇㅇ usl 이 완전한 표준그래프 엔지니어링 최신 표준그래프 엔지니어링을 그 담을수 있냐? 어느정도 강제성 약한 강제성 웨이트가 있어야하는데 규칙에 대한 ㅇㅇ 그 metahumotonic_dashboard 한테 피드백 왔다",
+      "textDigest": "sha256:9a1e2f487d3a76c1331f6528153489957dc9728754211bea4282592b20f46016"
+    }
+  ]
+}

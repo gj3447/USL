@@ -1,0 +1,15 @@
+{
+  "allowedLocators": [],
+  "maxResources": 128,
+  "maxInputBytes": 4194304,
+  "maxOutputBytes": 4194304,
+  "programs": {},
+  "connections": {
+    "usl-native-development-v1": {
+      "graph": "../../research/native-development/graph.json",
+      "profile": "../../research/native-development/profile.json",
+      "namespace": "usl.native.development",
+      "format": "resource-graph"
+    }
+  }
+}

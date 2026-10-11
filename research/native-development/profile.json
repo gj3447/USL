@@ -1,0 +1,344 @@
+{
+  "schema": "usl-domain-profile/v1",
+  "id": "urn:usl:native-development:profile",
+  "version": "1",
+  "closedMeanings": true,
+  "meanings": [
+    {
+      "id": "realizes",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        },
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:Requirement"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verifiedBy",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        },
+        {
+          "role": "test",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:AcceptanceTest"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "SPECIFIED_NOT_RUN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "groundedIn",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        },
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:Artifact"
+          ],
+          "metadata": [
+            {
+              "key": "runtimeTestedThisResearch",
+              "equals": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dependsOn",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conditionallyDependsOn",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        },
+        {
+          "role": "prerequisite",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constrainedBy",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        },
+        {
+          "role": "constraint",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:Constraint"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "derivedFrom",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "requirement",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:Requirement"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            }
+          ]
+        },
+        {
+          "role": "source",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:UserSource"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "USER_PRIMARY"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "refines",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "work",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:WorkItem"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PLANNED"
+            }
+          ]
+        },
+        {
+          "role": "prior",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:PriorWork"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PROPOSED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "originallyDeclaredIn",
+      "allowExtraRoles": false,
+      "roles": [
+        {
+          "role": "prior",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:PriorWork"
+          ],
+          "metadata": [
+            {
+              "key": "authorityClass",
+              "equals": "SECONDARY_AI"
+            },
+            {
+              "key": "status",
+              "equals": "PROPOSED"
+            }
+          ]
+        },
+        {
+          "role": "artifact",
+          "required": true,
+          "types": [
+            "urn:usl:native-development:Artifact"
+          ],
+          "metadata": [
+            {
+              "key": "runtimeTestedThisResearch",
+              "equals": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -98,6 +98,8 @@ npm run usl -- cli-run --help
 
 JSON-LD 1.1/RDF 교환, PROV-O 출처 관계와 SHACL 구조 검사를 지원한다. `urn:usl:vocab:` 어휘와 GEIP는 프로젝트 고유 규약이다. [표준별 적용표](docs/ARCHITECTURE.md#표준-적용)를 참고한다.
 
+Git·URL·환경 이동·필수 읽기·HSWM W·입운구 연결의 후속 개발은 [native 개발 그래프](docs/NATIVE_DEVELOPMENT_PLAN.md)에 모았다. 사용자 원문과 요구사항 10개, 개발 작업 12개, 수용 명세 24개를 근거·의존성·소유자 경계로 연결하며, 현재 구현과 앞으로 검증할 작업을 구분한다.
+
 ```sh
 npm run typecheck
 npm test

@@ -1,0 +1,3008 @@
+{
+  "@context": {
+    "nd": "urn:usl:native-development:",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "wig:native:source:user",
+      "@type": [
+        "urn:usl:native-development:UserSource"
+      ],
+      "nd:id": "wig:native:source:user",
+      "nd:authorityClass": "USER_PRIMARY",
+      "nd:origin": "conversation",
+      "nd:text": "git repo 연구해줘봐 ㅇㅇ USL 자체가 그 인터넷 url 이랑 git 에 완전히 native 하게 그 잘 연결되야하거든 ㅇㅇ 컴퓨터 작업환경도 마찬가지고 그리고 그 옮겻을때도 문제없도록 뭔가 추상 구조처럼 딱 하나만 바꾸면 딱딱딱 되야해 ㅇㅇ agent coding paradigm 도 확인해주고 그리고 그 내생각에 표준그래프 엔지니어링이랑 kg 의 차이점은 그 웨이트라고 생각하거든? 어떻게 강제적으로 읽게 규칙을 시키게할것인가 그 ai 로치면 웨이트 랜덤으로 읽는게 아니라 강제로 그리고 수치로 나눠서 읽을확률을 수치로 나눌수도 있고 HSWM 에서 이런 개념적 내용들이 들어가야하고 USL 도 그 기능을 지원해야해 알지 ㅇㅇ??",
+      "nd:textDigest": "sha256:f5cd9f6317a8d476a305832b923c0c37dead3bfe263939207d52e6ff19cab903",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2",
+      "nd:jsonPointer": "/sources/0"
+    },
+    {
+      "@id": "omc:source:internet-request",
+      "@type": [
+        "urn:usl:native-development:UserSource"
+      ],
+      "nd:id": "omc:source:internet-request",
+      "nd:authorityClass": "USER_PRIMARY",
+      "nd:origin": "conversation",
+      "nd:text": "우리 입운구 입체운행구름을 USL 기반으로 긴밀하게 연결하고싶은데 ㅇㅇ; 그리고 입체운행 구름 자체가 인터넷에도 긴밀하게 연결되야하고 인터넷 지금 현재 인터넷에도 접합 잘 붙어있어야해 ㅇㅇ 알지 ㅇㅇ?",
+      "nd:textDigest": "sha256:ad414a3dca41017980137b54bec00769ec3117909a9948ca5419a4cc7f3f703f",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2",
+      "nd:jsonPointer": "/sources/1"
+    },
+    {
+      "@id": "omc:source:mobility-request",
+      "@type": [
+        "urn:usl:native-development:UserSource"
+      ],
+      "nd:id": "omc:source:mobility-request",
+      "nd:authorityClass": "USER_PRIMARY",
+      "nd:origin": "conversation",
+      "nd:text": "ㅇㅇ 그 다른 컴퓨터 왓다갓다 해도 그 백업 메모리 작업환경 마구 옮기더라도 USL 은 강건해야하거든 어떡하면 그렇게 할수 있을지 인터넷 검색좀해줘봐봐 ㅇㅇ",
+      "nd:textDigest": "sha256:22aad0d098cae11ca4812b35c87c0ac467f96f39ee4cc81491469e5162777d90",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2",
+      "nd:jsonPointer": "/sources/2"
+    },
+    {
+      "@id": "urn:usl:dev:source:build",
+      "@type": [
+        "urn:usl:native-development:UserSource"
+      ],
+      "nd:id": "urn:usl:dev:source:build",
+      "nd:authorityClass": "USER_PRIMARY",
+      "nd:origin": "conversation",
+      "nd:text": "지금까지 연구내용 표준그래프 엔지니어링으로 내가말한 요구사항 개발을 위한 표준그래프 엔지니어링 구축좀 해줘볼래 ㅇㅇ??",
+      "nd:textDigest": "sha256:caff807083c48a17a785935148e8181154fa9dc4b8d84733398a6267d58c2e0e",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2",
+      "nd:jsonPointer": "/sources/3"
+    },
+    {
+      "@id": "urn:usl:dev:source:hswm-scope",
+      "@type": [
+        "urn:usl:native-development:UserSource"
+      ],
+      "nd:id": "urn:usl:dev:source:hswm-scope",
+      "nd:authorityClass": "USER_PRIMARY",
+      "nd:origin": "conversation",
+      "nd:text": "철학적인 HSWM 을 생각해봐봐 ㅇㅇ 어케해야 하는지 ㅇㅇ 그 CHU 가 주어진 범위에서 최대로 최적화 된게 HSWM 수치로 볼수가 있는거야 개념적으로 이해가 되냐 ㅇㅇ?",
+      "nd:textDigest": "sha256:9cde9830f4e1713e766041e0d9211e88328a4df0e68eacfdb1c404f862d18cfb",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2",
+      "nd:jsonPointer": "/sources/4"
+    },
+    {
+      "@id": "urn:usl:dev:source:soft-rule",
+      "@type": [
+        "urn:usl:native-development:UserSource"
+      ],
+      "nd:id": "urn:usl:dev:source:soft-rule",
+      "nd:authorityClass": "USER_PRIMARY",
+      "nd:origin": "conversation",
+      "nd:text": "usl 피드백 왓다 ㅇㅇ usl 이 완전한 표준그래프 엔지니어링 최신 표준그래프 엔지니어링을 그 담을수 있냐? 어느정도 강제성 약한 강제성 웨이트가 있어야하는데 규칙에 대한 ㅇㅇ 그 metahumotonic_dashboard 한테 피드백 왔다",
+      "nd:textDigest": "sha256:9a1e2f487d3a76c1331f6528153489957dc9728754211bea4282592b20f46016",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:65218f515200291a8a1cb73a5dbcfcb80a6b64c1b4b519094b0dce5c78d413a2",
+      "nd:jsonPointer": "/sources/5"
+    },
+    {
+      "@id": "urn:usl:dev:req:R01",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R01",
+      "nd:title": "위치 독립 리소스 ID",
+      "nd:statement": "컴퓨터·경로·worktree가 바뀌어도 논리 ID, 역할, 출처를 유지하고 representation만 명시 선택한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/0",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R02",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R02",
+      "nd:title": "하나의 프로필 전환",
+      "nd:statement": "owner 범위의 불변 프로필과 단조 증가 generation을 사용한다. 한 포인터 전환에 CAS, rollback 새 generation, 이전 admission 무효화를 묶는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/1",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R03",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R03",
+      "nd:title": "Git·파일 native 관측",
+      "nd:statement": "worktree/common-dir/HEAD/object-format/ref/dirty/파일 digest를 Git native query로 관측하고 지원 capability를 기록한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/2",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R04",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R04",
+      "nd:title": "선택한 dirty 상태 이동",
+      "nd:statement": "clean Git bundle과 독립 pin을 가진 raw-state sidecar를 연결해 선택한 상태를 복원한다. 미지원 상태는 HOLD한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/3",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R05",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R05",
+      "nd:title": "URL·GitHub native 연결",
+      "nd:statement": "URL 관측·캐시 문맥·최종 응답과 Git 객체 identity 및 GitHub 서비스 identity/권한을 분리한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/4",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:internet-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "omc:source:internet-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R06",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R06",
+      "nd:title": "필수 규칙의 실제 전달",
+      "nd:statement": "필수 selector/revision/full-byte delivery/evaluator receipt를 확보한다. 누락·잘림·미지원·필수 예산 초과는 실행을 보류한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/5",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:soft-rule"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:soft-rule"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R07",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R07",
+      "nd:title": "통제된 실행 경로",
+      "nd:statement": "profile/policy/input/scope에 묶인 single-use admission을 host가 소비한다. 사전 승인과 실제 효과 영수증을 분리하며 불명확한 결과를 자동 재시도하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/6",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R08",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R08",
+      "nd:title": "선택 확률의 명시적 기록",
+      "nd:statement": "필수 항목은 선택 가능한 모든 조합에 포함한다. optional 전체 조합의 실제 선택 확률 π, 후보 집합 digest와 예산을 기록한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/7",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R09",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R09",
+      "nd:title": "범위가 명시된 W 검토",
+      "nd:statement": "범위·목표·역할·비용·결과를 명시하고 독립 holdout으로 W를 검토한다. 철학적 최적화 관점과 한정된 현 구현의 수치를 구분한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/8",
+      "nd:derivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:hswm-scope"
+        },
+        {
+          "@id": "urn:usl:dev:source:soft-rule"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "wig:native:source:user"
+        },
+        {
+          "@id": "urn:usl:dev:source:hswm-scope"
+        },
+        {
+          "@id": "urn:usl:dev:source:soft-rule"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:req:R10",
+      "@type": [
+        "urn:usl:native-development:Requirement"
+      ],
+      "nd:id": "R10",
+      "nd:title": "입운구·인터넷 접합",
+      "nd:statement": "OMC owner projection과 등록된 HTTP/MCP/local adapter를 통해 좁은 read-only pilot부터 연결한다. 라이선스·공개·권한 판단은 소유자 경계에 둔다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/requirements/9",
+      "nd:derivedFrom": [
+        {
+          "@id": "omc:source:internet-request"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "omc:source:internet-request"
+        },
+        {
+          "@id": "omc:source:mobility-request"
+        },
+        {
+          "@id": "urn:usl:dev:source:build"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P01",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P01",
+      "nd:title": "프로필·admission 계약과 fixture",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "USL addon의 순수 계약; host가 소유·저장·실행을 담당",
+      "nd:deliverable": "ProfileSnapshot/Observation/ReadReceipt/Admission/EffectReceipt 스키마와 canonical digest vectors, host test-double fixture",
+      "nd:remaining": "기존 binding·checkout·CLI receipt 필드를 재사용해 generation, content/input/policy pins, 소비·만료, INDETERMINATE↔UNKNOWN 명시적 매핑을 계약화",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/0",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R01"
+        },
+        {
+          "@id": "urn:usl:dev:req:R02"
+        },
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P01-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P01-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:bindings"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:checkout"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:cli-host"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:bindings"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:checkout"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:cli-host"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        },
+        {
+          "@id": "wig:native:work:N1"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C02"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C05"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N1"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P02",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P02",
+      "nd:title": "Owner 프로필 registry와 CAS",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "host owner registry; USL은 계약·검증만 제공",
+      "nd:deliverable": "불변 profile 저장소, active cursor, generation CAS와 single-use handle 상태 전이",
+      "nd:remaining": "memory-relocation의 한정된 CAS와 별도로 전체 profile cursor 및 재시작·다중 writer의 영속성을 정의",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/1",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R02"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P02-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P02-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:relocation"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:relocation"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        },
+        {
+          "@id": "wig:native:work:N1"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P01"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C05"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N1"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P03",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P03",
+      "nd:title": "Git·파일 관측 envelope",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "USL addon read-only probe; host가 저장 및 fresh recheck 시점을 소유",
+      "nd:deliverable": "object-format·worktree/common-dir·HEAD/ref·dirty·file pin·capability를 갖춘 Observation",
+      "nd:remaining": "현재 checkout guard/inspection을 공통 envelope로 합치고 READ_ONLY_NON_ATOMIC 한계를 표시",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/2",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R01"
+        },
+        {
+          "@id": "urn:usl:dev:req:R03"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P03-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P03-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:checkout"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:bindings"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:git-experiments"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:git-worktree"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:checkout"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:bindings"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:git-experiments"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:git-worktree"
+        },
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P01"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C02"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C07"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P04",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P04",
+      "nd:title": "Dirty Git 이동 orchestration",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "USL portable-transfer addon; source/destination owner가 명시적으로 선택",
+      "nd:deliverable": "clean bundle+state sidecar manifest와 복원 후 checkout/binding 재검사",
+      "nd:remaining": "기존 CP01–03을 profile 전환의 선택적 선행 단계로 연결하고 지원 상태를 선언",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/3",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R04"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P04-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P04-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:transfer-git"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:transfer-state"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:transfer-restore"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:transfer-git"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:transfer-state"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:transfer-restore"
+        },
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P03"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C02"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C07"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P05",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P05",
+      "nd:title": "프로필 compiler와 단일 전환",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "USL pure compiler + host switch controller",
+      "nd:deliverable": "한 active-profile 포인터로 aliases/representations/pins/policy를 고정하는 전환 controller",
+      "nd:remaining": "이미 있는 root mapping/rebind를 aggregate generation/CAS/admission 무효화에 연결",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/4",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R01"
+        },
+        {
+          "@id": "urn:usl:dev:req:R02"
+        },
+        {
+          "@id": "urn:usl:dev:req:R03"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P05-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P05-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:bindings"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:relocation"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:root-switch"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:bindings"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:relocation"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:root-switch"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        },
+        {
+          "@id": "wig:native:work:N1"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P02"
+        },
+        {
+          "@id": "urn:usl:dev:work:P03"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C02"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C05"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C07"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N1"
+        }
+      ],
+      "nd:conditionallyDependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P04"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P06",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P06",
+      "nd:title": "HTTP 관측·캐시 adapter",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "USL bounded observer; host가 allowlist/cache/context를 소유",
+      "nd:deliverable": "requested/final URL·response digest·freshness·validator/cache-key·관측 시간 envelope",
+      "nd:remaining": "기존 bounded GET/redirect/body 제한에 conditional cache 문맥 및 profile pins를 연결",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/5",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R05"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P06-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P06-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:resolver"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:uri"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:http-cache"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:omc-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:resolver"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:uri"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:http-cache"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:omc-design"
+        },
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P05"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C02"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P07",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P07",
+      "nd:title": "GitHub 서비스 adapter",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "GitHub host adapter; repository owner scope와 credentials는 host 전용",
+      "nd:deliverable": "repository/service ID·PR/API observation·Git OID 대응 및 explicit capability",
+      "nd:remaining": "현 Git local-object resolver와 별도로 서비스 adapter를 구현; remote URL을 권한으로 취급하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/6",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R05"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P07-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P07-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:resolver"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:resolver"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:native-design"
+        },
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P06"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C02"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N2"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P08",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P08",
+      "nd:title": "필수 읽기 planner와 delivery",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "agent host의 실제 source loader/invocation driver; USL은 receipt 검증",
+      "nd:deliverable": "required source/selector/revision·full-byte delivery·ack/evaluator receipt와 token budget",
+      "nd:remaining": "현재 순수 policy 판정 및 HSWM delivery primitive를 invocation의 실제 전달 경로와 연결",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/7",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R06"
+        },
+        {
+          "@id": "urn:usl:dev:req:R08"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P08-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P08-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:rule-policy"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:outcomes"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:producer-services"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:read-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:rule-policy"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:outcomes"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:producer-services"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:read-design"
+        },
+        {
+          "@id": "wig:native:work:N3"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P05"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C03"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C06"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N3"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P09",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P09",
+      "nd:title": "통제된 action dispatcher",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "owner가 통제하는 host dispatcher; 외부 효과의 원자성은 별도 capability",
+      "nd:deliverable": "profile/policy/input/scope에 묶인 admission 소비와 durable intent·effect receipt",
+      "nd:remaining": "기존 CLI preflight/recheck/operation dedup를 profile generation 및 delivery/evaluator receipt에 연결",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/8",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P09-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P09-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:cli-host"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:checkout"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:rule-policy"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:agent-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:cli-host"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:checkout"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:rule-policy"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:agent-design"
+        },
+        {
+          "@id": "wig:native:work:N3"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P03"
+        },
+        {
+          "@id": "urn:usl:dev:work:P05"
+        },
+        {
+          "@id": "urn:usl:dev:work:P08"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C05"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C06"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N3"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P10",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P10",
+      "nd:title": "단일 agent harness bridge",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "선택한 한 agent harness owner; 다른 harness 지원은 별도 확장",
+      "nd:deliverable": "instruction load order/digest·context delivery·worktree·tool adapter의 trace",
+      "nd:remaining": "문서상의 AGENTS/hook 관례를 실제 통제된 tool path로 연결하고 우회 범위를 노출",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/9",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R06"
+        },
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P10-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P10-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:agent-design"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:agents"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:hooks"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:copilot"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:codex"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:agent-design"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:agents"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:hooks"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:copilot"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:codex"
+        },
+        {
+          "@id": "wig:native:work:N5"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P08"
+        },
+        {
+          "@id": "urn:usl:dev:work:P09"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C06"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N5"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P11",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P11",
+      "nd:title": "조합 확률·W review 연결",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "HSWM owner가 sampler/learner/outcome을 소유; USL은 review-only bridge",
+      "nd:deliverable": "고정 full-coalition sampler의 candidate digest/π 로그와 독립 outcome·cost·holdout review",
+      "nd:remaining": "이미 있는 ticket producer를 재사용; UNTRACKED snapshot을 배포 구현으로 간주하지 않고 owner acceptance에서 revision 확정",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/10",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R08"
+        },
+        {
+          "@id": "urn:usl:dev:req:R09"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P11-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P11-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:producer"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:learner"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:outcomes"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:context-policy"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:weight-review"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:read-design"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:producer"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:learner"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:outcomes"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:context-policy"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:weight-review"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:read-design"
+        },
+        {
+          "@id": "wig:native:work:N4"
+        },
+        {
+          "@id": "wig:native:work:N6"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P08"
+        },
+        {
+          "@id": "urn:usl:dev:work:P09"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C03"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C08"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N4"
+        },
+        {
+          "@id": "wig:native:work:N6"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:work:P12",
+      "@type": [
+        "urn:usl:native-development:WorkItem"
+      ],
+      "nd:id": "P12",
+      "nd:title": "입운구 bounded read-only pilot",
+      "nd:status": "PLANNED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:ownerBoundary": "OMC owner projection + host registration; HSWM execution 승인과 분리",
+      "nd:deliverable": "owner-approved resource 1개와 등록된 local read-only action 1개의 종단 trace",
+      "nd:remaining": "현재 OMC design graph에서 실제 로컬 pilot으로 진행; 외부 공개·서비스 배포·credential 이동은 포함하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/workItems/11",
+      "nd:realizes": [
+        {
+          "@id": "urn:usl:dev:req:R02"
+        },
+        {
+          "@id": "urn:usl:dev:req:R05"
+        },
+        {
+          "@id": "urn:usl:dev:req:R06"
+        },
+        {
+          "@id": "urn:usl:dev:req:R07"
+        },
+        {
+          "@id": "urn:usl:dev:req:R10"
+        }
+      ],
+      "nd:verifiedBy": [
+        {
+          "@id": "urn:usl:dev:test:P12-positive"
+        },
+        {
+          "@id": "urn:usl:dev:test:P12-adversarial"
+        }
+      ],
+      "nd:groundedIn": [
+        {
+          "@id": "urn:usl:dev:artifact:omc-design"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:cli-host"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:resolver"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:omc-design"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:cli-host"
+        },
+        {
+          "@id": "urn:usl:dev:artifact:resolver"
+        },
+        {
+          "@id": "wig:native:work:N2"
+        },
+        {
+          "@id": "wig:native:work:N3"
+        }
+      ],
+      "nd:dependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P05"
+        },
+        {
+          "@id": "urn:usl:dev:work:P06"
+        },
+        {
+          "@id": "urn:usl:dev:work:P08"
+        },
+        {
+          "@id": "urn:usl:dev:work:P09"
+        }
+      ],
+      "nd:constrainedBy": [
+        {
+          "@id": "urn:usl:dev:constraint:C01"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C04"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C05"
+        },
+        {
+          "@id": "urn:usl:dev:constraint:C06"
+        }
+      ],
+      "nd:refines": [
+        {
+          "@id": "wig:native:work:N2"
+        },
+        {
+          "@id": "wig:native:work:N3"
+        }
+      ],
+      "nd:conditionallyDependsOn": [
+        {
+          "@id": "urn:usl:dev:work:P07"
+        },
+        {
+          "@id": "urn:usl:dev:work:P10"
+        },
+        {
+          "@id": "urn:usl:dev:work:P11"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:test:P01-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P01-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "동일한 논리 입력으로 프로필 digest와 role/source 보존 fixture를 구성한다.",
+      "nd:expected": "두 경로의 동일 논리 입력은 동일 identity를 유지하며 각 계약은 round-trip 검증된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/0"
+    },
+    {
+      "@id": "urn:usl:dev:test:P01-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P01-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "중복 alias/representation, 수정된 digest, 지원하지 않는 receipt status를 넣는다.",
+      "nd:expected": "계약 파싱 또는 pin 검증 단계에서 거부되고 실행 호출은 0회다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/1"
+    },
+    {
+      "@id": "urn:usl:dev:test:P02-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P02-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "A→B 전환 후 A 내용으로 rollback을 요청한다.",
+      "nd:expected": "논리 ID는 유지되고 rollback도 더 큰 generation으로 기록된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/2"
+    },
+    {
+      "@id": "urn:usl:dev:test:P02-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P02-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "동시에 같은 expected generation으로 두 writer가 전환하고 이전 handle을 재사용한다.",
+      "nd:expected": "정확히 한 CAS만 commit되고 stale/ABA/소비한 handle은 거부된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/3"
+    },
+    {
+      "@id": "urn:usl:dev:test:P03-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P03-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "SHA-1/256 repository와 linked worktree, 별도 index의 고정 fixture를 관측한다.",
+      "nd:expected": "Git native query의 값과 기록이 일치하고 shared/private 경계를 구분한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/4"
+    },
+    {
+      "@id": "urn:usl:dev:test:P03-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P03-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "관측 후 ref 이동·dirty 변경·symlink 탈출·capability mismatch를 주입한다.",
+      "nd:expected": "recheck가 HOLD하거나 dispatch 이전에 거부하며 원자 관측으로 표시하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/5"
+    },
+    {
+      "@id": "urn:usl:dev:test:P04-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P04-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "선택한 regular dirty/index/untracked 상태를 독립적으로 pinned bundle·sidecar로 옮긴다.",
+      "nd:expected": "복원한 index/worktree byte pin과 선택한 논리 ID가 일치한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/6"
+    },
+    {
+      "@id": "urn:usl:dev:test:P04-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P04-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "잘못 짝지은 sidecar, LFS/submodule/sparse, 진행 중 merge/rebase 또는 미지원 상태를 넣는다.",
+      "nd:expected": "지원 capability가 없는 경우 HOLD하고 일부 복원을 성공으로 선언하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/7"
+    },
+    {
+      "@id": "urn:usl:dev:test:P05-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P05-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "같은 논리 자료의 A/B 작업환경으로 프로필 포인터 한 개를 전환한다.",
+      "nd:expected": "resource/representation ID·role·provenance를 유지하고 해석된 locator만 새 환경을 가리킨다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/8"
+    },
+    {
+      "@id": "urn:usl:dev:test:P05-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P05-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "전환 중 이전 프로필 handle로 action을 요청하거나 동시 switch·ABA rollback을 주입한다.",
+      "nd:expected": "stale handle은 거부되고 하나의 새 generation만 활성화된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/9"
+    },
+    {
+      "@id": "urn:usl:dev:test:P06-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P06-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "등록된 공개 URL을 GET하고 같은 캐시 문맥에서 조건부 검증한다.",
+      "nd:expected": "최종 URL·내용 pin·freshness 출처가 기록되고 원본 응답과 연결된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/10"
+    },
+    {
+      "@id": "urn:usl:dev:test:P06-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P06-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "allowlist 밖 redirect, 다른 문맥의 304, timeout 또는 body cap 초과를 주입한다.",
+      "nd:expected": "결과를 승인된 최신 내용으로 재사용하지 않고 HOLD/거부한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/11"
+    },
+    {
+      "@id": "urn:usl:dev:test:P07-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P07-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "owner가 허용한 repository·PR/API 관측을 고정 Git revision과 명시적으로 연결한다.",
+      "nd:expected": "service ID·관측 시간·scope와 Git object identity가 별도 필드로 남는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/12"
+    },
+    {
+      "@id": "urn:usl:dev:test:P07-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P07-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "같은 URL/OID로 다른 repository 권한을 주장하거나 repository ID를 바꾼다.",
+      "nd:expected": "권한 승격·묵시적 clone/fetch/push/API 호출을 거부한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/13"
+    },
+    {
+      "@id": "urn:usl:dev:test:P08-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P08-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "필수 원문을 digest·byte length·selector·revision과 함께 실제 invocation에 전달한다.",
+      "nd:expected": "모든 필수 자료의 정확한 전달/ack 및 필요한 evaluator 결과가 admission 입력에 포함된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/14"
+    },
+    {
+      "@id": "urn:usl:dev:test:P08-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P08-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "원문 잘림, selector 혼동, missing evaluator, required-only 예산 초과를 넣는다.",
+      "nd:expected": "optional 샘플링으로 필수 자료를 버리지 않고 HOLD한다; ack를 이해 증거로 승격하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/15"
+    },
+    {
+      "@id": "urn:usl:dev:test:P09-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P09-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "등록된 test-double action을 fresh single-use admission으로 한 번 요청한다.",
+      "nd:expected": "사전 admission과 효과 결과가 별도로 기록되고 이전 handle 재사용은 거부된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/16"
+    },
+    {
+      "@id": "urn:usl:dev:test:P09-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P09-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "stale profile/policy/input, dispatch 중 timeout·receipt write failure·CAS 결과 불명을 넣는다.",
+      "nd:expected": "거부 또는 UNKNOWN/INDETERMINATE로 남기고 reconcile 없이 자동 재시도하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/17"
+    },
+    {
+      "@id": "urn:usl:dev:test:P10-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P10-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "한 harness에서 instruction loading부터 P09를 거친 tool 호출까지 추적한다.",
+      "nd:expected": "적용 순서·원문 pin·전달·판정·실행 영수증이 연결된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/18"
+    },
+    {
+      "@id": "urn:usl:dev:test:P10-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P10-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "compaction/sub-agent로 필수 문맥을 잃거나 hook 비활성화/direct-shell 경로를 만든다.",
+      "nd:expected": "통제 경로에서는 재전달 또는 HOLD; 우회 경로는 보장 밖으로 명시한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/19"
+    },
+    {
+      "@id": "urn:usl:dev:test:P11-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P11-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "모든 후보 조합에 required를 포함하고 필터 후 실제 π를 기록해 독립 holdout 검토한다.",
+      "nd:expected": "지원 범위의 W review만 생성하고 policy/authority apply는 별도 owner 결정으로 남는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/20"
+    },
+    {
+      "@id": "urn:usl:dev:test:P11-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P11-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "0/미상 π, required 누락, adaptive logging, holdout 재사용, W로 authority 변경을 넣는다.",
+      "nd:expected": "학습/검토를 보류하거나 거부하고 자동 policy 변경은 0회다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/21"
+    },
+    {
+      "@id": "urn:usl:dev:test:P12-positive",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P12-positive",
+      "nd:kind": "POSITIVE",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "허용된 OMC 자료를 관측하고 required delivery 및 P09 gate를 거쳐 local read-only 결과를 기록한다.",
+      "nd:expected": "source→observation→delivery→admission→result가 연결되고 owner scope가 유지된다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/22"
+    },
+    {
+      "@id": "urn:usl:dev:test:P12-adversarial",
+      "@type": [
+        "urn:usl:native-development:AcceptanceTest"
+      ],
+      "nd:id": "P12-adversarial",
+      "nd:kind": "ADVERSARIAL",
+      "nd:status": "SPECIFIED_NOT_RUN",
+      "nd:scenario": "owner 승인/reachability 누락, credential 노출, 미등록 endpoint 또는 원격 side effect를 요청한다.",
+      "nd:expected": "pilot에서 거부하고 외부 접근·공개·실행 권한을 그래프로 유도하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/acceptanceTests/23"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:bindings",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "bindings",
+      "nd:repository": "USL",
+      "nd:path": "src/resource-bindings.ts",
+      "nd:byteDigest": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+      "nd:bytes": 12176,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/0"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:resolver",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "resolver",
+      "nd:repository": "USL",
+      "nd:path": "src/resolve.ts",
+      "nd:byteDigest": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78",
+      "nd:bytes": 20907,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/1"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:checkout",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "checkout",
+      "nd:repository": "USL",
+      "nd:path": "src/addons/checkout-guard.ts",
+      "nd:byteDigest": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea",
+      "nd:bytes": 29934,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/2"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:relocation",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "relocation",
+      "nd:repository": "USL",
+      "nd:path": "src/addons/memory-relocation.ts",
+      "nd:byteDigest": "sha256:4289b5df5d75b67cbe2e9acd581cda810867c299185fab8bfb2aa613335b7f6c",
+      "nd:bytes": 13318,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/3"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:rule-policy",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "rule-policy",
+      "nd:repository": "USL",
+      "nd:path": "src/addons/rule-policy.ts",
+      "nd:byteDigest": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c",
+      "nd:bytes": 10165,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/4"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:weight-review",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "weight-review",
+      "nd:repository": "USL",
+      "nd:path": "src/addons/rule-weight-review.ts",
+      "nd:byteDigest": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d",
+      "nd:bytes": 22100,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/5"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:learner",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "learner",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "src/w-learning.ts",
+      "nd:byteDigest": "sha256:54e2275c95ec7d71495819cb97f247e8221da042f0dd1aaec81f25e465eee289",
+      "nd:bytes": 11230,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/6"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:w-contract",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "w-contract",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "src/w-contract.ts",
+      "nd:byteDigest": "sha256:43bb460361be018c57749fbae0baa42f514b640d840fafe1da0c02c31cfbf3e0",
+      "nd:bytes": 9952,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/7"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:producer",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "producer",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "src/w-producer.ts",
+      "nd:byteDigest": "sha256:d453669dba0c1754b5b9e2a4078a70c3e29b2bff6265126f3879623699263db1",
+      "nd:bytes": 11062,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/8"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:producer-services",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "producer-services",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "src/w-producer-services.ts",
+      "nd:byteDigest": "sha256:3ffa3a940297e84d81e28806bb52612a47847361658bea3d5f3dfa64d4b65c56",
+      "nd:bytes": 19141,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/9"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:outcomes",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "outcomes",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "src/w-outcomes.ts",
+      "nd:byteDigest": "sha256:9fabb24489d33e9233c705d3ab97fb95befd70d1c1d21d55658aa83aa66dab0a",
+      "nd:bytes": 17560,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/10"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:context-policy",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "context-policy",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "src/w-context-policy.ts",
+      "nd:byteDigest": "sha256:652e64203acd7e92bc54a80dff996656cd0eee526bb85dec898b76f6954f6de1",
+      "nd:bytes": 3836,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/11"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:w-doc",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "w-doc",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "docs/W_LEARNING.md",
+      "nd:byteDigest": "sha256:4de0202cab125b67d639e81b669c872e081bc082d4ee87808e2027d620c18042",
+      "nd:bytes": 30287,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/12"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:bridge-doc",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "bridge-doc",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "docs/CONTEXT_POLICY_BRIDGE.md",
+      "nd:byteDigest": "sha256:384740bb9e63d570ddde70d10853e2adb5a67215bc927be591dbf330c8d7e1f5",
+      "nd:bytes": 3680,
+      "nd:observedAt": "2026-10-11T04:00:40.097642+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/13"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:rule-policy-doc",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "rule-policy-doc",
+      "nd:repository": "USL",
+      "nd:path": "docs/RULE_POLICY.md",
+      "nd:byteDigest": "sha256:6302edb9518d49e94944670acc1efaa06117c64314b17727db2e67efb9870f26",
+      "nd:bytes": 10523,
+      "nd:observedAt": "2026-10-11T04:02:35.813546+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/14"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:weight-evidence-doc",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "weight-evidence-doc",
+      "nd:repository": "USL",
+      "nd:path": "docs/RULE_WEIGHT_EVIDENCE.md",
+      "nd:byteDigest": "sha256:c9cf0606eaa752e0b7078efd2b0735c89e163ba74d2a22b0a3344725ac7fae91",
+      "nd:bytes": 7905,
+      "nd:observedAt": "2026-10-11T04:02:35.813546+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/15"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:weight-review-doc",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "weight-review-doc",
+      "nd:repository": "USL",
+      "nd:path": "docs/RULE_WEIGHT_REVIEW.md",
+      "nd:byteDigest": "sha256:4fd9716a318eb02e77a960394d81735f9b7553d0118b1e00569e2657e1b9c789",
+      "nd:bytes": 6020,
+      "nd:observedAt": "2026-10-11T04:02:35.813546+00:00",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/16"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:placement",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "placement",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "src/w-placement.ts",
+      "nd:byteDigest": "sha256:c60b20c128cb324f21da6923dffad35f14a8fe7c10f0bfb8bf484b68d86b5a84",
+      "nd:bytes": 8678,
+      "nd:observedAt": "2026-10-11T04:02:35.813546+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "UNTRACKED_WORKING_FILE",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "LOCAL_UNTRACKED_SNAPSHOT",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/17"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:research-boundary",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "research-boundary",
+      "nd:repository": "HSWM_LIKENESS",
+      "nd:path": "docs/RESEARCH_AND_DESIGN_2026-09-29.md",
+      "nd:byteDigest": "sha256:afee00876e44e9fc126bbbaad86e810e690092da2abcf26e02be87eb1d1ca61d",
+      "nd:bytes": 13939,
+      "nd:observedAt": "2026-10-11T04:02:35.813546+00:00",
+      "nd:repositoryHeadAtObservation": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:contentRevision": "723d1baf66e3119419936c53c51abfb666a19096",
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/18"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:native-design",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "native-design",
+      "nd:repository": "what-is-git",
+      "nd:path": "docs/NATIVE_RESOURCE_RUNTIME.md",
+      "nd:byteDigest": "sha256:bc85b263e2b69bb919d975e3b52404877fcd976c7c05d1f33ea3598a0aedb148",
+      "nd:bytes": 18722,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/19"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:agent-design",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "agent-design",
+      "nd:repository": "what-is-git",
+      "nd:path": "docs/AGENT_CODING_PARADIGM.md",
+      "nd:byteDigest": "sha256:966c0d5ea703fe31e149954bfcc469b53c2f90f5d0f34abb7d877f0668398683",
+      "nd:bytes": 10582,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/20"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:read-design",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "read-design",
+      "nd:repository": "what-is-git",
+      "nd:path": "docs/READ_POLICY_AND_HSWM.md",
+      "nd:byteDigest": "sha256:c7a08882f6201031fe5c241a5582453f1c19fd30d1edfe9d99a2bc10ad6dc7df",
+      "nd:bytes": 14834,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/21"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:prior-graph",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "prior-graph",
+      "nd:repository": "what-is-git",
+      "nd:path": "research/native-agent/graph.json",
+      "nd:byteDigest": "sha256:bea62c3b96bc1a6cfe6041545b4b5d39b02d50f49a0e1d55a5ccb20485ae6a95",
+      "nd:bytes": 31285,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/22"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:git-experiments",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "git-experiments",
+      "nd:repository": "what-is-git",
+      "nd:path": "research/experiments.json",
+      "nd:byteDigest": "sha256:68162c98851caa00124ab1cfbcd55b26c2a2f201da3dca2e4046993c06d9800b",
+      "nd:bytes": 2337,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "HISTORICAL_OBSERVATION",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/23"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:root-switch",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "root-switch",
+      "nd:repository": "what-is-git",
+      "nd:path": "research/native-agent/root-switch-observation.json",
+      "nd:byteDigest": "sha256:92bd1b795805cc84c2845440770c8dc2fe9b01a7ed6207fff0df03cd8ab9b191",
+      "nd:bytes": 1244,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "614c88d4f96aea40b9ec1f7017854d3d8af2c261",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "HISTORICAL_OBSERVATION",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/24"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:transfer-git",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "transfer-git",
+      "nd:repository": "USL",
+      "nd:path": "src/addons/portable-transfer-git.ts",
+      "nd:byteDigest": "sha256:738f9e50ff484376bfa3e6fb2c3aba67da46664f9643658949031aca4c30a999",
+      "nd:bytes": 48213,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/25"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:transfer-state",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "transfer-state",
+      "nd:repository": "USL",
+      "nd:path": "src/addons/portable-transfer-git-state.ts",
+      "nd:byteDigest": "sha256:241f447b1201788f32ae6fdd1bbbfb18391ba339d886040a88efda4c0ca6031b",
+      "nd:bytes": 23038,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/26"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:transfer-restore",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "transfer-restore",
+      "nd:repository": "USL",
+      "nd:path": "src/addons/portable-transfer-git-state-restore.ts",
+      "nd:byteDigest": "sha256:0d9095fcbee76dd3c13d5d09e5040261766b42818d02414396a2a2cdd0571dc6",
+      "nd:bytes": 13351,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/27"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:omc-design",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "omc-design",
+      "nd:repository": "USL",
+      "nd:path": "docs/OMC_INTERNET.md",
+      "nd:byteDigest": "sha256:9c0da0cca7d975dc36633eb56667741421a0ab248a592903f477c51da20eba98",
+      "nd:bytes": 11863,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/28"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:cli-host",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "cli-host",
+      "nd:repository": "USL",
+      "nd:path": "src/cli-host.ts",
+      "nd:byteDigest": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692",
+      "nd:bytes": 22756,
+      "nd:observedAt": "2026-10-11T11:23:57Z",
+      "nd:repositoryHeadAtObservation": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:sourceState": "TRACKED_CLEAN",
+      "nd:contentRevision": "4732e540e0c7b39bb904182122c8e6ba8b3475f5",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:evidenceScope": "PINNED_SOURCE",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/29"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:git-worktree",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "git-worktree",
+      "nd:url": "https://git-scm.com/docs/git-worktree",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_DOCUMENTATION",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/30"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:rdf",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "rdf",
+      "nd:url": "https://www.w3.org/TR/rdf11-concepts/",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_STANDARD",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/31"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:shacl",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "shacl",
+      "nd:url": "https://www.w3.org/TR/shacl/",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_STANDARD",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/32"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:odrl",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "odrl",
+      "nd:url": "https://www.w3.org/TR/odrl-model/",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_STANDARD",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/33"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:prov",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "prov",
+      "nd:url": "https://www.w3.org/TR/prov-o/",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_STANDARD",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/34"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:uri",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "uri",
+      "nd:url": "https://www.rfc-editor.org/rfc/rfc3986",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_STANDARD",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/35"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:http-cache",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "http-cache",
+      "nd:url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_STANDARD",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/36"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:agents",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "agents",
+      "nd:url": "https://agents.md/",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_DOCUMENTATION",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/37"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:hooks",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "hooks",
+      "nd:url": "https://code.claude.com/docs/en/hooks",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_DOCUMENTATION",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/38"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:copilot",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "copilot",
+      "nd:url": "https://docs.github.com/en/copilot/concepts/prompting/response-customization",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_DOCUMENTATION",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/39"
+    },
+    {
+      "@id": "urn:usl:dev:artifact:codex",
+      "@type": [
+        "urn:usl:native-development:Artifact"
+      ],
+      "nd:id": "codex",
+      "nd:url": "https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide",
+      "nd:reviewedOn": "2026-10-11",
+      "nd:evidenceScope": "PUBLIC_DOCUMENTATION",
+      "nd:sourceState": "PREVIOUSLY_REVIEWED_PRIMARY_DOCUMENTATION",
+      "nd:runtimeTestedThisResearch": false,
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:931e6576cef4a14cd8e6d1455dd39510f8389e91132e095fe6c54ad482a82999",
+      "nd:jsonPointer": "/artifacts/40"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C01",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C01",
+      "nd:rule": "링크·프로필·그래프 도달성은 접근 권한이 아니다. private 등록, credential, 공개 결정, HSWM 실행은 기존 scoped owner authorization에 속한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/0"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C02",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C02",
+      "nd:rule": "resource identity, representation, 내용 digest, Git OID, repository/service identity를 구별한다. SHA-1/256 object-format을 기록하고 경로·remote URL을 신원 증명으로 쓰지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/1"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C03",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C03",
+      "nd:rule": "required constraint, soft policy coefficient, selection probability π, learned context-dependent W, authority는 서로 다른 필드와 검증을 가진다. 숫자 하나로 합치지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/2"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C04",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C04",
+      "nd:rule": "원문은 USER_PRIMARY, 해석·요구사항·계획은 SECONDARY_AI다. 증거는 revision/digest/scope를 가진다. SHACL 통과는 의미의 진실·모델 이해·실행 성공 증명이 아니다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/3"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C05",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C05",
+      "nd:rule": "프로필 rollback도 새 generation이다. stale CAS/ABA/replayed handle을 거부한다. 외부 효과와 host CAS의 범용 원자성을 주장하지 않으며 UNKNOWN/INDETERMINATE는 reconcile 전 재시도하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/4"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C06",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C06",
+      "nd:rule": "read receipt는 정확한 자료 전달·ack만 증명한다. 규칙 평가는 별도 evaluator가 맡고, 강제성은 owner가 통제하는 dispatch 경로에 한정한다. 직접 shell/비활성 hook/다른 프로세스는 보장 범위 밖이다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/5"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C07",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C07",
+      "nd:rule": "파일 이동은 지원한 regular-file/Git 상태에 한정한다. credential, 권한/ACL, hooks, config, LFS, submodule, 진행 중 merge/rebase 등은 지원 capability와 증거 없으면 HOLD한다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/6"
+    },
+    {
+      "@id": "urn:usl:dev:constraint:C08",
+      "@type": [
+        "urn:usl:native-development:Constraint"
+      ],
+      "nd:id": "C08",
+      "nd:rule": "HSWM 전체 철학을 현 W estimator와 동일시하지 않는다. 고정 로깅 조합·양의 알려진 π·독립 holdout 조건의 review만 재사용하며 학습이 required/권한을 자동 변경하지 않는다.",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/constraints/7"
+    },
+    {
+      "@id": "wig:native:work:N1",
+      "@type": [
+        "urn:usl:native-development:PriorWork"
+      ],
+      "nd:id": "wig:native:work:N1",
+      "nd:key": "N1",
+      "nd:status": "PROPOSED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:artifact": "prior-graph",
+      "nd:sourceSelector": "/resources/7",
+      "nd:note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/priorWork/0",
+      "nd:originallyDeclaredIn": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ]
+    },
+    {
+      "@id": "wig:native:work:N2",
+      "@type": [
+        "urn:usl:native-development:PriorWork"
+      ],
+      "nd:id": "wig:native:work:N2",
+      "nd:key": "N2",
+      "nd:status": "PROPOSED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:artifact": "prior-graph",
+      "nd:sourceSelector": "/resources/8",
+      "nd:note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/priorWork/1",
+      "nd:originallyDeclaredIn": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ]
+    },
+    {
+      "@id": "wig:native:work:N3",
+      "@type": [
+        "urn:usl:native-development:PriorWork"
+      ],
+      "nd:id": "wig:native:work:N3",
+      "nd:key": "N3",
+      "nd:status": "PROPOSED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:artifact": "prior-graph",
+      "nd:sourceSelector": "/resources/9",
+      "nd:note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/priorWork/2",
+      "nd:originallyDeclaredIn": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ]
+    },
+    {
+      "@id": "wig:native:work:N4",
+      "@type": [
+        "urn:usl:native-development:PriorWork"
+      ],
+      "nd:id": "wig:native:work:N4",
+      "nd:key": "N4",
+      "nd:status": "PROPOSED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:artifact": "prior-graph",
+      "nd:sourceSelector": "/resources/10",
+      "nd:note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/priorWork/3",
+      "nd:originallyDeclaredIn": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ]
+    },
+    {
+      "@id": "wig:native:work:N5",
+      "@type": [
+        "urn:usl:native-development:PriorWork"
+      ],
+      "nd:id": "wig:native:work:N5",
+      "nd:key": "N5",
+      "nd:status": "PROPOSED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:artifact": "prior-graph",
+      "nd:sourceSelector": "/resources/11",
+      "nd:note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/priorWork/4",
+      "nd:originallyDeclaredIn": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ]
+    },
+    {
+      "@id": "wig:native:work:N6",
+      "@type": [
+        "urn:usl:native-development:PriorWork"
+      ],
+      "nd:id": "wig:native:work:N6",
+      "nd:key": "N6",
+      "nd:status": "PROPOSED",
+      "nd:authorityClass": "SECONDARY_AI",
+      "nd:artifact": "prior-graph",
+      "nd:sourceSelector": "/resources/12",
+      "nd:note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음",
+      "nd:selectorStatus": "OWNER_READ_REQUIRED",
+      "nd:viewScope": "LOCAL_DEVELOPMENT_PLAN",
+      "nd:documentDigest": "sha256:ef7ca58eebb63bee52026c1dab18cf6fb853b04fd4b607c5e96949d3bba1a039",
+      "nd:jsonPointer": "/priorWork/5",
+      "nd:originallyDeclaredIn": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:artifact:prior-graph"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:dev:link:ff368636811485523acd38dd60cb780a9008942cdad04655c4f7a417c530c785",
+      "@type": "nd:ConditionalDependency",
+      "nd:work": {
+        "@id": "urn:usl:dev:work:P05"
+      },
+      "nd:prerequisite": {
+        "@id": "urn:usl:dev:work:P04"
+      },
+      "nd:condition": "target profile requires importing selected dirty Git state"
+    },
+    {
+      "@id": "urn:usl:dev:link:c76af8209e8c5f78afb8feec85a53297aced5f797c235ab25dc3a39a665ee669",
+      "@type": "nd:ConditionalDependency",
+      "nd:work": {
+        "@id": "urn:usl:dev:work:P12"
+      },
+      "nd:prerequisite": {
+        "@id": "urn:usl:dev:work:P07"
+      },
+      "nd:condition": "pilot requires GitHub API observation"
+    },
+    {
+      "@id": "urn:usl:dev:link:115ca5e35af514fd901dfba701648b0a75835e170a3b7b34fbca614f72aacf90",
+      "@type": "nd:ConditionalDependency",
+      "nd:work": {
+        "@id": "urn:usl:dev:work:P12"
+      },
+      "nd:prerequisite": {
+        "@id": "urn:usl:dev:work:P10"
+      },
+      "nd:condition": "pilot uses an instrumented agent harness"
+    },
+    {
+      "@id": "urn:usl:dev:link:fb2d6fbc5a3eddbb4b2875f393ea0f5aa61040833d1d195a163cc3d412c6a6bc",
+      "@type": "nd:ConditionalDependency",
+      "nd:work": {
+        "@id": "urn:usl:dev:work:P12"
+      },
+      "nd:prerequisite": {
+        "@id": "urn:usl:dev:work:P11"
+      },
+      "nd:condition": "pilot includes HSWM W review; separate owner acceptance required"
+    }
+  ]
+}

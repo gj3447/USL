@@ -1,0 +1,902 @@
+{
+  "schema": "usl-native-development-plan/v1",
+  "version": "1",
+  "authorityClass": "SECONDARY_AI",
+  "status": "DESIGN_ONLY",
+  "publication": "LOCAL_ONLY",
+  "namespace": "usl.native.development",
+  "firstWorkItem": "P01",
+  "scope": "현재 Git/native-agent/OMC 연구를 개발 가능한 요구사항·작업·증거·수용 기준으로 구체화. 전체 그래프 공학이나 USL 모든 기능의 상위호환 완성을 주장하지 않음.",
+  "requirements": [
+    {
+      "id": "R01",
+      "title": "위치 독립 리소스 ID",
+      "statement": "컴퓨터·경로·worktree가 바뀌어도 논리 ID, 역할, 출처를 유지하고 representation만 명시 선택한다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "omc:source:mobility-request",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R02",
+      "title": "하나의 프로필 전환",
+      "statement": "owner 범위의 불변 프로필과 단조 증가 generation을 사용한다. 한 포인터 전환에 CAS, rollback 새 generation, 이전 admission 무효화를 묶는다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "omc:source:mobility-request",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R03",
+      "title": "Git·파일 native 관측",
+      "statement": "worktree/common-dir/HEAD/object-format/ref/dirty/파일 digest를 Git native query로 관측하고 지원 capability를 기록한다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "omc:source:mobility-request",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R04",
+      "title": "선택한 dirty 상태 이동",
+      "statement": "clean Git bundle과 독립 pin을 가진 raw-state sidecar를 연결해 선택한 상태를 복원한다. 미지원 상태는 HOLD한다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "omc:source:mobility-request",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R05",
+      "title": "URL·GitHub native 연결",
+      "statement": "URL 관측·캐시 문맥·최종 응답과 Git 객체 identity 및 GitHub 서비스 identity/권한을 분리한다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "omc:source:internet-request",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R06",
+      "title": "필수 규칙의 실제 전달",
+      "statement": "필수 selector/revision/full-byte delivery/evaluator receipt를 확보한다. 누락·잘림·미지원·필수 예산 초과는 실행을 보류한다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "urn:usl:dev:source:soft-rule",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R07",
+      "title": "통제된 실행 경로",
+      "statement": "profile/policy/input/scope에 묶인 single-use admission을 host가 소비한다. 사전 승인과 실제 효과 영수증을 분리하며 불명확한 결과를 자동 재시도하지 않는다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R08",
+      "title": "선택 확률의 명시적 기록",
+      "statement": "필수 항목은 선택 가능한 모든 조합에 포함한다. optional 전체 조합의 실제 선택 확률 π, 후보 집합 digest와 예산을 기록한다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R09",
+      "title": "범위가 명시된 W 검토",
+      "statement": "범위·목표·역할·비용·결과를 명시하고 독립 holdout으로 W를 검토한다. 철학적 최적화 관점과 한정된 현 구현의 수치를 구분한다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "wig:native:source:user",
+        "urn:usl:dev:source:hswm-scope",
+        "urn:usl:dev:source:soft-rule",
+        "urn:usl:dev:source:build"
+      ]
+    },
+    {
+      "id": "R10",
+      "title": "입운구·인터넷 접합",
+      "statement": "OMC owner projection과 등록된 HTTP/MCP/local adapter를 통해 좁은 read-only pilot부터 연결한다. 라이선스·공개·권한 판단은 소유자 경계에 둔다.",
+      "authorityClass": "SECONDARY_AI",
+      "derivedFrom": [
+        "omc:source:internet-request",
+        "omc:source:mobility-request",
+        "urn:usl:dev:source:build"
+      ]
+    }
+  ],
+  "workItems": [
+    {
+      "id": "P01",
+      "title": "프로필·admission 계약과 fixture",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [],
+      "realizes": [
+        "R01",
+        "R02",
+        "R07"
+      ],
+      "groundedIn": [
+        "bindings",
+        "checkout",
+        "cli-host",
+        "native-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C02",
+        "C04",
+        "C05"
+      ],
+      "refines": [
+        "N1"
+      ],
+      "verifiedBy": [
+        "P01-positive",
+        "P01-adversarial"
+      ],
+      "ownerBoundary": "USL addon의 순수 계약; host가 소유·저장·실행을 담당",
+      "deliverable": "ProfileSnapshot/Observation/ReadReceipt/Admission/EffectReceipt 스키마와 canonical digest vectors, host test-double fixture",
+      "remaining": "기존 binding·checkout·CLI receipt 필드를 재사용해 generation, content/input/policy pins, 소비·만료, INDETERMINATE↔UNKNOWN 명시적 매핑을 계약화"
+    },
+    {
+      "id": "P02",
+      "title": "Owner 프로필 registry와 CAS",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P01"
+      ],
+      "realizes": [
+        "R02"
+      ],
+      "groundedIn": [
+        "relocation",
+        "native-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C05"
+      ],
+      "refines": [
+        "N1"
+      ],
+      "verifiedBy": [
+        "P02-positive",
+        "P02-adversarial"
+      ],
+      "ownerBoundary": "host owner registry; USL은 계약·검증만 제공",
+      "deliverable": "불변 profile 저장소, active cursor, generation CAS와 single-use handle 상태 전이",
+      "remaining": "memory-relocation의 한정된 CAS와 별도로 전체 profile cursor 및 재시작·다중 writer의 영속성을 정의"
+    },
+    {
+      "id": "P03",
+      "title": "Git·파일 관측 envelope",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P01"
+      ],
+      "realizes": [
+        "R01",
+        "R03"
+      ],
+      "groundedIn": [
+        "checkout",
+        "bindings",
+        "git-experiments",
+        "git-worktree"
+      ],
+      "constrainedBy": [
+        "C02",
+        "C04",
+        "C07"
+      ],
+      "refines": [
+        "N2"
+      ],
+      "verifiedBy": [
+        "P03-positive",
+        "P03-adversarial"
+      ],
+      "ownerBoundary": "USL addon read-only probe; host가 저장 및 fresh recheck 시점을 소유",
+      "deliverable": "object-format·worktree/common-dir·HEAD/ref·dirty·file pin·capability를 갖춘 Observation",
+      "remaining": "현재 checkout guard/inspection을 공통 envelope로 합치고 READ_ONLY_NON_ATOMIC 한계를 표시"
+    },
+    {
+      "id": "P04",
+      "title": "Dirty Git 이동 orchestration",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P03"
+      ],
+      "realizes": [
+        "R04"
+      ],
+      "groundedIn": [
+        "transfer-git",
+        "transfer-state",
+        "transfer-restore"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C02",
+        "C07"
+      ],
+      "refines": [
+        "N2"
+      ],
+      "verifiedBy": [
+        "P04-positive",
+        "P04-adversarial"
+      ],
+      "ownerBoundary": "USL portable-transfer addon; source/destination owner가 명시적으로 선택",
+      "deliverable": "clean bundle+state sidecar manifest와 복원 후 checkout/binding 재검사",
+      "remaining": "기존 CP01–03을 profile 전환의 선택적 선행 단계로 연결하고 지원 상태를 선언"
+    },
+    {
+      "id": "P05",
+      "title": "프로필 compiler와 단일 전환",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P02",
+        "P03"
+      ],
+      "realizes": [
+        "R01",
+        "R02",
+        "R03"
+      ],
+      "groundedIn": [
+        "bindings",
+        "relocation",
+        "root-switch",
+        "native-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C02",
+        "C05",
+        "C07"
+      ],
+      "refines": [
+        "N1"
+      ],
+      "verifiedBy": [
+        "P05-positive",
+        "P05-adversarial"
+      ],
+      "ownerBoundary": "USL pure compiler + host switch controller",
+      "deliverable": "한 active-profile 포인터로 aliases/representations/pins/policy를 고정하는 전환 controller",
+      "remaining": "이미 있는 root mapping/rebind를 aggregate generation/CAS/admission 무효화에 연결",
+      "conditionalDependencies": [
+        {
+          "work": "P04",
+          "condition": "target profile requires importing selected dirty Git state"
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "HTTP 관측·캐시 adapter",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P05"
+      ],
+      "realizes": [
+        "R05"
+      ],
+      "groundedIn": [
+        "resolver",
+        "uri",
+        "http-cache",
+        "omc-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C02",
+        "C04"
+      ],
+      "refines": [
+        "N2"
+      ],
+      "verifiedBy": [
+        "P06-positive",
+        "P06-adversarial"
+      ],
+      "ownerBoundary": "USL bounded observer; host가 allowlist/cache/context를 소유",
+      "deliverable": "requested/final URL·response digest·freshness·validator/cache-key·관측 시간 envelope",
+      "remaining": "기존 bounded GET/redirect/body 제한에 conditional cache 문맥 및 profile pins를 연결"
+    },
+    {
+      "id": "P07",
+      "title": "GitHub 서비스 adapter",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P06"
+      ],
+      "realizes": [
+        "R05"
+      ],
+      "groundedIn": [
+        "resolver",
+        "native-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C02",
+        "C04"
+      ],
+      "refines": [
+        "N2"
+      ],
+      "verifiedBy": [
+        "P07-positive",
+        "P07-adversarial"
+      ],
+      "ownerBoundary": "GitHub host adapter; repository owner scope와 credentials는 host 전용",
+      "deliverable": "repository/service ID·PR/API observation·Git OID 대응 및 explicit capability",
+      "remaining": "현 Git local-object resolver와 별도로 서비스 adapter를 구현; remote URL을 권한으로 취급하지 않음"
+    },
+    {
+      "id": "P08",
+      "title": "필수 읽기 planner와 delivery",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P05"
+      ],
+      "realizes": [
+        "R06",
+        "R08"
+      ],
+      "groundedIn": [
+        "rule-policy",
+        "outcomes",
+        "producer-services",
+        "read-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C03",
+        "C04",
+        "C06"
+      ],
+      "refines": [
+        "N3"
+      ],
+      "verifiedBy": [
+        "P08-positive",
+        "P08-adversarial"
+      ],
+      "ownerBoundary": "agent host의 실제 source loader/invocation driver; USL은 receipt 검증",
+      "deliverable": "required source/selector/revision·full-byte delivery·ack/evaluator receipt와 token budget",
+      "remaining": "현재 순수 policy 판정 및 HSWM delivery primitive를 invocation의 실제 전달 경로와 연결"
+    },
+    {
+      "id": "P09",
+      "title": "통제된 action dispatcher",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P03",
+        "P05",
+        "P08"
+      ],
+      "realizes": [
+        "R07"
+      ],
+      "groundedIn": [
+        "cli-host",
+        "checkout",
+        "rule-policy",
+        "agent-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C04",
+        "C05",
+        "C06"
+      ],
+      "refines": [
+        "N3"
+      ],
+      "verifiedBy": [
+        "P09-positive",
+        "P09-adversarial"
+      ],
+      "ownerBoundary": "owner가 통제하는 host dispatcher; 외부 효과의 원자성은 별도 capability",
+      "deliverable": "profile/policy/input/scope에 묶인 admission 소비와 durable intent·effect receipt",
+      "remaining": "기존 CLI preflight/recheck/operation dedup를 profile generation 및 delivery/evaluator receipt에 연결"
+    },
+    {
+      "id": "P10",
+      "title": "단일 agent harness bridge",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P08",
+        "P09"
+      ],
+      "realizes": [
+        "R06",
+        "R07"
+      ],
+      "groundedIn": [
+        "agent-design",
+        "agents",
+        "hooks",
+        "copilot",
+        "codex"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C04",
+        "C06"
+      ],
+      "refines": [
+        "N5"
+      ],
+      "verifiedBy": [
+        "P10-positive",
+        "P10-adversarial"
+      ],
+      "ownerBoundary": "선택한 한 agent harness owner; 다른 harness 지원은 별도 확장",
+      "deliverable": "instruction load order/digest·context delivery·worktree·tool adapter의 trace",
+      "remaining": "문서상의 AGENTS/hook 관례를 실제 통제된 tool path로 연결하고 우회 범위를 노출"
+    },
+    {
+      "id": "P11",
+      "title": "조합 확률·W review 연결",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P08",
+        "P09"
+      ],
+      "realizes": [
+        "R08",
+        "R09"
+      ],
+      "groundedIn": [
+        "producer",
+        "learner",
+        "outcomes",
+        "context-policy",
+        "weight-review",
+        "read-design"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C03",
+        "C04",
+        "C08"
+      ],
+      "refines": [
+        "N4",
+        "N6"
+      ],
+      "verifiedBy": [
+        "P11-positive",
+        "P11-adversarial"
+      ],
+      "ownerBoundary": "HSWM owner가 sampler/learner/outcome을 소유; USL은 review-only bridge",
+      "deliverable": "고정 full-coalition sampler의 candidate digest/π 로그와 독립 outcome·cost·holdout review",
+      "remaining": "이미 있는 ticket producer를 재사용; UNTRACKED snapshot을 배포 구현으로 간주하지 않고 owner acceptance에서 revision 확정"
+    },
+    {
+      "id": "P12",
+      "title": "입운구 bounded read-only pilot",
+      "status": "PLANNED",
+      "authorityClass": "SECONDARY_AI",
+      "dependsOn": [
+        "P05",
+        "P06",
+        "P08",
+        "P09"
+      ],
+      "realizes": [
+        "R02",
+        "R05",
+        "R06",
+        "R07",
+        "R10"
+      ],
+      "groundedIn": [
+        "omc-design",
+        "cli-host",
+        "resolver"
+      ],
+      "constrainedBy": [
+        "C01",
+        "C04",
+        "C05",
+        "C06"
+      ],
+      "refines": [
+        "N2",
+        "N3"
+      ],
+      "verifiedBy": [
+        "P12-positive",
+        "P12-adversarial"
+      ],
+      "ownerBoundary": "OMC owner projection + host registration; HSWM execution 승인과 분리",
+      "deliverable": "owner-approved resource 1개와 등록된 local read-only action 1개의 종단 trace",
+      "remaining": "현재 OMC design graph에서 실제 로컬 pilot으로 진행; 외부 공개·서비스 배포·credential 이동은 포함하지 않음",
+      "conditionalDependencies": [
+        {
+          "work": "P07",
+          "condition": "pilot requires GitHub API observation"
+        },
+        {
+          "work": "P10",
+          "condition": "pilot uses an instrumented agent harness"
+        },
+        {
+          "work": "P11",
+          "condition": "pilot includes HSWM W review; separate owner acceptance required"
+        }
+      ]
+    }
+  ],
+  "acceptanceTests": [
+    {
+      "id": "P01-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "동일한 논리 입력으로 프로필 digest와 role/source 보존 fixture를 구성한다.",
+      "expected": "두 경로의 동일 논리 입력은 동일 identity를 유지하며 각 계약은 round-trip 검증된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P01-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "중복 alias/representation, 수정된 digest, 지원하지 않는 receipt status를 넣는다.",
+      "expected": "계약 파싱 또는 pin 검증 단계에서 거부되고 실행 호출은 0회다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P02-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "A→B 전환 후 A 내용으로 rollback을 요청한다.",
+      "expected": "논리 ID는 유지되고 rollback도 더 큰 generation으로 기록된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P02-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "동시에 같은 expected generation으로 두 writer가 전환하고 이전 handle을 재사용한다.",
+      "expected": "정확히 한 CAS만 commit되고 stale/ABA/소비한 handle은 거부된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P03-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "SHA-1/256 repository와 linked worktree, 별도 index의 고정 fixture를 관측한다.",
+      "expected": "Git native query의 값과 기록이 일치하고 shared/private 경계를 구분한다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P03-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "관측 후 ref 이동·dirty 변경·symlink 탈출·capability mismatch를 주입한다.",
+      "expected": "recheck가 HOLD하거나 dispatch 이전에 거부하며 원자 관측으로 표시하지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P04-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "선택한 regular dirty/index/untracked 상태를 독립적으로 pinned bundle·sidecar로 옮긴다.",
+      "expected": "복원한 index/worktree byte pin과 선택한 논리 ID가 일치한다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P04-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "잘못 짝지은 sidecar, LFS/submodule/sparse, 진행 중 merge/rebase 또는 미지원 상태를 넣는다.",
+      "expected": "지원 capability가 없는 경우 HOLD하고 일부 복원을 성공으로 선언하지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P05-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "같은 논리 자료의 A/B 작업환경으로 프로필 포인터 한 개를 전환한다.",
+      "expected": "resource/representation ID·role·provenance를 유지하고 해석된 locator만 새 환경을 가리킨다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P05-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "전환 중 이전 프로필 handle로 action을 요청하거나 동시 switch·ABA rollback을 주입한다.",
+      "expected": "stale handle은 거부되고 하나의 새 generation만 활성화된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P06-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "등록된 공개 URL을 GET하고 같은 캐시 문맥에서 조건부 검증한다.",
+      "expected": "최종 URL·내용 pin·freshness 출처가 기록되고 원본 응답과 연결된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P06-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "allowlist 밖 redirect, 다른 문맥의 304, timeout 또는 body cap 초과를 주입한다.",
+      "expected": "결과를 승인된 최신 내용으로 재사용하지 않고 HOLD/거부한다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P07-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "owner가 허용한 repository·PR/API 관측을 고정 Git revision과 명시적으로 연결한다.",
+      "expected": "service ID·관측 시간·scope와 Git object identity가 별도 필드로 남는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P07-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "같은 URL/OID로 다른 repository 권한을 주장하거나 repository ID를 바꾼다.",
+      "expected": "권한 승격·묵시적 clone/fetch/push/API 호출을 거부한다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P08-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "필수 원문을 digest·byte length·selector·revision과 함께 실제 invocation에 전달한다.",
+      "expected": "모든 필수 자료의 정확한 전달/ack 및 필요한 evaluator 결과가 admission 입력에 포함된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P08-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "원문 잘림, selector 혼동, missing evaluator, required-only 예산 초과를 넣는다.",
+      "expected": "optional 샘플링으로 필수 자료를 버리지 않고 HOLD한다; ack를 이해 증거로 승격하지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P09-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "등록된 test-double action을 fresh single-use admission으로 한 번 요청한다.",
+      "expected": "사전 admission과 효과 결과가 별도로 기록되고 이전 handle 재사용은 거부된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P09-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "stale profile/policy/input, dispatch 중 timeout·receipt write failure·CAS 결과 불명을 넣는다.",
+      "expected": "거부 또는 UNKNOWN/INDETERMINATE로 남기고 reconcile 없이 자동 재시도하지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P10-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "한 harness에서 instruction loading부터 P09를 거친 tool 호출까지 추적한다.",
+      "expected": "적용 순서·원문 pin·전달·판정·실행 영수증이 연결된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P10-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "compaction/sub-agent로 필수 문맥을 잃거나 hook 비활성화/direct-shell 경로를 만든다.",
+      "expected": "통제 경로에서는 재전달 또는 HOLD; 우회 경로는 보장 밖으로 명시한다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P11-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "모든 후보 조합에 required를 포함하고 필터 후 실제 π를 기록해 독립 holdout 검토한다.",
+      "expected": "지원 범위의 W review만 생성하고 policy/authority apply는 별도 owner 결정으로 남는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P11-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "0/미상 π, required 누락, adaptive logging, holdout 재사용, W로 authority 변경을 넣는다.",
+      "expected": "학습/검토를 보류하거나 거부하고 자동 policy 변경은 0회다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P12-positive",
+      "kind": "POSITIVE",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "허용된 OMC 자료를 관측하고 required delivery 및 P09 gate를 거쳐 local read-only 결과를 기록한다.",
+      "expected": "source→observation→delivery→admission→result가 연결되고 owner scope가 유지된다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "P12-adversarial",
+      "kind": "ADVERSARIAL",
+      "status": "SPECIFIED_NOT_RUN",
+      "scenario": "owner 승인/reachability 누락, credential 노출, 미등록 endpoint 또는 원격 side effect를 요청한다.",
+      "expected": "pilot에서 거부하고 외부 접근·공개·실행 권한을 그래프로 유도하지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "C01",
+      "rule": "링크·프로필·그래프 도달성은 접근 권한이 아니다. private 등록, credential, 공개 결정, HSWM 실행은 기존 scoped owner authorization에 속한다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "C02",
+      "rule": "resource identity, representation, 내용 digest, Git OID, repository/service identity를 구별한다. SHA-1/256 object-format을 기록하고 경로·remote URL을 신원 증명으로 쓰지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "C03",
+      "rule": "required constraint, soft policy coefficient, selection probability π, learned context-dependent W, authority는 서로 다른 필드와 검증을 가진다. 숫자 하나로 합치지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "C04",
+      "rule": "원문은 USER_PRIMARY, 해석·요구사항·계획은 SECONDARY_AI다. 증거는 revision/digest/scope를 가진다. SHACL 통과는 의미의 진실·모델 이해·실행 성공 증명이 아니다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "C05",
+      "rule": "프로필 rollback도 새 generation이다. stale CAS/ABA/replayed handle을 거부한다. 외부 효과와 host CAS의 범용 원자성을 주장하지 않으며 UNKNOWN/INDETERMINATE는 reconcile 전 재시도하지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "C06",
+      "rule": "read receipt는 정확한 자료 전달·ack만 증명한다. 규칙 평가는 별도 evaluator가 맡고, 강제성은 owner가 통제하는 dispatch 경로에 한정한다. 직접 shell/비활성 hook/다른 프로세스는 보장 범위 밖이다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "C07",
+      "rule": "파일 이동은 지원한 regular-file/Git 상태에 한정한다. credential, 권한/ACL, hooks, config, LFS, submodule, 진행 중 merge/rebase 등은 지원 capability와 증거 없으면 HOLD한다.",
+      "authorityClass": "SECONDARY_AI"
+    },
+    {
+      "id": "C08",
+      "rule": "HSWM 전체 철학을 현 W estimator와 동일시하지 않는다. 고정 로깅 조합·양의 알려진 π·독립 holdout 조건의 review만 재사용하며 학습이 required/권한을 자동 변경하지 않는다.",
+      "authorityClass": "SECONDARY_AI"
+    }
+  ],
+  "priorWork": [
+    {
+      "id": "wig:native:work:N1",
+      "key": "N1",
+      "status": "PROPOSED",
+      "authorityClass": "SECONDARY_AI",
+      "artifact": "prior-graph",
+      "sourceSelector": "/resources/7",
+      "note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음"
+    },
+    {
+      "id": "wig:native:work:N2",
+      "key": "N2",
+      "status": "PROPOSED",
+      "authorityClass": "SECONDARY_AI",
+      "artifact": "prior-graph",
+      "sourceSelector": "/resources/8",
+      "note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음"
+    },
+    {
+      "id": "wig:native:work:N3",
+      "key": "N3",
+      "status": "PROPOSED",
+      "authorityClass": "SECONDARY_AI",
+      "artifact": "prior-graph",
+      "sourceSelector": "/resources/9",
+      "note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음"
+    },
+    {
+      "id": "wig:native:work:N4",
+      "key": "N4",
+      "status": "PROPOSED",
+      "authorityClass": "SECONDARY_AI",
+      "artifact": "prior-graph",
+      "sourceSelector": "/resources/10",
+      "note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음"
+    },
+    {
+      "id": "wig:native:work:N5",
+      "key": "N5",
+      "status": "PROPOSED",
+      "authorityClass": "SECONDARY_AI",
+      "artifact": "prior-graph",
+      "sourceSelector": "/resources/11",
+      "note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음"
+    },
+    {
+      "id": "wig:native:work:N6",
+      "key": "N6",
+      "status": "PROPOSED",
+      "authorityClass": "SECONDARY_AI",
+      "artifact": "prior-graph",
+      "sourceSelector": "/resources/12",
+      "note": "원래 what-is-git N1–N6 identity 보존; P 작업은 후속 구체화이며 원문을 변경하지 않음"
+    }
+  ],
+  "competencyQuestions": [
+    {
+      "id": "CQ01",
+      "question": "각 사용자 요구는 어떤 구현 작업과 수용 기준으로 이어지는가?",
+      "path": [
+        "derivedFrom",
+        "realizes",
+        "verifiedBy"
+      ]
+    },
+    {
+      "id": "CQ02",
+      "question": "어느 기존 코드/연구를 재사용하며 무엇이 아직 남았는가?",
+      "path": [
+        "groundedIn"
+      ]
+    },
+    {
+      "id": "CQ03",
+      "question": "첫 작업과 dependency 순서, 조건부 선행 작업은 무엇인가?",
+      "path": [
+        "dependsOn",
+        "conditionallyDependsOn"
+      ]
+    },
+    {
+      "id": "CQ04",
+      "question": "필수 읽기, 확률, W 및 권한 경계를 어떤 규칙이 지키는가?",
+      "path": [
+        "constrainedBy"
+      ]
+    },
+    {
+      "id": "CQ05",
+      "question": "어떤 적대적 입력이 성공 선언을 막아야 하는가?",
+      "path": [
+        "verifiedBy"
+      ]
+    },
+    {
+      "id": "CQ06",
+      "question": "이전 N1–N6 연구가 어떤 개발 작업으로 구체화되었는가?",
+      "path": [
+        "refines"
+      ]
+    }
+  ],
+  "recordedAt": "2026-10-11T11:23:57Z",
+  "actor": "AI_ASSISTANT"
+}
