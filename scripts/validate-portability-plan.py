@@ -36,10 +36,6 @@ def digest_bytes(value):
     return "sha256:" + hashlib.sha256(value).hexdigest()
 
 
-def digest_file(path):
-    return digest_bytes(path.read_bytes())
-
-
 def require(condition, message):
     if not condition:
         raise AssertionError(message)
@@ -114,7 +110,8 @@ def plan_conforms(plan, check_pins=False):
             path = source.get("path")
             if not isinstance(path, str) or pathlib.PurePosixPath(path).is_absolute() or ".." in pathlib.PurePosixPath(path).parts:
                 return False
-            if source.get("sourceCommit") != plan["sourceCommit"] or source.get("sha256") != digest_file(ROOT / path):
+            # Historical plan snapshot: verify bytes at the recorded commit, not the working tree.
+            if source.get("sourceCommit") != plan["sourceCommit"]:
                 return False
             result = subprocess.run(["git", "show", f"{plan['sourceCommit']}:{path}"], cwd=ROOT, capture_output=True)
             if result.returncode != 0 or source["sha256"] != digest_bytes(result.stdout):

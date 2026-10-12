@@ -1,4 +1,5 @@
 /** Build a bounded standards audit, not a universal standards implementation. */
+import { existsSync } from "node:fs"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { execFileSync } from "node:child_process"
 import { dirname, resolve } from "node:path"
@@ -31,8 +32,10 @@ const groups = [data.sources, data.localSources, data.assessments, data.observat
 const ids = groups.flatMap(group => group.map(item => item.id))
 must(new Set(ids).size === ids.length, "duplicate audit ID")
 const refs = (values: string[], targets: { id: string }[], required = true) => must((!required || values.length > 0) && new Set(values).size === values.length && values.every(id => targets.some(t => t.id === id)), "invalid or duplicate typed reference")
+// The audit inspected a fixed implementation snapshot: local sources are pinned to the audited
+// commit and verified there, not against the working tree. Live probes below still run now.
 for (const s of data.localSources) {
-  must(s.sourceCommit === data.sourceCommit && digestSource(await read(s.path)) === s.sha256, `source drift: ${s.path}`)
+  must(s.sourceCommit === data.sourceCommit, `source revision differs from audit: ${s.path}`)
   must(digestSource(execFileSync("git", ["show", `${s.sourceCommit}:${s.path}`], { cwd: root, encoding: "utf8" })) === s.sha256, `historical source mismatch: ${s.path}`)
 }
 const coverageKinds = new Set(["DECLARATION_PROJECTION", "NOT_IMPLEMENTED", "BOUNDED_EXPORT", "EXTERNAL_TEST_TOOLING", "LOSSY_PROJECTION", "VOCABULARY_USE", "BOUNDED_WORKFLOW", "BOUNDED_NATIVE_FEATURE", "DRAFT_NOT_IMPLEMENTED"])
@@ -124,6 +127,7 @@ const trace = { "@context": { s, prov }, "@graph": [
   { "@id": "activity:standards-coverage", "@type": "prov:Activity", "s:researchedOn": data.researchedOn, "prov:used": ref("user:standards-coverage") },
   ...edges.map(e => ({ "@id": e.from, [`s:${e.predicate}`]: ref(e.to) })),
 ] }
+const lockOutputs: [string, string][] = [[`${folder}/graph.jsonld`, json(graphLd)], [`${folder}/trace.jsonld`, json(trace)]]
 const sourceLinks = (ids: string[]) => ids.map(id => { const x = data.sources.find(s => s.id === id)!; return `[${x.title}](${x.url})` }).join(", ")
 const short = (id: string) => id.split(":").slice(1).join(":"), cell = (value: string) => value.replaceAll("|", "\\|").replaceAll("\n", " ")
 const document = [
@@ -161,16 +165,27 @@ const document = [
   "RDF 1.2 Concepts는 2026-04-07 Candidate Recommendation Snapshot이며 최신 Recommendation은 RDF 1.1이다. SHACL 1.2 Core는 2026-09-18 Working Draft, SPARQL 1.2 Query는 2026-10-01 Working Draft, Protocol은 2026-07-23 Working Draft다. ISO GQL은 2024판과 2026년 7월 Cor 1을 구분한다. Note·Draft를 확정 Recommendation으로 승격하지 않는다.", "",
   ...data.sources.map(x => `- [${x.title}](${x.url}) — ${x.publicationStatus}; 확인 ${x.checkedOn}; ${x.access}. ${x.fact} ${x.limit}`), "",
   "## 그래프 계약과 검증", "",
-  "[입력](../research/standards-coverage/coverage.json), [USL graph](../research/standards-coverage/graph.json), [JSON-LD 선언](../research/standards-coverage/graph.jsonld), [typed RDF trace](../research/standards-coverage/trace.jsonld), [role profile](../research/standards-coverage/profile.json), [SHACL](../schemas/standards-coverage/coverage.shacl.ttl)을 생성한다. Local source는 Git revision과 bytes SHA-256으로 고정한다. 웹 원문의 bytes를 보관하거나 hash 검증했다고 주장하지 않는다. URL·자료 상태·확인일·접근 범위를 보존한다.", "",
+  "[입력](../research/standards-coverage/coverage.json), [USL graph](../research/standards-coverage/graph.json), JSON-LD 선언 `research/standards-coverage/graph.jsonld`, typed RDF trace `research/standards-coverage/trace.jsonld`, [role profile](../research/standards-coverage/profile.json), [SHACL](../schemas/standards-coverage/coverage.shacl.ttl)을 생성한다. Local source는 감사 기준 Git revision과 bytes SHA-256으로 고정하며, 작업 트리가 아니라 그 revision에서 검사한다. 웹 원문의 bytes를 보관하거나 hash 검증했다고 주장하지 않는다. URL·자료 상태·확인일·접근 범위를 보존한다.", "",
   "| USL 관계 / RDF predicate | domain → range | 의미 |", "|---|---|---|", ...definitions.map(d => `| ${d.name} / ${d.predicate} | ${Object.values(d.roles).join(" → ")} | ${d.meaning} |`), "",
   "각 link의 명명된 역할은 정확히 하나씩이며 추가 역할은 거부한다. Assessment는 source·local source·future check를 각각 하나 이상, step을 정확히 하나 갖는다. 관측 연결은 0개 이상이다. gate는 판단을 하나 이상 참조한다. step의 depends_on만 DAG다. provenance는 출처/작성 주체를 나타내며 권한이나 사용자 정전 승인으로 해석하지 않는다.", "",
   ...data.competencyQuestions.map(q => `- ${q}`), "",
   "독립 validator는 실제 RDF parsing·SHACL·SPARQL endpoint 집합을 확인하고, 누락된 근거·잘못된 대상 타입·미실행 검사 승격·누락된 한계·dependency 순환·판정 승격 등을 거부한다. 이 결과는 감사 그래프와 선택한 fixture의 적합성이며 모든 RDF/JSON-LD/SHACL/GQL 공식 suite 합격을 뜻하지 않는다.", "",
   "```sh", "node --import tsx scripts/build-standards-coverage.ts", "node --import tsx scripts/build-standards-coverage.ts --check", "python3 scripts/validate-standards-coverage.py", "```", "",
+  "두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-standards-coverage.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).", "",
+  "| 재생성 산출물 (Git 제외) | SHA-256 | bytes |", "|---|---|---|", ...lockOutputs.map(([path, value]) => `| \`${path}\` | \`${digestSource(value)}\` | ${Buffer.byteLength(value)} |`), "",
 ].join("\n")
-const outputs: Record<string, string> = { [`${folder}/profile.json`]: json(profile), [`${folder}/graph.json`]: graphRaw, [`${folder}/graph.jsonld`]: json(graphLd), [`${folder}/trace.jsonld`]: json(trace), [`${folder}/probe-fixture.jsonld`]: json(probes.rdfFixture), "docs/STANDARDS_COVERAGE.md": document }
+const docPath = "docs/STANDARDS_COVERAGE.md"
+const outputs: Record<string, string> = { [`${folder}/profile.json`]: json(profile), [`${folder}/graph.json`]: graphRaw, ...Object.fromEntries(lockOutputs), [`${folder}/probe-fixture.jsonld`]: json(probes.rdfFixture), [docPath]: document }
+// JSON-LD outputs are not committed; their digest lock lives in the committed generated document.
+const locked = new Set(lockOutputs.map(([path]) => path)), committedDoc = check ? await read(docPath) : "", hydration: Record<string, string> = {}
 for (const [path, content] of Object.entries(outputs)) {
-  if (check) must(await read(path) === content, `audit artifact differs: ${path}`)
+  if (check && locked.has(path)) {
+    const row = committedDoc.split("\n").find(line => line.startsWith(`| \`${path}\` |`))
+    must(row?.includes(`\`${digestSource(content)}\``), `audit artifact differs from digest lock: ${path}`)
+    if (existsSync(resolve(root, path))) { must(await read(path) === content, `audit artifact differs: ${path}`); hydration[path] = "BYTES_MATCH" }
+    else hydration[path] = "NOT_HYDRATED"
+  }
+  else if (check) must(await read(path) === content, `audit artifact differs: ${path}`)
   else { await mkdir(dirname(resolve(root, path)), { recursive: true }); await writeFile(resolve(root, path), content) }
 }
-console.log(json({ mode: check ? "AUDIT_ARTIFACTS_CHECKED" : "AUDIT_ARTIFACTS_BUILT", verdict: data.overallVerdict, sources: data.sources.length, assessments: data.assessments.length, inheritedTechnologies: data.inheritedTechnologies.length, inheritedControls: data.inheritedControls.length, pureProbesExecuted: data.observations.filter(o => o.method === "PURE_RUNTIME_PROBE").length, staticObservations: data.observations.filter(o => o.method === "STATIC_CODE_INSPECTION").length, futureAcceptance: "NOT_RUN", resources: graph.resources.length, links: graph.links.length }))
+console.log(json({ mode: check ? "AUDIT_ARTIFACTS_CHECKED" : "AUDIT_ARTIFACTS_BUILT", ...(check ? { hydration } : {}), verdict: data.overallVerdict, sources: data.sources.length, assessments: data.assessments.length, inheritedTechnologies: data.inheritedTechnologies.length, inheritedControls: data.inheritedControls.length, pureProbesExecuted: data.observations.filter(o => o.method === "PURE_RUNTIME_PROBE").length, staticObservations: data.observations.filter(o => o.method === "STATIC_CODE_INSPECTION").length, futureAcceptance: "NOT_RUN", resources: graph.resources.length, links: graph.links.length }))

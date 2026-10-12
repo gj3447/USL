@@ -76,7 +76,7 @@ C02·C03·C04 사이의 추가 선행 관계는 선언되어 있지 않다. 실�
 - P01~P03은 [검증 기록](../research/architecture/binding-delivery.receipt.json)의 2026-10-04 로컬 명령 PASS와 파일 digest로 연결되어 있다. 이 요약의 재생성은 그 테스트 명령을 재실행하지 않는다.
 - C01은 [검증 기록](../research/architecture/core-cli-c01.receipt.json)의 2026-10-04 로컬 명령 PASS, 파일 digest와 source commit `17ad4031ad52b6c5e56352a121a7e3164290a434`으로 연결되어 있다. 이 기록은 Lean 증명이 아니다.
 - JSON-LD/RDF 교환 표현과 PROV-O 출처 관계, SHACL 역할·타입·카디널리티 검사를 사용한다. USL 어휘와 task 상태 규약은 프로젝트 소유다.
-- 별도 검증기가 현재 파일 digest, 완료 근거 연결, 작업 상태와 선행 관계의 순환 여부를 확인한다. 명령 기록은 서명된 실행 증명이나 원격 상태 관측이 아니다.
+- 별도 검증기가 각 기록이 가리키는 Git commit의 파일 digest, 완료 근거 연결, 작업 상태와 선행 관계의 순환 여부를 확인한다. 명령 기록은 서명된 실행 증명이나 원격 상태 관측이 아니다.
 - 완료된 작업은 해당 수용 기준의 로컬 검증 기록을 뜻한다. graph-cli 제안 전체나 남은 계획 작업의 완료를 뜻하지 않는다.
 - 기존 [Lean 모델의 증명 범위](LEAN4_INTEGRATION.md)와 이번 작업의 NOT_PROVEN을 구분한다. CLI 외부 효과·토큰 비용에 새 증명을 추가하지 않았다.
 - [압축 측정](COMPACT_SYNTAX_RESEARCH.md)은 bytes와 encoding별 tokens를 구분한다. 실제 heap·API 청구액·모델 품질은 미측정이다.
@@ -98,4 +98,4 @@ python3 scripts/validate-syntax-cli-architecture.py
 
 SHACL 검사는 scripts/requirements-standards.txt를 설치한 Python 환경을 사용한다. 원본 catalog/plan 수정 후 generator를 --check 없이 실행하면 그래프와 이 문서를 함께 갱신한다.
 
-그래프 digest: `sha256:a82d1f01b8f82cecb6865bf0d4682ad863340db3d3c776145ba07223921e69f4`.
+그래프 digest: `sha256:1cec3a9f8af5d7dce065a766e8792bad524912c8e1f576e1f5c08d12e4d4690c`.

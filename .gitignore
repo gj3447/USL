@@ -20,3 +20,5 @@ research/development-plan/trace.jsonld
 research/development-lineage/trace.jsonld
 research/native-development/graph.jsonld
 research/native-development/trace.jsonld
+research/standards-coverage/graph.jsonld
+research/standards-coverage/trace.jsonld

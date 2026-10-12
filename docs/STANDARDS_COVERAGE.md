@@ -368,7 +368,7 @@ RDF 1.2 Concepts는 2026-04-07 Candidate Recommendation Snapshot이며 최신 Re
 
 ## 그래프 계약과 검증
 
-[입력](../research/standards-coverage/coverage.json), [USL graph](../research/standards-coverage/graph.json), [JSON-LD 선언](../research/standards-coverage/graph.jsonld), [typed RDF trace](../research/standards-coverage/trace.jsonld), [role profile](../research/standards-coverage/profile.json), [SHACL](../schemas/standards-coverage/coverage.shacl.ttl)을 생성한다. Local source는 Git revision과 bytes SHA-256으로 고정한다. 웹 원문의 bytes를 보관하거나 hash 검증했다고 주장하지 않는다. URL·자료 상태·확인일·접근 범위를 보존한다.
+[입력](../research/standards-coverage/coverage.json), [USL graph](../research/standards-coverage/graph.json), JSON-LD 선언 `research/standards-coverage/graph.jsonld`, typed RDF trace `research/standards-coverage/trace.jsonld`, [role profile](../research/standards-coverage/profile.json), [SHACL](../schemas/standards-coverage/coverage.shacl.ttl)을 생성한다. Local source는 감사 기준 Git revision과 bytes SHA-256으로 고정하며, 작업 트리가 아니라 그 revision에서 검사한다. 웹 원문의 bytes를 보관하거나 hash 검증했다고 주장하지 않는다. URL·자료 상태·확인일·접근 범위를 보존한다.
 
 | USL 관계 / RDF predicate | domain → range | 의미 |
 |---|---|---|
@@ -399,3 +399,10 @@ node --import tsx scripts/build-standards-coverage.ts
 node --import tsx scripts/build-standards-coverage.ts --check
 python3 scripts/validate-standards-coverage.py
 ```
+
+두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-standards-coverage.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).
+
+| 재생성 산출물 (Git 제외) | SHA-256 | bytes |
+|---|---|---|
+| `research/standards-coverage/graph.jsonld` | `sha256:1ba550fbe89a83027e4ae8221e02ca8e475a385dd52f2aa851940fae171abd41` | 750106 |
+| `research/standards-coverage/trace.jsonld` | `sha256:035e05f96a641025694f662d9c30dc4fd55e7673b269730ae0c404ea8ed90b25` | 118921 |

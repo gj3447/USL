@@ -11,16 +11,20 @@ import { checkResourceGraphProfile, type DomainProfile } from "../src/domain-pro
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const base = "01239ca94abab374cca0a7240c4fb31235fb221a"
+// Historical snapshot: the review graph was generated at this commit. Every input is read
+// from it with `git show`, so later implementation changes neither break nor silently
+// refresh the dated review. A new review needs fresh execution evidence and a new snapshot.
+const snapshot = "e2833a30c7eb5f5f924440bf28d0ef78b2e99f56"
 const check = process.argv.includes("--check")
 if (process.argv.slice(2).some(arg => arg !== "--check")) throw new Error("usage: build-current-state.ts [--check]")
-const read = (file: string) => readFile(resolve(root, file), "utf8")
 const run = promisify(execFile)
+const show = async (commit: string, file: string) => (await run("git", ["show", `${commit}:${file}`], { cwd: root, maxBuffer: 2 * 1024 * 1024 })).stdout
+const read = (file: string) => show(snapshot, file)
+const readOutput = (file: string) => readFile(resolve(root, file), "utf8")
 // The receipt is host-reported. Matching files cannot authenticate its execution,
 // but must not let a changed test suite inherit the old reviewed-commit claim.
 const subjectPaths = ["src", "test", "lean", "package.json", "package-lock.json", "tsconfig.json", "tsconfig.build.json", "scripts/build-engineering-review.ts"]
-await run("git", ["diff", "--quiet", base, "--", ...subjectPaths], { cwd: root })
-const untracked = await run("git", ["ls-files", "--others", "--exclude-standard", "--", ...subjectPaths], { cwd: root })
-if (untracked.stdout.trim()) throw new Error("unreviewed source/test files exist; create fresh execution evidence")
+await run("git", ["diff", "--quiet", base, snapshot, "--", ...subjectPaths], { cwd: root })
 const previous = JSON.parse(await read("research/engineering/receipt.json")) as { sourceRoot: string }
 const prefix = "urn:usl:status:"
 const location = (file: string) => `${previous.sourceRoot}/${file}`
@@ -34,8 +38,7 @@ const add = (id: string, type: string, locator: string, metadata: Metadata) => {
 const file = async (id: string, type: string, path: string, metadata: Metadata = {}, pinned = false) => {
   const raw = await read(path)
   if (pinned) {
-    const historical = await run("git", ["show", `${base}:${path}`], { cwd: root, maxBuffer: 2 * 1024 * 1024 })
-    if (raw !== historical.stdout) throw new Error(`reviewed implementation changed: ${path}; create fresh evidence and update this review`)
+    if (raw !== await show(base, path)) throw new Error(`reviewed implementation changed: ${path}; create fresh evidence and update this review`)
   }
   return add(id, type, location(path), { path, sourceDigest: digestSource(raw), ...(pinned ? { reviewedCommit: base } : {}), ...metadata })
 }
@@ -168,8 +171,8 @@ const outputs = { "research/engineering/current-state.graph.json": raw,
   "research/engineering/current-state.profile.json": JSON.stringify(profile, null, 2) + "\n",
   "schemas/current-state.shacl.ttl": shapes }
 for (const [path, value] of Object.entries(outputs)) {
-  if (check) { if (await read(path) !== value) throw new Error(`review artifact differs: ${path}`) }
+  if (check) { if (await readOutput(path) !== value) throw new Error(`review artifact differs: ${path}`) }
   else await writeFile(resolve(root, path), value)
 }
 console.log(JSON.stringify({ reviewedCommit: base, features: features.length, tasks: tasks.length, resources: graph.resources.length,
-  links: graph.links.length, profile: validation.status, mode: check ? "PINS_AND_ARTIFACTS_CHECKED" : "SNAPSHOT_BUILT", testsReplayed: false }))
+  links: graph.links.length, profile: validation.status, mode: check ? "PINS_AND_ARTIFACTS_CHECKED" : "SNAPSHOT_BUILT", inputsReadFrom: snapshot, testsReplayed: false }))

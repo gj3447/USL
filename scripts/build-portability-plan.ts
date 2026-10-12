@@ -38,8 +38,10 @@ const visit = (id: string) => {
   visiting.add(id); task.dependsOn.forEach(visit); visiting.delete(id); seen.add(id)
 }
 ids.forEach(visit)
+// The plan is a fixed snapshot of its recording time: pins are checked against the
+// recorded commit, not the working tree, so later implementation does not rewrite it.
 for (const source of plan.currentSources) {
-  if (digestSource(await read(source.path)) !== source.sha256) throw new Error(`source pin drift: ${source.path}`)
+  if (source.sourceCommit !== plan.sourceCommit) throw new Error(`source commit differs from plan: ${source.path}`)
   const committed = execFileSync("git", ["show", `${source.sourceCommit}:${source.path}`], { cwd: root, encoding: "utf8" })
   if (digestSource(committed) !== source.sha256) throw new Error(`source commit mismatch: ${source.path}`)
 }

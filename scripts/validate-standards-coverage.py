@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Validate research coverage links; this is not a standards conformance suite."""
-import copy, hashlib, json, pathlib
+import copy, hashlib, json, pathlib, subprocess
 from pyshacl import validate
 from rdflib import BNode, Graph, Literal, Namespace, RDF, URIRef
 from rdflib.collection import Collection
@@ -20,6 +20,9 @@ def conforms(data, shapes):
     result, _, report = validate(data, shacl_graph=shapes)
     return result, report
 def digest(path): return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+def committed_digest(commit, path):
+    result = subprocess.run(["git", "show", f"{commit}:{path}"], cwd=ROOT, capture_output=True)
+    return "sha256:" + hashlib.sha256(result.stdout).hexdigest() if result.returncode == 0 else None
 def ids(items): return {item["id"] for item in items}
 def pairs(graph, query): return {tuple(map(str, row)) for row in graph.query(query)}
 def acyclic(edges):
@@ -69,14 +72,15 @@ def profile_shapes(profile):
 
 def main():
     for name in ["coverage.json", "graph.json", "graph.jsonld", "profile.json", "trace.jsonld", "probe-fixture.jsonld"]:
-        require((BASE / name).is_file(), f"missing generated standards-coverage artifact: {name}")
+        hint = "NOT_HYDRATED (regenerated, not committed); run node --import tsx scripts/build-standards-coverage.ts" if name in {"graph.jsonld", "trace.jsonld"} else "missing generated standards-coverage artifact"
+        require((BASE / name).is_file(), f"{hint}: research/standards-coverage/{name}")
     data = json.loads((BASE / "coverage.json").read_text())
     require(coverage_identity_conforms(data), "coverage metadata must retain the non-superset verdict")
     for field in ["sources", "localSources", "assessments", "observations", "checks", "gates", "steps"]: require(isinstance(data.get(field), list) and data[field], f"missing {field}")
     for field in ["sources", "localSources", "assessments", "observations", "checks", "gates", "steps"]: require(len(ids(data[field])) == len(data[field]), f"duplicate {field} ID")
     source_ids, local_ids, observation_ids, check_ids, assessment_ids, step_ids = (ids(data[key]) for key in ["sources", "localSources", "observations", "checks", "assessments", "steps"])
     for local in data["localSources"]:
-        require(local["id"] in local_ids and local.get("sourceCommit") == data["sourceCommit"] and local.get("sha256") == digest(ROOT / local["path"]), "local source pin differs from current source")
+        require(local["id"] in local_ids and local.get("sourceCommit") == data["sourceCommit"] and local.get("sha256") == committed_digest(local["sourceCommit"], local["path"]), "local source pin differs from its audited commit")
     for assessment in data["assessments"]:
         require(assessment.get("authority") == "SECONDARY_AI" and assessment.get("coverage") and assessment.get("scope") and assessment.get("limitation"), "assessment authority or limitation missing")
         require(set(assessment["sourceIds"]).issubset(source_ids) and set(assessment["localSourceIds"]).issubset(local_ids) and set(assessment["observationIds"]).issubset(observation_ids) and set(assessment["checkIds"]).issubset(check_ids) and assessment["stepId"] in step_ids, "assessment endpoint missing")

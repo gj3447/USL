@@ -29,6 +29,10 @@ benchmark_script_path = root / "scripts/benchmark-compression.ts"
 token_script_path = root / "scripts/count-compression-tokens.py"
 requirements_path = root / "scripts/requirements-compression.txt"
 def sha256_file(path): return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+# Dated receipts and plan/catalog pins are verified at the commit they name, not the working tree.
+def sha256_commit(commit, path):
+    result = __import__("subprocess").run(["git", "show", f"{commit}:{path}"], cwd=root, capture_output=True)
+    return "sha256:" + hashlib.sha256(result.stdout).hexdigest() if result.returncode == 0 else None
 resources = {r["id"]: r for r in raw["resources"]}
 links = raw["links"]
 assert len(resources) >= 25 and len(links) >= 20
@@ -144,7 +148,7 @@ def completed_binding_work_conforms(candidate):
     receipt_tasks = {t.get("id"): t for t in receipt.get("tasks", [])}
     expected_tests = {"task:P01": "test/navigation.test.ts", "task:P02": "test/addon-binding-cli.test.ts", "task:P03": "test/addon-binding-cli.test.ts"}
     for path, digest in receipt["sourcePins"].items():
-        if not isinstance(path, str) or not isinstance(digest, str) or not (path.startswith(("src/", "docs/", "examples/", "test/", "scripts/", "research/")) or path in {"package.json", "package-lock.json", "tsconfig.json"}) or sha256_file(root / path) != digest: return False
+        if not isinstance(path, str) or not isinstance(digest, str) or not (path.startswith(("src/", "docs/", "examples/", "test/", "scripts/", "research/")) or path in {"package.json", "package-lock.json", "tsconfig.json"}) or not isinstance(receipt.get("sourceCommit"), str) or sha256_commit(receipt["sourceCommit"], path) != digest: return False
     links_by_meaning = {}
     for link in candidate["links"]: links_by_meaning.setdefault(link["meaning"].split(":")[-1], []).append(link)
     def parts(link): return {p["role"]: p["resource"] for p in link["participants"]}
@@ -201,7 +205,7 @@ def core_cli_work_conforms(candidate):
     expected_status = "PLANNED" if not completed else "COMPLETED" if len(completed) == len(tasks) else "IN_PROGRESS"
     if core_plan.get("status") != expected_status or len(completed) + len(planned) != len(tasks) or any(t.get("proofStatus") != "NOT_PROVEN" or not t.get("acceptance") or bool(t.get("verificationReceipt")) != (t in completed) for t in tasks): return False
     expected_sources = core_plan.get("sourceEvidence", [])
-    if not expected_sources or any(source.get("kind") != "LOCAL_SNAPSHOT" or not source.get("path", "").startswith("src/") or sha256_file(root / source["path"]).removeprefix("sha256:") != source.get("sha256") for source in expected_sources): return False
+    if not expected_sources or any(source.get("kind") != "LOCAL_SNAPSHOT" or not source.get("path", "").startswith("src/") or (sha256_commit(catalog["sourceCommit"], source["path"]) or "").removeprefix("sha256:") != source.get("sha256") for source in expected_sources): return False
     links_by_meaning = {}
     for link in candidate["links"]: links_by_meaning.setdefault(link["meaning"].split(":")[-1], []).append(link)
     def parts(link): return {p["role"]: p["resource"] for p in link["participants"]}
@@ -233,7 +237,7 @@ def core_cli_work_conforms(candidate):
         required_pins = commit_sources | {"package.json", "package-lock.json", "tsconfig.json", "test/cli.test.ts", "test/cli-help.test.ts"}
         if not required_pins.issubset(core_receipt["sourcePins"]): return False
         for path, digest in core_receipt["sourcePins"].items():
-            if not (path.startswith(("src/", "docs/", "test/")) or path in {"package.json", "package-lock.json", "tsconfig.json"}) or sha256_file(root / path) != digest: return False
+            if not (path.startswith(("src/", "docs/", "test/")) or path in {"package.json", "package-lock.json", "tsconfig.json"}): return False
             try:
                 committed = __import__("subprocess").check_output(["git", "show", f'{core_receipt["sourceCommit"]}:{path}'], cwd=root)
             except Exception:

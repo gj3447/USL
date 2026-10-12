@@ -70,4 +70,4 @@ npx tsx src/cli.ts adapt --format resource-graph \
 python3 scripts/validate-current-state.py
 ```
 
-현재 상태 그래프는 이 검토의 snapshot이다. 그 안의 locator는 당시 환경의 주소이며 stable resource ID와 별개다. 다른 환경에서는 명시적 binding으로 주소를 다시 연결한다. 생성기는 구현·테스트·Lean 소스 및 package lock이 검토 commit과 같은지 확인하고, 문서·실행 기록의 digest를 결속한다. 실행 기록은 호스트 보고이며, 이 비교와 해시가 실제 실행을 암호학적으로 인증하지는 않는다. 후속 구현 후에는 새 실행 근거와 검토 기준을 마련해 갱신해야 한다. 과거 25개 반례 영수증이나 37개 정리의 범위를 자동으로 확대하지 않는다.
+현재 상태 그래프는 이 검토의 snapshot이다. 그 안의 locator는 당시 환경의 주소이며 stable resource ID와 별개다. 다른 환경에서는 명시적 binding으로 주소를 다시 연결한다. 생성기는 모든 입력을 이 snapshot을 만든 commit `e2833a3`에서 `git show`로 읽어, 그 시점의 구현·테스트·Lean 소스 및 package lock이 검토 commit과 같은지 확인하고 문서·실행 기록의 digest를 결속한다. 따라서 이후 구현 변경은 이 역사적 snapshot을 깨거나 조용히 갱신하지 않는다. 실행 기록은 호스트 보고이며, 이 비교와 해시가 실제 실행을 암호학적으로 인증하지는 않는다. 후속 구현 후에는 새 실행 근거와 검토 기준을 마련해 갱신해야 한다. 과거 25개 반례 영수증이나 37개 정리의 범위를 자동으로 확대하지 않는다.
