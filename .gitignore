@@ -22,3 +22,5 @@ research/native-development/graph.jsonld
 research/native-development/trace.jsonld
 research/standards-coverage/graph.jsonld
 research/standards-coverage/trace.jsonld
+research/portability-research/graph.jsonld
+research/portability-research/trace.jsonld

@@ -1,4 +1,5 @@
 /** Build a sourced research graph; only bounded parser probes execute. */
+import { existsSync } from "node:fs"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { execFileSync } from "node:child_process"
 import { dirname, resolve } from "node:path"
@@ -31,7 +32,8 @@ const ids = sets.flatMap(items => items.map(item => item.id))
 if (new Set(ids).size !== ids.length) throw new Error("duplicate research identity")
 const known = new Set(ids)
 for (const source of data.localSources) {
-  if (source.sourceCommit !== data.sourceCommit || digestSource(await read(source.path)) !== source.sha256) throw new Error(`local source drift: ${source.path}`)
+  // Dated research: local sources are verified at the researched commit, not the working tree.
+  if (source.sourceCommit !== data.sourceCommit) throw new Error(`local source revision differs from research: ${source.path}`)
   if (digestSource(execFileSync("git", ["show", `${source.sourceCommit}:${source.path}`], { cwd: root, encoding: "utf8" })) !== source.sha256) throw new Error(`historical source mismatch: ${source.path}`)
 }
 const visited = new Set<string>(), active = new Set<string>()
@@ -110,6 +112,7 @@ const trace = { "@context": { r, prov }, "@graph": [
 ] }
 
 const short = (id: string) => id.split(":").at(-1)!
+const lockOutputs: [string, string][] = [[`${folder}/graph.jsonld`, json(graphLd)], [`${folder}/trace.jsonld`, json(trace)]]
 const sourceLinks = (ids: string[]) => ids.map(id => { const s = data.sources.find(s => s.id === id)!; return `[${s.title}](${s.url})` }).join(", ")
 const document = [
   "# USL 기기 이동과 백업 복원의 구현 근거", "",
@@ -144,20 +147,31 @@ const document = [
   ...data.sources.flatMap(s => [`- [${s.title}](${s.url}) — \`${s.publicationStatus}\`, ${s.sections}, 확인 ${s.checkedOn}. 사실 요약: ${s.fact} 한계: ${s.limit}${s.statusUrl ? ` [상태 기록](${s.statusUrl}).` : ""}`]), "",
   "규칙의 severity, 실제 차단 정책, soft penalty coefficient, HSWM W 추정치, provenance 신뢰도, 권한은 서로 다른 필드다. 특히 현재 정책 감점 계수를 HSWM W 전체의 구현으로 보지 않는다. RDFC 역시 RDF dataset 동형성에 대한 정규화이며 원문의 의미·자원 소유권을 판정하지 않는다.", "",
   "## 연구 그래프와 검증 범위", "",
-  "[원본 조사 데이터](../research/portability-research/research.json), [USL graph](../research/portability-research/graph.json), [JSON-LD](../research/portability-research/graph.jsonld), [typed RDF trace](../research/portability-research/trace.jsonld), [역할 profile](../research/portability-research/profile.json), [SHACL shapes](../schemas/portability-research/research.shacl.ttl)를 제공한다. 기존 PT01–PT07 작업과 R01–R07 요구사항 ID를 재사용한다. 공유 KG에는 쓰지 않았으며 이 로컬 어휘는 승인된 정전으로 승격하지 않았다.", "",
+  "[원본 조사 데이터](../research/portability-research/research.json), [USL graph](../research/portability-research/graph.json), JSON-LD `research/portability-research/graph.jsonld`, typed RDF trace `research/portability-research/trace.jsonld`, [역할 profile](../research/portability-research/profile.json), [SHACL shapes](../schemas/portability-research/research.shacl.ttl)를 제공한다. 기존 PT01–PT07 작업과 R01–R07 요구사항 ID를 재사용한다. 공유 KG에는 쓰지 않았으며 이 로컬 어휘는 승인된 정전으로 승격하지 않았다.", "",
   "| 관계 | domain → range와 방향 | Cardinality | 의미 |", "|---|---|---|---|",
   ...definitions.map(d => `| ${d.name} | ${Object.values(d.roles).join(" → ")} | 각 link의 역할은 정확히 1개 | ${d.meaning} |`), "",
   "각 decision은 근거·코드·작업·요구사항·인수기준을 하나 이상 갖고, 인수기준은 한 decision에 귀속한다. dependencies만 DAG로 검증한다. PROV-O의 wasDerivedFrom·wasAttributedTo·wasGeneratedBy로 판단의 출처와 작성 활동을 연결하며 출처를 권한으로 읽지 않는다.", "",
   ...data.competencyQuestions.map(q => `- ${q}`), "",
-  "독립 Python 검증기는 실제 SPARQL 결과의 endpoint 집합을 입력 데이터와 비교하고 SHACL로 타입·필수 관계·상태를 검사한다. 미래 인수기준은 모두 NOT_RUN이다. 인터넷 원문 bytes를 보관하거나 해시 검증했다고 주장하지 않으며 URL·절·상태·확인일을 기록한다. 코드 파일은 Git revision과 실제 bytes digest를 대조한다.", "",
+  "독립 Python 검증기는 실제 SPARQL 결과의 endpoint 집합을 입력 데이터와 비교하고 SHACL로 타입·필수 관계·상태를 검사한다. 미래 인수기준은 모두 NOT_RUN이다. 인터넷 원문 bytes를 보관하거나 해시 검증했다고 주장하지 않으며 URL·절·상태·확인일을 기록한다. 코드 파일은 조사 기준 Git revision에서 bytes digest를 대조하며 작업 트리와는 비교하지 않는다.", "",
   "```sh", "node --import tsx scripts/build-portability-research.ts", "node --import tsx scripts/build-portability-research.ts --check", "python3 scripts/validate-portability-research.py", "```", "",
+  "두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-portability-research.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).", "",
+  "| 재생성 산출물 (Git 제외) | SHA-256 | bytes |", "|---|---|---|", ...lockOutputs.map(([path, value]) => `| \`${path}\` | \`${digestSource(value)}\` | ${Buffer.byteLength(value)} |`), "",
   "빌더와 check는 4개 순수 probe를 실행한다. 이것은 복원·내구성·분산 효과에 대한 인수검사가 아니다. Python 환경은 기존 scripts/requirements-standards.txt를 따른다. [최초 계획](PORTABILITY_PLAN.md)과 [PT01 구현 범위](PORTABLE_TRANSFER.md)를 함께 읽으면 현재 구현과 남은 작업을 구분할 수 있다.", "",
 ].join("\n")
+const docPath = "docs/PORTABILITY_RESEARCH.md"
 const outputs: Record<string, string> = { [`${folder}/profile.json`]: json(profile), [`${folder}/graph.json`]: graphRaw,
-  [`${folder}/graph.jsonld`]: json(graphLd), [`${folder}/trace.jsonld`]: json(trace), "docs/PORTABILITY_RESEARCH.md": document }
+  ...Object.fromEntries(lockOutputs), [docPath]: document }
+// JSON-LD outputs are not committed; their digest lock lives in the committed generated document.
+const locked = new Set(lockOutputs.map(([path]) => path)), committedDoc = check ? await read(docPath) : "", hydration: Record<string, string> = {}
 for (const [path, content] of Object.entries(outputs)) {
-  if (check) { if (await read(path) !== content) throw new Error(`research artifact differs: ${path}`) }
+  if (check && locked.has(path)) {
+    const row = committedDoc.split("\n").find(line => line.startsWith(`| \`${path}\` |`))
+    if (!row?.includes(`\`${digestSource(content)}\``)) throw new Error(`research artifact differs from digest lock: ${path}`)
+    if (existsSync(resolve(root, path))) { if (await read(path) !== content) throw new Error(`research artifact differs: ${path}`); hydration[path] = "BYTES_MATCH" }
+    else hydration[path] = "NOT_HYDRATED"
+  }
+  else if (check) { if (await read(path) !== content) throw new Error(`research artifact differs: ${path}`) }
   else { await mkdir(dirname(resolve(root, path)), { recursive: true }); await writeFile(resolve(root, path), content) }
 }
-console.log(json({ mode: check ? "RESEARCH_ARTIFACTS_CHECKED" : "RESEARCH_ARTIFACTS_BUILT", sources: data.sources.length, decisions: data.decisions.length,
+console.log(json({ mode: check ? "RESEARCH_ARTIFACTS_CHECKED" : "RESEARCH_ARTIFACTS_BUILT", ...(check ? { hydration } : {}), sources: data.sources.length, decisions: data.decisions.length,
   plannedChecks: data.checks.length, observations: data.observations.length, pureProbesExecuted: probes.length, resources: graph.resources.length, links: graph.links.length, runtimeAcceptance: "NOT_RUN" }))

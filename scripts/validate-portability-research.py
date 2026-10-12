@@ -29,7 +29,6 @@ def read_json(path):
     require(isinstance(value, dict), f"object required: {path.name}")
     return value
 
-def sha(path): return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
 def clone(graph):
     result = Graph()
     for triple in graph: result.add(triple)
@@ -70,7 +69,7 @@ def dataset_ok(value, pins=False):
         require(not pathlib.PurePosixPath(source["path"]).is_absolute() and ".." not in pathlib.PurePosixPath(source["path"]).parts, "unsafe local source path")
         require(re.fullmatch(r"sha256:[0-9a-f]{64}", source["sha256"]) is not None and source["sourceCommit"] == value["sourceCommit"], "invalid local source pin")
         if pins:
-            path = ROOT / source["path"]; require(path.is_file() and sha(path) == source["sha256"], "local source file pin drift")
+            # Dated research: verify bytes at the researched commit, not the working tree.
             shown = subprocess.run(["git", "show", f"{value['sourceCommit']}:{source['path']}"], cwd=ROOT, capture_output=True)
             require(shown.returncode == 0 and "sha256:" + hashlib.sha256(shown.stdout).hexdigest() == source["sha256"], "local source Git pin drift")
     for decision in groups["decisions"]:
@@ -103,7 +102,9 @@ def dataset_ok(value, pins=False):
     return groups
 
 def main():
-    for path in (DATA_PATH, TRACE_PATH, SHAPES_PATH): require(path.is_file(), f"missing research input: {path.relative_to(ROOT)}")
+    for path in (DATA_PATH, TRACE_PATH, SHAPES_PATH):
+        hint = "NOT_HYDRATED (regenerated, not committed); run node --import tsx scripts/build-portability-research.ts" if path.suffix == ".jsonld" else "missing research input"
+        require(path.is_file(), f"{hint}: {path.relative_to(ROOT)}")
     dataset = read_json(DATA_PATH); groups = dataset_ok(dataset, pins=True)
     data, shapes = Graph().parse(TRACE_PATH, format="json-ld"), Graph().parse(SHAPES_PATH, format="turtle")
     require(conforms(data, shapes), "research RDF does not conform to SHACL")

@@ -238,7 +238,7 @@ SHACL의 안정된 검증 기준은 2017 Recommendation으로 유지한다. SHAC
 
 ## 연구 그래프와 검증 범위
 
-[원본 조사 데이터](../research/portability-research/research.json), [USL graph](../research/portability-research/graph.json), [JSON-LD](../research/portability-research/graph.jsonld), [typed RDF trace](../research/portability-research/trace.jsonld), [역할 profile](../research/portability-research/profile.json), [SHACL shapes](../schemas/portability-research/research.shacl.ttl)를 제공한다. 기존 PT01–PT07 작업과 R01–R07 요구사항 ID를 재사용한다. 공유 KG에는 쓰지 않았으며 이 로컬 어휘는 승인된 정전으로 승격하지 않았다.
+[원본 조사 데이터](../research/portability-research/research.json), [USL graph](../research/portability-research/graph.json), JSON-LD `research/portability-research/graph.jsonld`, typed RDF trace `research/portability-research/trace.jsonld`, [역할 profile](../research/portability-research/profile.json), [SHACL shapes](../schemas/portability-research/research.shacl.ttl)를 제공한다. 기존 PT01–PT07 작업과 R01–R07 요구사항 ID를 재사용한다. 공유 KG에는 쓰지 않았으며 이 로컬 어휘는 승인된 정전으로 승격하지 않았다.
 
 | 관계 | domain → range와 방향 | Cardinality | 의미 |
 |---|---|---|---|
@@ -258,12 +258,19 @@ SHACL의 안정된 검증 기준은 2017 Recommendation으로 유지한다. SHAC
 - 실제 local probe의 관측은 어느 코드 버전에 관한 것인가?
 - 확정 표준·초안·만료 초안과 AI 제안을 구별하는가?
 
-독립 Python 검증기는 실제 SPARQL 결과의 endpoint 집합을 입력 데이터와 비교하고 SHACL로 타입·필수 관계·상태를 검사한다. 미래 인수기준은 모두 NOT_RUN이다. 인터넷 원문 bytes를 보관하거나 해시 검증했다고 주장하지 않으며 URL·절·상태·확인일을 기록한다. 코드 파일은 Git revision과 실제 bytes digest를 대조한다.
+독립 Python 검증기는 실제 SPARQL 결과의 endpoint 집합을 입력 데이터와 비교하고 SHACL로 타입·필수 관계·상태를 검사한다. 미래 인수기준은 모두 NOT_RUN이다. 인터넷 원문 bytes를 보관하거나 해시 검증했다고 주장하지 않으며 URL·절·상태·확인일을 기록한다. 코드 파일은 조사 기준 Git revision에서 bytes digest를 대조하며 작업 트리와는 비교하지 않는다.
 
 ```sh
 node --import tsx scripts/build-portability-research.ts
 node --import tsx scripts/build-portability-research.ts --check
 python3 scripts/validate-portability-research.py
 ```
+
+두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-portability-research.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).
+
+| 재생성 산출물 (Git 제외) | SHA-256 | bytes |
+|---|---|---|
+| `research/portability-research/graph.jsonld` | `sha256:e9cc997fde0222b414c73fbcf0aaf91b479e67feeb2577204c914ac56bd8f086` | 535120 |
+| `research/portability-research/trace.jsonld` | `sha256:f65f8ac39bc41a174114957d417b1bbed17f7cd34fb646e9cf5c6071ccab2089` | 77983 |
 
 빌더와 check는 4개 순수 probe를 실행한다. 이것은 복원·내구성·분산 효과에 대한 인수검사가 아니다. Python 환경은 기존 scripts/requirements-standards.txt를 따른다. [최초 계획](PORTABILITY_PLAN.md)과 [PT01 구현 범위](PORTABLE_TRANSFER.md)를 함께 읽으면 현재 구현과 남은 작업을 구분할 수 있다.
