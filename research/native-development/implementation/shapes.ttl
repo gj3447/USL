@@ -30,6 +30,9 @@ ni:WorkShape a sh:NodeShape ; sh:targetClass ni:ImplementationWork ;
 ni:P09DependencyShape a sh:NodeShape ; sh:targetNode ni:work:P09 ;
   sh:property [ sh:path ni:implementedBy ; sh:minCount 2 ; sh:maxCount 2 ; sh:class ni:Artifact ] ;
   sh:property [ sh:path ni:checkedBy ; sh:minCount 4 ; sh:maxCount 4 ; sh:class ni:Artifact ] .
+ni:P10DependencyShape a sh:NodeShape ; sh:targetNode ni:work:P10 ;
+  sh:property [ sh:path ni:implementedBy ; sh:minCount 2 ; sh:maxCount 2 ; sh:class ni:Artifact ] ;
+  sh:property [ sh:path ni:checkedBy ; sh:minCount 2 ; sh:maxCount 2 ; sh:class ni:Artifact ] .
 ni:ArtifactShape a sh:NodeShape ; sh:targetClass ni:Artifact ;
   sh:property [ sh:path ni:role ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("CODE" "TEST") ] ;
   sh:property [ sh:path ni:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] .

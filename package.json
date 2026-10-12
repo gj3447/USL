@@ -155,6 +155,14 @@
     "./native-dispatch": {
       "types": "./dist/src/addons/native-dispatch.d.ts",
       "import": "./dist/src/addons/native-dispatch.js"
+    },
+    "./native-agent": {
+      "types": "./dist/src/addons/native-agent.d.ts",
+      "import": "./dist/src/addons/native-agent.js"
+    },
+    "./native-agent-http": {
+      "types": "./dist/src/addons/native-agent-http.d.ts",
+      "import": "./dist/src/addons/native-agent-http.js"
     }
   },
   "engines": {

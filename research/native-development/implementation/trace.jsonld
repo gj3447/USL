@@ -76,7 +76,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ],
       "ni:addresses": [
@@ -179,7 +179,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ],
       "ni:addresses": [
@@ -276,7 +276,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ],
       "ni:addresses": [
@@ -376,7 +376,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ],
       "ni:addresses": [
@@ -479,7 +479,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ],
       "ni:addresses": [
@@ -576,7 +576,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ],
       "ni:addresses": [
@@ -688,7 +688,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ],
       "ni:addresses": [
@@ -806,6 +806,148 @@
       "ni:role": "TEST"
     },
     {
+      "@id": "urn:usl:native-implementation:work:P10",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P10",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "OWNER_CONTROLLED_STATELESS_PER_TURN_HARNESS_HTTP_CHAT_MODEL_NO_LIVE_DGX_CLAIM",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P10"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P10"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P10:code-1"
+        },
+        {
+          "@id": "urn:usl:native-implementation:artifact:P10:code-2"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P10:test-3"
+        },
+        {
+          "@id": "urn:usl:native-implementation:artifact:P10:test-4"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R06"
+        },
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P10:code-1",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-agent.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-agent.ts",
+          "sha256": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P10:code-2",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-agent-http.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-agent-http.ts",
+          "sha256": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P10:test-3",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-agent.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-agent.test.ts",
+          "sha256": "sha256:7dfc56bffa533a0c126c2215024ab592d4872402944d9d51d8fac42b8781b942",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:7dfc56bffa533a0c126c2215024ab592d4872402944d9d51d8fac42b8781b942",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P10:test-4",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-agent-http.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-agent-http.test.ts",
+          "sha256": "sha256:0e55be95cf7c5f88ff4d3a8d91e3dc904f7d59665c04243361028c5a3bf71e4c",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:0e55be95cf7c5f88ff4d3a8d91e3dc904f7d59665c04243361028c5a3bf71e4c",
+      "ni:role": "TEST"
+    },
+    {
       "@id": "urn:usl:native-implementation:work:P04",
       "@type": [
         "urn:usl:native-implementation:ImplementationWork"
@@ -866,41 +1008,6 @@
       "ni:addresses": [
         {
           "@id": "urn:usl:dev:req:R05"
-        }
-      ]
-    },
-    {
-      "@id": "urn:usl:native-implementation:work:P10",
-      "@type": [
-        "urn:usl:native-implementation:ImplementationWork"
-      ],
-      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
-      "ni:metadata": {
-        "@value": {
-          "workItem": "P10",
-          "status": "PLANNED",
-          "plannedStatus": "PLANNED",
-          "authorityClass": "SECONDARY_AI"
-        },
-        "@type": "@json"
-      },
-      "ni:status": "PLANNED",
-      "ni:snapshotOf": [
-        {
-          "@id": "urn:usl:dev:work:P10"
-        }
-      ],
-      "prov:wasDerivedFrom": [
-        {
-          "@id": "urn:usl:dev:work:P10"
-        }
-      ],
-      "ni:addresses": [
-        {
-          "@id": "urn:usl:dev:req:R06"
-        },
-        {
-          "@id": "urn:usl:dev:req:R07"
         }
       ]
     },
@@ -984,7 +1091,7 @@
       ]
     },
     {
-      "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a",
+      "@id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0",
       "@type": [
         "urn:usl:native-implementation:ObservedCheck"
       ],
@@ -993,7 +1100,7 @@
         "@value": {
           "schema": "usl-native-implementation-check/v1",
           "status": "PASS",
-          "count": 66,
+          "count": 79,
           "command": [
             "env",
             "TSX_DISABLE_CACHE=1",
@@ -1011,10 +1118,12 @@
             "test/native-delivery.test.ts",
             "test/native-dispatch.test.ts",
             "test/native-dispatch-fault.test.ts",
-            "test/cli-host.test.ts"
+            "test/cli-host.test.ts",
+            "test/native-agent.test.ts",
+            "test/native-agent-http.test.ts"
           ],
-          "recordedAt": "2026-10-12 03:29:32 UTC",
-          "baseCommit": "1ece09b4d3dc0c4fd2933ec6b51083889899d7d2",
+          "recordedAt": "2026-10-12 05:39:25 UTC",
+          "baseCommit": "e4260bc3dcc8fd2f3240d8f8fa409a106cf70dd7",
           "revisionKind": "CURRENT_BYTE_SNAPSHOT",
           "pins": {
             "src/addons/native-profile.ts": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2",
@@ -1034,11 +1143,15 @@
             "test/native-dispatch.test.ts": "sha256:abd8e6e7cca6af499e3922ce85fa1010f4500ee69c4b81dd0582f51ffb60e25e",
             "test/cli-host.test.ts": "sha256:6aaf2b30401b4ec0d056283cb181d49e03227a4f18c45ef8a6102de966686844",
             "test/native-dispatch-fixture.ts": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
-            "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437"
+            "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437",
+            "src/addons/native-agent.ts": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e",
+            "src/addons/native-agent-http.ts": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb",
+            "test/native-agent.test.ts": "sha256:7dfc56bffa533a0c126c2215024ab592d4872402944d9d51d8fac42b8781b942",
+            "test/native-agent-http.test.ts": "sha256:0e55be95cf7c5f88ff4d3a8d91e3dc904f7d59665c04243361028c5a3bf71e4c"
           },
           "output": {
             "path": "research/native-development/implementation/test-output.tap",
-            "sha256": "sha256:355d79184309c241df1ea9efa29f8e28ca28f0920aaa8a68cb2d98448be937db"
+            "sha256": "sha256:a2bf1bae8c072211ce8126208d107f46e3a16ba419228469a34e27d9be079994"
           },
           "evidenceRole": "RECORDED_LOCAL_RUN_NOT_SIGNED_ATTESTATION",
           "authorityClass": "SECONDARY_AI"
@@ -1195,6 +1308,27 @@
       "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
     },
     {
+      "@id": "urn:usl:dev:work:P10",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/25",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
       "@id": "urn:usl:dev:work:P04",
       "@type": [
         "urn:usl:native-implementation:HistoricalReference"
@@ -1229,27 +1363,6 @@
           "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
           "status": "HISTORICAL_REFERENCE_ONLY",
           "selector": "/resources/22",
-          "authorityClass": "SECONDARY_AI"
-        },
-        "@type": "@json"
-      },
-      "ni:status": "HISTORICAL_REFERENCE_ONLY",
-      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
-    },
-    {
-      "@id": "urn:usl:dev:work:P10",
-      "@type": [
-        "urn:usl:native-implementation:HistoricalReference"
-      ],
-      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
-      "ni:metadata": {
-        "@value": {
-          "path": "research/native-development/graph.json",
-          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
-          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
-          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
-          "status": "HISTORICAL_REFERENCE_ONLY",
-          "selector": "/resources/25",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"

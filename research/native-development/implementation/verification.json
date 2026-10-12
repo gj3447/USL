@@ -1,21 +1,29 @@
 {
   "schema": "usl-native-implementation-verification/v1",
   "authorityClass": "SECONDARY_AI",
-  "recordedAt": "2026-10-12 03:30:34 UTC",
-  "scope": "LOCAL_LINUX_NATIVE_CLI_DISPATCH_AND_GRAPH_ONLY",
+  "recordedAt": "2026-10-12 05:41:25 UTC",
+  "scope": "LOCAL_LINUX_NATIVE_AGENT_HTTP_CHAT_HARNESS_CLI_DISPATCH_AND_GRAPH_ONLY",
   "pins": {
-    "scripts/build-native-implementation.py": "sha256:50e6a62264eb741c60a8b439b4cb06b98d3ef10c9c96eb0b618404dd9e66f72b",
-    "scripts/validate-native-implementation.py": "sha256:6a721ed50d62afbd44ff8882ef0428abaff8144dcb71ee3ff829076abf37c841",
-    "test/native-implementation.test.ts": "sha256:102bef3b4f43f702f0e86934e33401e0c5ebae58c25639443ae20141dd24901e",
-    "research/native-development/implementation/graph.json": "sha256:7964fee19d4616559c119b3dbc20b7fe26306cb882a18135cbb0cb38b0974533",
-    "research/native-development/implementation/trace.jsonld": "sha256:c6263441eaf6cd4d2ad7eb104198c106c8fa843277a0ccf46c60d03f0ee1b072",
-    "research/native-development/implementation/shapes.ttl": "sha256:88a962c9e3164983751c58aeecee6a0ef4c9c50235b5441b526c89c104f88198",
-    "research/native-development/implementation/checks.json": "sha256:65585a882e49c94d68d85ef3c0bd4d69405b59a0c8fa4611e1b852454ec3e497",
-    "research/native-development/implementation/test-output.tap": "sha256:355d79184309c241df1ea9efa29f8e28ca28f0920aaa8a68cb2d98448be937db",
-    "package.json": "sha256:3e052663470402acb34bec031831114976c444aad43b61bc008f6931c29e120e",
+    "scripts/build-native-implementation.py": "sha256:7132f7c2aec14edb9de5e7dcce530aec6079c1e176beac3dd577f723902316d2",
+    "scripts/validate-native-implementation.py": "sha256:b23c049867bd68bda080044e74a069555e308a6b0d47dc9085b9dce49682df67",
+    "test/native-implementation.test.ts": "sha256:e42212f1c210efc6a7347b0e87c81ad5860e0591c8f134e93d6132ef84aabcd1",
+    "research/native-development/implementation/graph.json": "sha256:733dbf4235fcfa0056078f93fbf969840e26d3e4d126216544e621b88867e206",
+    "research/native-development/implementation/trace.jsonld": "sha256:e5b833e2863004952cdddb9665aa78876d1b1644807d2c512580f754823bdd7c",
+    "research/native-development/implementation/shapes.ttl": "sha256:fd3501663c105c8be16871f7d42a3c8870a5f8c2260b03b7bb5954ad4579a4ea",
+    "research/native-development/implementation/checks.json": "sha256:102eb9a29e3c6710266ca3a749de9005aaa0954b386ecb324e3d9ccee4b4bf23",
+    "research/native-development/implementation/test-output.tap": "sha256:a2bf1bae8c072211ce8126208d107f46e3a16ba419228469a34e27d9be079994",
+    "package.json": "sha256:78dd7d5bf2cab4b5605462253df148d4cc15d098d715a50f8c34665dbf2f9511",
     "package-lock.json": "sha256:b1e641438d313a659ac432043de33f7283a2b652d764a4b704336c275cd1e1b3",
     "test/native-dispatch-fixture.ts": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
-    "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437"
+    "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437",
+    "src/addons/native-agent.ts": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e",
+    "src/addons/native-agent-http.ts": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb",
+    "test/native-agent.test.ts": "sha256:7dfc56bffa533a0c126c2215024ab592d4872402944d9d51d8fac42b8781b942",
+    "test/native-agent-http.test.ts": "sha256:0e55be95cf7c5f88ff4d3a8d91e3dc904f7d59665c04243361028c5a3bf71e4c",
+    "docs/NATIVE_AGENT.md": "sha256:d3586394b8851ec0cae5b70259cd2ba5dddf4a9aec08377b6ff9842b53299e4d",
+    "docs/NATIVE_PROFILE.md": "sha256:cc70567fb95d2d0313e67d8775fbc4c0a958207ae7e1664dd221203bb411be3e",
+    "docs/NATIVE_IMPLEMENTATION.md": "sha256:5809db90b0075b54fbb00708fe9748a9a81c3f206e6c50a393caa3ff33e8c068",
+    "README.md": "sha256:ef88b635810e1fef0e5b3ee856bbd41a6d61be0a7cc7435fdea0301ebe57ba50"
   },
   "runtime": {
     "node": "v24.20.0",
@@ -25,9 +33,9 @@
   },
   "checks": [
     {
-      "command": "66-test command and exact TAP result in checks.json",
+      "command": "79-test command and exact TAP result in checks.json",
       "status": "PASS",
-      "tests": 66,
+      "tests": 79,
       "skipped": 0
     },
     {
@@ -47,10 +55,10 @@
       "status": "PASS",
       "rdflib": "7.6.0",
       "pyshacl": "0.40.1",
-      "triples": 344,
-      "roleEdgesPreserved": 68,
-      "negativeCasesRejected": 6,
-      "implementedBounded": 7
+      "triples": 371,
+      "roleEdgesPreserved": 74,
+      "negativeCasesRejected": 7,
+      "implementedBounded": 8
     },
     {
       "command": "python3 scripts/validate-native-development.py",
@@ -79,9 +87,9 @@
       "status": "PASS"
     },
     {
-      "command": "built package self-reference imports for all seven native subpaths",
+      "command": "built package self-reference imports for all nine native subpaths",
       "status": "PASS",
-      "imports": 7
+      "imports": 9
     },
     {
       "command": "python3 scripts/check-docs.py",
@@ -91,15 +99,24 @@
   ],
   "limits": [
     "Original 24 future acceptance specifications remain SPECIFIED_NOT_RUN.",
-    "P09 covers one registered owner CLI action boundary. P10 agent bridge, P04 relocation orchestration, P07 GitHub service API, P11 W integration, and P12 OMC pilot remain pending.",
+    "P10 connects required-source staging, one model request, and at most one owner P09 CLI proposal; P04 relocation orchestration, P07 GitHub service API, P11 W integration, and P12 OMC pilot remain pending.",
+    "Live DGX is NOT_CONFIGURED_NOT_RUN. HTTP chat compatibility is verified with local loopback protocol fixtures, not a deployed DGX/vLLM server or actual model.",
     "No live HSWM, GitHub service API, or OMC end-to-end execution.",
     "Owner-store replay protection depends on preserved local history; duplicated or rolled-back writable registries do not provide global exactly-once.",
     "Filesystem/HTTP observations and external effects are not atomic; UNKNOWN gates require explicit owner reconciliation after confirming process termination and outcome.",
-    "Owner callbacks and local registrations are trusted. Delivery acknowledgement does not prove comprehension or control tools outside this dispatcher."
+    "Owner callbacks and local registrations are trusted. Staging acknowledgement does not prove API receipt, model comprehension, instruction compliance, or control tools outside this harness.",
+    "Context invalidation requires host notifications. Sessions are process-local, bounded to 1024 invocation IDs, and callback cancellation is cooperative; model requests are not retried automatically."
   ],
   "previousVerification": {
-    "gitCommit": "1ece09b4d3dc0c4fd2933ec6b51083889899d7d2",
+    "gitCommit": "e4260bc3dcc8fd2f3240d8f8fa409a106cf70dd7",
     "path": "research/native-development/implementation/verification.json",
-    "sha256": "sha256:3b1ea1e5a95d5243c3dd912396fbfc2c4f73ab00a770b2c644e41f56b2922a27"
-  }
+    "sha256": "sha256:c8763d38c993d9b5690b25eac4c8e2bf9dda51160b1148617daeb137bc796748"
+  },
+  "protocolReferences": [
+    {
+      "url": "https://docs.vllm.ai/en/latest/features/tool_calling/",
+      "checkedAt": "2026-10-12",
+      "role": "PRIMARY_PROTOCOL_DESIGN_REFERENCE_NOT_DEPLOYED_SERVER_EVIDENCE"
+    }
+  ]
 }

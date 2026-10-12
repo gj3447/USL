@@ -20,10 +20,13 @@ test("native implementation projection pins existing bounded code/test evidence 
   const expectedStatus = progress.checks.length ? "IMPLEMENTED_BOUNDED" : "CODE_PRESENT_NOT_VERIFIED"
   assert.ok(graph.resources.some((v: { metadata?: { workItem?:string; status?:string } }) => v.metadata?.workItem === "P06" && v.metadata.status === expectedStatus))
   assert.ok(graph.links.some((v: { meaning:string; participants: { resource:string }[] }) => v.meaning === "snapshotOf" && v.participants.some(p => p.resource === "urn:usl:dev:work:P06")))
-  assert.equal(graph.resources.filter((v: { metadata?: { status?:string } }) => v.metadata?.status === "PLANNED").length, 5)
+  assert.equal(graph.resources.filter((v: { metadata?: { status?:string } }) => v.metadata?.status === "PLANNED").length, 4)
   assert.ok(graph.links.some((v: { meaning:string; participants: { resource:string }[] }) => v.meaning === "addresses" && v.participants[0]?.resource.endsWith("work:P08") && v.participants[1]?.resource === "urn:usl:dev:req:R06"))
   assert.equal(graph.links.filter((v: { meaning:string; participants: { resource:string }[] }) => v.meaning === "implementedBy" && v.participants[0]?.resource.endsWith("work:P09")).length, 2)
   assert.equal(graph.links.filter((v: { meaning:string; participants: { resource:string }[] }) => v.meaning === "checkedBy" && v.participants[0]?.resource.endsWith("work:P09")).length, 4)
+  assert.equal(graph.links.filter((v: { meaning:string; participants: { resource:string }[] }) => v.meaning === "implementedBy" && v.participants[0]?.resource.endsWith("work:P10")).length, 2)
+  assert.equal(graph.links.filter((v: { meaning:string; participants: { resource:string }[] }) => v.meaning === "checkedBy" && v.participants[0]?.resource.endsWith("work:P10")).length, 2)
+  assert.deepEqual(graph.links.filter((v: { meaning:string; participants: { resource:string }[] }) => v.meaning === "addresses" && v.participants[0]?.resource.endsWith("work:P10")).map((v: { participants: { resource:string }[] }) => v.participants[1]?.resource).sort(), ["urn:usl:dev:req:R06", "urn:usl:dev:req:R07"])
   const trace = JSON.parse(await readFile(join(root, "research/native-development/implementation/trace.jsonld"), "utf8"))
   for (const link of graph.links) {
     const [source, target] = link.participants.map((p: { resource: string }) => p.resource)

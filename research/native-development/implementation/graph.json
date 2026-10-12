@@ -384,6 +384,77 @@
       }
     },
     {
+      "id": "urn:usl:native-implementation:work:P10",
+      "types": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "metadata": {
+        "workItem": "P10",
+        "status": "IMPLEMENTED_BOUNDED",
+        "plannedStatus": "PLANNED",
+        "scope": "OWNER_CONTROLLED_STATELESS_PER_TURN_HARNESS_HTTP_CHAT_MODEL_NO_LIVE_DGX_CLAIM",
+        "limitations": [
+          "NO_GENERAL_ACCEPTANCE_CLAIM",
+          "NO_AUTHORITY_GRANT",
+          "READ_ONLY_PROGRESS_PROJECTION"
+        ],
+        "authorityClass": "SECONDARY_AI"
+      },
+      "locator": "file://usl-root/research/native-development/implementation/graph.json"
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P10:code-1",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-agent.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-agent.ts",
+        "sha256": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P10:code-2",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/src/addons/native-agent-http.ts",
+      "metadata": {
+        "role": "CODE",
+        "path": "src/addons/native-agent-http.ts",
+        "sha256": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P10:test-3",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-agent.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-agent.test.ts",
+        "sha256": "sha256:7dfc56bffa533a0c126c2215024ab592d4872402944d9d51d8fac42b8781b942",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
+      "id": "urn:usl:native-implementation:artifact:P10:test-4",
+      "types": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "locator": "file://usl-root/test/native-agent-http.test.ts",
+      "metadata": {
+        "role": "TEST",
+        "path": "test/native-agent-http.test.ts",
+        "sha256": "sha256:0e55be95cf7c5f88ff4d3a8d91e3dc904f7d59665c04243361028c5a3bf71e4c",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
       "id": "urn:usl:native-implementation:work:P04",
       "types": [
         "urn:usl:native-implementation:ImplementationWork"
@@ -403,19 +474,6 @@
       ],
       "metadata": {
         "workItem": "P07",
-        "status": "PLANNED",
-        "plannedStatus": "PLANNED",
-        "authorityClass": "SECONDARY_AI"
-      },
-      "locator": "file://usl-root/research/native-development/implementation/graph.json"
-    },
-    {
-      "id": "urn:usl:native-implementation:work:P10",
-      "types": [
-        "urn:usl:native-implementation:ImplementationWork"
-      ],
-      "metadata": {
-        "workItem": "P10",
         "status": "PLANNED",
         "plannedStatus": "PLANNED",
         "authorityClass": "SECONDARY_AI"
@@ -449,7 +507,7 @@
       "locator": "file://usl-root/research/native-development/implementation/graph.json"
     },
     {
-      "id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a",
+      "id": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0",
       "types": [
         "urn:usl:native-implementation:ObservedCheck"
       ],
@@ -457,7 +515,7 @@
       "metadata": {
         "schema": "usl-native-implementation-check/v1",
         "status": "PASS",
-        "count": 66,
+        "count": 79,
         "command": [
           "env",
           "TSX_DISABLE_CACHE=1",
@@ -475,10 +533,12 @@
           "test/native-delivery.test.ts",
           "test/native-dispatch.test.ts",
           "test/native-dispatch-fault.test.ts",
-          "test/cli-host.test.ts"
+          "test/cli-host.test.ts",
+          "test/native-agent.test.ts",
+          "test/native-agent-http.test.ts"
         ],
-        "recordedAt": "2026-10-12 03:29:32 UTC",
-        "baseCommit": "1ece09b4d3dc0c4fd2933ec6b51083889899d7d2",
+        "recordedAt": "2026-10-12 05:39:25 UTC",
+        "baseCommit": "e4260bc3dcc8fd2f3240d8f8fa409a106cf70dd7",
         "revisionKind": "CURRENT_BYTE_SNAPSHOT",
         "pins": {
           "src/addons/native-profile.ts": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2",
@@ -498,11 +558,15 @@
           "test/native-dispatch.test.ts": "sha256:abd8e6e7cca6af499e3922ce85fa1010f4500ee69c4b81dd0582f51ffb60e25e",
           "test/cli-host.test.ts": "sha256:6aaf2b30401b4ec0d056283cb181d49e03227a4f18c45ef8a6102de966686844",
           "test/native-dispatch-fixture.ts": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
-          "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437"
+          "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437",
+          "src/addons/native-agent.ts": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e",
+          "src/addons/native-agent-http.ts": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb",
+          "test/native-agent.test.ts": "sha256:7dfc56bffa533a0c126c2215024ab592d4872402944d9d51d8fac42b8781b942",
+          "test/native-agent-http.test.ts": "sha256:0e55be95cf7c5f88ff4d3a8d91e3dc904f7d59665c04243361028c5a3bf71e4c"
         },
         "output": {
           "path": "research/native-development/implementation/test-output.tap",
-          "sha256": "sha256:355d79184309c241df1ea9efa29f8e28ca28f0920aaa8a68cb2d98448be937db"
+          "sha256": "sha256:a2bf1bae8c072211ce8126208d107f46e3a16ba419228469a34e27d9be079994"
         },
         "evidenceRole": "RECORDED_LOCAL_RUN_NOT_SIGNED_ATTESTATION",
         "authorityClass": "SECONDARY_AI"
@@ -621,6 +685,22 @@
       }
     },
     {
+      "id": "urn:usl:dev:work:P10",
+      "types": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "metadata": {
+        "path": "research/native-development/graph.json",
+        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+        "status": "HISTORICAL_REFERENCE_ONLY",
+        "selector": "/resources/25",
+        "authorityClass": "SECONDARY_AI"
+      }
+    },
+    {
       "id": "urn:usl:dev:work:P04",
       "types": [
         "urn:usl:native-implementation:HistoricalReference"
@@ -649,22 +729,6 @@
         "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
         "status": "HISTORICAL_REFERENCE_ONLY",
         "selector": "/resources/22",
-        "authorityClass": "SECONDARY_AI"
-      }
-    },
-    {
-      "id": "urn:usl:dev:work:P10",
-      "types": [
-        "urn:usl:native-implementation:HistoricalReference"
-      ],
-      "locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
-      "metadata": {
-        "path": "research/native-development/graph.json",
-        "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
-        "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
-        "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
-        "status": "HISTORICAL_REFERENCE_ONLY",
-        "selector": "/resources/25",
         "authorityClass": "SECONDARY_AI"
       }
     },
@@ -1337,6 +1401,90 @@
       ]
     },
     {
+      "id": "urn:usl:native-implementation:link:928be9431f49cd4bab0a8630c2255a785974a43993768bf803981ef715018819",
+      "meaning": "snapshotOf",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "historical",
+          "resource": "urn:usl:dev:work:P10"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:24f4cad2059072240ab800970c25be91d46b8e41610016e124324d657d2daba0",
+      "meaning": "derivedFrom",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "baseline",
+          "resource": "urn:usl:native-implementation:baseline:plan"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:11ffb2278e765d6e04dd2b5746d85e93056f845feea22c2c2823490192ad55d4",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P10:code-1"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:6c93f5a9533425d25a414105fe9b0f1d95bcb930f8e830f5b3322efd19fd249b",
+      "meaning": "implementedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "code",
+          "resource": "urn:usl:native-implementation:artifact:P10:code-2"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:8f62911203705a352719dfe24da47abb1089f8ee4229f5281d152ecee9ddad4e",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P10:test-3"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c7a12eb1d3a2f8eba5e236f8bac82c75c7b05332fd2b594231953efa949bb320",
+      "meaning": "checkedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "test",
+          "resource": "urn:usl:native-implementation:artifact:P10:test-4"
+        }
+      ]
+    },
+    {
       "id": "urn:usl:native-implementation:link:307f4c8cf2e53e8c31d9357b3722e455a1983240c9de105ede1112e397f50c54",
       "meaning": "snapshotOf",
       "participants": [
@@ -1361,20 +1509,6 @@
         {
           "role": "historical",
           "resource": "urn:usl:dev:work:P07"
-        }
-      ]
-    },
-    {
-      "id": "urn:usl:native-implementation:link:928be9431f49cd4bab0a8630c2255a785974a43993768bf803981ef715018819",
-      "meaning": "snapshotOf",
-      "participants": [
-        {
-          "role": "implementation",
-          "resource": "urn:usl:native-implementation:work:P10"
-        },
-        {
-          "role": "historical",
-          "resource": "urn:usl:dev:work:P10"
         }
       ]
     },
@@ -1407,7 +1541,7 @@
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:a97d27f44b21343c79c608020fa40afb4c92fa7935765ce22ea9f1c33780e28a",
+      "id": "urn:usl:native-implementation:link:b66e3829cb872b35bc02d38f2faa4980cd15da28f8803ec6f8ffd58b6746b80b",
       "meaning": "observedBy",
       "participants": [
         {
@@ -1416,12 +1550,12 @@
         },
         {
           "role": "check",
-          "resource": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:d7562656b77ff0289ce97aae568a4fce89b61865abd95b4e4b8b5c02ab2e7774",
+      "id": "urn:usl:native-implementation:link:2f5775eae0c560f49ba12817f5c888ce8f1bfb72ab34b550f8d68d02044f061b",
       "meaning": "observedBy",
       "participants": [
         {
@@ -1430,12 +1564,12 @@
         },
         {
           "role": "check",
-          "resource": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:2f91bcd00e08cabc3640d6de6ac04f23f2d6486cf9da479ca5aadcdedfff002e",
+      "id": "urn:usl:native-implementation:link:aa7c815709701849d2d0fba60577b1898c469f6209439d4db671353d26736a31",
       "meaning": "observedBy",
       "participants": [
         {
@@ -1444,12 +1578,12 @@
         },
         {
           "role": "check",
-          "resource": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:cff2849de7f184a75a6599439543db803b8e1721287f9d816345686146f9198d",
+      "id": "urn:usl:native-implementation:link:7624e9e792c2df2722c58c52424ab74dc7049fd6bc7f5ea3d559882d14e69f83",
       "meaning": "observedBy",
       "participants": [
         {
@@ -1458,12 +1592,12 @@
         },
         {
           "role": "check",
-          "resource": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:92e8ff2ffa9fa9581466a8c6d66c4535e013497f50d0407a0dd9260094f56bdc",
+      "id": "urn:usl:native-implementation:link:a5eeb49da94de2347c0744b266f1c00b84d9b00375ee931edb6f21d3d02a594d",
       "meaning": "observedBy",
       "participants": [
         {
@@ -1472,12 +1606,12 @@
         },
         {
           "role": "check",
-          "resource": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:ac70ff624559deadd3067a05dff17830e278987ac18541a44cee0ef4246eb392",
+      "id": "urn:usl:native-implementation:link:d182c0267fcec3852b22366e822e16c28aa06b89c92e0faa6d6174757a734ea1",
       "meaning": "observedBy",
       "participants": [
         {
@@ -1486,12 +1620,12 @@
         },
         {
           "role": "check",
-          "resource": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:ae0c84c6da4edf2e5ecdba9c96e0944576db8d7b6c57fdcbae715fd7ba5d2bc7",
+      "id": "urn:usl:native-implementation:link:1ae7f0303b6c066aa4796f454e6beb606a3ebc971a0357a85b64c06bc12f2643",
       "meaning": "observedBy",
       "participants": [
         {
@@ -1500,7 +1634,21 @@
         },
         {
           "role": "check",
-          "resource": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:35bba0141fdc00c623ce840e17e884769fc6a35345c081febe93d63856b5a869",
+      "meaning": "observedBy",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P10"
+        },
+        {
+          "role": "check",
+          "resource": "urn:usl:native-implementation:check:38eda36f78fb8c311e7b523a4dfd35610dcac2335287972f4bf8c793b01a56f0"
         }
       ]
     },
@@ -1687,34 +1835,6 @@
       ]
     },
     {
-      "id": "urn:usl:native-implementation:link:c7017c9e0f3bf30aba3e0b571c78ea1cfc1e14a08dddaaa967ce43b59b99fe5a",
-      "meaning": "addresses",
-      "participants": [
-        {
-          "role": "implementation",
-          "resource": "urn:usl:native-implementation:work:P04"
-        },
-        {
-          "role": "requirement",
-          "resource": "urn:usl:dev:req:R04"
-        }
-      ]
-    },
-    {
-      "id": "urn:usl:native-implementation:link:977bf894ccd9003d62d0e2ee6dd82d18c86f95d17bb7ddc68a9ac3a83ce9b804",
-      "meaning": "addresses",
-      "participants": [
-        {
-          "role": "implementation",
-          "resource": "urn:usl:native-implementation:work:P07"
-        },
-        {
-          "role": "requirement",
-          "resource": "urn:usl:dev:req:R05"
-        }
-      ]
-    },
-    {
       "id": "urn:usl:native-implementation:link:19b2cb1349967eff218acdd6f920bbb62edbb97d4be84396c1aba6864db26284",
       "meaning": "addresses",
       "participants": [
@@ -1739,6 +1859,34 @@
         {
           "role": "requirement",
           "resource": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:c7017c9e0f3bf30aba3e0b571c78ea1cfc1e14a08dddaaa967ce43b59b99fe5a",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P04"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R04"
+        }
+      ]
+    },
+    {
+      "id": "urn:usl:native-implementation:link:977bf894ccd9003d62d0e2ee6dd82d18c86f95d17bb7ddc68a9ac3a83ce9b804",
+      "meaning": "addresses",
+      "participants": [
+        {
+          "role": "implementation",
+          "resource": "urn:usl:native-implementation:work:P07"
+        },
+        {
+          "role": "requirement",
+          "resource": "urn:usl:dev:req:R05"
         }
       ]
     },

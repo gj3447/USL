@@ -30,6 +30,7 @@ Copyright © 2026 **Ra Gyeongjun (라경준)**. **MetaHumotonic License 1.2**로
 - [AI native 어댑터·유사 기술 40항목 조사](docs/RESEARCH_AI_NATIVE_ADAPTERS_2026-09-22.md) · [개발 로드맵 제안](docs/AI_NATIVE_ADAPTER_ROADMAP.md)
 - [40항목 공학 보완 그래프·적대적 검증](docs/ENGINEERING_ADVERSARIAL_MATRIX.md) · [구현된 계약과 사용법](docs/ENGINEERING_CONTRACTS.md)
 - [AI용 기능 발견·사전검사: SDK·CLI·MCP](docs/CAPABILITY_CATALOG.md)
+- [Native profile·P09 dispatcher·P10 harness](docs/NATIVE_PROFILE.md) · [P10 HTTP model boundary](docs/NATIVE_AGENT.md)
 - [경로 이동·여러 표현·그래프에서 CLI 실행](docs/CLI_GRAPH_ARCHITECTURE.md) · [portable resource bindings](docs/RESOURCE_BINDINGS.md)
 - [사용자 매뉴얼](docs/USER_MANUAL.md) · [빠른 시작](docs/GETTING_STARTED.md) · [CLI](docs/CLI.md) · [MCP](docs/MCP.md)
 - [기존 `.usl` 문법](docs/LANGUAGE.md) · [TypeScript 코드 내장](docs/CODE_INTEGRATION.md)
@@ -100,7 +101,7 @@ JSON-LD 1.1/RDF 교환, PROV-O 출처 관계와 SHACL 구조 검사를 지원한
 
 Git·URL·환경 이동·필수 읽기·HSWM W·입운구 연결의 후속 개발은 [native 개발 그래프](docs/NATIVE_DEVELOPMENT_PLAN.md)에 모았다. 사용자 원문과 요구사항 10개, 개발 작업 12개, 수용 명세 24개를 근거·의존성·소유자 경계로 연결하며, 현재 구현과 앞으로 검증할 작업을 구분한다.
 
-후속 구현의 [native profile SDK](docs/NATIVE_PROFILE.md)는 프로필 계약·owner 저장소·Git/파일/HTTP 관측·환경 전환·필수 원문 전달·owner CLI 단일 실행 dispatcher를 제공한다. [구현 진행 그래프](docs/NATIVE_IMPLEMENTATION.md)는 코드와 테스트의 실제 byte pin을 기존 작업 ID에 연결한다. agent harness·W 연결·입운구 종단 pilot은 별도 후속 작업이다.
+후속 구현의 [native profile SDK](docs/NATIVE_PROFILE.md)는 프로필 계약·owner 저장소·Git/파일/HTTP 관측·환경 전환·필수 원문 전달·owner CLI 단일 실행 dispatcher와 [에이전트/HTTP 모델 연결](docs/NATIVE_AGENT.md)을 제공한다. [구현 진행 그래프](docs/NATIVE_IMPLEMENTATION.md)는 코드와 테스트의 실제 byte pin을 기존 작업 ID에 연결한다. 실제 DGX 접속 검증·W 연결·입운구 종단 pilot은 후속 작업이다.
 
 ```sh
 npm run typecheck

@@ -4,7 +4,7 @@
     {
       "schema": "usl-native-implementation-check/v1",
       "status": "PASS",
-      "count": 66,
+      "count": 79,
       "command": [
         "env",
         "TSX_DISABLE_CACHE=1",
@@ -22,10 +22,12 @@
         "test/native-delivery.test.ts",
         "test/native-dispatch.test.ts",
         "test/native-dispatch-fault.test.ts",
-        "test/cli-host.test.ts"
+        "test/cli-host.test.ts",
+        "test/native-agent.test.ts",
+        "test/native-agent-http.test.ts"
       ],
-      "recordedAt": "2026-10-12 03:29:32 UTC",
-      "baseCommit": "1ece09b4d3dc0c4fd2933ec6b51083889899d7d2",
+      "recordedAt": "2026-10-12 05:39:25 UTC",
+      "baseCommit": "e4260bc3dcc8fd2f3240d8f8fa409a106cf70dd7",
       "revisionKind": "CURRENT_BYTE_SNAPSHOT",
       "pins": {
         "src/addons/native-profile.ts": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2",
@@ -45,11 +47,15 @@
         "test/native-dispatch.test.ts": "sha256:abd8e6e7cca6af499e3922ce85fa1010f4500ee69c4b81dd0582f51ffb60e25e",
         "test/cli-host.test.ts": "sha256:6aaf2b30401b4ec0d056283cb181d49e03227a4f18c45ef8a6102de966686844",
         "test/native-dispatch-fixture.ts": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
-        "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437"
+        "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437",
+        "src/addons/native-agent.ts": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e",
+        "src/addons/native-agent-http.ts": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb",
+        "test/native-agent.test.ts": "sha256:7dfc56bffa533a0c126c2215024ab592d4872402944d9d51d8fac42b8781b942",
+        "test/native-agent-http.test.ts": "sha256:0e55be95cf7c5f88ff4d3a8d91e3dc904f7d59665c04243361028c5a3bf71e4c"
       },
       "output": {
         "path": "research/native-development/implementation/test-output.tap",
-        "sha256": "sha256:355d79184309c241df1ea9efa29f8e28ca28f0920aaa8a68cb2d98448be937db"
+        "sha256": "sha256:a2bf1bae8c072211ce8126208d107f46e3a16ba419228469a34e27d9be079994"
       }
     }
   ]

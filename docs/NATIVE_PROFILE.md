@@ -1,6 +1,6 @@
 # Native profile SDK
 
-이 선택적 SDK는 [native 개발 계획](NATIVE_DEVELOPMENT_PLAN.md)의 P01/P02/P03/P05/P06/P08/P09에 해당하는 기반 구현이다. 프로필의 리소스 정체성, 현재 환경의 위치, 관측한 내용, 실제 전달한 원문을 서로 구분한다. [진행 그래프](NATIVE_IMPLEMENTATION.md)는 이 구현과 검증 근거를 기존 작업 ID에 연결한다. 계획의 전체 수용 기준을 완료했다는 뜻은 아니다.
+이 선택적 SDK는 [native 개발 계획](NATIVE_DEVELOPMENT_PLAN.md)의 P01/P02/P03/P05/P06/P08/P09/P10에 해당하는 기반 구현이다. 프로필의 리소스 정체성, 현재 환경의 위치, 관측한 내용, 실제 전달한 원문을 서로 구분한다. [진행 그래프](NATIVE_IMPLEMENTATION.md)는 이 구현과 검증 근거를 기존 작업 ID에 연결한다. 계획의 전체 수용 기준을 완료했다는 뜻은 아니다.
 
 ## 제공하는 모듈
 
@@ -13,6 +13,8 @@
 | `usl/native-http` | 정확한 URL allowlist, bounded GET/redirect, 내용 pin·조건부 캐시·재검사 |
 | `usl/native-delivery` | owner loader를 통한 전체 원문 검증 및 호출 대상 전달, opaque delivery handle과 철회 |
 | `usl/native-dispatch` | 현재 profile·필수 전달·등록 evaluator를 재검사하고 durable gate 안에서 owner CLI 한 번 실행 |
+| `usl/native-agent` | 필수 원문 문맥·단일 모델 호출·P09 실행 연결, 문맥 손실과 인계 시 철회 |
+| `usl/native-agent-http` | owner가 지정한 chat API에 제한된 HTTP 요청, 단일 도구 응답 검증 |
 
 모듈 import·build·설치는 외부 연결이나 실행을 시작하지 않는다. SDK 호출 시 owner가 전달하는 등록과 callback만 사용한다. 리소스 링크, digest, 영수증은 권한이나 전자서명이 아니다.
 
@@ -68,7 +70,7 @@ HTTP는 environment의 `httpPolicies`에 resource/representation, 정확한 `url
 
 전달 대상은 snapshot/invocation/source/loader/target과 전달 digest/길이가 일치하는 ack를 반환해야 한다. 성공한 원본 handle만 `checkNativeDelivery(handle, snapshot, invocationId, targetId)`를 통과한다. JSON 복사본, 다른 호출·환경·대상, 철회한 handle은 실패한다. `revokeNativeDelivery`는 context 손실, compaction, handoff 때 host가 호출해야 한다. callback timeout은 HOLD이며 취소는 협력적이다. 취소를 무시하는 owner callback을 강제 종료하는 sandbox는 아니다.
 
-순수 `createNativeReadReceipt`는 문서 형식을 만들 뿐이며 실제 loader 호출의 증거가 아니다. 전달 handle도 모델의 이해나 준수를 증명하지 않는다. P09 dispatcher는 이 전달 handle을 실제 owner CLI 실행 허가에 사용한다. **P10 agent bridge는 아직 연결하지 않았다.** 현재 SDK 밖에서 실행되는 도구를 이 계약이 통제하지 않는다.
+순수 `createNativeReadReceipt`는 문서 형식을 만들 뿐이며 실제 loader 호출의 증거가 아니다. 전달 handle도 모델의 이해나 준수를 증명하지 않는다. P09 dispatcher는 이 전달 handle을 실제 owner CLI 실행 허가에 사용한다. P10은 이를 한 inference와 최대 한 등록 P09 proposal에 연결할 뿐이며, 현재 SDK 밖의 도구를 통제하지 않는다. [P10 harness 경계](NATIVE_AGENT.md)를 따른다.
 
 ## 실제 CLI 실행 경계
 
@@ -106,9 +108,10 @@ TSX_DISABLE_CACHE=1 TMPDIR=/dev/shm node --import tsx --test \
   test/native-profile.test.ts test/native-profile-store.test.ts \
   test/native-observation.test.ts test/native-profile-runtime.test.ts \
   test/native-http.test.ts test/native-delivery.test.ts \
-  test/native-dispatch.test.ts test/native-dispatch-fault.test.ts test/cli-host.test.ts
+  test/native-dispatch.test.ts test/native-dispatch-fault.test.ts test/cli-host.test.ts \
+  test/native-agent.test.ts test/native-agent-http.test.ts
 npm run typecheck
 npm run build
 ```
 
-다음 연결은 P04의 dirty 복원→전환 orchestration, P07 GitHub 서비스 adapter, P10 agent bridge, P11 조합 확률/W review, P12 입운구 종단 pilot이다. 기존 portable-transfer/CLI/HSWM 기능은 재사용 기반이며 이 신규 프로필과의 종단 연결 완료를 뜻하지 않는다. 필수 규칙과 권한을 W나 샘플링 확률로 완화하지 않는다.
+다음 연결은 P04의 dirty 복원→전환 orchestration, P07 GitHub 서비스 adapter, P11 조합 확률/W review, P12 입운구 종단 pilot이다. 기존 portable-transfer/CLI/HSWM 기능은 재사용 기반이며 이 신규 프로필과의 종단 연결 완료를 뜻하지 않는다. 필수 규칙과 권한을 W나 샘플링 확률로 완화하지 않는다.

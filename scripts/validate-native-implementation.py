@@ -44,20 +44,25 @@ def main():
             raise AssertionError("resource type lost in RDF projection")
         if json.loads(str(graph.value(subject, NI.metadata))) != resource["metadata"]:
             raise AssertionError("resource metadata lost in RDF projection")
-    p08, p09, p10 = NI["work:P08"], NI["work:P09"], NI["work:P10"]
+    p08, p09, p10, p11 = NI["work:P08"], NI["work:P09"], NI["work:P10"], NI["work:P11"]
     if (p08, NI.addresses, URIRef("urn:usl:dev:req:R06")) not in graph or len(list(graph.objects(p09, NI.implementedBy))) != 2 or len(list(graph.objects(p09, NI.checkedBy))) != 4:
         raise AssertionError("competency query changed delivery or dispatcher dependency evidence")
-    if (p09, NI.addresses, URIRef("urn:usl:dev:req:R07")) not in graph or (p10, NI.status, Literal("PLANNED")) not in graph:
-        raise AssertionError("dispatcher requirement or pending P10 changed")
+    if (p09, NI.addresses, URIRef("urn:usl:dev:req:R07")) not in graph or len(list(graph.objects(p10, NI.implementedBy))) != 2 or len(list(graph.objects(p10, NI.checkedBy))) != 2:
+        raise AssertionError("dispatcher requirement or P10 harness evidence changed")
+    if set(graph.objects(p10, NI.addresses)) != {URIRef("urn:usl:dev:req:R06"), URIRef("urn:usl:dev:req:R07")}:
+        raise AssertionError("P10 must preserve required-reading and execution-control requirements")
+    if (p11, NI.status, Literal("PLANNED")) not in graph:
+        raise AssertionError("pending P11 changed")
     implemented = [s for s in work if (s, NI.status, Literal("IMPLEMENTED_BOUNDED")) in graph]
-    if len(implemented) != 7:
-        raise AssertionError("expected seven bounded, evidenced work items")
+    if len(implemented) != 8:
+        raise AssertionError("expected eight bounded, evidenced work items")
     code = graph.value(p08, NI.implementedBy)
     check = graph.value(p08, NI.observedBy)
     cases = [
         ([(p08, NI.observedBy, check)], []),
         ([(code, NI.sha256, None)], [(code, NI.sha256, Literal("sha256:invalid"))]),
         ([(p09, NI.implementedBy, None)], []),
+        ([(p10, NI.checkedBy, None)], []),
         ([(p08, NI.checkedBy, None)], [(p08, NI.checkedBy, p09)]),
         ([(p08, NI.checkedBy, None)], [(p08, NI.checkedBy, code)]),
         ([(p08, NI.status, None)], [(p08, NI.status, Literal("ALL_ACCEPTANCE_COMPLETE"))]),
