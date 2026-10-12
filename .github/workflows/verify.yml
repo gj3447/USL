@@ -44,6 +44,19 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      # Research JSON-LD outputs are gitignored and locked by digest; regenerate
+      # them with their owners' builders so the --check steps compare bytes and
+      # the RDF validators have input. The build must not change tracked files.
+      - name: Hydrate locked research JSON-LD
+        run: |
+          node --import tsx scripts/build-completion-plan.ts
+          node --import tsx scripts/build-development-plan.ts
+          python3 -B scripts/build-development-lineage.py
+          python3 -B scripts/build-native-development.py
+          node --import tsx scripts/build-standards-coverage.ts
+          node --import tsx scripts/build-portability-research.ts
+          git diff --exit-code
+          test -z "$(git status --porcelain)" || { git status --porcelain; exit 1; }
       - run: python3 scripts/check-docs.py
       - run: python3 -B scripts/test_install_workspace_linking_rules.py
       - run: python3 -B scripts/test_sync_github_workspace_rules.py
@@ -78,6 +91,10 @@ jobs:
       - run: node --import tsx scripts/build-syntax-cli-architecture.ts --check
       - run: python3 scripts/validate-syntax-cli-architecture.py
       - run: python3 -B scripts/build-development-lineage.py --check
+      - run: node --import tsx scripts/build-completion-plan.ts --check
+      - run: python3 scripts/validate-completion-plan.py
+      - run: python3 -B scripts/build-native-development.py --check
+      - run: python3 scripts/validate-native-development.py
       - run: npx tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --exactOptionalPropertyTypes --noUncheckedIndexedAccess --skipLibCheck --types node scripts/validate-development-lineage.ts
       - run: node --import tsx scripts/validate-development-lineage.ts
       - run: python3 -B scripts/validate-development-lineage.py
