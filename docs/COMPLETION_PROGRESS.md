@@ -14,7 +14,7 @@
 
 상태: **STATE_RESTORE_REBIND_LOCAL_SCOPE**. 독립 Git bundle과 sidecar를 연결해 HEAD tree를 대조하고, index stage 0–3 mode/OID와 working bytes·삭제·선택 untracked를 새 worktree에 분리 복원한다. 상태 receipt를 revision으로 삼아 선택 binding과 graph locator의 로컬 재연결 제안을 만든다. [계약과 사용법](PORTABLE_TRANSFER_GIT_STATE.md).
 
-소스 `10fd5d47efeeff01bc50871fd3c1bbab052dd702`; 기록 2026-10-07T00:14:28.666851+00:00. Linux / v24.20.0 / git version 2.47.3에서 **51개 PASS**, 실패·건너뜀 0.
+소스 `0946da940aef7fd5a1d0d73f5d803549c06c8336`; 기록 2026-10-12T14:26:34.432532+00:00. Linux / v24.20.0 / git version 2.47.3에서 **51개 PASS**, 실패·건너뜀 0.
 
 CP01/02 인수 범위는 raw regular clean trees다. CP03는 raw regular 선택 작업 상태의 수집·검증·복원·로컬 재연결 제안까지 포함한다. base clean bundle은 독립적으로 준비되어 있어야 한다. submodule/LFS/alternates·원자 snapshot·프로세스 crash 복구·타 OS·실기기 이동은 이 결과로 완료 처리하지 않는다. 실제 registry에는 쓰지 않으며 권한을 부여하지 않는다.
 

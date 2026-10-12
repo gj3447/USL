@@ -1,8 +1,8 @@
 {
   "schema": "usl-clean-git-progress/v4",
   "authority": "SECONDARY_AI",
-  "recordedAt": "2026-10-07T00:14:28.666851+00:00",
-  "sourceCommit": "10fd5d47efeeff01bc50871fd3c1bbab052dd702",
+  "recordedAt": "2026-10-12T14:26:34.432532+00:00",
+  "sourceCommit": "0946da940aef7fd5a1d0d73f5d803549c06c8336",
   "implementations": {
     "CP01": "CLEAN_EXPORT_LOCAL_SCOPE",
     "CP02": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE",
@@ -85,11 +85,11 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c"
+      "sha256": "sha256:b1e641438d313a659ac432043de33f7283a2b652d764a4b704336c275cd1e1b3"
     },
     {
       "path": "package.json",
-      "sha256": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823"
+      "sha256": "sha256:78dd7d5bf2cab4b5605462253df148d4cc15d098d715a50f8c34665dbf2f9511"
     },
     {
       "path": "research/completion-plan/plan.json",
@@ -118,6 +118,46 @@
     {
       "path": "src/addons/checkout-guard.ts",
       "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
+    },
+    {
+      "path": "src/addons/memory-relocation.ts",
+      "sha256": "sha256:4289b5df5d75b67cbe2e9acd581cda810867c299185fab8bfb2aa613335b7f6c"
+    },
+    {
+      "path": "src/addons/native-agent-http.ts",
+      "sha256": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb"
+    },
+    {
+      "path": "src/addons/native-agent.ts",
+      "sha256": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e"
+    },
+    {
+      "path": "src/addons/native-delivery.ts",
+      "sha256": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0"
+    },
+    {
+      "path": "src/addons/native-dispatch.ts",
+      "sha256": "sha256:01b53ea9e49e286e075bcf4b6c005c2183cfaf30f225f66c0213a3e8cd6975b8"
+    },
+    {
+      "path": "src/addons/native-http.ts",
+      "sha256": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda"
+    },
+    {
+      "path": "src/addons/native-observation.ts",
+      "sha256": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e"
+    },
+    {
+      "path": "src/addons/native-profile-runtime.ts",
+      "sha256": "sha256:0abaa71f279177804205d4181bd52303d6f0a30192043ad1fd5e8808771ffd03"
+    },
+    {
+      "path": "src/addons/native-profile-store.ts",
+      "sha256": "sha256:c10e006c29c6855fe8e0916688eeb35b9df40c1df93ba25e1b48afe9674e72c4"
+    },
+    {
+      "path": "src/addons/native-profile.ts",
+      "sha256": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2"
     },
     {
       "path": "src/addons/portable-transfer-bindings.ts",
@@ -209,7 +249,7 @@
     },
     {
       "path": "src/cli-host.ts",
-      "sha256": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692"
+      "sha256": "sha256:21ab5ce0021e01bf6e92c6ceeadc081bbe8069992935e081ac81612bfe15e6fa"
     },
     {
       "path": "src/cli-operation.ts",
@@ -481,5 +521,5 @@
     "skipped": 0,
     "todo": 0
   },
-  "tapDigest": "sha256:ef867a29fea80753548544474334535b69429c9ed62261cb8b55794a30f9a8f1"
+  "tapDigest": "sha256:653efc2cf01860fd8684b6a6750d122a857f40e6ebfabd967c85d4449d0d732d"
 }

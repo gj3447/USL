@@ -5,9 +5,9 @@
   },
   "@graph": [
     {
-      "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4",
+      "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa",
       "@type": "prov:Entity",
-      "usl:sourceDigest": "sha256:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+      "usl:sourceDigest": "sha256:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
     },
     {
       "@id": "urn:usl:profile:90dfbd586f02d21b59fdfe6ed9d80868b9e22d6b861c5cc8eb2d8b4e17e19ba6",
@@ -428,7 +428,7 @@
       "usl:metadata": {
         "@value": {
           "path": "src/cli-host.ts",
-          "sourceDigest": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692"
+          "sourceDigest": "sha256:21ab5ce0021e01bf6e92c6ceeadc081bbe8069992935e081ac81612bfe15e6fa"
         },
         "@type": "@json"
       }
@@ -520,7 +520,7 @@
       "usl:metadata": {
         "@value": {
           "path": "test/cli-host.test.ts",
-          "sourceDigest": "sha256:d384ea041e287b90e756354103b8f32bded899960c333b901a3ef91d9a4ccb2f",
+          "sourceDigest": "sha256:6aaf2b30401b4ec0d056283cb181d49e03227a4f18c45ef8a6102de966686844",
           "evidenceKind": "TEST_DEFINITION",
           "execution": "NOT_CLAIMED",
           "finiteCoverage": "NOT_CLAIMED"
@@ -869,7 +869,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -919,7 +919,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -969,7 +969,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1019,7 +1019,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1072,7 +1072,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1126,7 +1126,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1176,7 +1176,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1229,7 +1229,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1279,7 +1279,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1329,7 +1329,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1382,7 +1382,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1435,7 +1435,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1488,7 +1488,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1538,7 +1538,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1591,7 +1591,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1641,7 +1641,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1691,7 +1691,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1744,7 +1744,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1797,7 +1797,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1847,7 +1847,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1900,7 +1900,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -1950,7 +1950,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -2000,7 +2000,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -2053,7 +2053,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -2106,7 +2106,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -2156,7 +2156,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -2209,7 +2209,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"
@@ -2262,7 +2262,7 @@
       ],
       "prov:wasDerivedFrom": [
         {
-          "@id": "urn:usl:source:300b02dbbdec1d4928de1b8a4aaca1b3a8ab21cd23ea04cbd251ffe9c1d67cc4"
+          "@id": "urn:usl:source:c38cfe7eb57d8cf961b2caa21d12107d0129df750043ad33ebe8a1c79eb9fbfa"
         },
         {
           "@id": "urn:usl:usl.binding.progress:resource:progress%3Agenerator"

@@ -10,7 +10,7 @@
       "w:verdict": "PARTIAL_WORKTREE_SUPPORT_NOT_COMPLETE_PORTABILITY",
       "w:authority": "SECONDARY_AI",
       "w:scope": "실제 임시 Git main/linked worktrees의 선택·재바인딩·관측·local CLI·실행 guard·reservation 경계. 실제 사용자 저장소 이동이나 네트워크 접근 없음.",
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00",
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00",
       "w:assesses": [
         {
           "@id": "finding:WT01"
@@ -103,8 +103,8 @@
     {
       "@id": "input:test-receipt",
       "@type": "prov:Entity",
-      "w:sha256": "sha256:89e19633a867c9e00d890e5bb71afbf6586c44ec53f5492c4ec767c76d686220",
-      "w:sourceCommit": "17ad4031ad52b6c5e56352a121a7e3164290a434"
+      "w:sha256": "sha256:3625d82be95b2684951b7197b9cbe783f35465194c3db8025990ce5853ef9e8f",
+      "w:sourceCommit": "0946da940aef7fd5a1d0d73f5d803549c06c8336"
     },
     {
       "@id": "finding:WT01",
@@ -393,7 +393,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-graph.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:d43acd8317195bf1216d0ce948b4aca30a466adf98d312a555484ee2d276cef5",
@@ -403,7 +403,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-graph.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:06d4c3dd70f5645f630c2c80d52912787f4a65236e2d2bd6c1d2895260d15cdd",
@@ -413,7 +413,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-graph.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -423,7 +423,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-inspection.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:c73650c20ba3c9f04c5e49d0864c444b71049f88e31541b7c66f2ab5e8c053d5",
@@ -433,7 +433,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-inspection.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:7ac52417f3255df407c477b7d31d46229f4df08f3bd305ddadb387d313b10ec8",
@@ -443,7 +443,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-inspection.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:a548d16fbf086d67637e6276af79244d19a28444a305081841d5a35d21197d05",
@@ -453,7 +453,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-inspection.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:669501a24954f6f549fff0c22a173365f5711989d37ed24f5a3ff31807ffc3ce",
@@ -463,7 +463,7 @@
       "w:definedIn": {
         "@id": "artifact:test/binding-inspection.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:f34bb2ca177fe053f2a27beb6048f84b87cf60920c7754160c1eef76261189a9",
@@ -473,7 +473,7 @@
       "w:definedIn": {
         "@id": "artifact:test/cli-operation.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:6e74e06c72c7438ad5efdbd9efa07d0548446584ea941500c31628a9bc4a4213",
@@ -483,7 +483,7 @@
       "w:definedIn": {
         "@id": "artifact:test/cli-operation.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:ca58c8286b6b0e6a27fccc34309d4d89acda598ad6a69c02eec2929b3d93104f",
@@ -493,7 +493,7 @@
       "w:definedIn": {
         "@id": "artifact:test/cli-operation.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:e0e48865bbedaffa5f9d116a1156a78139301485c1506bf9272a81e61146004c",
@@ -503,7 +503,7 @@
       "w:definedIn": {
         "@id": "artifact:test/cli-operation.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:514c213485269fd03af2fd8cc455cd1ade0b8905df14bedc95a3281ca7820c42",
@@ -513,7 +513,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:5aa3475daaba25ef15e7ca33b346dad28c074dd475b0d014d516f8284533075c",
@@ -523,7 +523,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:7f9f95737d6279c14d832acfa469586066332df3dfcb9753c7a7d99d8ef6c838",
@@ -533,7 +533,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:34e1730c05c33034f56999791ebce04074cc0fd386c6e650d137e6195459982c",
@@ -543,7 +543,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:38071d98745566d878a76a1a82aa412387d9a229c5c89bf9683c4e50010b675f",
@@ -553,7 +553,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:0a93a6b1ab6003a14bac19f189b50fd6ccb29882c601d9a9f5bb525d32edebd0",
@@ -563,7 +563,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:66bcf74c60d5291b05b47d479705bcedf8033778262c72266c9041336ba99142",
@@ -573,7 +573,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:ccc08a5292c375fb7c540da7345c4350504b8eb670a502ef287b9697555a34e7",
@@ -583,7 +583,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:2847c9c977ea124a28548042bdbaae8a9a474f44a397a14a9d789e31b1a2a2ff",
@@ -593,7 +593,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:7cb38b8e0ef7dc5a62d0eacab6f5430ccb2cf9b7d589482d766467ff0bf7c27c",
@@ -603,7 +603,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:26a001bb296b3d88b089d58e61625d4c03c63eb5c711a28cbb3ea6d6ee1d9196",
@@ -613,7 +613,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:1b677c7f876cd63206d7d981b1468e7e75075c900957dcc299343d92c2a7f2d5",
@@ -623,7 +623,7 @@
       "w:definedIn": {
         "@id": "artifact:test/portable-transfer.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:d46714e042b82a28532e636818b866fd59400f285b05e1e8b59c783595e9005c",
@@ -633,7 +633,7 @@
       "w:definedIn": {
         "@id": "artifact:test/resource-bindings.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:2b60e1eb136d52ecd4529dccbc81aeac8f77caa2eb00dd6c2ab724534cdf8ed5",
@@ -643,7 +643,7 @@
       "w:definedIn": {
         "@id": "artifact:test/resource-bindings.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:717b73129ac9333747a7d1fd0ff357b7b35157eb6b70538ca6a8cddd20a9e9d1",
@@ -653,7 +653,7 @@
       "w:definedIn": {
         "@id": "artifact:test/resource-bindings.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:c0409c447c6dfc0436c86c3f9b252568b805454e7dd8f6f93b2d2607e2435a6a",
@@ -663,7 +663,7 @@
       "w:definedIn": {
         "@id": "artifact:test/resource-bindings.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:4946d7ab79d47165e2a24a59029d8a1c95ac2defc3c0c7a4ef7828b49397b253",
@@ -673,7 +673,7 @@
       "w:definedIn": {
         "@id": "artifact:test/resource-bindings.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:f7cc0136012c4d62b16f5c3abfb4e6cb68da174880db7d7a51f86ac971dac787",
@@ -683,7 +683,7 @@
       "w:definedIn": {
         "@id": "artifact:test/resource-bindings.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:7ddbfb8ce9df64fb3061889ce14362911a05530dd4ea4d16d736d20b5db3ae0b",
@@ -693,7 +693,7 @@
       "w:definedIn": {
         "@id": "artifact:test/resource-bindings.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:2cb7af2e2cde44d0e08a2db8e471f1c03cb183d4407aed5f22b2ad175b894487",
@@ -703,7 +703,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-execution.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:9af42f1d26174503f9c2ef899d2f37bdab33142d11ea6bb0aca7bd4a3e514d5d",
@@ -713,7 +713,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-execution.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:8958cf4aec00f9a66dfc3576249ad1d148145a938fcf3b6f9cf0b4c2e97a28ca",
@@ -723,7 +723,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-execution.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:dc761a0843a98d3eedddb0a44ea30e6d745e5202e06f55b356c96d8ab5ee76f1",
@@ -733,7 +733,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-execution.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:a99a4f5c426271d52a8f1aad201064bedb366f7459b62e013fc35c1229be480c",
@@ -743,7 +743,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-execution.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:50a71d08467faaf0d29870dae883596e78e5259b80590c70fb9a0009e722b262",
@@ -753,7 +753,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-graph-cli.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:ea00c252bb8f9b1403f6a0e801f7351014d267c51864e889275c5eee1e94d5a5",
@@ -763,7 +763,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-graph-cli.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:6858033ababd53342caeaf6eaf84badb2f4df581c25b46188bc7804b8b8a421f",
@@ -773,7 +773,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-graph-cli.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:38940c59d5494317414792a73e14052fb67ab56e26210c4e8bb59e0fbafea283",
@@ -783,7 +783,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-graph-cli.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:f1ad1f53d69a9b7c28898367c9f3237af542c5ccd1f289d5a37945c863e7d386",
@@ -793,7 +793,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:1c8856238d80a7a271322e1fe1644e7c7d5ba5334e6376d0103c2eaf217f7614",
@@ -803,7 +803,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:a59d13f618d4dbe25a5fed8dace1f94dd1adb0dec70e11a5bae0326eb87023b1",
@@ -813,7 +813,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:bf5b2cd0ec536eb41edc1ca9dbc72ea5b57fd2a63e45b97300fa6a6a6a3f2af3",
@@ -823,7 +823,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:8953c2e35a7d0e54a90b616d00aaf6f24cbae71563c9a48a75a6820a0611da93",
@@ -833,7 +833,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:1b013ece0e03a42a6f7807639b64f7757173a5cfd3df8db4bdda959d92599f4e",
@@ -843,7 +843,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:ec196d1753adf5d31f001dfa21793cf78b2f5c225a15ff97d3a9c79bd221c059",
@@ -853,7 +853,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:8a376503b53a180269544873e5fbaf33d0ba1b6f1471d43deeda8d158b5487c5",
@@ -863,7 +863,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:7c2f22df00c4c3cd13a75c1007772a8984f281a2a247809475341e5e5cb31cc4",
@@ -873,7 +873,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "test:c66415185356eafd1c33974a2e5d3524335a6c677f0697bd8357e7b0464b8a7b",
@@ -883,7 +883,7 @@
       "w:definedIn": {
         "@id": "artifact:test/worktree-lifecycle.test.ts"
       },
-      "w:recordedAt": "2026-10-04T06:35:40.895789+00:00"
+      "w:recordedAt": "2026-10-12T14:26:47.281684+00:00"
     },
     {
       "@id": "artifact:examples/fixtures/cli/graphspec.json",
@@ -895,13 +895,13 @@
       "@id": "artifact:package-lock.json",
       "@type": "w:SourceFile",
       "w:path": "package-lock.json",
-      "w:sha256": "sha256:57aba71899cdbcd8f6be18682d331ccf076ab33854e906263e6b04f157003a9c"
+      "w:sha256": "sha256:b1e641438d313a659ac432043de33f7283a2b652d764a4b704336c275cd1e1b3"
     },
     {
       "@id": "artifact:package.json",
       "@type": "w:SourceFile",
       "w:path": "package.json",
-      "w:sha256": "sha256:d1ab1c1920b320fad4e6d2cc379df4a314e3a6ffec8addb350613a83caa64823"
+      "w:sha256": "sha256:78dd7d5bf2cab4b5605462253df148d4cc15d098d715a50f8c34665dbf2f9511"
     },
     {
       "@id": "artifact:research/worktree-audit/catalog.json",
@@ -928,6 +928,66 @@
       "w:sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
     },
     {
+      "@id": "artifact:src/addons/memory-relocation.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/memory-relocation.ts",
+      "w:sha256": "sha256:4289b5df5d75b67cbe2e9acd581cda810867c299185fab8bfb2aa613335b7f6c"
+    },
+    {
+      "@id": "artifact:src/addons/native-agent-http.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-agent-http.ts",
+      "w:sha256": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb"
+    },
+    {
+      "@id": "artifact:src/addons/native-agent.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-agent.ts",
+      "w:sha256": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e"
+    },
+    {
+      "@id": "artifact:src/addons/native-delivery.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-delivery.ts",
+      "w:sha256": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0"
+    },
+    {
+      "@id": "artifact:src/addons/native-dispatch.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-dispatch.ts",
+      "w:sha256": "sha256:01b53ea9e49e286e075bcf4b6c005c2183cfaf30f225f66c0213a3e8cd6975b8"
+    },
+    {
+      "@id": "artifact:src/addons/native-http.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-http.ts",
+      "w:sha256": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda"
+    },
+    {
+      "@id": "artifact:src/addons/native-observation.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-observation.ts",
+      "w:sha256": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e"
+    },
+    {
+      "@id": "artifact:src/addons/native-profile-runtime.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-profile-runtime.ts",
+      "w:sha256": "sha256:0abaa71f279177804205d4181bd52303d6f0a30192043ad1fd5e8808771ffd03"
+    },
+    {
+      "@id": "artifact:src/addons/native-profile-store.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-profile-store.ts",
+      "w:sha256": "sha256:c10e006c29c6855fe8e0916688eeb35b9df40c1df93ba25e1b48afe9674e72c4"
+    },
+    {
+      "@id": "artifact:src/addons/native-profile.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/native-profile.ts",
+      "w:sha256": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2"
+    },
+    {
       "@id": "artifact:src/addons/portable-transfer-bindings.ts",
       "@type": "w:SourceFile",
       "w:path": "src/addons/portable-transfer-bindings.ts",
@@ -938,6 +998,36 @@
       "@type": "w:SourceFile",
       "w:path": "src/addons/portable-transfer-export.ts",
       "w:sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
+    },
+    {
+      "@id": "artifact:src/addons/portable-transfer-git-bindings.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/portable-transfer-git-bindings.ts",
+      "w:sha256": "sha256:de33ca248de6ace2c47e3b02292cec74534e0e75b1af376d01e4ef39f506528d"
+    },
+    {
+      "@id": "artifact:src/addons/portable-transfer-git-state-bindings.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/portable-transfer-git-state-bindings.ts",
+      "w:sha256": "sha256:6ff2d35b71129d5bc7b64887691a5c7e9e0e91d08e6589c325089af79d7a4ffa"
+    },
+    {
+      "@id": "artifact:src/addons/portable-transfer-git-state-restore.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/portable-transfer-git-state-restore.ts",
+      "w:sha256": "sha256:0d9095fcbee76dd3c13d5d09e5040261766b42818d02414396a2a2cdd0571dc6"
+    },
+    {
+      "@id": "artifact:src/addons/portable-transfer-git-state.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/portable-transfer-git-state.ts",
+      "w:sha256": "sha256:241f447b1201788f32ae6fdd1bbbfb18391ba339d886040a88efda4c0ca6031b"
+    },
+    {
+      "@id": "artifact:src/addons/portable-transfer-git.ts",
+      "@type": "w:SourceFile",
+      "w:path": "src/addons/portable-transfer-git.ts",
+      "w:sha256": "sha256:738f9e50ff484376bfa3e6fb2c3aba67da46664f9643658949031aca4c30a999"
     },
     {
       "@id": "artifact:src/addons/portable-transfer-import.ts",
@@ -1033,7 +1123,7 @@
       "@id": "artifact:src/cli-host.ts",
       "@type": "w:SourceFile",
       "w:path": "src/cli-host.ts",
-      "w:sha256": "sha256:80c4d9e143a42c5aafcdb788e3e77b6c7384c2cce2a6f43a9b8b1ef993bdb692"
+      "w:sha256": "sha256:21ab5ce0021e01bf6e92c6ceeadc081bbe8069992935e081ac81612bfe15e6fa"
     },
     {
       "@id": "artifact:src/cli-operation.ts",

@@ -2,301 +2,301 @@ TAP version 13
 # Subtest: selected local and Git representations preserve graph identities while relocated addresses change
 ok 1 - selected local and Git representations preserve graph identities while relocated addresses change
   ---
-  duration_ms: 39.4231
+  duration_ms: 23.393177
   type: 'test'
   ...
 # Subtest: binding requires explicit, known, unique graph resource selections
 ok 2 - binding requires explicit, known, unique graph resource selections
   ---
-  duration_ms: 8.080032
+  duration_ms: 4.228841
   type: 'test'
   ...
 # Subtest: binding snapshots mutable callers before workspace resolution
 ok 3 - binding snapshots mutable callers before workspace resolution
   ---
-  duration_ms: 8.135434
+  duration_ms: 5.226631
   type: 'test'
   ...
 # Subtest: explicit workspace inspection hashes files and emits a redacted Git candidate
 ok 4 - explicit workspace inspection hashes files and emits a redacted Git candidate
   ---
-  duration_ms: 73.933082
+  duration_ms: 57.305089
   type: 'test'
   ...
 # Subtest: worktree facts survive a moved registered root and report a common Git directory
 ok 5 - worktree facts survive a moved registered root and report a common Git directory
   ---
-  duration_ms: 56.043557
+  duration_ms: 37.56127
   type: 'test'
   ...
 # Subtest: a linked worktree uses the main checkout common Git directory
 ok 6 - a linked worktree uses the main checkout common Git directory
   ---
-  duration_ms: 53.943442
+  duration_ms: 53.544404
   type: 'test'
   ...
 # Subtest: ordinary directories and unborn repositories are distinguished without origin
 ok 7 - ordinary directories and unborn repositories are distinguished without origin
   ---
-  duration_ms: 34.084931
+  duration_ms: 26.654002
   type: 'test'
   ...
 # Subtest: limits and input contracts fail before filesystem resolution
 ok 8 - limits and input contracts fail before filesystem resolution
   ---
-  duration_ms: 4.962197
+  duration_ms: 3.727533
   type: 'test'
   ...
 # Subtest: operation keys block duplicate and conflicting effects, including concurrent requests
 ok 9 - operation keys block duplicate and conflicting effects, including concurrent requests
   ---
-  duration_ms: 5368.085667
+  duration_ms: 3317.021916
   type: 'test'
   ...
 # Subtest: moving a workspace changes the plan while retaining logical operation identity
 ok 10 - moving a workspace changes the plan while retaining logical operation identity
   ---
-  duration_ms: 2213.108898
+  duration_ms: 2165.112745
   type: 'test'
   ...
 # Subtest: an incomplete reservation left by interruption remains blocked
 ok 11 - an incomplete reservation left by interruption remains blocked
   ---
-  duration_ms: 1950.524823
+  duration_ms: 1822.202143
   type: 'test'
   ...
 # Subtest: CLI exposes binding inspection, operation keys and historical receipt inspection
 ok 12 - CLI exposes binding inspection, operation keys and historical receipt inspection
   ---
-  duration_ms: 3940.879164
+  duration_ms: 3822.054818
   type: 'test'
   ...
 # Subtest: manifest preserves owner-scoped identities despite equal raw-byte hashes
 ok 13 - manifest preserves owner-scoped identities despite equal raw-byte hashes
   ---
-  duration_ms: 17.942067
+  duration_ms: 12.355486
   type: 'test'
   ...
 # Subtest: explicit fork alone permits a cross-resource parent and boundary pins close omitted history
 ok 14 - explicit fork alone permits a cross-resource parent and boundary pins close omitted history
   ---
-  duration_ms: 2.371836
+  duration_ms: 1.240343
   type: 'test'
   ...
 # Subtest: identity, revision DAG, tombstone, and closed-boundary violations are refused
 ok 15 - identity, revision DAG, tombstone, and closed-boundary violations are refused
   ---
-  duration_ms: 2.869052
+  duration_ms: 1.698029
   type: 'test'
   ...
 # Subtest: portable ASCII paths reject traversal, Windows aliases, collisions, and unknown fields
 ok 16 - portable ASCII paths reject traversal, Windows aliases, collisions, and unknown fields
   ---
-  duration_ms: 4.142938
+  duration_ms: 2.876844
   type: 'test'
   ...
 # Subtest: unknown dialects, duplicate IDs, invalid declared time, and boundary identity mismatch are refused
 ok 17 - unknown dialects, duplicate IDs, invalid declared time, and boundary identity mismatch are refused
   ---
-  duration_ms: 7.255938
+  duration_ms: 4.740272
   type: 'test'
   ...
 # Subtest: a declared bundle-relative location can relocate without changing identity or content pin
 ok 18 - a declared bundle-relative location can relocate without changing identity or content pin
   ---
-  duration_ms: 0.978215
+  duration_ms: 0.684491
   type: 'test'
   ...
 # Subtest: a valid revision diamond is accepted and declared observation time never selects a latest revision
 ok 19 - a valid revision diamond is accepted and declared observation time never selects a latest revision
   ---
-  duration_ms: 2.958305
+  duration_ms: 1.761405
   type: 'test'
   ...
 # Subtest: host check is manifest-only and rejects mismatched policy pins
 ok 20 - host check is manifest-only and rejects mismatched policy pins
   ---
-  duration_ms: 2.516688
+  duration_ms: 1.742421
   type: 'test'
   ...
 # Subtest: manifest input is bounded and envelope digests cannot be reconstructed after tampering
 ok 21 - manifest input is bounded and envelope digests cannot be reconstructed after tampering
   ---
-  duration_ms: 13.687109
+  duration_ms: 8.624462
   type: 'test'
   ...
 # Subtest: a lexically intervening filename cannot conceal a file/directory collision
 ok 22 - a lexically intervening filename cannot conceal a file/directory collision
   ---
-  duration_ms: 1.078831
+  duration_ms: 0.523469
   type: 'test'
   ...
 # Subtest: parsing snapshots source data before later source mutation
 ok 23 - parsing snapshots source data before later source mutation
   ---
-  duration_ms: 0.584046
+  duration_ms: 0.359022
   type: 'test'
   ...
 # Subtest: a manifest at its byte limit still round-trips inside its envelope
 ok 24 - a manifest at its byte limit still round-trips inside its envelope
   ---
-  duration_ms: 569.78952
+  duration_ms: 449.136451
   type: 'test'
   ...
 # Subtest: stable resource IDs allow root relocation while representations remain explicit
 ok 25 - stable resource IDs allow root relocation while representations remain explicit
   ---
-  duration_ms: 26.263763
+  duration_ms: 12.912511
   type: 'test'
   ...
 # Subtest: locator selection is explicit and carries no local workspace requirement
 ok 26 - locator selection is explicit and carries no local workspace requirement
   ---
-  duration_ms: 0.65373
+  duration_ms: 0.605273
   type: 'test'
   ...
 # Subtest: parser rejects mutable, credentialed and nonportable representations
 ok 27 - parser rejects mutable, credentialed and nonportable representations
   ---
-  duration_ms: 0.596992
+  duration_ms: 0.549781
   type: 'test'
   ...
 # Subtest: public boundaries capture immutable data and reject inherited/getter fields
 ok 28 - public boundaries capture immutable data and reject inherited/getter fields
   ---
-  duration_ms: 0.763656
+  duration_ms: 0.656125
   type: 'test'
   ...
 # Subtest: workspace resolution rejects a symlink that leaves its registered root
 ok 29 - workspace resolution rejects a symlink that leaves its registered root
   ---
-  duration_ms: 3.841822
+  duration_ms: 3.136058
   type: 'test'
   ...
 # Subtest: native IDs and a filesystem-root workspace remain representable
 ok 30 - native IDs and a filesystem-root workspace remain representable
   ---
-  duration_ms: 0.932782
+  duration_ms: 0.780855
   type: 'test'
   ...
 # Subtest: literal filenames cannot turn into a different file's line selector
 ok 31 - literal filenames cannot turn into a different file's line selector
   ---
-  duration_ms: 1.738652
+  duration_ms: 1.408226
   type: 'test'
   ...
 # Subtest: remapping a real linked worktree rejects a stale main-worktree plan before an attempt
 ok 32 - remapping a real linked worktree rejects a stale main-worktree plan before an attempt
   ---
-  duration_ms: 2645.535969
+  duration_ms: 1197.773833
   type: 'test'
   ...
 # Subtest: a shared operation store prevents re-execution after remapping between real worktrees
 ok 33 - a shared operation store prevents re-execution after remapping between real worktrees
   ---
-  duration_ms: 3057.984351
+  duration_ms: 2240.775805
   type: 'test'
   ...
 # Subtest: separate operation stores are an explicit cross-worktree duplicate-execution limitation
 ok 34 - separate operation stores are an explicit cross-worktree duplicate-execution limitation
   ---
-  duration_ms: 3051.654642
+  duration_ms: 2907.274088
   type: 'test'
   ...
 # Subtest: a Git branch HEAD change is not attested when the declared pinned files are unchanged
 ok 35 - a Git branch HEAD change is not attested when the declared pinned files are unchanged
   ---
-  duration_ms: 1122.659315
+  duration_ms: 1102.084007
   type: 'test'
   ...
 # Subtest: a changed pinned runner in a sibling worktree blocks before the external effect
 ok 36 - a changed pinned runner in a sibling worktree blocks before the external effect
   ---
-  duration_ms: 795.403874
+  duration_ms: 746.258292
   type: 'test'
   ...
 # Subtest: worktree graph rebinding preserves complete logical links while selecting divergent content
 ok 37 - worktree graph rebinding preserves complete logical links while selecting divergent content
   ---
-  duration_ms: 83.072226
+  duration_ms: 72.608977
   type: 'test'
   ...
 # Subtest: CLI inspection selects the linked worktree through host-relative workspace configuration
 ok 38 - CLI inspection selects the linked worktree through host-relative workspace configuration
   ---
-  duration_ms: 1375.581644
+  duration_ms: 863.359672
   type: 'test'
   ...
 # Subtest: a subdirectory workspace observes its enclosing Git root without asserting checkout identity
 ok 39 - a subdirectory workspace observes its enclosing Git root without asserting checkout identity
   ---
-  duration_ms: 135.644917
+  duration_ms: 55.85794
   type: 'test'
   ...
 # Subtest: a worktree directory digest declaration remains unchecked rather than proving a tree snapshot
 ok 40 - a worktree directory digest declaration remains unchecked rather than proving a tree snapshot
   ---
-  duration_ms: 160.535475
+  duration_ms: 48.65422
   type: 'test'
   ...
 # Subtest: inspects explicit main and linked-worktree representations as one logical resource
 ok 41 - inspects explicit main and linked-worktree representations as one logical resource
   ---
-  duration_ms: 112.467933
+  duration_ms: 94.83896
   type: 'test'
   ...
 # Subtest: observes dirty working tree and index state independently per worktree
 ok 42 - observes dirty working tree and index state independently per worktree
   ---
-  duration_ms: 135.792735
+  duration_ms: 106.121395
   type: 'test'
   ...
 # Subtest: observes detached HEAD at the same commit without merging distinct representations
 ok 43 - observes detached HEAD at the same commit without merging distinct representations
   ---
-  duration_ms: 78.105378
+  duration_ms: 63.075646
   type: 'test'
   ...
 # Subtest: git worktree move plus host remapping preserves selected resource and representation IDs
 ok 44 - git worktree move plus host remapping preserves selected resource and representation IDs
   ---
-  duration_ms: 74.253534
+  duration_ms: 50.971752
   type: 'test'
   ...
 # Subtest: manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair
 ok 45 - manual main and linked-worktree moves report NO_REPOSITORY before repair and recover after repair
   ---
-  duration_ms: 87.48615
+  duration_ms: 46.993662
   type: 'test'
   ...
 # Subtest: observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory
 ok 46 - observes limitation: a copied linked checkout retains Git metadata pointing at the original common directory
   ---
-  duration_ms: 114.066253
+  duration_ms: 46.353613
   type: 'test'
   ...
 # Subtest: observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity
 ok 47 - observes limitation: removing a selected worktree never falls back to a sibling and a recreated path has no cached Git identity
   ---
-  duration_ms: 78.357249
+  duration_ms: 30.829191
   type: 'test'
   ...
 # Subtest: observes limitation: sparse checkout omission has no representation fallback
 ok 48 - observes limitation: sparse checkout omission has no representation fallback
   ---
-  duration_ms: 97.0427
+  duration_ms: 32.763854
   type: 'test'
   ...
 # Subtest: rejects a symlink from one worktree into another registered worktree
 ok 49 - rejects a symlink from one worktree into another registered worktree
   ---
-  duration_ms: 62.204937
+  duration_ms: 26.185686
   type: 'test'
   ...
 # Subtest: observes limitation: a wrong workspace alias can match bytes while its Git head differs
 ok 50 - observes limitation: a wrong workspace alias can match bytes while its Git head differs
   ---
-  duration_ms: 235.197409
+  duration_ms: 72.236202
   type: 'test'
   ...
 1..50
@@ -307,4 +307,4 @@ ok 50 - observes limitation: a wrong workspace alias can match bytes while its G
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 14540.066758
+# duration_ms 12106.891679
