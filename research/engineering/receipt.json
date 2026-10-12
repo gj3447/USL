@@ -1,8 +1,8 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:c696efd4-ca4e-4144-b117-1638e6d98d78",
-  "startedAt": "2026-10-12T14:26:00.535Z",
-  "finishedAt": "2026-10-12T14:26:01.220Z",
+  "runId": "urn:uuid:37742b06-41cf-4b94-b08d-92ea725491b1",
+  "startedAt": "2026-10-12T14:50:50.464Z",
+  "finishedAt": "2026-10-12T14:50:51.177Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
@@ -82,7 +82,7 @@
     "src/program-store.ts": "sha256:58563c47114387ace1811460fc9dda8cf502abe0a0b532071b1ba520fffd44ca",
     "src/project.ts": "sha256:c8d144076de7cbdeac4b1dcfe4c294563addd991be495779a751d4ed20e438de",
     "src/resolve.ts": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78",
-    "src/resource-bindings.ts": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef",
+    "src/resource-bindings.ts": "sha256:806947fa68df1a653482a045822f7f1cc81b956a9c694c4584b2ed1a9efb9376",
     "src/storage.ts": "sha256:9fb37a04d83101c6b22b66d3e44c4bb9276971b0d12818ed1598e286d837fad1",
     "src/validation.ts": "sha256:a9d049fb5c02563c0bd51c1c0c32dddede4963a9b72dff388d209a0bdf80ad30",
     "test/engineering-adversarial-cases.ts": "sha256:3c9220c56b0c7b4c4ea30884488bc51635a1e01c820bf6d3d419a3913b8e2c94",
@@ -242,5 +242,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:3df46334baf73e1d2b3f4bbe8ae69ad1fe3a4bf096711e72c9989ff25c0fbedf"
+  "receiptDigest": "sha256:4d7b3b0760dc29a76a4319a3ef3f6266bdb51cdf376c1d869e4d0d2d15e80637"
 }

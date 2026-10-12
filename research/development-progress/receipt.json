@@ -55,8 +55,8 @@
       ]
     }
   ],
-  "recordedAt": "2026-10-12T14:26:28.369248+00:00",
-  "sourceCommit": "0946da940aef7fd5a1d0d73f5d803549c06c8336",
+  "recordedAt": "2026-10-12T14:51:10.748530+00:00",
+  "sourceCommit": "6abf75c1afa2a5eecde22b4d9f115780f2736c3a",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -422,7 +422,7 @@
     },
     {
       "path": "src/resource-bindings.ts",
-      "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef"
+      "sha256": "sha256:806947fa68df1a653482a045822f7f1cc81b956a9c694c4584b2ed1a9efb9376"
     },
     {
       "path": "src/storage.ts",
@@ -477,7 +477,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:15c14ffe622fea968323803a4bc2080df075c613981852e8d88585df70d191b3",
+  "tapDigest": "sha256:69b3f850fd4848fbc7893712f1004f690170967c22e020f0359bd2d4a7c3de5d",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -920,6 +920,6 @@
     "criterion:PT04-C2",
     "criterion:PT04-C3"
   ],
-  "acceptanceDigest": "sha256:46e4cc60408d951737321f6a0ae079f75ce9fb414a78ec96d9129d50e4acbde0",
+  "acceptanceDigest": "sha256:6232751c6ddb054a61ab4d03087df88a1be230b6088ed26e9b739d2de0f22a14",
   "nextTask": "task:PT03"
 }

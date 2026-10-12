@@ -1,8 +1,8 @@
 {
   "schema": "usl-worktree-audit-receipt/v1",
   "status": "ASSERTIONS_PASS",
-  "recordedAt": "2026-10-12T14:26:47.281684+00:00",
-  "sourceCommit": "0946da940aef7fd5a1d0d73f5d803549c06c8336",
+  "recordedAt": "2026-10-12T14:51:29.812732+00:00",
+  "sourceCommit": "6abf75c1afa2a5eecde22b4d9f115780f2736c3a",
   "environment": {
     "node": "v24.20.0",
     "git": "git version 2.47.3",
@@ -335,7 +335,7 @@
     },
     {
       "path": "src/resource-bindings.ts",
-      "sha256": "sha256:128f9802df9854189af75fa668547ae8f4e5f52dce918d2d58f1b3818d800aef"
+      "sha256": "sha256:806947fa68df1a653482a045822f7f1cc81b956a9c694c4584b2ed1a9efb9376"
     },
     {
       "path": "src/storage.ts",
@@ -367,7 +367,7 @@
     },
     {
       "path": "test/resource-bindings.test.ts",
-      "sha256": "sha256:0436c0523a7abaf4d7c35facd821007f9b45a6dfda03c6d0da6e6ff588f58cd8"
+      "sha256": "sha256:6e784f9e528790f23eafea5578690a95ffecd5e34ed744f54ccbd78d830d592c"
     },
     {
       "path": "test/worktree-execution.test.ts",
@@ -386,7 +386,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:2761fbda3fb66196f672b13d310afdc1de47e008c5edcb6bac9a725ebf2f1f2a",
+  "tapDigest": "sha256:6863fc7ae1f04417b86e9d09fc8cf50891c92a78ab0d8a404dfeef1e4e100136",
   "tests": [
     {
       "id": "test:c2c297e89fceaa6e35c638f696ac372507c4284861c20885a33f6f5e9cb42bc1",
@@ -571,6 +571,12 @@
     {
       "id": "test:7ddbfb8ce9df64fb3061889ce14362911a05530dd4ea4d16d736d20b5db3ae0b",
       "name": "literal filenames cannot turn into a different file's line selector",
+      "path": "test/resource-bindings.test.ts",
+      "assertion": "PASS"
+    },
+    {
+      "id": "test:4d0415055e70e119f8f58f9537c3dbbada58a5ad53cbc51c461fc03e26f3d0a4",
+      "name": "native Windows drive paths map to RFC 8089 locator paths; other Windows forms stay unrepresentable",
       "path": "test/resource-bindings.test.ts",
       "assertion": "PASS"
     },

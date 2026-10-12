@@ -2,7 +2,7 @@
 
 [원래 개발 계획](DEVELOPMENT_PLAN.md)은 당시의 PLANNED/NOT_RUN 스냅샷으로 보존한다. 이 문서는 별도 실행 기록으로 구현 진행을 나타낸다.
 
-기록 2026-10-12T14:26:28.369248+00:00; 소스 `0946da940aef7fd5a1d0d73f5d803549c06c8336`.
+기록 2026-10-12T14:51:10.748530+00:00; 소스 `6abf75c1afa2a5eecde22b4d9f115780f2736c3a`.
 
 실제 로컬 검사 **83개 PASS**, 실패/건너뜀 0. 실행 환경: Linux / v24.20.0 / git version 2.47.3.
 
@@ -64,9 +64,9 @@
 | 관측 | 값 |
 |---|---|
 | payload bytes / 파일 수 | 22 / 2 |
-| import·재바인딩 시간 | 47.328 ms |
-| 별도 import / 후속 해시 시간 | 33.219 / 0.442 ms |
-| 별도 측정 프로세스 peak RSS | 96888 KiB |
+| import·재바인딩 시간 | 50.331 ms |
+| 별도 import / 후속 해시 시간 | 36.334 / 0.461 ms |
+| 별도 측정 프로세스 peak RSS | 82884 KiB |
 | Linux / macOS / Windows | LOCAL_PASS / NOT_RUN / NOT_RUN |
 
 [실제 consumer·측정 출력](../research/development-progress/acceptance.json). OS 전달 CI는 작성되었으며 이 기록에서 원격 실행하지 않았다.

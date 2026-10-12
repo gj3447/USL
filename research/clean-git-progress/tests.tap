@@ -2,307 +2,307 @@ TAP version 13
 # Subtest: CP01-1: SHA-256 repositories export verifiable objects without the source
 ok 1 - CP01-1: SHA-256 repositories export verifiable objects without the source
   ---
-  duration_ms: 298.005067
+  duration_ms: 299.964861
   type: 'test'
   ...
 # Subtest: CP01-1: input pins are captured before awaits and manifest contradictions are rejected
 ok 2 - CP01-1: input pins are captured before awaits and manifest contradictions are rejected
   ---
-  duration_ms: 207.728974
+  duration_ms: 217.760321
   type: 'test'
   ...
 # Subtest: CP01-2: source changes after staging starts abort publication and preserve the source
 ok 3 - CP01-2: source changes after staging starts abort publication and preserve the source
   ---
-  duration_ms: 174.260677
+  duration_ms: 189.413066
   type: 'test'
   ...
 # Subtest: CP01-2: ancestor symlinks, hidden dirty index flags, and promisor markers fail closed
 ok 4 - CP01-2: ancestor symlinks, hidden dirty index flags, and promisor markers fail closed
   ---
-  duration_ms: 111.023792
+  duration_ms: 121.954352
   type: 'test'
   ...
 # Subtest: CP01-1: uncompressed and duration budgets abort without publishing or editing the source
 ok 5 - CP01-1: uncompressed and duration budgets abort without publishing or editing the source
   ---
-  duration_ms: 91.911873
+  duration_ms: 119.318509
   type: 'test'
   ...
 # Subtest: CP01-2: an unconfigured LFS pointer anywhere in selected history rejects incomplete content
 ok 6 - CP01-2: an unconfigured LFS pointer anywhere in selected history rejects incomplete content
   ---
-  duration_ms: 125.889348
+  duration_ms: 158.202597
   type: 'test'
   ...
 # Subtest: CP02-1: Git restore rebinds selected IDs and ordered roles after source and backup deletion
 ok 7 - CP02-1: Git restore rebinds selected IDs and ordered roles after source and backup deletion
   ---
-  duration_ms: 489.300404
+  duration_ms: 548.112052
   type: 'test'
   ...
 # Subtest: CP02-2: forged, stale and mismatched Git restore handles cannot produce bindings
 ok 8 - CP02-2: forged, stale and mismatched Git restore handles cannot produce bindings
   ---
-  duration_ms: 430.233074
+  duration_ms: 446.050781
   type: 'test'
   ...
 # Subtest: CP02-2: binding inputs are captured, unselected workspaces stay intact, and branch mode is explicit
 ok 9 - CP02-2: binding inputs are captured, unselected workspaces stay intact, and branch mode is explicit
   ---
-  duration_ms: 367.741513
+  duration_ms: 411.068915
   type: 'test'
   ...
 # Subtest: CP02-2: restored binding uses the existing checkout guard and holds stale HEAD before an owner action
 ok 10 - CP02-2: restored binding uses the existing checkout guard and holds stale HEAD before an owner action
   ---
-  duration_ms: 458.725785
+  duration_ms: 431.068065
   type: 'test'
   ...
 # Subtest: CP02-1: multiple worktrees retain separate explicit workspace roots and representation identities
 ok 11 - CP02-1: multiple worktrees retain separate explicit workspace roots and representation identities
   ---
-  duration_ms: 342.126682
+  duration_ms: 339.572148
   type: 'test'
   ...
 # Subtest: CP01-1: standalone CLI exports an explicitly pinned clean repository
 ok 12 - CP01-1: standalone CLI exports an explicitly pinned clean repository
   ---
-  duration_ms: 523.499018
+  duration_ms: 497.45946
   type: 'test'
   ...
 # Subtest: CP01-2: Git export CLI refuses invalid flags, special files, and spec destinations
 ok 13 - CP01-2: Git export CLI refuses invalid flags, special files, and spec destinations
   ---
-  duration_ms: 1543.025039
+  duration_ms: 1592.933076
   type: 'test'
   ...
 # Subtest: CP02-1: standalone import CLI restores native Git data without source or original backup
 ok 14 - CP02-1: standalone import CLI restores native Git data without source or original backup
   ---
-  duration_ms: 670.905893
+  duration_ms: 674.007706
   type: 'test'
   ...
 # Subtest: CP02-2: import CLI refuses spec-selected destinations, unsafe spec files and unknown flags
 ok 15 - CP02-2: import CLI refuses spec-selected destinations, unsafe spec files and unknown flags
   ---
-  duration_ms: 1764.571399
+  duration_ms: 1703.77337
   type: 'test'
   ...
 # Subtest: CP02-1: restores independently from copied transport after original common store disappears
 ok 16 - CP02-1: restores independently from copied transport after original common store disappears
   ---
-  duration_ms: 612.581963
+  duration_ms: 653.847697
   type: 'test'
   ...
 # Subtest: CP02-2: serializes a destination reservation and preserves an existing destination
 ok 17 - CP02-2: serializes a destination reservation and preserves an existing destination
   ---
-  duration_ms: 780.733252
+  duration_ms: 824.338937
   type: 'test'
   ...
 # Subtest: CP02-2: rejects tampered receipt, collisions, traversal and duplicate native revision before destination publication
 ok 18 - CP02-2: rejects tampered receipt, collisions, traversal and duplicate native revision before destination publication
   ---
-  duration_ms: 247.025041
+  duration_ms: 266.209998
   type: 'test'
   ...
 # Subtest: CP02-1: SHA-256 restores complete trees, executable bits and independent object storage
 ok 19 - CP02-1: SHA-256 restores complete trees, executable bits and independent object storage
   ---
-  duration_ms: 478.949276
+  duration_ms: 486.7907
   type: 'test'
   ...
 # Subtest: CP02-2: failed file pins and aggregate checkout budgets clean only newly reserved destinations
 ok 20 - CP02-2: failed file pins and aggregate checkout budgets clean only newly reserved destinations
   ---
-  duration_ms: 326.401336
+  duration_ms: 368.946389
   type: 'test'
   ...
 # Subtest: CP02-2: receipt metadata and a corrupted pack cannot inherit a valid-looking digest chain
 ok 21 - CP02-2: receipt metadata and a corrupted pack cannot inherit a valid-looking digest chain
   ---
-  duration_ms: 238.697974
+  duration_ms: 272.466962
   type: 'test'
   ...
 # Subtest: CP02-2: unsupported transformations, case collisions and symlink transports are refused
 ok 22 - CP02-2: unsupported transformations, case collisions and symlink transports are refused
   ---
-  duration_ms: 696.557059
+  duration_ms: 696.347856
   type: 'test'
   ...
 # Subtest: CP02-2: captured inputs, branch collisions and ignored additions cannot bypass verification
 ok 23 - CP02-2: captured inputs, branch collisions and ignored additions cannot bypass verification
   ---
-  duration_ms: 309.594917
+  duration_ms: 303.792414
   type: 'test'
   ...
 # Subtest: CP03-1: working deletion, executable mode divergence, detached worktree and index v4 stay distinct
 ok 24 - CP03-1: working deletion, executable mode divergence, detached worktree and index v4 stay distinct
   ---
-  duration_ms: 481.215461
+  duration_ms: 475.271168
   type: 'test'
   ...
 # Subtest: CP03-1: binary state above four MiB verifies within an explicit budget without disclosing unselected bytes
 ok 25 - CP03-1: binary state above four MiB verifies within an explicit budget without disclosing unselected bytes
   ---
-  duration_ms: 769.776747
+  duration_ms: 836.087081
   type: 'test'
   ...
 # Subtest: CP03-2: intent-to-add, assume flags, attributes, LFS and special selections HOLD without publication
 ok 26 - CP03-2: intent-to-add, assume flags, attributes, LFS and special selections HOLD without publication
   ---
-  duration_ms: 2304.485822
+  duration_ms: 2345.627454
   type: 'test'
   ...
 # Subtest: CP03-2: state changes during capture and exhausted budgets leave no artifact or source edits
 ok 27 - CP03-2: state changes during capture and exhausted budgets leave no artifact or source edits
   ---
-  duration_ms: 457.2471
+  duration_ms: 460.929366
   type: 'test'
   ...
 # Subtest: CP03-2: rehashed receipts cannot validate missing blobs, incorrect native OIDs, mixed stages or broader scope
 ok 28 - CP03-2: rehashed receipts cannot validate missing blobs, incorrect native OIDs, mixed stages or broader scope
   ---
-  duration_ms: 342.81395
+  duration_ms: 360.375545
   type: 'test'
   ...
 # Subtest: CP03-2: path collisions, stale independent pins and input mutation cannot broaden selected capture
 ok 29 - CP03-2: path collisions, stale independent pins and input mutation cannot broaden selected capture
   ---
-  duration_ms: 496.901028
+  duration_ms: 516.709559
   type: 'test'
   ...
 # Subtest: CP03-1: restored dirty bytes rebind stable resource IDs and ordered roles with a distinct state revision
 ok 30 - CP03-1: restored dirty bytes rebind stable resource IDs and ordered roles with a distinct state revision
   ---
-  duration_ms: 877.52114
+  duration_ms: 909.091365
   type: 'test'
   ...
 # Subtest: CP03-1: multi-worktree restores keep staged deletion, working deletion, rename and detached state separate
 ok 31 - CP03-1: multi-worktree restores keep staged deletion, working deletion, rename and detached state separate
   ---
-  duration_ms: 794.252686
+  duration_ms: 810.90776
   type: 'test'
   ...
 # Subtest: CP03-2: stale, serialized, cross-profile and wrong-revision handles cannot update a binding
 ok 32 - CP03-2: stale, serialized, cross-profile and wrong-revision handles cannot update a binding
   ---
-  duration_ms: 465.836001
+  duration_ms: 456.293163
   type: 'test'
   ...
 # Subtest: CP03-2: state and history mismatches fail before publication even with a fully rehashed receipt
 ok 33 - CP03-2: state and history mismatches fail before publication even with a fully rehashed receipt
   ---
-  duration_ms: 436.814686
+  duration_ms: 433.204538
   type: 'test'
   ...
 # Subtest: CP03-2: budgets and explicit selection pins prevent partial or misidentified state restores
 ok 34 - CP03-2: budgets and explicit selection pins prevent partial or misidentified state restores
   ---
-  duration_ms: 285.577444
+  duration_ms: 290.823601
   type: 'test'
   ...
 # Subtest: CP03-2: one destination reservation wins, existing data remains intact and metadata edits stale the restore
 ok 35 - CP03-2: one destination reservation wins, existing data remains intact and metadata edits stale the restore
   ---
-  duration_ms: 410.641476
+  duration_ms: 402.077495
   type: 'test'
   ...
 # Subtest: CP03-2: internal overlay integrity cannot mint a verified CP03 state or clean binding handle
 ok 36 - CP03-2: internal overlay integrity cannot mint a verified CP03 state or clean binding handle
   ---
-  duration_ms: 384.193033
+  duration_ms: 395.106557
   type: 'test'
   ...
 # Subtest: CP03-1: restores a copied state sidecar onto the clean bundle's exact native index and dirty working bytes
 ok 37 - CP03-1: restores a copied state sidecar onto the clean bundle's exact native index and dirty working bytes
   ---
-  duration_ms: 709.461526
+  duration_ms: 706.672273
   type: 'test'
   ...
 # Subtest: CP03-1: restores SHA-256 conflict stages and executable working mode without treating the handle as serializable
 ok 38 - CP03-1: restores SHA-256 conflict stages and executable working mode without treating the handle as serializable
   ---
-  duration_ms: 649.569551
+  duration_ms: 701.291991
   type: 'test'
   ...
 # Subtest: CP03-1: captures staged A/worktree B, deletion, rename, executable mode, and selected binary/empty untracked bytes
 ok 39 - CP03-1: captures staged A/worktree B, deletion, rename, executable mode, and selected binary/empty untracked bytes
   ---
-  duration_ms: 303.090341
+  duration_ms: 296.433878
   type: 'test'
   ...
 # Subtest: CP03-1: copied artifact verifies after source and original backup are deleted, with no restore authority
 ok 40 - CP03-1: copied artifact verifies after source and original backup are deleted, with no restore authority
   ---
-  duration_ms: 204.242709
+  duration_ms: 202.496148
   type: 'test'
   ...
 # Subtest: CP03-1: captures SHA-256 object IDs and native conflict stages which round-trip into an isolated Git index
 ok 41 - CP03-1: captures SHA-256 object IDs and native conflict stages which round-trip into an isolated Git index
   ---
-  duration_ms: 235.441781
+  duration_ms: 252.354098
   type: 'test'
   ...
 # Subtest: CP03-2: rejects unsafe Git states, selected paths, unsupported index flags, and incomplete operations
 ok 42 - CP03-2: rejects unsafe Git states, selected paths, unsupported index flags, and incomplete operations
   ---
-  duration_ms: 504.96785
+  duration_ms: 538.525947
   type: 'test'
   ...
 # Subtest: CP03-2: edited state bytes cannot inherit the original receipt pin
 ok 43 - CP03-2: edited state bytes cannot inherit the original receipt pin
   ---
-  duration_ms: 194.281183
+  duration_ms: 179.240304
   type: 'test'
   ...
 # Subtest: CP03-2: verifier rejects wrong identity/head and an altered receipt
 ok 44 - CP03-2: verifier rejects wrong identity/head and an altered receipt
   ---
-  duration_ms: 174.953774
+  duration_ms: 182.896991
   type: 'test'
   ...
 # Subtest: CP01-1: exports a clean detached linked worktree as a native self-contained bundle without source paths
 ok 45 - CP01-1: exports a clean detached linked worktree as a native self-contained bundle without source paths
   ---
-  duration_ms: 390.021994
+  duration_ms: 393.110903
   type: 'test'
   ...
 # Subtest: CP01-1: rejects independently pinned HEAD/ref/object-format disagreement before publishing
 ok 46 - CP01-1: rejects independently pinned HEAD/ref/object-format disagreement before publishing
   ---
-  duration_ms: 335.605004
+  duration_ms: 340.343558
   type: 'test'
   ...
 # Subtest: CP01-2: rejects dirty index, worktree, and untracked states without changing the source
 ok 47 - CP01-2: rejects dirty index, worktree, and untracked states without changing the source
   ---
-  duration_ms: 427.094218
+  duration_ms: 476.015419
   type: 'test'
   ...
 # Subtest: CP01-2: rejects unsupported repository closure forms without executing configured filters
 ok 48 - CP01-2: rejects unsupported repository closure forms without executing configured filters
   ---
-  duration_ms: 387.190584
+  duration_ms: 371.577518
   type: 'test'
   ...
 # Subtest: CP01-1: rejects shallow and alternates repositories rather than borrowing an original object store
 ok 49 - CP01-1: rejects shallow and alternates repositories rather than borrowing an original object store
   ---
-  duration_ms: 164.909871
+  duration_ms: 165.298327
   type: 'test'
   ...
 # Subtest: CP01-1: refuses symlink roots, malformed refs, accessors, and tiny budgets without publication
 ok 50 - CP01-1: refuses symlink roots, malformed refs, accessors, and tiny budgets without publication
   ---
-  duration_ms: 189.686945
+  duration_ms: 213.359418
   type: 'test'
   ...
 # Subtest: CP01-2: rejects unborn and LFS/filter worktrees before publication or filter execution
 ok 51 - CP01-2: rejects unborn and LFS/filter worktrees before publication or filter execution
   ---
-  duration_ms: 136.093811
+  duration_ms: 128.095135
   type: 'test'
   ...
 1..51
@@ -313,4 +313,4 @@ ok 51 - CP01-2: rejects unborn and LFS/filter worktrees before publication or fi
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 5152.650594
+# duration_ms 5296.117306

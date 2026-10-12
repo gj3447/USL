@@ -14,8 +14,8 @@
         "@id": "package:CP01"
       },
       "g:implementation": "CLEAN_EXPORT_LOCAL_SCOPE",
-      "g:sourceCommit": "0946da940aef7fd5a1d0d73f5d803549c06c8336",
-      "g:recordedAt": "2026-10-12T14:26:34.432532+00:00",
+      "g:sourceCommit": "6abf75c1afa2a5eecde22b4d9f115780f2736c3a",
+      "g:recordedAt": "2026-10-12T14:51:16.973812+00:00",
       "g:profile": "CLEAN_GIT_WORKTREE_V1",
       "g:restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
       "g:atomicSnapshot": "NOT_CLAIMED",
@@ -39,8 +39,8 @@
         "@id": "package:CP02"
       },
       "g:implementation": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE",
-      "g:sourceCommit": "0946da940aef7fd5a1d0d73f5d803549c06c8336",
-      "g:recordedAt": "2026-10-12T14:26:34.432532+00:00",
+      "g:sourceCommit": "6abf75c1afa2a5eecde22b4d9f115780f2736c3a",
+      "g:recordedAt": "2026-10-12T14:51:16.973812+00:00",
       "g:profile": "CLEAN_GIT_WORKTREE_V1",
       "g:restore": "RAW_REGULAR_CLEAN_TREES_ONLY",
       "g:atomicSnapshot": "NOT_CLAIMED",
@@ -64,8 +64,8 @@
         "@id": "package:CP03"
       },
       "g:implementation": "STATE_RESTORE_REBIND_LOCAL_SCOPE",
-      "g:sourceCommit": "0946da940aef7fd5a1d0d73f5d803549c06c8336",
-      "g:recordedAt": "2026-10-12T14:26:34.432532+00:00",
+      "g:sourceCommit": "6abf75c1afa2a5eecde22b4d9f115780f2736c3a",
+      "g:recordedAt": "2026-10-12T14:51:16.973812+00:00",
       "g:profile": "RAW_REGULAR_GIT_STATE_V1",
       "g:restore": "RAW_REGULAR_SELECTED_STATE_ONLY",
       "g:atomicSnapshot": "NOT_CLAIMED",
@@ -123,8 +123,8 @@
         "g:Receipt",
         "prov:Entity"
       ],
-      "g:sha256": "sha256:e59f3de673dc85463db1d636957852f873b0c622888b38b7c4412f4db3806b6e",
-      "g:tapDigest": "sha256:653efc2cf01860fd8684b6a6750d122a857f40e6ebfabd967c85d4449d0d732d",
+      "g:sha256": "sha256:386b2beeccc0ec3a6859e2775f8e4de299b2199e1ee2b1f9d57324404ef68a88",
+      "g:tapDigest": "sha256:47e9d3f17b52c7eb54ddd566d3e52b02a8c4062ac02dd130feae3c970bffc9e6",
       "g:authority": "SECONDARY_AI"
     },
     {
