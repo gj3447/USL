@@ -587,13 +587,21 @@ owner가 제공한 원자료 범위·단위·익명화 필요·baseline/holdout�
 
 설계 근거: [Git bundle](https://git-scm.com/docs/git-bundle), [Git worktree](https://git-scm.com/docs/git-worktree), [W3C RDFC](https://www.w3.org/TR/rdf-canon/), [W3C SHACL](https://www.w3.org/TR/shacl/). 소스 검토와 계획 검증은 제품 전체 적합성을 입증하지 않는다.
 
-[기계 판독 계획과 source pins](../research/completion-plan/plan.json) · [USL 그래프](../research/completion-plan/graph.json) · [JSON-LD](../research/completion-plan/graph.jsonld) · [직접 RDF trace](../research/completion-plan/trace.jsonld) · [관계 profile](../research/completion-plan/profile.json) · [SHACL](../schemas/completion-plan/plan.shacl.ttl).
+[기계 판독 계획과 source pins](../research/completion-plan/plan.json) · [USL 그래프](../research/completion-plan/graph.json) · JSON-LD `research/completion-plan/graph.jsonld` · 직접 RDF trace `research/completion-plan/trace.jsonld` · [관계 profile](../research/completion-plan/profile.json) · [SHACL](../schemas/completion-plan/plan.shacl.ttl).
+
+두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-completion-plan.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).
+
+| 재생성 산출물 (Git 제외) | SHA-256 | bytes |
+|---|---|---|
+| `research/completion-plan/graph.jsonld` | `sha256:4c063bde76dce42828f863da91b4c6ac3825a28c01d3f93ff03534bc949e55f1` | 2221040 |
+| `research/completion-plan/trace.jsonld` | `sha256:d9683ff575e0992d0d2b4262d1ee4c1a72e66f796135b43dde03b38fce667478` | 325212 |
 
 ## 검증 재현
 
 Python 환경에 저장소 requirements의 rdflib·pyshacl이 필요하다. 아래 검사는 미래 구현을 실행하지 않는다.
 
 ```sh
+node --import tsx scripts/build-completion-plan.ts
 node --import tsx scripts/build-completion-plan.ts --check
 python3 -B scripts/validate-completion-plan.py
 ```

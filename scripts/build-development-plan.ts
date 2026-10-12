@@ -1,4 +1,5 @@
 /** Build the integrated planning snapshot; never execute its future tasks. */
+import { existsSync } from "node:fs"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { execFileSync } from "node:child_process"
 import { dirname, resolve } from "node:path"
@@ -119,6 +120,8 @@ const short = (id: string) => id.slice(id.indexOf(":") + 1), cell = (value: stri
 const taskList = (ids: string[]) => ids.map(short).join(", ") || "없음"
 const ready = data.tasks.filter(t => t.dependsOn.length === 0)
 const sourceLink = (id: string) => { const source = data.sources.find(x => x.id === id); must(source, "missing source"); return `[${source.path}](../${source.path})` }
+const lockOutputs: [string, string][] = [[`${folder}/graph.jsonld`, json(graphLd)], [`${folder}/trace.jsonld`, json(trace)]]
+const lockRows = lockOutputs.map(([path, value]) => `| \`${path}\` | \`${digestSource(value)}\` | ${Buffer.byteLength(value)} |`)
 const document = [
   "# USL 통합 개발 계획", "",
   "이 문서는 원래 계획 스냅샷이다. 이후 구현 상태와 실제 실행 결과는 [개발 진행](DEVELOPMENT_PROGRESS.md)에서 확인한다.", "",
@@ -165,7 +168,7 @@ const document = [
   ...data.evidence.map(e => `| ${cell(e.sourceRecordId)} | ${e.kind} | ${taskList(data.tasks.filter(t => t.evidenceIds.includes(e.id)).map(t => t.id))} |`), "",
   "기존 40개 technology와 12개 control의 전체 항목은 [engineering catalog](../research/engineering/catalog.json) 및 [표준 감사 입력](../research/standards-coverage/coverage.json)에 보존한다. 이번 계획은 22개 표준 평가 모두를 작업에 연결하고 DG05에서 원래 catalog까지 지원·위임·미지원 판정을 대조하도록 한다. 모든 기술을 구현하겠다는 일괄 약속으로 바꾸지 않는다. 표준의 최신 상태를 이번에 다시 검색한 문서는 아니며 구현 시 선택 edition과 source revision을 재확인한다.", "",
   "## 그래프 계약과 재현", "",
-  "[계획 입력](../research/development-plan/plan.json) → [USL graph](../research/development-plan/graph.json) / [JSON-LD 선언](../research/development-plan/graph.jsonld) / [typed RDF trace](../research/development-plan/trace.jsonld) / [role profile](../research/development-plan/profile.json) / 이 문서를 같은 builder에서 생성한다. RDF trace는 계획의 관계를 명시한 별도 projection이며, 임의 RDF 입력의 무손실 수입 기능이 아니다.", "",
+  "[계획 입력](../research/development-plan/plan.json) → [USL graph](../research/development-plan/graph.json) / JSON-LD 선언 `research/development-plan/graph.jsonld` / typed RDF trace `research/development-plan/trace.jsonld` / [role profile](../research/development-plan/profile.json) / 이 문서를 같은 builder에서 생성한다. RDF trace는 계획의 관계를 명시한 별도 projection이며, 임의 RDF 입력의 무손실 수입 기능이 아니다.", "",
   "| USL 의미 / RDF predicate | domain → range | 의미 |", "|---|---|---|",
   ...definitions.map(x => `| ${x.name} / ${x.predicate} | ${Object.values(x.roles).join(" → ")} | ${x.meaning} |`), "",
   "각 link는 profile에 지정한 역할을 정확히 하나씩 가진다. Task는 requirement·baseline·evidence·source·criterion을 하나 이상 참조한다. Criterion은 task 하나에 귀속되고 Task의 validatedBy와 역방향으로 일치한다. Requirement는 사용자 원문과 고정 source를 각각 하나 이상 참조한다. 모든 요구사항과 미래 과제는 작업/milestone에 연결된다.", "",
@@ -174,10 +177,21 @@ const document = [
   "```sh", "node --import tsx scripts/build-development-plan.ts", "node --import tsx scripts/build-development-plan.ts --check", "python3 scripts/validate-development-plan.py", "```", "",
   "Python validator는 저장소 scripts/requirements-standards.txt의 rdflib/pyshacl을 사용한다. CI에서 생성물 일치·TypeScript 검사·독립 검증을 반복한다.", "",
   "| 고정 source | SHA-256 |", "|---|---|", ...data.sources.map(source => `| [${source.path}](../${source.path}) | \`${source.sha256}\` |`), "",
+  "두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-development-plan.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).", "",
+  "| 재생성 산출물 (Git 제외) | SHA-256 | bytes |", "|---|---|---|", ...lockRows, "",
 ].join("\n")
-const outputs: Record<string, string> = { [`${folder}/profile.json`]: json(profile), [`${folder}/graph.json`]: graphRaw, [`${folder}/graph.jsonld`]: json(graphLd), [`${folder}/trace.jsonld`]: json(trace), "docs/DEVELOPMENT_PLAN.md": document }
+const docPath = "docs/DEVELOPMENT_PLAN.md"
+const outputs: Record<string, string> = { [`${folder}/profile.json`]: json(profile), [`${folder}/graph.json`]: graphRaw, ...Object.fromEntries(lockOutputs), [docPath]: document }
+// JSON-LD outputs are not committed; their digest lock lives in the committed generated document.
+const locked = new Set(lockOutputs.map(([path]) => path)), committedDoc = check ? await read(docPath) : "", hydration: Record<string, string> = {}
 for (const [path, content] of Object.entries(outputs)) {
-  if (check) must(await read(path) === content, `development artifact differs: ${path}`)
+  if (check && locked.has(path)) {
+    const row = committedDoc.split("\n").find(line => line.startsWith(`| \`${path}\` |`))
+    must(row?.includes(`\`${digestSource(content)}\``), `development artifact differs from digest lock: ${path}`)
+    if (existsSync(resolve(root, path))) { must(await read(path) === content, `development artifact differs: ${path}`); hydration[path] = "BYTES_MATCH" }
+    else hydration[path] = "NOT_HYDRATED"
+  }
+  else if (check) must(await read(path) === content, `development artifact differs: ${path}`)
   else { await mkdir(dirname(resolve(root, path)), { recursive: true }); await writeFile(resolve(root, path), content) }
 }
-console.log(json({ mode: check ? "PLAN_ARTIFACTS_CHECKED" : "PLAN_ARTIFACTS_BUILT", requirements: data.requirements.length, tasks: data.tasks.length, criteria: data.criteria.length, resources: graph.resources.length, links: graph.links.length, firstTask: data.firstTask, futureAcceptance: "NOT_RUN" }))
+console.log(json({ mode: check ? "PLAN_ARTIFACTS_CHECKED" : "PLAN_ARTIFACTS_BUILT", requirements: data.requirements.length, tasks: data.tasks.length, criteria: data.criteria.length, resources: graph.resources.length, links: graph.links.length, firstTask: data.firstTask, futureAcceptance: "NOT_RUN", ...(check ? { hydration } : {}) }))

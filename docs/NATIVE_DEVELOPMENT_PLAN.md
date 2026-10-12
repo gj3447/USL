@@ -100,8 +100,9 @@ P01은 네트워크·실제 HSWM 실행 없이 순수 계약과 host test-double
 
 각 간선의 두 역할은 정확히 한 번씩 존재하고 추가 역할은 허용하지 않는다. [profile.json](../research/native-development/profile.json)이 USL role/type/authority/status를 검사한다. 전체 coverage·DAG·원문 digest는 builder와 테스트가 검사한다.
 
-- [graph.jsonld](../research/native-development/graph.jsonld): 기존 USL exporter가 만드는 role 선언 및 PROV 교환물. native ID를 별도 필드로 보존한다.
-- [trace.jsonld](../research/native-development/trace.jsonld): 같은 ID와 선언을 RDF 직접 속성으로 투영한다. 출처 관계는 PROV derivation도 기록한다. 조건부 의존성은 별도 조건 노드로 한정한다.
+- `research/native-development/graph.jsonld`: 기존 USL exporter가 만드는 role 선언 및 PROV 교환물. native ID를 별도 필드로 보존한다.
+- `research/native-development/trace.jsonld`: 같은 ID와 선언을 RDF 직접 속성으로 투영한다. 출처 관계는 PROV derivation도 기록한다. 조건부 의존성은 별도 조건 노드로 한정한다.
+- 두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `python3 -B scripts/build-native-development.py`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 [verification.json](../research/native-development/verification.json)의 해당 `artifacts` 항목(lock)과 비교한다(파일이 있으면 bytes도 비교).
 - [shapes.ttl](../research/native-development/shapes.ttl): 실제 RDF 데이터에 적용하는 SHACL shape. 현재 계획 상태와 domain/range/required properties를 검사한다.
 - [references.json](../research/native-development/references.json): 원문 코드/연구 30개 byte pin과 앞선 조사에서 검토한 공개 문서 11개. build는 pin을 자동 갱신하지 않는다.
 

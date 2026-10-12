@@ -19,7 +19,8 @@ def fail(message: str) -> None:
 
 def load(path: pathlib.Path, fmt: str) -> Graph:
     if not path.is_file():
-        fail(f"missing input: {path.relative_to(ROOT)}")
+        hint = "NOT_HYDRATED (regenerated, not committed; run python3 -B scripts/build-native-development.py)" if path.suffix == ".jsonld" else "missing input"
+        fail(f"{hint}: {path.relative_to(ROOT)}")
     return Graph().parse(path, format=fmt)
 
 

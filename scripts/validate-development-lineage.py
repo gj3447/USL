@@ -204,6 +204,7 @@ def must_reject_shacl(label, mutate, trace):
 
 def main():
     subprocess.run([sys.executable,"scripts/build-development-lineage.py","--check"],cwd=ROOT,check=True,capture_output=True,text=True)
+    if not (DIR/"trace.jsonld").is_file(): fail("NOT_HYDRATED: research/development-lineage/trace.jsonld is regenerated, not committed; run python3 -B scripts/build-development-lineage.py")
     catalog,graph,inventory,bindings,trace=map(load,["catalog.json","graph.json","inventory.json","bindings.json","trace.jsonld"])
     resource=validate_model(catalog,graph,inventory,bindings)
     triples,relationships=rdf_checks(trace,graph,catalog)

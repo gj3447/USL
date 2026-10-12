@@ -198,6 +198,8 @@ for label, mutate in [
     else:
         raise PlanError(f"graph mutation accepted: {label}")
 
+if not (PLAN_DIR / "trace.jsonld").is_file():
+    raise PlanError("NOT_HYDRATED: research/completion-plan/trace.jsonld is regenerated, not committed; run node --import tsx scripts/build-completion-plan.ts")
 rdf = Graph()
 rdf.parse(data=(PLAN_DIR / "trace.jsonld").read_text(), format="json-ld")
 shapes = Graph()

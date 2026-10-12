@@ -148,6 +148,7 @@ flowchart LR
 [host](../research/development-lineage/host.json)의 root는 저장소 상대 경로 `../..`이고 actions는 비어 있다. 개인 절대 경로·credential을 저장하지 않는다. 별도 폴더 배치에서는 owner가 root mapping을 바꾸되 기존 resource ID·역할은 유지한다. 실제 source 파일 내용 검사는 Git pin 검사로 수행하며, binding 자체는 파일 읽기 권한이나 내용 검증을 대신하지 않는다.
 
 ```sh
+python3 -B scripts/build-development-lineage.py
 python3 -B scripts/build-development-lineage.py --check
 node --import tsx scripts/validate-development-lineage.ts
 python3 -B scripts/validate-development-lineage.py
@@ -169,6 +170,12 @@ MCP `context` 입력 예: `{"connection":"usl-development-lineage","query":{"foc
 
 Python RDF 검증은 기존 `scripts/requirements-standards.txt` 환경을 사용한다. TypeScript 검사는 기존 USL adapter/profile과 JSON-LD 변환, 두 임시 root 사이 바인딩 이동 시 ID·역할·원문 locator 보존을 검사한다. Python 검사는 실제 RDF/SHACL, 질의의 정확한 결과 집합, Git 부모·소스 hash·작업 의존성, 과장된 완료/권한 주장을 포함한 음성 사례를 검사한다. 런타임 기능 구현 인수와는 별도다.
 
-[catalog](../research/development-lineage/catalog.json) → [생성기](../scripts/build-development-lineage.py) → [USL graph](../research/development-lineage/graph.json) · [JSON-LD/RDF](../research/development-lineage/trace.jsonld) · [SHACL](../schemas/development-lineage/lineage.shacl.ttl). JSON-LD/RDF와 PROV-O 매핑·SHACL 구조 검증을 실제 사용하지만 프로젝트 어휘 자체가 보편 표준이거나 USL이 모든 그래프 표준의 상위호환이라는 주장은 하지 않는다.
+[catalog](../research/development-lineage/catalog.json) → [생성기](../scripts/build-development-lineage.py) → [USL graph](../research/development-lineage/graph.json) · JSON-LD/RDF `research/development-lineage/trace.jsonld` · [SHACL](../schemas/development-lineage/lineage.shacl.ttl). JSON-LD/RDF와 PROV-O 매핑·SHACL 구조 검증을 실제 사용하지만 프로젝트 어휘 자체가 보편 표준이거나 USL이 모든 그래프 표준의 상위호환이라는 주장은 하지 않는다.
 
 갱신할 때는 catalog의 기준 commit과 새 단계·남은 작업을 실제 근거로 수정한 뒤 생성·검증한다. 미래 PASS를 쓰거나 옛 receipt를 덮어쓰지 않는다. 모든 커밋을 매번 포함하려고 생성 결과 자신의 commit을 재귀적으로 pin할 필요는 없다.
+
+JSON-LD trace는 catalog에서 재생성되는 산출물이라 Git에 넣지 않는다. `python3 -B scripts/build-development-lineage.py`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).
+
+| 재생성 산출물 (Git 제외) | SHA-256 | bytes |
+|---|---|---|
+| `research/development-lineage/trace.jsonld` | `sha256:7af31593f09b8e79a47ec0ed25d6d7c98c02f1b2a56133fa992dbaf81829a643` | 927701 |

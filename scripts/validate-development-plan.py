@@ -266,7 +266,8 @@ def trace_literals(graph, predicate, nodes):
 
 def main():
     for name in ["plan.json", "graph.json", "graph.jsonld", "profile.json", "trace.jsonld"]:
-        require((BASE / name).is_file(), f"missing generated development-plan artifact: {name}")
+        hint = "NOT_HYDRATED (regenerated, not committed); run node --import tsx scripts/build-development-plan.ts" if name.endswith(".jsonld") else "missing"
+        require((BASE / name).is_file(), f"{hint}: research/development-plan/{name}")
     plan = json.loads((BASE / "plan.json").read_text())
     require(plan_conforms(plan, check_pins=True), "development plan structure, pins, references, or planned state is invalid")
     require(history_conforms(plan), "source record, inherited coverage, criterion, or bounded baseline differs from pinned history")

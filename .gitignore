@@ -9,3 +9,14 @@ lean/.lake/
 
 # Personal workspace roots and connection details stay on the owner's machine.
 .usl/local/
+
+# Regenerable JSON-LD research outputs: the builders regenerate them from the
+# committed inputs and `--check` compares their SHA-256 with a committed lock
+# (generated docs or research/native-development/verification.json).
+research/completion-plan/graph.jsonld
+research/completion-plan/trace.jsonld
+research/development-plan/graph.jsonld
+research/development-plan/trace.jsonld
+research/development-lineage/trace.jsonld
+research/native-development/graph.jsonld
+research/native-development/trace.jsonld

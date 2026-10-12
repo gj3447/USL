@@ -471,7 +471,7 @@ Worktree 감사의 PASS에는 현재 한계를 재현한 검사가 포함된다.
 
 ## 그래프 계약과 재현
 
-[계획 입력](../research/development-plan/plan.json) → [USL graph](../research/development-plan/graph.json) / [JSON-LD 선언](../research/development-plan/graph.jsonld) / [typed RDF trace](../research/development-plan/trace.jsonld) / [role profile](../research/development-plan/profile.json) / 이 문서를 같은 builder에서 생성한다. RDF trace는 계획의 관계를 명시한 별도 projection이며, 임의 RDF 입력의 무손실 수입 기능이 아니다.
+[계획 입력](../research/development-plan/plan.json) → [USL graph](../research/development-plan/graph.json) / JSON-LD 선언 `research/development-plan/graph.jsonld` / typed RDF trace `research/development-plan/trace.jsonld` / [role profile](../research/development-plan/profile.json) / 이 문서를 같은 builder에서 생성한다. RDF trace는 계획의 관계를 명시한 별도 projection이며, 임의 RDF 입력의 무손실 수입 기능이 아니다.
 
 | USL 의미 / RDF predicate | domain → range | 의미 |
 |---|---|---|
@@ -528,3 +528,10 @@ Python validator는 저장소 scripts/requirements-standards.txt의 rdflib/pysha
 | [docs/RULE_WEIGHT_REVIEW.md](../docs/RULE_WEIGHT_REVIEW.md) | `sha256:4fd9716a318eb02e77a960394d81735f9b7553d0118b1e00569e2657e1b9c789` |
 | [research/rule-weight-evidence/learner-execution.json](../research/rule-weight-evidence/learner-execution.json) | `sha256:42c4b25334c7958ecb77d0e556833671356f60eed8b147dd0a304adf0daff1d6` |
 | [examples/fixtures/rule-weight-review/review.json](../examples/fixtures/rule-weight-review/review.json) | `sha256:e5fd0e6e298cfaab896a9ae2bdf183836f56cfce84e74e13488d4e227a6db66b` |
+
+두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-development-plan.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).
+
+| 재생성 산출물 (Git 제외) | SHA-256 | bytes |
+|---|---|---|
+| `research/development-plan/graph.jsonld` | `sha256:92395c375be8234080e1ae4dfbacdbc0e3d2f11b714cf0243dd986e8fcc8f0de` | 1153114 |
+| `research/development-plan/trace.jsonld` | `sha256:2b239b338a1d0df2d476a290bea2b04b4d647722962881352fd6ad3867ee7836` | 165270 |

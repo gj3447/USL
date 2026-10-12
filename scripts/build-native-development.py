@@ -23,6 +23,9 @@ def digest(value):
     return "sha256:" + hashlib.sha256(value).hexdigest()
 
 
+LOCKED_OUTPUTS = {"graph.jsonld", "trace.jsonld"}
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -263,13 +266,35 @@ process.stdout.write(JSON.stringify(result));"""
     native = json.loads(result.stdout)
     outputs = {BASE / name: value for name, value in [("graph.json", graph), ("profile.json", profile), ("trace.jsonld", trace), ("graph.jsonld", native), ("bindings.json", bindings), ("selections.json", selections), ("host.json", host)]}
     outputs[ROOT / "connections/native-development/connection.json"] = connection
+    # JSON-LD outputs are regenerable and not committed. Their digest lock is the
+    # existing path/byteDigest/bytes entry in verification.json's artifacts.
+    lock_path = BASE / "verification.json"
+    lock = json.loads(lock_path.read_text())
+    entries = {item["path"]: item for item in lock["artifacts"]}
+    hydration = {}
     for path, value in outputs.items():
         text = encoded(value)
+        relative = str(path.relative_to(ROOT))
+        if path.name in LOCKED_OUTPUTS:
+            data = text.encode()
+            if args.check:
+                entry = entries.get(relative)
+                require(entry is not None and entry["byteDigest"] == digest(data) and entry["bytes"] == len(data), f"generated artifact differs from digest lock: {relative}")
+                if path.is_file():
+                    require(path.read_text() == text, f"generated artifact differs: {relative}")
+                    hydration[relative] = "BYTES_MATCH"
+                else:
+                    hydration[relative] = "NOT_HYDRATED"
+                continue
+            require(relative in entries, f"missing digest lock entry: {relative}")
+            entries[relative].update(byteDigest=digest(data), bytes=len(data))
         if args.check:
-            require(path.is_file() and path.read_text() == text, f"generated artifact differs: {path.relative_to(ROOT)}")
+            require(path.is_file() and path.read_text() == text, f"generated artifact differs: {relative}")
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(text)
+    if not args.check and encoded(lock) != lock_path.read_text():
+        lock_path.write_text(encoded(lock))
     checked = 0
     if args.check_evidence:
         for source in refs["artifacts"]:
@@ -289,7 +314,7 @@ process.stdout.write(JSON.stringify(result));"""
                         selected = selected[int(part)] if isinstance(selected, list) else selected[part]
                     require(selected["id"] == original["id"], "prior-work selector identity differs")
             checked += 1
-    print(json.dumps({"status": "CHECKED" if args.check else "BUILT", "resources": len(graph["resources"]), "links": len(graph["links"]), "requirements": len(plan["requirements"]), "workItems": len(plan["workItems"]), "acceptanceSpecifications": len(plan["acceptanceTests"]), "evidencePinsChecked": checked, "topologicalOrder": order, "runtimeAcceptanceExecuted": False}))
+    print(json.dumps({"status": "CHECKED" if args.check else "BUILT", "resources": len(graph["resources"]), "links": len(graph["links"]), "requirements": len(plan["requirements"]), "workItems": len(plan["workItems"]), "acceptanceSpecifications": len(plan["acceptanceTests"]), "evidencePinsChecked": checked, "topologicalOrder": order, "runtimeAcceptanceExecuted": False, **({"hydration": hydration} if args.check else {})}))
 
 
 if __name__ == "__main__":

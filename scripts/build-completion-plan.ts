@@ -1,5 +1,6 @@
 /** Build the future completion roadmap.  It validates plans; it never runs them. */
 import { execFileSync } from "node:child_process"
+import { existsSync } from "node:fs"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
@@ -104,6 +105,8 @@ const trace={"@context":{c:d,prov},"@graph":[
   {"@id":"agent:completion-plan","@type":"prov:Agent","c:authority":"SECONDARY_AI"},{"@id":"activity:completion-plan","@type":"prov:Activity","c:recordedOn":plan.recordedOn,"c:runtimeAcceptance":"NOT_RUN","prov:wasAssociatedWith":ref("agent:completion-plan"),"prov:used":[ref("user:completion-request"),...plan.sources.map(x=>ref(x.id))]},
   ...edge.map(e=>({"@id":e.from,[`c:${e.predicate}`]:ref(e.to)}))
 ]}
+const lockOutputs:Array<[string,string]>=[[`${folder}/graph.jsonld`,text(graphLd)],[`${folder}/trace.jsonld`,text(trace)]]
+const lockRows=lockOutputs.map(([path,value])=>`| \`${path}\` | \`${digestSource(value)}\` | ${Buffer.byteLength(value)} |`)
 const short=(x:string)=>x.slice(x.indexOf(":")+1), cell=(x:string)=>x.replaceAll("|","\\|").replaceAll("\n"," ")
 const shortList = (values: string[]) => values.map(short).join(", ") || "없음"
 const ready = plan.packages.filter(p => p.dependsOn.length === 0)
@@ -151,10 +154,17 @@ doc.push("", "각 원문 record ID를 하나의 coverage 항목으로 보존하�
   "## 그래프가 답해야 할 질문", "", ...plan.competencyQuestions.map(q => `- ${q.question}`), "",
   "## 판단과 범위", "", ...plan.decisions.map(x => `- ${x}`), "",
   "설계 근거: [Git bundle](https://git-scm.com/docs/git-bundle), [Git worktree](https://git-scm.com/docs/git-worktree), [W3C RDFC](https://www.w3.org/TR/rdf-canon/), [W3C SHACL](https://www.w3.org/TR/shacl/). 소스 검토와 계획 검증은 제품 전체 적합성을 입증하지 않는다.", "",
-  `[기계 판독 계획과 source pins](../${input}) · [USL 그래프](../${folder}/graph.json) · [JSON-LD](../${folder}/graph.jsonld) · [직접 RDF trace](../${folder}/trace.jsonld) · [관계 profile](../${folder}/profile.json) · [SHACL](../schemas/completion-plan/plan.shacl.ttl).`, "",
+  `[기계 판독 계획과 source pins](../${input}) · [USL 그래프](../${folder}/graph.json) · JSON-LD \`${folder}/graph.jsonld\` · 직접 RDF trace \`${folder}/trace.jsonld\` · [관계 profile](../${folder}/profile.json) · [SHACL](../schemas/completion-plan/plan.shacl.ttl).`, "",
+  "두 JSON-LD 파일은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-completion-plan.ts`로 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교).", "",
+  "| 재생성 산출물 (Git 제외) | SHA-256 | bytes |", "|---|---|---|",
+  ...lockRows, "",
   "## 검증 재현", "", "Python 환경에 저장소 requirements의 rdflib·pyshacl이 필요하다. 아래 검사는 미래 구현을 실행하지 않는다.", "",
-  "```sh", "node --import tsx scripts/build-completion-plan.ts --check", "python3 -B scripts/validate-completion-plan.py", "```", ""
+  "```sh", "node --import tsx scripts/build-completion-plan.ts", "node --import tsx scripts/build-completion-plan.ts --check", "python3 -B scripts/validate-completion-plan.py", "```", ""
 )
-const outputs:Array<[string,string]>=[[`${folder}/graph.json`,graphRaw],[`${folder}/graph.jsonld`,text(graphLd)],[`${folder}/trace.jsonld`,text(trace)],[`${folder}/profile.json`,text(profile)],["docs/COMPLETION_PLAN.md",doc.join("\n")]]
-for(const [path,value]of outputs){if(check){must(await read(path)===value,`stale generated artifact ${path}`)}else{await mkdir(dirname(resolve(root,path)),{recursive:true});await writeFile(resolve(root,path),value)}}
-console.log(JSON.stringify({packages:plan.packages.length,coverage:plan.coverage.length,resources:graph.resources.length,links:graph.links.length,mode:check?"CHECKED":"BUILT"}))
+const docPath="docs/COMPLETION_PLAN.md"
+const outputs:Array<[string,string]>=[[`${folder}/graph.json`,graphRaw],...lockOutputs,[`${folder}/profile.json`,text(profile)],[docPath,doc.join("\n")]]
+// JSON-LD outputs are not committed; their digest lock lives in the committed generated document.
+const locked=new Set(lockOutputs.map(([path])=>path)), committedDoc=check?await read(docPath):""
+const hydration:Record<string,string>={}
+for(const [path,value]of outputs){if(check){if(locked.has(path)){const row=committedDoc.split("\n").find(line=>line.startsWith(`| \`${path}\` |`));must(row?.includes(`\`${digestSource(value)}\``),`stale generated artifact (digest lock) ${path}`);if(existsSync(resolve(root,path))){must(await read(path)===value,`stale generated artifact ${path}`);hydration[path]="BYTES_MATCH"}else hydration[path]="NOT_HYDRATED"}else must(await read(path)===value,`stale generated artifact ${path}`)}else{await mkdir(dirname(resolve(root,path)),{recursive:true});await writeFile(resolve(root,path),value)}}
+console.log(JSON.stringify({packages:plan.packages.length,coverage:plan.coverage.length,resources:graph.resources.length,links:graph.links.length,mode:check?"CHECKED":"BUILT",...(check?{hydration}:{})}))
