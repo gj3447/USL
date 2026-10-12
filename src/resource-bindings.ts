@@ -155,6 +155,15 @@ const beneath = (root: string, candidate: string) => {
   return relative === "" || (!relative.startsWith(`..${path.sep}`) && relative !== ".." && !path.isAbsolute(relative))
 }
 
+/**
+ * Map a native absolute path to the `file://<host><path>` locator path (RFC 8089).
+ * POSIX paths are used as-is; a Windows drive path `D:\a\b` becomes `/D:/a/b`.
+ * Other Windows forms (UNC, device paths) are returned unchanged and therefore
+ * rejected by the locator grammar instead of being guessed.
+ */
+export const filesystemLocatorPath = (nativePath: string, pathModule: Pick<typeof path, "sep"> = path): string =>
+  pathModule.sep === "\\" && /^[A-Za-z]:\\/.test(nativePath) ? `/${nativePath.replaceAll("\\", "/")}` : nativePath
+
 /** Resolve only a previously selected representation against host-owned workspace roots. */
 export const resolveResourceRepresentation = async (document: ResourceBindings, selection: ResourceRepresentationSelection,
   options: { readonly workspaces: Readonly<Record<string, string>>; readonly hostname?: string }): Promise<ResolvedResourceRepresentation> => {
@@ -174,10 +183,11 @@ export const resolveResourceRepresentation = async (document: ResourceBindings, 
   const candidate = await realpath(lexical)
   if (!beneath(root, candidate)) throw new Error(`workspace representation resolves outside its root: ${representation.id}`)
   const host = capturedOptions.hostname ?? os.hostname()
-  const formatted = `file://${host}${candidate}`
+  const locatorPath = filesystemLocatorPath(candidate)
+  const formatted = `file://${host}${locatorPath}`
   const parsed = parseLocator(formatted)
   if (Either.isLeft(parsed) || parsed.right.kind !== "filesystem" || parsed.right.host !== host ||
-    parsed.right.path !== candidate || parsed.right.lineStart !== undefined) throw new Error(`workspace locator cannot be represented: ${representation.id}`)
+    parsed.right.path !== locatorPath || parsed.right.lineStart !== undefined) throw new Error(`workspace locator cannot be represented: ${representation.id}`)
   return Object.freeze({ resource: selected.resource.id, representation: representation.id, relation: representation.relation, kind: representation.kind,
     locator: formatLocator(parsed.right), path: candidate, relativePath: representation.path, ...(representation.digest === undefined ? {} : { expectedDigest: representation.digest }) })
 }

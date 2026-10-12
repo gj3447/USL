@@ -2,7 +2,9 @@ import assert from "node:assert/strict"
 import { test } from "node:test"
 import { mkdir, symlink, writeFile } from "node:fs/promises"
 import { join } from "node:path"
-import { parseResourceBindings, resolveResourceRepresentation, selectResourceRepresentation } from "../src/resource-bindings.js"
+import { filesystemLocatorPath, parseResourceBindings, resolveResourceRepresentation, selectResourceRepresentation } from "../src/resource-bindings.js"
+import { parseLocator } from "../src/locator.js"
+import { Either } from "effect"
 import { temporary } from "./fixtures.js"
 
 const commit = "0123456789abcdef0123456789abcdef01234567"
@@ -90,4 +92,17 @@ test("literal filenames cannot turn into a different file's line selector", asyn
     { id: "local", relation: "working-copy", kind: "workspace", workspace: "root", path: "source#L1-L2" },
   ] }] })
   await assert.rejects(resolveResourceRepresentation(bindings, { resource: "source" }, { workspaces: { root } }), /cannot be represented/)
+})
+
+test("native Windows drive paths map to RFC 8089 locator paths; other Windows forms stay unrepresentable", () => {
+  const win32 = { sep: "\\" as const }, posix = { sep: "/" as const }
+  const drive = filesystemLocatorPath("D:\\a\\USL\\restored-pt04\\notes\\a.md", win32)
+  assert.equal(drive, "/D:/a/USL/restored-pt04/notes/a.md")
+  const parsed = parseLocator(`file://test-host${drive}`)
+  assert.ok(Either.isRight(parsed) && parsed.right.kind === "filesystem" && parsed.right.path === drive)
+  assert.equal(filesystemLocatorPath("/srv/repo/a.md", posix), "/srv/repo/a.md")
+  assert.equal(filesystemLocatorPath("C:\\not\\converted\\on\\posix", posix), "C:\\not\\converted\\on\\posix")
+  for (const unc of ["\\\\server\\share\\a.md", "\\\\?\\D:\\a.md"]) {
+    assert.ok(Either.isLeft(parseLocator(`file://test-host${filesystemLocatorPath(unc, win32)}`)), unc)
+  }
 })
