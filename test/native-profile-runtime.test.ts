@@ -6,7 +6,7 @@ import { createServer } from "node:http"
 import { test, type TestContext } from "node:test"
 import { createNativeAdmission, createNativeProfileSnapshot } from "../src/addons/native-profile.js"
 import { openNativeProfileStore } from "../src/addons/native-profile-store.js"
-import { compileNativeProfileGraph, nativeHostBindingDigest, switchNativeProfile } from "../src/addons/native-profile-runtime.js"
+import { compileNativeProfileGraph, nativeHostBindingDigest, prepareNativeProfileObservation, recheckNativeProfileObservation, switchNativeProfile } from "../src/addons/native-profile-runtime.js"
 import { digestSource } from "../src/language/digest.js"
 
 const bytesDigest = (value: string) => `sha256:${createHash("sha256").update(value).digest("hex")}`
@@ -140,17 +140,34 @@ test("native profile switch requires pinned HTTP registration and fresh matching
     selections: [{ resource, representation: "remote" }] }
   const registered = { workspaces: {}, checkouts: {}, checkoutPolicies: [], httpPolicies: [{ resource, representation: "remote", url, scopeDigest: bytesDigest("http-scope"), allowedUrls: [url] }] }
   const first = snapshot(manifest, registered)
+  const prepared = await prepareNativeProfileObservation(graph, first, registered)
+  assert.equal(prepared.report.status, "PASS")
+  assert.ok(prepared.compilation)
+  assert.equal((await recheckNativeProfileObservation(prepared)).status, "PASS")
   const store = await openNativeProfileStore({ directory: join(value.base, "http-store"), ownerNamespace: owner, initialSnapshot: first })
   const state = await store.read()
   const missing = await switchNativeProfile(store, { expectedStateDigest: state.digest, graph, manifest, environment: { workspaces: {}, checkouts: {}, checkoutPolicies: [] } })
-  assert.equal(missing.status, "HOLD"); assert.equal(requests, 0)
+  assert.equal(missing.status, "HOLD"); assert.equal(requests, 2)
   const changed = { ...manifest, bindings: { ...manifest.bindings, resources: [{ id: resource, representations: [{ ...manifest.bindings.resources[0]!.representations[0]!, digest: bytesDigest("wrong pin") }] }] } }
   assert.equal((await switchNativeProfile(store, { expectedStateDigest: state.digest, graph, manifest: changed, environment: registered })).status, "HOLD")
   assert.equal((await store.read()).digest, state.digest)
   const result = await switchNativeProfile(store, { expectedStateDigest: state.digest, graph, manifest, environment: registered })
   assert.equal(result.status, "COMMITTED")
-  assert.equal(requests, 3)
+  assert.equal(requests, 5)
   if (result.status === "COMMITTED") assert.equal(result.state.active?.manifestDigest, first.manifestDigest)
+})
+
+test("native profile observation handles are process-local and hold on source drift or an initial hold", async t => {
+  const value = await fixture(t), environment = value.environment(value.roots.a), first = snapshot(value.manifest, environment)
+  const prepared = await prepareNativeProfileObservation(value.graph, first, environment)
+  assert.equal(prepared.report.status, "PASS")
+  await assert.rejects(recheckNativeProfileObservation(structuredClone(prepared)), /not prepared by this process/)
+  await writeFile(join(value.roots.a, "policy.json"), '{"mode":"drift"}\n')
+  const stale = await recheckNativeProfileObservation(prepared)
+  assert.deepEqual([stale.status, stale.reasons], ["HOLD", ["NATIVE_RECHECK_HELD"]])
+  const held = await prepareNativeProfileObservation(value.graph, first, value.environment(value.roots.bad))
+  assert.equal(held.report.status, "HOLD")
+  assert.deepEqual(await recheckNativeProfileObservation(held), held.report)
 })
 
 test("native profile switch applies required-source byte pins even when local representations omit a digest", async t => {

@@ -76,7 +76,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
         }
       ],
       "ni:addresses": [
@@ -101,12 +101,12 @@
         "@value": {
           "role": "CODE",
           "path": "src/addons/native-profile.ts",
-          "sha256": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+          "sha256": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"
       },
-      "ni:sha256": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
+      "ni:sha256": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2",
       "ni:role": "CODE"
     },
     {
@@ -119,12 +119,12 @@
         "@value": {
           "role": "TEST",
           "path": "test/native-profile.test.ts",
-          "sha256": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+          "sha256": "sha256:7c4178d2f1dd782f8e79b090c6d3b3ffee970ba73236da25452008bc93bbe098",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"
       },
-      "ni:sha256": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
+      "ni:sha256": "sha256:7c4178d2f1dd782f8e79b090c6d3b3ffee970ba73236da25452008bc93bbe098",
       "ni:role": "TEST"
     },
     {
@@ -179,7 +179,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
         }
       ],
       "ni:addresses": [
@@ -198,12 +198,12 @@
         "@value": {
           "role": "CODE",
           "path": "src/addons/native-profile-store.ts",
-          "sha256": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+          "sha256": "sha256:c10e006c29c6855fe8e0916688eeb35b9df40c1df93ba25e1b48afe9674e72c4",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"
       },
-      "ni:sha256": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
+      "ni:sha256": "sha256:c10e006c29c6855fe8e0916688eeb35b9df40c1df93ba25e1b48afe9674e72c4",
       "ni:role": "CODE"
     },
     {
@@ -216,12 +216,12 @@
         "@value": {
           "role": "TEST",
           "path": "test/native-profile-store.test.ts",
-          "sha256": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+          "sha256": "sha256:442be03c10a8f1a33131136d974566b0028350b5360d4116dceb52c102195139",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"
       },
-      "ni:sha256": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+      "ni:sha256": "sha256:442be03c10a8f1a33131136d974566b0028350b5360d4116dceb52c102195139",
       "ni:role": "TEST"
     },
     {
@@ -276,7 +276,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
         }
       ],
       "ni:addresses": [
@@ -376,7 +376,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
         }
       ],
       "ni:addresses": [
@@ -401,12 +401,12 @@
         "@value": {
           "role": "CODE",
           "path": "src/addons/native-profile-runtime.ts",
-          "sha256": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+          "sha256": "sha256:0abaa71f279177804205d4181bd52303d6f0a30192043ad1fd5e8808771ffd03",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"
       },
-      "ni:sha256": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
+      "ni:sha256": "sha256:0abaa71f279177804205d4181bd52303d6f0a30192043ad1fd5e8808771ffd03",
       "ni:role": "CODE"
     },
     {
@@ -419,12 +419,12 @@
         "@value": {
           "role": "TEST",
           "path": "test/native-profile-runtime.test.ts",
-          "sha256": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+          "sha256": "sha256:f8fea0ecbf0d688068926b9eaadfb67642d2e07e1fcc0424ebd9bd31877527d0",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"
       },
-      "ni:sha256": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+      "ni:sha256": "sha256:f8fea0ecbf0d688068926b9eaadfb67642d2e07e1fcc0424ebd9bd31877527d0",
       "ni:role": "TEST"
     },
     {
@@ -479,7 +479,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
         }
       ],
       "ni:addresses": [
@@ -576,7 +576,7 @@
       ],
       "ni:observedBy": [
         {
-          "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358"
+          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
         }
       ],
       "ni:addresses": [
@@ -622,6 +622,187 @@
         "@type": "@json"
       },
       "ni:sha256": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:work:P09",
+      "@type": [
+        "urn:usl:native-implementation:ImplementationWork"
+      ],
+      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "workItem": "P09",
+          "status": "IMPLEMENTED_BOUNDED",
+          "plannedStatus": "PLANNED",
+          "scope": "OWNER_DISPATCH_GATE_INTENT_DEDUP_RECHECK_NOT_EFFECT_ATOMICITY",
+          "limitations": [
+            "NO_GENERAL_ACCEPTANCE_CLAIM",
+            "NO_AUTHORITY_GRANT",
+            "READ_ONLY_PROGRESS_PROJECTION"
+          ],
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "IMPLEMENTED_BOUNDED",
+      "ni:snapshotOf": [
+        {
+          "@id": "urn:usl:dev:work:P09"
+        }
+      ],
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "urn:usl:dev:work:P09"
+        },
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:derivedFrom": [
+        {
+          "@id": "urn:usl:native-implementation:baseline:plan"
+        }
+      ],
+      "ni:implementedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P09:code-1"
+        },
+        {
+          "@id": "urn:usl:native-implementation:artifact:P09:code-2"
+        }
+      ],
+      "ni:checkedBy": [
+        {
+          "@id": "urn:usl:native-implementation:artifact:P09:test-3"
+        },
+        {
+          "@id": "urn:usl:native-implementation:artifact:P09:test-4"
+        },
+        {
+          "@id": "urn:usl:native-implementation:artifact:P09:test-5"
+        },
+        {
+          "@id": "urn:usl:native-implementation:artifact:P09:test-6"
+        }
+      ],
+      "ni:observedBy": [
+        {
+          "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a"
+        }
+      ],
+      "ni:addresses": [
+        {
+          "@id": "urn:usl:dev:req:R07"
+        }
+      ]
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P09:code-1",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/addons/native-dispatch.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/addons/native-dispatch.ts",
+          "sha256": "sha256:01b53ea9e49e286e075bcf4b6c005c2183cfaf30f225f66c0213a3e8cd6975b8",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:01b53ea9e49e286e075bcf4b6c005c2183cfaf30f225f66c0213a3e8cd6975b8",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P09:code-2",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/src/cli-host.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "CODE",
+          "path": "src/cli-host.ts",
+          "sha256": "sha256:21ab5ce0021e01bf6e92c6ceeadc081bbe8069992935e081ac81612bfe15e6fa",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:21ab5ce0021e01bf6e92c6ceeadc081bbe8069992935e081ac81612bfe15e6fa",
+      "ni:role": "CODE"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P09:test-3",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-dispatch.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-dispatch.test.ts",
+          "sha256": "sha256:abd8e6e7cca6af499e3922ce85fa1010f4500ee69c4b81dd0582f51ffb60e25e",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:abd8e6e7cca6af499e3922ce85fa1010f4500ee69c4b81dd0582f51ffb60e25e",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P09:test-4",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/cli-host.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/cli-host.test.ts",
+          "sha256": "sha256:6aaf2b30401b4ec0d056283cb181d49e03227a4f18c45ef8a6102de966686844",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:6aaf2b30401b4ec0d056283cb181d49e03227a4f18c45ef8a6102de966686844",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P09:test-5",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-dispatch-fixture.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-dispatch-fixture.ts",
+          "sha256": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
+      "ni:role": "TEST"
+    },
+    {
+      "@id": "urn:usl:native-implementation:artifact:P09:test-6",
+      "@type": [
+        "urn:usl:native-implementation:Artifact"
+      ],
+      "ni:locator": "file://usl-root/test/native-dispatch-fault.test.ts",
+      "ni:metadata": {
+        "@value": {
+          "role": "TEST",
+          "path": "test/native-dispatch-fault.test.ts",
+          "sha256": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:sha256": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437",
       "ni:role": "TEST"
     },
     {
@@ -685,38 +866,6 @@
       "ni:addresses": [
         {
           "@id": "urn:usl:dev:req:R05"
-        }
-      ]
-    },
-    {
-      "@id": "urn:usl:native-implementation:work:P09",
-      "@type": [
-        "urn:usl:native-implementation:ImplementationWork"
-      ],
-      "ni:locator": "file://usl-root/research/native-development/implementation/graph.json",
-      "ni:metadata": {
-        "@value": {
-          "workItem": "P09",
-          "status": "PLANNED",
-          "plannedStatus": "PLANNED",
-          "authorityClass": "SECONDARY_AI"
-        },
-        "@type": "@json"
-      },
-      "ni:status": "PLANNED",
-      "ni:snapshotOf": [
-        {
-          "@id": "urn:usl:dev:work:P09"
-        }
-      ],
-      "prov:wasDerivedFrom": [
-        {
-          "@id": "urn:usl:dev:work:P09"
-        }
-      ],
-      "ni:addresses": [
-        {
-          "@id": "urn:usl:dev:req:R07"
         }
       ]
     },
@@ -835,7 +984,7 @@
       ]
     },
     {
-      "@id": "urn:usl:native-implementation:check:2c383a4709f027599da8504bac2fde3c10e8864a468cd7a4a73d6590d1db4358",
+      "@id": "urn:usl:native-implementation:check:cc5159e8e4a974217a73e3b1a7ebcf468f0d6713e05542d3150bb3d48c1d909a",
       "@type": [
         "urn:usl:native-implementation:ObservedCheck"
       ],
@@ -844,7 +993,7 @@
         "@value": {
           "schema": "usl-native-implementation-check/v1",
           "status": "PASS",
-          "count": 42,
+          "count": 66,
           "command": [
             "env",
             "TSX_DISABLE_CACHE=1",
@@ -859,34 +1008,38 @@
             "test/native-observation.test.ts",
             "test/native-profile-runtime.test.ts",
             "test/native-http.test.ts",
-            "test/native-delivery.test.ts"
+            "test/native-delivery.test.ts",
+            "test/native-dispatch.test.ts",
+            "test/native-dispatch-fault.test.ts",
+            "test/cli-host.test.ts"
           ],
-          "recordedAt": "2026-10-11 12:44:26 UTC",
-          "baseCommit": "a311f2b",
+          "recordedAt": "2026-10-12 03:29:32 UTC",
+          "baseCommit": "1ece09b4d3dc0c4fd2933ec6b51083889899d7d2",
           "revisionKind": "CURRENT_BYTE_SNAPSHOT",
           "pins": {
-            "src/addons/native-profile.ts": "sha256:98d59d2f171f74d0475a6dddab23781c5e6eab7aa8b01899353d98499b347468",
-            "test/native-profile.test.ts": "sha256:c73d2c042aac3583f56cada96067ac76612a8ceb6198baa6b46b28a1b0357341",
-            "src/addons/native-profile-store.ts": "sha256:468fa6563517c2213df4b8b6d794e250698b9852efac1333e1be2dcdeddf4fdb",
-            "test/native-profile-store.test.ts": "sha256:a35b42fc7396f09e12f64007c19567bd9777c6aa15eb2c2124d24d354beab18f",
+            "src/addons/native-profile.ts": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2",
+            "test/native-profile.test.ts": "sha256:7c4178d2f1dd782f8e79b090c6d3b3ffee970ba73236da25452008bc93bbe098",
+            "src/addons/native-profile-store.ts": "sha256:c10e006c29c6855fe8e0916688eeb35b9df40c1df93ba25e1b48afe9674e72c4",
+            "test/native-profile-store.test.ts": "sha256:442be03c10a8f1a33131136d974566b0028350b5360d4116dceb52c102195139",
             "src/addons/native-observation.ts": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e",
             "test/native-observation.test.ts": "sha256:8ac0ac6d988029ac7845372d46109b2d9ac83e7a9fedf4a368bee525abbc765f",
-            "src/addons/native-profile-runtime.ts": "sha256:1af62c3084fe862c4c8e40e90ceed298d7b1d2169d8daf09eb5a36e79d12f9c4",
-            "test/native-profile-runtime.test.ts": "sha256:2423236c52bf38b27d0bdc79c47b7a88d35e6398665f4a09a733361d211cd5d3",
+            "src/addons/native-profile-runtime.ts": "sha256:0abaa71f279177804205d4181bd52303d6f0a30192043ad1fd5e8808771ffd03",
+            "test/native-profile-runtime.test.ts": "sha256:f8fea0ecbf0d688068926b9eaadfb67642d2e07e1fcc0424ebd9bd31877527d0",
             "src/addons/native-http.ts": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda",
             "test/native-http.test.ts": "sha256:5d4b11012f25d2a777b00335b651c8b50449db00547025761e58df82574bc242",
             "src/addons/native-delivery.ts": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0",
-            "test/native-delivery.test.ts": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7"
+            "test/native-delivery.test.ts": "sha256:8e335e534f0ecc3e2536c8044cef126747e18f8deac72c6ab56f449b9dfaefe7",
+            "src/addons/native-dispatch.ts": "sha256:01b53ea9e49e286e075bcf4b6c005c2183cfaf30f225f66c0213a3e8cd6975b8",
+            "src/cli-host.ts": "sha256:21ab5ce0021e01bf6e92c6ceeadc081bbe8069992935e081ac81612bfe15e6fa",
+            "test/native-dispatch.test.ts": "sha256:abd8e6e7cca6af499e3922ce85fa1010f4500ee69c4b81dd0582f51ffb60e25e",
+            "test/cli-host.test.ts": "sha256:6aaf2b30401b4ec0d056283cb181d49e03227a4f18c45ef8a6102de966686844",
+            "test/native-dispatch-fixture.ts": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
+            "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437"
           },
           "output": {
             "path": "research/native-development/implementation/test-output.tap",
-            "sha256": "sha256:22c625372519a04bca91af02364e6efec6d6dc6afbf8036ad60717dbd517db98"
+            "sha256": "sha256:355d79184309c241df1ea9efa29f8e28ca28f0920aaa8a68cb2d98448be937db"
           },
-          "limitations": [
-            "LOCAL_LINUX_FIXTURES_AND_LOOPBACK_HTTP",
-            "NOT_ALL_ORIGINAL_ACCEPTANCE_SPECS",
-            "NO_LIVE_HSWM_EXECUTION"
-          ],
           "evidenceRole": "RECORDED_LOCAL_RUN_NOT_SIGNED_ATTESTATION",
           "authorityClass": "SECONDARY_AI"
         },
@@ -1021,6 +1174,27 @@
       "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
     },
     {
+      "@id": "urn:usl:dev:work:P09",
+      "@type": [
+        "urn:usl:native-implementation:HistoricalReference"
+      ],
+      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
+      "ni:metadata": {
+        "@value": {
+          "path": "research/native-development/graph.json",
+          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
+          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
+          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
+          "status": "HISTORICAL_REFERENCE_ONLY",
+          "selector": "/resources/24",
+          "authorityClass": "SECONDARY_AI"
+        },
+        "@type": "@json"
+      },
+      "ni:status": "HISTORICAL_REFERENCE_ONLY",
+      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
+    },
+    {
       "@id": "urn:usl:dev:work:P04",
       "@type": [
         "urn:usl:native-implementation:HistoricalReference"
@@ -1055,27 +1229,6 @@
           "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
           "status": "HISTORICAL_REFERENCE_ONLY",
           "selector": "/resources/22",
-          "authorityClass": "SECONDARY_AI"
-        },
-        "@type": "@json"
-      },
-      "ni:status": "HISTORICAL_REFERENCE_ONLY",
-      "ni:sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b"
-    },
-    {
-      "@id": "urn:usl:dev:work:P09",
-      "@type": [
-        "urn:usl:native-implementation:HistoricalReference"
-      ],
-      "ni:locator": "git://usl-root@be6e87f450169f8caa85cba9b18b26ae436e9657:research/native-development/graph.json",
-      "ni:metadata": {
-        "@value": {
-          "path": "research/native-development/graph.json",
-          "gitCommit": "be6e87f450169f8caa85cba9b18b26ae436e9657",
-          "gitBlob": "323d05004bd2baf3688c09c82636f8363587c051",
-          "sha256": "sha256:5b2baec5b039a73f91a79ce1b221f3d269177541d20f5868e69986cb146f823b",
-          "status": "HISTORICAL_REFERENCE_ONLY",
-          "selector": "/resources/24",
           "authorityClass": "SECONDARY_AI"
         },
         "@type": "@json"

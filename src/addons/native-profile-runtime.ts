@@ -77,6 +77,91 @@ export const compileNativeProfileGraph = async (graphInput: string, snapshotInpu
 const switchSchema = z.strictObject({ expectedStateDigest: contractHash, graph: z.string().max(1024 * 1024),
   manifest: z.unknown(), environment: z.unknown(), maxResources: z.number().int().min(1).max(128).default(16) })
 
+export interface NativeProfileObservationReport {
+  readonly schema: "usl-native-profile-observation/v1"
+  readonly status: "PASS" | "HOLD"
+  readonly snapshotDigest: string
+  readonly compilationDigest?: string
+  readonly observationDigests: readonly string[]
+  readonly reasons: readonly string[]
+  readonly authority: "NOT_GRANTED"
+  readonly consistency: "READ_ONLY_NON_ATOMIC"
+  readonly digest: string
+}
+export interface PreparedNativeProfileObservation {
+  readonly schema: "usl-prepared-native-profile-observation/v1"
+  readonly report: NativeProfileObservationReport
+  /** Informational compilation data; only this process's WeakMap entry is a valid recheck handle. */
+  readonly compilation?: Awaited<ReturnType<typeof compileNativeProfileGraph>>
+  readonly limitation: "PROCESS_LOCAL_HANDLE;READ_ONLY_NON_ATOMIC"
+}
+type PreparedProfileItem = { readonly digest: string; readonly recheck: () => Promise<{ readonly status: "PASS" | "HOLD"; readonly digest: string }> }
+type StoredProfileObservation = { readonly graph: string; readonly snapshot: ReturnType<typeof parseNativeProfileSnapshot>; readonly environment: NativeProfileEnvironment; readonly compilation?: Awaited<ReturnType<typeof compileNativeProfileGraph>>; readonly items: readonly PreparedProfileItem[]; readonly report: NativeProfileObservationReport }
+const preparedProfileObservations = new WeakMap<object, StoredProfileObservation>()
+const observationReport = (snapshotDigest: string, status: "PASS" | "HOLD", reasons: readonly string[], observationDigests: readonly string[], compilationDigest?: string): NativeProfileObservationReport => {
+  const body = { schema: "usl-native-profile-observation/v1" as const, status, snapshotDigest, ...(compilationDigest === undefined ? {} : { compilationDigest }), observationDigests: [...observationDigests], reasons: [...reasons], authority: "NOT_GRANTED" as const, consistency: "READ_ONLY_NON_ATOMIC" as const }
+  return freezeContract({ ...body, digest: contractDigest(body) })
+}
+const prepareProfileValue = (stored: StoredProfileObservation): PreparedNativeProfileObservation => {
+  const value = freezeContract({ schema: "usl-prepared-native-profile-observation/v1" as const, report: stored.report, ...(stored.compilation === undefined ? {} : { compilation: stored.compilation }), limitation: "PROCESS_LOCAL_HANDLE;READ_ONLY_NON_ATOMIC" as const })
+  preparedProfileObservations.set(value, stored); return value
+}
+const httpObservationDigest = (selection: { readonly resource: string; readonly representation: string }, report: Awaited<ReturnType<typeof prepareNativeHttp>>["report"]): string => contractDigest({ schema: "usl-native-profile-http-observation/v1", selection, finalUrl: report.finalUrl, bodyDigest: report.bodyDigest, bytes: report.bytes })
+
+/** Prepare every selected local/HTTP representation once for a later process-local gate. */
+export const prepareNativeProfileObservation = async (graphInput: string, snapshotInput: unknown, environmentInput: unknown, maxResources = 16): Promise<PreparedNativeProfileObservation> => {
+  const snapshot = parseNativeProfileSnapshot(snapshotInput), environment = parseNativeProfileEnvironment(environmentInput)
+  if (!Number.isSafeInteger(maxResources) || maxResources < 1 || maxResources > 128) throw new Error("maxResources must be an integer from 1 to 128")
+  if (snapshot.manifest.selections.length > maxResources) {
+    const report = observationReport(snapshot.digest, "HOLD", ["OBSERVATION_RESOURCE_BUDGET"], [])
+    return prepareProfileValue({ graph: graphInput, snapshot, environment, items: [], report })
+  }
+  let compilation: Awaited<ReturnType<typeof compileNativeProfileGraph>>
+  try { compilation = await compileNativeProfileGraph(graphInput, snapshot, environment) }
+  catch { const report = observationReport(snapshot.digest, "HOLD", ["PROFILE_COMPILATION_HELD"], []); return prepareProfileValue({ graph: graphInput, snapshot, environment, items: [], report }) }
+  const items: PreparedProfileItem[] = []
+  for (const selection of snapshot.manifest.selections) {
+    const resolved = compilation.bindingReceipt.selections.find(item => item.resource === selection.resource)
+    if (!resolved) return prepareProfileValue({ graph: graphInput, snapshot, environment, compilation, items, report: observationReport(snapshot.digest, "HOLD", ["PROFILE_SELECTION_MISSING"], items.map(item => item.digest), compilation.digest) })
+    const requiredSource = snapshot.manifest.requiredSources.find(source => source.resource === selection.resource)
+    const expectedDigest = resolved.expectedDigest ?? requiredSource?.digest
+    const httpPolicy = environment.httpPolicies.find(policy => policy.resource === selection.resource)
+    if (httpPolicy !== undefined) {
+      if (httpPolicy.representation !== selection.representation || httpPolicy.url !== resolved.locator || resolved.kind !== "locator") return prepareProfileValue({ graph: graphInput, snapshot, environment, compilation, items, report: observationReport(snapshot.digest, "HOLD", ["HTTP_REGISTRATION_MISMATCH"], items.map(item => item.digest), compilation.digest) })
+      const { resource: _resource, representation: _representation, accept, ...httpInput } = httpPolicy
+      const prepared = await prepareNativeHttp({ ...httpInput, ...(accept === undefined ? {} : { accept }) })
+      if (prepared.report.status !== "PASS" || (expectedDigest !== undefined && prepared.report.bodyDigest !== expectedDigest) || (requiredSource !== undefined && prepared.report.bytes !== requiredSource.bytes)) return prepareProfileValue({ graph: graphInput, snapshot, environment, compilation, items, report: observationReport(snapshot.digest, "HOLD", ["HTTP_OBSERVATION_HELD"], items.map(item => item.digest), compilation.digest) })
+      const digest = httpObservationDigest(selection, prepared.report)
+      items.push({ digest, recheck: async () => { const report = await recheckNativeHttp(prepared); return { status: report.status, digest: httpObservationDigest(selection, report) } } })
+      continue
+    }
+    const policy = environment.checkoutPolicies.find(p => p.resource === selection.resource)
+    const prepared = await prepareNativeObservation(snapshot.manifest.bindings, selection, { workspaces: environment.workspaces, ...(policy === undefined ? {} : { checkout: { policy, checkouts: environment.checkouts } }) })
+    if (prepared.report.status !== "PASS" || (expectedDigest !== undefined && prepared.report.content.digest !== expectedDigest) || (requiredSource !== undefined && prepared.report.content.bytes !== requiredSource.bytes)) return prepareProfileValue({ graph: graphInput, snapshot, environment, compilation, items, report: observationReport(snapshot.digest, "HOLD", ["NATIVE_OBSERVATION_HELD"], items.map(item => item.digest), compilation.digest) })
+    items.push({ digest: prepared.report.digest, recheck: async () => { const report = await recheckNativeObservation(prepared); return { status: report.status, digest: report.digest } } })
+  }
+  const report = observationReport(snapshot.digest, "PASS", [], items.map(item => item.digest), compilation.digest)
+  return prepareProfileValue({ graph: graphInput, snapshot, environment, compilation, items, report })
+}
+
+/** Recheck only a local opaque handle; copied reports cannot recreate its captured callbacks. */
+export const recheckNativeProfileObservation = async (value: PreparedNativeProfileObservation): Promise<NativeProfileObservationReport> => {
+  if (value === null || typeof value !== "object") throw new Error("native profile observation was not prepared by this process")
+  const saved = preparedProfileObservations.get(value)
+  if (!saved) throw new Error("native profile observation was not prepared by this process")
+  if (saved.report.status !== "PASS") return saved.report
+  if (saved.compilation === undefined) return observationReport(saved.snapshot.digest, "HOLD", ["PREPARED_OBSERVATION_UNAVAILABLE"], saved.report.observationDigests)
+  let fresh: Awaited<ReturnType<typeof compileNativeProfileGraph>>
+  try { fresh = await compileNativeProfileGraph(saved.graph, saved.snapshot, saved.environment) }
+  catch { return observationReport(saved.snapshot.digest, "HOLD", ["PROFILE_COMPILATION_HELD"], saved.report.observationDigests, saved.compilation.digest) }
+  if (fresh.digest !== saved.compilation.digest) return observationReport(saved.snapshot.digest, "HOLD", ["PROFILE_BINDING_CHANGED"], saved.report.observationDigests, saved.compilation.digest)
+  for (const item of saved.items) {
+    const result = await item.recheck()
+    if (result.status !== "PASS" || result.digest !== item.digest) return observationReport(saved.snapshot.digest, "HOLD", ["NATIVE_RECHECK_HELD"], saved.report.observationDigests, saved.compilation.digest)
+  }
+  return saved.report
+}
+
 /**
  * A switch uses read-only native rechecks followed by the owner's registry CAS.
  * Filesystem observations and registry commit are not one atomic transaction.
@@ -92,35 +177,14 @@ export const switchNativeProfile = async (store: NativeProfileStore, input: unkn
   if (current.active !== null && manifest.graphDigest !== current.active.manifest.graphDigest) return freezeContract({ status: "HOLD" as const, reason: "ENVIRONMENT_SWITCH_MUST_PRESERVE_SOURCE_GRAPH" })
   if (manifest.selections.length > request.maxResources) return freezeContract({ status: "HOLD" as const, reason: "OBSERVATION_RESOURCE_BUDGET" })
   const snapshot = createNativeProfileSnapshot(manifest, current.generation + 1, contractDigest(environment))
-  const compiled = await compileNativeProfileGraph(request.graph, snapshot, environment)
-  const observations: Array<{ readonly digest: string; readonly recheck: () => Promise<{ readonly status: "PASS" | "HOLD" }> }> = []
-  for (const selection of manifest.selections) {
-    const resolved = compiled.bindingReceipt.selections.find(item => item.resource === selection.resource)!
-    const requiredSource = manifest.requiredSources.find(source => source.resource === selection.resource)
-    const expectedDigest = resolved.expectedDigest ?? requiredSource?.digest
-    const httpPolicy = environment.httpPolicies.find(policy => policy.resource === selection.resource)
-    if (httpPolicy !== undefined) {
-      if (httpPolicy.representation !== selection.representation || httpPolicy.url !== resolved.locator || resolved.kind !== "locator") return freezeContract({ status: "HOLD" as const, reason: "HTTP_REGISTRATION_MISMATCH" })
-      const { resource: _resource, representation: _representation, accept, ...httpInput } = httpPolicy
-      const prepared = await prepareNativeHttp({ ...httpInput, ...(accept === undefined ? {} : { accept }) })
-      if (prepared.report.status !== "PASS" || (expectedDigest !== undefined && prepared.report.bodyDigest !== expectedDigest) || (requiredSource !== undefined && prepared.report.bytes !== requiredSource.bytes)) return freezeContract({ status: "HOLD" as const, reason: "HTTP_OBSERVATION_HELD", observation: prepared.report })
-      observations.push({ digest: prepared.report.digest, recheck: () => recheckNativeHttp(prepared) })
-      continue
-    }
-    const policy = environment.checkoutPolicies.find(p => p.resource === selection.resource)
-    const prepared = await prepareNativeObservation(manifest.bindings, selection, { workspaces: environment.workspaces,
-      ...(policy === undefined ? {} : { checkout: { policy, checkouts: environment.checkouts } }) })
-    if (prepared.report.status !== "PASS" || (expectedDigest !== undefined && prepared.report.content.digest !== expectedDigest) || (requiredSource !== undefined && prepared.report.content.bytes !== requiredSource.bytes)) return freezeContract({ status: "HOLD" as const, reason: "NATIVE_OBSERVATION_HELD", observation: prepared.report })
-    observations.push({ digest: prepared.report.digest, recheck: () => recheckNativeObservation(prepared) })
-  }
-  const fresh = await compileNativeProfileGraph(request.graph, snapshot, environment)
-  if (fresh.digest !== compiled.digest) return freezeContract({ status: "HOLD" as const, reason: "PROFILE_BINDING_CHANGED" })
-  for (const prepared of observations) {
-    const report = await prepared.recheck()
-    if (report.status !== "PASS") return freezeContract({ status: "HOLD" as const, reason: "NATIVE_RECHECK_HELD", observation: report })
-  }
+  const prepared = await prepareNativeProfileObservation(request.graph, snapshot, environment, request.maxResources)
+  if (prepared.report.status !== "PASS") return freezeContract({ status: "HOLD" as const, reason: prepared.report.reasons[0] ?? "NATIVE_OBSERVATION_HELD", observation: prepared.report })
+  const checked = await recheckNativeProfileObservation(prepared)
+  if (checked.status !== "PASS") return freezeContract({ status: "HOLD" as const, reason: checked.reasons[0] ?? "NATIVE_RECHECK_HELD", observation: checked })
+  const compiled = prepared.compilation
+  if (compiled === undefined) return freezeContract({ status: "HOLD" as const, reason: "PREPARED_OBSERVATION_UNAVAILABLE", observation: checked })
   const result = await activate(request.expectedStateDigest, snapshot)
   if (result.status !== "COMMITTED") return result
-  return freezeContract({ ...result, compilation: compiled, observationDigests: observations.map(o => o.digest),
+  return freezeContract({ ...result, compilation: compiled, observationDigests: prepared.report.observationDigests,
     consistency: "READ_ONLY_OBSERVATIONS_THEN_OWNER_CAS" as const, execution: "NOT_REQUESTED" as const })
 }

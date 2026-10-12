@@ -10,8 +10,8 @@ ni:WorkShape a sh:NodeShape ; sh:targetClass ni:ImplementationWork ;
   sh:property [ sh:path ni:snapshotOf ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ni:HistoricalReference ] ;
   sh:property [ sh:path ni:derivedFrom ; sh:maxCount 1 ; sh:class ni:HistoricalPlanSnapshot ] ;
   sh:property [ sh:path ni:addresses ; sh:minCount 1 ; sh:class ni:HistoricalReference ] ;
-  sh:property [ sh:path ni:implementedBy ; sh:maxCount 1 ; sh:class ni:Artifact ; sh:node [ sh:property [ sh:path ni:role ; sh:hasValue "CODE" ] ] ] ;
-  sh:property [ sh:path ni:checkedBy ; sh:maxCount 1 ; sh:class ni:Artifact ; sh:node [ sh:property [ sh:path ni:role ; sh:hasValue "TEST" ] ] ] ;
+  sh:property [ sh:path ni:implementedBy ; sh:class ni:Artifact ; sh:node [ sh:property [ sh:path ni:role ; sh:hasValue "CODE" ] ] ] ;
+  sh:property [ sh:path ni:checkedBy ; sh:class ni:Artifact ; sh:node [ sh:property [ sh:path ni:role ; sh:hasValue "TEST" ] ] ] ;
   sh:property [ sh:path ni:observedBy ; sh:maxCount 1 ; sh:class ni:ObservedCheck ] ;
   sh:or (
     [ sh:property [ sh:path ni:status ; sh:in ("PLANNED" "PARTIAL") ] ;
@@ -27,6 +27,9 @@ ni:WorkShape a sh:NodeShape ; sh:targetClass ni:ImplementationWork ;
       sh:property [ sh:path ni:checkedBy ; sh:minCount 1 ] ;
       sh:property [ sh:path ni:observedBy ; sh:minCount 1 ] ]
   ) .
+ni:P09DependencyShape a sh:NodeShape ; sh:targetNode ni:work:P09 ;
+  sh:property [ sh:path ni:implementedBy ; sh:minCount 2 ; sh:maxCount 2 ; sh:class ni:Artifact ] ;
+  sh:property [ sh:path ni:checkedBy ; sh:minCount 4 ; sh:maxCount 4 ; sh:class ni:Artifact ] .
 ni:ArtifactShape a sh:NodeShape ; sh:targetClass ni:Artifact ;
   sh:property [ sh:path ni:role ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ("CODE" "TEST") ] ;
   sh:property [ sh:path ni:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^sha256:[a-f0-9]{64}$" ] .

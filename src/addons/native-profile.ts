@@ -178,7 +178,7 @@ export const parseNativeAdmission = (input: unknown): NativeAdmission => {
 
 const effectSchema = z.strictObject({
   schema: z.literal("usl-native-effect-receipt/v1"), attemptId: contractIri, admissionDigest: contractHash,
-  dispatch: z.enum(["NOT_DISPATCHED", "DISPATCHED"]), outcome: z.enum(["SUCCEEDED", "FAILED", "UNKNOWN"]),
+  dispatch: z.enum(["NOT_DISPATCHED", "DISPATCHED", "UNKNOWN"]), outcome: z.enum(["SUCCEEDED", "FAILED", "UNKNOWN"]),
   sourceStatus: z.enum(["REJECTED", "SUCCEEDED", "INDETERMINATE", "OWNER_REPORTED"]), sourceReceiptDigest: contractHash,
   reason: contractText.nullable(), automaticRetry: z.literal(false),
 })
@@ -186,6 +186,7 @@ export type NativeEffectReceipt = z.infer<typeof effectSchema> & { readonly dige
 export const createNativeEffectReceipt = (input: unknown): NativeEffectReceipt => {
   const value = effectSchema.parse(contractSnapshot(input))
   require(!(value.dispatch === "NOT_DISPATCHED" && value.outcome === "SUCCEEDED"), "an undispatched action cannot succeed")
+  require(value.dispatch !== "UNKNOWN" || value.outcome === "UNKNOWN", "unknown dispatch must retain an unknown outcome")
   if (value.sourceStatus === "INDETERMINATE") require(value.outcome === "UNKNOWN", "indeterminate effects must remain unknown")
   if (value.sourceStatus === "REJECTED") require(value.dispatch === "NOT_DISPATCHED" && value.outcome === "FAILED", "rejected CLI action did not dispatch")
   if (value.sourceStatus === "SUCCEEDED") require(value.dispatch === "DISPATCHED" && value.outcome === "SUCCEEDED", "CLI success mapping differs")

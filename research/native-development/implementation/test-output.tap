@@ -1,262 +1,406 @@
 TAP version 13
-# Subtest: ND01 delivers complete pinned source bytes and accepts only the issued opaque handle
-ok 1 - ND01 delivers complete pinned source bytes and accepts only the issued opaque handle
+# Subtest: host plan and run reserve durable intent then bind a successful result
+ok 1 - host plan and run reserve durable intent then bind a successful result
   ---
-  duration_ms: 24.387494
+  duration_ms: 1668.581452
+  type: 'test'
+  ...
+# Subtest: owner authorization is persisted and blocks a child before start
+ok 2 - owner authorization is persisted and blocks a child before start
+  ---
+  duration_ms: 2689.89686
+  type: 'test'
+  ...
+# Subtest: stale plan and changed pinned source refuse before a subprocess side effect
+ok 3 - stale plan and changed pinned source refuse before a subprocess side effect
+  ---
+  duration_ms: 751.12962
+  type: 'test'
+  ...
+# Subtest: invalid child output becomes indeterminate after its single attempt
+ok 4 - invalid child output becomes indeterminate after its single attempt
+  ---
+  duration_ms: 1512.69257
+  type: 'test'
+  ...
+# Subtest: post-execution pin drift is indeterminate, while denied effects never start a child
+ok 5 - post-execution pin drift is indeterminate, while denied effects never start a child
+  ---
+  duration_ms: 1157.905481
+  type: 'test'
+  ...
+# Subtest: GraphSpec dangling edges and incoming entry dependencies refuse planning
+ok 6 - GraphSpec dangling edges and incoming entry dependencies refuse planning
+  ---
+  duration_ms: 30.344102
+  type: 'test'
+  ...
+# Subtest: moving a registered workspace preserves binding IDs but invalidates the old plan
+ok 7 - moving a registered workspace preserves binding IDs but invalidates the old plan
+  ---
+  duration_ms: 1037.31125
+  type: 'test'
+  ...
+# Subtest: CLI wrapper exposes list, plan and run using registered IDs
+ok 8 - CLI wrapper exposes list, plan and run using registered IDs
+  ---
+  duration_ms: 4362.243757
+  type: 'test'
+  ...
+# Subtest: ND01 delivers complete pinned source bytes and accepts only the issued opaque handle
+ok 9 - ND01 delivers complete pinned source bytes and accepts only the issued opaque handle
+  ---
+  duration_ms: 26.470963
   type: 'test'
   ...
 # Subtest: ND01 refuses pin/revision/ack mismatches and does not retry callbacks
-ok 2 - ND01 refuses pin/revision/ack mismatches and does not retry callbacks
+ok 10 - ND01 refuses pin/revision/ack mismatches and does not retry callbacks
   ---
-  duration_ms: 5.38378
+  duration_ms: 6.398278
   type: 'test'
   ...
 # Subtest: ND01 holds partial or mutable delivery bytes and acknowledgement context drift
-ok 3 - ND01 holds partial or mutable delivery bytes and acknowledgement context drift
+ok 11 - ND01 holds partial or mutable delivery bytes and acknowledgement context drift
   ---
-  duration_ms: 3.138233
+  duration_ms: 3.08993
   type: 'test'
   ...
 # Subtest: ND01 captures callbacks and never retries or invokes delivery after budget/timeout
-ok 4 - ND01 captures callbacks and never retries or invokes delivery after budget/timeout
+ok 12 - ND01 captures callbacks and never retries or invokes delivery after budget/timeout
   ---
-  duration_ms: 10.440688
+  duration_ms: 10.917905
   type: 'test'
   ...
 # Subtest: ND01 validates JSON pointer existence while delivering the complete backing document
-ok 5 - ND01 validates JSON pointer existence while delivering the complete backing document
+ok 13 - ND01 validates JSON pointer existence while delivering the complete backing document
   ---
-  duration_ms: 4.016069
+  duration_ms: 5.296786
   type: 'test'
   ...
 # Subtest: ND01 holds stale snapshot, invocation or target handles
-ok 6 - ND01 holds stale snapshot, invocation or target handles
+ok 14 - ND01 holds stale snapshot, invocation or target handles
   ---
-  duration_ms: 4.412536
+  duration_ms: 4.531531
   type: 'test'
   ...
 # Subtest: ND01 holds callback timeouts, exceptions, and declared budget excess
-ok 7 - ND01 holds callback timeouts, exceptions, and declared budget excess
+ok 15 - ND01 holds callback timeouts, exceptions, and declared budget excess
   ---
-  duration_ms: 3.818361
+  duration_ms: 4.443495
+  type: 'test'
+  ...
+# Subtest: ND09 fault: an uncertain begin commit never starts the CLI and leaves reconciliation evidence
+ok 16 - ND09 fault: an uncertain begin commit never starts the CLI and leaves reconciliation evidence
+  ---
+  duration_ms: 1423.167724
+  type: 'test'
+  ...
+# Subtest: ND09 fault: an uncertain finalization retains the durable execution gate and forbids retry
+ok 17 - ND09 fault: an uncertain finalization retains the durable execution gate and forbids retry
+  ---
+  duration_ms: 2090.486206
+  type: 'test'
+  ...
+# Subtest: ND09 fault: profile context drift after begin downgrades an otherwise successful CLI effect
+ok 18 - ND09 fault: profile context drift after begin downgrades an otherwise successful CLI effect
+  ---
+  duration_ms: 2130.480333
+  type: 'test'
+  ...
+# Subtest: ND09 fault: a post-begin CLI exception persists UNKNOWN rather than rejecting a possibly started attempt
+ok 19 - ND09 fault: a post-begin CLI exception persists UNKNOWN rather than rejecting a possibly started attempt
+  ---
+  duration_ms: 1272.610036
+  type: 'test'
+  ...
+# Subtest: ND09 dispatches the pinned CLI once and durably clears its execution gate
+ok 20 - ND09 dispatches the pinned CLI once and durably clears its execution gate
+  ---
+  duration_ms: 2256.722605
+  type: 'test'
+  ...
+# Subtest: ND09 refuses cloned, revoked, and duplicate-invocation dispatches before any effect
+ok 21 - ND09 refuses cloned, revoked, and duplicate-invocation dispatches before any effect
+  ---
+  duration_ms: 2930.22084
+  type: 'test'
+  ...
+# Subtest: ND09 holds missing delivery and failing, unknown, or timed-out evaluators
+ok 22 - ND09 holds missing delivery and failing, unknown, or timed-out evaluators
+  ---
+  duration_ms: 1666.944296
+  type: 'test'
+  ...
+# Subtest: ND09 preserves an execution gate for an indeterminate CLI timeout and never retries it
+ok 23 - ND09 preserves an execution gate for an indeterminate CLI timeout and never retries it
+  ---
+  duration_ms: 1896.045362
+  type: 'test'
+  ...
+# Subtest: ND09 rechecks selected bytes, host bindings, policy pins, and source pins before spawning
+ok 24 - ND09 rechecks selected bytes, host bindings, policy pins, and source pins before spawning
+  ---
+  duration_ms: 1640.456438
+  type: 'test'
+  ...
+# Subtest: ND09 holds when evaluator evidence or live delivery changes during the pre-spawn gate
+ok 25 - ND09 holds when evaluator evidence or live delivery changes during the pre-spawn gate
+  ---
+  duration_ms: 2332.333515
+  type: 'test'
+  ...
+# Subtest: ND09 rejects a same-path CWD under an unselected resource identity
+ok 26 - ND09 rejects a same-path CWD under an unselected resource identity
+  ---
+  duration_ms: 387.848411
+  type: 'test'
+  ...
+# Subtest: ND09 blocks a profile switch performed by the second evaluator gate
+ok 27 - ND09 blocks a profile switch performed by the second evaluator gate
+  ---
+  duration_ms: 1172.008385
   type: 'test'
   ...
 # Subtest: P06 allowlisted HTTP GET reports bounded stable facts without clock freshness
-ok 8 - P06 allowlisted HTTP GET reports bounded stable facts without clock freshness
+ok 28 - P06 allowlisted HTTP GET reports bounded stable facts without clock freshness
   ---
-  duration_ms: 57.726182
+  duration_ms: 52.390387
   type: 'test'
   ...
 # Subtest: P06 redirects require every normalized target to be allowlisted
-ok 9 - P06 redirects require every normalized target to be allowlisted
+ok 29 - P06 redirects require every normalized target to be allowlisted
   ---
-  duration_ms: 20.979967
+  duration_ms: 21.954257
   type: 'test'
   ...
 # Subtest: P06 shares byte and time bounds across the request
-ok 10 - P06 shares byte and time bounds across the request
+ok 30 - P06 shares byte and time bounds across the request
   ---
-  duration_ms: 17.934149
+  duration_ms: 22.258765
   type: 'test'
   ...
 # Subtest: P06 conditional 304 only reuses an exact opaque process-local cache handle
-ok 11 - P06 conditional 304 only reuses an exact opaque process-local cache handle
+ok 31 - P06 conditional 304 only reuses an exact opaque process-local cache handle
   ---
-  duration_ms: 15.29995
+  duration_ms: 15.160229
   type: 'test'
   ...
 # Subtest: P06 recheck accepts a conditional 304 only when representation identity is unchanged
-ok 12 - P06 recheck accepts a conditional 304 only when representation identity is unchanged
+ok 32 - P06 recheck accepts a conditional 304 only when representation identity is unchanged
   ---
-  duration_ms: 8.538957
+  duration_ms: 8.113505
   type: 'test'
   ...
 # Subtest: P06 recheck preserves absent and explicit Accept header semantics
-ok 13 - P06 recheck preserves absent and explicit Accept header semantics
+ok 33 - P06 recheck preserves absent and explicit Accept header semantics
   ---
-  duration_ms: 12.085514
+  duration_ms: 14.411513
   type: 'test'
   ...
 # Subtest: P06 sends conditional validation at the cached final redirect target
-ok 14 - P06 sends conditional validation at the cached final redirect target
+ok 34 - P06 sends conditional validation at the cached final redirect target
   ---
-  duration_ms: 8.596601
+  duration_ms: 10.94254
   type: 'test'
   ...
 # Subtest: P06 rejects a 304 without an exact, requested cache validator
-ok 15 - P06 rejects a 304 without an exact, requested cache validator
+ok 35 - P06 rejects a 304 without an exact, requested cache validator
   ---
-  duration_ms: 15.525908
+  duration_ms: 14.677286
   type: 'test'
   ...
 # Subtest: P06 enforces the current body budget when reusing a cached body
-ok 16 - P06 enforces the current body budget when reusing a cached body
+ok 36 - P06 enforces the current body budget when reusing a cached body
   ---
-  duration_ms: 5.663193
+  duration_ms: 5.154994
   type: 'test'
   ...
 # Subtest: P06 snapshots data descriptors once and rejects input accessors
-ok 17 - P06 snapshots data descriptors once and rejects input accessors
+ok 37 - P06 snapshots data descriptors once and rejects input accessors
   ---
-  duration_ms: 0.974385
+  duration_ms: 1.395224
   type: 'test'
   ...
 # Subtest: P03 native observation reports linked-worktree SHA facts only through the owner registry
-ok 18 - P03 native observation reports linked-worktree SHA facts only through the owner registry
+ok 38 - P03 native observation reports linked-worktree SHA facts only through the owner registry
   ---
-  duration_ms: 154.152891
+  duration_ms: 153.783704
   type: 'test'
   ...
 # Subtest: P03 native observation supports a pinned ordinary local file without Git
-ok 19 - P03 native observation supports a pinned ordinary local file without Git
+ok 39 - P03 native observation supports a pinned ordinary local file without Git
   ---
-  duration_ms: 9.84275
+  duration_ms: 12.471308
   type: 'test'
   ...
 # Subtest: P03 native observation holds unsupported locators, symlink checkout facts, and content pin mismatch
-ok 20 - P03 native observation holds unsupported locators, symlink checkout facts, and content pin mismatch
+ok 40 - P03 native observation holds unsupported locators, symlink checkout facts, and content pin mismatch
   ---
-  duration_ms: 91.466734
+  duration_ms: 103.532539
   type: 'test'
   ...
 # Subtest: P03 native observation recheck holds a ref move or dirty change and rejects fabricated handles
-ok 21 - P03 native observation recheck holds a ref move or dirty change and rejects fabricated handles
+ok 41 - P03 native observation recheck holds a ref move or dirty change and rejects fabricated handles
   ---
-  duration_ms: 176.866101
+  duration_ms: 200.037673
   type: 'test'
   ...
 # Subtest: P03 native observation rejects an in-root symlink before it can be canonicalized
-ok 22 - P03 native observation rejects an in-root symlink before it can be canonicalized
+ok 42 - P03 native observation rejects an in-root symlink before it can be canonicalized
   ---
-  duration_ms: 1.640961
+  duration_ms: 2.09415
   type: 'test'
   ...
 # Subtest: P03 native observation fingerprints a symbolic-ref move even at the same commit
-ok 23 - P03 native observation fingerprints a symbolic-ref move even at the same commit
+ok 43 - P03 native observation fingerprints a symbolic-ref move even at the same commit
   ---
-  duration_ms: 176.782929
+  duration_ms: 195.374405
   type: 'test'
   ...
 # Subtest: P03 native observation recognizes a SHA-256 repository when host Git supports it
-ok 24 - P03 native observation recognizes a SHA-256 repository when host Git supports it
+ok 44 - P03 native observation recognizes a SHA-256 repository when host Git supports it
   ---
-  duration_ms: 86.049981
+  duration_ms: 96.208783
   type: 'test'
   ...
 # Subtest: native profile compilation and root switch preserve portable graph identity while rebinding only locators
-ok 25 - native profile compilation and root switch preserve portable graph identity while rebinding only locators
+ok 45 - native profile compilation and root switch preserve portable graph identity while rebinding only locators
   ---
-  duration_ms: 69.858054
+  duration_ms: 79.389856
   type: 'test'
   ...
 # Subtest: native profile runtime holds altered pins, missing paths, alias scope, and resource budgets
-ok 26 - native profile runtime holds altered pins, missing paths, alias scope, and resource budgets
+ok 46 - native profile runtime holds altered pins, missing paths, alias scope, and resource budgets
   ---
-  duration_ms: 23.642476
+  duration_ms: 28.926918
   type: 'test'
   ...
 # Subtest: native profile switch uses public store CAS: stale and concurrent writers cannot activate twice
-ok 27 - native profile switch uses public store CAS: stale and concurrent writers cannot activate twice
+ok 47 - native profile switch uses public store CAS: stale and concurrent writers cannot activate twice
   ---
-  duration_ms: 72.234879
+  duration_ms: 87.952165
   type: 'test'
   ...
 # Subtest: native profile switch requires pinned HTTP registration and fresh matching bytes, including a conditional 304
-ok 28 - native profile switch requires pinned HTTP registration and fresh matching bytes, including a conditional 304
+ok 48 - native profile switch requires pinned HTTP registration and fresh matching bytes, including a conditional 304
   ---
-  duration_ms: 54.3738
+  duration_ms: 63.324076
+  type: 'test'
+  ...
+# Subtest: native profile observation handles are process-local and hold on source drift or an initial hold
+ok 49 - native profile observation handles are process-local and hold on source drift or an initial hold
+  ---
+  duration_ms: 30.416868
   type: 'test'
   ...
 # Subtest: native profile switch applies required-source byte pins even when local representations omit a digest
-ok 29 - native profile switch applies required-source byte pins even when local representations omit a digest
+ok 50 - native profile switch applies required-source byte pins even when local representations omit a digest
   ---
-  duration_ms: 63.583474
+  duration_ms: 74.375806
   type: 'test'
   ...
 # Subtest: P02 persists a profile, consumes an admission before an effect, and rejects replay
-ok 30 - P02 persists a profile, consumes an admission before an effect, and rejects replay
+ok 51 - P02 persists a profile, consumes an admission before an effect, and rejects replay
   ---
-  duration_ms: 42.068609
+  duration_ms: 46.540074
   type: 'test'
   ...
 # Subtest: P02 CAS rejects stale handles and monotonic generation prevents ABA
-ok 31 - P02 CAS rejects stale handles and monotonic generation prevents ABA
+ok 52 - P02 CAS rejects stale handles and monotonic generation prevents ABA
   ---
-  duration_ms: 31.385422
+  duration_ms: 23.202981
   type: 'test'
   ...
 # Subtest: P02 holds concurrent writer locks and refuses malformed or reinitialised state
-ok 32 - P02 holds concurrent writer locks and refuses malformed or reinitialised state
+ok 53 - P02 holds concurrent writer locks and refuses malformed or reinitialised state
   ---
-  duration_ms: 7.2246
+  duration_ms: 7.189636
   type: 'test'
   ...
 # Subtest: P02 retains admission tombstones across profile changes and holds clock or scope drift
-ok 33 - P02 retains admission tombstones across profile changes and holds clock or scope drift
+ok 54 - P02 retains admission tombstones across profile changes and holds clock or scope drift
   ---
-  duration_ms: 22.514273
+  duration_ms: 19.199696
   type: 'test'
   ...
 # Subtest: P02 rejects a self-consistent forged admission whose action scope is absent from active capabilities
-ok 34 - P02 rejects a self-consistent forged admission whose action scope is absent from active capabilities
+ok 55 - P02 rejects a self-consistent forged admission whose action scope is absent from active capabilities
   ---
-  duration_ms: 6.144622
+  duration_ms: 5.551694
   type: 'test'
   ...
 # Subtest: P02 consumes an owner-wide attempt ID only once
-ok 35 - P02 consumes an owner-wide attempt ID only once
+ok 56 - P02 consumes an owner-wide attempt ID only once
   ---
-  duration_ms: 21.224792
+  duration_ms: 20.009454
   type: 'test'
   ...
 # Subtest: P02 rejects a self-consistent persisted state whose active profile owner differs
-ok 36 - P02 rejects a self-consistent persisted state whose active profile owner differs
+ok 57 - P02 rejects a self-consistent persisted state whose active profile owner differs
   ---
-  duration_ms: 6.101508
+  duration_ms: 5.827957
+  type: 'test'
+  ...
+# Subtest: P09 durable execution gates block profile changes until a known effect finalizes
+ok 58 - P09 durable execution gates block profile changes until a known effect finalizes
+  ---
+  duration_ms: 30.170973
+  type: 'test'
+  ...
+# Subtest: P09 beginEffect rejects a forged same-ID admission and a regressed clock
+ok 59 - P09 beginEffect rejects a forged same-ID admission and a regressed clock
+  ---
+  duration_ms: 14.13458
   type: 'test'
   ...
 # Subtest: P01 native profile has a stable canonical digest vector and excludes host roots
-ok 37 - P01 native profile has a stable canonical digest vector and excludes host roots
+ok 60 - P01 native profile has a stable canonical digest vector and excludes host roots
   ---
-  duration_ms: 7.661653
+  duration_ms: 7.309921
   type: 'test'
   ...
 # Subtest: P01 rejects aliases, representations, pins, selectors, and nonportable fields that silently alter identity
-ok 38 - P01 rejects aliases, representations, pins, selectors, and nonportable fields that silently alter identity
+ok 61 - P01 rejects aliases, representations, pins, selectors, and nonportable fields that silently alter identity
   ---
-  duration_ms: 4.24421
+  duration_ms: 3.815112
   type: 'test'
   ...
 # Subtest: P01 full backing-document receipt and evaluator coverage hold on missing, extra, stale, partial, or unknown evidence
-ok 39 - P01 full backing-document receipt and evaluator coverage hold on missing, extra, stale, partial, or unknown evidence
+ok 62 - P01 full backing-document receipt and evaluator coverage hold on missing, extra, stale, partial, or unknown evidence
   ---
-  duration_ms: 12.511232
+  duration_ms: 12.023093
   type: 'test'
   ...
 # Subtest: P01 admissions bind scope, exact snapshot, and a bounded canonical TTL
-ok 40 - P01 admissions bind scope, exact snapshot, and a bounded canonical TTL
+ok 63 - P01 admissions bind scope, exact snapshot, and a bounded canonical TTL
   ---
-  duration_ms: 4.720027
+  duration_ms: 4.898679
   type: 'test'
   ...
 # Subtest: P01 snapshot rollback uses a new generation while retaining manifest identity
-ok 41 - P01 snapshot rollback uses a new generation while retaining manifest identity
+ok 64 - P01 snapshot rollback uses a new generation while retaining manifest identity
   ---
-  duration_ms: 2.113312
+  duration_ms: 1.735438
   type: 'test'
   ...
 # Subtest: P01 preserves CLI indeterminate as unknown and never represents automatic retry
-ok 42 - P01 preserves CLI indeterminate as unknown and never represents automatic retry
+ok 65 - P01 preserves CLI indeterminate as unknown and never represents automatic retry
   ---
-  duration_ms: 2.639038
+  duration_ms: 2.458722
   type: 'test'
   ...
-1..42
-# tests 42
+# Subtest: P09 permits an owner-reported unknown dispatch only with an unknown outcome
+ok 66 - P09 permits an owner-reported unknown dispatch only with an unknown outcome
+  ---
+  duration_ms: 1.191559
+  type: 'test'
+  ...
+1..66
+# tests 66
 # suites 0
-# pass 42
+# pass 66
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 1635.77077
+# duration_ms 15500.492293

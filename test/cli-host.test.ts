@@ -54,6 +54,18 @@ test("host plan and run reserve durable intent then bind a successful result", a
   await access(join(f.base, "receipt", "intent.json")); await access(join(f.base, "receipt", "result.json"))
 })
 
+test("owner authorization is persisted and blocks a child before start", async t => {
+  const f = await setup(t), plan: any = await planCliAction(f.configPath, "run", f.request)
+  const held: any = await executeCliAction(f.configPath, "run", f.request, plan.planDigest, join(f.base, "held"), {
+    authorization: { binding: { admission: "one" }, beforeStart: async () => ({ status: "HOLD", digest: "sha256:gate", reasons: ["DELIVERY_REVOKED"] }), verify: () => true },
+  })
+  assert.equal(held.status, "REJECTED"); assert.equal(held.attempts, 0); assert.equal(held.authorization.digest, "sha256:gate"); await assert.rejects(readFile(f.marker))
+  const passed: any = await executeCliAction(f.configPath, "run", f.request, plan.planDigest, join(f.base, "passed"), {
+    authorization: { binding: { admission: "two" }, beforeStart: async () => ({ status: "PASS", digest: "sha256:pass", reasons: [] }), verify: () => true },
+  })
+  assert.equal(passed.status, "SUCCEEDED"); assert.equal(passed.authorization.digest, "sha256:pass")
+})
+
 test("stale plan and changed pinned source refuse before a subprocess side effect", async t => {
   const f = await setup(t), plan: any = await planCliAction(f.configPath, "run", f.request)
   const stale: any = await executeCliAction(f.configPath, "run", f.request, `sha256:${"0".repeat(64)}`, join(f.base, "stale"))

@@ -1,17 +1,21 @@
 {
   "schema": "usl-native-implementation-verification/v1",
   "authorityClass": "SECONDARY_AI",
-  "recordedAt": "2026-10-11 12:50:28 UTC",
-  "scope": "LOCAL_LINUX_IMPLEMENTATION_AND_GRAPH_ONLY",
+  "recordedAt": "2026-10-12 03:30:34 UTC",
+  "scope": "LOCAL_LINUX_NATIVE_CLI_DISPATCH_AND_GRAPH_ONLY",
   "pins": {
-    "scripts/build-native-implementation.py": "sha256:a39d68b02d3f402a41342a26b3ecb3325922f585210c787a54be26827d866eb3",
-    "scripts/validate-native-implementation.py": "sha256:77f92290f9929a04fd6d13b0e587e14ef1fb4ad9aa1346bf64a614af6729dd08",
-    "test/native-implementation.test.ts": "sha256:9ce335024105fb4e190d41e53b3c5efb583c1d259998cb5be331b2075fa12a1c",
-    "research/native-development/implementation/graph.json": "sha256:591cc354c1dd46dda10b37e1cc36bd81cae29133b2c090269e710a3f7177febf",
-    "research/native-development/implementation/trace.jsonld": "sha256:3530b3f5797a6b7df6c8e8c10002698fdd05f57755dc03a2550fd5277dd2a2c2",
-    "research/native-development/implementation/shapes.ttl": "sha256:f4c991ba80f98ae82eddf679d6b2a8fa7beb683fb1535c12d72605f25255c727",
-    "research/native-development/implementation/checks.json": "sha256:a1866fb80b7c9411b67370cb42acc6ea948aadba1744845d99818773ca655c25",
-    "research/native-development/implementation/test-output.tap": "sha256:22c625372519a04bca91af02364e6efec6d6dc6afbf8036ad60717dbd517db98"
+    "scripts/build-native-implementation.py": "sha256:50e6a62264eb741c60a8b439b4cb06b98d3ef10c9c96eb0b618404dd9e66f72b",
+    "scripts/validate-native-implementation.py": "sha256:6a721ed50d62afbd44ff8882ef0428abaff8144dcb71ee3ff829076abf37c841",
+    "test/native-implementation.test.ts": "sha256:102bef3b4f43f702f0e86934e33401e0c5ebae58c25639443ae20141dd24901e",
+    "research/native-development/implementation/graph.json": "sha256:7964fee19d4616559c119b3dbc20b7fe26306cb882a18135cbb0cb38b0974533",
+    "research/native-development/implementation/trace.jsonld": "sha256:c6263441eaf6cd4d2ad7eb104198c106c8fa843277a0ccf46c60d03f0ee1b072",
+    "research/native-development/implementation/shapes.ttl": "sha256:88a962c9e3164983751c58aeecee6a0ef4c9c50235b5441b526c89c104f88198",
+    "research/native-development/implementation/checks.json": "sha256:65585a882e49c94d68d85ef3c0bd4d69405b59a0c8fa4611e1b852454ec3e497",
+    "research/native-development/implementation/test-output.tap": "sha256:355d79184309c241df1ea9efa29f8e28ca28f0920aaa8a68cb2d98448be937db",
+    "package.json": "sha256:3e052663470402acb34bec031831114976c444aad43b61bc008f6931c29e120e",
+    "package-lock.json": "sha256:b1e641438d313a659ac432043de33f7283a2b652d764a4b704336c275cd1e1b3",
+    "test/native-dispatch-fixture.ts": "sha256:bb053c0c2bbd594268229bd57ddd7a62222ace58d34729207b0c76d18aa8b9aa",
+    "test/native-dispatch-fault.test.ts": "sha256:266e2ac0f8bc30e657c6421c240230e425b446210e175447d0e340935a619437"
   },
   "runtime": {
     "node": "v24.20.0",
@@ -21,9 +25,9 @@
   },
   "checks": [
     {
-      "command": "42-test command and exact TAP result in checks.json",
+      "command": "66-test command and exact TAP result in checks.json",
       "status": "PASS",
-      "tests": 42,
+      "tests": 66,
       "skipped": 0
     },
     {
@@ -33,13 +37,20 @@
       "skipped": 0
     },
     {
+      "command": "node --import tsx --test test/cli-host-boundaries.test.ts test/cli-operation.test.ts test/cli-process.test.ts test/cli-recovery.test.ts",
+      "status": "PASS",
+      "tests": 23,
+      "skipped": 0
+    },
+    {
       "command": "python3 scripts/validate-native-implementation.py",
       "status": "PASS",
       "rdflib": "7.6.0",
       "pyshacl": "0.40.1",
-      "triples": 305,
-      "roleEdgesPreserved": 60,
-      "negativeCasesRejected": 6
+      "triples": 344,
+      "roleEdgesPreserved": 68,
+      "negativeCasesRejected": 6,
+      "implementedBounded": 7
     },
     {
       "command": "python3 scripts/validate-native-development.py",
@@ -68,9 +79,9 @@
       "status": "PASS"
     },
     {
-      "command": "built package self-reference imports for all six new subpaths",
+      "command": "built package self-reference imports for all seven native subpaths",
       "status": "PASS",
-      "imports": 6
+      "imports": 7
     },
     {
       "command": "python3 scripts/check-docs.py",
@@ -80,8 +91,15 @@
   ],
   "limits": [
     "Original 24 future acceptance specifications remain SPECIFIED_NOT_RUN.",
+    "P09 covers one registered owner CLI action boundary. P10 agent bridge, P04 relocation orchestration, P07 GitHub service API, P11 W integration, and P12 OMC pilot remain pending.",
     "No live HSWM, GitHub service API, or OMC end-to-end execution.",
-    "Owner-store replay protection is local to its preserved history; not cross-machine global exactly-once.",
-    "New profile/delivery contracts are not yet enforced by P09/P10 dispatcher or agent harness."
-  ]
+    "Owner-store replay protection depends on preserved local history; duplicated or rolled-back writable registries do not provide global exactly-once.",
+    "Filesystem/HTTP observations and external effects are not atomic; UNKNOWN gates require explicit owner reconciliation after confirming process termination and outcome.",
+    "Owner callbacks and local registrations are trusted. Delivery acknowledgement does not prove comprehension or control tools outside this dispatcher."
+  ],
+  "previousVerification": {
+    "gitCommit": "1ece09b4d3dc0c4fd2933ec6b51083889899d7d2",
+    "path": "research/native-development/implementation/verification.json",
+    "sha256": "sha256:3b1ea1e5a95d5243c3dd912396fbfc2c4f73ab00a770b2c644e41f56b2922a27"
+  }
 }

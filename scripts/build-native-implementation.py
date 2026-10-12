@@ -2,8 +2,8 @@
 """Build/check a bounded implementation projection without changing the historical plan."""
 import argparse, hashlib, json, pathlib, re, subprocess
 ROOT=pathlib.Path(__file__).resolve().parents[1]; BASE=ROOT/"research/native-development/implementation"; BASELINE="research/native-development/graph.json"; FIXED_COMMIT="be6e87f450169f8caa85cba9b18b26ae436e9657"
-ITEMS={"P01":("R01","R02","R07","src/addons/native-profile.ts","test/native-profile.test.ts"),"P02":("R02",None,None,"src/addons/native-profile-store.ts","test/native-profile-store.test.ts"),"P03":("R01","R03",None,"src/addons/native-observation.ts","test/native-observation.test.ts"),"P05":("R02","R07",None,"src/addons/native-profile-runtime.ts","test/native-profile-runtime.test.ts"),"P06":("R05",None,None,"src/addons/native-http.ts","test/native-http.test.ts"),"P08":("R06",None,None,"src/addons/native-delivery.ts","test/native-delivery.test.ts")}; PENDING=("P04","P07","P09","P10","P11","P12")
-SCOPES={"P01":"PURE_CONTRACTS_NOT_AUTHORIZATION","P02":"SINGLE_OWNER_STORE_NOT_CROSS_HOST_AT_MOST_ONCE","P03":"LINUX_READ_ONLY_NON_ATOMIC","P05":"A_TO_B_SAME_GRAPH_NO_AUTOCOPY","P06":"URL_ALLOWLIST_NOT_GITHUB_OR_IP_PIN","P08":"REGISTERED_CALLBACK_FULL_DELIVERY_NOT_UNDERSTANDING_OR_DISPATCHER"}
+ITEMS={"P01":("R01","R02","R07","src/addons/native-profile.ts","test/native-profile.test.ts"),"P02":("R02",None,None,"src/addons/native-profile-store.ts","test/native-profile-store.test.ts"),"P03":("R01","R03",None,"src/addons/native-observation.ts","test/native-observation.test.ts"),"P05":("R02","R07",None,"src/addons/native-profile-runtime.ts","test/native-profile-runtime.test.ts"),"P06":("R05",None,None,"src/addons/native-http.ts","test/native-http.test.ts"),"P08":("R06",None,None,"src/addons/native-delivery.ts","test/native-delivery.test.ts"),"P09":("R07",None,None,"src/addons/native-dispatch.ts","src/cli-host.ts","test/native-dispatch.test.ts","test/cli-host.test.ts","test/native-dispatch-fixture.ts","test/native-dispatch-fault.test.ts")}; PENDING=("P04","P07","P10","P11","P12")
+SCOPES={"P01":"PURE_CONTRACTS_NOT_AUTHORIZATION","P02":"SINGLE_OWNER_STORE_NOT_CROSS_HOST_AT_MOST_ONCE","P03":"LINUX_READ_ONLY_NON_ATOMIC","P05":"A_TO_B_SAME_GRAPH_NO_AUTOCOPY","P06":"URL_ALLOWLIST_NOT_GITHUB_OR_IP_PIN","P08":"REGISTERED_CALLBACK_FULL_DELIVERY_NOT_UNDERSTANDING_OR_DISPATCHER","P09":"OWNER_DISPATCH_GATE_INTENT_DEDUP_RECHECK_NOT_EFFECT_ATOMICITY"}
 def dump(v): return json.dumps(v,ensure_ascii=False,indent=2)+"\n"
 def sha(path): return "sha256:"+hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
 def blob(path): return subprocess.check_output(["git","rev-parse",f"{FIXED_COMMIT}:{path}"],cwd=ROOT,text=True).strip()
@@ -21,7 +21,7 @@ def validate_check(v,pins):
  if v.get("schema")!="usl-native-implementation-check/v1" or v.get("status")!="PASS": raise ValueError("invalid check report schema/status")
  if not isinstance(v.get("command"),list) or not v["command"] or any(not isinstance(x,str) or not x for x in v["command"]): raise ValueError("check command must be nonempty strings")
  if type(v.get("count")) is not int or v["count"]<1: raise ValueError("check count must be a positive integer")
- if any(item[4] not in v["command"] for item in ITEMS.values()): raise ValueError("command does not cover all implementation tests")
+ if any(path not in v["command"] for item in ITEMS.values() for path in item[3:] if path.endswith(".test.ts")): raise ValueError("command does not cover all implementation tests")
  output=v.get("output",{})
  if output.get("path")!="research/native-development/implementation/test-output.tap": raise ValueError("missing local TAP record")
  raw=(ROOT/output["path"]).read_bytes()
@@ -43,11 +43,12 @@ def model(checks):
   return result
  baseline={"id":"urn:usl:native-implementation:baseline:plan","types":["urn:usl:native-implementation:HistoricalPlanSnapshot"],"locator":f"git://usl-root@{FIXED_COMMIT}:research/native-development/graph.json","metadata":{"path":BASELINE,"gitCommit":FIXED_COMMIT,"gitBlob":blob(BASELINE),"sha256":blobsha(BASELINE),"status":"HISTORICAL_PLANNED_SPECIFIED_NOT_RUN"}}; resources.append(baseline)
  for item,v in ITEMS.items():
-  reqs=[r for r in v[:3] if r]; code,test=v[3:]; exists=(ROOT/code).is_file() and (ROOT/test).is_file(); status="IMPLEMENTED_BOUNDED" if exists and checked else "CODE_PRESENT_NOT_VERIFIED" if exists else "PARTIAL"; wid=f"urn:usl:native-implementation:work:{item}"
+  reqs=[r for r in v[:3] if r]; paths=v[3:]; exists=all((ROOT/path).is_file() for path in paths); status="IMPLEMENTED_BOUNDED" if exists and checked else "CODE_PRESENT_NOT_VERIFIED" if exists else "PARTIAL"; wid=f"urn:usl:native-implementation:work:{item}"
   resources.append({"id":wid,"types":["urn:usl:native-implementation:ImplementationWork"],"metadata":{"workItem":item,"status":status,"plannedStatus":"PLANNED","scope":SCOPES[item],"limitations":["NO_GENERAL_ACCEPTANCE_CLAIM","NO_AUTHORITY_GRANT","READ_ONLY_PROGRESS_PROJECTION"]}}); links += [{"source":wid,"predicate":"snapshotOf","target":"urn:usl:dev:work:"+item},{"source":wid,"predicate":"derivedFrom","target":baseline["id"]}]+[{"source":wid,"predicate":"addresses","target":"urn:usl:dev:req:"+r} for r in reqs]
   if exists:
-   for role,path in (("CODE",code),("TEST",test)):
-    aid=f"urn:usl:native-implementation:artifact:{item}:{role.lower()}"; resources.append({"id":aid,"types":["urn:usl:native-implementation:Artifact"],"locator":"file://usl-root/"+path,"metadata":{"role":role,"path":path,"sha256":pins[path]}}); links.append({"source":wid,"predicate":"implementedBy" if role=="CODE" else "checkedBy","target":aid})
+   for number,path in enumerate(paths):
+    role="TEST" if path.startswith("test/") else "CODE"; suffix=role.lower() if sum(1 for p in paths if (p.startswith("test/") if role=="TEST" else not p.startswith("test/")))==1 else f"{role.lower()}-{number+1}"
+    aid=f"urn:usl:native-implementation:artifact:{item}:{suffix}"; resources.append({"id":aid,"types":["urn:usl:native-implementation:Artifact"],"locator":"file://usl-root/"+path,"metadata":{"role":role,"path":path,"sha256":pins[path]}}); links.append({"source":wid,"predicate":"implementedBy" if role=="CODE" else "checkedBy","target":aid})
  for item in PENDING:
   wid=f"urn:usl:native-implementation:work:{item}"; resources.append({"id":wid,"types":["urn:usl:native-implementation:ImplementationWork"],"metadata":{"workItem":item,"status":"PLANNED","plannedStatus":"PLANNED"}}); links.append({"source":wid,"predicate":"snapshotOf","target":"urn:usl:dev:work:"+item})
  for n,c in enumerate(valid):

@@ -151,6 +151,10 @@
     "./portable-transfer-bindings": {
       "types": "./dist/src/addons/portable-transfer-bindings.d.ts",
       "import": "./dist/src/addons/portable-transfer-bindings.js"
+    },
+    "./native-dispatch": {
+      "types": "./dist/src/addons/native-dispatch.d.ts",
+      "import": "./dist/src/addons/native-dispatch.js"
     }
   },
   "engines": {

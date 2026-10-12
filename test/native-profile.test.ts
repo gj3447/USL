@@ -137,3 +137,13 @@ test("P01 preserves CLI indeterminate as unknown and never represents automatic 
   assert.throws(() => createNativeEffectReceipt({ ...indeterminate, outcome: "SUCCEEDED" }))
   assert.throws(() => createNativeEffectReceipt({ ...indeterminate, dispatch: "NOT_DISPATCHED", outcome: "SUCCEEDED" }))
 })
+
+test("P09 permits an owner-reported unknown dispatch only with an unknown outcome", () => {
+  const unknown = createNativeEffectReceipt({ schema: "usl-native-effect-receipt/v1", attemptId: "urn:test:attempt:unknown-dispatch",
+    admissionDigest: hash("a"), dispatch: "UNKNOWN", outcome: "UNKNOWN", sourceStatus: "OWNER_REPORTED",
+    sourceReceiptDigest: hash("b"), reason: "owner cannot determine whether a process started", automaticRetry: false })
+  assert.equal(parseNativeEffectReceipt(unknown).dispatch, "UNKNOWN")
+  const { digest: _digest, ...body } = unknown
+  assert.throws(() => createNativeEffectReceipt({ ...body, outcome: "FAILED" }), /unknown dispatch must retain an unknown outcome/)
+  assert.throws(() => createNativeEffectReceipt({ ...body, outcome: "SUCCEEDED" }), /unknown dispatch must retain an unknown outcome/)
+})

@@ -3,7 +3,7 @@ import { mkdtemp, rm, writeFile, mkdir } from "node:fs/promises"
 import { join } from "node:path"
 import { tmpdir } from "node:os"
 import { test } from "node:test"
-import { createNativeAdmission, createNativeProfileSnapshot } from "../src/addons/native-profile.js"
+import { createNativeAdmission, createNativeEffectReceipt, createNativeProfileSnapshot } from "../src/addons/native-profile.js"
 import { openNativeProfileStore } from "../src/addons/native-profile-store.js"
 import { contractDigest } from "../src/contract-core.js"
 
@@ -14,7 +14,7 @@ const profile = (id = "urn:example:profile", generation = 1) => createNativeProf
   bindings: { schema: "usl-resource-bindings/v1", resources: [{ id: "native:one", representations: [{ id: "local", relation: "working-copy", kind: "workspace", workspace: "root", path: "one.txt", digest: hash("a") }] }] },
   selections: [{ resource: "native:one", representation: "local" }], graphDigest: hash("f"), policy: { id: "urn:example:policy", digest: hash("b") }, requiredSources: [], requiredEvaluators: [], capabilities: [{ id: "urn:example:action", descriptorDigest: hash("c"), scopeDigest: hash("d") }],
 }, generation, hash("e"))
-const admission = (snapshot: ReturnType<typeof profile>, id = "urn:example:admission") => createNativeAdmission({ id, invocationId: "urn:example:invoke", actionId: "urn:example:action", scopeDigest: hash("d"), inputDigest: hash("1"), observationDigest: hash("2"), deliveryDigest: hash("3"), evaluatorDigest: hash("4"), issuedAt: "2026-10-11T00:01:00.000Z", expiresAt: "2026-10-11T00:11:00.000Z" }, snapshot)
+const admission = (snapshot: ReturnType<typeof profile>, id = "urn:example:admission") => createNativeAdmission({ id, invocationId: `${id}:invoke`, actionId: "urn:example:action", scopeDigest: hash("d"), inputDigest: hash("1"), observationDigest: hash("2"), deliveryDigest: hash("3"), evaluatorDigest: hash("4"), issuedAt: "2026-10-11T00:01:00.000Z", expiresAt: "2026-10-11T00:11:00.000Z" }, snapshot)
 async function fixture(t: { after(callback: () => unknown): void }) { const root = await mkdtemp(join("/dev/shm", "usl-native-store-")); t.after(() => rm(root, { recursive: true, force: true })); return root }
 const clock = () => new Date("2026-10-11T00:01:00.000Z")
 
@@ -88,4 +88,33 @@ test("P02 rejects a self-consistent persisted state whose active profile owner d
   const corruptedBody = { ...body, active: other }, corrupted = { ...corruptedBody, digest: contractDigest(corruptedBody) }
   await writeFile(join(directory, "state.json"), JSON.stringify(corrupted))
   await assert.rejects(store.read(), /active profile owner differs/)
+})
+
+test("P09 durable execution gates block profile changes until a known effect finalizes", async t => {
+  const directory = await fixture(t), first = profile(), store = await openNativeProfileStore({ directory, ownerNamespace: owner, initialSnapshot: first, clock })
+  const issued = await store.issue((await store.read()).digest, admission(first, "urn:example:effect-admission")); assert.equal(issued.status, "COMMITTED")
+  if (issued.status !== "COMMITTED") return
+  const intent = hash("e"), begun = await store.beginEffect(issued.state.digest, issued.value, "urn:example:effect-attempt", intent); assert.equal(begun.status, "COMMITTED")
+  if (begun.status !== "COMMITTED") return
+  assert.equal((await store.withdraw(begun.state.digest)).status, "HOLD")
+  const unknown = createNativeEffectReceipt({ schema: "usl-native-effect-receipt/v1", attemptId: "urn:example:effect-attempt", admissionDigest: issued.value.digest, dispatch: "DISPATCHED", outcome: "UNKNOWN", sourceStatus: "INDETERMINATE", sourceReceiptDigest: hash("f"), reason: "lost", automaticRetry: false })
+  const recorded = await store.finalizeEffect(begun.state.digest, "urn:example:effect-attempt", unknown); assert.equal(recorded.status, "COMMITTED")
+  if (recorded.status !== "COMMITTED") return
+  assert.ok(recorded.state.executionGate)
+  const reconciled = createNativeEffectReceipt({ schema: "usl-native-effect-receipt/v1", attemptId: "urn:example:effect-attempt", admissionDigest: issued.value.digest, dispatch: "DISPATCHED", outcome: "FAILED", sourceStatus: "OWNER_REPORTED", sourceReceiptDigest: hash("a"), reason: "owner reconciled", automaticRetry: false })
+  const done = await store.reconcileEffect(recorded.state.digest, "urn:example:effect-attempt", reconciled); assert.equal(done.status, "COMMITTED")
+  if (done.status === "COMMITTED") assert.equal(done.state.executionGate, undefined)
+})
+
+test("P09 beginEffect rejects a forged same-ID admission and a regressed clock", async t => {
+  const directory = await fixture(t), first = profile(), store = await openNativeProfileStore({ directory, ownerNamespace: owner, initialSnapshot: first, clock })
+  const issued = await store.issue((await store.read()).digest, admission(first, "urn:example:gate-forge")); assert.equal(issued.status, "COMMITTED")
+  if (issued.status !== "COMMITTED") return
+  const { digest: _digest, ...body } = issued.value
+  const forgedBody = { ...body, inputDigest: hash("9") }, forged = { ...forgedBody, digest: contractDigest(forgedBody) }
+  const forgedResult = await store.beginEffect(issued.state.digest, forged, "urn:example:gate-forge-attempt", hash("a"))
+  assert.equal(forgedResult.status, "HOLD"); if (forgedResult.status === "HOLD") assert.equal(forgedResult.reason, "ADMISSION_NOT_CURRENT")
+  const backwards = await openNativeProfileStore({ directory, ownerNamespace: owner, clock: () => new Date("2026-10-10T00:00:00.000Z") })
+  const regressed = await backwards.beginEffect((await backwards.read()).digest, issued.value, "urn:example:gate-clock-attempt", hash("b"))
+  assert.equal(regressed.status, "HOLD"); if (regressed.status === "HOLD") assert.equal(regressed.reason, "ADMISSION_NOT_CURRENT")
 })

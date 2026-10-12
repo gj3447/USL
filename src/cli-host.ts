@@ -142,7 +142,7 @@ const prepare = async (configFile: string, actionId: string, requestInput: unkno
   const preflight = preflightCapability(action.descriptor, request, action.policy)
   const base = { schema: "usl-cli-plan/v1" as const, action: action.id, hostDigest: host.hostDigest,
     bindingsDigest: host.bindingsDigest, hostPath: host.hostPath, requestDigest: contractDigest(request), preflight,
-    execution: "NOT_EXECUTED" as const, semanticTruth: "NOT_EVALUATED" as const }
+    policyDigest: contractDigest(action.policy), execution: "NOT_EXECUTED" as const, semanticTruth: "NOT_EVALUATED" as const }
   const rejected = (issues: readonly { code: string; detail: string }[]) => {
     const body = { ...base, status: "REJECTED" as const, issues }
     return { plan: freezeContract({ ...body, planDigest: contractDigest(body) }), runtime: undefined }
@@ -184,7 +184,7 @@ const prepare = async (configFile: string, actionId: string, requestInput: unkno
     const executablePin = await executableIdentity(executable)
     await access(executable, constants.X_OK)
     const env = Object.fromEntries(action.command.envAllowlist.filter(name => Object.hasOwn(process.env, name)).map(name => [name, process.env[name]!]))
-    const command = { executable, args, cwd: cwd.path, environmentKeys: Object.keys(env).sort(), environmentDigest: contractDigest(env),
+    const command = { executable, args, cwd: cwd.path, cwdSelection: { resource: cwd.resource, representation: cwd.representation }, environmentKeys: Object.keys(env).sort(), environmentDigest: contractDigest(env),
       executableIdentity: { ...executablePin,
         runtime: action.command.executable === "node" ? process.version : null } }
     // Bind logical work to stable selections/content; a workspace root move alone
@@ -206,6 +206,15 @@ const prepare = async (configFile: string, actionId: string, requestInput: unkno
 }
 
 export const planCliAction = async (configFile: string, actionId: string, request: unknown) => (await prepare(configFile, actionId, request)).plan
+export type CliPlan = Awaited<ReturnType<typeof planCliAction>>
+export type CliReadyPlan = Extract<CliPlan, { readonly status: "READY" }>
+export interface CliAuthorization {
+  readonly binding: unknown
+  readonly beforeStart: (context: Readonly<{ readonly plan: CliReadyPlan; readonly intentDigest: string; readonly attempt: string }>) => Promise<Readonly<{ readonly status: "PASS" | "HOLD"; readonly digest: string; readonly reasons: readonly string[] }>>
+  /** Synchronous final revocation check immediately before process creation. */
+  readonly verify?: () => boolean
+}
+export interface CliExecutionOptions { readonly signal?: AbortSignal; readonly operationKey?: string; readonly authorization?: CliAuthorization }
 
 const processEvidence = (process: CliProcessResult) => ({
   started: process.started, exitCode: process.exitCode, signal: process.signal,
@@ -229,15 +238,21 @@ const writeEvidence = async (directory: string, name: string, value: unknown) =>
 
 /** A new receipt directory reserves an attempt before spawning; retries always need a new explicit invocation. */
 export const executeCliAction = async (configFile: string, actionId: string, requestInput: unknown,
-  expectedPlanDigest: string, receiptDirectory: string, options: { signal?: AbortSignal; operationKey?: string } = {}) => {
+  expectedPlanDigest: string, receiptDirectory: string, options: CliExecutionOptions = {}) => {
   contractHash.parse(expectedPlanDigest)
   const operationKey = options.operationKey === undefined ? undefined : cliOperationKeySchema.parse(options.operationKey)
   const request = contractSnapshot(requestInput)
+  const authorization = options.authorization === undefined ? undefined : (() => {
+    if (typeof options.authorization.beforeStart !== "function" || options.authorization.verify !== undefined && typeof options.authorization.verify !== "function") throw new Error("invalid CLI authorization callbacks")
+    return { binding: freezeContract(contractSnapshot(options.authorization.binding)), beforeStart: options.authorization.beforeStart.bind(options.authorization), ...(options.authorization.verify === undefined ? {} : { verify: options.authorization.verify.bind(options.authorization) }) }
+  })()
+  const authorizationBindingDigest = authorization === undefined ? undefined : contractDigest(authorization.binding)
+  const authorizationBinding = authorization === undefined ? {} : { authorizationBinding: authorization.binding, authorizationBindingDigest: authorizationBindingDigest! }
   const prepared = await prepare(configFile, actionId, request)
   const plan = prepared.plan
   if (!prepared.runtime || plan.status !== "READY" || plan.planDigest !== expectedPlanDigest || options.signal?.aborted) {
     const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0,
-      plan, reason: options.signal?.aborted ? "ABORTED" : plan.status === "REJECTED" ? "PREFLIGHT_REJECTED" : "PLAN_CHANGED", semanticTruth: "NOT_EVALUATED" }
+      plan, reason: options.signal?.aborted ? "ABORTED" : plan.status === "REJECTED" ? "PREFLIGHT_REJECTED" : "PLAN_CHANGED", ...authorizationBinding, semanticTruth: "NOT_EVALUATED" }
     return freezeContract({ ...body, receiptDigest: contractDigest(body) })
   }
   const runtime = prepared.runtime
@@ -245,17 +260,17 @@ export const executeCliAction = async (configFile: string, actionId: string, req
     : plan.operation === undefined && operationKey !== undefined ? "OPERATION_STORE_REQUIRED" : null
   if (keyIssue !== null) {
     const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0, plan,
-      reason: keyIssue, semanticTruth: "NOT_EVALUATED" }
+      reason: keyIssue, ...authorizationBinding, semanticTruth: "NOT_EVALUATED" }
     return freezeContract({ ...body, receiptDigest: contractDigest(body) })
   }
-  const operation = plan.operation === undefined ? undefined : { namespace: plan.operation.namespace, key: operationKey!, semanticDigest: plan.operation.semanticDigest }
+  const operation = plan.operation === undefined ? undefined : { namespace: plan.operation.namespace, key: operationKey!, semanticDigest: authorizationBindingDigest === undefined ? plan.operation.semanticDigest : contractDigest({ originalSemanticDigest: plan.operation.semanticDigest, authorizationBindingDigest }) }
   let lifecycle = initialAttemptState()
   const directory = resolve(receiptDirectory), attempt = randomUUID(), startedAt = new Date().toISOString()
   await mkdir(directory, { mode: 0o700 })
   // Persist the new attempt directory's name before marking its intent durable.
   await syncEvidenceDirectory(dirname(directory))
   const intentBody = { schema: "usl-cli-intent/v1", attempt, startedAt, plan, status: "ATTEMPTING", recovery: "RECONCILE_WITH_OWNER; NEVER_AUTOMATICALLY_RETRY",
-    ...(operation === undefined ? {} : { operation }) }
+    ...(operation === undefined ? {} : { operation }), ...(authorizationBindingDigest === undefined ? {} : { authorizationBinding: authorization!.binding, authorizationBindingDigest }) }
   const intent = { ...intentBody, intentDigest: contractDigest(intentBody) }
   await writeEvidence(directory, "intent.json", intent)
   lifecycle = transitionAttempt(lifecycle, { type: "INTENT_SAVED" })
@@ -267,7 +282,7 @@ export const executeCliAction = async (configFile: string, actionId: string, req
       const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0, attempt, startedAt,
         finishedAt: new Date().toISOString(), planDigest: plan.planDigest, intentDigest: intent.intentDigest,
         reason: reserved.reason, ...("previous" in reserved ? { previousAttempt: reserved.previous } : {}),
-        lifecycle, semanticTruth: "NOT_EVALUATED", automaticRetry: false }
+        ...authorizationBinding, lifecycle, semanticTruth: "NOT_EVALUATED", automaticRetry: false }
       const receipt = freezeContract({ ...body, receiptDigest: contractDigest(body) })
       await writeEvidence(directory, "result.json", receipt)
       return receipt
@@ -278,10 +293,26 @@ export const executeCliAction = async (configFile: string, actionId: string, req
     lifecycle = transitionAttempt(lifecycle, { type: "REJECT_BEFORE_START" })
     const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0, attempt,
       startedAt, finishedAt: new Date().toISOString(), planDigest: plan.planDigest, intentDigest: intent.intentDigest,
-      reason: options.signal?.aborted ? "ABORTED" : "BINDING_CHANGED_BEFORE_START", lifecycle, semanticTruth: "NOT_EVALUATED" }
+      reason: options.signal?.aborted ? "ABORTED" : "BINDING_CHANGED_BEFORE_START", ...authorizationBinding, lifecycle, semanticTruth: "NOT_EVALUATED" }
     const receipt = freezeContract({ ...body, receiptDigest: contractDigest(body) })
     await writeEvidence(directory, "result.json", receipt)
     return receipt
+  }
+  let authorizationEvidence: { readonly digest: string; readonly reasons: readonly string[] } | undefined
+  if (authorization !== undefined) {
+    try {
+      if (options.signal?.aborted) throw new Error("ABORTED")
+      const value = await authorization.beforeStart(freezeContract({ plan: plan as CliReadyPlan, intentDigest: intent.intentDigest, attempt }))
+      if (value === null || typeof value !== "object" || (value.status !== "PASS" && value.status !== "HOLD") || typeof value.digest !== "string" || !Array.isArray(value.reasons) || value.reasons.some(reason => typeof reason !== "string")) throw new Error("MALFORMED_AUTHORIZATION")
+      authorizationEvidence = freezeContract({ digest: value.digest, reasons: [...value.reasons] })
+      if (value.status !== "PASS") throw new Error("AUTHORIZATION_HELD")
+      const final = await prepare(configFile, actionId, request)
+      if (final.plan.planDigest !== expectedPlanDigest || !authorization.verify?.() && authorization.verify !== undefined) throw new Error("AUTHORIZATION_OR_BINDING_CHANGED")
+    } catch (error) {
+      lifecycle = transitionAttempt(lifecycle, { type: "REJECT_BEFORE_START" })
+      const body = { schema: "usl-cli-execution/v1" as const, status: "REJECTED" as const, attempts: 0, attempt, startedAt, finishedAt: new Date().toISOString(), planDigest: plan.planDigest, intentDigest: intent.intentDigest, reason: error instanceof Error ? error.message : "AUTHORIZATION_FAILED", ...authorizationBinding, ...(authorizationEvidence === undefined ? {} : { authorization: authorizationEvidence }), lifecycle, semanticTruth: "NOT_EVALUATED", automaticRetry: false }
+      const receipt = freezeContract({ ...body, receiptDigest: contractDigest(body) }); await writeEvidence(directory, "result.json", receipt); return receipt
+    }
   }
   lifecycle = transitionAttempt(lifecycle, { type: "AUTHORIZE_START", pinsMatch: true })
   // This fixed argv has no request interpolation; request data goes only to stdin.
@@ -304,7 +335,7 @@ export const executeCliAction = async (configFile: string, actionId: string, req
   const body = { schema: "usl-cli-execution/v1" as const, status: !child.started ? "REJECTED" as const : reason === null ? "SUCCEEDED" as const : "INDETERMINATE" as const,
     attempt, attempts: child.started ? 1 : 0, startedAt, finishedAt: new Date().toISOString(), planDigest: plan.planDigest, intentDigest: intent.intentDigest,
     graph: plan.graph, sourceGuarantee: plan.sourceGuarantee, process: processEvidence(child), reason,
-    ...(reason === null ? { output } : {}), lifecycle: completedLifecycle, semanticTruth: "NOT_EVALUATED", automaticRetry: false }
+    ...(reason === null ? { output } : {}), ...authorizationBinding, ...(authorizationEvidence === undefined ? {} : { authorization: authorizationEvidence }), lifecycle: completedLifecycle, semanticTruth: "NOT_EVALUATED", automaticRetry: false }
   const receipt = freezeContract({ ...body, receiptDigest: contractDigest(body) })
   try { await writeEvidence(directory, "result.json", receipt) }
   catch {
