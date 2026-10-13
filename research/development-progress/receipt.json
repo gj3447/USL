@@ -55,8 +55,8 @@
       ]
     }
   ],
-  "recordedAt": "2026-10-12T14:51:10.748530+00:00",
-  "sourceCommit": "6abf75c1afa2a5eecde22b4d9f115780f2736c3a",
+  "recordedAt": "2026-10-13T16:00:46.000541+00:00",
+  "sourceCommit": "7d1a3f1a1d6d101273a97c70731e75f10c9026ba",
   "environment": {
     "system": "Linux",
     "machine": "x86_64",
@@ -82,7 +82,7 @@
   "pins": [
     {
       "path": ".github/workflows/portable-transfer.yml",
-      "sha256": "sha256:d9dcd9a94a6452da5c1b3a430c6440be77a493519829cf4f66e7dd7afd377615"
+      "sha256": "sha256:ca52cb64ddc95db6ef901553d107616952f97ff2ca0078d5f90e6ece800846df"
     },
     {
       "path": "docs/CHECKOUT_GUARD.md",
@@ -122,7 +122,7 @@
     },
     {
       "path": "scripts/record-development-progress.py",
-      "sha256": "sha256:033502f793d79aba7d251d0befb8bd93f8b7cf27a0cd38eddecd40915924970f"
+      "sha256": "sha256:2855b16efc515b70d3b147319cf7f1e7288ee22dcc54c17e3a9301f5e0863f0a"
     },
     {
       "path": "scripts/usl-transfer-export.ts",
@@ -141,46 +141,6 @@
       "sha256": "sha256:088063d573a2866c3bdf3aa2765b98f0eb14f980c627270f2dfbc4e1f4c464ea"
     },
     {
-      "path": "src/addons/memory-relocation.ts",
-      "sha256": "sha256:4289b5df5d75b67cbe2e9acd581cda810867c299185fab8bfb2aa613335b7f6c"
-    },
-    {
-      "path": "src/addons/native-agent-http.ts",
-      "sha256": "sha256:1b79bc61ed6d8501ed50d2591e0118da1a5a112e09ba820e704f8af83d724beb"
-    },
-    {
-      "path": "src/addons/native-agent.ts",
-      "sha256": "sha256:8f5c539cb4130242e1c2836c093faab9fbad4ede9d71d9a14677f545770e1f1e"
-    },
-    {
-      "path": "src/addons/native-delivery.ts",
-      "sha256": "sha256:f119145bad8e697f659fe46bc17eb4c5898afa8bc4e4fdf2cce6327454d399b0"
-    },
-    {
-      "path": "src/addons/native-dispatch.ts",
-      "sha256": "sha256:01b53ea9e49e286e075bcf4b6c005c2183cfaf30f225f66c0213a3e8cd6975b8"
-    },
-    {
-      "path": "src/addons/native-http.ts",
-      "sha256": "sha256:52387065384fec323c45b5c9a1a1b604327d8667016bef8da13537de19b13dda"
-    },
-    {
-      "path": "src/addons/native-observation.ts",
-      "sha256": "sha256:4c6a10e4dfabdb0037393f48a19da95b0603448ec9f83c05a2011c914855ec9e"
-    },
-    {
-      "path": "src/addons/native-profile-runtime.ts",
-      "sha256": "sha256:0abaa71f279177804205d4181bd52303d6f0a30192043ad1fd5e8808771ffd03"
-    },
-    {
-      "path": "src/addons/native-profile-store.ts",
-      "sha256": "sha256:c10e006c29c6855fe8e0916688eeb35b9df40c1df93ba25e1b48afe9674e72c4"
-    },
-    {
-      "path": "src/addons/native-profile.ts",
-      "sha256": "sha256:f7050a87b1227f5286c406f8f1c917224de492a2bee4291232d6bcbca26809d2"
-    },
-    {
       "path": "src/addons/portable-transfer-bindings.ts",
       "sha256": "sha256:af82f9b1faef0e5495835c8b13bad046a6bd23bd55b3a472fe7b6b3586018e05"
     },
@@ -189,44 +149,12 @@
       "sha256": "sha256:72551a351c82cb13945cdc16d2ae82509f86d4af1adfce937c355abb8ca24d8a"
     },
     {
-      "path": "src/addons/portable-transfer-git-bindings.ts",
-      "sha256": "sha256:de33ca248de6ace2c47e3b02292cec74534e0e75b1af376d01e4ef39f506528d"
-    },
-    {
-      "path": "src/addons/portable-transfer-git-state-bindings.ts",
-      "sha256": "sha256:6ff2d35b71129d5bc7b64887691a5c7e9e0e91d08e6589c325089af79d7a4ffa"
-    },
-    {
-      "path": "src/addons/portable-transfer-git-state-restore.ts",
-      "sha256": "sha256:0d9095fcbee76dd3c13d5d09e5040261766b42818d02414396a2a2cdd0571dc6"
-    },
-    {
-      "path": "src/addons/portable-transfer-git-state.ts",
-      "sha256": "sha256:241f447b1201788f32ae6fdd1bbbfb18391ba339d886040a88efda4c0ca6031b"
-    },
-    {
-      "path": "src/addons/portable-transfer-git.ts",
-      "sha256": "sha256:738f9e50ff484376bfa3e6fb2c3aba67da46664f9643658949031aca4c30a999"
-    },
-    {
       "path": "src/addons/portable-transfer-import.ts",
       "sha256": "sha256:e1f6a36c6bc8a16160a3c0b432b165ce91520f84cb1f77a8c728a93d2c314180"
     },
     {
       "path": "src/addons/portable-transfer.ts",
       "sha256": "sha256:31b67734a93affdad0918e11de59b67c49fb9ace525495c46f5490a58aee17ad"
-    },
-    {
-      "path": "src/addons/rule-policy.ts",
-      "sha256": "sha256:02eb7d43a4d2b2b167efe818af55b8aeae750d466f93dcea9bc9449ac776b86c"
-    },
-    {
-      "path": "src/addons/rule-weight-evidence.ts",
-      "sha256": "sha256:bf82271dd4f14bba14f28670fdb67e49f4844eec6173cd323fcb4b875707d463"
-    },
-    {
-      "path": "src/addons/rule-weight-review.ts",
-      "sha256": "sha256:ce584603fd6d7cd9ecbc871fc059c28ddb402f3344f6a4ff84093512df6abd8d"
     },
     {
       "path": "src/application.ts",
@@ -305,28 +233,12 @@
       "sha256": "sha256:3075ba320e6e59dfaa6d6bb634c743feb4594778db17b244ea0aaa2315d61b1d"
     },
     {
-      "path": "src/engineering-review.ts",
-      "sha256": "sha256:9c5eed58e088fcec45350f2516d41dad5b5add3bb5fb3e004ca94e8db0daf577"
-    },
-    {
-      "path": "src/index.ts",
-      "sha256": "sha256:f32c1c08aa8a23e5b8d0e15463ede1a9c24c5a4b5c9506bbbdda89a997c6aa36"
-    },
-    {
-      "path": "src/integrations/capability-inventory.ts",
-      "sha256": "sha256:7a229072098f4aa1d656a538d7deba056653becbcfdbcca0d09e5e3f35c24e7c"
-    },
-    {
       "path": "src/integrations/graph-engineering.ts",
       "sha256": "sha256:5ce9b8cf12909480fcf10dd15c26a843c881b07374c9860f04c2817e96eec3a6"
     },
     {
       "path": "src/integrations/hswm.ts",
       "sha256": "sha256:bf119667f13fd458fd87b39b3954f429b1552a248889b7b97845d2d92f28eb30"
-    },
-    {
-      "path": "src/integrations/lean4.ts",
-      "sha256": "sha256:a6b3921beb48da0cc764e927f345797be9c8475409a822e1419e43c8e27d8ce7"
     },
     {
       "path": "src/integrations/property-graph.ts",
@@ -394,7 +306,7 @@
     },
     {
       "path": "src/locator.ts",
-      "sha256": "sha256:05a5e335655b24f4f2ac23fdbd9de9d2a156c2e51b9a498c0b9ad6bf0eff3fd3"
+      "sha256": "sha256:add295a4fb1db2634a2165753751320c1868f37e1258781a462ec67e87ec7e0c"
     },
     {
       "path": "src/mcp-config.ts",
@@ -418,11 +330,11 @@
     },
     {
       "path": "src/resolve.ts",
-      "sha256": "sha256:6bfa960f403896c0808bc4e060bd563cfed974286d77c0daa34bf86bb31eff78"
+      "sha256": "sha256:d87b4fa32256c2633ee1d297ec1095b8b17de28925d5dbbd067569fe464113ef"
     },
     {
       "path": "src/resource-bindings.ts",
-      "sha256": "sha256:806947fa68df1a653482a045822f7f1cc81b956a9c694c4584b2ed1a9efb9376"
+      "sha256": "sha256:9802b399208b5eeb7e35e066eee062bd1fdf14de62103327cca6f155ec6630ce"
     },
     {
       "path": "src/storage.ts",
@@ -477,7 +389,7 @@
       "sha256": "sha256:30ca9a93e51148cb6791dfe5b757267a0b4455d08ce525c20fe24366c9c023c3"
     }
   ],
-  "tapDigest": "sha256:69b3f850fd4848fbc7893712f1004f690170967c22e020f0359bd2d4a7c3de5d",
+  "tapDigest": "sha256:ed6aaeeb8c7ff7200ed924d7fcd48fa0e4a6a5a3c455791a4224089a9c463353",
   "tests": [
     {
       "id": "test:0364525dd4b881035d4e9e97089c17050c75eef400622ef06f28b305a219b732",
@@ -920,6 +832,6 @@
     "criterion:PT04-C2",
     "criterion:PT04-C3"
   ],
-  "acceptanceDigest": "sha256:6232751c6ddb054a61ab4d03087df88a1be230b6088ed26e9b739d2de0f22a14",
+  "acceptanceDigest": "sha256:7c9651310b1681a34e5da4d42996be52bd470827b6ab67df7ce9ccbf4480904b",
   "nextTask": "task:PT03"
 }
