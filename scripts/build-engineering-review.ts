@@ -1,5 +1,5 @@
 /** Replay local attacks, pin implementation bytes, then emit the review graph and standard projection. */
-import { readFile, writeFile, readdir } from "node:fs/promises"
+import { readFile, writeFile } from "node:fs/promises"
 import { hostname } from "node:os"
 import { resolve, dirname } from "node:path"
 import { fileURLToPath } from "node:url"
@@ -15,6 +15,7 @@ import { cliHostSchema } from "../src/cli-host.js"
 import { contractDigest } from "../src/contract-core.js"
 import { digestSource } from "../src/language/digest.js"
 import { adaptResourceGraph, resourceGraphJsonLd } from "../src/integrations/resource-graph.js"
+import { sourceClosure } from "./source-closure.js"
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), ".."), checkOnly = process.argv.includes("--check")
 if (process.argv.slice(2).some(arg => arg !== "--check")) throw new Error("usage: build-engineering-review.ts [--check]")
@@ -23,11 +24,12 @@ const catalog = parseEngineeringCatalog(JSON.parse(await read("research/engineer
 if (catalog.technologies.length !== 40 || catalog.technologies.some((t, index) => t.id !== `S${String(index + 1).padStart(2, "0")}`)) throw new Error("research must cover exactly S01–S40")
 const declaredChecks = catalog.controls.flatMap(c => c.checks.map(id => ({ id, control: c.id })))
 if (declaredChecks.length !== engineeringAdversarialCases.length || declaredChecks.some(c => !engineeringAdversarialCases.some(t => t.id === c.id && t.control === c.control))) throw new Error("catalog/replay check coverage differs")
-// Pin every local runtime source, including transitive validation/digest dependencies.
-const runtimeSources = (await readdir(resolve(root, "src"), { recursive: true })).filter(file => file.endsWith(".ts")).map(file => `src/${file}`)
-const files = [...new Set([...runtimeSources, ...catalog.controls.flatMap(c => c.implementation),
+// Pin the code this replay loads: the declared implementations, the replay cases
+// and this builder plus their transitive local imports and spawned scripts
+// (scripts/source-closure.ts). Unrelated src/ edits do not stale the receipt.
+const files = [...new Set([...sourceClosure(root, [...catalog.controls.flatMap(c => c.implementation),
   "test/engineering-adversarial-cases.ts", "src/engineering-review.ts", "scripts/build-engineering-review.ts",
-  "src/contract-core.ts", "src/mcp-config.ts", "src/cli-adapter.ts",
+  "src/contract-core.ts", "src/mcp-config.ts", "src/cli-adapter.ts"]),
   "package-lock.json", "package.json", "tsconfig.json",
 ])].sort()
 const digests = Object.fromEntries(await Promise.all(files.map(async file => [file, digestSource(await read(file))] as const)))

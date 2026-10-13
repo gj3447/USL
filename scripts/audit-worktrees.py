@@ -34,10 +34,17 @@ def run(args):
     return subprocess.run(args, cwd=ROOT, capture_output=True, text=True, timeout=180, check=True).stdout
 
 
+def source_closure(entries):
+    """Entries plus the local code they import or spawn (scripts/source-closure.ts)."""
+    result = subprocess.run(["node", "--import", "tsx", "scripts/source-closure.ts", *entries], cwd=ROOT, capture_output=True, text=True, timeout=120, check=True)
+    return json.loads(result.stdout)
+
+
 def pins(catalog):
-    paths = {p.relative_to(ROOT).as_posix() for p in (ROOT / "src").rglob("*.ts")}
-    paths.update(catalog["testFiles"] + catalog["regressionFiles"])
-    paths.update(["test/fixtures.ts", "examples/fixtures/cli/graphspec.json", "package.json", "package-lock.json", "tsconfig.json", "scripts/audit-worktrees.py", "research/worktree-audit/catalog.json"])
+    # Executed tests, inspected sources and the local code they import or spawn.
+    entries = catalog["testFiles"] + catalog["regressionFiles"] + ["test/fixtures.ts"] + [p for f in catalog["findings"] for p in f["sourcePaths"]]
+    paths = set(source_closure(sorted(set(entries))))
+    paths.update(["examples/fixtures/cli/graphspec.json", "package.json", "package-lock.json", "tsconfig.json", "scripts/audit-worktrees.py", "research/worktree-audit/catalog.json"])
     return [{"path": path, "sha256": digest((ROOT / path).read_bytes())} for path in sorted(paths)]
 
 

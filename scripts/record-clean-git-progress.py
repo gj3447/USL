@@ -19,10 +19,13 @@ TESTS = ["test/portable-transfer-git.test.ts", "test/portable-transfer-git-cli.t
          "test/portable-transfer-git-import.test.ts", "test/portable-transfer-git-bindings.test.ts",
          "test/portable-transfer-git-restore-adversarial.test.ts", "test/portable-transfer-git-import-cli.test.ts", "test/portable-transfer-git-state.test.ts", "test/portable-transfer-git-state-adversarial.test.ts", "test/portable-transfer-git-state-restore.test.ts", "test/portable-transfer-git-state-integration.test.ts"]
 COMMAND = ["node", "--import", "tsx", "--test", "--test-reporter=tap", *TESTS]
-SOURCES = sorted({str(p.relative_to(ROOT)) for p in (ROOT / "src").rglob("*.ts")} | set([
-    "scripts/usl-git-export.ts", "scripts/usl-git-import.ts", "scripts/record-clean-git-progress.py",
+# Executed tests and spawned CLIs plus the local code they import or spawn
+# (scripts/source-closure.ts); unrelated src/ files are not evidence inputs.
+CODE_ENTRIES = ["scripts/usl-git-export.ts", "scripts/usl-git-import.ts", "test/clean-git-fixture.ts", *TESTS]
+SOURCE_DATA = sorted(set([
+    "scripts/record-clean-git-progress.py",
     "schemas/clean-git-progress/progress.shacl.ttl", "docs/PORTABLE_TRANSFER_GIT.md", "docs/PORTABLE_TRANSFER_GIT_IMPORT.md", "docs/PORTABLE_TRANSFER_GIT_STATE.md",
-    "research/completion-plan/plan.json", "package.json", "package-lock.json", "test/clean-git-fixture.ts", *TESTS]))
+    "research/completion-plan/plan.json", "package.json", "package-lock.json"]))
 IMPLEMENTATIONS = {"CP01": "CLEAN_EXPORT_LOCAL_SCOPE", "CP02": "CLEAN_RESTORE_REBIND_LOCAL_SCOPE", "CP03": "STATE_RESTORE_REBIND_LOCAL_SCOPE"}
 ACCEPTANCE = [f"{p}-{i}" for p in IMPLEMENTATIONS for i in (1, 2)]
 BOUNDARIES = {"profile": "CLEAN_GIT_WORKTREE_V1", "restore": "RAW_REGULAR_CLEAN_TREES_ONLY", "atomicSnapshot": "NOT_CLAIMED",
@@ -67,6 +70,16 @@ def parse_tap(text):
     return names, totals
 
 
+def source_closure(entries):
+    """Entries plus the local code they import or spawn (scripts/source-closure.ts)."""
+    result = subprocess.run(["node", "--import", "tsx", "scripts/source-closure.ts", *entries], cwd=ROOT, capture_output=True, text=True, timeout=120, check=True)
+    return json.loads(result.stdout)
+
+
+def sources():
+    return sorted(set(source_closure(CODE_ENTRIES)) | set(SOURCE_DATA))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -76,7 +89,7 @@ def main():
     if args.record:
         require(platform.system() == "Linux", "this recorder describes Linux only")
         commit = git("rev-parse", "HEAD").decode().strip()
-        pins = [{"path": p, "sha256": sha((ROOT / p).read_bytes())} for p in SOURCES]
+        pins = [{"path": p, "sha256": sha((ROOT / p).read_bytes())} for p in sources()]
         for source in pins:
             require(sha(git("show", f"{commit}:{source['path']}")) == source["sha256"], f"commit source first: {source['path']}")
         run = subprocess.run(COMMAND, cwd=ROOT, capture_output=True, text=True, timeout=240)
@@ -98,7 +111,7 @@ def main():
     require(receipt["command"] == COMMAND and receipt["boundaries"] == PACKAGE_BOUNDARIES and receipt["environment"]["system"] == "Linux", "scope promoted")
     require(receipt["implementations"] == IMPLEMENTATIONS and receipt["nextPackage"] == "package:CP03" and receipt["nextStep"] == "COORDINATED_DIRTY_EXPORT_AND_CLI", "implementation scope drift")
     require(receipt["tapDigest"] == sha(tap.encode()) and receipt["tests"] == names and receipt["totals"] == totals, "test evidence drift")
-    require([s["path"] for s in receipt["sources"]] == SOURCES, "source coverage drift")
+    require([s["path"] for s in receipt["sources"]] == sources(), "source coverage drift")
     for source in receipt["sources"]:
         require(sha((ROOT / source["path"]).read_bytes()) == source["sha256"], f"current source changed: {source['path']}")
         require(sha(git("show", f"{receipt['sourceCommit']}:{source['path']}")) == source["sha256"], "historical source mismatch")

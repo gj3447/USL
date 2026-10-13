@@ -62,10 +62,18 @@ def git(*args):
     return subprocess.check_output(["git", *args], cwd=ROOT)
 
 
+def source_closure(entries):
+    """Entries plus the local code they import or spawn (scripts/source-closure.ts)."""
+    result = subprocess.run(["node", "--import", "tsx", "scripts/source-closure.ts", *entries], cwd=ROOT, capture_output=True, text=True, timeout=120, check=True)
+    return json.loads(result.stdout)
+
+
 def pins():
-    paths = {str(p.relative_to(ROOT)) for p in (ROOT / "src").rglob("*.ts")}
-    paths.update(TEST_FILES + ["test/fixtures.ts", "package.json", "package-lock.json", "tsconfig.json",
-                              "docs/CHECKOUT_GUARD.md", "docs/PORTABLE_TRANSFER_EXPORT.md", "docs/PORTABLE_TRANSFER_IMPORT.md", "scripts/usl-transfer-export.ts", "scripts/usl-transfer-import.ts", "scripts/measure-portable-transfer.ts", "scripts/portable-transfer-acceptance.ts", ".github/workflows/portable-transfer.yml",
+    # The executed tests and spawned acceptance scripts with the local code they load;
+    # src/ files outside that closure cannot change this evidence.
+    paths = set(source_closure(TEST_FILES + ["test/fixtures.ts", "scripts/usl-transfer-export.ts", "scripts/usl-transfer-import.ts", "scripts/measure-portable-transfer.ts", "scripts/portable-transfer-acceptance.ts"]))
+    paths.update(["package.json", "package-lock.json", "tsconfig.json",
+                              "docs/CHECKOUT_GUARD.md", "docs/PORTABLE_TRANSFER_EXPORT.md", "docs/PORTABLE_TRANSFER_IMPORT.md", ".github/workflows/portable-transfer.yml",
                               "scripts/record-development-progress.py",
                               "schemas/development-progress/progress.shacl.ttl", "research/development-plan/plan.json"])
     return [{"path": path, "sha256": sha((ROOT / path).read_bytes())} for path in sorted(paths)]
