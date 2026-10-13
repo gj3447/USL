@@ -54,6 +54,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: node --import tsx --test test/portable-transfer-portability.test.ts
+      # Resolve real file:// locators on this OS (Windows: /<drive>:/... locator paths).
+      - run: node --import tsx --test test/filesystem-locator.test.ts
       - uses: actions/download-artifact@v4
         with:
           name: portable-transfer-bundle

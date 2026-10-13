@@ -9,7 +9,7 @@ import * as os from "node:os"
 import * as path from "node:path"
 import { Either } from "effect"
 import { contractSnapshot, contractText, freezeContract } from "./contract-core.js"
-import { formatLocator, parseLocator } from "./locator.js"
+import { filesystemLocatorPath, formatLocator, parseLocator } from "./locator.js"
 
 export const RESOURCE_BINDINGS_SCHEMA = "usl-resource-bindings/v1" as const
 
@@ -155,14 +155,8 @@ const beneath = (root: string, candidate: string) => {
   return relative === "" || (!relative.startsWith(`..${path.sep}`) && relative !== ".." && !path.isAbsolute(relative))
 }
 
-/**
- * Map a native absolute path to the `file://<host><path>` locator path (RFC 8089).
- * POSIX paths are used as-is; a Windows drive path `D:\a\b` becomes `/D:/a/b`.
- * Other Windows forms (UNC, device paths) are returned unchanged and therefore
- * rejected by the locator grammar instead of being guessed.
- */
-export const filesystemLocatorPath = (nativePath: string, pathModule: Pick<typeof path, "sep"> = path): string =>
-  pathModule.sep === "\\" && /^[A-Za-z]:\\/.test(nativePath) ? `/${nativePath.replaceAll("\\", "/")}` : nativePath
+/** Locator-path mapping lives with the locator grammar; re-exported for existing callers. */
+export { filesystemLocatorPath } from "./locator.js"
 
 /** Resolve only a previously selected representation against host-owned workspace roots. */
 export const resolveResourceRepresentation = async (document: ResourceBindings, selection: ResourceRepresentationSelection,

@@ -3,6 +3,7 @@
 //   http(s)://...
 //   git://<host>/<org>/<name>@<commit>:<path>[::<symbol>][@L<a>-L<b>]
 //   file://<host><abs-path>[#L<a>-L<b>]      (RFC 8089 shape; host required)
+import * as nodePath from "node:path"
 import { Data, Either } from "effect"
 import type { Locator, FsLocator, GitLocator, KgLocator, UrlLocator } from "./domain.js"
 
@@ -56,6 +57,37 @@ export const formatLocator = (l: Locator): string => {
     case "git_repo": return `git://${l.repo}${l.commit ? `@${l.commit}` : ""}${l.path ? `:${l.path}` : ""}${l.symbol ? `::${l.symbol}` : ""}${l.lineStart !== undefined && l.lineEnd !== undefined ? `@L${l.lineStart}-L${l.lineEnd}` : ""}`
     case "filesystem": return `file://${l.host}${l.path}${l.lineStart !== undefined && l.lineEnd !== undefined ? `#L${l.lineStart}-L${l.lineEnd}` : ""}`
   }
+}
+
+type PathFlavor = Pick<typeof nodePath, "sep">
+const WINDOWS_LOCATOR_PATH = /^\/([A-Za-z]):(\/[^\\:]*)$/
+
+/**
+ * Native path for a `file://<host><path>` locator path (RFC 8089 drive-letter
+ * form, as node:url fileURLToPath reads it, without percent-decoding: this
+ * grammar carries the path characters literally, as filesystemLocatorPath writes them).
+ * POSIX: the locator path is the native path. Windows: only `/D:/a/b` -> `D:\a\b`.
+ * Rooted paths without a drive (`/a/b`, drive-relative on Windows), UNC and
+ * device paths, backslashes and further colons (alternate data streams) are
+ * not representable and return undefined instead of being guessed.
+ */
+export const nativeFilesystemPath = (locatorPath: string, pathModule: PathFlavor = nodePath): string | undefined => {
+  if (pathModule.sep !== "\\") return locatorPath
+  const m = WINDOWS_LOCATOR_PATH.exec(locatorPath)
+  return m ? `${m[1]!}:${m[2]!.replaceAll("/", "\\")}` : undefined
+}
+
+/**
+ * Map a native absolute path to the `file://<host><path>` locator path (RFC 8089).
+ * POSIX paths are used as-is; a Windows drive path `D:\a\b` becomes `/D:/a/b`.
+ * A Windows path is mapped only when nativeFilesystemPath reads it back exactly;
+ * other forms (UNC, device paths) are returned unchanged and therefore rejected
+ * by the locator grammar instead of being guessed.
+ */
+export const filesystemLocatorPath = (nativePath: string, pathModule: PathFlavor = nodePath): string => {
+  if (pathModule.sep !== "\\" || !/^[A-Za-z]:\\/.test(nativePath)) return nativePath
+  const candidate = `/${nativePath.replaceAll("\\", "/")}`
+  return nativeFilesystemPath(candidate, pathModule) === nativePath ? candidate : nativePath
 }
 
 export const kindOf = (l: Locator) => l.kind

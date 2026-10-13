@@ -5,7 +5,7 @@ import { execFile } from "node:child_process"
 import { promises as fs } from "node:fs"
 import * as os from "node:os"
 import { TOOL_VERSION, type FsLocator, type GitLocator, type GuaranteeLevel, type KgLocator, type Locator, type Resolution, type UrlLocator } from "./domain.js"
-import { formatLocator, parseLocator, validLines } from "./locator.js"
+import { filesystemLocatorPath, formatLocator, nativeFilesystemPath, parseLocator, validLines } from "./locator.js"
 import { readBytesBounded } from "./bounded-read.js"
 
 export class ResolveError extends Data.TaggedError("ResolveError")<{
@@ -104,21 +104,28 @@ const resolveFs = (l: FsLocator, cfg: ResolverConfig): Effect.Effect<Resolution,
   const limit = responseLimit(cfg)
   if (limit === undefined) return yield* limitFailure(l)
   if (l.host !== cfg.hostname) return yield* failure(l, "IO", `host ${l.host} != local ${cfg.hostname}; remote filesystem resolution is unsupported`)
-  const real = yield* Effect.tryPromise({ try: () => fs.realpath(l.path), catch: (e) => ioFailure(l, e) })
-  const canonicalLocator = locatorKey({ ...l, path: real })
+  // The locator path is the RFC 8089 form (`/D:/a/b` on Windows); the filesystem
+  // takes the native path, and the resolved native path maps back the same way.
+  const native = nativeFilesystemPath(l.path)
+  if (native === undefined) return yield* failure(l, "AMBIGUOUS", "locator path is not an absolute native path on this host (Windows needs /<drive>:/...; UNC and device paths are unsupported)")
+  const real = yield* Effect.tryPromise({ try: () => fs.realpath(native), catch: (e) => ioFailure(l, e) })
+  const resolved: FsLocator = { ...l, path: filesystemLocatorPath(real) }
+  const canonicalLocator = locatorKey(resolved)
   const denied = allowed(l, cfg, canonicalLocator)
   if (denied) return yield* denied
-  if (Either.isLeft(parseLocator(formatLocator({ ...l, path: real })))) return yield* failure(l, "AMBIGUOUS", "resolved path cannot be represented by the current locator grammar")
+  const reparsed = parseLocator(formatLocator(resolved))
+  if (Either.isLeft(reparsed) || reparsed.right.kind !== "filesystem" || reparsed.right.path !== resolved.path || nativeFilesystemPath(resolved.path) !== real)
+    return yield* failure(l, "AMBIGUOUS", "resolved path cannot be represented by the current locator grammar")
   const stat = yield* Effect.tryPromise({ try: () => fs.stat(real), catch: (e) => ioFailure(l, e) })
   if (stat.isDirectory()) {
     if (l.lineStart !== undefined) return yield* failure(l, "AMBIGUOUS", "line ranges require a file")
     const listing = yield* Effect.tryPromise({ try: (signal) => readDirectoryBounded(real, limit, signal), catch: (e) => ioFailure(l, e) })
-    return { locator: l, resolvedLocator: formatLocator({ ...l, path: real }), contentHash: sha256(JSON.stringify(listing)), resolvedAt: now(), guaranteeLevel: "trust_host", matchCount: 1 }
+    return { locator: l, resolvedLocator: formatLocator(resolved), contentHash: sha256(JSON.stringify(listing)), resolvedAt: now(), guaranteeLevel: "trust_host", matchCount: 1 }
   }
   if (!stat.isFile()) return yield* failure(l, "AMBIGUOUS", "only regular files and directories are supported")
   const buf = yield* Effect.tryPromise({ try: (signal) => readBytesBounded(real, limit, { signal, limitName: "maxResponseBytes" }), catch: (e) => ioFailure(l, e) })
   const content = yield* contentAt(buf, l)
-  return { locator: l, resolvedLocator: formatLocator({ ...l, path: real }), contentHash: sha256(content), resolvedAt: now(), guaranteeLevel: "trust_host", matchCount: 1 }
+  return { locator: l, resolvedLocator: formatLocator(resolved), contentHash: sha256(content), resolvedAt: now(), guaranteeLevel: "trust_host", matchCount: 1 }
 })
 
 const readBody = async (res: Response, cfg: ResolverConfig, signal: AbortSignal): Promise<Uint8Array> => {
