@@ -1,15 +1,15 @@
 {
   "schema": "usl-engineering-receipt/v1",
-  "runId": "urn:uuid:88f45c44-c93d-4da9-95f8-297c0a57e92d",
-  "startedAt": "2026-10-13T16:00:30.690Z",
-  "finishedAt": "2026-10-13T16:00:31.396Z",
+  "runId": "urn:uuid:7b2ca0b1-51fb-47ae-8d48-36aca2559bbb",
+  "startedAt": "2026-10-13T16:43:44.857Z",
+  "finishedAt": "2026-10-13T16:43:45.551Z",
   "catalogDigest": "sha256:9da6cfe51265097b710b2020fcb3feafe95bfdd71fa5497cab5641a025301ac8",
   "sourceRoot": "file://dev-01/home/lagyeongjun/CD/USL",
   "sourceDigests": {
     "package-lock.json": "sha256:b1e641438d313a659ac432043de33f7283a2b652d764a4b704336c275cd1e1b3",
     "package.json": "sha256:78dd7d5bf2cab4b5605462253df148d4cc15d098d715a50f8c34665dbf2f9511",
     "schemas/resource-graph.shacl.ttl": "sha256:f2cce68816c09ed74e574244e009616034c4507c624f78a5cb22b4db6190364a",
-    "scripts/build-engineering-review.ts": "sha256:96852d89e720fc08f0beb622b4b37da015ffc5e4e6c274deaed11f826de94f0c",
+    "scripts/build-engineering-review.ts": "sha256:37640eb4135463a7c8f7e53c8309fc95aaefa78ffcba7503001e8028385bfaf6",
     "scripts/source-closure.ts": "sha256:a7dd24e4caaa347d25a93ca973c7c3413fb27097a62b46d352a4db7d09c933d0",
     "src/adapters.ts": "sha256:1144e97842f5b990083da61fe089f5bd3d852a26cc845c7659fb556577bbcb79",
     "src/application.ts": "sha256:4983246a8e075f5da66581698b4eef2774937db87dcd8dd2fc4ae68bb304d10f",
@@ -213,5 +213,5 @@
   ],
   "scope": "LOCAL_USL_COUNTEREXAMPLES",
   "upstreamExecution": "NOT_TESTED",
-  "receiptDigest": "sha256:9c781bbb7d4f8e2c10b30680ee7412953c8cbec98d0ab2944861e54d5b60fd59"
+  "receiptDigest": "sha256:33b1c7032af28c7d64c5027bea75a11e06da4811c60bdb5c3a4b33d16935861c"
 }

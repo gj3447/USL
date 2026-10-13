@@ -24,3 +24,5 @@ research/standards-coverage/graph.jsonld
 research/standards-coverage/trace.jsonld
 research/portability-research/graph.jsonld
 research/portability-research/trace.jsonld
+research/engineering/graph.jsonld
+research/architecture/syntax-cli.graph.jsonld

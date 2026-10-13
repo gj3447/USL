@@ -23,7 +23,7 @@
       "locator": "https://github.com/gj3447/USL/blob/master/scripts/build-syntax-cli-architecture.ts",
       "metadata": {
         "path": "scripts/build-syntax-cli-architecture.ts",
-        "sourceDigest": "sha256:f7afad620664a3d49e2e6947d259a0a07a4ac0d0a13bea098b1d564c53bfc404",
+        "sourceDigest": "sha256:505b9f071d1713b4835c512582f85fccea616a1850a516510e01fd798c2695f9",
         "scope": "DETERMINISTIC_GENERATOR",
         "locationStatus": "DECLARED_PUBLIC_LOCATION",
         "remoteObservation": "NOT_PERFORMED"

@@ -5,7 +5,7 @@
 외부 40기술을 설치하거나 공격해 결함을 재현한 보고서가 아니다. 공식 자료의 범위와 통합 시 발생할 수 있는 반례를 분리하고, USL의 공통 방어 계약을 로컬에서 실행했다. 모든 항목은 남은 한계를 유지한다.
 
 - [원본 catalog](../research/engineering/catalog.json) · [실행 영수증](../research/engineering/receipt.json)
-- [탐색 가능한 resource graph](../research/engineering/graph.json) · [JSON-LD](../research/engineering/graph.jsonld)
+- [탐색 가능한 resource graph](../research/engineering/graph.json) · JSON-LD `research/engineering/graph.jsonld` (재생성 산출물, 아래 lock)
 - [계약과 사용법](ENGINEERING_CONTRACTS.md)
 
 | ID / 기술과 출처 | 적용 한계와 반례 | USL 요구·보완 | 로컬 검증 | 남은 범위 |
@@ -69,3 +69,9 @@
 | C12 다자 관계의 표준 교환 | 명명된 역할·출처·선언 상태와 profile 참조를 JSON-LD/RDF로 내보낸다. | [src/integrations/resource-graph.ts](../src/integrations/resource-graph.ts), [schemas/resource-graph.shacl.ttl](../schemas/resource-graph.shacl.ttl) | `nary-and-standard-export` | 지원하는 USL 출력에 한정하며 임의 RDF 역수입·모든 외부 형식의 무손실 왕복은 미지원이다. |
 
 검증 지위는 `HOST_REPORTED_LOCAL_TESTS`다. digest는 바이트/계약 변경 검출이며 서명이나 외부 의미의 참에 대한 증명이 아니다. `engineering:check`는 현재 소스 pin과 생성물의 일치를 확인하며, 테스트 재실행은 `engineering:build` 또는 `npm test`로 한다.
+
+JSON-LD는 graph.json에서 재생성되는 산출물이라 Git에 넣지 않는다. `node --import tsx scripts/build-engineering-review.ts --hydrate`가 커밋된 영수증에서 재실행 없이 생성하며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교). 2026-09-22 감사 기록 등 과거 기록의 링크는 그 기록의 commit에서 해석한다.
+
+| 재생성 산출물 (Git 제외) | SHA-256 | bytes |
+|---|---|---|
+| `research/engineering/graph.jsonld` | `sha256:2c45f13175f7f358e77eb62d735516d2166ca678889731c6a29aadcce7c60521` | 598171 |

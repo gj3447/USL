@@ -89,7 +89,7 @@ C02·C03·C04 사이의 추가 선행 관계는 선언되어 있지 않다. 실�
 | 무엇을 완료했나? | [P01~P03](HSWM_LIKE_EXECUTION_PLAN.md) · [애드온 예제](ADDON_BINDING.md) |
 | 다음 변경 파일과 완료 조건은? | [C01~C04 계획](CORE_CLI_PLAN.md) |
 | 공유 KG sym:Concept:usl에서 최신 로컬 근거는? | [bridge](../research/architecture/kg-bridge.json) · [publication readback](../research/architecture/kg-bridge.publication.json) · [아키텍처](SYNTAX_CLI_GRAPH_ARCHITECTURE.md#공유-kg와-최신-현황-찾기) |
-| 기계가 읽는 원본은? | [resource graph](../research/architecture/syntax-cli.graph.json) · [JSON-LD](../research/architecture/syntax-cli.graph.jsonld) · [profile](../research/architecture/syntax-cli.profile.json) · [SHACL](../research/architecture/syntax-cli.shacl.ttl) |
+| 기계가 읽는 원본은? | [resource graph](../research/architecture/syntax-cli.graph.json) · JSON-LD `research/architecture/syntax-cli.graph.jsonld` (재생성, 아래 lock) · [profile](../research/architecture/syntax-cli.profile.json) · [SHACL](../research/architecture/syntax-cli.shacl.ttl) |
 
 ```sh
 node --import tsx scripts/build-syntax-cli-architecture.ts --check
@@ -98,4 +98,10 @@ python3 scripts/validate-syntax-cli-architecture.py
 
 SHACL 검사는 scripts/requirements-standards.txt를 설치한 Python 환경을 사용한다. 원본 catalog/plan 수정 후 generator를 --check 없이 실행하면 그래프와 이 문서를 함께 갱신한다.
 
-그래프 digest: `sha256:1cec3a9f8af5d7dce065a766e8792bad524912c8e1f576e1f5c08d12e4d4690c`.
+그래프 digest: `sha256:6f4029ac7d2af85eec3285cf8bfb9c48e9e93c0df1e2c6b8ed6bc1e079d08d6e`.
+
+JSON-LD는 같은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. generator를 --check 없이 실행하면 생성되며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교). 공유 KG 게시 기록이 가리키는 JSON-LD는 그 기록의 source commit에서 해석한다.
+
+| 재생성 산출물 (Git 제외) | SHA-256 | bytes |
+|---|---|---|
+| `research/architecture/syntax-cli.graph.jsonld` | `sha256:d685a1325d4394c850306703ec7a06aa910abfa72fd4c216c69149b1e0b1a652` | 451006 |

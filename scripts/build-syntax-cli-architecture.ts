@@ -1,4 +1,5 @@
 /** Build a small, portable graph of current USL syntax/CLI facts and proposed graph work. */
+import { existsSync } from "node:fs"
 import { readFile, writeFile } from "node:fs/promises"
 import { execFileSync } from "node:child_process"
 import { resolve, dirname } from "node:path"
@@ -236,6 +237,7 @@ const dependencies = graph.links.filter(edge => edge.meaning === prefix + "task_
 const prerequisites = (id: string) => dependencies.filter(edge => edge.task === id).map(edge => edge.prerequisite)
 const ready = taskNodes.filter(task => task.metadata?.status === "PLANNED" &&
   prerequisites(task.id).every(id => taskNodeById.get(id)?.metadata?.status === "COMPLETED"))
+const jsonldPath = "research/architecture/syntax-cli.graph.jsonld", jsonldText = JSON.stringify(jsonld, null, 2) + "\n", overviewPath = "docs/GRAPH_ENGINEERING_STATUS.md"
 const md = (value: unknown) => String(value).replaceAll("|", "\\|").replaceAll("\n", " ")
 const short = (id: string) => id.replace(/^task:/, "")
 const relationIds = new Set(["planned_work", "completed_by", "task_depends_on", "planned_evidence", "measured_by", "describes_subject", "current_decision", "tracks_work", "published_note"])
@@ -298,20 +300,33 @@ const overview = [
   "| 무엇을 완료했나? | [P01~P03](HSWM_LIKE_EXECUTION_PLAN.md) · [애드온 예제](ADDON_BINDING.md) |",
   "| 다음 변경 파일과 완료 조건은? | [C01~C04 계획](CORE_CLI_PLAN.md) |",
   `| 공유 KG ${kgBridge.subject.uid}에서 최신 로컬 근거는? | [bridge](../${kgBridgePath}) · [publication readback](../${kgPublicationPath}) · [아키텍처](SYNTAX_CLI_GRAPH_ARCHITECTURE.md#공유-kg와-최신-현황-찾기) |`,
-  "| 기계가 읽는 원본은? | [resource graph](../research/architecture/syntax-cli.graph.json) · [JSON-LD](../research/architecture/syntax-cli.graph.jsonld) · [profile](../research/architecture/syntax-cli.profile.json) · [SHACL](../research/architecture/syntax-cli.shacl.ttl) |", "",
+  "| 기계가 읽는 원본은? | [resource graph](../research/architecture/syntax-cli.graph.json) · JSON-LD `research/architecture/syntax-cli.graph.jsonld` (재생성, 아래 lock) · [profile](../research/architecture/syntax-cli.profile.json) · [SHACL](../research/architecture/syntax-cli.shacl.ttl) |", "",
   "```sh",
   "node --import tsx scripts/build-syntax-cli-architecture.ts --check",
   "python3 scripts/validate-syntax-cli-architecture.py",
   "```", "",
   "SHACL 검사는 scripts/requirements-standards.txt를 설치한 Python 환경을 사용한다. 원본 catalog/plan 수정 후 generator를 --check 없이 실행하면 그래프와 이 문서를 함께 갱신한다.", "",
   `그래프 digest: \`${digestSource(raw)}\`.`, "",
+  "JSON-LD는 같은 입력에서 재생성되는 산출물이라 Git에 넣지 않는다. generator를 --check 없이 실행하면 생성되며, `--check`는 메모리에서 다시 만든 bytes의 SHA-256을 아래 lock과 비교한다(파일이 있으면 bytes도 비교). 공유 KG 게시 기록이 가리키는 JSON-LD는 그 기록의 source commit에서 해석한다.", "",
+  "| 재생성 산출물 (Git 제외) | SHA-256 | bytes |", "|---|---|---|", `| \`${jsonldPath}\` | \`${digestSource(jsonldText)}\` | ${Buffer.byteLength(jsonldText)} |`, "",
 ].join("\n")
 const outputs: Record<string, string> = {
   "research/architecture/syntax-cli.graph.json": raw,
-  "research/architecture/syntax-cli.graph.jsonld": JSON.stringify(jsonld, null, 2) + "\n",
+  [jsonldPath]: jsonldText,
   "research/architecture/syntax-cli.profile.json": JSON.stringify(profile, null, 2) + "\n",
   "research/architecture/syntax-cli.shacl.ttl": shapes,
   "docs/GRAPH_ENGINEERING_STATUS.md": overview,
 }
-for (const [path, value] of Object.entries(outputs)) { if (check) { if (await read(path) !== value) throw new Error(`generated artifact differs: ${path}`) } else await writeFile(resolve(root, path), value) }
-console.log(JSON.stringify({ resources: graph.resources.length, links: graph.links.length, profile: report.status, sourceCommit: commit, mode: check ? "CHECKED" : "BUILT" }))
+// The JSON-LD is not committed; its digest lock lives in the committed generated overview.
+const committedOverview = check ? await read(overviewPath) : "", hydration: Record<string, string> = {}
+for (const [path, value] of Object.entries(outputs)) {
+  if (check && path === jsonldPath) {
+    const row = committedOverview.split("\n").find(line => line.startsWith(`| \`${path}\` |`))
+    if (!row?.includes(`\`${digestSource(value)}\` | ${Buffer.byteLength(value)} |`)) throw new Error(`generated artifact differs from digest lock: ${path}`)
+    if (existsSync(resolve(root, path))) { if (await read(path) !== value) throw new Error(`generated artifact differs: ${path}`); hydration[path] = "BYTES_MATCH" }
+    else hydration[path] = "NOT_HYDRATED"
+  }
+  else if (check) { if (await read(path) !== value) throw new Error(`generated artifact differs: ${path}`) }
+  else await writeFile(resolve(root, path), value)
+}
+console.log(JSON.stringify({ resources: graph.resources.length, links: graph.links.length, profile: report.status, sourceCommit: commit, mode: check ? "CHECKED" : "BUILT", ...(check ? { hydration } : {}) }))

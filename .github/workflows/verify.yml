@@ -55,6 +55,8 @@ jobs:
           python3 -B scripts/build-native-development.py
           node --import tsx scripts/build-standards-coverage.ts
           node --import tsx scripts/build-portability-research.ts
+          node --import tsx scripts/build-engineering-review.ts --hydrate
+          node --import tsx scripts/build-syntax-cli-architecture.ts
           git diff --exit-code
           test -z "$(git status --porcelain)" || { git status --porcelain; exit 1; }
       - run: python3 scripts/check-docs.py

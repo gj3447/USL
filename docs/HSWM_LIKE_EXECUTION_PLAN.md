@@ -98,7 +98,7 @@ HSWM gate나 원격 접근 확인을 필수로 추가하지 않는다.
 
 [계획 catalog](../research/architecture/hswm-like.plan.json)를 기존
 [resource graph](../research/architecture/syntax-cli.graph.json)와
-[JSON-LD](../research/architecture/syntax-cli.graph.jsonld)로 연결했다.
+JSON-LD `research/architecture/syntax-cli.graph.jsonld`(재생성 산출물, digest lock은 [현황](GRAPH_ENGINEERING_STATUS.md))로 연결했다.
 `planned_work(task, criterion, requirement)`는 작업·완료 기준·사용자 요구를,
 `task_depends_on(task, prerequisite)`는 선행 조건을 표현한다. 각 역할은 연결마다
 하나이며 순환 금지는 작업 선행 관계에만 적용한다. profile·SHACL·계획 상태

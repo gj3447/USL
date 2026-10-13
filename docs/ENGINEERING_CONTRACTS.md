@@ -22,7 +22,7 @@ flowchart LR
 | 형식 / 검사 | 실제 제공 | 의미 |
 |---|---|---|
 | [resource graph](../research/engineering/graph.json) | 40기술·한계·요구사항·반례·공통 제어·구현·원문·실행 증거 | 기존 USL adapter와 native ID 탐색으로 읽음 |
-| [JSON-LD 1.1 / RDF](../research/engineering/graph.jsonld) | 역할 참여자와 선언 관계, PROV-O entity/activity/agent 참조 | 외부 RDF 도구에서 파싱 가능 |
+| JSON-LD 1.1 / RDF `research/engineering/graph.jsonld` (재생성·digest lock: [매트릭스](ENGINEERING_ADVERSARIAL_MATRIX.md)) | 역할 참여자와 선언 관계, PROV-O entity/activity/agent 참조 | 외부 RDF 도구에서 파싱 가능 |
 | [SHACL](../schemas/engineering-review.shacl.ttl) | 의미별 필수 역할·자원 타입·허용 역할 검사 | 기존 resource graph shape와 함께 독립 pySHACL로 검사 |
 | [DomainProfile](../research/engineering/profile.json) | 같은 도메인 역할 규칙을 USL 입력 경계에서 검사 | SDK·CLI·등록된 MCP connection에 적용 |
 | [JSON Schema](../schemas/capability.schema.json) | versioned descriptor, profile, catalog, receipt의 구조 명세 | 중복 ID·참조·digest 등 교차 필드 조건은 TS 검증기가 추가 검사 |

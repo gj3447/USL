@@ -7,6 +7,7 @@ from pyshacl import validate
 
 root = pathlib.Path(__file__).resolve().parents[1]
 source = root / "research/engineering/graph.jsonld"
+assert source.is_file(), "NOT_HYDRATED (regenerated, not committed); run node --import tsx scripts/build-engineering-review.ts --hydrate: research/engineering/graph.jsonld"
 data = Graph().parse(source, format="json-ld")
 shapes = Graph()
 for name in ["resource-graph.shacl.ttl", "engineering-review.shacl.ttl"]:

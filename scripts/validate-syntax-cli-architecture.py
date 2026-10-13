@@ -6,6 +6,7 @@ from pyshacl import validate
 root = pathlib.Path(__file__).resolve().parents[1]
 graph_path = root / "research/architecture/syntax-cli.graph.json"
 jsonld_path = root / "research/architecture/syntax-cli.graph.jsonld"
+assert jsonld_path.is_file(), "NOT_HYDRATED (regenerated, not committed); run node --import tsx scripts/build-syntax-cli-architecture.ts: research/architecture/syntax-cli.graph.jsonld"
 shape_path = root / "research/architecture/syntax-cli.shacl.ttl"
 raw = json.loads(graph_path.read_text())
 profile = json.loads((root / "research/architecture/syntax-cli.profile.json").read_text())
@@ -76,6 +77,13 @@ assert kg_publication["readback"]["canonicalScope"] == "PENDING_OR_PRELIMINARY" 
 assert kg_publication["readback"]["relationshipStatus"] == kg_bridge["publication"]["relationshipStatus"] == "PROPOSED"
 assert kg_publication["readback"]["targetVersion"] == kg_publication["saveResult"]["target_version"]
 assert kg_publication["subjectPreservation"] == {"uid": kg_bridge["subject"]["uid"], "targetVersion": kg_bridge["observation"]["targetVersion"], "userUtteranceSha256": kg_bridge["observation"]["userUtteranceSha256"], "descriptionSha256": kg_bridge["observation"]["descriptionSha256"], "unchanged": True}
+# The published note names repository files as of its pinned revision. Some of those
+# (e.g. the regenerated JSON-LD) are no longer committed; resolve them at that commit.
+published_commit = kg_bridge["repository"]["sourceCommit"]
+assert ("로컬 Git revision: " + published_commit) in kg_publication["saveRequest"]["body"]
+for name in ["syntax-cli.graph.json", "syntax-cli.graph.jsonld", "syntax-cli.profile.json", "syntax-cli.shacl.ttl"]:
+    assert name in kg_publication["saveRequest"]["body"]
+    assert sha256_commit(published_commit, "research/architecture/" + name) is not None, f"published path missing at {published_commit}: {name}"
 assert resources["source:compression-sources"]["metadata"]["sourceDigest"] == sha256_file(compression_sources_path)
 benchmark = resources["artifact:compression-benchmark"]
 assert benchmark["metadata"]["sourceDigest"] == sha256_file(compression_benchmark_path)
